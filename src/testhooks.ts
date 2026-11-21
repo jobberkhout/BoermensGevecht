@@ -36,10 +36,10 @@ export function installTestHooks(game: Game): void {
       game.draw(0, 1);
     },
     fund: (side, gold) => {
-      game.state.sides[side].gold = gold;
+      if (game.phase === 'playing') game.state.sides[side].gold = gold;
     },
     setBase: (side, hp) => {
-      game.state.sides[side].baseHp = hp;
+      if (game.phase === 'playing') game.state.sides[side].baseHp = hp;
     },
     summary: () => ({
       tick: game.state.tick,

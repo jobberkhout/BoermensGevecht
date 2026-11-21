@@ -5,9 +5,9 @@ import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
 import { FACTIONS, eraOf } from '../defs/index.ts';
 import type { FactionId } from '../defs/types.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
-import type { Rig } from '../rig/raster.ts';
+import { loadImage, openTag, type Rig } from '../rig/raster.ts';
 import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
-import { forgetRigsExcept, hasRig, loadRig, rigUrl } from './assets.ts';
+import { forgetRigsExcept, hasRig, loadRig, rigSource } from './assets.ts';
 import { dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
 import { useWorld, type Stage } from './stage.ts';
 import {
@@ -76,13 +76,6 @@ export class Renderer {
   /** Makes sure these rigs are loaded at the current screen scale. Art that does not exist is skipped. */
   async prepare(ids: Iterable<string>): Promise<void> {
     for (const id of ids) this.wanted.add(id);
-    if (hasRig(SCENERY) && !this.scenery) {
-      const img = new Image();
-      img.src = rigUrl(SCENERY);
-      await img.decode().catch(() => undefined);
-      this.scenery = img;
-      this.background = null;
-    }
     await this.reload();
   }
 
@@ -91,11 +84,23 @@ export class Renderer {
     const scale = Math.max(0.5, Math.ceil(this.stage.k * TURRET_SCALE * 20) / 20);
     const ticket = ++this.loading;
     const ids = [...this.wanted].filter(hasRig);
-    const loaded = await Promise.all(ids.map(async (id) => [id, await loadRig(id, scale)] as const));
+    const { width, height } = this.stage.canvas;
+    const [loaded, scenery] = await Promise.all([
+      Promise.all(ids.map(async (id) => [id, await loadRig(id, scale)] as const)),
+      hasRig(SCENERY) ? this.loadScenery(width, height) : null,
+    ]);
     if (ticket !== this.loading) return; // a newer resize overtook this one
     this.rigs = new Map(loaded);
+    this.scenery = scenery;
+    this.background = null;
     if (scale !== this.scale) forgetRigsExcept(scale);
     this.scale = scale;
+  }
+
+  /** The backdrop as one picture, rendered by the browser at exactly the canvas size. */
+  private loadScenery(width: number, height: number): Promise<HTMLImageElement> {
+    const src = rigSource(SCENERY);
+    return loadImage(`${openTag(src, width, height)}${src.head}${src.parts.map((part) => part.markup).join('')}</svg>`);
   }
 
   draw(s: SimState, view: BattleView, alpha: number): void {
@@ -110,7 +115,6 @@ export class Renderer {
     this.world();
 
     for (const side of SIDES) this.drawBase(s, view, side);
-    for (const b of view.blockades) this.drawBlockade(b, view.time);
 
     // Far rows first, so nearer units overlap them.
     const ghosts = [...view.ghosts].sort((a, b) => a.row - b.row);
@@ -118,6 +122,8 @@ export class Renderer {
     const units = [...view.units.values()].sort((a, b) => a.row - b.row || a.x - b.x);
     for (const v of units) this.drawUnit(v, view.time);
 
+    // The activists sit low, so they go on top: otherwise whoever stands next to them hides them.
+    for (const b of view.blockades) this.drawBlockade(b, view.time);
     for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, w.rig, view.time);
     this.drawShots(view);
     this.drawEffects(view);
@@ -417,24 +423,30 @@ export class Renderer {
     ctx.globalAlpha = 1;
   }
 
-  /** A special that sweeps the lane: a convoy if it has art, a dust cloud otherwise. */
+  /** A special that sweeps the lane: a convoy if it has art, plain blocks otherwise. Dust either way. */
   private drawWave(side: Side, x: number, rigId: string, time: number): void {
     const { ctx } = this.stage;
     const dir = dirOf(side);
-    const grad = ctx.createLinearGradient(x, 0, x - dir * 300, 0);
-    grad.addColorStop(0, 'rgba(150,120,70,0.55)');
-    grad.addColorStop(1, 'rgba(150,120,70,0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(Math.min(x, x - dir * 300), GROUND_Y - 30, 300, 80);
-
     const rig = this.rigs.get(rigId);
     const travelled = Math.abs(x - GATE_X[side]);
     for (let i = 0; i < 3; i++) {
+      const row = i % 3;
       const cx = x - dir * (70 + i * 190);
+      const ground = rowY(row);
+      // Puffs trailing behind the back wheel, each a little older and bigger than the last.
+      for (let p = 0; p < 4; p++) {
+        const age = (time * 3 + p * 0.25 + i * 0.4) % 1;
+        ctx.globalAlpha = 0.5 * (1 - age);
+        ctx.fillStyle = '#cdb68a';
+        ctx.beginPath();
+        ctx.arc(cx - dir * (60 + age * 70), ground - 10 - age * 26, 10 + age * 18, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
       if (rig) {
         const walk = CLIPS[rig.id]?.walk;
         const u = walk ? ((travelled + i * 61) / (walk.stride ?? 150)) % 1 : 0;
-        this.drawLoose(rig, cx, rowY(i % 3), dir, rowScale(i % 3), walk, u);
+        this.drawLoose(rig, cx, ground, dir, rowScale(row), walk, u);
       } else {
         ctx.fillStyle = INK;
         ctx.beginPath();

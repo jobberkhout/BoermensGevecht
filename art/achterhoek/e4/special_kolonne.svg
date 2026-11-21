@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-86 -128 190 134" data-rig="vehicle">
+  <title>Een trekker uit de kolonne, met een baal aan de voorlader</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The front loader with a round bale as a battering ram. Joint where it hinges on the tractor. -->
+  <g id="loader" data-parent="body" transform="translate(26 -50)">
+    <path class="t" style="stroke-width:7" d="M0 0 L52 -14"/>
+    <path fill="none" stroke="#f2c230" stroke-width="3.6" stroke-linecap="round" d="M0 0 L52 -14"/>
+    <circle class="o" fill="#e6c24a" cx="62" cy="-20" r="21"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.2" d="M62 -20 m-13 0 a13 13 0 1 1 13 13 a8 8 0 1 1 8 -8 a4 4 0 1 1 -4 -4"/>
+    <path class="t" style="stroke-width:3" d="M46 -36 L46 -4 M46 -4 L60 2"/>
+  </g>
+
+  <!-- A red tractor. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(4 -42)">
+    <rect class="o" fill="#3a3a3a" x="-32" y="8" width="84" height="11" rx="3"/>
+    <rect class="o" fill="#3a3a3a" x="20" y="-48" width="5.5" height="30" rx="2"/>
+    <path class="o" fill="#d9342b" d="M2 -20 L46 -16 Q56 -15 56 -8 L56 3 Q56 8 50 8 L2 8 Z"/>
+    <path class="n" fill="#ee5a4f" d="M5 -17 L45 -13.5 Q50 -13 51 -10 L5 -12.5 Z"/>
+    <path class="n" fill="#f4ecdc" d="M2 1.5 L55 1.5 L55 5.5 L2 5.5 Z"/>
+    <path class="t" d="M2 1.5 L55 1.5 M2 5.5 L55 5.5"/>
+    <circle class="o" fill="#fff3b0" cx="52" cy="-14" r="2.6"/>
+    <path class="o" fill="#d9342b" d="M-46 8 Q-48 -22 -28 -24 L6 -24 L8 8 Z"/>
+    <path class="o" fill="#34424b" d="M-38 -24 L-36 -50 L0 -50 L6 -24 Z"/>
+  </g>
+
+  <!-- The driver, fist in the air. -->
+  <g id="driver" data-parent="body" transform="translate(-14 -66)">
+    <path class="o" fill="#2f5f9e" d="M-9 2 Q-10 -9 -3 -11 L5 -11 Q10 -8 10 2 Z"/>
+    <circle class="o" fill="#f0c19a" cx="2" cy="-19" r="8.4"/>
+    <path class="o" fill="#3a3a3a" d="M-7 -21 Q-7 -29.5 2 -29.5 Q10 -29.5 10.5 -22 Z"/>
+    <path class="o" fill="#2b2b2b" d="M9.5 -23 L17.5 -21 L17 -19 L9 -20 Z"/>
+    <circle class="n" fill="#2b1b16" cx="6" cy="-18.4" r="1.3"/>
+    <path class="o" fill="#ffffff" d="M3.5 -14.5 Q7 -11 10 -14.8 Q7 -15.8 3.5 -14.5 Z"/>
+  </g>
+
+  <g id="fist" data-parent="driver" transform="translate(-8 -74)">
+    <path class="o" fill="#2f5f9e" d="M-2.5 2 L-4 -12 L2 -13 L4 1 Z"/>
+    <circle class="o" fill="#f0c19a" cx="-1.5" cy="-16" r="4.4"/>
+  </g>
+
+  <!-- Cab glass and roof over the driver, with a beacon that flashes. -->
+  <g id="cab" data-parent="body" transform="translate(4 -42)">
+    <path class="n" fill="#bfe6f5" fill-opacity="0.34" d="M-38 -24 L-36 -50 L0 -50 L6 -24 Z"/>
+    <path class="o" fill="#d9342b" d="M-41 -23 L-39 -50 L-35 -50 L-36 -23 Z"/>
+    <path class="o" fill="#d9342b" d="M-2 -50 L2 -50 L9 -23 L4 -23 Z"/>
+    <path class="o" fill="#d9342b" d="M-44 -49 Q-44 -57 -36 -57 L0 -57 Q8 -57 8 -49 Z"/>
+  </g>
+
+  <g id="beacon" data-parent="cab" transform="translate(-26 -99)">
+    <path class="o" fill="#ff9a1f" d="M-5 0 Q-5 -8 0 -8 Q5 -8 5 0 Z"/>
+    <path fill="none" stroke="#ffd21f" stroke-width="2.2" stroke-linecap="round" d="M-9 -8 L-13 -11 M0 -12 L0 -17 M9 -8 L13 -11"/>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-18 -28)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="28"/>
+    <circle fill="none" stroke="#474747" stroke-width="6.5" stroke-dasharray="6 6.4" cx="0" cy="0" r="23.8"/>
+    <circle class="o" fill="#f4ecdc" cx="0" cy="0" r="15"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -15 L0 -6 M0 15 L0 6 M-15 0 L-6 0 M15 0 L6 0 M-10.6 -10.6 L-4.2 -4.2 M10.6 10.6 L4.2 4.2 M-10.6 10.6 L-4.2 4.2 M10.6 -10.6 L4.2 -4.2"/>
+    <circle class="o" fill="#c9c2b0" cx="0" cy="0" r="6"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(40 -18)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="18"/>
+    <circle fill="none" stroke="#474747" stroke-width="5" stroke-dasharray="5 4.4" cx="0" cy="0" r="14.8"/>
+    <circle class="o" fill="#f4ecdc" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2" d="M0 -9 L0 -3.6 M0 9 L0 3.6 M-9 0 L-3.6 0 M9 0 L3.6 0"/>
+    <circle class="o" fill="#c9c2b0" cx="0" cy="0" r="3.6"/>
+  </g>
+</svg>

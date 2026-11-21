@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-78 -112 156 118" data-rig="static">
+  <title>Wegblokkade: drie activisten, vastgelijmd aan de weg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- Glue on the road, and the empty tube. Origin = the middle of the row, on the ground. -->
+  <g id="glue" transform="translate(0 0)">
+    <ellipse class="o" fill="#ffc93c" cx="-2" cy="1" rx="66" ry="5"/>
+    <path class="n" fill="#ffe08a" d="M-50 -1 Q-20 -3 10 -1.5 Q-20 0 -50 -1 Z"/>
+    <path class="o" fill="#f4ecdc" d="M56 -4 L70 -7 L71 -1 L57 1 Z"/>
+    <path class="o" fill="#d9342b" d="M70 -7 L74 -6 L74.5 -2 L71 -1 Z"/>
+  </g>
+
+  <!-- The banner on two sticks: a sun and a leaf, no words needed. It bobs with the chanting. -->
+  <g id="banner" transform="translate(-10 -78)">
+    <path class="t" style="stroke-width:3;stroke:#7a5a3a" d="M-40 30 L-40 -22 M32 30 L32 -22"/>
+    <path class="o" fill="#fffdf5" d="M-42 -22 Q-4 -28 34 -22 L34 6 Q-4 0 -42 6 Z"/>
+    <circle class="o" fill="#ffd21f" cx="-22" cy="-9" r="7"/>
+    <path fill="none" stroke="#e0a800" stroke-width="2" stroke-linecap="round" d="M-22 -19.5 L-22 -22.5 M-22 1.5 L-22 4 M-32.5 -9 L-35 -9 M-11.5 -9 L-9 -9 M-29.5 -16.5 L-31.5 -18.5 M-14.5 -16.5 L-12.5 -18.5 M-29.5 -1.5 L-31.5 0.5 M-14.5 -1.5 L-12.5 0.5"/>
+    <path class="o" fill="#4bb167" d="M4 0 Q2 -14 18 -19 Q22 -4 4 0 Z"/>
+    <path class="t" style="stroke:#2c7a40" d="M5 -1 Q10 -10 17 -17"/>
+    <path class="n" fill="#ff7ac0" d="M-2 -11 q-2.6 -3.6 -5 -1 q-1.6 2.6 5 6.6 q6.6 -4 5 -6.6 q-2.4 -2.6 -5 1 Z"/>
+  </g>
+
+  <!-- Back activist: long hair, sunglasses. Joint where she sits. -->
+  <g id="a_body" transform="translate(-44 0)">
+    <path class="o" fill="#8a6fb8" d="M-17 0 Q-19 -9 -8 -11 L10 -11 Q19 -9 16 0 Z"/>
+    <path class="o" fill="#f29b8e" d="M-11 -9 Q-13 -26 -7 -33 Q0 -37 8 -33 Q13 -26 11 -9 Z"/>
+    <path class="o" fill="#f29b8e" d="M5 -30 L16 -15 L12 -3 L7 -4 L9 -14 L1 -24 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="10" cy="-1" r="3.6"/>
+  </g>
+  <g id="a_head" data-parent="a_body" transform="translate(-44 -34)">
+    <path class="o" fill="#c8793a" d="M-13 -14 Q-16 -32 1 -32 Q14 -32 14 -20 L8 -18 Q-2 -24 -6 -14 Q-8 2 -15 6 Q-13 -4 -13 -14 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="2" cy="-14" r="12"/>
+    <path class="o" fill="#c8793a" d="M-10.5 -14 Q-13 -27.5 1.5 -27 Q13 -26.5 13.5 -19 Q4 -23 -4 -20 Q-8 -17 -8.5 -11 Z"/>
+    <path class="o" fill="#2b2b2b" d="M3 -17 L14 -16.5 Q14.5 -11.5 11 -11 L5 -11 Q2.5 -13.5 3 -17 Z"/>
+    <path class="t" style="stroke-width:1.9" d="M6 -6 Q9 -4 12 -6.5"/>
+  </g>
+
+  <!-- Middle activist: beanie and beard, one fist up. -->
+  <g id="b_body" transform="translate(-4 0)">
+    <path class="o" fill="#6b8db3" d="M-18 0 Q-20 -9 -9 -11 L10 -11 Q20 -9 17 0 Z"/>
+    <path class="o" fill="#7bc8a4" d="M-12 -9 Q-14 -27 -8 -34 Q0 -38 9 -34 Q14 -27 12 -9 Z"/>
+    <path class="o" fill="#7bc8a4" d="M-6 -30 L-17 -15 L-13 -3 L-8 -4 L-10 -14 L-2 -24 Z"/>
+    <circle class="o" fill="#f0c19a" cx="-11" cy="-1" r="3.6"/>
+  </g>
+  <g id="b_arm" data-parent="b_body" transform="translate(4 -31)">
+    <path class="o" fill="#7bc8a4" d="M-4 2 L2 -18 L8 -16 L4 4 Z"/>
+    <circle class="o" fill="#f0c19a" cx="5.5" cy="-21" r="4.4"/>
+  </g>
+  <g id="b_head" data-parent="b_body" transform="translate(-4 -35)">
+    <circle class="o" fill="#f0c19a" cx="2" cy="-14" r="12"/>
+    <path class="o" fill="#5a4636" d="M-7 -11 Q-8 0.5 3 0.5 Q14 0 15.5 -9 Q10 -5.5 5 -6.5 Q-1 -6.5 -7 -11 Z"/>
+    <path class="o" fill="#d9342b" d="M-11 -16 Q-12 -30 2 -30 Q14 -30 14.5 -18 Q2 -22 -11 -16 Z"/>
+    <path class="t" style="stroke:#a8231c" d="M-10 -19 Q2 -24.5 14 -20.5"/>
+    <circle class="n" fill="#2b1b16" cx="7" cy="-13.5" r="1.4"/>
+    <circle class="n" fill="#2b1b16" cx="12.5" cy="-13.5" r="1.2"/>
+    <path class="o" fill="#5a1f2a" style="stroke-width:1.6" d="M5 -5.5 Q8.5 -1 12 -5.5 Q8.5 -7 5 -5.5 Z"/>
+  </g>
+
+  <!-- Front activist: blue hair, a peace sign, her other hand firmly on the road. -->
+  <g id="c_body" transform="translate(38 0)">
+    <path class="o" fill="#2f2a3a" d="M-18 0 Q-20 -9 -9 -11 L10 -11 Q20 -9 17 0 Z"/>
+    <path class="o" fill="#ecdcb9" d="M-12 -9 Q-14 -27 -8 -34 Q0 -38 9 -34 Q14 -27 12 -9 Z"/>
+    <path class="o" fill="#ecdcb9" d="M6 -30 L18 -16 L15 -3 L10 -4 L11 -14 L2 -24 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="13" cy="-1" r="3.6"/>
+    <path class="n" fill="#ff7ac0" d="M0 -22 q-2.6 -3.6 -5 -1 q-1.6 2.6 5 6.6 q6.6 -4 5 -6.6 q-2.4 -2.6 -5 1 Z"/>
+  </g>
+  <g id="c_arm" data-parent="c_body" transform="translate(30 -31)">
+    <path class="o" fill="#ecdcb9" d="M4 2 L-2 -17 L-8 -15 L-4 4 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="-5.5" cy="-20" r="4.2"/>
+    <path class="o" fill="#f3c9a5" d="M-8 -22.5 L-10.5 -31 Q-9 -32.6 -7.6 -31.4 L-5.6 -23.5 Z M-4.6 -23.5 L-3 -32 Q-1.4 -33 -0.4 -31.6 L-2.4 -23 Z"/>
+  </g>
+  <g id="c_head" data-parent="c_body" transform="translate(38 -35)">
+    <circle class="o" fill="#2f6bff" cx="-6" cy="-30" r="6.4"/>
+    <circle class="o" fill="#f3c9a5" cx="2" cy="-14" r="12.5"/>
+    <path class="o" fill="#2f6bff" d="M-11 -11 Q-15 -29 2 -28.5 Q15 -28 15 -18 Q8 -23 1 -21.5 Q-5 -20 -7 -13 Q-9 -8 -11 -11 Z"/>
+    <path class="n" fill="#79a6ff" d="M-5 -25 Q1 -27.5 8 -25.5 Q2 -24.8 -3.5 -22 Z"/>
+    <circle class="n" fill="#2b1b16" cx="7.5" cy="-14" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="13" cy="-14" r="1.3"/>
+    <path class="o" fill="#5a1f2a" style="stroke-width:1.6" d="M5.5 -6.5 Q9 -2 12.5 -6.5 Q9 -8 5.5 -6.5 Z"/>
+    <circle fill="none" stroke="#e6b422" stroke-width="1.3" cx="15.4" cy="-9.5" r="1.5"/>
+  </g>
+</svg>

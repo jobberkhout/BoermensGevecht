@@ -8,16 +8,16 @@ All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no
 
 ## Status
 
-Milestone 1 (one era, Jaren '20) is in progress.
+The single-era game (Jaren '20) is complete in looks and rules. Sound and the other four eras come next.
 
 | Part | State |
 |---|---|
 | Rules: units, three rows, turrets, specials, money, overtime | Done, covered by tests |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
-| Drawn so far | Barista Bo, Giertink's tractor, both flags |
-| Still grey boxes | The other four units, both bases, turrets, projectiles, the Trekkerkolonne, the scenery |
-| Later milestones | The other four eras and modernizing, sound, balance pass |
+| Art for this era | Done: six units, two bases, two turret scenes, projectiles, both specials, flags, scenery |
+| Sound | Not yet |
+| The other four eras and modernizing | Not yet. When they come, each era is meant to be a big jump in strength |
 
 ## Running it
 
@@ -49,6 +49,7 @@ Every action is also a button on screen.
   three fight side by side while ranged units shoot from behind.
 - Light units are fast and cheap. Ranged units throw from a distance. Heavies are slow, tough, and hit
   everything within reach at once.
+- Each base has room for two turrets: the Podcaststudio on one side, De Heitinks on the other.
 - Specials recharge in 50 seconds. The Wegblokkade freezes every enemy unit for five seconds; the
   Trekkerkolonne sweeps the lane and hits every enemy unit once.
 - After seven minutes both bases start to crumble. The less damaged one outlasts the other.
@@ -84,7 +85,13 @@ tests/  e2e/  scripts/      unit tests, browser tests, balance and screenshot to
    - `data-parent` says what a part hangs from. Document order is drawing order.
    - `data-rig` is `humanoid`, `vehicle` or `static`. The first two need a fixed set of parts
      (see `src/rig/archetypes.ts`).
-   - A child with `data-mount="hand"` marks a spot, such as where a projectile leaves. It is not drawn.
+   - A child with `data-mount="hand" fill="none"` marks a spot, such as where a projectile leaves.
+     It is not drawn.
+   - The right-hand side's drawings are mirrored on screen. A part with `data-mirror="no"` is flipped
+     back, so lettering stays readable. Put its joint in the middle of the part. Letters are drawn as
+     paths: `<text>` does not work in an SVG that is loaded as an image.
+   - Colours and widths that differ from a class in the file's `<style>` go in `style="..."`.
+     An attribute would be ignored, and the lint says so.
    - Not allowed: `text`, `image`, `filter`, `mask`, `foreignObject`, links to other files.
 
 2. Add `src/anim/clips/<name>.ts` with five clips (idle, walk, attack, hit, die) and register it in

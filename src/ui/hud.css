@@ -500,10 +500,21 @@ body {
 
 .keys {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.35cqw 0.7cqw;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.3cqw 0.7cqw;
   align-items: center;
-  font-size: 1.12cqw;
+  font-size: 1.08cqw;
+}
+
+.keys .pic {
+  width: 4.4cqw;
+  height: 3.5cqw;
+  background: center / contain no-repeat;
+}
+
+/* The farmers face left, towards the city, as they do on the field. */
+.side.right .keys .pic.flip {
+  transform: scaleX(-1);
 }
 
 .keys kbd {

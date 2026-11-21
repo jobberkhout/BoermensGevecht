@@ -46,8 +46,15 @@ const BATTLE: { run: number; press?: Press[]; fund?: number; base?: [0 | 1, numb
   { run: 14, press: [[1, 'special']], shot: 'kolonne' },
   { run: 90, press: [[0, 'buy1'], [0, 'buy0']] },
   { run: 20, press: [[0, 'special']], shot: 'wegblokkade' },
-  { run: 400, base: [0, 30], shot: 'late' },
-  { run: 3000, shot: 'win' },
+  { run: 400, shot: 'late' },
+  // From here only the right player keeps buying, so the left base falls and the end screen shows.
+  ...Array.from({ length: 10 }, () => ({
+    run: 300,
+    fund: 3000,
+    base: [0, 60] as [0 | 1, number],
+    press: [[1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1'], [1, 'buy0']] as Press[],
+  })),
+  { run: 0, shot: 'win' },
 ];
 
 function jobs(): Job[] {

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -178 126 184" data-rig="humanoid">
+  <title>Dronink en zijn spuitdrone</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#b3402f" d="M-6 -3 Q-8 10 -6 20 Q-1 24 5 20 Q7 8 6 -3 Z"/>
+    <path class="o" fill="#b3402f" d="M-5.5 13 L13 9 L14.5 16 L-2 22.5 Z"/>
+    <circle class="o" fill="#dba27f" cx="16" cy="12" r="4.4"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#235a30" d="M-7 -3 L7 -3 L6 30 L-6 30 Z"/>
+    <path class="o" fill="#d9a826" d="M-8 38 L-8 33 Q-8 29.5 -3 29.5 L5 29.5 Q14 31 16 36 L15 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#2c7a3e" d="M-7 -3 L7 -3 L6 30 L-6 30 Z"/>
+    <path class="n" fill="#3f9b57" d="M1 -1 L5 -1 L4.5 27 L1.5 27 Z"/>
+    <!-- klompen -->
+    <path class="o" fill="#f2c230" d="M-8 38 L-8 33 Q-8 29.5 -3 29.5 L5 29.5 Q14 31 16 36 L15 38 Z"/>
+    <path class="t" style="stroke:#c9981a" d="M-1 31 Q5 31 10 34"/>
+  </g>
+
+  <!-- Checked shirt under green dungarees. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#c94a38" d="M-15 6 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 15 6 Z"/>
+    <path fill="none" stroke="#f4ecdc" stroke-width="1.4" d="M-15.5 -27 L16 -27 M-16.5 -19 L17.5 -19 M-9 -36 L-10 -12 M9 -36 L10 -12 M0 -37 L0 -12"/>
+    <path class="o" fill="#2c7a3e" d="M-14.5 6 L-15.5 -10 L-9 -12 L-9 -24 L10 -24 L10 -12 L16 -10 L15 6 Z"/>
+    <path class="t" d="M-9 -24 L-10.5 -35 M10 -24 L11.5 -35"/>
+    <circle class="n" fill="#ffd21f" cx="-9" cy="-23" r="1.7"/>
+    <circle class="n" fill="#ffd21f" cx="10" cy="-23" r="1.7"/>
+    <path class="o" fill="#235a30" d="M-4 -8 L6 -8 L6.5 1 L-4.5 1 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#dba27f" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#efc09a" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#efc09a" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- grey stubble -->
+    <path class="n" fill="#bdbdbd" fill-opacity="0.75" d="M-9 -14 Q-9 -3.5 3 -3.5 Q17 -3.5 19.5 -13 Q12 -8 5 -9 Q-3 -9.5 -9 -14 Z"/>
+    <path class="o" fill="#bdbdbd" d="M-16 -26 Q-18 -14 -12 -9 L-10.5 -22 Z"/>
+    <!-- cap with a yellow front -->
+    <path class="o" fill="#2f9140" d="M-16.5 -24 Q-18 -42 2 -42 Q18 -42 20.5 -29 Q2 -34 -16.5 -24 Z"/>
+    <path class="o" fill="#ffd21f" d="M6 -41.5 Q18 -41 20.5 -29 L7 -32.5 Z"/>
+    <path class="o" fill="#237832" d="M18 -32.5 L32 -28 L31 -24.5 L17.5 -27 Z"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-20" r="1.9"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-20" r="1.7"/>
+    <path class="t" style="stroke-width:2.2;stroke:#9a9a9a" d="M5.5 -25 L12.5 -24.5 M15 -24.5 L20 -25.5"/>
+    <path class="o" fill="#efc09a" d="M19.5 -18 Q25 -14.5 20 -12"/>
+    <path class="t" style="stroke-width:1.9" d="M9 -9.5 L17 -10"/>
+  </g>
+
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#c94a38" d="M-6 -3 Q-8 10 -6 19 Q-1 24 5 20 Q7 8 6 -3 Z"/>
+    <path class="o" fill="#c94a38" d="M-5.5 13 L11 8 L13 15 L-2 22.5 Z"/>
+    <circle class="o" fill="#efc09a" cx="14.5" cy="10.5" r="4.6"/>
+  </g>
+
+  <!-- The controller in his hands. -->
+  <g id="prop" data-parent="arm_front" transform="translate(24 -62)">
+    <path class="t" style="stroke-width:2" d="M5 -6 L9 -19"/>
+    <circle class="o" fill="#d9342b" cx="9.3" cy="-20.5" r="2.2"/>
+    <rect class="o" fill="#3a3a3a" x="-9" y="-6" width="20" height="13" rx="3"/>
+    <circle class="n" fill="#9aa0a4" cx="-3.5" cy="0" r="2.2"/>
+    <circle class="n" fill="#9aa0a4" cx="5.5" cy="0" r="2.2"/>
+    <circle class="n" fill="#7fd35b" cx="1" cy="-3.6" r="1.1"/>
+  </g>
+
+  <!-- The spray drone hovers above and ahead of him on its own. Joint in the middle of its body. -->
+  <g id="drone" transform="translate(34 -148)">
+    <path class="t" style="stroke-width:2.6" d="M-22 -4 L22 -4"/>
+    <path class="t" style="stroke-width:2.2" d="M-10 6 L-14 15 M10 6 L14 15 M-17 15 L-11 15 M11 15 L17 15"/>
+    <path class="o" fill="#b6d24a" d="M-8 5 L8 5 L6.5 15 L-6.5 15 Z"/>
+    <path class="n" fill="#d8ec7a" d="M-5.5 7 L-2 7 L-2.6 13 L-5 13 Z"/>
+    <path class="t" style="stroke-width:2" d="M7 13 L14 17"/>
+    <circle class="o" fill="#3a3a3a" cx="15" cy="17.5" r="2.2"/>
+    <path class="o" fill="#3a3a3a" d="M-12 -8 Q-12 -13 -6 -13 L6 -13 Q12 -13 12 -8 L12 3 Q12 6 8 6 L-8 6 Q-12 6 -12 3 Z"/>
+    <path class="n" fill="#5a5a5a" d="M-9 -10.5 L7 -10.5 Q9 -10.5 9.5 -8.5 L-10 -8.5 Q-9.8 -10 -9 -10.5 Z"/>
+    <circle class="n" fill="#ff4a3d" cx="8" cy="-2" r="1.8"/>
+    <path class="t" style="stroke-width:2.4" d="M-22 -4 L-22 -9 M22 -4 L22 -9"/>
+    <circle fill="none" data-mount="muzzle" cx="17" cy="19" r="1"/>
+  </g>
+
+  <!-- Rotors, as a blur. They flicker by squashing sideways. -->
+  <g id="rotor_back" data-parent="drone" transform="translate(12 -158)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#dfe6ea" fill-opacity="0.75" cx="0" cy="0" rx="15" ry="3.2"/>
+  </g>
+  <g id="rotor_front" data-parent="drone" transform="translate(56 -158)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#dfe6ea" fill-opacity="0.75" cx="0" cy="0" rx="15" ry="3.2"/>
+  </g>
+</svg>
