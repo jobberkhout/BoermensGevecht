@@ -153,9 +153,62 @@ body {
     0 -0.16cqw 0 var(--ink);
 }
 
+.middle {
+  display: grid;
+  justify-items: center;
+  gap: 0.3cqw;
+}
+
+.mute {
+  display: flex;
+  align-items: center;
+  gap: 0.3cqw;
+  padding: 0.2cqw 0.5cqw;
+  border: 0.2cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: var(--paper);
+  box-shadow: 0 0.2cqw 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.mute svg {
+  width: 1.5cqw;
+  height: 1.5cqw;
+  fill: var(--ink);
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mute svg .waves,
+.mute svg .off {
+  fill: none;
+}
+
+.mute svg .off,
+.mute.muted svg .waves {
+  display: none;
+}
+
+.mute.muted svg .off {
+  display: inline;
+  stroke: #e0442c;
+  stroke-width: 3;
+}
+
+.mute kbd {
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.85cqw;
+}
+
 .banner {
   position: absolute;
-  top: 6.2cqw;
+  top: 8.4cqw;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5cqw 1.4cqw;

@@ -61,17 +61,31 @@ export class Hud {
 
   private readonly root: HTMLElement;
   private readonly onPress: (side: Side, action: Action) => void;
+  private readonly muteButton: HTMLButtonElement;
 
-  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void) {
+  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void, onMute: () => void) {
     this.root = root;
     this.onPress = onPress;
     const top = el('div', 'top');
+    const middle = el('div', 'middle');
     this.clock = el('div', 'clock', '0:00');
+    this.muteButton = el('button', 'mute');
+    this.muteButton.type = 'button';
+    this.muteButton.title = NL.hud.sound;
+    this.muteButton.setAttribute('aria-label', NL.hud.sound);
+    // A little loudspeaker, with a stroke through it when the sound is off.
+    this.muteButton.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="waves" d="M16 9q2.5 3 0 6M18.5 6.5q5 5.5 0 11"/><path class="off" d="M4 4l16 16"/></svg><kbd>M</kbd>';
+    this.muteButton.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      onMute();
+    });
+    middle.append(this.clock, this.muteButton);
     this.banner = el('div', 'banner', NL.hud.overtime);
     this.banner.hidden = true;
     const left = this.buildSide(0);
     const right = this.buildSide(1);
-    top.append(left.team, this.clock, right.team);
+    top.append(left.team, middle, right.team);
     root.append(top, this.banner, left.panel, right.panel);
     this.sides = [left.parts, right.parts];
   }
@@ -217,6 +231,10 @@ export class Hud {
 
   setOvertime(on: boolean): void {
     this.banner.hidden = !on;
+  }
+
+  setMuted(muted: boolean): void {
+    this.muteButton.classList.toggle('muted', muted);
   }
 
   /** The button dips, whether it was a key or a finger that pressed it. */

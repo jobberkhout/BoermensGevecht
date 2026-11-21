@@ -51,6 +51,7 @@ export interface KeyHandlers {
   act(side: Side, action: Action): void;
   pause(): void;
   confirm(): void;
+  mute(): void;
 }
 
 /** Listens for the game's keys. Returns a function that stops listening. */
@@ -68,6 +69,9 @@ export function bindKeys(handlers: KeyHandlers): () => void {
     } else if (e.code === 'Enter' || e.code === 'NumpadEnter') {
       e.preventDefault();
       handlers.confirm();
+    } else if (e.code === 'KeyM') {
+      e.preventDefault();
+      handlers.mute();
     }
   };
   window.addEventListener('keydown', onKey);

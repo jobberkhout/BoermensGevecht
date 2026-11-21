@@ -8,7 +8,7 @@ All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no
 
 ## Status
 
-The single-era game (Jaren '20) is complete in looks and rules. Sound and the other four eras come next.
+The single-era game (Jaren '20) is complete: rules, art and sound. The other four eras come next.
 
 | Part | State |
 |---|---|
@@ -16,7 +16,7 @@ The single-era game (Jaren '20) is complete in looks and rules. Sound and the ot
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
 | Art for this era | Done: six units, two bases, two turret scenes, projectiles, both specials, flags, scenery |
-| Sound | Not yet |
+| Sound | Done: synthesized effects and a tune, no audio files. Checked for errors and loudness by test, not yet judged by ear |
 | The other four eras and modernizing | Not yet. When they come, each era is meant to be a big jump in strength |
 
 ## Running it
@@ -38,6 +38,7 @@ Keys are read by position on the keyboard, so the layout does not matter.
 | Turret | A | J |
 | Special | S | K |
 | Pause | Space | Space |
+| Sound on or off | M | M |
 | Start, play again | Enter | Enter |
 
 Every action is also a button on screen.
@@ -63,6 +64,7 @@ src/sim/                    the rules. No browser code, runs the same on both si
 src/rig/                    turns an SVG into a puppet
 src/anim/                   animation data and building blocks; clips/ has one file per character
 src/render/                 draws the battle
+src/audio/                  every sound, made with oscillators and noise
 src/ui/                     HUD, screens, keys; nl.ts holds every word of text
 src/bots/                   scripted players, for tests and balance only
 tests/  e2e/  scripts/      unit tests, browser tests, balance and screenshot tools
@@ -108,7 +110,7 @@ does not exist.
 | Command | What it does |
 |---|---|
 | `npm test` | Rules, fairness between the two sides, and the lint over all art and animations |
-| `npm run e2e` | Plays a match in Chromium, Firefox and WebKit, and checks every puppet against its SVG file |
+| `npm run e2e` | In Chromium, Firefox and WebKit: plays a match, checks every puppet against its drawing, and measures that the sound is audible and never clips |
 | `npm run balance` | Bot tournament: win share per faction, match length, how many reach overtime |
 | `npm run shots -- battle` | Screenshots of the title and a staged battle in `screens/` |
 | `npm run build` | Type check and static build in `dist/`, ready for any static host |

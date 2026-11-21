@@ -1,3 +1,4 @@
+import { Sound } from './audio/sound.ts';
 import { TPS } from './defs/balance.ts';
 import type { Game } from './game.ts';
 import type { Side } from './sim/types.ts';
@@ -18,6 +19,8 @@ export interface TestApi {
   /** Sets how much is left of a side's base. */
   setBase(side: Side, hp: number): void;
   summary(): { tick: number; winner: unknown; units: [number, number]; baseHp: [number, number] };
+  /** Renders the tune and every effect into a buffer and reports how loud it gets. */
+  audioLevels(): Promise<{ seconds: number; peak: number; rms: number }>;
 }
 
 export function installTestHooks(game: Game): void {
@@ -40,6 +43,25 @@ export function installTestHooks(game: Game): void {
     },
     setBase: (side, hp) => {
       if (game.phase === 'playing') game.state.sides[side].baseHp = hp;
+    },
+    audioLevels: async () => {
+      const rate = 44100;
+      const seconds = 12;
+      const offline = new OfflineAudioContext(1, rate * seconds, rate);
+      const sound = new Sound(true);
+      sound.setMuted(false);
+      sound.unlock(offline);
+      const used = sound.demo();
+      const samples = (await offline.startRendering()).getChannelData(0);
+      const count = Math.min(samples.length, Math.ceil(used * rate));
+      let peak = 0;
+      let squares = 0;
+      for (let i = 0; i < count; i++) {
+        const v = samples[i]!;
+        peak = Math.max(peak, Math.abs(v));
+        squares += v * v;
+      }
+      return { seconds: used, peak, rms: Math.sqrt(squares / count) };
     },
     summary: () => ({
       tick: game.state.tick,

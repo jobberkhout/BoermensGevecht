@@ -55,6 +55,7 @@ export const NL = {
     paused: 'Pauze',
     resume: 'Spatie om verder te gaan',
     overtime: 'Overtijd! Beide bases brokkelen af',
+    sound: 'Geluid aan of uit (M)',
   },
 
   /** Why a button press was refused. */
@@ -71,7 +72,7 @@ export const NL = {
     right: 'Rechter speler',
     keys: 'Toetsen',
     units: 'Eenheden',
-    pause: 'Spatie = pauze',
+    pause: 'Spatie = pauze, M = geluid uit',
     goal: 'Sloop de basis van de ander. Wie in de overtijd de minste schade heeft, wint.',
   },
 
