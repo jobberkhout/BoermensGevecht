@@ -9,12 +9,17 @@ function createSide(faction: FactionId): SideState {
     faction,
     era: 0,
     gold: START_GOLD,
+    subsidy: 0,
+    progress: 0,
     baseHp: era.baseHp,
     baseMaxHp: era.baseHp,
     units: [],
     queue: [],
     turrets: new Array<null>(TURRET_SLOTS).fill(null),
     specialReadyAt: era.special.firstReady,
+    buffUntil: 0,
+    buffDmgPercent: 100,
+    buffSpeedPercent: 100,
   };
 }
 
@@ -27,5 +32,6 @@ export function createMatch(seed: number, factions: [FactionId, FactionId] = DEF
     sides: [createSide(factions[0]), createSide(factions[1])],
     shots: [],
     waves: [],
+    barrages: [],
   };
 }

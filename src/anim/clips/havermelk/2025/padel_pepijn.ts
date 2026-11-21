@@ -1,11 +1,11 @@
-import { bob, flinch, idle, slinkOff, swing, walk } from '../humanoid.ts';
-import type { ClipSet } from '../types.ts';
+import { bob, flinch, idle, slinkOff, swing, walk } from '../../../humanoid.ts';
+import type { ClipSet } from '../../../types.ts';
 
 /**
  * Padel-Pepijn: bounces on his toes, jogs with his racket held high, and
  * finishes every argument with an overhead smash.
  */
-export const padelPepijn: ClipSet = {
+const padelPepijn: ClipSet = {
   idle: idle(
     { seconds: 0.9, breathe: 0.02, armSway: 4 },
     {
@@ -60,3 +60,5 @@ export const padelPepijn: ClipSet = {
     },
   ),
 };
+
+export default padelPepijn;

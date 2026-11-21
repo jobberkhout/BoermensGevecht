@@ -1,10 +1,10 @@
-import { swing } from '../humanoid.ts';
-import type { Clip, Key } from '../types.ts';
+import { swing } from '../../../humanoid.ts';
+import type { Clip, Key } from '../../../types.ts';
 
 /** Rocking side to side while they chant, each a little out of step with the next. */
 const rock = (lag: number): Key[] => swing(5, 0, lag);
 
-export const blokkadeClips: { idle: Clip } = {
+const blokkadeClips: { idle: Clip } = {
   idle: {
     loop: true,
     seconds: 1.3,
@@ -21,3 +21,5 @@ export const blokkadeClips: { idle: Clip } = {
     },
   },
 };
+
+export default blokkadeClips;

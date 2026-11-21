@@ -1,7 +1,7 @@
-import { swing } from '../humanoid.ts';
-import { rattle } from '../props.ts';
-import type { ClipSet } from '../types.ts';
-import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../vehicle.ts';
+import { swing } from '../../../humanoid.ts';
+import { rattle } from '../../../props.ts';
+import type { ClipSet } from '../../../types.ts';
+import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../../../vehicle.ts';
 
 /** The crank turns once per turn of the back wheel, so it is listed with the wheels. */
 const WHEELS: RollStyle = {
@@ -15,7 +15,7 @@ const WHEELS: RollStyle = {
  * Bakfiets-Babette: pedals along with the plants swaying in the box, then
  * stands on the pedals and rams whatever is in front of the bak.
  */
-export const bakfietsBabette: ClipSet = {
+const bakfietsBabette: ClipSet = {
   idle: idling(1.8, 0.5, {
     cargo: { rot: [[0, -2], [0.5, 2, 'sineInOut'], [1, -2, 'sineInOut']] },
     rider: { rot: [[0, 0], [0.3, -4, 'sineInOut'], [0.7, 2, 'sineInOut'], [1, 0, 'sineInOut']] },
@@ -54,3 +54,5 @@ export const bakfietsBabette: ClipSet = {
     cargo: { rot: swing(9), rate: 3 },
   }),
 };
+
+export default bakfietsBabette;

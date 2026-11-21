@@ -18,11 +18,26 @@ export interface TestApi {
   fund(side: Side, gold: number): void;
   /** Sets how much is left of a side's base. */
   setBase(side: Side, hp: number): void;
-  summary(): { tick: number; winner: unknown; units: [number, number]; baseHp: [number, number] };
+  /** Hands a side vooruitgang, so it can modernize. */
+  progress(side: Side, amount: number): void;
+  /** Makes a side's special ready now. */
+  charge(side: Side): void;
+  summary(): Summary;
   /** Renders the tune and every effect into a buffer and reports how loud it gets. */
   audioLevels(): Promise<Levels>;
   /** The same for the tune alone, over the given number of bars. */
   musicLevels(bars: number): Promise<Levels>;
+}
+
+export interface Summary {
+  tick: number;
+  winner: unknown;
+  units: [number, number];
+  baseHp: [number, number];
+  era: [number, number];
+  subsidy: [number, number];
+  /** Per side, the level of the turret in each slot; 0 for an empty slot. */
+  turrets: [number[], number[]];
 }
 
 export interface Levels {
@@ -81,6 +96,12 @@ export function installTestHooks(game: Game): void {
     setBase: (side, hp) => {
       if (game.phase === 'playing') game.state.sides[side].baseHp = hp;
     },
+    progress: (side, amount) => {
+      if (game.phase === 'playing') game.state.sides[side].progress = amount;
+    },
+    charge: (side) => {
+      if (game.phase === 'playing') game.state.sides[side].specialReadyAt = 0;
+    },
     audioLevels: () => measure(12, (sound) => sound.demo()),
     musicLevels: (bars) => measure(bars * 4 + 4, (sound) => sound.demoMusic(bars)),
     summary: () => ({
@@ -88,6 +109,9 @@ export function installTestHooks(game: Game): void {
       winner: game.state.winner,
       units: [game.state.sides[0].units.length, game.state.sides[1].units.length],
       baseHp: [game.state.sides[0].baseHp, game.state.sides[1].baseHp],
+      era: [game.state.sides[0].era, game.state.sides[1].era],
+      subsidy: [game.state.sides[0].subsidy, game.state.sides[1].subsidy],
+      turrets: [game.state.sides[0].turrets.map((t) => t?.level ?? 0), game.state.sides[1].turrets.map((t) => t?.level ?? 0)],
     }),
   };
   (window as unknown as { __game: TestApi }).__game = api;

@@ -1,6 +1,6 @@
-import { bob, swing } from '../humanoid.ts';
-import type { ClipSet, Key } from '../types.ts';
-import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../vehicle.ts';
+import { bob, swing } from '../../../humanoid.ts';
+import type { ClipSet, Key } from '../../../types.ts';
+import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../../../vehicle.ts';
 
 const WHEELS: RollStyle = {
   bigWheel: 15,
@@ -16,7 +16,7 @@ const FLAP: Key[] = [[0, -8], [0.5, 12, 'sineInOut'], [1, -8, 'sineInOut']];
  * Quadink: tears along with his zakdoek flapping, then pulls a wheelie and
  * drops the front wheels on whoever is in the way.
  */
-export const quadink: ClipSet = {
+const quadink: ClipSet = {
   idle: idling(0.28, 1.3, {
     rider: { rot: [[0, 0], [0.5, 2, 'sineInOut'], [1, 0, 'sineInOut']] },
     scarf: { rot: [[0, 20], [0.5, 30, 'sineInOut'], [1, 20, 'sineInOut']] },
@@ -55,3 +55,5 @@ export const quadink: ClipSet = {
     scarf: { rot: FLAP, rate: 4 },
   }),
 };
+
+export default quadink;

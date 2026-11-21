@@ -1,29 +1,98 @@
-import { QUEUE_MAX } from '../defs/balance.ts';
+import { QUEUE_MAX, SUBSIDY, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf } from '../defs/index.ts';
+import type { TurretDef } from '../defs/types.ts';
 import { startSpecial } from './specials.ts';
-import type { Command, Side, SimEvent, SimState } from './types.ts';
+import type { Command, Damage, Side, SimEvent, SimState } from './types.ts';
+
+/** What pressing the turret button would do right now. */
+export interface TurretPlan {
+  how: 'build' | 'replace' | 'upgrade';
+  slot: number;
+  cost: number;
+  /** The turret that will stand there afterwards. */
+  def: TurretDef;
+  /** Its level afterwards. */
+  level: number;
+}
+
+/**
+ * One button does three things, in this order: fill an empty slot; replace a
+ * turret left over from an older era (the oldest first); upgrade the turret
+ * with the lowest level. Null when everything is as good as it gets.
+ */
+export function turretPlan(s: SimState, side: Side): TurretPlan | null {
+  const me = s.sides[side];
+  const eras = FACTIONS[me.faction].eras;
+  const now = eraOf(me.faction, me.era).turret;
+
+  const empty = me.turrets.indexOf(null);
+  if (empty >= 0) return { how: 'build', slot: empty, cost: now.cost, def: now, level: 1 };
+
+  let outdated = -1;
+  let oldest = me.era;
+  me.turrets.forEach((t, slot) => {
+    const era = eras.findIndex((e) => e.turret.id === t!.def);
+    if (era < oldest) {
+      oldest = era;
+      outdated = slot;
+    }
+  });
+  if (outdated >= 0) return { how: 'replace', slot: outdated, cost: now.cost, def: now, level: 1 };
+
+  let lowest = -1;
+  me.turrets.forEach((t, slot) => {
+    if (t!.level < TURRET.maxLevel && (lowest < 0 || t!.level < me.turrets[lowest]!.level)) lowest = slot;
+  });
+  if (lowest < 0) return null;
+  const level = me.turrets[lowest]!.level;
+  return {
+    how: 'upgrade',
+    slot: lowest,
+    cost: Math.round((now.cost * TURRET.upgradePercent[level - 1]!) / 100),
+    def: now,
+    level: level + 1,
+  };
+}
+
+/** Price of the next "subsidie aanvragen", or null when there is nothing left to apply for. */
+export function subsidyCost(s: SimState, side: Side): number | null {
+  return SUBSIDY.cost[s.sides[side].subsidy] ?? null;
+}
+
+/** Vooruitgang needed to modernize, or null in the last era. */
+export function progressNeeded(s: SimState, side: Side): number | null {
+  const me = s.sides[side];
+  if (me.era + 1 >= FACTIONS[me.faction].eras.length) return null;
+  return eraOf(me.faction, me.era).progressNeeded;
+}
 
 /** The one place that decides whether a command is allowed. The sim, the HUD and the bots all ask here. */
 export function canDo(s: SimState, side: Side, cmd: Command): boolean {
   if (s.winner !== null) return false;
   const me = s.sides[side];
-  const era = eraOf(me.faction, me.era);
   switch (cmd.t) {
     case 'buy':
-      return me.queue.length < QUEUE_MAX && me.gold >= era.units[cmd.slot].cost;
-    case 'turret':
-      return me.turrets.includes(null) && me.gold >= era.turret.cost;
+      return me.queue.length < QUEUE_MAX && me.gold >= eraOf(me.faction, me.era).units[cmd.slot].cost;
+    case 'turret': {
+      const plan = turretPlan(s, side);
+      return plan !== null && me.gold >= plan.cost;
+    }
     case 'special':
       return s.tick >= me.specialReadyAt;
-    case 'eraUp':
-      return (
-        era.eraUpCost !== null && me.era + 1 < FACTIONS[me.faction].eras.length && me.gold >= era.eraUpCost
-      );
+    case 'eraUp': {
+      // Modernizing is not for sale: it takes vooruitgang, which comes from time and fighting.
+      const needed = progressNeeded(s, side);
+      return needed !== null && me.progress >= needed;
+    }
+    case 'subsidy': {
+      const cost = subsidyCost(s, side);
+      return cost !== null && me.gold >= cost;
+    }
   }
 }
 
 /** Carries out a command. Call only after canDo said yes. */
-export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimEvent[]): void {
+export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimEvent[], dmg: Damage[]): void {
   const me = s.sides[side];
   const era = eraOf(me.faction, me.era);
   switch (cmd.t) {
@@ -34,25 +103,34 @@ export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimE
       return;
     }
     case 'turret': {
-      const slot = me.turrets.indexOf(null);
-      me.gold -= era.turret.cost;
-      me.turrets[slot] = { def: era.turret.id, cd: era.turret.cooldown };
-      events.push({ t: 'turretBuilt', side, slot });
+      const plan = turretPlan(s, side)!;
+      me.gold -= plan.cost;
+      if (plan.how === 'upgrade') me.turrets[plan.slot]!.level = plan.level;
+      else me.turrets[plan.slot] = { def: plan.def.id, level: 1, cd: plan.def.cooldown };
+      events.push({ t: 'turretBuilt', side, slot: plan.slot, how: plan.how, level: plan.level });
       return;
     }
     case 'special': {
       me.specialReadyAt = s.tick + era.special.cooldown;
-      startSpecial(s, side, era.special, events);
+      startSpecial(s, side, era.special, events, dmg);
       return;
     }
     case 'eraUp': {
-      me.gold -= era.eraUpCost ?? 0;
+      // New units, a new special and a stronger base at once. Units already
+      // out, units in training and turrets already built stay as they are.
+      me.progress -= progressNeeded(s, side)!; // what was gathered beyond the need counts for the next era
       me.era += 1;
       const next = eraOf(me.faction, me.era);
       const gain = next.baseHp - me.baseMaxHp;
       me.baseMaxHp = next.baseHp;
       me.baseHp += Math.max(0, gain);
       events.push({ t: 'eraUp', side, era: me.era });
+      return;
+    }
+    case 'subsidy': {
+      me.gold -= subsidyCost(s, side)!;
+      me.subsidy += 1;
+      events.push({ t: 'subsidy', side, level: me.subsidy });
       return;
     }
   }

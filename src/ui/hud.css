@@ -100,8 +100,31 @@ body {
   margin-bottom: 0.25cqw;
 }
 
-.team.right .name {
-  text-align: right;
+/* The faction's name with the era it is in next to it. */
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6cqw;
+  margin-bottom: 0.25cqw;
+}
+
+.team.right .title {
+  flex-direction: row-reverse;
+}
+
+.title .name {
+  margin-bottom: 0;
+}
+
+.title small {
+  padding: 0.05cqw 0.5cqw;
+  border: 0.18cqw solid var(--ink);
+  border-radius: 0.7cqw;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.95cqw;
+  white-space: nowrap;
 }
 
 .hp {
@@ -237,7 +260,7 @@ body {
 .panel {
   position: absolute;
   bottom: 1.1cqw;
-  width: 31cqw;
+  width: 33cqw;
   display: grid;
   gap: 0.55cqw;
 }
@@ -303,7 +326,7 @@ body {
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   gap: 0.6cqw;
 }
 
@@ -324,25 +347,62 @@ body {
   pointer-events: auto;
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
-.btn.wide {
-  height: 4.4cqw;
+/* The four action buttons under the units: key and price on top, name and a hint below. */
+.btn.small {
+  height: 4.7cqw;
+  grid-column: span 3;
   display: flex;
-  align-items: center;
-  gap: 0.5cqw;
-  padding: 0 0.6cqw;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0.4cqw 0.3cqw;
+  text-align: left;
 }
 
-.btn.wide kbd,
-.btn.wide .cost {
-  position: static;
-  flex: none;
+/* In the last era the modernize button is gone and the other three share the row. */
+.buttons.three .btn.small {
+  grid-column: span 4;
 }
 
-.btn.wide kbd {
-  order: -1;
+.btn .sub {
+  position: relative;
+  font-weight: 700;
+  font-size: 0.8cqw;
+  line-height: 1.1;
+  color: #6f5a4c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn.off .sub {
+  color: inherit;
+}
+
+/* Vooruitgang: the modernize button fills up, and calls for attention once it is full. */
+.btn .fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: rgba(47, 145, 64, 0.32);
+  pointer-events: none;
+}
+
+.btn.ready {
+  background: var(--gold);
+  animation: ready 0.9s ease-in-out infinite;
+}
+
+.btn.ready .fill {
+  background: none;
+}
+
+@keyframes ready {
+  50% {
+    background: #fff3b8;
+  }
 }
 
 .btn.pressed {
@@ -385,15 +445,11 @@ body {
   text-overflow: ellipsis;
 }
 
-.btn.wide .label {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.98cqw;
-  line-height: 1.02;
-  text-align: left;
-  white-space: normal;
-  /* Long names carry a soft hyphen in nl.ts that says where they may break. */
-  hyphens: manual;
+.btn.small .label {
+  position: relative;
+  font-size: 0.92cqw;
+  line-height: 1.1;
+  letter-spacing: -0.01cqw;
 }
 
 .btn .cost {

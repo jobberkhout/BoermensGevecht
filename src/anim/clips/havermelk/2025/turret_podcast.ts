@@ -1,5 +1,5 @@
-import { chatter, pop, rattle } from '../props.ts';
-import type { Clip, Key } from '../types.ts';
+import { chatter, pop, rattle } from '../../../props.ts';
+import type { Clip, Key } from '../../../types.ts';
 
 const HOLD_OPEN: Key[] = [[0, 1.6], [0.7, 1.6, 'hold'], [1, 0.18, 'in']];
 
@@ -8,7 +8,7 @@ const HOLD_OPEN: Key[] = [[0, 1.6], [0.7, 1.6, 'hold'], [1, 0.18, 'in']];
  * waves, the other sighs and looks away. When the turret fires they both lean
  * in and shout at once, and the whole booth rattles.
  */
-export const podcastClips: { idle: Clip; attack: Clip } = {
+const podcastClips: { idle: Clip; attack: Clip } = {
   idle: {
     loop: true,
     seconds: 3.4,
@@ -63,3 +63,5 @@ export const podcastClips: { idle: Clip; attack: Clip } = {
     },
   },
 };
+
+export default podcastClips;

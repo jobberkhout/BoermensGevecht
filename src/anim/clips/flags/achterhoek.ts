@@ -1,4 +1,4 @@
-import type { Clip, Key, Track } from '../types.ts';
+import type { Clip, Key, Track } from '../../types.ts';
 
 /**
  * A flag cut into eight vertical strips (s0 at the pole, s7 at the free end).
@@ -21,4 +21,7 @@ function wave(strips: number): Clip {
   return { loop: true, seconds: 1.5, tracks };
 }
 
-export const flagClips = { idle: wave(8) };
+/** Both flags are cut into the same eight strips, so they share this wave. */
+const flagClips: { idle: Clip } = { idle: wave(8) };
+
+export default flagClips;

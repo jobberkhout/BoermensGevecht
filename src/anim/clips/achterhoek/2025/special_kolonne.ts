@@ -1,11 +1,11 @@
-import { bob, swing } from '../humanoid.ts';
-import type { Clip, Key } from '../types.ts';
-import { roll } from '../vehicle.ts';
+import { bob, swing } from '../../../humanoid.ts';
+import type { Clip, Key } from '../../../types.ts';
+import { roll } from '../../../vehicle.ts';
 
 const FLASH: Key[] = [[0, 1], [0.5, 1, 'hold'], [0.52, 0.25, 'hold'], [1, 0.25, 'hold']];
 
 /** One tractor of the Trekkerkolonne: thundering along, bale up front, driver shaking his fist. */
-export const kolonneClips: { walk: Clip } = {
+const kolonneClips: { walk: Clip } = {
   walk: roll(
     { bigWheel: 28, wheels: { wheel_back: 28, wheel_front: 18 }, bounce: 2.4, rock: 1 },
     {
@@ -16,3 +16,5 @@ export const kolonneClips: { walk: Clip } = {
     },
   ),
 };
+
+export default kolonneClips;

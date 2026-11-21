@@ -31,8 +31,8 @@ const FONT = 'ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sa
 const INK = '#2b1b16';
 
 /** The painted backdrop: sky, skyline, fields and the road. */
-const SCENERY = 'scenery/e4';
-const BLOCKADE = 'havermelk/e4/special_blokkade';
+const SCENERY = 'scenery/2025';
+const BLOCKADE = 'havermelk/2025/special_blokkade';
 
 const LOOK: Record<FactionId, { main: string; dark: string; light: string }> = {
   havermelk: { main: '#c8a8f0', dark: '#7d5fb8', light: '#efe3ff' },

@@ -1,11 +1,11 @@
 import { QUEUE_MAX, TPS } from './defs/balance.ts';
 import { Sound } from './audio/sound.ts';
-import { DEFAULT_FACTIONS, FACTIONS, eraOf } from './defs/index.ts';
+import { DEFAULT_FACTIONS, FACTIONS, specialDef } from './defs/index.ts';
 import type { FactionId } from './defs/types.ts';
 import { Renderer } from './render/renderer.ts';
 import type { Stage } from './render/stage.ts';
 import { BattleView } from './render/view.ts';
-import { canDo } from './sim/commands.ts';
+import { canDo, progressNeeded, subsidyCost, turretPlan } from './sim/commands.ts';
 import { createMatch } from './sim/create.ts';
 import { step } from './sim/step.ts';
 import type { Replay, Side, SimEvent, SimState, Stamped } from './sim/types.ts';
@@ -26,7 +26,7 @@ function artFor(factions: readonly FactionId[]): Set<string> {
       ids.add(era.baseRig);
       ids.add(era.turret.rig);
       ids.add(era.turret.shot.rig);
-      if ('rig' in era.special) ids.add(era.special.rig);
+      if (era.special.rig) ids.add(era.special.rig);
       for (const unit of era.units) {
         ids.add(unit.rig);
         if (unit.shot) ids.add(unit.shot.rig);
@@ -148,10 +148,18 @@ export class Game {
 
   private reason(side: Side, action: Action): string {
     const me = this.state.sides[side];
-    if (action === 'special') return NL.refuse.special;
-    if (action === 'turret' && !me.turrets.includes(null)) return NL.refuse.turret;
-    if (action.startsWith('buy') && me.queue.length >= QUEUE_MAX) return NL.refuse.queue;
-    return NL.refuse.gold;
+    switch (action) {
+      case 'special':
+        return NL.refuse.special;
+      case 'turret':
+        return turretPlan(this.state, side) ? NL.refuse.gold : NL.refuse.turret;
+      case 'subsidy':
+        return subsidyCost(this.state, side) === null ? NL.refuse.subsidy : NL.refuse.gold;
+      case 'eraUp':
+        return progressNeeded(this.state, side) === null ? NL.refuse.lastEra : NL.refuse.progress;
+      default:
+        return me.queue.length >= QUEUE_MAX ? NL.refuse.queue : NL.refuse.gold;
+    }
   }
 
   /** One tick of the rules, with everything that was pressed since the last one. */
@@ -192,12 +200,35 @@ export class Game {
       case 'turretFire':
         this.sound.turret(e.side);
         break;
-      case 'special': {
-        const me = this.state.sides[e.side];
-        if (eraOf(me.faction, me.era).special.kind === 'wave') this.sound.horn();
-        else this.sound.chant();
+      case 'subsidy':
+        this.sound.coin();
         break;
-      }
+      case 'eraUp':
+        this.sound.eraUp();
+        break;
+      case 'special':
+        // Each kind of trick has its own sound.
+        switch (specialDef(e.id).kind) {
+          case 'wave':
+            this.sound.horn();
+            break;
+          case 'stun':
+            this.sound.chant();
+            break;
+          case 'buff':
+            this.sound.riff();
+            break;
+          case 'heal':
+            this.sound.mend();
+            break;
+          case 'barrage':
+            this.sound.swarm();
+            break;
+          case 'snipe':
+            this.sound.zap();
+            break;
+        }
+        break;
       case 'overtime':
         this.hud.setOvertime(true);
         this.sound.alarm();
@@ -221,7 +252,7 @@ export class Game {
 
   /** Everything needed to play this exact match again. */
   replay(): Replay {
-    return { v: 1, seed: this.seed, factions: [this.state.sides[0].faction, this.state.sides[1].faction], cmds: [...this.log] };
+    return { v: 2, seed: this.seed, factions: [this.state.sides[0].faction, this.state.sides[1].faction], cmds: [...this.log] };
   }
 
   /** `alpha` is how far between the last tick and the next the picture should be (0..1). */

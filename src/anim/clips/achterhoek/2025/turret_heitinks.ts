@@ -1,6 +1,6 @@
-import { swing } from '../humanoid.ts';
-import { pop, rattle } from '../props.ts';
-import type { Clip, Key } from '../types.ts';
+import { swing } from '../../../humanoid.ts';
+import { pop, rattle } from '../../../props.ts';
+import type { Clip, Key } from '../../../types.ts';
 
 /** Two beats per loop: "NEE!" ... "NEE!" */
 const PUMP: Key[] = [[0, 0], [0.1, -10, 'out'], [0.24, 3, 'in'], [0.5, 0, 'inOut'], [0.6, -10, 'out'], [0.74, 3, 'in'], [1, 0, 'inOut']];
@@ -15,7 +15,7 @@ const STOMP_LATE: Key[] = [[0, 0], [0.25, 0], [0.35, -3, 'out'], [0.47, 0, 'in']
  * waits. When the turret fires he throws it and the old folks jab their signs
  * at the enemy.
  */
-export const heitinkClips: { idle: Clip; attack: Clip } = {
+const heitinkClips: { idle: Clip; attack: Clip } = {
   idle: {
     loop: true,
     seconds: 1.7,
@@ -55,3 +55,5 @@ export const heitinkClips: { idle: Clip; attack: Clip } = {
     },
   },
 };
+
+export default heitinkClips;

@@ -23,12 +23,6 @@ function keyRow(grid: HTMLElement, key: string, rig: string, name: string, blurb
   grid.append(el('kbd', '', key), picture, text);
 }
 
-/** The drawing that stands for each special on the title card. */
-const SPECIAL_ART: Record<string, string> = {
-  'hm.e4.special': 'havermelk/e4/special_blokkade',
-  'ah.e4.special': 'achterhoek/e4/special_kolonne',
-};
-
 function sideCard(side: Side, faction: FactionId): HTMLElement {
   const era = eraOf(faction, 0);
   const box = el('div', side === 0 ? 'side' : 'side right');
@@ -45,7 +39,11 @@ function sideCard(side: Side, faction: FactionId): HTMLElement {
     keyRow(keys, label[`buy${slot}` as Action], unit.rig, nameOf(unit.id), NL.blurbs[unit.id] ?? '');
   });
   keyRow(keys, label.turret, era.turret.rig, nameOf(era.turret.id), NL.blurbs[era.turret.id] ?? '', false);
-  keyRow(keys, label.special, SPECIAL_ART[era.special.id] ?? '', nameOf(era.special.id), NL.blurbs[era.special.id] ?? '');
+  keyRow(keys, label.special, era.special.rig ?? '', nameOf(era.special.id), NL.blurbs[era.special.id] ?? '');
+  // What the last two keys do is the same in every era; the picture shows what is to come.
+  const future = FACTIONS[faction].eras.at(-1)!;
+  keyRow(keys, label.subsidy, '', NL.start.subsidy.name, NL.start.subsidy.blurb);
+  keyRow(keys, label.eraUp, future.units[2].rig, NL.start.eraUp.name, NL.start.eraUp.blurb);
   box.append(head, keys);
   return box;
 }
@@ -66,7 +64,13 @@ export class Screens {
     const go = el('button', 'go', NL.start.go);
     go.type = 'button';
     go.addEventListener('click', onConfirm);
-    card.append(el('h1', '', NL.title), el('h2', '', NL.tagline), versus, el('p', '', `${NL.start.goal} ${NL.start.pause}.`), go);
+    card.append(
+      el('h1', '', NL.title),
+      el('h2', '', NL.tagline),
+      versus,
+      el('p', '', `${NL.start.goal} ${NL.start.eras} ${NL.start.pause}.`),
+      go,
+    );
     this.title.append(card);
 
     this.pause = el('div', 'screen');

@@ -1,8 +1,10 @@
+import type { EraKey } from './balance.ts';
+
 export type FactionId = 'havermelk' | 'achterhoek';
 export type Role = 'light' | 'ranged' | 'heavy';
 
 export interface ShotDef {
-  /** Art id of the projectile, e.g. 'havermelk/e4/shot_flatwhite'. */
+  /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
   rig: string;
   /** Sub-units per tick. */
   speed: number;
@@ -16,7 +18,7 @@ export interface ShotDef {
 export interface UnitDef {
   id: string;
   role: Role;
-  /** Art id, e.g. 'havermelk/e4/barista_bo'. */
+  /** Art id, e.g. 'havermelk/2025/barista_bo'. */
   rig: string;
   cost: number;
   buildTicks: number;
@@ -49,22 +51,29 @@ interface SpecialBase {
   id: string;
   cooldown: number;
   firstReady: number;
+  /** Art that goes with it, if any. Looks only. */
+  rig?: string;
 }
 
 export type SpecialDef = SpecialBase &
   (
     | { kind: 'wave'; rig: string; speed: number; dmg: number } // sweeps the lane, hits every enemy unit once
     | { kind: 'stun'; ticks: number } // enemy units on the lane can neither walk nor fight for a while
+    | { kind: 'buff'; ticks: number; dmgPercent: number; speedPercent: number } // own units hit harder and move faster
+    | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
+    | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
+    | { kind: 'snipe'; dmg: number } // one heavy blow on the toughest enemy unit
   );
 
 export interface EraDef {
   id: string;
-  /** The year this era becomes available. */
+  key: EraKey;
+  /** The year it stands for, shown in the HUD. */
   year: number;
   baseRig: string;
   baseHp: number;
-  income: number;
-  eraUpCost: number | null;
+  /** Vooruitgang needed to modernize to the next era; null for the last one. */
+  progressNeeded: number | null;
   units: [UnitDef, UnitDef, UnitDef];
   turret: TurretDef;
   special: SpecialDef;

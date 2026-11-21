@@ -1,5 +1,5 @@
-import { bob, flinch, idle, slinkOff, swing, walk } from '../humanoid.ts';
-import type { ClipSet, Key, Track } from '../types.ts';
+import { bob, flinch, idle, slinkOff, swing, walk } from '../../../humanoid.ts';
+import type { ClipSet, Key, Track } from '../../../types.ts';
 
 /** Rotor blur: squashes sideways many times per cycle. */
 const WHIRR: Key[] = [[0, 1], [0.5, 0.35, 'linear'], [1, 1, 'linear']];
@@ -13,7 +13,7 @@ const rotors = (rate: number): Record<string, Track> => ({
  * spray drone hovers ahead of him. To attack he jabs the controller forward and
  * the drone dips its nose and squirts.
  */
-export const dronink: ClipSet = {
+const dronink: ClipSet = {
   idle: idle(
     { seconds: 2.2, breathe: 0.03, armSway: 2 },
     {
@@ -73,3 +73,5 @@ export const dronink: ClipSet = {
     },
   ),
 };
+
+export default dronink;

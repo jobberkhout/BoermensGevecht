@@ -2,11 +2,12 @@ import { CLIPS } from '../anim/clips/index.ts';
 import { attackTime, sampleClip } from '../anim/sample.ts';
 import type { Clip, ClipSet } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, LANE, SUB, TPS } from '../defs/balance.ts';
-import { eraOf, unitDef } from '../defs/index.ts';
+import { eraOf, specialDef, turretDef, turretEra, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
-import { SIDES, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
+import { frontUnit } from '../sim/lane.ts';
+import { BASE, SIDES, other, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
 import { NL, nameOf } from '../ui/nl.ts';
 import { dirOf, laneX, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
 
@@ -74,6 +75,9 @@ export interface TurretView {
   fired: number;
   x: number;
   y: number;
+  level: number;
+  /** Left over from an older era than its owner is in now. */
+  outdated: boolean;
 }
 
 export interface Floater {
@@ -109,9 +113,51 @@ export interface ShotView {
 export interface Blockade {
   /** The side that is being blocked. */
   side: Side;
+  rig: string;
   x: number;
   age: number;
   life: number;
+}
+
+/** The band of a Høken!, playing next to the farm for as long as the buff lasts. */
+export interface Band {
+  side: Side;
+  rig: string;
+  age: number;
+  life: number;
+}
+
+/** A drawing that flies from one spot to another and is gone: a heart, a diving drone, the algorithm's verdict. */
+export interface Sprite {
+  rig: string;
+  /** Which way it faces. */
+  side: Side;
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
+  scale: number;
+  age: number;
+  /** Seconds it takes to get there. */
+  life: number;
+  /** Seconds it stays there afterwards, fading. */
+  hold: number;
+  /** 'rise' slows down as it goes, 'drop' speeds up. */
+  ease: 'rise' | 'drop';
+  /** Colour of the puff where it lands, or '' for none. */
+  puff: string;
+  landed: boolean;
+}
+
+/** The drones of a Dronezwerm, hovering over whoever is next. */
+export interface Swarm {
+  /** The side that sent them. */
+  side: Side;
+  rig: string;
+  x: number;
+  y: number;
+  /** How many are still to dive. */
+  left: number;
 }
 
 export const GHOST_LIFE = 1.5;
@@ -119,12 +165,24 @@ export const SPAWN_FADE = 0.3;
 const BLEND_SECONDS = 0.12;
 const NEVER = 99;
 
+/** How high above the road a swarm hovers, and where a blow from above lands. */
+const SWARM_Y = -250;
+const STRIKE_Y = -55;
+
 /** What a projectile leaves behind when it lands. */
 const SPLASH: Record<string, string> = {
+  shot_bloemen: '#ff9fd0',
+  shot_herrie: '#fff27a',
+  shot_voederbiet: '#e9a63a',
+  shot_deksel: '#c9ced6',
   shot_flatwhite: '#b98a5a',
   shot_geklaag: '#ffffff',
   shot_ei: '#ffd94a',
   shot_spray: '#b6d24a',
+  shot_boba: '#8a5a3c',
+  shot_dislike: '#ff7a66',
+  shot_laser: '#ff6a55',
+  shot_melk: '#ffffff',
 };
 
 function makePuppet(rig: Rig | undefined, rigId: string): Puppet | null {
@@ -153,8 +211,13 @@ export class BattleView {
   puffs: Puff[] = [];
   shots: ShotView[] = [];
   blockades: Blockade[] = [];
+  bands: Band[] = [];
+  sprites: Sprite[] = [];
+  swarms: Swarm[] = [];
   /** 1 right after a base was struck, fading to 0. */
   baseFlash: [number, number] = [0, 0];
+  /** 1 right after a side modernized, fading to 0. */
+  eraFlash: [number, number] = [0, 0];
   /** Seconds the overtime banner has been up, or -1. */
   overtime = -1;
   /** Screen shake strength in pixels, fading out. */
@@ -165,6 +228,10 @@ export class BattleView {
   /** Where each flying shot left from, by shot id. */
   private launch = new Map<number, { x: number; y: number }>();
   private lastShot = new Map<number, ShotView>();
+  /** Where each swarm hovers, by barrage id, so it glides instead of jumping to the next victim. */
+  private hover = new Map<number, number>();
+  /** Seconds until the next note floats up from a side that is høken. */
+  private noteIn: [number, number] = [0, 0];
   private seed = 12345;
 
   constructor(rigOf: (id: string) => Rig | undefined) {
@@ -244,18 +311,96 @@ export class BattleView {
           if (t) t.fired = 0;
           break;
         }
+        case 'turretBuilt': {
+          const spot = this.turretSpot(s, e.side, e.slot);
+          for (let i = 0; i < 5; i++) {
+            this.puffs.push({ x: spot.x + (this.random() - 0.5) * 150, y: spot.y - 20 - this.random() * 110, age: -i * 0.04, life: 0.4, color: '#fffdf5', size: 26 });
+          }
+          if (e.how === 'upgrade') this.say(spot.x, spot.y - 150, `${NL.shout.upgraded} ${'★'.repeat(e.level)}`, '#ffd21f', 1.3, 24);
+          break;
+        }
+        case 'subsidy':
+          this.say(GATE_X[e.side] - dirOf(e.side) * 150, GROUND_Y - 330, NL.shout.subsidy, '#ffd21f', 1.6, 26);
+          break;
+        case 'eraUp': {
+          const state = s.sides[e.side];
+          const era = eraOf(state.faction, state.era);
+          this.eraFlash[e.side] = 1;
+          this.shake = Math.min(8, this.shake + 4);
+          // The old farm or house vanishes in a cloud and the new one stands there.
+          for (let i = 0; i < 16; i++) {
+            this.puffs.push({
+              x: GATE_X[e.side] - dirOf(e.side) * (20 + this.random() * 290),
+              y: GROUND_Y - 30 - this.random() * 470,
+              age: -this.random() * 0.25,
+              life: 0.55 + this.random() * 0.3,
+              color: i % 3 === 0 ? '#ffd21f' : '#fffdf5',
+              size: 34 + this.random() * 26,
+            });
+          }
+          this.say(GATE_X[e.side] + dirOf(e.side) * 250, rowY(0) - 250, `${NL.shout.modern} ${NL.era[era.id] ?? era.year}!`, '#ffd21f', 2.4, 40);
+          break;
+        }
         case 'stunned': {
           // The blockade sits just in front of the foremost unit it stopped.
           let front = -1;
           for (const u of s.sides[e.side].units) if (e.ids.includes(u.id)) front = Math.max(front, u.pos);
+          const owner = s.sides[other(e.side)];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
           if (front >= 0) {
-            this.blockades.push({ side: e.side, x: laneX(e.side, front) + dirOf(e.side) * 46, age: 0, life: e.ticks / TPS });
+            this.blockades.push({ side: e.side, rig, x: laneX(e.side, front) + dirOf(e.side) * 46, age: 0, life: e.ticks / TPS });
           }
+          break;
+        }
+        case 'buffed': {
+          const state = s.sides[e.side];
+          const rig = eraOf(state.faction, state.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== e.side);
+          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS });
+          this.noteIn[e.side] = 0;
+          break;
+        }
+        case 'healed': {
+          const state = s.sides[e.side];
+          const rig = eraOf(state.faction, state.era).special.rig ?? '';
+          for (const id of e.ids) {
+            const v = this.units.get(id);
+            if (!v) continue;
+            // A few hearts per unit, one after another.
+            for (let i = 0; i < 3; i++) {
+              const x = v.x + (this.random() - 0.5) * 40;
+              this.sprites.push({
+                rig, side: e.side, x0: x, y0: rowY(v.row) - 70, x1: x + (this.random() - 0.5) * 30, y1: rowY(v.row) - 190,
+                scale: 0.8 + this.random() * 0.4, age: -i * 0.22, life: 1.0, hold: 0, ease: 'rise', puff: '', landed: false,
+              });
+            }
+          }
+          break;
+        }
+        case 'sniped': {
+          // The verdict drops out of the sky onto whoever the algorithm picked.
+          const owner = s.sides[other(e.side)];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          const v = this.units.get(e.id);
+          const x = v ? v.x : laneX(e.side, e.pos);
+          const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
+          this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: 1.25, age: 0, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
+          this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);
+          break;
+        }
+        case 'barrageHit': {
+          // One drone leaves the formation and dives.
+          const swarm = this.swarms.find((w) => w.side === other(e.side));
+          const v = e.id === BASE ? undefined : this.units.get(e.id);
+          const x = v ? v.x : e.id === BASE ? GATE_X[e.side] - dirOf(e.side) * 60 : laneX(e.side, e.pos);
+          const y = rowY(v ? v.row : 1) + STRIKE_Y;
+          const from = swarm ?? { x: x - dirOf(e.side) * 160, y: GROUND_Y + SWARM_Y, rig: '' };
+          this.sprites.push({ rig: from.rig, side: other(e.side), x0: from.x, y0: from.y, x1: x, y1: y, scale: 1, age: 0, life: 0.16, hold: 0, ease: 'drop', puff: '#b6d24a', landed: false });
           break;
         }
         case 'special':
           this.shake = Math.min(8, this.shake + 3);
-          this.say(GATE_X[e.side] + dirOf(e.side) * 330, rowY(0) - 210, `${nameOf(e.id)}!`, '#ffd21f', 1.8, 44);
+          this.say(GATE_X[e.side] + dirOf(e.side) * 330, rowY(0) - 210, `${nameOf(e.id).replace(/!$/, '')}!`, '#ffd21f', 1.8, 44);
           break;
         case 'overtime':
           this.overtime = 0;
@@ -284,10 +429,64 @@ export class BattleView {
     this.puffs = this.puffs.filter((p) => p.age < p.life);
     for (const b of this.blockades) b.age += dt;
     this.blockades = this.blockades.filter((b) => b.age < b.life);
+    this.updateBands(s, dt);
+    this.updateSwarms(s, dt);
+    this.updateSprites(dt);
 
-    for (const side of SIDES) this.baseFlash[side] = Math.max(0, this.baseFlash[side] - dt * 4);
+    for (const side of SIDES) {
+      this.baseFlash[side] = Math.max(0, this.baseFlash[side] - dt * 4);
+      this.eraFlash[side] = Math.max(0, this.eraFlash[side] - dt * 1.6);
+    }
     this.shake = Math.max(0, this.shake - dt * 14);
     if (this.overtime >= 0) this.overtime += dt;
+  }
+
+  /** While the band plays, notes float up from the units it fires up. */
+  private updateBands(s: SimState, dt: number): void {
+    for (const b of this.bands) b.age += dt;
+    this.bands = this.bands.filter((b) => b.age < b.life);
+    for (const side of SIDES) {
+      if (s.sides[side].buffUntil <= s.tick) continue;
+      this.noteIn[side] -= dt;
+      if (this.noteIn[side] > 0) continue;
+      this.noteIn[side] = 0.16;
+      const mine = [...this.units.values()].filter((v) => v.side === side);
+      if (mine.length === 0) continue;
+      const v = this.pick(mine);
+      this.say(v.x + (this.random() - 0.5) * 30, rowY(v.row) - 120, this.random() < 0.5 ? '♪' : '♫', '#ffd21f', 0.8, 30);
+    }
+  }
+
+  /** A swarm glides to wherever the foremost enemy is, or to the enemy's gate when the lane is empty. */
+  private updateSwarms(s: SimState, dt: number): void {
+    const seen = new Set<number>();
+    this.swarms.length = 0;
+    for (const b of s.barrages) {
+      seen.add(b.id);
+      const foe = other(b.side);
+      const target = frontUnit(s.sides[foe].units);
+      const v = target ? this.units.get(target.id) : undefined;
+      const want = v ? v.x : GATE_X[foe] - dirOf(foe) * 60;
+      const from = this.hover.get(b.id) ?? GATE_X[b.side];
+      const x = from + (want - from) * Math.min(1, dt * 7);
+      this.hover.set(b.id, x);
+      this.swarms.push({ side: b.side, rig: b.rig, x, y: GROUND_Y + SWARM_Y, left: b.left });
+    }
+    for (const id of this.hover.keys()) if (!seen.has(id)) this.hover.delete(id);
+  }
+
+  private updateSprites(dt: number): void {
+    for (const sp of this.sprites) {
+      sp.age += dt;
+      if (!sp.landed && sp.age >= sp.life) {
+        sp.landed = true;
+        if (sp.puff) {
+          this.puffs.push({ x: sp.x1, y: sp.y1, age: 0, life: 0.35, color: sp.puff, size: 30 * sp.scale });
+          this.shake = Math.min(6, this.shake + 1.5);
+        }
+      }
+    }
+    this.sprites = this.sprites.filter((sp) => sp.age < sp.life + sp.hold);
   }
 
   private updateUnits(s: SimState, alpha: number, dt: number): void {
@@ -386,7 +585,8 @@ export class BattleView {
           views[slot] = null;
           return;
         }
-        const rigId = eraOf(state.faction, state.era).turret.rig;
+        // A turret keeps the looks of the era it was bought in until it is bought again.
+        const rigId = turretDef(turret.def).rig;
         let view = views[slot];
         if (!view || view.rigId !== rigId) {
           const rig = this.rigOf(rigId);
@@ -405,9 +605,13 @@ export class BattleView {
             fired: NEVER,
             x: 0,
             y: 0,
+            level: 1,
+            outdated: false,
           };
           views[slot] = view;
         }
+        view.level = turret.level;
+        view.outdated = turretEra(state.faction, turret.def) < state.era;
         const spot = this.turretSpot(s, side, slot);
         view.x = spot.x;
         view.y = spot.y;

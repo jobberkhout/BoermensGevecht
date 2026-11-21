@@ -1,7 +1,7 @@
-import { UNIT_CAP } from '../defs/balance.ts';
+import { SUBSIDY } from '../defs/balance.ts';
 import { eraOf, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
-import { canDo } from '../sim/commands.ts';
+import { canDo, subsidyCost, turretPlan } from '../sim/commands.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
 import { other, type Command, type Side, type SimState } from '../sim/types.ts';
 
@@ -18,108 +18,98 @@ const BUY: Record<Role, Command> = {
 };
 const TURRET: Command = { t: 'turret' };
 const SPECIAL: Command = { t: 'special' };
-
-function count(s: SimState, side: Side, role: Role): number {
-  let n = 0;
-  for (const u of s.sides[side].units) if (unitDef(u.def).role === role) n++;
-  for (const q of s.sides[side].queue) if (unitDef(q.def).role === role) n++;
-  return n;
-}
-
-/**
- * Every bot uses its special the same way: when enough enemies are on the lane
- * to make it count. A stun is only worth it while someone is there to exploit it.
- */
-function special(s: SimState, side: Side): Command | null {
-  const me = s.sides[side];
-  if (s.sides[other(side)].units.length < 3 || !canDo(s, side, SPECIAL)) return null;
-  if (eraOf(me.faction, me.era).special.kind === 'stun') {
-    const fighting = me.units.filter((u) => u.act === 'attack').length;
-    if (fighting < 2) return null;
-  }
-  return SPECIAL;
-}
+const ERA_UP: Command = { t: 'eraUp' };
+const SUBSIDY_CMD: Command = { t: 'subsidy' };
 
 function tryCmd(s: SimState, side: Side, cmd: Command): Command | null {
   return canDo(s, side, cmd) ? cmd : null;
 }
 
-/** Nothing but the cheapest unit, as fast as the money allows. */
-export const rush: Bot = (s, side) => special(s, side) ?? tryCmd(s, side, BUY.light);
-
-/** One unit up front to take the blows, ranged units behind it. */
-export const archers: Bot = (s, side) => {
-  const sp = special(s, side);
-  if (sp) return sp;
-  if (count(s, side, 'light') === 0) return tryCmd(s, side, BUY.light);
-  return tryCmd(s, side, BUY.ranged);
-};
-
-/** Saves up for heavies; buys a cheap unit only when the lane is being overrun. */
-export const heavies: Bot = (s, side) => {
-  const sp = special(s, side);
-  if (sp) return sp;
-  const heavy = tryCmd(s, side, BUY.heavy);
-  if (heavy) return heavy;
-  const outnumbered = s.sides[other(side)].units.length > s.sides[side].units.length + s.sides[side].queue.length + 1;
-  return outnumbered ? tryCmd(s, side, BUY.light) : null;
-};
-
-/** Turrets first, then a defensive line. */
-export const turtle: Bot = (s, side) => {
-  const sp = special(s, side);
-  if (sp) return sp;
+/** Every bot uses its special the same way: when it would clearly pay off, whatever kind it is. */
+function special(s: SimState, side: Side): Command | null {
+  if (!canDo(s, side, SPECIAL)) return null;
   const me = s.sides[side];
-  if (me.turrets.includes(null)) {
-    // Keep one cheap unit out while saving for the turret.
-    if (me.units.length + me.queue.length === 0 && me.gold >= eraOf(me.faction, me.era).turret.cost + 60) {
-      return tryCmd(s, side, BUY.light);
+  const foe = s.sides[other(side)];
+  const fighting = me.units.filter((u) => u.act === 'attack').length;
+  const kind = eraOf(me.faction, me.era).special.kind;
+  let worth = false;
+  switch (kind) {
+    case 'wave':
+    case 'barrage':
+      worth = foe.units.length >= 3;
+      break;
+    case 'snipe':
+      worth = foe.units.length >= 4 || foe.units.some((u) => unitDef(u.def).role === 'heavy');
+      break;
+    case 'stun':
+      worth = foe.units.length >= 3 && fighting >= 2;
+      break;
+    case 'buff':
+      worth = fighting >= 2;
+      break;
+    case 'heal': {
+      let missing = 0;
+      let full = 0;
+      for (const u of me.units) {
+        full += unitDef(u.def).hp;
+        missing += unitDef(u.def).hp - u.hp;
+      }
+      worth = me.units.length >= 2 && missing * 100 >= full * 35;
+      break;
     }
-    return tryCmd(s, side, TURRET);
   }
-  if (count(s, side, 'light') === 0) return tryCmd(s, side, BUY.light);
-  return tryCmd(s, side, BUY.ranged);
-};
+  return worth ? SPECIAL : null;
+}
 
-/** A sensible mix: two lights and two ranged for every heavy, plus a turret after the first round. */
-export function mixed(): Bot {
-  const pattern: Role[] = ['light', 'ranged', 'light', 'ranged', 'heavy'];
+export interface Style {
+  /** The order in which it buys units, over and over. */
+  units: Role[];
+  /** How many times it applies for subsidie in the first era; one more in each later era. */
+  eco: number;
+  /** False for a bot that stays in the first era whatever happens. */
+  modernizes: boolean;
+  turrets: boolean;
+  /** Units it wants out before it starts saving for anything. */
+  guard: number;
+}
+
+/** A bot that follows a style: an army recipe plus how greedy it is with money and progress. */
+export function brain(style: Style): Bot {
   let bought = 0;
   return (s, side) => {
     const sp = special(s, side);
     if (sp) return sp;
-    if (bought >= pattern.length && s.sides[side].turrets.includes(null)) {
-      return tryCmd(s, side, TURRET);
+    // Modernizing costs nothing but the vooruitgang that has been gathered, so take it when it is there.
+    if (style.modernizes && canDo(s, side, ERA_UP)) return ERA_UP;
+
+    const me = s.sides[side];
+    const foe = s.sides[other(side)];
+    const mine = me.units.length + me.queue.length;
+    const pressed = foe.units.length > mine;
+
+    if (!pressed && mine >= style.guard) {
+      // Money first, then defences. While it is close to affording the next
+      // step it stops buying units, as a person saving up would.
+      const eco = Math.min(SUBSIDY.cost.length, style.eco + me.era);
+      const ecoCost = subsidyCost(s, side);
+      if (me.subsidy < eco && ecoCost !== null) {
+        if (me.gold >= ecoCost) return SUBSIDY_CMD;
+        if (me.gold * 2 >= ecoCost) return null;
+      }
+      const plan = style.turrets ? turretPlan(s, side) : null;
+      if (plan && me.gold >= plan.cost) return TURRET;
     }
-    const cmd = tryCmd(s, side, BUY[pattern[bought % pattern.length]!]);
+
+    const cmd = tryCmd(s, side, BUY[style.units[bought % style.units.length]!]);
     if (cmd) bought++;
     return cmd;
   };
 }
 
-/**
- * Plays the way a sensible person would: a front line, ranged units behind it,
- * a turret when it can be afforded, and heavies once the money piles up.
- */
-export const adaptive: Bot = (s, side) => {
-  const sp = special(s, side);
-  if (sp) return sp;
-  const me = s.sides[side];
-  const era = eraOf(me.faction, me.era);
-  const front = count(s, side, 'light') + count(s, side, 'heavy');
-  const total = me.units.length + me.queue.length;
-  if (total >= 4 && me.turrets.includes(null) && me.gold >= era.turret.cost) return TURRET;
-  const heavyCost = era.units[2].cost;
-  if (me.gold >= heavyCost + 120 || (total >= UNIT_CAP - 2 && me.gold >= heavyCost)) return tryCmd(s, side, BUY.heavy);
-  if (front === 0) return tryCmd(s, side, BUY.light);
-  if (count(s, side, 'ranged') < 2 * front + 1) return tryCmd(s, side, BUY.ranged);
-  return tryCmd(s, side, BUY.light);
-};
-
 /** Presses random buttons. Finds the situations a sensible player would never create. */
 export function random(seed: number): Bot {
   let state = seed >>> 0;
-  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, TURRET, SPECIAL];
+  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, BUY.light, BUY.ranged, TURRET, SPECIAL, ERA_UP, SUBSIDY_CMD];
   return (s, side) => {
     state = nextRng(state);
     const roll = rngValue(state);
@@ -129,10 +119,21 @@ export function random(seed: number): Bot {
 }
 
 export const BOTS: Record<string, () => Bot> = {
-  rush: () => rush,
-  archers: () => archers,
-  heavies: () => heavies,
-  turtle: () => turtle,
-  mixed,
-  adaptive: () => adaptive,
+  /** Nothing but the cheapest unit, and it never modernizes. */
+  rush: () => brain({ units: ['light'], eco: 0, modernizes: false, turrets: false, guard: 99 }),
+  /** Cheap units only, but it does move with the times. */
+  swarm: () => brain({ units: ['light', 'light', 'ranged'], eco: 0, modernizes: true, turrets: false, guard: 99 }),
+  /** One unit up front, ranged behind it. */
+  archers: () => brain({ units: ['light', 'ranged', 'ranged', 'ranged'], eco: 1, modernizes: true, turrets: false, guard: 4 }),
+  /** Saves for heavies. */
+  heavies: () => brain({ units: ['heavy'], eco: 1, modernizes: true, turrets: false, guard: 1 }),
+  /** Defences and a firing line. */
+  turtle: () => brain({ units: ['light', 'ranged', 'ranged'], eco: 2, modernizes: true, turrets: true, guard: 3 }),
+  /** A bit of everything. */
+  mixed: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], eco: 1, modernizes: true, turrets: true, guard: 4 }),
+  /** Subsidie first, everything else later. */
+  banker: () => brain({ units: ['light', 'ranged', 'ranged'], eco: 4, modernizes: true, turrets: true, guard: 2 }),
 };
+
+/** A sensible all-rounder, for tests that need two identical players. */
+export const mixed = BOTS.mixed!;

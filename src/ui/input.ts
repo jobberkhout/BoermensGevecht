@@ -1,9 +1,9 @@
 import type { Command, Side } from '../sim/types.ts';
 
-/** The six things a player can do. Buttons and keys both speak in these. */
-export type Action = 'buy0' | 'buy1' | 'buy2' | 'turret' | 'special' | 'eraUp';
+/** The seven things a player can do. Buttons and keys both speak in these. */
+export type Action = 'buy0' | 'buy1' | 'buy2' | 'turret' | 'special' | 'subsidy' | 'eraUp';
 
-export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'turret', 'special', 'eraUp'];
+export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'turret', 'special', 'subsidy', 'eraUp'];
 
 export function commandOf(action: Action): Command {
   switch (action) {
@@ -17,6 +17,8 @@ export function commandOf(action: Action): Command {
       return { t: 'turret' };
     case 'special':
       return { t: 'special' };
+    case 'subsidy':
+      return { t: 'subsidy' };
     case 'eraUp':
       return { t: 'eraUp' };
   }
@@ -32,19 +34,21 @@ const KEYS: Record<string, { side: Side; action: Action }> = {
   KeyE: { side: 0, action: 'buy2' },
   KeyA: { side: 0, action: 'turret' },
   KeyS: { side: 0, action: 'special' },
-  KeyD: { side: 0, action: 'eraUp' },
+  KeyD: { side: 0, action: 'subsidy' },
+  KeyF: { side: 0, action: 'eraUp' },
   KeyU: { side: 1, action: 'buy0' },
   KeyI: { side: 1, action: 'buy1' },
   KeyO: { side: 1, action: 'buy2' },
   KeyJ: { side: 1, action: 'turret' },
   KeyK: { side: 1, action: 'special' },
-  KeyL: { side: 1, action: 'eraUp' },
+  KeyL: { side: 1, action: 'subsidy' },
+  Semicolon: { side: 1, action: 'eraUp' },
 };
 
 /** What is printed on the key in the usual layout, shown on the buttons. */
 export const KEY_LABEL: Record<Side, Record<Action, string>> = {
-  0: { buy0: 'Q', buy1: 'W', buy2: 'E', turret: 'A', special: 'S', eraUp: 'D' },
-  1: { buy0: 'U', buy1: 'I', buy2: 'O', turret: 'J', special: 'K', eraUp: 'L' },
+  0: { buy0: 'Q', buy1: 'W', buy2: 'E', turret: 'A', special: 'S', subsidy: 'D', eraUp: 'F' },
+  1: { buy0: 'U', buy1: 'I', buy2: 'O', turret: 'J', special: 'K', subsidy: 'L', eraUp: ';' },
 };
 
 export interface KeyHandlers {

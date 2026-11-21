@@ -1,6 +1,6 @@
-import { bob } from '../humanoid.ts';
-import type { ClipSet } from '../types.ts';
-import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../vehicle.ts';
+import { bob } from '../../../humanoid.ts';
+import type { ClipSet } from '../../../types.ts';
+import { idling, jolt, limpHome, roll, shove, type RollStyle } from '../../../vehicle.ts';
 
 const WHEELS: RollStyle = {
   bigWheel: 30,
@@ -13,7 +13,7 @@ const WHEELS: RollStyle = {
  * Giertink on his megatrekker: rumbles along with the tank sloshing behind,
  * backs up a little and rams forward while the nozzle whips over the cab.
  */
-export const giertink: ClipSet = {
+const giertink: ClipSet = {
   idle: idling(0.42, 0.9, {
     driver: { rot: [[0, 0], [0.5, 2.5, 'sineInOut'], [1, 0, 'sineInOut']] },
     tank: { y: [[0, 0], [0.5, 0.7, 'sineInOut'], [1, 0, 'sineInOut']] },
@@ -54,3 +54,5 @@ export const giertink: ClipSet = {
     tool: { rot: [[0, 52], [0.5, 60, 'sineInOut'], [1, 52, 'sineInOut']], rate: 4 },
   }),
 };
+
+export default giertink;

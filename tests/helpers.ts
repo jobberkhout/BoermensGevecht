@@ -4,8 +4,12 @@ import { createMatch } from '../src/sim/create.ts';
 import { step } from '../src/sim/step.ts';
 import type { Command, Side, SimEvent, SimState, Stamped, Unit } from '../src/sim/types.ts';
 
-export const HM = { light: 'hm.e4.light', ranged: 'hm.e4.ranged', heavy: 'hm.e4.heavy' } as const;
-export const AH = { light: 'ah.e4.light', ranged: 'ah.e4.ranged', heavy: 'ah.e4.heavy' } as const;
+/** Unit ids of the first era, the one every match starts in. */
+export const HM = { light: 'hm.1975.light', ranged: 'hm.1975.ranged', heavy: 'hm.1975.heavy' } as const;
+export const AH = { light: 'ah.1975.light', ranged: 'ah.1975.ranged', heavy: 'ah.1975.heavy' } as const;
+
+/** Era indices, for tests that need a side to be further along. */
+export const ERA = { y1975: 0, y2025: 1, y2050: 2 } as const;
 
 export function match(factions?: [FactionId, FactionId]): SimState {
   return createMatch(1, factions);
@@ -50,4 +54,10 @@ export function act(s: SimState, side: Side, cmd: Command): SimEvent[] {
 
 export function unit(s: SimState, side: Side, id: number): Unit | undefined {
   return s.sides[side].units.find((u) => u.id === id);
+}
+
+/** Gives a side enough money for anything and makes its special ready now. */
+export function rich(s: SimState, side: Side): void {
+  s.sides[side].gold = 1_000_000;
+  s.sides[side].specialReadyAt = 0;
 }

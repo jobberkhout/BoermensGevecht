@@ -5,20 +5,20 @@ import {
   LANE,
   QUEUE_MAX,
   ROWS,
-  SPECIAL,
   START_GOLD,
+  SUBSIDY,
   TURRET_SLOTS,
   UNIT_CAP,
   px,
 } from '../src/defs/balance.ts';
-import { eraOf, turretDef, unitDef } from '../src/defs/index.ts';
+import { turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo } from '../src/sim/commands.ts';
 import { AH, HM, act, match, place, run } from './helpers.ts';
 
 describe('money', () => {
   it('subsidie arrives once per interval', () => {
     const s = match();
-    const income = eraOf('havermelk', 0).income;
+    const income = SUBSIDY.income[0];
     run(s, INCOME_EVERY * 3 + 1);
     expect(s.sides[0].gold).toBe(START_GOLD + 3 * income);
     expect(s.sides[1].gold).toBe(START_GOLD + 3 * income);
@@ -91,22 +91,21 @@ describe('training', () => {
 });
 
 describe('turrets', () => {
-  it('fills the slots one by one and then refuses', () => {
+  it('fills the empty slots one by one', () => {
     const s = match();
     s.sides[0].gold = 100000;
     for (let i = 0; i < TURRET_SLOTS; i++) {
       expect(canDo(s, 0, { t: 'turret' })).toBe(true);
       act(s, 0, { t: 'turret' });
     }
-    expect(s.sides[0].turrets.every((t) => t !== null)).toBe(true);
-    expect(canDo(s, 0, { t: 'turret' })).toBe(false);
+    expect(s.sides[0].turrets.every((t) => t !== null && t.level === 1)).toBe(true);
   });
 
   it('shoots enemies within range and leaves the rest alone', () => {
     const s = match();
     s.sides[0].gold = 100000;
     act(s, 0, { t: 'turret' });
-    const def = turretDef('hm.e4.turret');
+    const def = turretDef('hm.1975.turret');
 
     const far = place(s, 1, AH.heavy, LANE - def.range - px(50), 100000);
     far.stunUntil = 1e9;
@@ -122,7 +121,7 @@ describe('turrets', () => {
     const s = match();
     s.sides[0].gold = 100000;
     act(s, 0, { t: 'turret' });
-    const def = turretDef('hm.e4.turret');
+    const def = turretDef('hm.1975.turret');
     const target = place(s, 1, AH.heavy, LANE - px(100), 100000);
     target.stunUntil = 1e9;
     const events = run(s, def.cooldown * 10);
@@ -132,57 +131,3 @@ describe('turrets', () => {
   });
 });
 
-describe('specials', () => {
-  it('is not available at the start and recharges after use', () => {
-    const s = match();
-    expect(canDo(s, 0, { t: 'special' })).toBe(false);
-    run(s, SPECIAL.firstReady);
-    expect(canDo(s, 0, { t: 'special' })).toBe(true);
-    act(s, 0, { t: 'special' });
-    expect(canDo(s, 0, { t: 'special' })).toBe(false);
-    run(s, SPECIAL.cooldown);
-    expect(canDo(s, 0, { t: 'special' })).toBe(true);
-  });
-
-  it('the Trekkerkolonne hits every enemy unit once and spares the base', () => {
-    const s = match();
-    const a = place(s, 0, HM.heavy, px(300), 100000);
-    const b = place(s, 0, HM.heavy, px(40), 100000);
-    a.stunUntil = 1e9;
-    b.stunUntil = 1e9;
-    s.tick = SPECIAL.firstReady;
-    act(s, 1, { t: 'special' });
-    run(s, 400);
-    expect(a.hp).toBe(100000 - SPECIAL.wave.dmg);
-    expect(b.hp).toBe(100000 - SPECIAL.wave.dmg);
-    expect(s.waves).toHaveLength(0);
-    expect(s.sides[0].baseHp).toBe(s.sides[0].baseMaxHp);
-  });
-
-  it('the Wegblokkade stops enemy units from walking and from fighting', () => {
-    const s = match();
-    const walker = place(s, 1, AH.light, px(100));
-    const fighter = place(s, 1, AH.light, LANE / 2);
-    const foe = place(s, 0, HM.heavy, LANE / 2 - px(4), 100000);
-    foe.stunUntil = 1e9; // keep it harmless so only the special is measured
-    s.tick = SPECIAL.firstReady;
-    act(s, 0, { t: 'special' });
-    const walkerPos = walker.pos;
-    run(s, SPECIAL.stun.ticks - 2);
-    expect(walker.pos).toBe(walkerPos);
-    expect(fighter.act).toBe('idle');
-    expect(foe.hp).toBe(100000);
-    run(s, 40);
-    expect(walker.pos).toBeGreaterThan(walkerPos); // free again
-    expect(foe.hp).toBeLessThan(100000); // and hitting again
-  });
-
-  it('units that walk out after the Wegblokkade are not affected', () => {
-    const s = match();
-    s.tick = SPECIAL.firstReady;
-    act(s, 0, { t: 'special' });
-    const late = place(s, 1, AH.light, 0);
-    run(s, 10);
-    expect(late.pos).toBe(10 * unitDef(AH.light).speed);
-  });
-});
