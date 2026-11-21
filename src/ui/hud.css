@@ -175,29 +175,35 @@ body {
 }
 
 .mute svg {
-  width: 1.5cqw;
+  width: 2.3cqw;
   height: 1.5cqw;
-  fill: var(--ink);
+  fill: none;
   stroke: var(--ink);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.mute svg .waves,
-.mute svg .off {
-  fill: none;
+.mute svg .spk,
+.mute svg .head {
+  fill: var(--ink);
 }
 
-.mute svg .off,
-.mute.muted svg .waves {
+.mute svg .no-music,
+.mute svg .no-sound {
   display: none;
-}
-
-.mute.muted svg .off {
-  display: inline;
   stroke: #e0442c;
   stroke-width: 3;
+}
+
+.mute[data-mode='effects'] svg .no-music,
+.mute[data-mode='off'] svg .no-music,
+.mute[data-mode='off'] svg .no-sound {
+  display: inline;
+}
+
+.mute[data-mode='off'] svg .waves {
+  display: none;
 }
 
 .mute kbd {

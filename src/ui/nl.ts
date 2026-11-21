@@ -55,7 +55,13 @@ export const NL = {
     paused: 'Pauze',
     resume: 'Spatie om verder te gaan',
     overtime: 'Overtijd! Beide bases brokkelen af',
-    sound: 'Geluid aan of uit (M)',
+  },
+
+  /** What the sound button says in each of its three positions. */
+  sound: {
+    all: 'Muziek en geluid aan (M)',
+    effects: 'Alleen geluidseffecten (M)',
+    off: 'Geluid uit (M)',
   },
 
   /** Why a button press was refused. */
@@ -72,7 +78,7 @@ export const NL = {
     right: 'Rechter speler',
     keys: 'Toetsen',
     units: 'Eenheden',
-    pause: 'Spatie = pauze, M = geluid uit',
+    pause: 'Spatie = pauze, M = muziek of geluid uit',
     goal: 'Sloop de basis van de ander. Wie in de overtijd de minste schade heeft, wint.',
   },
 

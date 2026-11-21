@@ -1,13 +1,17 @@
 /**
  * All sound in the game, made on the spot with the Web Audio API. There are no
  * audio files: every effect is a few oscillators and some noise, and the tune
- * is a list of notes played by a small sequencer.
+ * is a list of chords and notes played by a small sequencer.
  *
  * Browsers only allow sound after a key press or click, so nothing happens
  * until unlock() is called from one.
  */
 
 type AudioWindow = Window & { webkitAudioContext?: typeof AudioContext };
+
+/** Everything, effects without the tune, or silence. The M key steps through them. */
+export type SoundMode = 'all' | 'effects' | 'off';
+export const SOUND_MODES: readonly SoundMode[] = ['all', 'effects', 'off'];
 
 interface ToneOptions {
   type: OscillatorType;
@@ -19,6 +23,13 @@ interface ToneOptions {
   /** Seconds from now. */
   at?: number;
   attack?: number;
+  /**
+   * With `sustain` the note holds at that share of its gain until it is
+   * released, like a key held down. Without it the note simply dies away.
+   */
+  sustain?: number;
+  /** Seconds to fall from the attack to the sustain level. */
+  decay?: number;
   music?: boolean;
 }
 
@@ -34,51 +45,98 @@ interface HissOptions {
   music?: boolean;
 }
 
-const STORAGE_KEY = 'boermensgevecht.muted';
+const STORAGE_KEY = 'boermensgevecht.sound';
 
-/** Overall volume. The levels are checked by a browser test: audible on average, never clipping. */
+/** Overall volume, and the tune's share of it. A browser test checks the result: audible, soft, never clipping. */
 const MASTER = 0.9;
+const EFFECTS = 0.6;
+const MUSIC = 0.2;
 
 // ---- the tune ---------------------------------------------------------------
-// Four bars of oom-pah in C: C, F, G, C. Sixteen steps to the bar.
+// A slow, mellow loop of 32 bars: soft chords, a quiet bass, brushed drums and
+// a melody that comes and goes. Sixteen steps to the bar.
 
 export const NOTE: Record<string, number> = {
-  C2: 65.41, F2: 87.31, G2: 98.0, C3: 130.81, D3: 146.83, E3: 164.81, F3: 174.61, G3: 196.0, A3: 220.0, B3: 246.94,
+  C2: 65.41, D2: 73.42, E2: 82.41, F2: 87.31, G2: 98.0, A2: 110.0,
+  C3: 130.81, D3: 146.83, E3: 164.81, F3: 174.61, G3: 196.0, A3: 220.0, B3: 246.94,
   C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23, G4: 392.0, A4: 440.0, B4: 493.88,
-  C5: 523.25, D5: 587.33, E5: 659.25, F5: 698.46, G5: 783.99, A5: 880.0, B5: 987.77, C6: 1046.5, D6: 1174.66,
+  C5: 523.25, D5: 587.33, E5: 659.25, F5: 698.46, G5: 783.99, A5: 880.0, B5: 987.77, C6: 1046.5,
 };
 
-export interface Bar {
-  bass: [root: string, fifth: string];
-  chord: [string, string, string];
-  /** Melody by step: note name, or null for a rest. Only even steps are used. */
-  tune: (string | null)[];
+export interface Chord {
+  bass: string;
+  fifth: string;
+  /** Four notes, played softly together. */
+  notes: [string, string, string, string];
 }
 
-export const BARS: Bar[] = [
-  { bass: ['C2', 'G2'], chord: ['E4', 'G4', 'C5'], tune: ['E5', 'G5', 'E5', 'C5', 'D5', 'E5', 'G5', null] },
-  { bass: ['F2', 'C3'], chord: ['F4', 'A4', 'C5'], tune: ['A5', 'G5', 'F5', 'A5', 'C6', 'A5', 'F5', null] },
-  { bass: ['G2', 'D3'], chord: ['D4', 'G4', 'B4'], tune: ['B5', 'A5', 'G5', 'B5', 'D6', 'B5', 'G5', null] },
-  { bass: ['C2', 'G2'], chord: ['E4', 'G4', 'C5'], tune: ['E5', 'G5', 'C6', 'G5', 'E5', 'D5', 'C5', null] },
-];
+export const CHORDS: Record<string, Chord> = {
+  C: { bass: 'C2', fifth: 'G2', notes: ['E3', 'G3', 'B3', 'D4'] },
+  Am: { bass: 'A2', fifth: 'E2', notes: ['G3', 'A3', 'C4', 'E4'] },
+  Dm: { bass: 'D2', fifth: 'A2', notes: ['F3', 'A3', 'C4', 'E4'] },
+  G: { bass: 'G2', fifth: 'D2', notes: ['F3', 'A3', 'B3', 'D4'] },
+  F: { bass: 'F2', fifth: 'C3', notes: ['E3', 'G3', 'A3', 'C4'] },
+  Em: { bass: 'E2', fifth: 'G2', notes: ['D3', 'G3', 'B3', 'E4'] },
+};
+
+const VERSE = ['C', 'Am', 'Dm', 'G', 'C', 'Am', 'Dm', 'G'];
+const BRIDGE = ['F', 'Em', 'Dm', 'G', 'F', 'Em', 'Dm', 'G'];
+/** Verse, verse, bridge, verse. */
+export const SONG: readonly string[] = [...VERSE, ...VERSE, ...BRIDGE, ...VERSE];
+
+/** The melody, by bar: [step, note, length in steps]. Most bars have none, so it never nags. */
+export const MELODY: Record<number, readonly [number, string, number][]> = {
+  8: [[0, 'E5', 3], [4, 'G5', 2], [6, 'A5', 6]],
+  9: [[0, 'G5', 3], [4, 'E5', 8]],
+  10: [[0, 'D5', 3], [4, 'F5', 2], [6, 'A5', 6]],
+  11: [[0, 'G5', 10]],
+  12: [[0, 'E5', 2], [2, 'G5', 2], [4, 'C6', 8]],
+  13: [[0, 'A5', 3], [4, 'G5', 8]],
+  14: [[0, 'F5', 3], [4, 'E5', 2], [6, 'D5', 6]],
+  15: [[0, 'D5', 6], [8, 'B4', 6]],
+  16: [[0, 'A5', 4], [4, 'C6', 8]],
+  17: [[0, 'B5', 4], [4, 'G5', 8]],
+  18: [[0, 'A5', 3], [4, 'F5', 8]],
+  19: [[0, 'G5', 3], [4, 'D5', 8]],
+  20: [[0, 'A5', 2], [2, 'C6', 2], [4, 'A5', 8]],
+  21: [[0, 'G5', 4], [6, 'E5', 6]],
+  22: [[0, 'F5', 4], [8, 'D5', 6]],
+  23: [[0, 'B4', 4], [4, 'D5', 8]],
+  28: [[0, 'E5', 3], [4, 'G5', 2], [6, 'A5', 6]],
+  29: [[0, 'G5', 3], [4, 'E5', 8]],
+  30: [[0, 'D5', 4], [8, 'E5', 4]],
+  31: [[0, 'C5', 12]],
+};
 
 const STEPS_PER_BAR = 16;
-const BPM = 104;
+const BPM = 92;
+/** Off-beat notes arrive a little late, which makes the rhythm stroll instead of march. */
+const SWING = 0.3;
+
+function readMode(): SoundMode {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'all' || stored === 'effects' || stored === 'off') return stored;
+  } catch {
+    // Private windows may refuse storage; sound then simply starts on.
+  }
+  return 'all';
+}
 
 export class Sound {
-  muted: boolean;
-  /** 1 is normal speed; overtime plays it faster. */
+  mode: SoundMode;
+  /** 1 is normal speed; overtime plays it a little faster. */
   tempo = 1;
 
   private ctx: BaseAudioContext | null = null;
-  /** Added to every start time. Only used to lay effects out one after another when measuring levels. */
-  private offset = 0;
   private master: GainNode | null = null;
   private sfx: GainNode | null = null;
   private music: GainNode | null = null;
   private noise: AudioBuffer | null = null;
   /** When each effect last played, so twenty hits in one frame do not become a roar. */
   private lastPlayed = new Map<string, number>();
+  /** Added to every start time. Only used to lay effects out one after another when measuring levels. */
+  private offset = 0;
   private timer = 0;
   private step = 0;
   private nextStepAt = 0;
@@ -86,13 +144,7 @@ export class Sound {
 
   constructor(enabled = true) {
     this.enabled = enabled;
-    let stored: string | null = null;
-    try {
-      stored = localStorage.getItem(STORAGE_KEY);
-    } catch {
-      // Private windows may refuse storage; sound then simply starts on.
-    }
-    this.muted = stored === '1';
+    this.mode = readMode();
   }
 
   /** 'off' when sound is unavailable or not yet unlocked, otherwise the audio context's state. */
@@ -115,14 +167,31 @@ export class Sound {
     try {
       const ctx: BaseAudioContext = offline ?? new Ctor!();
       this.master = ctx.createGain();
-      this.master.gain.value = this.muted ? 0 : MASTER;
       this.master.connect(ctx.destination);
       this.sfx = ctx.createGain();
-      this.sfx.gain.value = 0.6;
+      this.sfx.gain.value = EFFECTS;
       this.sfx.connect(this.master);
+
+      // The tune goes through a low-pass filter that takes the edge off, and a
+      // faint echo that gives it some room.
       this.music = ctx.createGain();
-      this.music.gain.value = 0.26;
-      this.music.connect(this.master);
+      const soften = ctx.createBiquadFilter();
+      soften.type = 'lowpass';
+      soften.frequency.value = 1900;
+      soften.Q.value = 0.4;
+      const echo = ctx.createDelay(1);
+      echo.delayTime.value = (60 / BPM) * 0.75;
+      const feedback = ctx.createGain();
+      feedback.gain.value = 0.28;
+      const wet = ctx.createGain();
+      wet.gain.value = 0.22;
+      this.music.connect(soften);
+      this.music.connect(echo);
+      echo.connect(feedback);
+      feedback.connect(echo);
+      echo.connect(wet);
+      wet.connect(soften);
+      soften.connect(this.master);
 
       const length = ctx.sampleRate;
       this.noise = ctx.createBuffer(1, length, ctx.sampleRate);
@@ -133,6 +202,7 @@ export class Sound {
         data[i] = seed / 2147483648 - 1;
       }
       this.ctx = ctx;
+      this.applyMode(0);
     } catch {
       this.ctx = null; // no sound, but the game goes on
     }
@@ -142,19 +212,34 @@ export class Sound {
     if (this.ctx instanceof AudioContext) void this.ctx.resume().catch(() => undefined);
   }
 
-  setMuted(muted: boolean): void {
-    this.muted = muted;
+  setMode(mode: SoundMode): void {
+    this.mode = mode;
     try {
-      localStorage.setItem(STORAGE_KEY, muted ? '1' : '0');
+      localStorage.setItem(STORAGE_KEY, mode);
     } catch {
-      // see constructor
+      // see readMode
     }
-    if (this.master && this.ctx) this.master.gain.setTargetAtTime(muted ? 0 : MASTER, this.ctx.currentTime, 0.02);
+    this.applyMode(0.03);
   }
 
-  toggleMute(): boolean {
-    this.setMuted(!this.muted);
-    return this.muted;
+  /** Steps to the next mode: everything, effects only, off. Returns the new mode. */
+  nextMode(): SoundMode {
+    this.setMode(SOUND_MODES[(SOUND_MODES.indexOf(this.mode) + 1) % SOUND_MODES.length]!);
+    return this.mode;
+  }
+
+  private applyMode(glide: number): void {
+    if (!this.ctx || !this.master || !this.music) return;
+    const now = this.ctx.currentTime;
+    const master = this.mode === 'off' ? 0 : MASTER;
+    const music = this.mode === 'all' ? MUSIC : 0;
+    if (glide > 0) {
+      this.master.gain.setTargetAtTime(master, now, glide);
+      this.music.gain.setTargetAtTime(music, now, glide);
+    } else {
+      this.master.gain.value = master;
+      this.music.gain.value = music;
+    }
   }
 
   // ---- building blocks ------------------------------------------------------
@@ -173,13 +258,20 @@ export class Sound {
     const bus = o.music ? this.music : this.sfx;
     if (!ctx || !bus) return;
     const t = ctx.currentTime + this.offset + (o.at ?? 0);
+    const attack = o.attack ?? 0.005;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = o.type;
     osc.frequency.setValueAtTime(o.freq, t);
     if (o.to) osc.frequency.exponentialRampToValueAtTime(Math.max(20, o.to), t + o.dur);
     gain.gain.setValueAtTime(0.0001, t);
-    gain.gain.linearRampToValueAtTime(o.gain, t + (o.attack ?? 0.005));
+    gain.gain.linearRampToValueAtTime(o.gain, t + attack);
+    if (o.sustain !== undefined) {
+      const level = Math.max(0.0001, o.gain * o.sustain);
+      const release = Math.min(0.25, o.dur * 0.3);
+      gain.gain.exponentialRampToValueAtTime(level, t + attack + (o.decay ?? 0.2));
+      gain.gain.setValueAtTime(level, Math.max(t + attack + (o.decay ?? 0.2), t + o.dur - release));
+    }
     gain.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
     osc.connect(gain);
     gain.connect(bus);
@@ -216,21 +308,21 @@ export class Sound {
   /** A button was pressed and accepted. */
   click(): void {
     if (!this.due('click', 0.03)) return;
-    this.tone({ type: 'square', freq: 520, to: 780, dur: 0.07, gain: 0.25 });
+    this.tone({ type: 'triangle', freq: 520, to: 780, dur: 0.07, gain: 0.3 });
   }
 
   /** A button was pressed and refused. */
   refuse(): void {
     if (!this.due('refuse', 0.1)) return;
-    this.tone({ type: 'sawtooth', freq: 150, to: 95, dur: 0.16, gain: 0.3 });
+    this.tone({ type: 'triangle', freq: 170, to: 110, dur: 0.16, gain: 0.4 });
   }
 
   /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country. */
   spawn(side: number): void {
     if (!this.due(`spawn${side}`, 0.1)) return;
     if (side === 0) {
-      this.tone({ type: 'sine', freq: 1760, dur: 0.22, gain: 0.2 });
-      this.tone({ type: 'sine', freq: 2217, dur: 0.3, gain: 0.16, at: 0.09 });
+      this.tone({ type: 'sine', freq: 1568, dur: 0.22, gain: 0.16 });
+      this.tone({ type: 'sine', freq: 1976, dur: 0.3, gain: 0.12, at: 0.09 });
     } else {
       this.hiss({ from: 420, to: 180, dur: 0.07, gain: 0.5, q: 2 });
       this.hiss({ from: 380, to: 160, dur: 0.07, gain: 0.4, q: 2, at: 0.11 });
@@ -239,88 +331,127 @@ export class Sound {
 
   /** A blow that lands. */
   hit(): void {
-    if (!this.due('hit', 0.07)) return;
-    this.hiss({ from: 1400, to: 300, dur: 0.09, gain: 0.5, q: 0.8 });
+    if (!this.due('hit', 0.09)) return;
+    this.hiss({ from: 1100, to: 300, dur: 0.08, gain: 0.4, q: 0.8 });
     this.tone({ type: 'sine', freq: 170, to: 70, dur: 0.1, gain: 0.4 });
   }
 
   /** Something is thrown. */
   whoosh(): void {
-    if (!this.due('whoosh', 0.09)) return;
-    this.hiss({ from: 500, to: 2600, dur: 0.16, gain: 0.22, q: 1.4 });
+    if (!this.due('whoosh', 0.12)) return;
+    this.hiss({ from: 500, to: 2000, dur: 0.16, gain: 0.18, q: 1.4 });
   }
 
   /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn. */
   turret(side: number): void {
-    if (!this.due(`turret${side}`, 0.12)) return;
+    if (!this.due(`turret${side}`, 0.2)) return;
     if (side === 0) {
-      this.tone({ type: 'sawtooth', freq: 300, to: 380, dur: 0.07, gain: 0.16 });
-      this.tone({ type: 'sawtooth', freq: 360, to: 270, dur: 0.09, gain: 0.16, at: 0.08 });
+      this.tone({ type: 'triangle', freq: 300, to: 380, dur: 0.07, gain: 0.22 });
+      this.tone({ type: 'triangle', freq: 360, to: 270, dur: 0.09, gain: 0.22, at: 0.08 });
     } else {
-      this.tone({ type: 'sawtooth', freq: 190, to: 110, dur: 0.2, gain: 0.26, attack: 0.02 });
+      this.tone({ type: 'sawtooth', freq: 180, to: 105, dur: 0.2, gain: 0.2, attack: 0.02 });
     }
   }
 
   /** A unit is beaten and slinks off. */
   defeat(): void {
-    if (!this.due('defeat', 0.12)) return;
-    this.tone({ type: 'triangle', freq: 520, to: 170, dur: 0.3, gain: 0.28 });
+    if (!this.due('defeat', 0.15)) return;
+    this.tone({ type: 'triangle', freq: 480, to: 170, dur: 0.3, gain: 0.26 });
   }
 
   /** Subsidie comes in. */
   coin(): void {
-    if (!this.due('coin', 0.12)) return;
-    this.tone({ type: 'square', freq: 990, dur: 0.05, gain: 0.12 });
-    this.tone({ type: 'square', freq: 1320, dur: 0.1, gain: 0.12, at: 0.05 });
+    if (!this.due('coin', 0.2)) return;
+    this.tone({ type: 'sine', freq: 990, dur: 0.05, gain: 0.1 });
+    this.tone({ type: 'sine', freq: 1320, dur: 0.1, gain: 0.1, at: 0.05 });
   }
 
   /** A base takes a blow. */
   baseHit(): void {
-    if (!this.due('base', 0.14)) return;
+    if (!this.due('base', 0.16)) return;
     this.tone({ type: 'sine', freq: 110, to: 40, dur: 0.28, gain: 0.6 });
     this.hiss({ from: 300, to: 80, dur: 0.22, gain: 0.35, filter: 'lowpass' });
   }
 
-  /** A turret is built. */
+  /** Something was built or bought for the base: a turret, an upgrade, a subsidy, a new era. */
   built(): void {
-    this.tone({ type: 'square', freq: 392, dur: 0.08, gain: 0.2 });
-    this.tone({ type: 'square', freq: 523, dur: 0.08, gain: 0.2, at: 0.08 });
-    this.tone({ type: 'square', freq: 659, dur: 0.14, gain: 0.2, at: 0.16 });
+    this.tone({ type: 'triangle', freq: 392, dur: 0.09, gain: 0.26 });
+    this.tone({ type: 'triangle', freq: 523, dur: 0.09, gain: 0.26, at: 0.08 });
+    this.tone({ type: 'triangle', freq: 659, dur: 0.16, gain: 0.26, at: 0.16 });
   }
 
-  /** The Trekkerkolonne: two blasts on the horn over a rumbling engine. */
+  /** A side modernizes: a rising run of notes. */
+  eraUp(): void {
+    [392, 494, 587, 784, 988].forEach((freq, i) => {
+      this.tone({ type: 'triangle', freq, dur: i === 4 ? 0.5 : 0.14, gain: 0.3, at: i * 0.09 });
+    });
+    this.hiss({ from: 400, to: 3000, dur: 0.5, gain: 0.12, q: 1.2 });
+  }
+
+  /** A tractor horn over a rumbling engine. */
   horn(): void {
     for (const at of [0, 0.34]) {
-      this.tone({ type: 'square', freq: 233, dur: 0.28, gain: 0.22, at, attack: 0.02 });
-      this.tone({ type: 'square', freq: 294, dur: 0.28, gain: 0.2, at, attack: 0.02 });
+      this.tone({ type: 'square', freq: 233, dur: 0.28, gain: 0.16, at, attack: 0.02 });
+      this.tone({ type: 'square', freq: 294, dur: 0.28, gain: 0.14, at, attack: 0.02 });
     }
     this.hiss({ from: 90, to: 140, dur: 1.5, gain: 0.5, filter: 'lowpass' });
     this.tone({ type: 'sawtooth', freq: 55, to: 70, dur: 1.5, gain: 0.3, attack: 0.1 });
   }
 
-  /** The Wegblokkade: a whistle, then three voices chanting. */
+  /** A whistle, then voices chanting. */
   chant(): void {
-    this.tone({ type: 'sine', freq: 2100, to: 2500, dur: 0.18, gain: 0.2 });
-    this.tone({ type: 'sine', freq: 2500, to: 2000, dur: 0.22, gain: 0.2, at: 0.2 });
+    this.tone({ type: 'sine', freq: 2100, to: 2400, dur: 0.18, gain: 0.14 });
+    this.tone({ type: 'sine', freq: 2400, to: 2000, dur: 0.22, gain: 0.14, at: 0.2 });
     for (const [i, at] of [0.5, 0.78, 1.06, 1.34].entries()) {
       const freq = i % 2 === 0 ? 220 : 196;
-      this.tone({ type: 'sawtooth', freq, dur: 0.2, gain: 0.16, at, attack: 0.02 });
-      this.tone({ type: 'sawtooth', freq: freq * 1.26, dur: 0.2, gain: 0.12, at, attack: 0.02 });
-      this.tone({ type: 'sawtooth', freq: freq * 1.5, dur: 0.2, gain: 0.1, at, attack: 0.02 });
+      this.tone({ type: 'triangle', freq, dur: 0.2, gain: 0.22, at, attack: 0.02 });
+      this.tone({ type: 'triangle', freq: freq * 1.26, dur: 0.2, gain: 0.16, at, attack: 0.02 });
+      this.tone({ type: 'triangle', freq: freq * 1.5, dur: 0.2, gain: 0.14, at, attack: 0.02 });
     }
+  }
+
+  /** A crunch of guitar chords. */
+  riff(): void {
+    for (const [i, root] of [110, 110, 146.83, 164.81].entries()) {
+      const at = i * 0.16;
+      this.tone({ type: 'sawtooth', freq: root, dur: 0.15, gain: 0.2, at });
+      this.tone({ type: 'sawtooth', freq: root * 1.5, dur: 0.15, gain: 0.16, at });
+      this.tone({ type: 'sawtooth', freq: root * 2, dur: 0.15, gain: 0.1, at });
+    }
+  }
+
+  /** A soft rising shimmer: things mend. */
+  mend(): void {
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      this.tone({ type: 'sine', freq, dur: 0.5, gain: 0.16, at: i * 0.07, attack: 0.03 });
+    });
+  }
+
+  /** A swarm of small rotors diving. */
+  swarm(): void {
+    this.tone({ type: 'sawtooth', freq: 420, to: 210, dur: 1.2, gain: 0.12, attack: 0.1 });
+    this.tone({ type: 'sawtooth', freq: 433, to: 205, dur: 1.2, gain: 0.12, attack: 0.1 });
+    this.hiss({ from: 2400, to: 900, dur: 1.2, gain: 0.12, q: 3 });
+  }
+
+  /** A harsh buzzer: somebody is cancelled. */
+  zap(): void {
+    this.tone({ type: 'square', freq: 196, dur: 0.12, gain: 0.2 });
+    this.tone({ type: 'square', freq: 139, dur: 0.34, gain: 0.22, at: 0.13 });
+    this.hiss({ from: 3000, to: 400, dur: 0.3, gain: 0.2, q: 2, at: 0.13 });
   }
 
   /** Overtime starts. */
   alarm(): void {
-    for (const at of [0, 0.22, 0.44]) this.tone({ type: 'square', freq: 880, to: 660, dur: 0.18, gain: 0.25, at });
+    for (const at of [0, 0.22, 0.44]) this.tone({ type: 'triangle', freq: 880, to: 660, dur: 0.18, gain: 0.3, at });
   }
 
   /** Somebody won. */
   fanfare(): void {
     const notes = [523.25, 659.25, 783.99, 1046.5];
     notes.forEach((freq, i) => {
-      this.tone({ type: 'square', freq, dur: i === 3 ? 0.6 : 0.16, gain: 0.26, at: i * 0.14 });
-      this.tone({ type: 'triangle', freq: freq / 2, dur: i === 3 ? 0.6 : 0.16, gain: 0.3, at: i * 0.14 });
+      this.tone({ type: 'triangle', freq, dur: i === 3 ? 0.7 : 0.16, gain: 0.34, at: i * 0.14 });
+      this.tone({ type: 'sine', freq: freq / 2, dur: i === 3 ? 0.7 : 0.16, gain: 0.3, at: i * 0.14 });
     });
   }
 
@@ -329,7 +460,7 @@ export class Sound {
   startMusic(): void {
     if (!this.ctx || this.timer) return;
     this.step = 0;
-    this.nextStepAt = this.ctx.currentTime + 0.08;
+    this.nextStepAt = this.ctx.currentTime + 0.1;
     this.timer = window.setInterval(() => this.schedule(), 60);
     this.schedule();
   }
@@ -346,37 +477,6 @@ export class Sound {
     else this.resume();
   }
 
-  /**
-   * Queues the whole tune once, with every effect laid over it one after
-   * another. For measuring levels in an offline context; returns how many
-   * seconds were queued.
-   */
-  demo(): number {
-    const stepLength = 60 / BPM / 4;
-    const steps = BARS.length * STEPS_PER_BAR;
-    for (let step = 0; step < steps; step++) this.playStep(step, step * stepLength, stepLength);
-    const effects: (() => void)[] = [
-      () => this.click(), () => this.refuse(), () => this.spawn(0), () => this.spawn(1), () => this.hit(),
-      () => this.whoosh(), () => this.turret(0), () => this.turret(1), () => this.defeat(), () => this.coin(),
-      () => this.baseHit(), () => this.built(), () => this.horn(), () => this.chant(), () => this.alarm(),
-      () => this.fanfare(),
-    ];
-    effects.forEach((play, i) => {
-      this.offset = 0.3 + i * 0.5;
-      play();
-    });
-    // The worst case in a match: several things landing on the same instant.
-    this.offset = 0.3 + effects.length * 0.5;
-    this.hit();
-    this.baseHit();
-    this.defeat();
-    this.coin();
-    this.turret(0);
-    this.turret(1);
-    this.offset = 0;
-    return Math.max(steps * stepLength, 0.3 + effects.length * 0.5 + 2);
-  }
-
   /** Queues every step that starts within the next quarter second. */
   private schedule(): void {
     const ctx = this.ctx;
@@ -386,33 +486,97 @@ export class Sound {
     if (this.nextStepAt < ctx.currentTime) this.nextStepAt = ctx.currentTime + 0.05;
     while (this.nextStepAt < ctx.currentTime + 0.25) {
       this.playStep(this.step, this.nextStepAt - ctx.currentTime, stepLength);
-      this.step = (this.step + 1) % (BARS.length * STEPS_PER_BAR);
+      this.step = (this.step + 1) % (SONG.length * STEPS_PER_BAR);
       this.nextStepAt += stepLength;
     }
   }
 
+  /** One sixteenth of the tune. `at` is seconds from now, `len` the length of a step. */
   private playStep(step: number, at: number, len: number): void {
-    const bar = BARS[Math.floor(step / STEPS_PER_BAR)]!;
+    const barIndex = Math.floor(step / STEPS_PER_BAR);
+    const chord = CHORDS[SONG[barIndex]!]!;
     const s = step % STEPS_PER_BAR;
+    const bridge = barIndex >= 16 && barIndex < 24;
+    // The drums sit out the first two bars and the last bar of every eight, to let it breathe.
+    const drums = barIndex >= 2 && barIndex % 8 !== 7;
+    const late = at + len * 2 * SWING;
 
-    // Oom (bass and kick) on the beat, pah (chord and snare) off it.
-    if (s % 8 === 0) {
-      this.tone({ type: 'triangle', freq: NOTE[bar.bass[0]]!, dur: len * 3.2, gain: 0.9, at, music: true });
-      this.tone({ type: 'sine', freq: 130, to: 45, dur: 0.12, gain: 0.9, at, music: true });
-    }
-    if (s % 8 === 4) {
-      this.tone({ type: 'triangle', freq: NOTE[bar.bass[1]]!, dur: len * 3.2, gain: 0.8, at, music: true });
-      this.hiss({ from: 1800, to: 900, dur: 0.09, gain: 0.5, q: 0.7, at, music: true });
-    }
-    if (s % 4 === 2) {
-      for (const name of bar.chord) {
-        this.tone({ type: 'square', freq: NOTE[name]!, dur: len * 1.4, gain: 0.16, at, music: true });
+    // Chords: soft and long, like an electric piano with the lid down.
+    if (s === 0 || (bridge && s === 8)) {
+      const dur = len * (bridge ? 7.5 : 15);
+      for (const name of chord.notes) {
+        const freq = NOTE[name]!;
+        this.tone({ type: 'sine', freq, dur, gain: 0.2, at, attack: 0.03, sustain: 0.45, decay: 0.5, music: true });
+        this.tone({ type: 'triangle', freq: freq * 2.003, dur: dur * 0.6, gain: 0.035, at, attack: 0.03, music: true });
       }
     }
-    if (s % 2 === 0) {
-      this.hiss({ from: 7000, dur: 0.03, gain: 0.16, q: 0.5, filter: 'highpass', at, music: true });
-      const name = bar.tune[s / 2];
-      if (name) this.tone({ type: 'square', freq: NOTE[name]!, dur: len * 1.8, gain: 0.34, at, attack: 0.01, music: true });
+
+    // Bass: root, then fifth, with a sine an octave up so small speakers can hear it.
+    const bass = s === 0 ? chord.bass : s === 8 ? chord.fifth : s === 14 && barIndex % 2 === 1 ? chord.bass : null;
+    if (bass) {
+      const freq = NOTE[bass]!;
+      const dur = len * (s === 14 ? 1.6 : 5);
+      this.tone({ type: 'triangle', freq, dur, gain: 0.5, at: s === 14 ? late : at, attack: 0.02, sustain: 0.6, decay: 0.15, music: true });
+      this.tone({ type: 'sine', freq: freq * 2, dur, gain: 0.18, at: s === 14 ? late : at, attack: 0.02, sustain: 0.5, decay: 0.15, music: true });
     }
+
+    if (drums) {
+      if (s === 0 || s === 10) this.tone({ type: 'sine', freq: 105, to: 48, dur: 0.16, gain: s === 0 ? 0.7 : 0.45, at: s === 10 ? late : at, music: true });
+      if (s === 4 || s === 12) this.hiss({ from: 1500, to: 900, dur: 0.11, gain: 0.3, q: 0.6, at, music: true });
+      if (s % 4 === 2) this.hiss({ from: 5200, dur: 0.035, gain: 0.1, q: 0.6, filter: 'highpass', at: late, music: true });
+    }
+
+    for (const [start, name, length] of MELODY[barIndex] ?? []) {
+      if (start !== s) continue;
+      const freq = NOTE[name]!;
+      const when = s % 4 === 2 ? late : at;
+      this.tone({ type: 'triangle', freq, dur: len * length, gain: 0.26, at: when, attack: 0.025, sustain: 0.55, decay: 0.18, music: true });
+      this.tone({ type: 'sine', freq: freq / 2, dur: len * length, gain: 0.1, at: when, attack: 0.03, sustain: 0.6, decay: 0.2, music: true });
+    }
+  }
+
+  // ---- measuring ------------------------------------------------------------
+
+  /** Queues the first `bars` bars of the tune and nothing else. Returns the seconds queued. */
+  demoMusic(bars: number): number {
+    const stepLength = 60 / BPM / 4;
+    const steps = bars * STEPS_PER_BAR;
+    for (let step = 0; step < steps; step++) {
+      this.playStep(step % (SONG.length * STEPS_PER_BAR), step * stepLength, stepLength);
+    }
+    return steps * stepLength;
+  }
+
+  /**
+   * Queues a stretch of the tune with every effect laid over it one after
+   * another, and at the end several at once. Returns the seconds queued.
+   */
+  demo(): number {
+    const effects: (() => void)[] = [
+      () => this.click(), () => this.refuse(), () => this.spawn(0), () => this.spawn(1), () => this.hit(),
+      () => this.whoosh(), () => this.turret(0), () => this.turret(1), () => this.defeat(), () => this.coin(),
+      () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(), () => this.chant(),
+      () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.alarm(),
+      () => this.fanfare(),
+    ];
+    const gap = 0.6;
+    // Start in the busiest part of the tune: melody, drums and all.
+    const stepLength = 60 / BPM / 4;
+    const steps = Math.ceil((0.3 + effects.length * gap + 2.5) / stepLength);
+    for (let i = 0; i < steps; i++) this.playStep(8 * STEPS_PER_BAR + i, i * stepLength, stepLength);
+    effects.forEach((play, i) => {
+      this.offset = 0.3 + i * gap;
+      play();
+    });
+    // The worst case in a match: several things landing on the same instant.
+    this.offset = 0.3 + effects.length * gap;
+    this.hit();
+    this.baseHit();
+    this.defeat();
+    this.coin();
+    this.turret(0);
+    this.turret(1);
+    this.offset = 0;
+    return steps * stepLength;
   }
 }

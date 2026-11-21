@@ -69,7 +69,7 @@ export class Game {
       (side, action) => this.press(side, action),
       () => this.toggleMute(),
     );
-    this.hud.setMuted(this.sound.muted);
+    this.hud.setSoundMode(this.sound.mode);
     this.screens = new Screens(
       hudRoot,
       () => this.confirm(),
@@ -128,8 +128,9 @@ export class Game {
     this.screens.showPause(this.paused);
   }
 
+  /** M: everything, effects without the tune, silence, and round again. */
   toggleMute(): void {
-    this.hud.setMuted(this.sound.toggleMute());
+    this.hud.setSoundMode(this.sound.nextMode());
   }
 
   press(side: Side, action: Action): void {
@@ -200,7 +201,7 @@ export class Game {
       case 'overtime':
         this.hud.setOvertime(true);
         this.sound.alarm();
-        this.sound.tempo = 1.2;
+        this.sound.tempo = 1.12;
         break;
       case 'win':
         this.finish();

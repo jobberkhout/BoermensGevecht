@@ -1,3 +1,4 @@
+import type { SoundMode } from '../audio/sound.ts';
 import { TPS } from '../defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
@@ -71,11 +72,11 @@ export class Hud {
     this.clock = el('div', 'clock', '0:00');
     this.muteButton = el('button', 'mute');
     this.muteButton.type = 'button';
-    this.muteButton.title = NL.hud.sound;
-    this.muteButton.setAttribute('aria-label', NL.hud.sound);
-    // A little loudspeaker, with a stroke through it when the sound is off.
+    // A loudspeaker and a note. A stroke through the note means no music, through both means silence.
     this.muteButton.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="waves" d="M16 9q2.5 3 0 6M18.5 6.5q5 5.5 0 11"/><path class="off" d="M4 4l16 16"/></svg><kbd>M</kbd>';
+      '<svg viewBox="0 0 36 24" aria-hidden="true"><path class="spk" d="M3 9h4l5-4v14l-5-4H3z"/><path class="waves" d="M15 9q2.5 3 0 6"/>' +
+      '<path class="stem" d="M24 17V6l8-2v10"/><circle class="head" cx="21.8" cy="17" r="2.4"/><circle class="head" cx="29.8" cy="14" r="2.4"/>' +
+      '<path class="no-music" d="M19 21L34 3"/><path class="no-sound" d="M1 21L16 3"/></svg><kbd>M</kbd>';
     this.muteButton.addEventListener('pointerdown', (e) => {
       e.preventDefault();
       onMute();
@@ -233,8 +234,10 @@ export class Hud {
     this.banner.hidden = !on;
   }
 
-  setMuted(muted: boolean): void {
-    this.muteButton.classList.toggle('muted', muted);
+  setSoundMode(mode: SoundMode): void {
+    this.muteButton.dataset.mode = mode;
+    this.muteButton.title = NL.sound[mode];
+    this.muteButton.setAttribute('aria-label', NL.sound[mode]);
   }
 
   /** The button dips, whether it was a key or a finger that pressed it. */
