@@ -121,7 +121,7 @@
     <path class="n" fill="#ffffff" fill-opacity="0.22" d="M-44 -104 L-36 -104 L-88 -18 L-96 -18 Z"/>
     <rect fill="none" stroke="#2b1b16" stroke-width="7" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
     <rect fill="none" stroke="#4b3d63" stroke-width="3.6" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
-    <circle data-mount="muzzle" cx="104" cy="-64" r="1"/>
+    <circle data-mount="muzzle" fill="none" cx="104" cy="-64" r="1"/>
   </g>
 
   <!-- What A has to say about it. Joint at the tip of the tail, so it grows out of her mouth. -->

@@ -63,8 +63,8 @@
     <path class="o" fill="#1f3d2b" d="M-98 0 L-98 -100 Q-98 -128 -52 -128 Q-6 -128 -6 -100 L-6 0 Z"/>
     <path class="o" fill="#241b26" d="M-88 0 L-88 -98 Q-88 -118 -52 -118 Q-16 -118 -16 -98 L-16 0 Z"/>
 
-    <circle data-mount="turret0" cx="-150" cy="-144" r="1"/>
-    <circle data-mount="turret1" cx="-150" cy="-294" r="1"/>
-    <circle data-mount="flag" cx="-286" cy="-548" r="1"/>
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
   </g>
 </svg>

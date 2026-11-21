@@ -189,6 +189,9 @@ export function parseRig(id: string, text: string, dom: Dom): RigSource {
       const mount = child.getAttribute('data-mount');
       if (!mount) continue;
       mounts.push({ name: mount, x: Number(child.getAttribute('cx') ?? 0), y: Number(child.getAttribute('cy') ?? 0) });
+      if (child.getAttribute('fill') !== 'none') {
+        problems.push(`mount "${mount}" needs fill="none", or it shows as a dot when the file is viewed as-is`);
+      }
       el.removeChild(child);
     }
 

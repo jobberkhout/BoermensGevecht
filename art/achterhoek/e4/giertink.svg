@@ -30,7 +30,7 @@
     <path fill="none" stroke="#2f9140" stroke-width="7" stroke-linecap="round" d="M0 0 L22 -20"/>
     <path class="o" fill="#ffd21f" d="M17 -22 L24 -15 L31 -22 L24 -29 Z"/>
     <circle class="o" fill="#1f5a2a" cx="0" cy="0" r="6.5"/>
-    <circle data-mount="muzzle" cx="29" cy="-27" r="1"/>
+    <circle data-mount="muzzle" fill="none" cx="29" cy="-27" r="1"/>
   </g>
 
   <g id="wheel_tank" data-parent="chassis" transform="translate(-58 -21)">

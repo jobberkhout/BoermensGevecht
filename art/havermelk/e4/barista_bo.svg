@@ -71,7 +71,7 @@
     <path class="o" fill="#c8a8f0" d="M-5.5 13 L11 6 L13.5 13.5 L-2 22.5 Z"/>
     <path class="n" fill="#c8a8f0" d="M-4.5 13.5 L4 10 L5 18 L-2 21 Z"/>
     <circle class="o" fill="#f3c9a5" cx="15.5" cy="8.5" r="4.6"/>
-    <circle data-mount="hand" cx="17" cy="0" r="1"/>
+    <circle data-mount="hand" fill="none" cx="17" cy="0" r="1"/>
   </g>
 
   <g id="prop" data-parent="arm_front" transform="translate(27 -65)">

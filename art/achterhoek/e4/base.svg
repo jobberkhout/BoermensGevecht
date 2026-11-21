@@ -59,8 +59,8 @@
     <rect class="o" fill="#241d17" x="-90" y="-122" width="76" height="122"/>
     <rect class="o" fill="#8a6a46" x="-102" y="-134" width="12" height="134"/>
 
-    <circle data-mount="turret0" cx="-150" cy="-148" r="1"/>
-    <circle data-mount="turret1" cx="-150" cy="-298" r="1"/>
-    <circle data-mount="flag" cx="-286" cy="-548" r="1"/>
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
   </g>
 </svg>

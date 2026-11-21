@@ -145,7 +145,7 @@
   <g id="jong_arm" data-parent="jong_body" transform="translate(74 -49)">
     <path class="o" fill="#fffdf5" d="M-4 -1 L1 4 L9 -8 L4 -12 Z"/>
     <circle class="o" fill="#f3c9a5" cx="7" cy="-12.5" r="4"/>
-    <circle data-mount="muzzle" cx="8" cy="-17" r="1"/>
+    <circle data-mount="muzzle" fill="none" cx="8" cy="-17" r="1"/>
   </g>
 
   <!-- The egg in his hand. He tosses it while he waits. -->
