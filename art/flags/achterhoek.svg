@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 126 92" data-rig="static">
+  <title>Achterhoekse vlag (ontwerp: Paul Heutinck, 2018), nagetekend</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+  <defs>
+    <!-- Cut into eight strips so it can wave. Each strip shows its own slice of #flag. -->
+    <clipPath id="strip"><rect x="0" y="-1" width="16.2" height="82"/></clipPath>
+    <!-- Drawn on a 960 x 640 grid, like the reference, and scaled down to 120 x 80. -->
+    <g id="flag" transform="scale(0.125)">
+      <rect width="960" height="640" fill="#0b6323"/>
+      <path fill="#7dc242" d="M150 0 Q225 75 480 222 Q735 75 810 0 Z"/>
+      <path fill="#7dc242" d="M150 640 Q225 565 480 418 Q735 565 810 640 Z"/>
+      <path fill="#00a651" d="M0 115 Q96 211 283 320 Q96 429 0 525 Z"/>
+      <path fill="#00a651" d="M960 115 Q864 211 677 320 Q864 429 960 525 Z"/>
+      <path fill="#f1e8cf" d="M0 0 L38 0 Q258 220 480 296 Q702 220 922 0 L960 0 L960 38 Q745 253 550 320 Q745 387 960 602 L960 640 L922 640 Q702 420 480 344 Q258 420 38 640 L0 640 L0 602 Q215 387 410 320 Q215 253 0 38 Z"/>
+    </g>
+  </defs>
+
+  <g id="s0" transform="translate(0 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="0"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M0 0 L0 80"/>
+  </g>
+  <g id="s1" transform="translate(15 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-15"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s2" transform="translate(30 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-30"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s3" transform="translate(45 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-45"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s4" transform="translate(60 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-60"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s5" transform="translate(75 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-75"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s6" transform="translate(90 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-90"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s7" transform="translate(105 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-105"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M15 0 L15 80"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galerij</title>
+    <style>
+      :root { color-scheme: light; }
+      body { margin: 0; padding: 20px; background: #f4efe6; color: #2b1b16; font: 14px/1.4 ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      h2 { font-size: 15px; margin: 18px 0 6px; }
+      a { color: #1f49c4; }
+      .muted { color: #7a6a5d; }
+      .bad { color: #b3261e; white-space: pre-wrap; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+      .grid { display: flex; flex-wrap: wrap; gap: 14px; }
+      .card { background: #fffaf2; border: 2px solid #2b1b16; border-radius: 10px; padding: 8px 10px; text-decoration: none; color: inherit; }
+      .card b { display: block; font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+      canvas, img.raw { background: repeating-conic-gradient(#fff 0 25%, #f0ebe2 0 50%) 0 0 / 20px 20px; border: 1px solid #cbbfae; border-radius: 6px; display: block; }
+      figure { margin: 0; }
+      figcaption { font-size: 12px; margin-top: 3px; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/gallery.ts"></script>
+  </body>
+</html>

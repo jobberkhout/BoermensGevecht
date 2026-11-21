@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -136 104 142" data-rig="humanoid">
+  <title>Barista Bo</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#a584d6" d="M-6 -3 Q-8 12 -5 22 L5 22 Q7 10 6 -3 Z"/>
+    <path class="o" fill="#dea888" d="M-4 22 L-3.5 30 Q0 36 3.5 30 L4 22 Z"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#6b8db3" d="M-7 -3 L7 -3 L6 27 L-6 27 Z"/>
+    <rect class="o" fill="#93b0cf" x="-7" y="24.5" width="14" height="4.5" rx="1.5"/>
+    <rect class="o" fill="#dea888" x="-3" y="29" width="6" height="4"/>
+    <path class="o" fill="#e9e9e9" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#c9c9c9" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#7fa3c9" d="M-7 -3 L7 -3 L6 27 L-6 27 Z"/>
+    <path class="n" fill="#9dbbd9" d="M1 -1 L5 -1 L4.5 24 L1.5 24 Z"/>
+    <rect class="o" fill="#a9c4e0" x="-7" y="24.5" width="14" height="4.5" rx="1.5"/>
+    <rect class="o" fill="#f3c9a5" x="-3" y="29" width="6" height="4"/>
+    <path class="o" fill="#fafafa" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#d6d6d6" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+    <path class="t" stroke="#7bc8a4" d="M2 32.5 L6 35"/>
+  </g>
+
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#c8a8f0" d="M-15 6 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 15 6 Z"/>
+    <path class="n" fill="#a584d6" d="M-14 5 Q-16.5 -14 -14 -29 Q-10 -20 -9 5 Z"/>
+    <path class="t" d="M-3 -36 Q3 -30 4 -24 M9 -36 Q9 -30 10 -24"/>
+    <path class="o" fill="#ecdcb9" d="M-3 -24 L12 -24 L15.5 9 L-7 9 Z"/>
+    <path class="n" fill="#d9c79d" d="M-3 -23 L0 -23 L-3.5 8 L-6 8 Z"/>
+    <path class="o" fill="#dfcda4" d="M1 -7 L11.5 -7 L12 3 L0 3 Z"/>
+    <!-- the house logo: a sprig of oats -->
+    <path class="t" stroke="#8a7447" d="M5 -12 L5 -19 M5 -14 L2.5 -16.5 M5 -15.5 L7.5 -18 M5 -17 L3 -19.5"/>
+  </g>
+
+  <g id="bun" data-parent="head" transform="translate(-5 -122)">
+    <circle class="o" fill="#2f6bff" cx="0" cy="0" r="8.5"/>
+    <path class="n" fill="#79a6ff" d="M-4.5 -3.5 Q-1 -6.5 3 -5 Q-0.5 -4.5 -3.5 -1.5 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#dea888" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <path class="o" fill="#1f49c4" d="M-18 -24 Q-23 -8 -14 -2 L-5 -9 Z"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-21" rx="19" ry="18"/>
+    <ellipse class="o" fill="#f3c9a5" cx="-8.5" cy="-18.5" rx="3.4" ry="4.8"/>
+    <path class="o" fill="#2f6bff" d="M-17 -15 Q-23 -40 2 -41.5 Q23 -41.5 21.5 -27 Q13 -34 4 -32 Q-5 -30.5 -8.5 -23 Q-11 -15 -13.5 -8 Q-18 -9.5 -17 -15 Z"/>
+    <path class="n" fill="#79a6ff" d="M-9 -36 Q0 -40 10 -37.5 Q2 -36.5 -7 -32.5 Z"/>
+    <ellipse class="n" fill="#f29b8e" fill-opacity="0.6" cx="6.5" cy="-12.5" rx="3.6" ry="2.1"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-21" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="18" cy="-21" r="1.8"/>
+    <circle class="t" fill="#ffffff" fill-opacity="0.28" cx="9.5" cy="-21" r="5.6"/>
+    <circle class="t" fill="#ffffff" fill-opacity="0.28" cx="19" cy="-21" r="4.4"/>
+    <path class="t" d="M3.9 -21 L-6 -19.5"/>
+    <path class="o" fill="#f3c9a5" d="M20.5 -18.5 Q24.5 -15.5 20.5 -13.5"/>
+    <circle class="n" fill="none" stroke="#e6b422" stroke-width="1.4" cx="21.6" cy="-13" r="1.7"/>
+    <path class="t" stroke-width="1.9" d="M9 -9 Q13 -6 17.5 -9.5"/>
+    <path class="t" d="M6 -28.5 Q9.5 -30.5 13 -28.5"/>
+  </g>
+
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#c8a8f0" d="M-6 -3 Q-8 10 -6 19 Q-1 24 5 20 Q7 8 6 -3 Z"/>
+    <path class="o" fill="#c8a8f0" d="M-5.5 13 L11 6 L13.5 13.5 L-2 22.5 Z"/>
+    <path class="n" fill="#c8a8f0" d="M-4.5 13.5 L4 10 L5 18 L-2 21 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="15.5" cy="8.5" r="4.6"/>
+    <circle data-mount="hand" cx="17" cy="0" r="1"/>
+  </g>
+
+  <g id="prop" data-parent="arm_front" transform="translate(27 -65)">
+    <path class="o" fill="#fffaf0" d="M-5.5 -12 L5.5 -12 L4 3 L-4 3 Z"/>
+    <path class="o" fill="#c79a62" d="M-5 -8 L5 -8 L4.4 -1 L-4.4 -1 Z"/>
+    <rect class="o" fill="#fffaf0" x="-6.5" y="-15" width="13" height="3.5" rx="1.5"/>
+    <ellipse class="o" fill="#f3c9a5" cx="-3.6" cy="-3" rx="2.3" ry="3.5"/>
+  </g>
+</svg>
