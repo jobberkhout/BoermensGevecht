@@ -18,7 +18,7 @@ export const pxPerSec = (n: number): number => Math.round((n * SUB) / TPS);
 export const WORLD_W = 1920;
 export const WORLD_H = 1080;
 /** x of each side's gate: where its units appear and where the enemy stops. */
-export const GATE_X: readonly [number, number] = [250, 1670];
+export const GATE_X: readonly [number, number] = [320, 1600];
 /** y of the road the units walk on. The button panels sit below it. */
 export const GROUND_Y = 690;
 /** Lane length in sub-units. A unit's position is its distance from its own gate. */

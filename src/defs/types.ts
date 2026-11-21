@@ -8,6 +8,8 @@ export interface ShotDef {
   speed: number;
   /** Height of the flight arc in pixels. Looks only; the sim ignores it. */
   arc: number;
+  /** Turns per second while it flies. 0 for things that should stay upright. Looks only. */
+  spin: number;
 }
 
 /** All distances in lane sub-units, all times in ticks. See defs/balance.ts. */

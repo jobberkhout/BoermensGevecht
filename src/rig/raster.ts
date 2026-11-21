@@ -24,6 +24,8 @@ export interface Part {
   /** The joint's position inside that rectangle, in atlas pixels. */
   ox: number;
   oy: number;
+  /** Stays readable when the rig is mirrored (lettering). */
+  upright: boolean;
 }
 
 export interface Mount {
@@ -179,6 +181,7 @@ export async function rasterize(src: RigSource, scale: number): Promise<Rig> {
       sh: b.h,
       ox: (p.x - vb.x) * kx - b.x,
       oy: (p.y - vb.y) * ky - b.y,
+      upright: p.upright,
     };
   });
 

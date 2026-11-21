@@ -198,6 +198,8 @@ describe('the end of a match', () => {
         dmg: 5,
         rig: 'test',
         arc: 0,
+        spin: 0,
+        src: -1,
         row: 1,
         slot: -1,
       });

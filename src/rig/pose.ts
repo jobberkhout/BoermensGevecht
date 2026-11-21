@@ -94,13 +94,26 @@ const scratch = new Float32Array(6);
 
 /**
  * Draws a solved rig. `base` (six numbers at offset `bo`) places the rig on the
- * canvas: it maps rig coordinates to real pixels, mirroring included.
+ * canvas: it maps rig coordinates to real pixels, mirroring included. Pass
+ * `mirrored` when it does mirror, so lettering can be flipped back.
  */
-export function drawRig(ctx: CanvasRenderingContext2D, rig: Rig, world: Mats, base: Mats, bo = 0): void {
+export function drawRig(
+  ctx: CanvasRenderingContext2D,
+  rig: Rig,
+  world: Mats,
+  base: Mats,
+  bo = 0,
+  mirrored = false,
+): void {
   for (let i = 0; i < rig.parts.length; i++) {
     const part = rig.parts[i]!;
     if (part.sw === 0) continue;
     multiply(scratch, 0, base, bo, world, i * 6);
+    if (mirrored && part.upright) {
+      // Flip the part around its own joint: it stays where it is, but reads the right way round.
+      scratch[0] = -scratch[0]!;
+      scratch[1] = -scratch[1]!;
+    }
     ctx.setTransform(scratch[0]!, scratch[1]!, scratch[2]!, scratch[3]!, scratch[4]!, scratch[5]!);
     ctx.drawImage(
       rig.atlas,

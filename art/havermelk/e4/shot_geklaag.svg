@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -17 40 34" data-rig="static">
+  <title>Geklaag uit de podcaststudio</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="bubble" transform="translate(0 0)">
+    <path class="o" fill="#ffffff" d="M-16 -2 Q-16 -13 -4 -13 L6 -13 Q17 -13 17 -2 Q17 8 6 8 L-2 8 L-11 14 L-8 7.5 Q-16 6 -16 -2 Z"/>
+    <path class="t" style="stroke-width:2.4" d="M-9 -8 L-9.6 0"/>
+    <circle class="n" fill="#2b1b16" cx="-9.9" cy="3.6" r="1.5"/>
+    <path class="t" style="stroke-width:2.2" d="M-3 -6.5 L3 2.5 M3 -6.5 L-3 2.5 M-4.5 -2 L4.5 -2"/>
+    <path class="t" style="stroke-width:2.2" d="M8 -6 Q10.8 -9.5 13.2 -6 Q13.8 -2.5 10.6 -1.5 L10.6 0.2"/>
+    <circle class="n" fill="#2b1b16" cx="10.6" cy="3.6" r="1.4"/>
+  </g>
+</svg>

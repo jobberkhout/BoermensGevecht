@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 32 32" data-rig="static">
+  <title>Een vliegende haver-flat-white</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="cup" transform="translate(0 0)">
+    <path class="o" fill="#b98a5a" d="M-9 -9 Q-13 -11 -12 -6 Q-9.5 -6.5 -9 -9 Z"/>
+    <path class="o" fill="#b98a5a" d="M-5 -12.5 Q-6 -15.5 -3 -14.5 Q-3 -12.5 -5 -12.5 Z"/>
+    <path class="o" fill="#fffaf0" d="M-6.5 -7 L6.5 -7 L4.8 10 L-4.8 10 Z"/>
+    <path class="o" fill="#c79a62" d="M-5.9 -2.5 L5.9 -2.5 L5.2 5 L-5.2 5 Z"/>
+    <rect class="o" fill="#fffaf0" x="-7.6" y="-10.5" width="15.2" height="4" rx="1.6"/>
+  </g>
+</svg>

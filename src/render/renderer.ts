@@ -1,15 +1,25 @@
+import { CLIPS } from '../anim/clips/index.ts';
+import { sampleClip } from '../anim/sample.ts';
+import type { Clip } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
 import { FACTIONS, eraOf } from '../defs/index.ts';
 import type { FactionId } from '../defs/types.ts';
-import { CLIPS } from '../anim/clips/index.ts';
-import { sampleClip } from '../anim/sample.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
-import { SIDES, type Side, type SimState } from '../sim/types.ts';
-import { forgetRigsExcept, hasRig, loadRig } from './assets.ts';
-import { dirOf, rowScale, rowY, TURRET_SPOTS } from './layout.ts';
+import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
+import { forgetRigsExcept, hasRig, loadRig, rigUrl } from './assets.ts';
+import { dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
 import { useWorld, type Stage } from './stage.ts';
-import { GHOST_LIFE, type BattleView, type Ghost, type Puppet, type UnitView } from './view.ts';
+import {
+  GHOST_LIFE,
+  SPAWN_FADE,
+  type BattleView,
+  type Blockade,
+  type Ghost,
+  type Puppet,
+  type TurretView,
+  type UnitView,
+} from './view.ts';
 
 /**
  * Draws one frame of the battle. Anything that has art is drawn with its rig;
@@ -20,6 +30,10 @@ import { GHOST_LIFE, type BattleView, type Ghost, type Puppet, type UnitView } f
 const FONT = 'ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif';
 const INK = '#2b1b16';
 
+/** The painted backdrop: sky, skyline, fields and the road. */
+const SCENERY = 'scenery/e4';
+const BLOCKADE = 'havermelk/e4/special_blokkade';
+
 const LOOK: Record<FactionId, { main: string; dark: string; light: string }> = {
   havermelk: { main: '#c8a8f0', dark: '#7d5fb8', light: '#efe3ff' },
   achterhoek: { main: '#2f9140', dark: '#1f5a2a', light: '#a8d98f' },
@@ -27,23 +41,26 @@ const LOOK: Record<FactionId, { main: string; dark: string; light: string }> = {
 
 const base6 = new Float32Array(6);
 
+/** Flags fly a little smaller than they are drawn, so they stay clear of the top bar. */
+const FLAG_SCALE = 0.85;
+
 /** The grey box that stands in for a base without art. */
-const BOX_W = 230;
-const BOX_TOP = GROUND_Y - 400;
+const BOX_W = 300;
+const BOX_TOP = GROUND_Y - 460;
 
 export class Renderer {
+  private readonly stage: Stage;
   private rigs = new Map<string, Rig>();
-  private wanted = new Set<string>();
+  private wanted = new Set<string>([BLOCKADE]);
   private scale = 0;
   private background: HTMLCanvasElement | null = null;
+  private scenery: HTMLImageElement | null = null;
   private loading = 0;
-  /** Scratch space per static rig, so drawing one does not allocate every frame. */
-  private statics = new WeakMap<Rig, { pose: Pose; world: Float32Array }>();
+  /** Scratch space per rig for things drawn in passing, so drawing one does not allocate every frame. */
+  private scratch = new WeakMap<Rig, { pose: Pose; world: Float32Array }>();
   /** This frame's screen-shake offset, in real pixels. */
   private ox = 0;
   private oy = 0;
-
-  private readonly stage: Stage;
 
   constructor(stage: Stage) {
     this.stage = stage;
@@ -58,15 +75,23 @@ export class Renderer {
 
   /** Makes sure these rigs are loaded at the current screen scale. Art that does not exist is skipped. */
   async prepare(ids: Iterable<string>): Promise<void> {
-    for (const id of ids) if (hasRig(id)) this.wanted.add(id);
+    for (const id of ids) this.wanted.add(id);
+    if (hasRig(SCENERY) && !this.scenery) {
+      const img = new Image();
+      img.src = rigUrl(SCENERY);
+      await img.decode().catch(() => undefined);
+      this.scenery = img;
+      this.background = null;
+    }
     await this.reload();
   }
 
   private async reload(): Promise<void> {
-    // A little above the stage scale, because the nearest row is drawn slightly larger.
-    const scale = Math.max(0.5, Math.ceil(this.stage.k * 1.08 * 20) / 20);
+    // Above the stage scale, because turret scenes and the nearest row are drawn larger than life.
+    const scale = Math.max(0.5, Math.ceil(this.stage.k * TURRET_SCALE * 20) / 20);
     const ticket = ++this.loading;
-    const loaded = await Promise.all([...this.wanted].map(async (id) => [id, await loadRig(id, scale)] as const));
+    const ids = [...this.wanted].filter(hasRig);
+    const loaded = await Promise.all(ids.map(async (id) => [id, await loadRig(id, scale)] as const));
     if (ticket !== this.loading) return; // a newer resize overtook this one
     this.rigs = new Map(loaded);
     if (scale !== this.scale) forgetRigsExcept(scale);
@@ -79,26 +104,58 @@ export class Renderer {
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
     if (!this.background) this.background = this.paintBackground();
-    const sx = view.shake > 0 ? Math.sin(view.time * 90) * view.shake * k : 0;
-    const sy = view.shake > 0 ? Math.cos(view.time * 70) * view.shake * 0.6 * k : 0;
-    this.ox = sx;
-    this.oy = sy;
-    ctx.drawImage(this.background, sx, sy);
-    ctx.setTransform(k, 0, 0, k, sx, sy);
+    this.ox = view.shake > 0 ? Math.sin(view.time * 90) * view.shake * k : 0;
+    this.oy = view.shake > 0 ? Math.cos(view.time * 70) * view.shake * 0.6 * k : 0;
+    ctx.drawImage(this.background, this.ox, this.oy);
+    this.world();
 
     for (const side of SIDES) this.drawBase(s, view, side);
+    for (const b of view.blockades) this.drawBlockade(b, view.time);
 
     // Far rows first, so nearer units overlap them.
     const ghosts = [...view.ghosts].sort((a, b) => a.row - b.row);
-    for (const g of ghosts) this.drawGhost(g, sx, sy);
+    for (const g of ghosts) this.drawGhost(g);
     const units = [...view.units.values()].sort((a, b) => a.row - b.row || a.x - b.x);
-    for (const v of units) this.drawUnit(v, view.time, sx, sy);
+    for (const v of units) this.drawUnit(v, view.time);
 
-    for (const side of SIDES) this.drawGate(s, side);
-    for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, view.time);
-    this.drawShots(view, sx, sy);
+    for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, w.rig, view.time);
+    this.drawShots(view);
     this.drawEffects(view);
     useWorld(this.stage);
+  }
+
+  /** Points the context at stage coordinates, shaken along with everything else. */
+  private world(): void {
+    const { ctx, k } = this.stage;
+    ctx.setTransform(k, 0, 0, k, this.ox, this.oy);
+  }
+
+  // ---- drawing rigs -------------------------------------------------------
+
+  private place(x: number, y: number, facing: number, scale: number, angle = 0): void {
+    const { k } = this.stage;
+    const cos = Math.cos(angle) * k * scale;
+    const sin = Math.sin(angle) * k * scale;
+    base6.set([cos * facing, sin * facing, -sin, cos, k * x + this.ox, k * y + this.oy]);
+  }
+
+  /** Draws a rig whose pose has already been worked out. */
+  private drawSolved(rig: Rig, world: Float32Array, x: number, y: number, facing: number, scale: number, angle = 0): void {
+    this.place(x, y, facing, scale, angle);
+    drawRig(this.stage.ctx, rig, world, base6, 0, facing < 0);
+    this.world();
+  }
+
+  /** Draws a rig in passing: in its rest pose, or at a moment of one of its clips. */
+  private drawLoose(rig: Rig, x: number, y: number, facing: number, scale: number, clip?: Clip, u = 0, angle = 0): void {
+    let slot = this.scratch.get(rig);
+    if (!slot) {
+      slot = { pose: makePose(rig.parts.length), world: new Float32Array(rig.parts.length * 6) };
+      this.scratch.set(rig, slot);
+    }
+    if (clip) sampleClip(clip, u, rig.index, slot.pose);
+    solve(rig, slot.pose, slot.world);
+    this.drawSolved(rig, slot.world, x, y, facing, scale, angle);
   }
 
   // ---- scenery ------------------------------------------------------------
@@ -109,16 +166,19 @@ export class Renderer {
     bg.width = canvas.width;
     bg.height = canvas.height;
     const c = bg.getContext('2d')!;
+    if (this.scenery) {
+      c.drawImage(this.scenery, 0, 0, bg.width, bg.height);
+      return bg;
+    }
+
+    // No scenery art yet: a plain sky, a hint of skyline and hedges, grass and the road.
     c.setTransform(k, 0, 0, k, 0, 0);
     const horizon = GROUND_Y - 92;
-
     const sky = c.createLinearGradient(0, 0, 0, horizon);
     sky.addColorStop(0, '#9fd3f2');
     sky.addColorStop(1, '#e8f6fb');
     c.fillStyle = sky;
     c.fillRect(0, 0, WORLD_W, horizon + 20);
-
-    // West: a row of canal-house gables. East: hedgerows and trees.
     c.fillStyle = '#b9c7dc';
     for (let i = 0; i < 9; i++) {
       const x = 40 + i * 88;
@@ -132,21 +192,16 @@ export class Renderer {
     }
     c.fillStyle = '#9ccf8a';
     for (let i = 0; i < 12; i++) {
-      const x = 1000 + i * 80;
-      const r = 46 + ((i * 37) % 30);
       c.beginPath();
-      c.arc(x, horizon, r, Math.PI, 0);
+      c.arc(1000 + i * 80, horizon, 46 + ((i * 37) % 30), Math.PI, 0);
       c.fill();
     }
-
     const ground = c.createLinearGradient(0, 0, WORLD_W, 0);
     ground.addColorStop(0, '#b8c4ae');
     ground.addColorStop(0.5, '#9bcb7d');
     ground.addColorStop(1, '#7dbd5f');
     c.fillStyle = ground;
     c.fillRect(0, horizon, WORLD_W, WORLD_H - horizon);
-
-    // The road: paving in town, sand in the country.
     const road = c.createLinearGradient(0, 0, WORLD_W, 0);
     road.addColorStop(0, '#9a958f');
     road.addColorStop(0.45, '#aaa398');
@@ -160,6 +215,8 @@ export class Renderer {
     return bg;
   }
 
+  // ---- bases --------------------------------------------------------------
+
   private drawBase(s: SimState, view: BattleView, side: Side): void {
     const { ctx } = this.stage;
     const state = s.sides[side];
@@ -168,11 +225,22 @@ export class Renderer {
     const look = LOOK[state.faction];
     const dir = dirOf(side);
     const gate = GATE_X[side];
+    const flash = view.baseFlash[side];
+    const flagSpot = view.flagSpot(s, side);
 
     if (rig) {
-      this.drawStatic(rig, gate, GROUND_Y, dir, 1, view.time);
+      const idle = CLIPS[rig.id]?.idle;
+      const u = idle ? (view.time / (idle.seconds ?? 2)) % 1 : 0;
+      this.drawLoose(rig, gate, GROUND_Y, dir, 1, idle, u);
+      if (flash > 0) {
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalAlpha = flash * 0.4;
+        this.drawLoose(rig, gate, GROUND_Y, dir, 1, idle, u);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 1;
+      }
     } else {
-      // Grey box: a block with a doorway at the gate and a flag on top.
+      // Grey box: a block with a doorway at the gate and a flagpole.
       const x = side === 0 ? gate - BOX_W : gate;
       ctx.fillStyle = look.main;
       ctx.strokeStyle = INK;
@@ -184,80 +252,53 @@ export class Renderer {
       ctx.fillStyle = look.dark;
       ctx.fillRect(gate - (side === 0 ? 46 : 0), GROUND_Y - 140, 46, 192);
       ctx.strokeRect(gate - (side === 0 ? 46 : 0), GROUND_Y - 140, 46, 192);
-      const poleX = gate - dir * 150;
       ctx.beginPath();
-      ctx.moveTo(poleX, BOX_TOP);
-      ctx.lineTo(poleX, BOX_TOP - 140);
+      ctx.moveTo(flagSpot.x, BOX_TOP);
+      ctx.lineTo(flagSpot.x, flagSpot.y);
       ctx.stroke();
-      const flag = this.rigs.get(FACTIONS[state.faction].flagRig);
-      if (flag) {
-        this.drawStatic(flag, poleX, BOX_TOP - 136, dir, 1, view.time + side * 0.4);
-      } else {
-        ctx.fillStyle = look.light;
-        ctx.fillRect(poleX, BOX_TOP - 136, dir * 96, 60);
-        ctx.strokeRect(poleX, BOX_TOP - 136, dir * 96, 60);
+      if (flash > 0) {
+        ctx.globalAlpha = flash * 0.45;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(x, BOX_TOP, BOX_W, GROUND_Y + 52 - BOX_TOP);
+        ctx.globalAlpha = 1;
       }
     }
 
-    if (view.baseFlash[side] > 0) {
-      ctx.globalAlpha = view.baseFlash[side] * 0.45;
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(side === 0 ? gate - BOX_W : gate, BOX_TOP, BOX_W, GROUND_Y + 52 - BOX_TOP);
-      ctx.globalAlpha = 1;
+    const flag = this.rigs.get(FACTIONS[state.faction].flagRig);
+    if (flag) {
+      const wave = CLIPS[flag.id]?.idle;
+      this.drawLoose(flag, flagSpot.x, flagSpot.y, dir, FLAG_SCALE, wave, wave ? ((view.time + side * 0.4) / (wave.seconds ?? 2)) % 1 : 0);
     }
 
-    // Turrets.
-    state.turrets.forEach((t, slot) => {
-      if (!t) return;
-      const spot = TURRET_SPOTS[slot]!;
-      const x = gate + dir * spot.dx;
-      const y = GROUND_Y + spot.dy;
-      const kick = view.turretKick[side]![slot] ?? 0;
-      const turretRig = this.rigs.get(era.turret.rig);
-      if (turretRig) {
-        this.drawStatic(turretRig, x - dir * kick * 6, y, dir, 1, view.time);
-      } else {
-        ctx.fillStyle = look.dark;
-        ctx.strokeStyle = INK;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(x, y, 22, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-        ctx.fillRect(x, y - 7, dir * (44 - kick * 12), 14);
-        ctx.strokeRect(x, y - 7, dir * (44 - kick * 12), 14);
-      }
+    state.turrets.forEach((turret, slot) => {
+      if (!turret) return;
+      const t = view.turrets[side][slot];
+      if (t) this.drawTurret(t, dir);
+      else this.drawTurretBox(view.turretSpot(s, side, slot), dir, look.dark);
     });
   }
 
-  /** The part of a base that units walk out from under. Grey boxes have none. */
-  private drawGate(_s: SimState, _side: Side): void {
-    // Filled in when the base art arrives: its `front` parts are drawn here, over the units.
+  private drawTurret(t: TurretView, dir: number): void {
+    this.drawSolved(t.rig, t.world, t.x, t.y, dir, TURRET_SCALE);
   }
 
-  /** Draws a rig that is not a unit: a base, a turret, a flag. It plays its idle clip if it has one. */
-  private drawStatic(rig: Rig, x: number, y: number, dir: number, scale: number, time = 0): void {
-    const { ctx, k } = this.stage;
-    let slot = this.statics.get(rig);
-    if (!slot) {
-      slot = { pose: makePose(rig.parts.length), world: new Float32Array(rig.parts.length * 6) };
-      this.statics.set(rig, slot);
-    }
-    const idle = CLIPS[rig.id]?.idle;
-    if (idle) sampleClip(idle, (time / (idle.seconds ?? 2)) % 1, rig.index, slot.pose);
-    solve(rig, slot.pose, slot.world);
-    base6.set([k * scale * dir, 0, 0, k * scale, k * x + this.ox, k * y + this.oy]);
-    drawRig(ctx, rig, slot.world, base6);
-    ctx.setTransform(k, 0, 0, k, this.ox, this.oy);
+  private drawTurretBox(spot: { x: number; y: number }, dir: number, fill: string): void {
+    const { ctx } = this.stage;
+    ctx.fillStyle = fill;
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(spot.x, spot.y - 22, 22, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillRect(spot.x, spot.y - 29, dir * 44, 14);
+    ctx.strokeRect(spot.x, spot.y - 29, dir * 44, 14);
   }
 
   // ---- units --------------------------------------------------------------
 
-  private drawPuppet(p: Puppet, x: number, y: number, facing: number, scale: number, ox: number, oy: number): void {
-    const { ctx, k } = this.stage;
-    base6.set([k * scale * facing, 0, 0, k * scale, k * x + ox, k * y + oy]);
-    drawRig(ctx, p.rig, p.world, base6);
-    ctx.setTransform(k, 0, 0, k, ox, oy);
+  private drawPuppet(p: Puppet, x: number, y: number, facing: number, scale: number): void {
+    this.drawSolved(p.rig, p.world, x, y, facing, scale);
   }
 
   private drawShadow(x: number, y: number, len: number): void {
@@ -283,12 +324,15 @@ export class Renderer {
     ctx.fillText(label, x, y - height / 2 + 8);
   }
 
-  private drawUnit(v: UnitView, time: number, ox: number, oy: number): void {
+  private drawUnit(v: UnitView, time: number): void {
     const { ctx } = this.stage;
     const y = rowY(v.row);
     const scale = rowScale(v.row);
     const len = v.def.len / SUB;
     const x = v.x + (v.stunned ? Math.sin(time * 45 + v.id) * 1.5 : 0);
+    // Fresh units fade in as they come out of the dark doorway.
+    const fade = Math.min(1, v.age / SPAWN_FADE);
+    ctx.globalAlpha = fade;
     this.drawShadow(x, y, len * scale);
     if (v.stunned) {
       // Glued to the road.
@@ -302,22 +346,23 @@ export class Renderer {
     }
 
     if (v.puppet) {
-      this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale, ox, oy);
+      this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale);
       if (v.flash > 0) {
         ctx.globalCompositeOperation = 'lighter';
-        ctx.globalAlpha = v.flash * 0.55;
-        this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale, ox, oy);
+        ctx.globalAlpha = v.flash * 0.55 * fade;
+        this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale);
         ctx.globalCompositeOperation = 'source-over';
-        ctx.globalAlpha = 1;
+        ctx.globalAlpha = fade;
       }
     } else {
       const height = v.def.role === 'heavy' ? 110 : v.def.role === 'ranged' ? 92 : 100;
       const fill = v.flash > 0.3 ? '#ffffff' : v.side === 0 ? '#d9c5f5' : '#a8d98f';
       this.drawBox(x, y, len * scale, height * scale, v.def.role[0]!.toUpperCase(), fill);
     }
+    ctx.globalAlpha = 1;
 
-    const top = y - (v.def.role === 'heavy' ? 128 : 140) * scale;
     if (v.hp < v.def.hp) {
+      const top = y - (v.def.role === 'heavy' ? 128 : 140) * scale;
       const w = v.def.role === 'heavy' ? 74 : 40;
       ctx.fillStyle = INK;
       ctx.fillRect(x - w / 2 - 2, top - 2, w + 4, 10);
@@ -328,7 +373,7 @@ export class Renderer {
     }
   }
 
-  private drawGhost(g: Ghost, ox: number, oy: number): void {
+  private drawGhost(g: Ghost): void {
     const { ctx } = this.stage;
     const y = rowY(g.row);
     const scale = rowScale(g.row);
@@ -336,28 +381,77 @@ export class Renderer {
     ctx.globalAlpha = g.age < fadeFrom ? 1 : Math.max(0, 1 - (g.age - fadeFrom) / (GHOST_LIFE - fadeFrom));
     if (g.puppet) {
       // Turned around: it is running home.
-      this.drawPuppet(g.puppet, g.x, y, -dirOf(g.side), scale, ox, oy);
+      this.drawPuppet(g.puppet, g.x, y, -dirOf(g.side), scale);
     } else {
       this.drawBox(g.x, y, (g.def.len / SUB) * scale, 90 * scale, '…', '#eeeeee');
     }
     ctx.globalAlpha = 1;
   }
 
+  // ---- specials -----------------------------------------------------------
+
+  /** Activists glued to the road in front of the units they are holding up. */
+  private drawBlockade(b: Blockade, time: number): void {
+    const { ctx } = this.stage;
+    // They face the units they block, which come from the blocked side's gate.
+    const facing = dirOf(other(b.side));
+    const grow = Math.min(1, b.age / 0.18);
+    const leave = Math.min(1, (b.life - b.age) / 0.25);
+    const rig = this.rigs.get(BLOCKADE);
+    if (rig) {
+      const idle = CLIPS[rig.id]?.idle;
+      ctx.globalAlpha = Math.max(0, leave);
+      this.drawLoose(rig, b.x, rowY(1) + 6, facing, 0.6 + 0.4 * grow, idle, idle ? (time / (idle.seconds ?? 2)) % 1 : 0);
+      ctx.globalAlpha = 1;
+      return;
+    }
+    ctx.globalAlpha = Math.max(0, leave) * grow;
+    ctx.strokeStyle = '#ff8a1f';
+    ctx.lineWidth = 8;
+    ctx.setLineDash([18, 12]);
+    ctx.beginPath();
+    ctx.moveTo(b.x, GROUND_Y - 50);
+    ctx.lineTo(b.x, GROUND_Y + 50);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  /** A special that sweeps the lane: a convoy if it has art, a dust cloud otherwise. */
+  private drawWave(side: Side, x: number, rigId: string, time: number): void {
+    const { ctx } = this.stage;
+    const dir = dirOf(side);
+    const grad = ctx.createLinearGradient(x, 0, x - dir * 300, 0);
+    grad.addColorStop(0, 'rgba(150,120,70,0.55)');
+    grad.addColorStop(1, 'rgba(150,120,70,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(Math.min(x, x - dir * 300), GROUND_Y - 30, 300, 80);
+
+    const rig = this.rigs.get(rigId);
+    const travelled = Math.abs(x - GATE_X[side]);
+    for (let i = 0; i < 3; i++) {
+      const cx = x - dir * (70 + i * 190);
+      if (rig) {
+        const walk = CLIPS[rig.id]?.walk;
+        const u = walk ? ((travelled + i * 61) / (walk.stride ?? 150)) % 1 : 0;
+        this.drawLoose(rig, cx, rowY(i % 3), dir, rowScale(i % 3), walk, u);
+      } else {
+        ctx.fillStyle = INK;
+        ctx.beginPath();
+        ctx.roundRect(cx - 30, GROUND_Y - 70 + Math.sin(time * 30 + i) * 3, 60, 44, 8);
+        ctx.fill();
+      }
+    }
+  }
+
   // ---- projectiles and effects -------------------------------------------
 
-  private drawShots(view: BattleView, ox: number, oy: number): void {
-    const { ctx, k } = this.stage;
+  private drawShots(view: BattleView): void {
+    const { ctx } = this.stage;
     for (const shot of view.shots) {
       const rig = this.rigs.get(shot.rig);
       if (rig) {
-        const pose = makePose(rig.parts.length);
-        const world = new Float32Array(rig.parts.length * 6);
-        solve(rig, pose, world);
-        const cos = Math.cos(shot.spin);
-        const sin = Math.sin(shot.spin);
-        base6.set([k * cos, k * sin, -k * sin, k * cos, k * shot.x + ox, k * shot.y + oy]);
-        drawRig(ctx, rig, world, base6);
-        ctx.setTransform(k, 0, 0, k, ox, oy);
+        this.drawLoose(rig, shot.x, shot.y, dirOf(shot.side), 1, undefined, 0, shot.angle * dirOf(shot.side));
       } else {
         ctx.fillStyle = shot.side === 0 ? '#fffaf0' : '#8ed0ff';
         ctx.strokeStyle = INK;
@@ -367,25 +461,6 @@ export class Renderer {
         ctx.fill();
         ctx.stroke();
       }
-    }
-  }
-
-  private drawWave(side: Side, x: number, time: number): void {
-    const { ctx } = this.stage;
-    const dir = dirOf(side);
-    // Grey box for a special that sweeps the lane: a dust cloud with a hard front edge.
-    const grad = ctx.createLinearGradient(x, 0, x - dir * 260, 0);
-    grad.addColorStop(0, 'rgba(120,90,50,0.75)');
-    grad.addColorStop(1, 'rgba(120,90,50,0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(Math.min(x, x - dir * 260), GROUND_Y - 120, 260, 180);
-    ctx.fillStyle = INK;
-    for (let i = 0; i < 3; i++) {
-      const cx = x - dir * (40 + i * 80);
-      const bounce = Math.sin(time * 30 + i) * 3;
-      ctx.beginPath();
-      ctx.roundRect(cx - 30, GROUND_Y - 70 + bounce, 60, 44, 8);
-      ctx.fill();
     }
   }
 

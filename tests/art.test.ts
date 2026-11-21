@@ -59,7 +59,8 @@ function clipProblems(rig: RigSource, name: string, clip: Clip): string[] {
       out.push(`${name}.${part}: rate must be a whole number, or the loop will jump`);
     }
   }
-  if (name === 'attack') {
+  if (name === 'attack' && rig.archetype !== 'static') {
+    // The game decides when a unit's blow lands; the clip must say which frame that is.
     const hit = clip.markers?.hit;
     if (hit === undefined || hit <= 0 || hit >= 1) out.push('attack: needs a hit marker between 0 and 1');
     if (clip.loop) out.push('attack: must not loop');

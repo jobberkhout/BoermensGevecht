@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-316 -596 332 602" data-rig="static">
+  <title>De kapschuur van de Heitinks, met zonnepanelen op het dak</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The barn stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole on the ridge -->
+    <path class="t" style="stroke-width:5" d="M-288 -480 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- weathervane: a rooster on the far end of the ridge -->
+    <path class="t" style="stroke-width:3" d="M-44 -500 L-44 -530 M-58 -520 L-30 -520"/>
+    <path class="o" fill="#2b1b16" d="M-52 -532 Q-52 -542 -44 -542 Q-42 -548 -37 -546 Q-38 -542 -35 -540 Q-39 -538 -38 -534 Q-36 -530 -44 -530 Q-50 -530 -52 -532 Z"/>
+
+    <!-- tiled roof with solar panels -->
+    <path class="o" fill="#c0563a" d="M-310 -438 L-278 -500 L-22 -500 L10 -438 Z"/>
+    <path class="t" style="stroke:#9c4129" d="M-300 -456 L0 -456 M-290 -474 L-10 -474 M-282 -490 L-18 -490"/>
+    <path class="o" fill="#27406b" d="M-196 -492 L-76 -492 L-68 -446 L-204 -446 Z"/>
+    <path class="t" style="stroke:#6f8fc4" d="M-166 -492 L-170 -446 M-136 -492 L-136 -446 M-106 -492 L-102 -446 M-200 -469 L-72 -469"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-190 -490 L-178 -490 L-188 -448 L-198 -448 Z"/>
+    <rect class="o" fill="#f4ecdc" x="-312" y="-446" width="324" height="10" rx="3"/>
+
+    <!-- the inside of the barn, seen through its open front -->
+    <rect class="o" fill="#3a3226" x="-296" y="-438" width="292" height="438"/>
+    <path class="t" style="stroke:#4b4233;stroke-width:2.4" d="M-262 -436 L-262 -296 M-226 -436 L-226 -296 M-190 -436 L-190 -296 M-116 -436 L-116 -296 M-80 -436 L-80 -296 M-44 -436 L-44 -296 M-262 -284 L-262 -146 M-226 -284 L-226 -146 M-190 -284 L-190 -146 M-116 -284 L-116 -146 M-80 -284 L-80 -146 M-44 -284 L-44 -146"/>
+
+    <!-- hay in the lofts, there whether or not anyone is protesting -->
+    <circle class="o" fill="#e6c24a" cx="-256" cy="-326" r="30"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.4" d="M-256 -326 m-18 0 a18 18 0 1 1 18 18 a11 11 0 1 1 11 -11 a5 5 0 1 1 -5 -5"/>
+    <circle class="o" fill="#edcb58" cx="-46" cy="-322" r="26"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.4" d="M-46 -322 m-15 0 a15 15 0 1 1 15 15 a9 9 0 1 1 9 -9 a4 4 0 1 1 -4 -4"/>
+    <circle class="o" fill="#e6c24a" cx="-48" cy="-176" r="30"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.4" d="M-48 -176 m-18 0 a18 18 0 1 1 18 18 a11 11 0 1 1 11 -11 a5 5 0 1 1 -5 -5"/>
+    <rect class="o" fill="#edcb58" x="-286" y="-190" width="52" height="44" rx="3"/>
+    <path class="t" style="stroke:#b5651d;stroke-width:2.2" d="M-270 -190 L-270 -146 M-250 -190 L-250 -146"/>
+
+    <!-- loft floors and the posts that carry them -->
+    <rect class="o" fill="#7a5a3a" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#7a5a3a" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#8a6a46" x="-298" y="-438" width="12" height="438"/>
+    <rect class="o" fill="#8a6a46" x="-14" y="-438" width="12" height="304"/>
+    <path class="t" style="stroke:#5c4329;stroke-width:4" d="M-286 -400 L-262 -436 M-14 -400 L-38 -436 M-286 -250 L-262 -284 M-14 -250 L-38 -284"/>
+
+    <!-- ground floor: brick wall, the big green door with its white cross braces, hourglass shutters -->
+    <rect class="o" fill="#a8553c" x="-286" y="-134" width="184" height="134"/>
+    <path class="t" style="stroke:#c4775e;stroke-width:2.2" d="M-278 -116 L-262 -116 M-126 -120 L-110 -120 M-280 -20 L-264 -20 M-122 -28 L-108 -28 M-278 -64 L-270 -64"/>
+    <rect class="o" fill="#1f5a2a" x="-258" y="-116" width="96" height="116"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:5" d="M-252 -110 L-168 -110 L-168 -6 L-252 -6 Z M-252 -110 L-168 -6 M-168 -110 L-252 -6"/>
+    <rect class="o" fill="#f4ecdc" x="-150" y="-104" width="38" height="50"/>
+    <path class="o" fill="#1f5a2a" d="M-150 -104 L-112 -104 L-131 -79 Z M-150 -54 L-112 -54 L-131 -79 Z"/>
+    <rect class="o" fill="#9a958f" x="-298" y="-10" width="198" height="10"/>
+
+    <!-- the doorway units come out of -->
+    <rect class="o" fill="#8a6a46" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#241d17" x="-90" y="-122" width="76" height="122"/>
+    <rect class="o" fill="#8a6a46" x="-102" y="-134" width="12" height="134"/>
+
+    <circle data-mount="turret0" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" cx="-286" cy="-548" r="1"/>
+  </g>
+</svg>

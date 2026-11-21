@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -122 224 126" data-rig="static">
+  <title>De Heitinks: opa, moeke en de jongste, overal tegen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .l { stroke: #2b1b16; stroke-width: 2.7; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Hay bales, a pitchfork, a milk churn and the egg basket. Origin = middle of the floor. -->
+  <g id="bales" transform="translate(0 0)">
+    <path class="t" style="stroke-width:3.2;stroke:#7a5a3a" d="M-56 -2 L-66 -104"/>
+    <path class="t" style="stroke-width:2.2;stroke:#5c5c5c" d="M-72 -104 L-60 -105 M-71.5 -104 L-73 -116 M-66 -104.5 L-67 -117 M-60.5 -105 L-61 -117"/>
+    <rect class="o" fill="#e6c24a" x="-100" y="-42" width="42" height="42" rx="3"/>
+    <rect class="o" fill="#edcb58" x="-97" y="-82" width="37" height="40" rx="3"/>
+    <path class="t" style="stroke:#b5651d;stroke-width:2" d="M-86 -42 L-86 0 M-72 -42 L-72 0 M-85 -82 L-85 -42 M-72 -82 L-72 -42"/>
+    <path class="t" style="stroke:#c39a2b" d="M-96 -30 L-90 -32 M-82 -12 L-76 -14 M-68 -26 L-62 -28 M-93 -66 L-88 -68 M-80 -54 L-75 -56 M-68 -70 L-64 -72 M-96 -10 L-91 -11"/>
+    <rect class="o" fill="#e6c24a" x="42" y="-38" width="58" height="38" rx="3"/>
+    <path class="t" style="stroke:#b5651d;stroke-width:2" d="M61 -38 L61 0 M82 -38 L82 0"/>
+    <path class="t" style="stroke:#c39a2b" d="M46 -26 L52 -28 M68 -12 L74 -14 M88 -24 L94 -26 M50 -8 L55 -9"/>
+    <path class="o" fill="#b9c2bd" d="M-22 0 L-22 -24 Q-22 -31 -16.5 -32 L-16.5 -36 L-5.5 -36 L-5.5 -32 Q0 -31 0 -24 L0 0 Z"/>
+    <rect class="o" fill="#9aa59f" x="-18.5" y="-39.5" width="15" height="4.5" rx="2"/>
+    <path class="t" style="stroke:#8b9690" d="M-22 -14 L0 -14"/>
+    <path class="o" fill="#a8743f" d="M80 0 L78 -11 L100 -11 L98 0 Z"/>
+    <path class="t" style="stroke:#7a4f25" d="M79 -6 L99 -6 M84 -11 L85 0 M90 -11 L90 0 M95 -11 L94 0"/>
+    <ellipse class="o" fill="#fff6e0" cx="84" cy="-13" rx="3.4" ry="4.4"/>
+    <ellipse class="o" fill="#fff6e0" cx="90.5" cy="-14.5" rx="3.4" ry="4.4"/>
+    <ellipse class="o" fill="#f3e2c0" cx="96" cy="-13" rx="3.2" ry="4.2"/>
+  </g>
+
+  <!-- Opa Heitink: flat cap, moustache, kiel, red zakdoek, yellow klompen. Joint at his feet. -->
+  <g id="opa_body" transform="translate(-46 0)">
+    <path class="o" fill="#f2c230" d="M-12 -1 Q-12 -7 -5 -7 L-1 -7 Q1 -4 -1 -1 Z"/>
+    <path class="o" fill="#f2c230" d="M0 -1 Q0 -7 6 -7 L10 -7 Q15 -5 13 -1 Z"/>
+    <path class="o" fill="#274f86" d="M-10 -31 L10 -31 L9 -6 L1 -6 L0 -20 L-1 -6 L-9 -6 Z"/>
+    <path class="o" fill="#2f5f9e" d="M-13 -29 Q-15 -50 -10 -58 Q0 -62 10 -58 Q15 -50 13 -29 Z"/>
+    <path class="t" d="M0 -58 L0 -30"/>
+    <circle class="n" fill="#1d3f6e" cx="0" cy="-48" r="1.5"/>
+    <circle class="n" fill="#1d3f6e" cx="0" cy="-40" r="1.5"/>
+    <path class="o" fill="#d9342b" d="M-8 -58 Q0 -54 8 -58 L3 -49 Q0 -47 -3 -49 Z"/>
+    <circle class="n" fill="#ffffff" cx="-3" cy="-55" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="2.5" cy="-53.5" r="0.9"/>
+  </g>
+
+  <g id="opa_head" data-parent="opa_body" transform="translate(-46 -59)">
+    <ellipse class="o" fill="#efc09a" cx="-9.5" cy="-12" rx="2.8" ry="3.8"/>
+    <circle class="o" fill="#efc09a" cx="1" cy="-13" r="12.5"/>
+    <path class="o" fill="#efc09a" d="M12.2 -15.5 Q18.5 -12.5 12.5 -9"/>
+    <path class="o" fill="#d9d9d9" d="M2.5 -9.5 Q8 -12.5 14 -9 Q17 -7 15.5 -4.5 Q11 -6.5 8 -6 Q4.5 -5 1 -6.5 Q0.5 -8.5 2.5 -9.5 Z"/>
+    <path class="t" style="stroke-width:2.4;stroke:#bdbdbd" d="M3 -19.5 L10.5 -17.5"/>
+    <circle class="n" fill="#2b1b16" cx="7.5" cy="-15" r="1.4"/>
+    <path class="o" fill="#6b5b4b" d="M-12.5 -17 Q-13 -27.5 1 -27.5 Q13 -27.5 14 -20 L20.5 -18.5 L20 -16 L12 -17 Q0 -20.5 -12.5 -17 Z"/>
+    <path class="t" style="stroke:#544538" d="M-8 -22 Q2 -25.5 11 -21.5"/>
+  </g>
+
+  <!-- Opa's arm with the stick of his sign. Joint at the shoulder; the whole sign pumps with it. -->
+  <g id="opa_arm" data-parent="opa_body" transform="translate(-37 -54)">
+    <path class="t" style="stroke-width:3.4;stroke:#7a5a3a" d="M7 -4 L7 -40"/>
+    <path class="o" fill="#2f5f9e" d="M-5 -2 L-1 4 L10 -8 L5 -13 Z"/>
+    <circle class="o" fill="#efc09a" cx="7.5" cy="-12" r="4.2"/>
+  </g>
+
+  <!-- The board itself. It is never mirrored, so NEE reads NEE on either side of the field. -->
+  <g id="opa_board" data-parent="opa_arm" data-mirror="no" transform="translate(-30 -102.5)">
+    <rect class="o" fill="#fffdf5" x="-21" y="-9.5" width="42" height="19" rx="2"/>
+    <path class="l" d="M-16 5 L-16 -5 L-9 5 L-9 -5 M3 -5 L-4 -5 L-4 5 L3 5 M-4 0 L1.5 0 M15 -5 L8 -5 L8 5 L15 5 M8 0 L13.5 0"/>
+  </g>
+
+  <!-- Moeke's sign arm comes first, so it is behind her. -->
+  <g id="moeke_sign" data-parent="moeke_body" transform="translate(-1 -54)">
+    <path class="t" style="stroke-width:3.4;stroke:#7a5a3a" d="M7 -10 L20 -40"/>
+    <path class="o" fill="#5b86c4" d="M-4 -1 L2 4 L10 -9 L4 -13 Z"/>
+    <circle class="o" fill="#efc09a" cx="7.5" cy="-13" r="4.2"/>
+  </g>
+
+  <g id="moeke_board" data-parent="moeke_sign" data-mirror="no" transform="translate(22.5 -102.5)">
+    <rect class="o" fill="#fffdf5" x="-28.5" y="-9.5" width="57" height="19" rx="2"/>
+    <path class="l" d="M-24.5 -5 L-16.5 -5 M-20.5 -5 L-20.5 5 M-6.5 -5 L-13.5 -5 L-13.5 5 L-6.5 5 M-13.5 0 L-8 0 M4.5 -3.5 Q1.5 -6 -1 -3.5 Q-3 0 -1 3.5 Q1.5 6 4.5 3.5 L4.5 0.5 L1.8 0.5 M15.5 -5 L8.5 -5 L8.5 5 L15.5 5 M8.5 0 L14 0 M19.5 5 L19.5 -5 L26.5 5 L26.5 -5"/>
+  </g>
+
+  <!-- Moeke Heitink: flowered dress, apron, curls, glasses. -->
+  <g id="moeke_body" transform="translate(8 0)">
+    <path class="o" fill="#f2c230" d="M-11 -1 Q-11 -6.5 -5 -6.5 L-2 -6.5 Q0 -4 -2 -1 Z"/>
+    <path class="o" fill="#f2c230" d="M1 -1 Q1 -6.5 7 -6.5 L10 -6.5 Q14 -4.5 12.5 -1 Z"/>
+    <path class="o" fill="#efc09a" d="M-8 -9 L-3.5 -9 L-4 -6 L-7.5 -6 Z"/>
+    <path class="o" fill="#efc09a" d="M3 -9 L7.5 -9 L7.5 -6 L3.5 -6 Z"/>
+    <path class="o" fill="#274f86" d="M-11 -35 L11 -35 L16 -8 L-16 -8 Z"/>
+    <path class="o" fill="#5b86c4" d="M-12.5 -33 Q-14 -50 -9.5 -57 Q0 -61 9.5 -57 Q14 -50 12.5 -33 Z"/>
+    <path class="o" fill="#fffdf5" d="M-7 -50 L7 -50 L10.5 -11 L-10.5 -11 Z"/>
+    <path class="t" style="stroke:#d9342b" d="M-10 -15 L10 -15"/>
+    <circle class="n" fill="#e87b9a" cx="-3" cy="-40" r="1.6"/>
+    <circle class="n" fill="#e87b9a" cx="4" cy="-31" r="1.6"/>
+    <circle class="n" fill="#e87b9a" cx="-4" cy="-23" r="1.6"/>
+    <circle class="n" fill="#7bc8a4" cx="3.5" cy="-43" r="1.3"/>
+    <circle class="n" fill="#7bc8a4" cx="-2.5" cy="-31.5" r="1.3"/>
+    <circle class="n" fill="#7bc8a4" cx="4.5" cy="-21" r="1.3"/>
+  </g>
+
+  <g id="moeke_head" data-parent="moeke_body" transform="translate(8 -58)">
+    <circle class="o" fill="#d5d5d5" cx="-7" cy="-27" r="6.2"/>
+    <path class="o" fill="#d5d5d5" d="M-12 -8 Q-16 -11 -13 -15 Q-17 -19 -12.5 -22 Q-13 -27.5 -7 -26.5 Q-3 -30.5 2 -27.5 Q8 -30 11 -25 Q16 -24 14 -18 L-6 -6 Z"/>
+    <circle class="o" fill="#efc09a" cx="2" cy="-13" r="12"/>
+    <path class="o" fill="#d5d5d5" d="M-9.5 -14 Q-12 -22 -5 -24.5 Q2 -27 8 -24.5 Q13 -23 14 -19 Q7 -21.5 1 -20 Q-5 -18.5 -6 -12 Q-8 -11 -9.5 -14 Z"/>
+    <path class="o" fill="#efc09a" d="M13 -15 Q17.5 -12.5 13.2 -10"/>
+    <circle class="t" style="fill:#ffffff;fill-opacity:0.35" cx="6.5" cy="-15" r="3.8"/>
+    <circle class="t" style="fill:#ffffff;fill-opacity:0.35" cx="13.4" cy="-15.4" r="2.9"/>
+    <circle class="n" fill="#2b1b16" cx="6.8" cy="-15" r="1.3"/>
+    <circle class="n" fill="#2b1b16" cx="13" cy="-15.2" r="1.1"/>
+    <path class="t" style="stroke-width:1.9" d="M4 -20.5 L9.5 -19 M12 -19.2 L15.5 -20.5"/>
+    <path class="t" style="stroke-width:1.9" d="M5.5 -6 Q9 -8.5 12.5 -6.5"/>
+  </g>
+
+  <!-- Her other arm: a fist that will not stop shaking. -->
+  <g id="moeke_fist" data-parent="moeke_body" transform="translate(17 -53)">
+    <path class="o" fill="#5b86c4" d="M-4 -2 L3 9 L9 6 L12.5 -6 L7 -8 L5 -1 L0 -8 Z"/>
+    <circle class="o" fill="#efc09a" cx="10" cy="-10" r="4.6"/>
+    <path class="t" d="M7.5 -11 L12.5 -11.5 M7.8 -8.8 L12.3 -9.2"/>
+  </g>
+
+  <!-- The youngest Heitink: football shirt, cap on backwards, in charge of the eggs. -->
+  <g id="jong_body" transform="translate(66 0)">
+    <path class="o" fill="#fafafa" d="M-11 -1 Q-11 -6 -6 -6 L-1 -6 Q1 -3.5 -1 -1 Z"/>
+    <path class="o" fill="#fafafa" d="M1 -1 Q1 -6 6 -6 L10 -6 Q14 -4 12.5 -1 Z"/>
+    <path class="o" fill="#7fa3c9" d="M-9.5 -30 L9.5 -30 L9 -5.5 L1.5 -5.5 L0 -19 L-1.5 -5.5 L-9 -5.5 Z"/>
+    <path class="o" fill="#fffdf5" d="M-12 -28 Q-13.5 -47 -9 -54 Q0 -57.5 9 -54 Q13.5 -47 12 -28 Z"/>
+    <path class="n" fill="#2f6fd0" d="M-7.5 -54.2 L-3.5 -55.6 L-3.5 -28.5 L-7.5 -28.5 Z M0.5 -56 L4.5 -55.4 L4.5 -28.5 L0.5 -28.5 Z M8.5 -53.6 L11 -50 L11.6 -28.5 L8.5 -28.5 Z"/>
+    <path class="t" style="stroke-width:2.5" d="M-12 -28 Q-13.5 -47 -9 -54 Q0 -57.5 9 -54 Q13.5 -47 12 -28 Z"/>
+  </g>
+
+  <g id="jong_head" data-parent="jong_body" transform="translate(66 -55)">
+    <circle class="o" fill="#f3c9a5" cx="1" cy="-12.5" r="12"/>
+    <path class="o" fill="#f3c9a5" d="M12 -14 Q16 -12 12.2 -9.8"/>
+    <path class="o" fill="#e8c35a" d="M5 -23.5 Q10 -24.5 13 -20.5 Q9 -20 6 -21 Z"/>
+    <path class="o" fill="#2f9140" d="M-11.5 -15 Q-12 -25.5 1 -25.5 Q11 -25.5 13 -19.5 Q0 -22 -11.5 -15 Z"/>
+    <path class="o" fill="#237832" d="M-11 -17 L-18.5 -15 L-18 -12.5 L-11 -13.5 Z"/>
+    <circle class="n" fill="#2b1b16" cx="7.2" cy="-14.5" r="1.4"/>
+    <path class="t" style="stroke-width:1.9" d="M4.5 -19 L10 -18.5"/>
+    <path class="o" fill="#ffffff" d="M3.5 -8.5 Q8 -4.5 12 -8.5 Q8 -9.8 3.5 -8.5 Z"/>
+    <circle class="n" fill="#d98a5f" cx="2.5" cy="-11" r="0.8"/>
+    <circle class="n" fill="#d98a5f" cx="4.6" cy="-9.4" r="0.8"/>
+    <circle class="n" fill="#d98a5f" cx="0.5" cy="-8.8" r="0.8"/>
+  </g>
+
+  <!-- His throwing arm. Joint at the shoulder. -->
+  <g id="jong_arm" data-parent="jong_body" transform="translate(74 -49)">
+    <path class="o" fill="#fffdf5" d="M-4 -1 L1 4 L9 -8 L4 -12 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="7" cy="-12.5" r="4"/>
+    <circle data-mount="muzzle" cx="8" cy="-17" r="1"/>
+  </g>
+
+  <!-- The egg in his hand. He tosses it while he waits. -->
+  <g id="egg" data-parent="jong_arm" transform="translate(82 -65)">
+    <ellipse class="o" fill="#fff6e0" cx="0" cy="0" rx="3.6" ry="4.7"/>
+    <path class="n" fill="#ffffff" d="M-1.6 -2.6 Q-0.2 -3.6 0.8 -2.6 Q-0.4 -2.4 -1.2 -1.4 Z"/>
+  </g>
+</svg>

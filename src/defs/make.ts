@@ -4,6 +4,7 @@ import type { Role, TurretDef, UnitDef } from './types.ts';
 interface ShotLook {
   rig: string;
   arc: number;
+  spin: number;
 }
 
 /** Combines the shared stats for a role with one faction's art. */
@@ -26,7 +27,7 @@ export function makeUnit(id: string, role: Role, rig: string, stats: RoleStats, 
   };
   if (shot) {
     if (stats.shotSpeed === undefined) throw new Error(`${id}: a shot needs shotSpeed in its role stats`);
-    def.shot = { rig: shot.rig, arc: shot.arc, speed: stats.shotSpeed };
+    def.shot = { rig: shot.rig, arc: shot.arc, spin: shot.spin, speed: stats.shotSpeed };
   }
   return def;
 }
@@ -39,6 +40,6 @@ export function makeTurret(id: string, rig: string, stats: TurretStats, shot: Sh
     range: stats.range,
     dmg: stats.dmg,
     cooldown: stats.cooldown,
-    shot: { rig: shot.rig, arc: shot.arc, speed: stats.shotSpeed },
+    shot: { rig: shot.rig, arc: shot.arc, spin: shot.spin, speed: stats.shotSpeed },
   };
 }

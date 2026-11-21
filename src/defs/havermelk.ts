@@ -21,12 +21,14 @@ export const havermelk: FactionDef = {
         makeUnit('hm.e4.ranged', 'ranged', 'havermelk/e4/barista_bo', e4.ranged, {
           rig: 'havermelk/e4/shot_flatwhite',
           arc: 70,
+          spin: 1.5,
         }),
         makeUnit('hm.e4.heavy', 'heavy', 'havermelk/e4/bakfiets_babette', e4.heavy),
       ],
       turret: makeTurret('hm.e4.turret', 'havermelk/e4/turret_podcast', e4.turret, {
-        rig: 'havermelk/e4/shot_soundwave',
-        arc: 0,
+        rig: 'havermelk/e4/shot_geklaag',
+        arc: 14,
+        spin: 0,
       }),
       special: {
         id: 'hm.e4.special',

@@ -20,13 +20,15 @@ export const achterhoek: FactionDef = {
         makeUnit('ah.e4.light', 'light', 'achterhoek/e4/quadink', e4.light),
         makeUnit('ah.e4.ranged', 'ranged', 'achterhoek/e4/dronink', e4.ranged, {
           rig: 'achterhoek/e4/shot_spray',
-          arc: 40,
+          arc: 26,
+          spin: 0,
         }),
         makeUnit('ah.e4.heavy', 'heavy', 'achterhoek/e4/giertink', e4.heavy),
       ],
-      turret: makeTurret('ah.e4.turret', 'achterhoek/e4/turret_beregening', e4.turret, {
-        rig: 'achterhoek/e4/shot_water',
-        arc: 90,
+      turret: makeTurret('ah.e4.turret', 'achterhoek/e4/turret_heitinks', e4.turret, {
+        rig: 'achterhoek/e4/shot_ei',
+        arc: 110,
+        spin: 2.2,
       }),
       special: {
         id: 'ah.e4.special',

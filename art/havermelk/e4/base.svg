@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De Broedplaats: een opgeknapt pakhuis vol flexplekken</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The building stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole on the flat part of the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -444 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the clock gable with its hoisting beam -->
+    <path class="o" fill="#b96a4c" d="M-196 -440 Q-194 -476 -160 -480 Q-152 -520 -112 -524 Q-72 -520 -64 -480 Q-30 -476 -28 -440 Z"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:5" d="M-190 -444 Q-186 -472 -158 -475 Q-148 -514 -112 -518 Q-76 -514 -66 -475 Q-38 -472 -34 -444"/>
+    <circle class="o" fill="#34424b" cx="-112" cy="-474" r="13"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:2.4" d="M-112 -487 L-112 -461 M-125 -474 L-99 -474"/>
+    <path class="o" fill="#5a4636" d="M-116 -512 L-60 -512 L-60 -505 L-116 -505 Z"/>
+    <path class="t" d="M-66 -505 L-66 -486"/>
+    <path class="t" style="stroke-width:2.4" d="M-66 -486 Q-60 -480 -66 -476 Q-71 -474 -71 -479"/>
+
+    <!-- the front -->
+    <rect class="o" fill="#b96a4c" x="-296" y="-440" width="292" height="440"/>
+    <path class="t" style="stroke:#d08e70;stroke-width:2.4" d="M-284 -418 L-266 -418 M-240 -426 L-222 -426 M-60 -422 L-42 -422 M-26 -408 L-12 -408 M-288 -124 L-274 -124 M-104 -132 L-96 -132 M-20 -132 L-10 -132 M-288 -40 L-272 -40 M-104 -52 L-98 -52"/>
+    <rect class="o" fill="#f4ecdc" x="-302" y="-450" width="304" height="12" rx="3"/>
+    <rect class="o" fill="#9a958f" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- two upper floors: big openings, empty until someone moves in -->
+    <rect class="o" fill="#3a2e4a" x="-290" y="-432" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -306 L-12 -306 L-12 -294 L-288 -294 Z"/>
+    <path class="t" style="stroke:#6f6289" d="M-150 -430 L-150 -404"/>
+    <path class="o" fill="#ffe9a8" d="M-156 -404 L-144 -404 L-141 -394 L-159 -394 Z"/>
+    <path class="o" fill="#8a7a9f" d="M-250 -294 L-246 -326 L-222 -326 L-218 -294 Z"/>
+    <path class="t" style="stroke:#6f6289;stroke-width:3" d="M-70 -294 L-62 -350 M-40 -294 L-48 -350 M-66 -322 L-44 -322"/>
+    <rect class="o" fill="#3a2e4a" x="-290" y="-282" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -156 L-12 -156 L-12 -144 L-288 -144 Z"/>
+    <path class="t" style="stroke:#6f6289" d="M-150 -280 L-150 -254"/>
+    <path class="o" fill="#ffe9a8" d="M-156 -254 L-144 -254 L-141 -244 L-159 -244 Z"/>
+    <path class="o" fill="#8a7a9f" d="M-80 -144 L-80 -176 Q-66 -184 -52 -176 L-52 -144 Z"/>
+    <path class="o" fill="#c97b4a" d="M-244 -144 L-241 -160 L-225 -160 L-222 -144 Z"/>
+    <path class="o" fill="#3f9b57" d="M-233 -160 Q-246 -170 -248 -186 Q-235 -182 -233 -166 Q-229 -184 -216 -190 Q-218 -172 -232 -160 Z"/>
+    <rect class="o" fill="#f4ecdc" x="-300" y="-292" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#f4ecdc" x="-300" y="-142" width="300" height="10" rx="3"/>
+
+    <!-- ground floor: the coffee bar window under its awning -->
+    <rect class="o" fill="#1f3d2b" x="-286" y="-118" width="176" height="104" rx="3"/>
+    <rect class="o" fill="#cfe9f2" x="-279" y="-111" width="162" height="90"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-262 -111 L-240 -111 L-270 -60 L-279 -60 L-279 -82 Z"/>
+    <rect class="o" fill="#8a6a4a" x="-279" y="-52" width="162" height="31"/>
+    <path class="o" fill="#c9c9d2" d="M-176 -52 L-176 -78 L-140 -78 L-140 -52 Z"/>
+    <path class="t" d="M-168 -66 L-148 -66 M-164 -52 L-164 -58 M-152 -52 L-152 -58"/>
+    <path class="o" fill="#fffaf0" d="M-262 -52 L-260 -64 L-250 -64 L-248 -52 Z"/>
+    <path class="o" fill="#fffaf0" d="M-240 -52 L-238 -64 L-228 -64 L-226 -52 Z"/>
+    <path class="o" fill="#3f9b57" d="M-214 -111 Q-222 -98 -214 -88 Q-206 -98 -214 -111 Z"/>
+    <path class="o" fill="#3f9b57" d="M-198 -111 Q-204 -102 -198 -94 Q-192 -102 -198 -111 Z"/>
+    <path class="o" fill="#ecdcb9" d="M-294 -132 L-102 -132 L-96 -112 L-300 -112 Z"/>
+    <path class="n" fill="#ffffff" d="M-270 -131 L-246 -131 L-248 -113 L-274 -113 Z M-222 -131 L-198 -131 L-198 -113 L-224 -113 Z M-174 -131 L-150 -131 L-148 -113 L-174 -113 Z M-126 -131 L-104 -131 L-98 -113 L-124 -113 Z"/>
+    <path class="t" style="stroke-width:3" d="M-294 -132 L-102 -132 L-96 -112 L-300 -112 Z"/>
+
+    <!-- the doorway units come out of -->
+    <path class="o" fill="#1f3d2b" d="M-98 0 L-98 -100 Q-98 -128 -52 -128 Q-6 -128 -6 -100 L-6 0 Z"/>
+    <path class="o" fill="#241b26" d="M-88 0 L-88 -98 Q-88 -118 -52 -118 Q-16 -118 -16 -98 L-16 0 Z"/>
+
+    <circle data-mount="turret0" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" cx="-286" cy="-548" r="1"/>
+  </g>
+</svg>

@@ -85,6 +85,9 @@ export interface Shot {
   dmg: number;
   rig: string;
   arc: number;
+  spin: number;
+  /** Id of the unit that fired it, or -1 for a turret's shot. Looks only. */
+  src: number;
   /** Row it flies along. Looks only. */
   row: number;
   /** Turret slot it came from, or -1 for a unit's shot. Looks only. */

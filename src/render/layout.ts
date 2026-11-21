@@ -15,8 +15,15 @@ export const rowScale = (row: number): number => 1 + (row - 1) * 0.06;
 /** Stage x of a lane position (sub-units from `side`'s gate). */
 export const laneX = (side: Side, pos: number): number => GATE_X[side] + dirOf(side) * (pos / SUB);
 
-/** Where turrets sit when the base art does not say (grey-box fallback). `dy` is measured up from the road. */
+/** Turret scenes are drawn larger than their art, so the jokes in them can be seen. */
+export const TURRET_SCALE = 1.4;
+
+/**
+ * Where turret scenes stand when the base art has no markers for them (the grey
+ * box): stacked like two floors. `dx` is measured from the gate into the base,
+ * `dy` up from the road.
+ */
 export const TURRET_SPOTS: readonly { dx: number; dy: number }[] = [
-  { dx: -70, dy: -250 },
-  { dx: -130, dy: -160 },
+  { dx: -150, dy: -150 },
+  { dx: -150, dy: -300 },
 ];

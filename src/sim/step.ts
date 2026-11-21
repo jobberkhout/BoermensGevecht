@@ -189,6 +189,8 @@ function strike(
       dmg: def.dmg,
       rig: def.shot.rig,
       arc: def.shot.arc,
+      spin: def.shot.spin,
+      src: u.id,
       row: u.row,
       slot: -1,
     });
@@ -230,6 +232,8 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
       dmg: def.dmg,
       rig: def.shot.rig,
       arc: def.shot.arc,
+      spin: def.shot.spin,
+      src: -1,
       row: foeFront.row,
       slot,
     });

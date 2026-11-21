@@ -1,14 +1,14 @@
 import { CLIPS } from '../anim/clips/index.ts';
 import { attackTime, sampleClip } from '../anim/sample.ts';
-import type { ClipSet } from '../anim/types.ts';
+import type { Clip, ClipSet } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, LANE, SUB, TPS } from '../defs/balance.ts';
-import { unitDef } from '../defs/index.ts';
+import { eraOf, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
-import { addPose, copyPose, lerpPose, makePose, solve, type Pose } from '../rig/pose.ts';
+import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
 import { SIDES, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
 import { NL, nameOf } from '../ui/nl.ts';
-import { dirOf, laneX, rowY, TURRET_SPOTS } from './layout.ts';
+import { dirOf, laneX, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
 
 /**
  * Everything the screen remembers that the rules do not care about: where a
@@ -38,6 +38,8 @@ export interface UnitView {
   x: number;
   puppet: Puppet | null;
   act: Unit['act'];
+  /** Seconds since it walked out; it fades in over the first moments. */
+  age: number;
   /** Pixels walked so far; drives walk cycles and wheels. */
   travelled: number;
   lastPx: number;
@@ -58,6 +60,20 @@ export interface Ghost {
   puppet: Puppet | null;
   travelled: number;
   age: number;
+}
+
+/** A turret on a base: a little scene that idles and plays its attack when it fires. */
+export interface TurretView {
+  rigId: string;
+  rig: Rig;
+  idle: Clip | undefined;
+  attack: Clip | undefined;
+  pose: Pose;
+  world: Float32Array;
+  /** Seconds since it last fired, or a large number. */
+  fired: number;
+  x: number;
+  y: number;
 }
 
 export interface Floater {
@@ -85,13 +101,31 @@ export interface ShotView {
   rig: string;
   x: number;
   y: number;
-  /** Radians; shots tumble as they fly. */
-  spin: number;
+  /** Radians. */
+  angle: number;
+}
+
+/** The activists of a Wegblokkade, sitting in front of the units they stopped. */
+export interface Blockade {
+  /** The side that is being blocked. */
+  side: Side;
+  x: number;
+  age: number;
+  life: number;
 }
 
 export const GHOST_LIFE = 1.5;
+export const SPAWN_FADE = 0.3;
 const BLEND_SECONDS = 0.12;
-const NO_HIT = 99;
+const NEVER = 99;
+
+/** What a projectile leaves behind when it lands. */
+const SPLASH: Record<string, string> = {
+  shot_flatwhite: '#b98a5a',
+  shot_geklaag: '#ffffff',
+  shot_ei: '#ffd94a',
+  shot_spray: '#b6d24a',
+};
 
 function makePuppet(rig: Rig | undefined, rigId: string): Puppet | null {
   const clips = CLIPS[rigId];
@@ -109,26 +143,29 @@ function makePuppet(rig: Rig | undefined, rigId: string): Puppet | null {
   };
 }
 
+const point = { x: 0, y: 0 };
+
 export class BattleView {
   units = new Map<number, UnitView>();
   ghosts: Ghost[] = [];
+  turrets: [(TurretView | null)[], (TurretView | null)[]] = [[], []];
   floaters: Floater[] = [];
   puffs: Puff[] = [];
   shots: ShotView[] = [];
+  blockades: Blockade[] = [];
   /** 1 right after a base was struck, fading to 0. */
   baseFlash: [number, number] = [0, 0];
-  /** 1 right after a turret fired, fading to 0. Indexed [side][slot]. */
-  turretKick: number[][] = [[], []];
   /** Seconds the overtime banner has been up, or -1. */
   overtime = -1;
   /** Screen shake strength in pixels, fading out. */
   shake = 0;
   time = 0;
 
+  private readonly rigOf: (id: string) => Rig | undefined;
+  /** Where each flying shot left from, by shot id. */
+  private launch = new Map<number, { x: number; y: number }>();
   private lastShot = new Map<number, ShotView>();
   private seed = 12345;
-
-  private readonly rigOf: (id: string) => Rig | undefined;
 
   constructor(rigOf: (id: string) => Rig | undefined) {
     this.rigOf = rigOf;
@@ -142,6 +179,27 @@ export class BattleView {
 
   private pick<T>(list: readonly T[]): T {
     return list[Math.floor(this.random() * list.length)]!;
+  }
+
+  /** Where something attached to a base sits on the stage: a named marker in the base art, or a fallback. */
+  private mount(s: SimState, side: Side, name: string, fallbackX: number, fallbackY: number): { x: number; y: number } {
+    const state = s.sides[side];
+    const base = this.rigOf(eraOf(state.faction, state.era).baseRig);
+    const m = base?.mounts[name];
+    if (base && m) {
+      const part = base.parts[m.part]!;
+      return { x: GATE_X[side] + dirOf(side) * (part.x + m.x), y: GROUND_Y + part.y + m.y };
+    }
+    return { x: GATE_X[side] + dirOf(side) * fallbackX, y: GROUND_Y + fallbackY };
+  }
+
+  turretSpot(s: SimState, side: Side, slot: number): { x: number; y: number } {
+    const spot = TURRET_SPOTS[slot] ?? TURRET_SPOTS[0]!;
+    return this.mount(s, side, `turret${slot}`, spot.dx, spot.dy);
+  }
+
+  flagSpot(s: SimState, side: Side): { x: number; y: number } {
+    return this.mount(s, side, 'flag', -286, -548);
   }
 
   /** Call once per tick with that tick's events. */
@@ -181,15 +239,20 @@ export class BattleView {
           this.baseFlash[e.side] = 1;
           this.shake = Math.min(6, this.shake + 1.2);
           break;
-        case 'turretFire':
-          this.turretKick[e.side]![e.slot] = 1;
+        case 'turretFire': {
+          const t = this.turrets[e.side][e.slot];
+          if (t) t.fired = 0;
           break;
-        case 'stunned':
-          for (const id of e.ids) {
-            const v = this.units.get(id);
-            if (v) v.stunned = true;
+        }
+        case 'stunned': {
+          // The blockade sits just in front of the foremost unit it stopped.
+          let front = -1;
+          for (const u of s.sides[e.side].units) if (e.ids.includes(u.id)) front = Math.max(front, u.pos);
+          if (front >= 0) {
+            this.blockades.push({ side: e.side, x: laneX(e.side, front) + dirOf(e.side) * 46, age: 0, life: e.ticks / TPS });
           }
           break;
+        }
         case 'special':
           this.shake = Math.min(8, this.shake + 3);
           this.say(GATE_X[e.side] + dirOf(e.side) * 330, rowY(0) - 210, `${nameOf(e.id)}!`, '#ffd21f', 1.8, 44);
@@ -210,8 +273,25 @@ export class BattleView {
   /** Call every frame. `alpha` is how far we are between the last tick and the next (0..1). */
   update(s: SimState, alpha: number, dt: number): void {
     this.time += dt;
-    const seen = new Set<number>();
+    this.updateUnits(s, alpha, dt);
+    this.updateGhosts(dt);
+    this.updateTurrets(s, dt);
+    this.updateShots(s, alpha);
 
+    for (const f of this.floaters) f.age += dt;
+    this.floaters = this.floaters.filter((f) => f.age < f.life);
+    for (const p of this.puffs) p.age += dt;
+    this.puffs = this.puffs.filter((p) => p.age < p.life);
+    for (const b of this.blockades) b.age += dt;
+    this.blockades = this.blockades.filter((b) => b.age < b.life);
+
+    for (const side of SIDES) this.baseFlash[side] = Math.max(0, this.baseFlash[side] - dt * 4);
+    this.shake = Math.max(0, this.shake - dt * 14);
+    if (this.overtime >= 0) this.overtime += dt;
+  }
+
+  private updateUnits(s: SimState, alpha: number, dt: number): void {
+    const seen = new Set<number>();
     for (const side of SIDES) {
       for (const u of s.sides[side].units) {
         seen.add(u.id);
@@ -227,16 +307,18 @@ export class BattleView {
             x: 0,
             puppet: makePuppet(this.rigOf(def.rig), def.rig),
             act: u.act,
+            age: 0,
             travelled: 0,
             lastPx: px,
             idleTime: this.random() * 3,
-            hitTime: NO_HIT,
+            hitTime: NEVER,
             flash: 0,
             hp: u.hp,
             stunned: false,
           };
           this.units.set(u.id, v);
         }
+        v.age += dt;
         v.travelled += Math.max(0, px - v.lastPx);
         v.lastPx = px;
         v.x = GATE_X[side] + dirOf(side) * (px - def.len / SUB / 2);
@@ -277,8 +359,10 @@ export class BattleView {
       }
     }
     for (const id of this.units.keys()) if (!seen.has(id)) this.units.delete(id);
+  }
 
-    // Beaten units run home and fade.
+  /** Beaten units run home and fade. */
+  private updateGhosts(dt: number): void {
     for (const g of this.ghosts) {
       g.age += dt;
       const speed = Math.max(90, ((g.def.speed * TPS) / SUB) * 2.4);
@@ -291,44 +375,111 @@ export class BattleView {
       }
     }
     this.ghosts = this.ghosts.filter((g) => g.age < GHOST_LIFE);
+  }
 
-    // Shots, placed along their arc.
+  private updateTurrets(s: SimState, dt: number): void {
+    for (const side of SIDES) {
+      const state = s.sides[side];
+      const views = this.turrets[side];
+      state.turrets.forEach((turret, slot) => {
+        if (!turret) {
+          views[slot] = null;
+          return;
+        }
+        const rigId = eraOf(state.faction, state.era).turret.rig;
+        let view = views[slot];
+        if (!view || view.rigId !== rigId) {
+          const rig = this.rigOf(rigId);
+          if (!rig) {
+            views[slot] = null;
+            return;
+          }
+          const clips = CLIPS[rigId];
+          view = {
+            rigId,
+            rig,
+            idle: clips?.idle,
+            attack: clips?.attack,
+            pose: makePose(rig.parts.length),
+            world: new Float32Array(rig.parts.length * 6),
+            fired: NEVER,
+            x: 0,
+            y: 0,
+          };
+          views[slot] = view;
+        }
+        const spot = this.turretSpot(s, side, slot);
+        view.x = spot.x;
+        view.y = spot.y;
+        view.fired += dt;
+        const attackLen = view.attack?.seconds ?? 0;
+        if (view.attack && view.fired < attackLen) {
+          sampleClip(view.attack, view.fired / attackLen, view.rig.index, view.pose);
+        } else if (view.idle) {
+          // Two turrets of the same kind should not move in step.
+          const offset = slot * 0.37 + side * 0.19;
+          sampleClip(view.idle, (this.time / (view.idle.seconds ?? 2) + offset) % 1, view.rig.index, view.pose);
+        }
+        solve(view.rig, view.pose, view.world);
+      });
+    }
+  }
+
+  /** Where a new shot leaves from: the thrower's hand, the drone, the turret's muzzle. */
+  private launchPoint(s: SimState, shot: SimState['shots'][number]): { x: number; y: number } {
+    const dir = dirOf(shot.side);
+    if (shot.slot >= 0) {
+      const t = this.turrets[shot.side][shot.slot];
+      if (t && mountPoint(t.rig, t.world, 'muzzle', point)) {
+        return { x: t.x + dir * point.x * TURRET_SCALE, y: t.y + point.y * TURRET_SCALE };
+      }
+      return this.turretSpot(s, shot.side, shot.slot);
+    }
+    const v = this.units.get(shot.src);
+    const p = v?.puppet;
+    if (v && p && (mountPoint(p.rig, p.world, 'muzzle', point) || mountPoint(p.rig, p.world, 'hand', point))) {
+      const scale = rowScale(v.row);
+      return { x: v.x + dir * point.x * scale, y: rowY(v.row) + point.y * scale };
+    }
+    return { x: laneX(shot.side, shot.origin), y: rowY(shot.row) - 70 };
+  }
+
+  private updateShots(s: SimState, alpha: number): void {
     const now = new Map<number, ShotView>();
     this.shots.length = 0;
     for (const shot of s.shots) {
+      let from = this.launch.get(shot.id);
+      if (!from) {
+        from = this.launchPoint(s, shot);
+        this.launch.set(shot.id, from);
+      }
       const pos = shot.prevPos + (shot.pos - shot.prevPos) * alpha;
       const progress = Math.min(1, Math.max(0, (pos - shot.origin) / shot.dist0));
-      const groundY = rowY(shot.row);
-      const fromY = shot.slot >= 0 ? GROUND_Y + (TURRET_SPOTS[shot.slot]?.dy ?? -200) : groundY - 70;
-      const toY = groundY - 45;
+      const lane = laneX(shot.side, pos);
+      const targetY = rowY(shot.row) - 45;
+      // It starts exactly where it was thrown from and eases onto the lane as it flies.
+      const offX = (from.x - laneX(shot.side, shot.origin)) * (1 - progress);
       const view: ShotView = {
         id: shot.id,
         side: shot.side,
         rig: shot.rig,
-        x: laneX(shot.side, pos),
-        y: fromY + (toY - fromY) * progress - shot.arc * 4 * progress * (1 - progress),
-        spin: this.time * 9 * dirOf(shot.side),
+        x: lane + offX,
+        y: targetY + (from.y - targetY) * (1 - progress) - shot.arc * 4 * progress * (1 - progress),
+        angle:
+          shot.spin !== 0
+            ? this.time * shot.spin * Math.PI * 2 * dirOf(shot.side)
+            : Math.sin(this.time * 11 + shot.id) * 0.14,
       };
       this.shots.push(view);
       now.set(shot.id, view);
     }
     for (const [id, old] of this.lastShot) {
-      if (!now.has(id)) this.puffs.push({ x: old.x, y: old.y, age: 0, life: 0.3, color: '#ffffff', size: 22 });
+      if (now.has(id)) continue;
+      this.launch.delete(id);
+      const kind = old.rig.slice(old.rig.lastIndexOf('/') + 1);
+      this.puffs.push({ x: old.x, y: old.y, age: 0, life: 0.3, color: SPLASH[kind] ?? '#ffffff', size: 22 });
     }
     this.lastShot = now;
-
-    for (const f of this.floaters) f.age += dt;
-    this.floaters = this.floaters.filter((f) => f.age < f.life);
-    for (const p of this.puffs) p.age += dt;
-    this.puffs = this.puffs.filter((p) => p.age < p.life);
-
-    for (const side of SIDES) {
-      this.baseFlash[side] = Math.max(0, this.baseFlash[side] - dt * 4);
-      const kicks = this.turretKick[side]!;
-      for (let i = 0; i < kicks.length; i++) kicks[i] = Math.max(0, (kicks[i] ?? 0) - dt * 5);
-    }
-    this.shake = Math.max(0, this.shake - dt * 14);
-    if (this.overtime >= 0) this.overtime += dt;
   }
 
   /** How far a special's wave has come, as stage x, for each wave in play. */

@@ -22,7 +22,7 @@ export const NL = {
     'ah.e4.light': 'Quadink',
     'ah.e4.ranged': 'Dronink',
     'ah.e4.heavy': 'Giertink',
-    'ah.e4.turret': 'Beregenings\u00adkanon',
+    'ah.e4.turret': 'De Heitinks',
     'ah.e4.special': 'Trekkerkolonne',
   } as Record<string, string>,
 
@@ -31,12 +31,12 @@ export const NL = {
     'hm.e4.light': 'Snel, goedkoop, slaat met zijn padelracket.',
     'hm.e4.ranged': 'Gooit haver-flat-whites van een afstand.',
     'hm.e4.heavy': 'Elektrische bakfiets. Ramt alles wat voor de bak komt.',
-    'hm.e4.turret': 'Zo saai dat de vijand ervan wegkwijnt.',
+    'hm.e4.turret': 'Twee hosts die overal over klagen. Daar word je vanzelf moe van.',
     'hm.e4.special': 'Activisten lijmen zich vast: de vijand staat vijf tellen stil.',
     'ah.e4.light': 'Snel, goedkoop, rijdt je zo van de sokken.',
     'ah.e4.ranged': 'Stuurt zijn spuitdrone eropaf.',
     'ah.e4.heavy': 'Megatrekker met giertank. Raakt alles wat in de weg staat.',
-    'ah.e4.turret': 'Zet de hele straat onder water.',
+    'ah.e4.turret': 'Opa, moeke en de jongste. Overal tegen, en ze gooien met eieren.',
     'ah.e4.special': 'Een stoet trekkers dendert over de baan en raakt iedereen.',
   } as Record<string, string>,
 
