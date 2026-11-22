@@ -271,6 +271,9 @@ export class BattleView {
 
   /** Call once per tick with that tick's events. */
   consume(events: readonly SimEvent[], s: SimState): void {
+    /** How many units the algorithm has come down on so far this tick. */
+    let cancelled = 0;
+    const muttered: [boolean, boolean] = [false, false];
     for (const e of events) {
       switch (e.t) {
         case 'spawn': {
@@ -295,8 +298,12 @@ export class BattleView {
           this.units.delete(e.id);
           this.ghosts.push({ side: v.side, def: v.def, row: v.row, x: v.x, puppet: v.puppet, travelled: 0, age: 0 });
           if (v.puppet) v.puppet.blend = 1;
-          const faction = s.sides[v.side].faction;
-          this.say(v.x, rowY(v.row) - 135, this.pick(NL.slinkOff[faction]), '#fffdf5', 1.5, 19);
+          // One line per side per tick: a whole rank going down at once should not stack five of them.
+          if (!muttered[v.side]) {
+            muttered[v.side] = true;
+            const faction = s.sides[v.side].faction;
+            this.say(v.x, rowY(v.row) - 135, this.pick(NL.slinkOff[faction]), '#fffdf5', 1.5, 19);
+          }
           break;
         }
         case 'gold':
@@ -384,8 +391,11 @@ export class BattleView {
           const v = this.units.get(e.id);
           const x = v ? v.x : laneX(e.side, e.pos);
           const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
-          this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: 1.25, age: 0, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
-          this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);
+          // When the outrage spills over to more units, the verdicts come down one after another.
+          const delay = cancelled * 0.09;
+          this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: cancelled === 0 ? 1.25 : 0.9, age: -delay, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
+          if (cancelled === 0) this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);
+          cancelled++;
           break;
         }
         case 'barrageHit': {

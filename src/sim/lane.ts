@@ -9,13 +9,7 @@ export function frontUnit(units: readonly Unit[]): Unit | undefined {
   return best;
 }
 
-/** The unit with the most hit points left; the foremost one if several are level. */
-export function toughestUnit(units: readonly Unit[]): Unit | undefined {
-  let best: Unit | undefined;
-  for (const u of units) {
-    if (!best || u.hp > best.hp || (u.hp === best.hp && (u.pos > best.pos || (u.pos === best.pos && u.id < best.id)))) {
-      best = u;
-    }
-  }
-  return best;
+/** Units from the toughest (most hit points left) down; the foremost first among equals. */
+export function byToughness(units: readonly Unit[]): Unit[] {
+  return [...units].sort((a, b) => b.hp - a.hp || b.pos - a.pos || a.id - b.id);
 }

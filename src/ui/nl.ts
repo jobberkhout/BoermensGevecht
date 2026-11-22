@@ -62,12 +62,12 @@ export const NL = {
     'hm.2050.ranged': 'Blaast tapiocaparels door haar rietje. Scherpschutter met bubbelthee.',
     'hm.2050.heavy': 'Ontsnapt uit het lab. Honderd procent diervrij, nul procent te stoppen.',
     'hm.2050.turret': 'Een influencer gaat live. Duimpjes omlaag voor iedereen.',
-    'hm.2050.special': 'Cancelt de sterkste vijand op de baan. Weg is weg.',
+    'hm.2050.special': 'Cancelt de sterkste vijand op de baan. Is er nog verontwaardiging over, dan is de volgende aan de beurt.',
     'ah.1975.light': 'Boerenknecht met riek en klompen. Snel en goedkoop.',
     'ah.1975.ranged': 'Smijt met voederbieten. Raak is raak.',
     'ah.1975.heavy': 'Oude trekker met ploeg. Ploegt alles om wat in de weg staat.',
     'ah.1975.turret': 'Melkbus, carbid, vlammetje erbij: knal! Het deksel vliegt je om de oren.',
-    'ah.1975.special': 'Boerenrock op de platte wagen: acht tellen lang slaat en loopt alles harder.',
+    'ah.1975.special': 'Boerenrock op de platte wagen: zeven tellen lang slaat en loopt alles harder.',
     'ah.2025.light': 'Snel, goedkoop, rijdt je zo van de sokken.',
     'ah.2025.ranged': 'Stuurt zijn spuitdrone eropaf.',
     'ah.2025.heavy': 'Megatrekker met giertank. Raakt alles wat in de weg staat.',
@@ -92,8 +92,6 @@ export const NL = {
   hud: {
     special: 'Speciaal',
     eraUp: 'Moderniseren',
-    /** Under the modernize button: where it leads. */
-    eraNext: 'naar',
     subsidy: 'Subsidie',
     perSecond: '/s',
     subsidyMax: 'meer zit er niet in',

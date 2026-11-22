@@ -62,7 +62,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'buff'; ticks: number; dmgPercent: number; speedPercent: number } // own units hit harder and move faster
     | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
-    | { kind: 'snipe'; dmg: number } // one heavy blow on the toughest enemy unit
+    | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
   );
 
 export interface EraDef {

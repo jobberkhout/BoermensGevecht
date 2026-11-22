@@ -246,7 +246,7 @@ export const SPECIAL = {
   firstReady: sec(25),
   cooldown: sec(50),
   /** 1975, Achterhoek: boerenrock. Own units hit harder and move faster for a while. */
-  hoken: { ticks: sec(8), dmgPercent: 150, speedPercent: 140 },
+  hoken: { ticks: sec(7), dmgPercent: 135, speedPercent: 140 },
   /** 1975, Amsterdam: a love-in. Every own unit on the lane is patched up. */
   loveIn: { healPercent: 100 },
   /** 2025, Achterhoek: a convoy sweeps the lane and hits every enemy unit once. */
@@ -255,6 +255,9 @@ export const SPECIAL = {
   blokkade: { ticks: sec(5) },
   /** 2050, Achterhoek: drones dive on the foremost enemy, one after another. */
   zwerm: { strikes: 10, every: sec(0.4), dmg: 300 },
-  /** 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane. */
-  algoritme: { dmg: 3000 },
+  /**
+   * 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane,
+   * and whatever outrage is left over goes to the next toughest, and so on.
+   */
+  algoritme: { dmg: 4500 },
 } as const;

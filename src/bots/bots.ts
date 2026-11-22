@@ -39,7 +39,7 @@ function special(s: SimState, side: Side): Command | null {
       worth = foe.units.length >= 3;
       break;
     case 'snipe':
-      worth = foe.units.length >= 4 || foe.units.some((u) => unitDef(u.def).role === 'heavy');
+      worth = foe.units.length >= 3 || foe.units.some((u) => unitDef(u.def).role === 'heavy');
       break;
     case 'stun':
       worth = foe.units.length >= 3 && fighting >= 2;

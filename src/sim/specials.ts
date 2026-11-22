@@ -1,7 +1,7 @@
 import { LANE } from '../defs/balance.ts';
 import { unitDef } from '../defs/index.ts';
 import type { SpecialDef } from '../defs/types.ts';
-import { frontUnit, toughestUnit } from './lane.ts';
+import { byToughness, frontUnit } from './lane.ts';
 import { BASE, other, type Barrage, type Damage, type Side, type SimEvent, type SimState, type Wave } from './types.ts';
 
 /**
@@ -48,10 +48,16 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       s.barrages.push({ id: s.nextId++, side, left: def.strikes, every: def.every, timer: def.every, dmg: def.dmg, rig: def.rig ?? '' });
       return;
     case 'snipe': {
-      const target = toughestUnit(s.sides[foe].units);
-      if (!target) return; // nobody to cancel: the special is wasted
-      dmg.push({ side: foe, unit: target.id, amount: def.dmg });
-      events.push({ t: 'sniped', side: foe, id: target.id, pos: target.pos });
+      // The outrage starts with the toughest enemy unit and works its way down
+      // the list until it is spent. With nobody on the lane it is wasted.
+      let left = def.dmg;
+      for (const u of byToughness(s.sides[foe].units)) {
+        if (left <= 0) break;
+        const amount = Math.min(u.hp, left);
+        left -= amount;
+        dmg.push({ side: foe, unit: u.id, amount });
+        events.push({ t: 'sniped', side: foe, id: u.id, pos: u.pos });
+      }
       return;
     }
   }

@@ -172,7 +172,7 @@ export type SimEvent =
   | { t: 'stunned'; side: Side; ids: number[]; ticks: number }
   | { t: 'buffed'; side: Side; ticks: number }
   | { t: 'healed'; side: Side; ids: number[] }
-  /** The algorithm picked `id` on `side`. */
+  /** The algorithm came down on unit `id` of `side`. */
   | { t: 'sniped'; side: Side; id: number; pos: number }
   /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */
   | { t: 'barrageHit'; side: Side; id: number; pos: number }

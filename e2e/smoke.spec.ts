@@ -1,10 +1,32 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 
 interface Summary {
   tick: number;
   winner: unknown;
   units: [number, number];
   baseHp: [number, number];
+  era: [number, number];
+  subsidy: [number, number];
+  turrets: [number[], number[]];
+}
+
+interface Hooks {
+  advance(n: number): void;
+  summary(): Summary;
+  setBase(side: number, hp: number): void;
+  fund(side: number, gold: number): void;
+  progress(side: number, amount: number): void;
+  charge(side: number): void;
+  press(side: number, action: string): void;
+}
+
+/** Runs the match for a number of ticks and reports where it stands. */
+function advance(page: Page, ticks: number): Promise<Summary> {
+  return page.evaluate((n) => {
+    const g = (window as unknown as { __game: Hooks }).__game;
+    g.advance(n);
+    return g.summary();
+  }, ticks);
 }
 
 test('a match can be played from the title screen to a winner', async ({ page }) => {
@@ -67,7 +89,123 @@ test('a match can be played from the title screen to a winner', async ({ page })
   await page.keyboard.press('Enter');
   summary = await page.evaluate(() => (window as unknown as { __game: { summary(): Summary } }).__game.summary());
   expect(summary.tick).toBe(0);
-  expect(summary.baseHp).toEqual([2000, 2000]);
+  expect(summary.baseHp).toEqual([2500, 2500]);
+  expect(summary.era).toEqual([0, 0]);
 
+  expect(errors).toEqual([]);
+});
+
+test('subsidie, turret levels and modernizing work from the keyboard', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (err) => errors.push(err.message));
+  page.on('console', (msg) => {
+    if (msg.type() === 'error') errors.push(msg.text());
+  });
+  const hooks = <T>(fn: (g: Hooks) => T): Promise<T> =>
+    page.evaluate(`(${fn.toString()})(window.__game)`) as Promise<T>;
+
+  await page.goto('/?test=1');
+  await page.waitForSelector('body[data-ready="1"]');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.team.left .title small')).toHaveText("Jaren '70");
+
+  // Subsidie aanvragen: D for the left player, L for the right. It costs money and raises the income.
+  await expect(page.locator('.panel.left .purse small')).toContainText('+12/s');
+  await page.keyboard.press('KeyD');
+  await page.keyboard.press('KeyL');
+  let summary = await advance(page, 2);
+  expect(summary.subsidy).toEqual([1, 1]);
+  await expect(page.locator('.panel.left .purse small')).toContainText('+18/s');
+  await expect(page.locator('.panel.left .btn.subsidy .sub')).toContainText('+18 → +26/s');
+
+  // One turret button: it fills both slots, then upgrades the lowest.
+  await hooks((g) => g.fund(0, 5000));
+  await expect(page.locator('.panel.left .btn.turret .sub')).toHaveText('bouwen');
+  for (let i = 0; i < 3; i++) {
+    await page.keyboard.press('KeyA');
+    summary = await advance(page, 2);
+  }
+  expect(summary.turrets[0]).toEqual([2, 1]);
+  await expect(page.locator('.panel.left .btn.turret .sub')).toContainText('verbeteren');
+
+  // Modernizing is not for sale: without vooruitgang the button says no.
+  await page.keyboard.press('KeyF');
+  await expect(page.locator('.panel.left .why')).toHaveText('Nog niet genoeg vooruitgang');
+  expect((await advance(page, 2)).era).toEqual([0, 0]);
+
+  // With enough of it both players step into the next era, each with their own key.
+  await hooks((g) => {
+    g.progress(0, 1500);
+    g.progress(1, 1500);
+  });
+  await advance(page, 1);
+  await expect(page.locator('.panel.left .btn.eraUp')).toHaveClass(/ready/);
+  await page.keyboard.press('KeyF');
+  await page.keyboard.press('Semicolon');
+  summary = await advance(page, 2);
+  expect(summary.era).toEqual([1, 1]);
+  expect(summary.baseHp).toEqual([5500, 5500]);
+  await expect(page.locator('.team.left .title small')).toHaveText("Jaren '20");
+  await expect(page.locator('.panel.left .btn .label').first()).toHaveText('Padel-Pepijn');
+  await expect(page.locator('.panel.right .btn .label').first()).toHaveText('Quadink');
+
+  // The old turrets keep standing, but the button now offers to replace them, back at level 1.
+  await expect(page.locator('.panel.left .btn.turret .label')).toHaveText('Podcaststudio');
+  await expect(page.locator('.panel.left .btn.turret .sub')).toHaveText('oude vervangen');
+  await page.keyboard.press('KeyA');
+  summary = await advance(page, 2);
+  expect(summary.turrets[0]).toEqual([1, 1]);
+
+  // In the last era there is nothing left to modernize to, and the button makes way.
+  await hooks((g) => g.progress(0, 4200));
+  await page.keyboard.press('KeyF');
+  summary = await advance(page, 2);
+  expect(summary.era).toEqual([2, 1]);
+  await expect(page.locator('.panel.left .btn.eraUp')).toBeHidden();
+  await expect(page.locator('.panel.right .btn.eraUp')).toBeVisible();
+
+  expect(errors).toEqual([]);
+});
+
+test('every special can be used in a match without errors', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (err) => errors.push(err.message));
+  page.on('console', (msg) => {
+    if (msg.type() === 'error') errors.push(msg.text());
+  });
+
+  await page.goto('/?test=1');
+  await page.waitForSelector('body[data-ready="1"]');
+  await page.keyboard.press('Enter');
+
+  for (const era of [0, 1, 2]) {
+    // Both sides send an army, then each uses the special of this era.
+    const summary = await page.evaluate((eraNow) => {
+      const g = (window as unknown as { __game: Hooks }).__game;
+      if (eraNow > 0) {
+        for (const side of [0, 1]) {
+          g.progress(side, 100000);
+          g.press(side, 'eraUp');
+        }
+        g.advance(2);
+      }
+      for (const side of [0, 1]) {
+        g.fund(side, 100000);
+        for (const action of ['buy2', 'buy0', 'buy1', 'buy0']) g.press(side, action);
+      }
+      g.advance(520);
+      for (const side of [0, 1]) {
+        g.charge(side);
+        g.press(side, 'special');
+      }
+      g.advance(240);
+      return g.summary();
+    }, era);
+    expect(summary.era).toEqual([era, era]);
+    expect(summary.winner).toBeNull();
+  }
+  // The special buttons are recharging, which shows they were really used.
+  await expect(page.locator('.panel.left .btn.special')).toHaveClass(/off/);
+  await expect(page.locator('.panel.right .btn.special')).toHaveClass(/off/);
   expect(errors).toEqual([]);
 });

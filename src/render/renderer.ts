@@ -2,7 +2,7 @@ import { CLIPS } from '../anim/clips/index.ts';
 import { sampleClip } from '../anim/sample.ts';
 import type { Clip } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
-import { FACTIONS, eraOf } from '../defs/index.ts';
+import { FACTIONS, eraOf, turretEra } from '../defs/index.ts';
 import type { FactionId } from '../defs/types.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
 import { loadImage, openTag, type Rig } from '../rig/raster.ts';
@@ -13,10 +13,13 @@ import { useWorld, type Stage } from './stage.ts';
 import {
   GHOST_LIFE,
   SPAWN_FADE,
+  type Band,
   type BattleView,
   type Blockade,
   type Ghost,
   type Puppet,
+  type Sprite,
+  type Swarm,
   type TurretView,
   type UnitView,
 } from './view.ts';
@@ -30,9 +33,18 @@ import {
 const FONT = 'ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif';
 const INK = '#2b1b16';
 
-/** The painted backdrop: sky, skyline, fields and the road. */
+/** The painted backdrop: sky, skyline, fields and the road. The same for every era. */
 const SCENERY = 'scenery/2025';
-const BLOCKADE = 'havermelk/2025/special_blokkade';
+
+/** Where the drones of a swarm fly relative to its leader: a loose V. */
+const FORMATION: readonly (readonly [number, number])[] = [
+  [0, 0],
+  [-74, -44],
+  [-74, 46],
+  [-148, -88],
+  [-148, 92],
+  [-150, 4],
+];
 
 const LOOK: Record<FactionId, { main: string; dark: string; light: string }> = {
   havermelk: { main: '#c8a8f0', dark: '#7d5fb8', light: '#efe3ff' },
@@ -51,7 +63,7 @@ const BOX_TOP = GROUND_Y - 460;
 export class Renderer {
   private readonly stage: Stage;
   private rigs = new Map<string, Rig>();
-  private wanted = new Set<string>([BLOCKADE]);
+  private wanted = new Set<string>();
   private scale = 0;
   private background: HTMLCanvasElement | null = null;
   private scenery: HTMLImageElement | null = null;
@@ -115,6 +127,8 @@ export class Renderer {
     this.world();
 
     for (const side of SIDES) this.drawBase(s, view, side);
+    // The band stands on the verge behind the road, so everyone walks past in front of it.
+    for (const b of view.bands) this.drawBand(b, view.time);
 
     // Far rows first, so nearer units overlap them.
     const ghosts = [...view.ghosts].sort((a, b) => a.row - b.row);
@@ -125,7 +139,9 @@ export class Renderer {
     // The activists sit low, so they go on top: otherwise whoever stands next to them hides them.
     for (const b of view.blockades) this.drawBlockade(b, view.time);
     for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, w.rig, view.time);
+    for (const w of view.swarms) this.drawSwarm(w, view.time);
     this.drawShots(view);
+    for (const sp of view.sprites) this.drawSprite(sp, view.time);
     this.drawEffects(view);
     useWorld(this.stage);
   }
@@ -238,9 +254,11 @@ export class Renderer {
       const idle = CLIPS[rig.id]?.idle;
       const u = idle ? (view.time / (idle.seconds ?? 2)) % 1 : 0;
       this.drawLoose(rig, gate, GROUND_Y, dir, 1, idle, u);
-      if (flash > 0) {
+      // Struck: a short white flash. Just modernized: a longer one, as the new building settles in.
+      const glow = Math.max(flash * 0.4, view.eraFlash[side] * 0.7);
+      if (glow > 0) {
         ctx.globalCompositeOperation = 'lighter';
-        ctx.globalAlpha = flash * 0.4;
+        ctx.globalAlpha = glow;
         this.drawLoose(rig, gate, GROUND_Y, dir, 1, idle, u);
         ctx.globalCompositeOperation = 'source-over';
         ctx.globalAlpha = 1;
@@ -279,13 +297,40 @@ export class Renderer {
     state.turrets.forEach((turret, slot) => {
       if (!turret) return;
       const t = view.turrets[side][slot];
-      if (t) this.drawTurret(t, dir);
-      else this.drawTurretBox(view.turretSpot(s, side, slot), dir, look.dark);
+      if (t) {
+        this.drawTurret(t, dir);
+      } else {
+        const spot = view.turretSpot(s, side, slot);
+        this.drawTurretBox(spot, dir, look.dark);
+        this.drawStars(spot.x + dir * 60, spot.y + 13, dir, turret.level, turretEra(state.faction, turret.def) < state.era);
+      }
     });
   }
 
   private drawTurret(t: TurretView, dir: number): void {
     this.drawSolved(t.rig, t.world, t.x, t.y, dir, TURRET_SCALE);
+    this.drawStars(t.x + dir * 112, t.y + 13, dir, t.level, t.outdated);
+  }
+
+  /** One star per level, on the edge of the ledge. Grey when the turret is from an older era. */
+  private drawStars(x: number, y: number, dir: number, level: number, outdated: boolean): void {
+    const { ctx } = this.stage;
+    ctx.fillStyle = outdated ? '#b9b1a6' : '#ffd21f';
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    for (let i = 0; i < level; i++) {
+      const cx = x - dir * i * 21;
+      ctx.beginPath();
+      for (let k = 0; k < 10; k++) {
+        const r = k % 2 === 0 ? 10 : 4.4;
+        const a = -Math.PI / 2 + (k * Math.PI) / 5;
+        ctx.lineTo(cx + Math.cos(a) * r, y + Math.sin(a) * r);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
   }
 
   private drawTurretBox(spot: { x: number; y: number }, dir: number, fill: string): void {
@@ -403,7 +448,7 @@ export class Renderer {
     const facing = dirOf(other(b.side));
     const grow = Math.min(1, b.age / 0.18);
     const leave = Math.min(1, (b.life - b.age) / 0.25);
-    const rig = this.rigs.get(BLOCKADE);
+    const rig = this.rigs.get(b.rig);
     if (rig) {
       const idle = CLIPS[rig.id]?.idle;
       ctx.globalAlpha = Math.max(0, leave);
@@ -420,6 +465,79 @@ export class Renderer {
     ctx.lineTo(b.x, GROUND_Y + 50);
     ctx.stroke();
     ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  /** The band of a Høken!: it pops up next to its own farm and plays until the buff is over. */
+  private drawBand(b: Band, time: number): void {
+    const rig = this.rigs.get(b.rig);
+    if (!rig) return; // without art the floating notes have to do
+    const { ctx } = this.stage;
+    const dir = dirOf(b.side);
+    const grow = Math.min(1, b.age / 0.2);
+    const leave = Math.min(1, (b.life - b.age) / 0.3);
+    const idle = CLIPS[rig.id]?.idle;
+    ctx.globalAlpha = Math.max(0, leave);
+    this.drawLoose(rig, GATE_X[b.side] + dir * 160, GROUND_Y - 56, dir, 0.7 + 0.3 * grow, idle, idle ? (time / (idle.seconds ?? 0.6)) % 1 : 0);
+    ctx.globalAlpha = 1;
+  }
+
+  /** The drones still waiting for their turn, hovering in formation. */
+  private drawSwarm(w: Swarm, time: number): void {
+    const { ctx } = this.stage;
+    const dir = dirOf(w.side);
+    const rig = this.rigs.get(w.rig);
+    const idle = rig ? CLIPS[rig.id]?.idle : undefined;
+    const count = Math.min(w.left, FORMATION.length);
+    for (let i = count - 1; i >= 0; i--) {
+      const [dx, dy] = FORMATION[i]!;
+      const x = w.x + dir * dx + Math.sin(time * 2.3 + i * 1.9) * 6;
+      const y = w.y + dy * 0.6 + Math.sin(time * 5 + i * 1.3) * 5;
+      if (rig) {
+        this.drawLoose(rig, x, y, dir, 1, idle, idle ? ((time + i * 0.07) / (idle.seconds ?? 0.25)) % 1 : 0);
+      } else {
+        ctx.fillStyle = INK;
+        ctx.beginPath();
+        ctx.ellipse(x, y, 22, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  /** Something that flies from one spot to another: a heart floating up, a drone diving, a verdict coming down. */
+  private drawSprite(sp: Sprite, time: number): void {
+    if (sp.age < 0) return; // not started yet
+    const { ctx } = this.stage;
+    const t = Math.min(1, sp.age / sp.life);
+    const p = sp.ease === 'rise' ? 1 - (1 - t) * (1 - t) : t * t;
+    const x = sp.x0 + (sp.x1 - sp.x0) * p;
+    const y = sp.y0 + (sp.y1 - sp.y0) * p;
+    let alpha = 1;
+    let scale = sp.scale;
+    if (sp.ease === 'rise') {
+      alpha = t < 0.6 ? 1 : 1 - (t - 0.6) / 0.4;
+      scale *= 0.6 + 0.4 * Math.min(1, t * 5);
+    } else if (sp.age > sp.life) {
+      const after = sp.age - sp.life;
+      alpha = sp.hold > 0 ? Math.min(1, (sp.hold - after) / (sp.hold * 0.4)) : 0;
+      // It lands with a thump: a brief squash that settles.
+      scale *= 1 + 0.3 * Math.max(0, 1 - after / 0.14);
+    }
+    if (alpha <= 0) return;
+    ctx.globalAlpha = Math.max(0, alpha);
+    const rig = this.rigs.get(sp.rig);
+    if (rig) {
+      const idle = CLIPS[rig.id]?.idle;
+      this.drawLoose(rig, x, y, dirOf(sp.side), scale, idle, idle ? (time / (idle.seconds ?? 0.5)) % 1 : 0);
+    } else {
+      ctx.fillStyle = sp.ease === 'rise' ? '#ff7fb6' : '#e0442c';
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(x, y, 12 * scale, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    }
     ctx.globalAlpha = 1;
   }
 
@@ -479,6 +597,7 @@ export class Renderer {
   private drawEffects(view: BattleView): void {
     const { ctx } = this.stage;
     for (const p of view.puffs) {
+      if (p.age < 0) continue; // starts a moment later
       const t = p.age / p.life;
       ctx.globalAlpha = 1 - t;
       ctx.fillStyle = p.color;

@@ -301,6 +301,7 @@ body {
 .purse small {
   font-size: 1.05cqw;
   color: #fff;
+  white-space: nowrap;
 }
 
 .queue {
@@ -309,7 +310,7 @@ body {
 }
 
 .queue i {
-  width: 2.3cqw;
+  width: 1.9cqw;
   height: 0.95cqw;
   border: 0.18cqw solid var(--ink);
   border-radius: 0.5cqw;
@@ -450,6 +451,12 @@ body {
   font-size: 0.92cqw;
   line-height: 1.1;
   letter-spacing: -0.01cqw;
+}
+
+/* Names that would not fit otherwise, such as Trekkerkolonne. */
+.btn.small .label.long {
+  font-size: 0.8cqw;
+  letter-spacing: -0.02cqw;
 }
 
 .btn .cost {

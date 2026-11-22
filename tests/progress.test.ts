@@ -324,6 +324,23 @@ describe('specials', () => {
     expect(events.some((e) => e.t === 'sniped' && e.id === tough.id)).toBe(true);
   });
 
+  it('what the Algoritme has left over goes to the next toughest, and so on', () => {
+    const s = match();
+    s.sides[0].era = ERA.y2050;
+    rich(s, 0);
+    const pool = SPECIAL.algoritme.dmg;
+    const first = place(s, 1, AH.heavy, px(100), pool - 1500);
+    const second = place(s, 1, AH.heavy, px(400), 1000);
+    const third = place(s, 1, AH.heavy, px(700), 900);
+    for (const u of [first, second, third]) u.stunUntil = 1e9;
+    const events = act(s, 0, { t: 'special' });
+    // 1500 is left after the first, the second takes 1000 of it, the third the last 500.
+    expect(s.sides[1].units.map((u) => u.id)).toEqual([third.id]);
+    expect(third.hp).toBe(400);
+    expect(events.filter((e) => e.t === 'sniped')).toHaveLength(3);
+    expect(events.filter((e) => e.t === 'defeat')).toHaveLength(2);
+  });
+
   it('two specials used on the same tick both count, whoever is on the left', () => {
     // The love-in heals at once; the algorithm's blow lands at the end of the tick, after it.
     const s = match();

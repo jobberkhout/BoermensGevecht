@@ -190,6 +190,7 @@ export class Hud {
       this.write(b.cost, String(unit.cost));
     });
     this.write(parts.buttons.special.label, nameOf(era.special.id));
+    parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
     this.write(parts.buttons.subsidy.label, NL.hud.subsidy);
     this.write(parts.buttons.eraUp.label, NL.hud.eraUp);
 
@@ -198,7 +199,7 @@ export class Hud {
     const next = faction.eras[state.era + 1];
     parts.buttons.eraUp.root.style.display = next ? '' : 'none';
     parts.buttons.eraUp.root.parentElement!.classList.toggle('three', !next);
-    this.write(parts.buttons.eraUp.sub!, next ? `${NL.hud.eraNext} ${NL.era[next.id] ?? next.year}` : '');
+    this.write(parts.buttons.eraUp.sub!, next ? `→ ${NL.era[next.id] ?? next.year}` : '');
   }
 
   update(s: SimState): void {
@@ -239,7 +240,9 @@ export class Hud {
       // The turret button says what it will do next: build, replace an old one, or upgrade.
       const turret = parts.buttons.turret;
       const plan = turretPlan(s, side);
-      this.write(turret.label, nameOf(plan ? plan.def.id : era.turret.id));
+      const turretName = nameOf(plan ? plan.def.id : era.turret.id);
+      this.write(turret.label, turretName);
+      turret.label.classList.toggle('long', turretName.length > 13);
       this.write(turret.cost, plan ? String(plan.cost) : '');
       this.write(
         turret.sub!,
