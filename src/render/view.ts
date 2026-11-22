@@ -277,6 +277,12 @@ export class BattleView {
     for (const e of events) {
       switch (e.t) {
         case 'spawn': {
+          if (unitDef(e.def).role === 'super') {
+            // Nobody should miss this one walking out.
+            this.shake = Math.min(8, this.shake + 5);
+            this.say(GATE_X[e.side] + dirOf(e.side) * 300, rowY(0) - 290, `${nameOf(e.def)}!`, '#ffd21f', 2.2, 46);
+            break;
+          }
           const cries = linesFor('battleCry', s.sides[e.side].faction, e.def);
           if (cries.length > 0 && this.random() < 0.35) {
             this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(1) - 150, this.pick(cries), '#fffdf5', 1.4, 20);
@@ -384,6 +390,16 @@ export class BattleView {
           }
           break;
         }
+        case 'shrugged': {
+          // A super unit lets everyone know the special did nothing to it.
+          const line = NL.shout.unmoved[s.sides[e.side].faction] ?? '';
+          for (const id of e.ids) {
+            const v = this.units.get(id);
+            // A beat after the special's own name, so the two do not land on top of each other.
+            if (v && line) this.say(v.x, rowY(v.row) - 265, line, '#fffdf5', 1.8, 26, 0.8);
+          }
+          break;
+        }
         case 'sniped': {
           // The verdict drops out of the sky onto whoever the algorithm picked.
           const owner = s.sides[other(e.side)];
@@ -421,8 +437,9 @@ export class BattleView {
     }
   }
 
-  private say(x: number, y: number, text: string, color: string, life: number, size: number): void {
-    this.floaters.push({ x, y, text, color, age: 0, life, size });
+  /** Floats a line of text up from a spot. With `delay` it appears that many seconds later. */
+  private say(x: number, y: number, text: string, color: string, life: number, size: number, delay = 0): void {
+    this.floaters.push({ x, y, text, color, age: -delay, life, size });
   }
 
   /** Call every frame. `alpha` is how far we are between the last tick and the next (0..1). */

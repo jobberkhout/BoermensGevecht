@@ -183,12 +183,17 @@ export class Hud {
     this.write(parts.name, NL.faction[state.faction].name);
     this.write(parts.eraName, NL.era[era.id] ?? String(era.year));
 
-    era.units.forEach((unit, slot) => {
+    // Three unit buttons, and a fourth in the era that has a super unit.
+    for (let slot = 0; slot < 4; slot++) {
       const b = parts.buttons[`buy${slot}` as Action];
+      const unit = era.units[slot];
+      b.root.style.display = unit ? '' : 'none';
+      if (!unit) continue;
       if (b.pic) setPicture(b.pic, unit.rig, unit.role[0]!.toUpperCase());
       this.write(b.label, nameOf(unit.id));
       this.write(b.cost, String(unit.cost));
-    });
+    }
+    parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);
     this.write(parts.buttons.special.label, nameOf(era.special.id));
     parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
     this.write(parts.buttons.subsidy.label, NL.hud.subsidy);

@@ -27,6 +27,7 @@ export const NL = {
     'hm.2050.light': 'VR-Vik',
     'hm.2050.ranged': 'Boba-Bibi',
     'hm.2050.heavy': 'Kweekvleesblob',
+    'hm.2050.super': 'Havermelkreus',
     'hm.2050.turret': 'Livestream',
     'hm.2050.special': 'Het Algoritme',
     'ah.1975.light': 'Klein Mepperink',
@@ -42,6 +43,7 @@ export const NL = {
     'ah.2050.light': 'Exo-Mepperink',
     'ah.2050.ranged': 'Verschrikkerink',
     'ah.2050.heavy': 'De Vreter',
+    'ah.2050.super': 'Kolossink',
     'ah.2050.turret': 'Melkrobot',
     'ah.2050.special': 'Dronezwerm',
   } as Record<string, string>,
@@ -61,6 +63,7 @@ export const NL = {
     'hm.2050.light': 'Ziet niks door die bril, maar slaat er vrolijk op los.',
     'hm.2050.ranged': 'Blaast tapiocaparels door haar rietje. Scherpschutter met bubbelthee.',
     'hm.2050.heavy': 'Ontsnapt uit het lab. Honderd procent diervrij, nul procent te stoppen.',
+    'hm.2050.super': 'Een wandelend pak havermelk van drie verdiepingen. Heeft iedereen gemute: speciale acties doen hem niks.',
     'hm.2050.turret': 'Een influencer gaat live. Duimpjes omlaag voor iedereen.',
     'hm.2050.special': 'Cancelt de sterkste vijand op de baan. Is er nog verontwaardiging over, dan is de volgende aan de beurt.',
     'ah.1975.light': 'Boerenknecht met riek en klompen. Snel en goedkoop.',
@@ -76,6 +79,7 @@ export const NL = {
     'ah.2050.light': 'Zelf gelast exoskelet van trekkeronderdelen. Mept voor tien.',
     'ah.2050.ranged': 'Vogelverschrikker met laserogen. Geen kraai die nog durft.',
     'ah.2050.heavy': 'Zelfrijdende combine. Vreet alles op wat voor de haspel komt.',
+    'ah.2050.super': 'Een kolos van silo en trekkerwielen. Zit niet online, dus niet te cancelen: speciale acties doen hem niks.',
     'ah.2050.turret': 'Robotkoe in de melkstal. Spuit melk onder hoge druk.',
     'ah.2050.special': 'Tien drones duiken een voor een op de voorste vijand.',
   } as Record<string, string>,
@@ -110,6 +114,8 @@ export const NL = {
     cancelled: 'Gecanceld!',
     healed: 'Opgeknapt!',
     modern: 'Gemoderniseerd:',
+    /** What a super unit says when an enemy special passes it by. */
+    unmoved: { havermelk: 'Gemute!', achterhoek: 'Ik zit niet online!' } as Record<string, string>,
   },
 
   /** What the sound button says in each of its three positions. */
@@ -140,7 +146,7 @@ export const NL = {
     subsidy: { name: 'Subsidie aanvragen', blurb: 'Kost nu geld, levert daarna elke tel meer op.' },
     eraUp: {
       name: 'Moderniseren',
-      blurb: 'Vooruitgang verdien je met vechten. Is de balk vol: nieuwe eenheden, een sterkere basis en een nieuwe truc.',
+      blurb: 'Vooruitgang verdien je met vechten. Is de balk vol: nieuwe eenheden, een sterkere basis en een nieuwe truc. In de toekomst wacht een vierde eenheid.',
     },
     eras: "Drie tijdperken: Jaren '70, Jaren '20 en de toekomst.",
   },

@@ -3,7 +3,7 @@ import { INCOME_EVERY, LANE, PROGRESS, SPECIAL, STATS, SUBSIDY, TURRET, TURRET_S
 import { eraOf, turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan } from '../src/sim/commands.ts';
 import { BASE } from '../src/sim/types.ts';
-import { AH, ERA, HM, act, match, place, rich, run } from './helpers.ts';
+import { AH, ERA, HM, SUPER, act, match, place, rich, run } from './helpers.ts';
 
 describe('subsidie aanvragen', () => {
   it('costs money now and raises the income for good', () => {
@@ -362,5 +362,129 @@ describe('specials', () => {
     const victim = place(m, 0, AH.heavy, px(100), 1_000_000);
     act(m, 1, { t: 'special' });
     expect(victim.hp).toBe(1_000_000 - SPECIAL.algoritme.dmg);
+  });
+});
+
+describe('the super unit', () => {
+  it('can only be bought in the last era', () => {
+    const s = match();
+    rich(s, 0);
+    for (const era of [ERA.y1975, ERA.y2025]) {
+      s.sides[0].era = era;
+      expect(canDo(s, 0, { t: 'buy', slot: 3 }), `era ${era}`).toBe(false);
+    }
+    s.sides[0].era = ERA.y2050;
+    expect(canDo(s, 0, { t: 'buy', slot: 3 })).toBe(true);
+    act(s, 0, { t: 'buy', slot: 3 });
+    expect(s.sides[0].queue[0]!.def).toBe(SUPER.hm);
+    expect(s.sides[0].gold).toBe(1_000_000 - unitDef(SUPER.hm).cost);
+  });
+
+  it('is an army by itself: it beats three heavies of its own era, but not six', () => {
+    const heavy = 'ah.2050.heavy';
+    const fight = (heavies: number): { giant: boolean; pack: number } => {
+      const s = match();
+      s.sides[0].baseHp = s.sides[1].baseHp = 1e9; // a long fight must not end on a base
+      const giant = place(s, 0, SUPER.hm, LANE / 2 - px(4));
+      // Three abreast, the rest queued up behind them.
+      for (let i = 0; i < heavies; i++) place(s, 1, heavy, LANE / 2 - px(Math.floor(i / 3) * 220), undefined, i % 3);
+      run(s, 90 * 30);
+      return { giant: s.sides[0].units.some((u) => u.id === giant.id), pack: s.sides[1].units.length };
+    };
+    // Three heavies cost a little less than one super unit, six nearly twice as much.
+    expect(unitDef(heavy).cost * 3).toBeLessThan(unitDef(SUPER.hm).cost);
+    expect(fight(3)).toEqual({ giant: true, pack: 0 });
+    const six = fight(6);
+    expect(six.giant).toBe(false);
+    expect(six.pack).toBeGreaterThan(0);
+  });
+
+  it('cannot be cancelled: the Algoritme goes for the next toughest instead', () => {
+    const s = match();
+    s.sides[0].era = ERA.y2050;
+    rich(s, 0);
+    const giant = place(s, 1, SUPER.ah, px(400));
+    const heavy = place(s, 1, 'ah.2050.heavy', px(100));
+    const events = act(s, 0, { t: 'special' });
+    expect(giant.hp).toBe(unitDef(SUPER.ah).hp);
+    expect(heavy.hp).toBe(unitDef('ah.2050.heavy').hp - Math.min(unitDef('ah.2050.heavy').hp, SPECIAL.algoritme.dmg));
+    const shrugged = events.find((e) => e.t === 'shrugged');
+    expect(shrugged && shrugged.t === 'shrugged' ? shrugged.ids : []).toEqual([giant.id]);
+  });
+
+  it('with only a super unit on the lane the Algoritme is wasted', () => {
+    const s = match();
+    s.sides[0].era = ERA.y2050;
+    rich(s, 0);
+    const giant = place(s, 1, SUPER.ah, px(400));
+    const events = act(s, 0, { t: 'special' });
+    expect(giant.hp).toBe(unitDef(SUPER.ah).hp);
+    expect(events.some((e) => e.t === 'sniped')).toBe(false);
+  });
+
+  it('the Dronezwerm passes it by: the next unit takes the strikes, or the base', () => {
+    const s = match();
+    s.sides[1].era = ERA.y2050;
+    rich(s, 1);
+    const giant = place(s, 0, SUPER.hm, px(500));
+    const behind = place(s, 0, HM.heavy, px(100), 1_000_000);
+    giant.stunUntil = 1e9;
+    behind.stunUntil = 1e9;
+    act(s, 1, { t: 'special' });
+    run(s, SPECIAL.zwerm.every * SPECIAL.zwerm.strikes + 5);
+    expect(giant.hp).toBe(unitDef(SUPER.hm).hp);
+    expect(behind.hp).toBe(1_000_000 - SPECIAL.zwerm.dmg * SPECIAL.zwerm.strikes);
+
+    const alone = match();
+    alone.sides[1].era = ERA.y2050;
+    rich(alone, 1);
+    const only = place(alone, 0, SUPER.hm, px(500));
+    only.stunUntil = 1e9;
+    act(alone, 1, { t: 'special' });
+    run(alone, SPECIAL.zwerm.every * 2 + 1);
+    expect(only.hp).toBe(unitDef(SUPER.hm).hp);
+    expect(alone.sides[0].baseHp).toBe(alone.sides[0].baseMaxHp - SPECIAL.zwerm.dmg * 2);
+  });
+
+  it('cannot be glued down or run over either', () => {
+    // A side still in the twenties uses its special on a super unit from the future.
+    const glue = match();
+    glue.sides[0].era = ERA.y2025;
+    rich(glue, 0);
+    const walker = place(glue, 1, SUPER.ah, px(100));
+    const other = place(glue, 1, AH.light, px(50));
+    act(glue, 0, { t: 'special' });
+    const before = walker.pos;
+    run(glue, 10);
+    expect(walker.pos).toBe(before + 10 * unitDef(SUPER.ah).speed);
+    expect(other.stunUntil).toBeGreaterThan(glue.tick);
+
+    const convoy = match();
+    convoy.sides[1].era = ERA.y2025;
+    rich(convoy, 1);
+    const giant = place(convoy, 0, SUPER.hm, px(300));
+    giant.stunUntil = 1e9;
+    act(convoy, 1, { t: 'special' });
+    run(convoy, 400);
+    expect(giant.hp).toBe(unitDef(SUPER.hm).hp);
+  });
+
+  it('is still hurt by ordinary units and turrets', () => {
+    const s = match();
+    rich(s, 0);
+    act(s, 0, { t: 'turret' });
+    const giant = place(s, 1, SUPER.ah, LANE - px(100));
+    giant.stunUntil = 1e9;
+    place(s, 0, HM.light, px(96));
+    run(s, 120);
+    expect(giant.hp).toBeLessThan(unitDef(SUPER.ah).hp);
+  });
+
+  it('own specials still work on it', () => {
+    const s = match();
+    rich(s, 0); // the seventies: the Love-in
+    const giant = place(s, 0, SUPER.hm, px(100), 10);
+    act(s, 0, { t: 'special' });
+    expect(giant.hp).toBe(unitDef(SUPER.hm).hp);
   });
 });

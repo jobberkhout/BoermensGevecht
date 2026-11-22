@@ -20,6 +20,7 @@ function makeUnit(id: string, role: Role, rig: string, stats: RoleStats, shot?: 
     recover: stats.recover,
     bounty: stats.bounty,
     cleave: stats.cleave ?? false,
+    immune: stats.immune ?? false,
   };
   if (shot) {
     if (stats.shotSpeed === undefined) throw new Error(`${id}: a shot needs shotSpeed in its role stats`);
@@ -49,6 +50,8 @@ export interface EraLook {
   ranged: string;
   rangedShot: Look;
   heavy: string;
+  /** The fourth unit, in the era that has one. */
+  super?: string;
   turret: string;
   turretShot: Look;
   special: SpecialKind;
@@ -73,6 +76,15 @@ export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
     cooldown: SPECIAL.cooldown,
     firstReady: SPECIAL.firstReady,
   } as SpecialDef;
+  const units = [
+    makeUnit(`${id}.light`, 'light', art(look.light), stats.light),
+    makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), stats.ranged, withArt(look.rangedShot)),
+    makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), stats.heavy),
+  ];
+  if (stats.super) {
+    if (!look.super) throw new Error(`${id}: this era has a super unit, so it needs a drawing for one`);
+    units.push(makeUnit(`${id}.super`, 'super', art(look.super), stats.super));
+  }
   return {
     id,
     key: look.key,
@@ -80,11 +92,7 @@ export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
     baseRig: art('base'),
     baseHp: stats.baseHp,
     progressNeeded: stats.progressNeeded,
-    units: [
-      makeUnit(`${id}.light`, 'light', art(look.light), stats.light),
-      makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), stats.ranged, withArt(look.rangedShot)),
-      makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), stats.heavy),
-    ],
+    units,
     turret: makeTurret(`${id}.turret`, art(look.turret), stats.turret, withArt(look.turretShot)),
     special,
   };

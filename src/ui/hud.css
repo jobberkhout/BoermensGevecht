@@ -362,6 +362,16 @@ body {
   text-align: left;
 }
 
+/* The last era has four units to choose from: narrower buttons, smaller names. */
+.buttons.four .btn:not(.small) {
+  grid-column: span 3;
+}
+
+.buttons.four .btn:not(.small) .label {
+  font-size: 0.82cqw;
+  letter-spacing: -0.02cqw;
+}
+
 /* In the last era the modernize button is gone and the other three share the row. */
 .buttons.three .btn.small {
   grid-column: span 4;

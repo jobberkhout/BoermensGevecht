@@ -39,6 +39,7 @@ export const havermelk: FactionDef = {
       ranged: 'boba_bibi',
       rangedShot: { rig: 'shot_boba', arc: 50, spin: 0 },
       heavy: 'kweekvleesblob',
+      super: 'havermelkreus',
       turret: 'turret_livestream',
       turretShot: { rig: 'shot_dislike', arc: 14, spin: 0 },
       special: { kind: 'snipe', dmg: SPECIAL.algoritme.dmg, rig: 'special_algoritme' },

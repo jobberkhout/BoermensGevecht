@@ -76,7 +76,7 @@ const BATTLE: Stage[] = [
   { run: 20, press: [[0, 'special']], shot: '2025-wegblokkade' },
   // 2050
   { run: 8, progress: 4200, press: MODERNIZE, shot: '2050-modernized' },
-  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, ...ARMY] },
+  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, [0, 'buy3'], [1, 'buy3'], ...ARMY] },
   { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash', panels: true },
   { run: 30, charge: true, press: [[1, 'special']], shot: '2050-zwerm' },
   { run: 60, fund: 20000, press: [[1, 'buy2'], [1, 'buy0']] },

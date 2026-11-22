@@ -129,6 +129,8 @@ export interface RoleStats {
   cleave?: boolean;
   /** Ranged units only: projectile speed in sub-units per tick. */
   shotSpeed?: number;
+  /** Enemy specials have no effect on it. */
+  immune?: boolean;
 }
 
 export interface TurretStats {
@@ -145,6 +147,8 @@ export interface EraStats {
   light: RoleStats;
   ranged: RoleStats;
   heavy: RoleStats;
+  /** The fourth unit. Only the last era has one. */
+  super?: RoleStats;
   turret: TurretStats;
 }
 
@@ -197,6 +201,30 @@ const FIRST = {
 /** Share of a unit's price that the opponent earns for beating it. */
 const BOUNTY_PERCENT = 40;
 
+/**
+ * The last era has a fourth unit: one machine that is an army by itself. It
+ * costs a fortune and takes a long time to build, it hits everything within
+ * reach, and enemy specials have no effect on it: it cannot be cancelled,
+ * glued down, run over or picked out by drones. Units and turrets still hurt it.
+ *
+ * Tuned so that one of them beats its own price in any mix of units and a full
+ * ten-unit army only just, but loses to six heavies: the best buy late in the
+ * match, and still stoppable by an opponent who keeps heavies and turrets coming.
+ */
+const SUPER: Omit<RoleStats, 'bounty'> = {
+  cost: 3000,
+  buildTicks: sec(12),
+  hp: 12000,
+  speed: pxPerSec(26),
+  len: px(150),
+  range: px(30),
+  dmg: 460,
+  cleave: true,
+  windup: sec(0.6),
+  recover: sec(0.9),
+  immune: true,
+};
+
 function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
   const cost = Math.round(base.cost * s.price);
   return {
@@ -223,7 +251,7 @@ function scaleEra(key: EraKey): EraStats {
 export const STATS: Record<EraKey, EraStats> = {
   '1975': scaleEra('1975'),
   '2025': scaleEra('2025'),
-  '2050': scaleEra('2050'),
+  '2050': { ...scaleEra('2050'), super: { ...SUPER, bounty: Math.round((SUPER.cost * BOUNTY_PERCENT) / 100) } },
 };
 
 // ---- Turret levels ----------------------------------------------------------

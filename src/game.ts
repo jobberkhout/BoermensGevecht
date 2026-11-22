@@ -1,6 +1,6 @@
 import { QUEUE_MAX, TPS } from './defs/balance.ts';
 import { Sound } from './audio/sound.ts';
-import { DEFAULT_FACTIONS, FACTIONS, specialDef } from './defs/index.ts';
+import { DEFAULT_FACTIONS, FACTIONS, specialDef, unitDef } from './defs/index.ts';
 import type { FactionId } from './defs/types.ts';
 import { Renderer } from './render/renderer.ts';
 import type { Stage } from './render/stage.ts';
@@ -177,7 +177,8 @@ export class Game {
   private react(e: SimEvent): void {
     switch (e.t) {
       case 'spawn':
-        this.sound.spawn(e.side);
+        if (unitDef(e.def).role === 'super') this.sound.giant();
+        else this.sound.spawn(e.side);
         break;
       case 'strike':
         if (e.ranged) this.sound.whoosh();

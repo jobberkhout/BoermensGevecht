@@ -1,9 +1,12 @@
 import type { Command, Side } from '../sim/types.ts';
 
-/** The seven things a player can do. Buttons and keys both speak in these. */
-export type Action = 'buy0' | 'buy1' | 'buy2' | 'turret' | 'special' | 'subsidy' | 'eraUp';
+/**
+ * The things a player can do. Buttons and keys both speak in these. `buy3` is
+ * the super unit, which only the last era has.
+ */
+export type Action = 'buy0' | 'buy1' | 'buy2' | 'buy3' | 'turret' | 'special' | 'subsidy' | 'eraUp';
 
-export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'turret', 'special', 'subsidy', 'eraUp'];
+export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'buy3', 'turret', 'special', 'subsidy', 'eraUp'];
 
 export function commandOf(action: Action): Command {
   switch (action) {
@@ -13,6 +16,8 @@ export function commandOf(action: Action): Command {
       return { t: 'buy', slot: 1 };
     case 'buy2':
       return { t: 'buy', slot: 2 };
+    case 'buy3':
+      return { t: 'buy', slot: 3 };
     case 'turret':
       return { t: 'turret' };
     case 'special':
@@ -32,6 +37,7 @@ const KEYS: Record<string, { side: Side; action: Action }> = {
   KeyQ: { side: 0, action: 'buy0' },
   KeyW: { side: 0, action: 'buy1' },
   KeyE: { side: 0, action: 'buy2' },
+  KeyR: { side: 0, action: 'buy3' },
   KeyA: { side: 0, action: 'turret' },
   KeyS: { side: 0, action: 'special' },
   KeyD: { side: 0, action: 'subsidy' },
@@ -39,6 +45,7 @@ const KEYS: Record<string, { side: Side; action: Action }> = {
   KeyU: { side: 1, action: 'buy0' },
   KeyI: { side: 1, action: 'buy1' },
   KeyO: { side: 1, action: 'buy2' },
+  KeyP: { side: 1, action: 'buy3' },
   KeyJ: { side: 1, action: 'turret' },
   KeyK: { side: 1, action: 'special' },
   KeyL: { side: 1, action: 'subsidy' },
@@ -47,8 +54,8 @@ const KEYS: Record<string, { side: Side; action: Action }> = {
 
 /** What is printed on the key in the usual layout, shown on the buttons. */
 export const KEY_LABEL: Record<Side, Record<Action, string>> = {
-  0: { buy0: 'Q', buy1: 'W', buy2: 'E', turret: 'A', special: 'S', subsidy: 'D', eraUp: 'F' },
-  1: { buy0: 'U', buy1: 'I', buy2: 'O', turret: 'J', special: 'K', subsidy: 'L', eraUp: ';' },
+  0: { buy0: 'Q', buy1: 'W', buy2: 'E', buy3: 'R', turret: 'A', special: 'S', subsidy: 'D', eraUp: 'F' },
+  1: { buy0: 'U', buy1: 'I', buy2: 'O', buy3: 'P', turret: 'J', special: 'K', subsidy: 'L', eraUp: ';' },
 };
 
 export interface KeyHandlers {

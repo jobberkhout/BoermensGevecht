@@ -32,7 +32,7 @@ If you cloned the repository, the file is in its root: open it from there.
 |---|---|---|
 | Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) |
 | Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) |
 
 Both sides have the same numbers for the same role in the same era; they differ in looks, projectiles and specials.
 
@@ -56,6 +56,7 @@ Keys are read by position on the keyboard, so the layout does not matter.
 | Action | Left player | Right player |
 |---|---|---|
 | Unit 1 / 2 / 3 | Q / W / E | U / I / O |
+| Super unit (the future only) | R | P |
 | Turret: build, replace an old one, or upgrade | A | J |
 | Special | S | K |
 | Subsidie aanvragen | D | L |
@@ -84,6 +85,10 @@ Every action is also a button on screen.
 - After modernizing, the old turrets keep firing but are a step behind. The turret button now replaces
   them one at a time with the new era's turret, back at level 1.
 - Specials recharge in 50 seconds, and every era has its own.
+- **The super unit.** The future has a fourth unit: one machine that is an army by itself. It costs 3000,
+  takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials have
+  no effect on it: it cannot be cancelled, glued down, run over or picked out by drones. Six heavies or a
+  steady supply of units and turrets still bring it down.
 - After ten minutes both bases start to crumble. The less damaged one outlasts the other.
 
 ## Where things are

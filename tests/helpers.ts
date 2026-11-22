@@ -8,6 +8,9 @@ import type { Command, Side, SimEvent, SimState, Stamped, Unit } from '../src/si
 export const HM = { light: 'hm.1975.light', ranged: 'hm.1975.ranged', heavy: 'hm.1975.heavy' } as const;
 export const AH = { light: 'ah.1975.light', ranged: 'ah.1975.ranged', heavy: 'ah.1975.heavy' } as const;
 
+/** The super units, which only the last era has. */
+export const SUPER = { hm: 'hm.2050.super', ah: 'ah.2050.super' } as const;
+
 /** Era indices, for tests that need a side to be further along. */
 export const ERA = { y1975: 0, y2025: 1, y2050: 2 } as const;
 

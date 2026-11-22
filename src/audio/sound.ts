@@ -434,6 +434,16 @@ export class Sound {
     this.hiss({ from: 2400, to: 900, dur: 1.2, gain: 0.12, q: 3 });
   }
 
+  /** A super unit walks out: two footfalls that shake the ground, under a low swell. */
+  giant(): void {
+    for (const at of [0, 0.42]) {
+      this.tone({ type: 'sine', freq: 90, to: 38, dur: 0.34, gain: 0.5, at });
+      this.hiss({ from: 180, to: 60, dur: 0.3, gain: 0.3, filter: 'lowpass', at });
+    }
+    this.tone({ type: 'sawtooth', freq: 65.4, to: 98, dur: 1.0, gain: 0.16, attack: 0.2, at: 0.1 });
+    this.tone({ type: 'triangle', freq: 130.8, to: 196, dur: 1.0, gain: 0.14, attack: 0.2, at: 0.1 });
+  }
+
   /** A harsh buzzer: somebody is cancelled. */
   zap(): void {
     this.tone({ type: 'square', freq: 196, dur: 0.12, gain: 0.2 });
@@ -556,8 +566,8 @@ export class Sound {
       () => this.click(), () => this.refuse(), () => this.spawn(0), () => this.spawn(1), () => this.hit(),
       () => this.whoosh(), () => this.turret(0), () => this.turret(1), () => this.defeat(), () => this.coin(),
       () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(), () => this.chant(),
-      () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.alarm(),
-      () => this.fanfare(),
+      () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.giant(),
+      () => this.alarm(), () => this.fanfare(),
     ];
     const gap = 0.6;
     // Start in the busiest part of the tune: melody, drums and all.

@@ -15,6 +15,7 @@ const BUY: Record<Role, Command> = {
   light: { t: 'buy', slot: 0 },
   ranged: { t: 'buy', slot: 1 },
   heavy: { t: 'buy', slot: 2 },
+  super: { t: 'buy', slot: 3 },
 };
 const TURRET: Command = { t: 'turret' };
 const SPECIAL: Command = { t: 'special' };
@@ -62,8 +63,10 @@ function special(s: SimState, side: Side): Command | null {
 }
 
 export interface Style {
-  /** The order in which it buys units, over and over. */
-  units: Role[];
+  /** The order in which it buys ordinary units, over and over. */
+  units: Exclude<Role, 'super'>[];
+  /** In the last era it saves up for a super unit whenever it has none out. */
+  supers?: boolean;
   /** How many times it applies for subsidie in the first era; one more in each later era. */
   eco: number;
   /** False for a bot that stays in the first era whatever happens. */
@@ -96,6 +99,12 @@ export function brain(style: Style): Bot {
         if (me.gold >= ecoCost) return SUBSIDY_CMD;
         if (me.gold * 2 >= ecoCost) return null;
       }
+      // The big one. With its guard out and no super unit of its own on the
+      // lane, it keeps the purse shut until it can pay for one. That is the
+      // real trade: a thin army now for a giant later.
+      const big = style.supers ? eraOf(me.faction, me.era).units[3] : undefined;
+      const has = big !== undefined && (me.units.some((u) => u.def === big.id) || me.queue.some((q) => q.def === big.id));
+      if (big && !has) return me.gold >= big.cost ? BUY.super : null;
       const plan = style.turrets ? turretPlan(s, side) : null;
       if (plan && me.gold >= plan.cost) return TURRET;
     }
@@ -109,7 +118,7 @@ export function brain(style: Style): Bot {
 /** Presses random buttons. Finds the situations a sensible player would never create. */
 export function random(seed: number): Bot {
   let state = seed >>> 0;
-  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, BUY.light, BUY.ranged, TURRET, SPECIAL, ERA_UP, SUBSIDY_CMD];
+  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, BUY.light, BUY.ranged, BUY.super, TURRET, SPECIAL, ERA_UP, SUBSIDY_CMD];
   return (s, side) => {
     state = nextRng(state);
     const roll = rngValue(state);
@@ -125,14 +134,16 @@ export const BOTS: Record<string, () => Bot> = {
   swarm: () => brain({ units: ['light', 'light', 'ranged'], eco: 0, modernizes: true, turrets: false, guard: 99 }),
   /** One unit up front, ranged behind it. */
   archers: () => brain({ units: ['light', 'ranged', 'ranged', 'ranged'], eco: 1, modernizes: true, turrets: false, guard: 4 }),
-  /** Saves for heavies. */
-  heavies: () => brain({ units: ['heavy'], eco: 1, modernizes: true, turrets: false, guard: 1 }),
+  /** Saves for heavies, and for the super unit once there is one. */
+  heavies: () => brain({ units: ['heavy'], supers: true, eco: 1, modernizes: true, turrets: false, guard: 1 }),
   /** Defences and a firing line. */
   turtle: () => brain({ units: ['light', 'ranged', 'ranged'], eco: 2, modernizes: true, turrets: true, guard: 3 }),
-  /** A bit of everything. */
-  mixed: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], eco: 1, modernizes: true, turrets: true, guard: 4 }),
+  /** A bit of everything, the super unit included. */
+  mixed: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], supers: true, eco: 1, modernizes: true, turrets: true, guard: 4 }),
+  /** The same army without ever buying a super unit: the yardstick for how much one is worth. */
+  plain: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], eco: 1, modernizes: true, turrets: true, guard: 4 }),
   /** Subsidie first, everything else later. */
-  banker: () => brain({ units: ['light', 'ranged', 'ranged'], eco: 4, modernizes: true, turrets: true, guard: 2 }),
+  banker: () => brain({ units: ['light', 'ranged', 'ranged'], supers: true, eco: 4, modernizes: true, turrets: true, guard: 2 }),
 };
 
 /** A sensible all-rounder, for tests that need two identical players. */

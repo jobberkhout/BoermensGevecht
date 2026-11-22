@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-94 -236 188 242" data-rig="humanoid">
+  <title>De Havermelkreus: een wandelend pak havermelk van drie verdiepingen, met iedereen op mute</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .glow { stroke: #5ef2c4; stroke-width: 2.4; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- The body stands a little behind the middle, so that the cup at arm's length does not stick out far in front. -->
+  <g id="hips" transform="translate(-6 -52)"/>
+
+  <!-- The far arm: an espresso machine's steam wand on a shoulder joint. It hangs clear of the carton. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-67 -140)">
+    <rect class="o" fill="#aab1bb" x="-6.5" y="2" width="13" height="40" rx="4"/>
+    <path class="n" fill="#d5dae1" d="M-3.4 7 L-0.4 7 L-0.4 37 L-3.4 37 Z"/>
+    <path class="o" fill="#aab1bb" d="M-3.6 46 L3.6 46 L3.6 80 Q3.6 84.5 0 84.5 Q-3.6 84.5 -3.6 80 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#2a2536" x="-5.2" y="54" width="10.4" height="14" rx="2.6"/>
+    <rect class="o" fill="#2f2a3a" x="-8.5" y="38" width="17" height="10" rx="3"/>
+    <circle class="o" fill="#d5dae1" cx="0" cy="0" r="10"/>
+    <circle class="n" fill="#2f2a3a" cx="0" cy="0" r="3.4"/>
+  </g>
+
+  <!-- What comes out of the wand. Joint at the nozzle. -->
+  <g id="steam" data-parent="arm_back" transform="translate(-67 -55)">
+    <path class="o" style="stroke-width:1.9" fill="#f4f1fa" d="M-1 1.5 q-9 -2.6 -11.6 5 q-6.4 2.6 -3.4 9.6 q0.8 7.2 8.6 6 q5.2 4.4 10.8 0.6 q8.2 0.8 7.8 -7.2 q3.8 -7 -3.4 -9.8 q-2.6 -6 -8.8 -4.2 Z"/>
+    <path class="n" fill="#ffffff" d="M-9 8.4 q4 -4 9 -2.6 q-5 0.8 -7.6 5.2 Z"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-30 -52)">
+    <rect class="o" fill="#2f2a3a" x="-11" y="-6" width="22" height="40" rx="5"/>
+    <rect class="o" style="stroke-width:1.8" fill="#aab1bb" x="-6" y="13" width="12" height="17" rx="2"/>
+    <rect class="o" fill="#2a2536" x="-13" y="27" width="26" height="9.5" rx="3"/>
+    <path class="o" fill="#d9d9e0" d="M-18 41 Q-18 35 -12 35 L8 35 Q25 36 31 45 L31 52 L-18 52 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#3fcfa6" d="M-18 46.5 L31 46.5 L31 52 L-18 52 Z"/>
+  </g>
+
+  <!-- Chunky white trainers, of course. -->
+  <g id="leg_front" data-parent="hips" transform="translate(14 -52)">
+    <rect class="o" fill="#3a3550" x="-11" y="-6" width="22" height="40" rx="5"/>
+    <path class="glow" d="M-5.5 0 L-5.5 9"/>
+    <rect class="o" style="stroke-width:1.8" fill="#d5dae1" x="-6" y="13" width="12" height="17" rx="2"/>
+    <path class="n" fill="#ffffff" d="M-3.6 15 L-1.2 15 L-1.2 28 L-3.6 28 Z"/>
+    <rect class="o" fill="#2f2a3a" x="-13" y="27" width="26" height="9.5" rx="3"/>
+    <path class="o" fill="#fafafa" d="M-18 41 Q-18 35 -12 35 L8 35 Q25 36 31 45 L31 52 L-18 52 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#c8a8f0" d="M-18 41 Q-18 35 -12 35 L-8 35 L-8 46.5 L-18 46.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#5ef2c4" d="M-18 46.5 L31 46.5 L31 52 L-18 52 Z"/>
+    <path class="t" d="M3 37.5 L8 41.5 M9 38 L14 42 M15 39.5 L19.5 43.5"/>
+  </g>
+
+  <!-- The carton. Joint at the middle of its bottom, so it leans and squashes from there. -->
+  <g id="torso" data-parent="hips" transform="translate(-6 -52)">
+    <g transform="translate(0 52)">
+      <path class="o" fill="#fff6e0" d="M-52 -172 L52 -172 L52 -54 Q52 -48 46 -48 L-46 -48 Q-52 -48 -52 -54 Z"/>
+      <path class="n" fill="#f1e2bf" d="M-50.7 -170.7 L-40 -170.7 L-40 -49.3 L-46 -49.3 Q-50.7 -49.3 -50.7 -54 Z"/>
+      <!-- a wave of oat milk across the bottom, with a strip of light along it -->
+      <path class="n" fill="#e3c898" d="M-50.7 -84 Q-36 -95 -20 -86 Q-4 -77 14 -88 Q34 -99 50.7 -86 L50.7 -54 Q50.7 -49.3 46 -49.3 L-46 -49.3 Q-50.7 -49.3 -50.7 -54 Z"/>
+      <path class="n" fill="#d4b47e" d="M-50.7 -84 Q-45 -88.6 -40 -90 L-40 -49.3 L-46 -49.3 Q-50.7 -49.3 -50.7 -54 Z"/>
+      <path class="t" d="M-51 -84 Q-36 -95 -20 -86 Q-4 -77 14 -88 Q34 -99 51 -86"/>
+      <path class="glow" style="stroke-width:1.8" d="M-47 -78.5 Q-36 -87 -22 -80 Q-4 -70 14 -81.5 Q32 -91 47 -80.5"/>
+      <!-- the small print and the barcode -->
+      <path class="t" style="stroke:#a98a55;stroke-width:1.5" d="M-34 -69 L-12 -69 M-34 -63.5 L-18 -63.5 M-34 -58 L-8 -58"/>
+      <rect class="o" style="stroke-width:1.6" fill="#fffdf5" x="22" y="-70" width="23" height="15" rx="2"/>
+      <path class="n" fill="#2b1b16" d="M25 -67.5 h1.6 v10 h-1.6 Z M28 -67.5 h0.9 v10 h-0.9 Z M30.3 -67.5 h2.2 v10 h-2.2 Z M34 -67.5 h0.9 v10 h-0.9 Z M36.3 -67.5 h1.5 v10 h-1.5 Z M39.2 -67.5 h0.9 v10 h-0.9 Z M41.3 -67.5 h1.6 v10 h-1.6 Z"/>
+      <!-- the emblem: an ear of oats -->
+      <circle class="o" fill="#fffdf5" cx="-22" cy="-121" r="18.5"/>
+      <path class="t" style="stroke:#8a6a1f;stroke-width:1.8" d="M-22 -105.5 Q-23.5 -121 -21.5 -136"/>
+      <g class="o" style="stroke-width:1.5" fill="#e0a93c">
+        <ellipse cx="-27.4" cy="-112.6" rx="3.5" ry="5.4" transform="rotate(-28 -27.4 -112.6)"/>
+        <ellipse cx="-16.8" cy="-116.6" rx="3.5" ry="5.4" transform="rotate(28 -16.8 -116.6)"/>
+        <ellipse cx="-27.2" cy="-122.4" rx="3.5" ry="5.4" transform="rotate(-28 -27.2 -122.4)"/>
+        <ellipse cx="-16.6" cy="-126.4" rx="3.5" ry="5.4" transform="rotate(28 -16.6 -126.4)"/>
+        <ellipse cx="-21.6" cy="-133" rx="3.4" ry="5.2"/>
+      </g>
+      <!-- muted: the status badge that explains why nothing gets through to it -->
+      <rect class="o" fill="#2a2536" x="-22" y="-168" width="44" height="17" rx="8.5"/>
+      <path class="n" fill="#fffdf5" d="M-14.5 -162.4 L-11 -162.4 L-6.4 -166 L-6.4 -153 L-11 -156.6 L-14.5 -156.6 Z"/>
+      <path class="t" style="stroke:#8d87a8;stroke-width:1.9" d="M-2.6 -162.6 Q-0.4 -159.5 -2.6 -156.4 M1.2 -164.6 Q4.6 -159.5 1.2 -154.4"/>
+      <path class="t" style="stroke:#ff4a5e;stroke-width:2.8" d="M-16.5 -153.4 L5 -165.6"/>
+      <circle class="n" fill="#ff4a5e" cx="13.4" cy="-159.5" r="3.2"/>
+      <!-- the cockpit, before the pilot and the glass go in -->
+      <circle class="n" fill="#2a2536" cx="24" cy="-124" r="19"/>
+      <path class="n" fill="#3a3550" d="M12 -131 Q14 -141 24 -141 Q34 -141 36 -131 Q30 -135 24 -135 Q18 -135 12 -131 Z"/>
+      <circle class="n" fill="#5ef2c4" cx="13.6" cy="-117.4" r="1.5"/>
+      <circle class="n" fill="#ff4a5e" cx="11.8" cy="-122.4" r="1.3"/>
+    </g>
+  </g>
+
+  <!-- A tiny barista at the controls. Joint at the neck. -->
+  <g id="pilot" data-parent="torso" transform="translate(18 -116)">
+    <g transform="translate(-24 116)">
+      <path class="o" style="stroke-width:1.8" fill="#c8a8f0" d="M14.6 -106 Q14 -117.6 24 -117.6 Q34 -117.6 33.4 -106 Z"/>
+      <path class="n" fill="#fffdf5" d="M20.6 -116.6 L27.4 -116.6 L26.6 -106.6 L21.4 -106.6 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c9a0" cx="24.4" cy="-125.6" r="7.8"/>
+      <circle class="o" style="stroke-width:1.8" fill="#2f6bff" cx="21.6" cy="-135.8" r="3.8"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f6bff" d="M16.4 -124 Q14.6 -134.4 24 -134.6 Q33 -134.6 32.6 -127.6 Q29.6 -130.6 24.6 -130.2 Q19.6 -130 18.8 -122.6 Q16.8 -122.4 16.4 -124 Z"/>
+      <path class="n" fill="#79a6ff" d="M19 -131.4 Q23 -133.8 28 -132.8 Q23.4 -132.4 20.2 -129.6 Z"/>
+      <circle class="n" fill="#2b1b16" cx="27.8" cy="-125.6" r="1.2"/>
+      <path class="t" style="stroke-width:1.3" d="M26 -121.6 Q28.4 -120 30.4 -122"/>
+    </g>
+  </g>
+
+  <!-- The flat white that never leaves the pilot's hand. Joint at the hand. -->
+  <g id="sip" data-parent="pilot" transform="translate(27 -113)">
+    <path class="o" style="stroke-width:1.5" fill="#fffdf5" d="M-3.2 -5 L3.2 -5 L2.4 3 L-2.4 3 Z"/>
+    <path class="o" style="stroke-width:1.5" fill="#3a3550" d="M-3.8 -6.6 L3.8 -6.6 L3.8 -4.6 L-3.8 -4.6 Z"/>
+  </g>
+
+  <!-- The porthole's rim and glass, over the pilot. Never moves on its own. -->
+  <g id="porthole" data-parent="torso" transform="translate(18 -124)">
+    <circle fill="none" stroke="#d5dae1" stroke-width="5" cx="0" cy="0" r="19"/>
+    <circle class="t" style="stroke-width:2.2" cx="0" cy="0" r="21.6"/>
+    <circle class="t" cx="0" cy="0" r="16.5"/>
+    <path fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.75" d="M-11.5 -7 Q-9 -12 -3.5 -13.6"/>
+    <circle class="n" fill="#2b1b16" cx="0" cy="-19" r="1.4"/>
+    <circle class="n" fill="#2b1b16" cx="19" cy="0" r="1.4"/>
+    <circle class="n" fill="#2b1b16" cx="0" cy="19" r="1.4"/>
+    <circle class="n" fill="#2b1b16" cx="-19" cy="0" r="1.4"/>
+  </g>
+
+  <!-- A paper straw for an aerial, on the far ear cup. Joint at its foot. -->
+  <g id="straw" data-parent="head" transform="translate(-66 -180)">
+    <g transform="rotate(-24)">
+      <rect class="o" fill="#fffdf5" x="-3.2" y="-40" width="6.4" height="42" rx="1.6"/>
+      <path class="n" fill="#c8a8f0" d="M-2 -36 L2 -39 L2 -34.5 L-2 -31.5 Z M-2 -27 L2 -30 L2 -25.5 L-2 -22.5 Z M-2 -18 L2 -21 L2 -16.5 L-2 -13.5 Z M-2 -9 L2 -12 L2 -7.5 L-2 -4.5 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#ff4a5e" cx="0" cy="-41.5" r="3.2"/>
+    </g>
+  </g>
+
+  <!-- The gable, the screw cap and the headphones clamped over all of it. Joint where the gable folds. -->
+  <g id="head" data-parent="torso" transform="translate(-6 -172)">
+    <g transform="translate(0 172)">
+      <path class="o" fill="#fff6e0" d="M-52 -172 L52 -172 L5 -207 L-5 -207 Z"/>
+      <path class="n" fill="#f1e2bf" d="M-49 -173.2 L-2 -173.2 L-2 -205.4 L-4.4 -205.6 Z"/>
+      <path class="t" style="stroke:#cdb98a" d="M-31 -173 L-1 -196 M31 -173 L1 -196"/>
+      <path class="o" fill="#f1e2bf" d="M-5 -206 L-5 -219 L5 -219 L5 -206 Z"/>
+      <path class="t" style="stroke:#a98a55;stroke-width:1.3" d="M-3 -210 L3 -210 M-3 -214 L3 -214"/>
+      <!-- the cap, square to the slope, with the leak running out from under it -->
+      <g transform="translate(30 -190) rotate(36.7)">
+        <path class="o" style="stroke-width:1.6" fill="#fffdf5" d="M9 -1.8 L19 -1.8 Q21.6 0 19 1.8 L9 1.8 Z"/>
+        <rect class="o" style="stroke-width:1.9" fill="#fffdf5" x="-11.5" y="-5" width="23" height="6.5" rx="2"/>
+        <rect class="o" fill="#c8a8f0" x="-9.5" y="-14.5" width="19" height="10.5" rx="2.6"/>
+        <path class="t" style="stroke:#7d5fb8;stroke-width:1.5" d="M-4.8 -12 L-4.8 -6.5 M0 -12 L0 -6.5 M4.8 -12 L4.8 -6.5"/>
+        <path class="n" fill="#e6d6fb" d="M-7.4 -13.2 L7.4 -13.2 L7.4 -12 L-7.4 -12 Z"/>
+      </g>
+      <!-- headphones: the band over the top, a pad on each side -->
+      <path class="t" style="stroke-width:8" d="M-58 -166 Q-58 -225.4 0 -225.4 Q58 -225.4 58 -166"/>
+      <path fill="none" stroke="#3a3550" stroke-width="4.6" stroke-linecap="round" d="M-58 -166 Q-58 -225.4 0 -225.4 Q58 -225.4 58 -166"/>
+      <path fill="none" stroke="#c8a8f0" stroke-width="3.4" stroke-linecap="round" d="M-17 -223.4 Q0 -227.2 17 -223.4"/>
+      <rect class="o" fill="#2f2a3a" x="-67" y="-182" width="17" height="36" rx="7.5"/>
+      <rect class="o" style="stroke-width:1.8" fill="#c8a8f0" x="-55" y="-178" width="6.4" height="28" rx="3"/>
+      <path class="glow" style="stroke-width:2" d="M-62.4 -172 L-62.4 -157"/>
+      <rect class="o" fill="#3a3550" x="50" y="-182" width="17" height="36" rx="7.5"/>
+      <rect class="o" style="stroke-width:1.8" fill="#c8a8f0" x="48.6" y="-178" width="6.4" height="28" rx="3"/>
+      <path class="glow" style="stroke-width:2" d="M62.4 -172 L62.4 -157"/>
+    </g>
+  </g>
+
+  <!-- The drop that hangs under the cap, and falls. Joint where it hangs from. -->
+  <g id="drip" data-parent="head" transform="translate(40 -178)">
+    <path class="o" style="stroke-width:1.8" fill="#fffdf5" d="M0 -1 Q4.6 6 3.2 9.6 Q0 13 -3.2 9.6 Q-4.6 6 0 -1 Z"/>
+  </g>
+
+  <!-- A squirt of oat milk from under the cap, whenever something shakes it. Joint at the cap. -->
+  <g id="spurt" data-parent="head" transform="translate(32 -201)">
+    <path class="o" style="stroke-width:1.8" fill="#fffdf5" d="M-2 1 Q6 -13 19 -11 Q25 -9.6 24 -5 Q19 -7.6 12 -5 Q5 -2 2.4 3.6 Z"/>
+    <circle class="o" style="stroke-width:1.6" fill="#fffdf5" cx="29.5" cy="-1" r="3"/>
+    <circle class="o" style="stroke-width:1.6" fill="#fffdf5" cx="33" cy="7.5" r="2.2"/>
+  </g>
+
+  <!-- The near arm: a piston that ends in a clamp. -->
+  <g id="arm_front" data-parent="torso" transform="translate(48 -140)">
+    <rect class="o" fill="#d5dae1" x="-7" y="2" width="14" height="40" rx="4"/>
+    <path class="n" fill="#ffffff" d="M-3.8 7 L-0.8 7 L-0.8 37 L-3.8 37 Z"/>
+    <rect class="o" fill="#d5dae1" x="-5.5" y="46" width="11" height="28" rx="2.5"/>
+    <path class="n" fill="#ffffff" d="M-2.8 49 L-0.6 49 L-0.6 71 L-2.8 71 Z"/>
+    <rect class="o" fill="#3a3550" x="-9" y="38" width="18" height="10.5" rx="3"/>
+    <path class="glow" style="stroke-width:1.8" d="M-5 43.2 L5 43.2"/>
+    <rect class="o" fill="#2f2a3a" x="-8.5" y="71" width="17" height="9" rx="3"/>
+    <circle class="o" fill="#eef1f5" cx="0" cy="0" r="10.5"/>
+    <circle class="n" fill="#3a3550" cx="0" cy="0" r="3.6"/>
+  </g>
+
+  <!-- Its fist: a reusable coffee cup the size of a wheelie bin. Joint at the wrist. -->
+  <g id="cup" data-parent="arm_front" transform="translate(48 -62)">
+    <path class="o" fill="#2f2a3a" d="M-9 -3 L4 -3 L4 9 L-9 9 Q-11.5 9 -11.5 6.5 L-11.5 -0.5 Q-11.5 -3 -9 -3 Z"/>
+    <path class="o" fill="#e8d3a8" d="M-4 -15 L33 -15 L29 26 Q29 28 27 28 L2 28 Q0 28 0 26 Z"/>
+    <path class="n" fill="#d4b47e" d="M-2.6 -13.6 L4.6 -13.6 L6.4 26.6 L2 26.6 Q1.2 26.6 1.2 25.8 Z"/>
+    <path class="o" fill="#c8a8f0" d="M-3 -4 L32 -4 L30.8 9.5 L-1.8 9.5 Z"/>
+    <path class="n" fill="#e6d6fb" d="M-1.6 -2.6 L30.6 -2.6 L30.4 -0.6 L-1.4 -0.6 Z"/>
+    <path class="o" fill="#3a3550" d="M-5.5 -21.5 L34.5 -21.5 Q37 -21.5 37 -19 L37 -14 L-8 -14 L-8 -19 Q-8 -21.5 -5.5 -21.5 Z"/>
+    <path class="o" style="stroke-width:1.9" fill="#3a3550" d="M3 -21.5 L4.6 -26 L24.4 -26 L26 -21.5 Z"/>
+    <rect class="n" fill="#2b1b16" x="25.4" y="-19.6" width="6.4" height="2.6" rx="1.3"/>
+  </g>
+</svg>

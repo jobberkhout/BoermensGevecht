@@ -6,7 +6,7 @@ export const SIDES: readonly [Side, Side] = [0, 1];
 export const other = (side: Side): Side => (side === 0 ? 1 : 0);
 
 export type Command =
-  | { t: 'buy'; slot: 0 | 1 | 2 }
+  | { t: 'buy'; slot: 0 | 1 | 2 | 3 }
   | { t: 'turret' }
   | { t: 'special' }
   | { t: 'eraUp' }
@@ -172,6 +172,8 @@ export type SimEvent =
   | { t: 'stunned'; side: Side; ids: number[]; ticks: number }
   | { t: 'buffed'; side: Side; ticks: number }
   | { t: 'healed'; side: Side; ids: number[] }
+  /** An enemy special had no effect on these units of `side`. */
+  | { t: 'shrugged'; side: Side; ids: number[] }
   /** The algorithm came down on unit `id` of `side`. */
   | { t: 'sniped'; side: Side; id: number; pos: number }
   /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */

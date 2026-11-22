@@ -71,8 +71,11 @@ export function canDo(s: SimState, side: Side, cmd: Command): boolean {
   if (s.winner !== null) return false;
   const me = s.sides[side];
   switch (cmd.t) {
-    case 'buy':
-      return me.queue.length < QUEUE_MAX && me.gold >= eraOf(me.faction, me.era).units[cmd.slot].cost;
+    case 'buy': {
+      // The fourth button only sells something in the era that has a super unit.
+      const def = eraOf(me.faction, me.era).units[cmd.slot];
+      return def !== undefined && me.queue.length < QUEUE_MAX && me.gold >= def.cost;
+    }
     case 'turret': {
       const plan = turretPlan(s, side);
       return plan !== null && me.gold >= plan.cost;
@@ -97,7 +100,7 @@ export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimE
   const era = eraOf(me.faction, me.era);
   switch (cmd.t) {
     case 'buy': {
-      const def = era.units[cmd.slot];
+      const def = era.units[cmd.slot]!;
       me.gold -= def.cost;
       me.queue.push({ def: def.id, left: def.buildTicks });
       return;

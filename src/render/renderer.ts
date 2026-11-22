@@ -3,7 +3,7 @@ import { sampleClip } from '../anim/sample.ts';
 import type { Clip } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
 import { FACTIONS, eraOf, turretEra } from '../defs/index.ts';
-import type { FactionId } from '../defs/types.ts';
+import type { FactionId, Role } from '../defs/types.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
 import { loadImage, openTag, type Rig } from '../rig/raster.ts';
 import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
@@ -55,6 +55,14 @@ const base6 = new Float32Array(6);
 
 /** Flags fly a little smaller than they are drawn, so they stay clear of the top bar. */
 const FLAG_SCALE = 0.85;
+
+/** Per kind of unit: how far above the ground its health bar hangs, how wide it is, and how tall its stand-in box is. */
+const BUILD: Record<Role, { bar: number; barWidth: number; box: number }> = {
+  light: { bar: 140, barWidth: 40, box: 100 },
+  ranged: { bar: 140, barWidth: 40, box: 92 },
+  heavy: { bar: 128, barWidth: 74, box: 110 },
+  super: { bar: 244, barWidth: 110, box: 215 },
+};
 
 /** The grey box that stands in for a base without art. */
 const BOX_W = 300;
@@ -406,15 +414,14 @@ export class Renderer {
         ctx.globalAlpha = fade;
       }
     } else {
-      const height = v.def.role === 'heavy' ? 110 : v.def.role === 'ranged' ? 92 : 100;
       const fill = v.flash > 0.3 ? '#ffffff' : v.side === 0 ? '#d9c5f5' : '#a8d98f';
-      this.drawBox(x, y, len * scale, height * scale, v.def.role[0]!.toUpperCase(), fill);
+      this.drawBox(x, y, len * scale, BUILD[v.def.role].box * scale, v.def.role[0]!.toUpperCase(), fill);
     }
     ctx.globalAlpha = 1;
 
     if (v.hp < v.def.hp) {
-      const top = y - (v.def.role === 'heavy' ? 128 : 140) * scale;
-      const w = v.def.role === 'heavy' ? 74 : 40;
+      const top = y - BUILD[v.def.role].bar * scale;
+      const w = BUILD[v.def.role].barWidth;
       ctx.fillStyle = INK;
       ctx.fillRect(x - w / 2 - 2, top - 2, w + 4, 10);
       ctx.fillStyle = '#e5533d';
@@ -612,6 +619,7 @@ export class Renderer {
     // Small talk first, big news on top of it.
     const floaters = [...view.floaters].sort((a, b) => a.size - b.size);
     for (const f of floaters) {
+      if (f.age < 0) continue; // not yet
       const t = f.age / f.life;
       ctx.globalAlpha = t < 0.75 ? 1 : 1 - (t - 0.75) / 0.25;
       ctx.font = `700 ${f.size}px ${FONT}`;

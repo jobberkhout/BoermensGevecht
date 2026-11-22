@@ -1,7 +1,7 @@
 import type { EraKey } from './balance.ts';
 
 export type FactionId = 'havermelk' | 'achterhoek';
-export type Role = 'light' | 'ranged' | 'heavy';
+export type Role = 'light' | 'ranged' | 'heavy' | 'super';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -32,6 +32,8 @@ export interface UnitDef {
   bounty: number;
   /** A melee blow hits every enemy unit within reach instead of only the foremost. */
   cleave: boolean;
+  /** Enemy specials have no effect on it. */
+  immune: boolean;
   /** Present on ranged units: they launch this instead of hitting directly. */
   shot?: ShotDef;
 }
@@ -74,7 +76,8 @@ export interface EraDef {
   baseHp: number;
   /** Vooruitgang needed to modernize to the next era; null for the last one. */
   progressNeeded: number | null;
-  units: [UnitDef, UnitDef, UnitDef];
+  /** Light, ranged, heavy; the last era adds a fourth, the super unit. The index is the buy button. */
+  units: UnitDef[];
   turret: TurretDef;
   special: SpecialDef;
 }

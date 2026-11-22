@@ -45,6 +45,7 @@ export const achterhoek: FactionDef = {
       ranged: 'verschrikkerink',
       rangedShot: { rig: 'shot_laser', arc: 0, spin: 0 },
       heavy: 'de_vreter',
+      super: 'kolossink',
       turret: 'turret_melkrobot',
       turretShot: { rig: 'shot_melk', arc: 70, spin: 0 },
       special: {

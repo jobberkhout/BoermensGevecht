@@ -2,7 +2,12 @@ import { LANE } from '../defs/balance.ts';
 import { unitDef } from '../defs/index.ts';
 import type { SpecialDef } from '../defs/types.ts';
 import { byToughness, frontUnit } from './lane.ts';
-import { BASE, other, type Barrage, type Damage, type Side, type SimEvent, type SimState, type Wave } from './types.ts';
+import { BASE, other, type Barrage, type Damage, type Side, type SimEvent, type SimState, type Unit, type Wave } from './types.ts';
+
+/** The units a special can do something to: everyone except those that shrug specials off. */
+function touchable(units: readonly Unit[]): Unit[] {
+  return units.filter((u) => !unitDef(u.def).immune);
+}
 
 /**
  * Sets a special going. Anything that hurts goes onto `dmg` and lands at the
@@ -13,6 +18,11 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
   const me = s.sides[side];
   const foe = other(side);
   events.push({ t: 'special', side, id: def.id });
+  if (def.kind !== 'buff' && def.kind !== 'heal') {
+    // Aimed at the enemy: whoever shrugs specials off gets to say so.
+    const unmoved = s.sides[foe].units.filter((u) => unitDef(u.def).immune).map((u) => u.id);
+    if (unmoved.length > 0) events.push({ t: 'shrugged', side: foe, ids: unmoved });
+  }
   switch (def.kind) {
     case 'wave':
       s.waves.push({ id: s.nextId++, side, rig: def.rig, pos: 0, prevPos: 0, speed: def.speed, dmg: def.dmg, hit: [] });
@@ -20,7 +30,7 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
     case 'stun': {
       const until = s.tick + def.ticks;
       const ids: number[] = [];
-      for (const u of s.sides[foe].units) {
+      for (const u of touchable(s.sides[foe].units)) {
         u.stunUntil = until;
         ids.push(u.id);
       }
@@ -51,7 +61,7 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       // The outrage starts with the toughest enemy unit and works its way down
       // the list until it is spent. With nobody on the lane it is wasted.
       let left = def.dmg;
-      for (const u of byToughness(s.sides[foe].units)) {
+      for (const u of byToughness(touchable(s.sides[foe].units))) {
         if (left <= 0) break;
         const amount = Math.min(u.hp, left);
         left -= amount;
@@ -70,7 +80,7 @@ export function advanceWaves(s: SimState, dmg: Damage[]): void {
     w.prevPos = w.pos;
     w.pos += w.speed;
     const foe = other(w.side);
-    for (const u of s.sides[foe].units) {
+    for (const u of touchable(s.sides[foe].units)) {
       if (LANE - w.pos - u.pos <= 0 && !w.hit.includes(u.id)) {
         w.hit.push(u.id);
         dmg.push({ side: foe, unit: u.id, amount: w.dmg });
@@ -81,14 +91,17 @@ export function advanceWaves(s: SimState, dmg: Damage[]): void {
   s.waves = keep;
 }
 
-/** A barrage strikes the enemy's foremost unit at a steady beat, or the base when the lane is empty. */
+/**
+ * A barrage strikes the enemy's foremost unit at a steady beat. It passes over
+ * units that shrug specials off; with nobody else on the lane it strikes the base.
+ */
 export function advanceBarrages(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   const keep: Barrage[] = [];
   for (const b of s.barrages) {
     b.timer--;
     if (b.timer <= 0) {
       const foe = other(b.side);
-      const target = frontUnit(s.sides[foe].units);
+      const target = frontUnit(touchable(s.sides[foe].units));
       dmg.push({ side: foe, unit: target ? target.id : BASE, amount: b.dmg });
       events.push({ t: 'barrageHit', side: foe, id: target ? target.id : BASE, pos: target ? target.pos : 0 });
       b.left--;

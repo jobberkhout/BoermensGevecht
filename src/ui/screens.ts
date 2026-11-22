@@ -43,7 +43,7 @@ function sideCard(side: Side, faction: FactionId): HTMLElement {
   // What the last two keys do is the same in every era; the picture shows what is to come.
   const future = FACTIONS[faction].eras.at(-1)!;
   keyRow(keys, label.subsidy, '', NL.start.subsidy.name, NL.start.subsidy.blurb);
-  keyRow(keys, label.eraUp, future.units[2].rig, NL.start.eraUp.name, NL.start.eraUp.blurb);
+  keyRow(keys, label.eraUp, future.units.at(-1)!.rig, NL.start.eraUp.name, NL.start.eraUp.blurb);
   box.append(head, keys);
   return box;
 }
