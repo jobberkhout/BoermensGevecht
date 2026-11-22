@@ -1,7 +1,7 @@
 import { QUEUE_MAX, TPS } from './defs/balance.ts';
 import { Sound } from './audio/sound.ts';
-import { DEFAULT_FACTIONS, FACTIONS, specialDef, unitDef } from './defs/index.ts';
-import type { FactionId } from './defs/types.ts';
+import { DEFAULT_FACTIONS, FACTIONS, FACTION_IDS, artFor, specialDef, unitDef } from './defs/index.ts';
+import type { FactionDef, FactionId } from './defs/types.ts';
 import { Renderer } from './render/renderer.ts';
 import type { Stage } from './render/stage.ts';
 import { BattleView } from './render/view.ts';
@@ -17,26 +17,6 @@ import { Screens } from './ui/screens.ts';
 
 const TICK = 1 / TPS;
 
-/** Every piece of art a match between these factions can show. */
-function artFor(factions: readonly FactionId[]): Set<string> {
-  const ids = new Set<string>();
-  for (const id of factions) {
-    const faction = FACTIONS[id];
-    ids.add(faction.flagRig);
-    for (const era of faction.eras) {
-      ids.add(era.baseRig);
-      ids.add(era.turret.rig);
-      ids.add(era.turret.shot.rig);
-      if (era.special.rig) ids.add(era.special.rig);
-      for (const unit of era.units) {
-        ids.add(unit.rig);
-        if (unit.shot) ids.add(unit.shot.rig);
-      }
-    }
-  }
-  return ids;
-}
-
 /**
  * Runs a match: turns key presses into commands, advances the rules at a fixed
  * thirty ticks a second however fast the screen refreshes, and draws in between.
@@ -45,6 +25,8 @@ export class Game {
   state: SimState;
   phase: 'title' | 'playing' | 'over' = 'title';
   paused = false;
+  /** The faction each player has picked on the title card: left, right. */
+  picks: [FactionId, FactionId] = [...DEFAULT_FACTIONS];
 
   private readonly renderer: Renderer;
   private readonly sound: Sound;
@@ -57,13 +39,19 @@ export class Game {
   private seed = 1;
   private acc = 0;
   private last = 0;
+  /** Counts requests for art, so that an older one finishing late changes nothing. */
+  private loads = 0;
+  /** True once the art of both picked factions is ready to draw. */
+  private artReady = false;
+  /** Enter was pressed while art was still loading: start as soon as it is there. */
+  private startWhenReady = false;
   /** When true the clock does not drive the match; tests step it by hand. */
   manual = false;
 
   constructor(stage: Stage, hudRoot: HTMLElement, options: { sound?: boolean } = {}) {
     this.renderer = new Renderer(stage);
     this.sound = new Sound(options.sound ?? true);
-    this.state = createMatch(this.seed, DEFAULT_FACTIONS);
+    this.state = createMatch(this.seed, this.picks);
     this.view = new BattleView(this.renderer.rig);
     this.hud = new Hud(
       hudRoot,
@@ -71,16 +59,19 @@ export class Game {
       () => this.toggleMute(),
     );
     this.hud.setSoundMode(this.sound.mode);
-    this.screens = new Screens(
-      hudRoot,
-      () => this.confirm(),
-      () => this.togglePause(),
-    );
+    this.screens = new Screens(hudRoot, {
+      confirm: () => this.confirm(),
+      resume: () => this.togglePause(),
+      pick: (side, by) => this.pick(side, by),
+      back: () => this.back(),
+    });
+    this.screens.setFactions(this.picks);
     bindKeys({
       act: (side, action) => this.press(side, action),
       pause: () => this.togglePause(),
       confirm: () => this.confirm(),
       mute: () => this.toggleMute(),
+      back: () => this.back(),
     });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && this.phase === 'playing' && !this.paused) this.togglePause();
@@ -90,7 +81,7 @@ export class Game {
 
   /** Loads the art, then starts drawing. */
   async boot(): Promise<void> {
-    await this.renderer.prepare(artFor(DEFAULT_FACTIONS));
+    await this.loadArt();
     this.hud.update(this.state);
     this.draw(0);
     requestAnimationFrame((now) => {
@@ -99,19 +90,60 @@ export class Game {
     });
   }
 
+  /** Gets the art of the two picked factions ready. Resolves when it can be drawn. */
+  private async loadArt(): Promise<void> {
+    const ticket = ++this.loads;
+    this.artReady = false;
+    await this.renderer.prepare(
+      artFor(this.picks),
+      this.picks.map((id) => FACTIONS[id].backdropRig),
+    );
+    if (ticket !== this.loads) return; // the players have picked something else since
+    this.artReady = true;
+    if (this.startWhenReady) {
+      this.startWhenReady = false;
+      this.begin();
+    }
+  }
+
+  /** On the title card: a player steps to the previous or the next faction. */
+  pick(side: Side, by: -1 | 1): void {
+    if (this.phase !== 'title') return;
+    const count = FACTION_IDS.length;
+    const at = FACTION_IDS.indexOf(this.picks[side]);
+    this.sound.click();
+    void this.choose(side, FACTION_IDS[(at + by + count) % count]!);
+  }
+
+  /** On the title card: puts a faction on a side. Any pair goes, the same one twice too. Resolves when its art is ready. */
+  choose(side: Side, faction: FactionId): Promise<void> {
+    if (this.phase !== 'title') return Promise.resolve();
+    this.picks[side] = faction;
+    this.screens.setFactions(this.picks);
+    // Behind the title card stands the empty battlefield of the two that were picked.
+    this.state = createMatch(this.seed, this.picks);
+    this.view = new BattleView(this.renderer.rig);
+    return this.loadArt();
+  }
+
   /** Enter: start from the title, or play again after a match. */
   confirm(): void {
     if (this.phase === 'playing') return;
+    // This runs inside a key press or a click, which is the only moment a browser lets sound start.
+    this.sound.unlock();
+    if (this.artReady) this.begin();
+    else this.startWhenReady = true;
+  }
+
+  private begin(): void {
     this.seed += 1;
-    this.state = createMatch(this.seed, DEFAULT_FACTIONS);
+    this.state = createMatch(this.seed, this.picks);
     this.view = new BattleView(this.renderer.rig);
     this.pending = [];
     this.log = [];
     this.acc = 0;
     this.paused = false;
     this.phase = 'playing';
-    // This runs inside a key press or a click, which is the only moment a browser lets sound start.
-    this.sound.unlock();
     this.sound.tempo = 1;
     this.sound.startMusic();
     document.body.dataset.audio = this.sound.state;
@@ -119,6 +151,26 @@ export class Game {
     this.screens.showPause(false);
     this.screens.showWinner(null);
     this.hud.show(true);
+    this.hud.setOvertime(null);
+    // The names and pictures of the two factions that were picked, before the first frame.
+    this.hud.update(this.state);
+  }
+
+  /** Escape: from the end of a match, or from the pause card, back to the title card to pick other factions. */
+  back(): void {
+    if (this.phase !== 'over' && !(this.phase === 'playing' && this.paused)) return;
+    this.sound.stopMusic();
+    this.sound.pause(false);
+    this.phase = 'title';
+    this.paused = false;
+    this.startWhenReady = false;
+    this.state = createMatch(this.seed, this.picks);
+    this.view = new BattleView(this.renderer.rig);
+    this.pending = [];
+    this.screens.showPause(false);
+    this.screens.showWinner(null);
+    this.screens.showTitle(true);
+    this.hud.show(false);
     this.hud.setOvertime(null);
   }
 
@@ -135,6 +187,12 @@ export class Game {
   }
 
   press(side: Side, action: Action): void {
+    if (this.phase === 'title') {
+      // On the title card two of each player's keys step through the factions.
+      if (action === 'turret') this.pick(side, -1);
+      else if (action === 'subsidy') this.pick(side, 1);
+      return;
+    }
     if (this.phase !== 'playing' || this.paused) return;
     const cmd = commandOf(action);
     if (canDo(this.state, side, cmd)) {
@@ -157,8 +215,12 @@ export class Game {
       case 'subsidy':
         if (kraanDicht(this.state.tick)) return NL.refuse.kraanDicht;
         return subsidyCost(this.state, side) === null ? NL.refuse.subsidy : NL.refuse.gold;
-      case 'eraUp':
-        return progressNeeded(this.state, side) === null ? NL.refuse.lastEra : NL.refuse.progress;
+      case 'eraUp': {
+        // Two things are needed: enough vooruitgang, and then the money.
+        const needed = progressNeeded(this.state, side);
+        if (needed === null) return NL.refuse.lastEra;
+        return me.progress < needed ? NL.refuse.progress : NL.refuse.gold;
+      }
       default:
         return me.queue.length >= QUEUE_MAX ? NL.refuse.queue : NL.refuse.gold;
     }
@@ -180,7 +242,7 @@ export class Game {
     switch (e.t) {
       case 'spawn':
         if (unitDef(e.def).role === 'super') this.sound.giant();
-        else this.sound.spawn(e.side);
+        else this.sound.spawn(this.voice(e.side));
         break;
       case 'strike':
         if (e.ranged) this.sound.whoosh();
@@ -201,7 +263,7 @@ export class Game {
         this.sound.built();
         break;
       case 'turretFire':
-        this.sound.turret(e.side);
+        this.sound.turret(this.voice(e.side));
         break;
       case 'subsidy':
         this.sound.coin();
@@ -230,7 +292,13 @@ export class Game {
           case 'snipe':
             this.sound.zap();
             break;
+          case 'convert':
+            // The deal itself is heard when it goes through; see 'converted'.
+            break;
         }
+        break;
+      case 'converted':
+        this.sound.deal();
         break;
       case 'overtime':
         this.sound.alarm();
@@ -251,6 +319,11 @@ export class Game {
       default:
         break;
     }
+  }
+
+  /** How the faction on this side sounds. */
+  private voice(side: Side): FactionDef['voice'] {
+    return FACTIONS[this.state.sides[side].faction].voice;
   }
 
   private finish(): void {

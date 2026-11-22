@@ -18,7 +18,7 @@ import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit } from './lane.ts';
 import { kraanDicht, overtimeLevel, unitDamagePercent } from './overtime.ts';
-import { advanceBarrages, advanceWaves } from './specials.ts';
+import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
   BASE,
@@ -115,6 +115,7 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
     act: 'walk',
     actTick: 0,
     stunUntil: 0,
+    turncoat: false,
   };
   me.units.push(unit);
   events.push({ t: 'spawn', side, id: unit.id, def: def.id });
@@ -335,8 +336,14 @@ function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
 }
 
 function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
+  /** Per side, the units it loses to a takeover this tick. */
+  const sold: [number[], number[]] = [[], []];
   for (const d of dmg) {
     const target = s.sides[d.side];
+    if (d.bought) {
+      sold[d.side].push(d.unit);
+      continue;
+    }
     if (d.unit === BASE) {
       target.baseHp -= d.amount; // may dip below zero for a moment; settled below
       events.push({ t: 'baseHit', side: d.side, amount: d.amount });
@@ -368,6 +375,8 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     }
     me.units = alive;
   }
+  // Whoever was bought and is still standing changes sides now.
+  if (sold[0].length > 0 || sold[1].length > 0) applyTakeovers(s, sold, events);
 
   // If both bases fall on the same tick, the one that was hit harder loses.
   const hp = [s.sides[0].baseHp, s.sides[1].baseHp] as const;

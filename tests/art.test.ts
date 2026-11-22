@@ -4,7 +4,7 @@ import { DOMParser, XMLSerializer } from '@xmldom/xmldom';
 import { describe, expect, it } from 'vitest';
 import { CLIPS } from '../src/anim/clips/index.ts';
 import { CLIP_NAMES, type Clip, type Key } from '../src/anim/types.ts';
-import { FACTIONS } from '../src/defs/index.ts';
+import { FACTIONS, FACTION_IDS, artFor } from '../src/defs/index.ts';
 import { parseRig, type Dom, type RigSource } from '../src/rig/parse.ts';
 import { NL, linesFor } from '../src/ui/nl.ts';
 
@@ -81,6 +81,27 @@ describe('art', () => {
       expect(rig.problems).toEqual([]);
     });
   }
+
+  it('every drawing a faction needs is there', () => {
+    // Without this a missing file shows up as a grey box in the game, and nowhere else.
+    const missing: string[] = [];
+    if (!rigs.has('scenery/sky')) missing.push('scenery/sky');
+    for (const id of FACTION_IDS) {
+      for (const rig of [...artFor([id]), FACTIONS[id].backdropRig]) {
+        if (!rigs.has(rig)) missing.push(rig);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it('a backdrop is one whole-screen scene without a sky of its own', () => {
+    for (const id of FACTION_IDS) {
+      const rig = rigs.get(FACTIONS[id].backdropRig);
+      if (!rig) continue; // reported above
+      expect(rig.archetype, `${rig.id} rig`).toBe('static');
+      expect(rig.viewBox, `${rig.id} viewBox`).toEqual({ x: 0, y: 0, w: 1920, h: 1080 });
+    }
+  });
 });
 
 describe('animations', () => {
@@ -117,9 +138,9 @@ describe('text', () => {
           if (!NL.names[id]) missing.push(`name for ${id}`);
           if (!NL.blurbs[id]) missing.push(`description for ${id}`);
         }
-        if (!NL.era[era.id]) missing.push(`era name for ${era.id}`);
+        if (!NL.era[era.key]) missing.push(`era name for ${era.key}`);
         for (const kind of ['slinkOff', 'battleCry'] as const) {
-          if (linesFor(kind, faction.id, era.units[0].id).length === 0) missing.push(`${kind} lines for ${era.id}`);
+          if (linesFor(kind, era.units[0].id).length === 0) missing.push(`${kind} lines for ${era.id}`);
         }
       }
     }

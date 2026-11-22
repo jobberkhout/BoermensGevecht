@@ -20,6 +20,7 @@ interface Summary {
 
 interface Hooks {
   advance(n: number): void;
+  fund(side: number, gold: number): void;
   progress(side: number, amount: number): void;
   press(side: number, action: string): void;
   summary(): Summary;
@@ -58,6 +59,7 @@ test('the single file plays when it is opened straight from disk', async ({ page
     g.advance(150);
     for (const side of [0, 1]) {
       g.progress(side, 100000);
+      g.fund(side, 1000);
       g.press(side, 'eraUp');
     }
     g.advance(30);

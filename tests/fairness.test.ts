@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { BASE_GAP, CONTACT_GAP } from '../src/defs/balance.ts';
-import { FACTIONS, UNITS } from '../src/defs/index.ts';
+import { FACTIONS, FACTION_IDS, UNITS } from '../src/defs/index.ts';
 import { BOTS, mixed, random } from '../src/bots/bots.ts';
 import { runMatch, runReplay } from '../src/bots/runMatch.ts';
 import type { SideState, SimState } from '../src/sim/types.ts';
@@ -38,7 +38,7 @@ describe('determinism', () => {
 });
 
 describe('no side has a built-in advantage', () => {
-  for (const faction of ['havermelk', 'achterhoek'] as const) {
+  for (const faction of FACTION_IDS) {
     it(`${faction} against itself with identical play stays a perfect mirror`, () => {
       let checked = 0;
       let maxEra = 0;
@@ -81,24 +81,29 @@ describe('the data makes sense', () => {
   });
 
   it('the factions field the same roles with the same numbers', () => {
-    const [a, b] = [FACTIONS.havermelk, FACTIONS.achterhoek];
-    expect(a.eras.length).toBe(b.eras.length);
-    a.eras.forEach((era, i) => {
-      const twin = b.eras[i]!;
-      expect(era.baseHp).toBe(twin.baseHp);
-      expect(era.progressNeeded).toBe(twin.progressNeeded);
-      expect(era.year).toBe(twin.year);
-      const { id: _g, rig: _h, shot: _i, ...turret } = era.turret;
-      const { id: _j, rig: _k, shot: _l, ...twinTurret } = twin.turret;
-      expect(turret).toEqual(twinTurret);
-      era.units.forEach((u, slot) => {
-        const v = twin.units[slot]!;
-        const { id: _a, rig: _b, shot: _c, ...stats } = u;
-        const { id: _d, rig: _e, shot: _f, ...twinStats } = v;
-        expect(stats).toEqual(twinStats);
-        expect(u.shot?.speed).toBe(v.shot?.speed);
+    const a = FACTIONS[FACTION_IDS[0]!];
+    for (const other of FACTION_IDS.slice(1)) {
+      const b = FACTIONS[other];
+      expect(a.eras.length, other).toBe(b.eras.length);
+      a.eras.forEach((era, i) => {
+        const twin = b.eras[i]!;
+        expect(era.baseHp).toBe(twin.baseHp);
+        expect(era.progressNeeded).toBe(twin.progressNeeded);
+        expect(era.eraUpCost).toBe(twin.eraUpCost);
+        expect(era.year).toBe(twin.year);
+        const { id: _g, rig: _h, shot: _i, ...turret } = era.turret;
+        const { id: _j, rig: _k, shot: _l, ...twinTurret } = twin.turret;
+        expect(turret, `${other} turret ${i}`).toEqual(twinTurret);
+        expect(era.units.length, `${other} units ${i}`).toBe(twin.units.length);
+        era.units.forEach((u, slot) => {
+          const v = twin.units[slot]!;
+          const { id: _a, rig: _b, shot: _c, ...stats } = u;
+          const { id: _d, rig: _e, shot: _f, ...twinStats } = v;
+          expect(stats, `${other} ${v.id}`).toEqual(twinStats);
+          expect(u.shot?.speed).toBe(v.shot?.speed);
+        });
       });
-    });
+    }
   });
 
   it('unit ids are unique', () => {

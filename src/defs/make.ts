@@ -92,6 +92,7 @@ export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
     baseRig: art('base'),
     baseHp: stats.baseHp,
     progressNeeded: stats.progressNeeded,
+    eraUpCost: stats.eraUpCost,
     units,
     turret: makeTurret(`${id}.turret`, art(look.turret), stats.turret, withArt(look.turretShot)),
     special,

@@ -1,0 +1,60 @@
+import type { FactionText } from './types.ts';
+
+/** De Zuidas: bankers, lawyers and consultants, from the exchange floor to the cloud. */
+export const zuidas: FactionText = {
+  name: 'De Zuidas',
+  place: 'Amsterdam-Zuid',
+  money: 'bonussen',
+  win: { head: 'De Zuidas wint!', sub: 'Dat nemen we mee in de kwartaalcijfers.' },
+  unmoved: 'Dat loopt via Legal.',
+
+  names: {
+    'za.1975.light': 'De jongste bediende',
+    'za.1975.ranged': 'De hoekman',
+    'za.1975.heavy': 'De directiewagen',
+    'za.1975.turret': 'De Sociëteit',
+    'za.1975.special': 'De gong',
+    'za.2025.light': 'Bodywarmer-Bas',
+    'za.2025.ranged': 'Mr. Declarabel',
+    'za.2025.heavy': 'De Leasebak',
+    'za.2025.turret': 'De Vrijmibo',
+    'za.2025.special': 'Vijandige overname',
+    'za.2050.light': 'De Stagebot',
+    'za.2050.ranged': 'De Cryptobro',
+    'za.2050.heavy': 'De Vergaderpod',
+    'za.2050.super': 'De Gouden Handdruk',
+    'za.2050.turret': 'De Kwartaalcijfers',
+    'za.2050.special': 'Flitskrach',
+  },
+
+  blurbs: {
+    'za.1975.light': 'Zestien, pak twee maten te groot. Slaat met haar beursboekje.',
+    'za.1975.ranged': 'Staat in zijn hoek en maakt de koers. Gooit met vlijmscherpe potloden.',
+    'za.1975.heavy': 'Lange zwarte slee met chauffeur. Achterin zit een wolk sigarenrook.',
+    'za.1975.turret': 'Twee heren toepen in leren fauteuils. De kaarten vliegen je om de oren.',
+    'za.1975.special': 'De beurs gaat open: zeven tellen lang slaat en loopt alles harder.',
+    'za.2025.light': 'Bodywarmer, keycord en vier koffie to go. Mept met zijn laptoptas.',
+    'za.2025.ranged': 'Advocaat in toga. Elke zes minuten een factuur, als papieren vliegtuigje.',
+    'za.2025.heavy': 'Elektrisch, loeizwaar en met skibox. De partner zit binnen te bellen.',
+    'za.2025.turret': 'Vrijdagmiddag op het dakterras. De bitterballen zijn nog veel te heet.',
+    'za.2025.special': 'Koopt de sterkste vijand op de baan. Die krijgt een keycord en vecht voortaan voor jou.',
+    'za.2050.light': 'Stagiair op wieltjes. Haalt koffie, deelt klappen uit, krijgt niks betaald.',
+    'za.2050.ranged': 'Gooit met muntjes die verdampen voor ze iets waard zijn.',
+    'za.2050.heavy': 'Zelfrijdende vergaderruimte. Het overleg binnen duurt al jaren.',
+    'za.2050.super': 'Een gouden hand zo groot als een kantoor. Speciale acties lopen via Legal en doen hem niks.',
+    'za.2050.turret': 'Drie analisten met een zwevend dashboard. Ze gooien met taartpunten.',
+    'za.2050.special': 'De koers stort in en sleurt elke vijand op de baan mee.',
+  },
+
+  slinkOff: {
+    '1975': ['Gedaan… en laten.', 'Hoogachtend,', 'De beurs is gesloten.', 'Ik ga toepen.'],
+    '2025': ['Ik koppel het nog terug.', 'Onder voorbehoud van alle rechten.', 'Dat was niet declarabel.', 'Vrijmibo?'],
+    '2050': ['Koers gekelderd.', 'Verbinding verbroken.', 'Wachtwoord kwijt.', 'Ik koppel het nog terug.'],
+  },
+
+  battleCry: {
+    '1975': ['Bieden!', 'Laten!', 'Aan jou!', 'Liever te duur dan niet te koop!'],
+    '2025': ['Even sparren?', 'Laaghangend fruit!', 'Alle neuzen dezelfde kant op!', 'We gaan je onboarden.'],
+    '2050': ['Deep dive!', 'Stip op de horizon!', 'Dit schaalt.', 'To the moon!'],
+  },
+};

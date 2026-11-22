@@ -1,5 +1,6 @@
 import { Sound } from './audio/sound.ts';
 import { TPS } from './defs/balance.ts';
+import type { FactionId } from './defs/types.ts';
 import type { Game } from './game.ts';
 import type { Side } from './sim/types.ts';
 import type { Action } from './ui/input.ts';
@@ -10,7 +11,11 @@ import type { Action } from './ui/input.ts';
  * the same picture every time.
  */
 export interface TestApi {
+  /** On the title card: puts a faction on a side. Resolves when its art is loaded. */
+  pick(side: Side, faction: FactionId): Promise<void>;
   start(): void;
+  /** From the end of a match, or from the pause card, back to the title card. */
+  back(): void;
   press(side: Side, action: Action): void;
   /** Runs this many ticks, drawing after each as the real loop would. */
   advance(ticks: number): void;
@@ -32,6 +37,8 @@ export interface TestApi {
 }
 
 export interface Summary {
+  phase: string;
+  factions: [string, string];
   tick: number;
   winner: unknown;
   units: [number, number];
@@ -80,6 +87,11 @@ async function measure(seconds: number, queue: (sound: Sound) => number): Promis
 export function installTestHooks(game: Game): void {
   game.manual = true;
   const api: TestApi = {
+    pick: (side, faction) => game.choose(side, faction),
+    back: () => {
+      game.back();
+      game.draw(0, 1);
+    },
     start: () => {
       game.confirm();
       game.draw(0, 1);
@@ -107,9 +119,12 @@ export function installTestHooks(game: Game): void {
     setClock: (seconds) => {
       if (game.phase === 'playing') game.state.tick = Math.round(seconds * TPS);
     },
-    audioLevels: () => measure(12, (sound) => sound.demo()),
+    // Long enough for every effect in the list; measure() stops where the demo does.
+    audioLevels: () => measure(30, (sound) => sound.demo()),
     musicLevels: (bars) => measure(bars * 4 + 4, (sound) => sound.demoMusic(bars)),
     summary: () => ({
+      phase: game.phase,
+      factions: [game.state.sides[0].faction, game.state.sides[1].faction],
       tick: game.state.tick,
       winner: game.state.winner,
       units: [game.state.sides[0].units.length, game.state.sides[1].units.length],

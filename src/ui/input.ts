@@ -63,6 +63,8 @@ export interface KeyHandlers {
   pause(): void;
   confirm(): void;
   mute(): void;
+  /** Escape: from the end of a match back to the title card. */
+  back(): void;
 }
 
 /** Listens for the game's keys. Returns a function that stops listening. */
@@ -83,6 +85,8 @@ export function bindKeys(handlers: KeyHandlers): () => void {
     } else if (e.code === 'KeyM') {
       e.preventDefault();
       handlers.mute();
+    } else if (e.code === 'Escape') {
+      handlers.back();
     }
   };
   window.addEventListener('keydown', onKey);

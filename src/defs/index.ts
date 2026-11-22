@@ -1,22 +1,55 @@
 import { achterhoek } from './achterhoek.ts';
 import { havermelk } from './havermelk.ts';
 import type { EraDef, FactionDef, FactionId, SpecialDef, TurretDef, UnitDef } from './types.ts';
+import { zuidas } from './zuidas.ts';
 
-export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek };
+export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas };
 
-/** Left player first: Amsterdam lies west of the Achterhoek. */
+/** Every faction, in the order the players step through them when they pick one. */
+export const FACTION_IDS: readonly FactionId[] = ['havermelk', 'achterhoek', 'zuidas'];
+
+/** What a match starts with until the players pick something else. Amsterdam lies west of the Achterhoek. */
 export const DEFAULT_FACTIONS: [FactionId, FactionId] = ['havermelk', 'achterhoek'];
 
 export const UNITS: Record<string, UnitDef> = {};
 export const TURRETS: Record<string, TurretDef> = {};
 export const SPECIALS: Record<string, SpecialDef> = {};
+/** Which faction trained a unit, by unit id. A unit that was bought over still talks like where it came from. */
+const HOME: Record<string, FactionId> = {};
+/** The colour of the puff a projectile leaves where it lands, by the id of its drawing. */
+export const SPLASH: Record<string, string> = {};
 
 for (const faction of Object.values(FACTIONS)) {
   for (const era of faction.eras) {
-    for (const unit of era.units) UNITS[unit.id] = unit;
+    for (const unit of era.units) {
+      UNITS[unit.id] = unit;
+      HOME[unit.id] = faction.id;
+      if (unit.shot) SPLASH[unit.shot.rig] = unit.shot.splash;
+    }
     TURRETS[era.turret.id] = era.turret;
+    SPLASH[era.turret.shot.rig] = era.turret.shot.splash;
     SPECIALS[era.special.id] = era.special;
   }
+}
+
+/** Every piece of art a match between these factions can show, backdrops excepted. */
+export function artFor(factions: readonly FactionId[]): Set<string> {
+  const ids = new Set<string>();
+  for (const id of factions) {
+    const faction = FACTIONS[id];
+    ids.add(faction.flagRig);
+    for (const era of faction.eras) {
+      ids.add(era.baseRig);
+      ids.add(era.turret.rig);
+      ids.add(era.turret.shot.rig);
+      if (era.special.rig) ids.add(era.special.rig);
+      for (const unit of era.units) {
+        ids.add(unit.rig);
+        if (unit.shot) ids.add(unit.shot.rig);
+      }
+    }
+  }
+  return ids;
 }
 
 export function eraOf(faction: FactionId, era: number): EraDef {
@@ -41,6 +74,13 @@ export function specialDef(id: string): SpecialDef {
   const def = SPECIALS[id];
   if (!def) throw new Error(`unknown special ${id}`);
   return def;
+}
+
+/** The faction a unit was trained by, whoever it fights for now. */
+export function homeOf(unitId: string): FactionId {
+  const home = HOME[unitId];
+  if (!home) throw new Error(`unknown unit ${unitId}`);
+  return home;
 }
 
 /** Which era of its faction a turret belongs to. */

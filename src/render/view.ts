@@ -2,7 +2,7 @@ import { CLIPS } from '../anim/clips/index.ts';
 import { attackTime, sampleClip } from '../anim/sample.ts';
 import type { Clip, ClipSet } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, LANE, SUB, TPS } from '../defs/balance.ts';
-import { eraOf, specialDef, turretDef, turretEra, unitDef } from '../defs/index.ts';
+import { SPLASH, eraOf, turretDef, turretEra, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
@@ -51,6 +51,10 @@ export interface UnitView {
   flash: number;
   hp: number;
   stunned: boolean;
+  /** Bought over: it wears the badge of the side it now fights for. */
+  turncoat: boolean;
+  /** Pixels it still has to slide to where it stands now, after it was moved by a takeover. Fades to 0. */
+  slide: number;
 }
 
 export interface Ghost {
@@ -169,22 +173,6 @@ const NEVER = 99;
 const SWARM_Y = -250;
 const STRIKE_Y = -55;
 
-/** What a projectile leaves behind when it lands. */
-const SPLASH: Record<string, string> = {
-  shot_bloemen: '#ff9fd0',
-  shot_herrie: '#fff27a',
-  shot_voederbiet: '#e9a63a',
-  shot_deksel: '#c9ced6',
-  shot_flatwhite: '#b98a5a',
-  shot_geklaag: '#ffffff',
-  shot_ei: '#ffd94a',
-  shot_spray: '#b6d24a',
-  shot_boba: '#6b4630',
-  shot_dislike: '#ff5d73',
-  shot_laser: '#ff6a55',
-  shot_melk: '#ffffff',
-};
-
 function makePuppet(rig: Rig | undefined, rigId: string): Puppet | null {
   const clips = CLIPS[rigId];
   if (!rig || !clips || !clips.idle || !clips.walk || !clips.attack || !clips.hit || !clips.die) return null;
@@ -283,7 +271,7 @@ export class BattleView {
             this.say(GATE_X[e.side] + dirOf(e.side) * 300, rowY(0) - 290, `${nameOf(e.def)}!`, '#ffd21f', 2.2, 46);
             break;
           }
-          const cries = linesFor('battleCry', s.sides[e.side].faction, e.def);
+          const cries = linesFor('battleCry', e.def);
           if (cries.length > 0 && this.random() < 0.35) {
             this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(1) - 150, this.pick(cries), '#fffdf5', 1.4, 20);
           }
@@ -305,7 +293,8 @@ export class BattleView {
           this.ghosts.push({ side: v.side, def: v.def, row: v.row, x: v.x, puppet: v.puppet, travelled: 0, age: 0 });
           if (v.puppet) v.puppet.blend = 1;
           // One line per side per tick: a whole rank going down at once should not stack five of them.
-          const lines = linesFor('slinkOff', s.sides[v.side].faction, v.def.id);
+          // A unit that was bought over still mutters in its own tongue.
+          const lines = linesFor('slinkOff', v.def.id);
           if (!muttered[v.side] && lines.length > 0) {
             muttered[v.side] = true;
             this.say(v.x, rowY(v.row) - 135, this.pick(lines), '#fffdf5', 1.5, 19);
@@ -351,7 +340,7 @@ export class BattleView {
               size: 34 + this.random() * 26,
             });
           }
-          this.say(GATE_X[e.side] + dirOf(e.side) * 250, rowY(0) - 250, `${NL.shout.modern} ${NL.era[era.id] ?? era.year}!`, '#ffd21f', 2.4, 40);
+          this.say(GATE_X[e.side] + dirOf(e.side) * 250, rowY(0) - 250, `${NL.shout.modern} ${NL.era[era.key] ?? era.year}!`, '#ffd21f', 2.4, 40);
           break;
         }
         case 'stunned': {
@@ -398,6 +387,18 @@ export class BattleView {
             // A beat after the special's own name, so the two do not land on top of each other.
             if (v && line) this.say(v.x, rowY(v.row) - 265, line, '#fffdf5', 1.8, 26, 0.8);
           }
+          break;
+        }
+        case 'converted': {
+          // The deal is stamped onto the unit, which from now on wears the buyer's badge.
+          const owner = s.sides[e.side];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          const v = this.units.get(e.id);
+          const def = unitDef(e.def);
+          const x = v ? v.x : laneX(e.side, e.pos - def.len / 2);
+          const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
+          this.sprites.push({ rig, side: e.side, x0: x, y0: y - 420, x1: x, y1: y, scale: 1.2, age: 0, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ffd21f', landed: false });
+          this.say(x, y - 70, NL.shout.bought, '#ffd21f', 1.6, 34);
           break;
         }
         case 'sniped': {
@@ -541,13 +542,26 @@ export class BattleView {
             flash: 0,
             hp: u.hp,
             stunned: false,
+            turncoat: u.turncoat,
+            slide: 0,
           };
           this.units.set(u.id, v);
         }
+        const x = GATE_X[side] + dirOf(side) * (px - def.len / SUB / 2);
+        if (v.side !== side) {
+          // Bought over: it turns round and, if it was moved, slides to its new spot instead of jumping there.
+          v.slide = v.x + v.slide - x;
+          v.side = side;
+          v.row = u.row;
+          v.lastPx = px;
+          v.turncoat = u.turncoat;
+        }
+        v.slide *= Math.exp(-dt * 9);
+        if (Math.abs(v.slide) < 0.5) v.slide = 0;
         v.age += dt;
         v.travelled += Math.max(0, px - v.lastPx);
         v.lastPx = px;
-        v.x = GATE_X[side] + dirOf(side) * (px - def.len / SUB / 2);
+        v.x = x;
         v.hp = u.hp;
         v.stunned = u.stunUntil > s.tick;
         v.flash = Math.max(0, v.flash - dt * 5);
@@ -710,8 +724,7 @@ export class BattleView {
     for (const [id, old] of this.lastShot) {
       if (now.has(id)) continue;
       this.launch.delete(id);
-      const kind = old.rig.slice(old.rig.lastIndexOf('/') + 1);
-      this.puffs.push({ x: old.x, y: old.y, age: 0, life: 0.3, color: SPLASH[kind] ?? '#ffffff', size: 22 });
+      this.puffs.push({ x: old.x, y: old.y, age: 0, life: 0.3, color: SPLASH[old.rig] ?? '#ffffff', size: 22 });
     }
     this.lastShot = now;
   }

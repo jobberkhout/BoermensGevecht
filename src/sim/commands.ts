@@ -67,6 +67,13 @@ export function progressNeeded(s: SimState, side: Side): number | null {
   return eraOf(me.faction, me.era).progressNeeded;
 }
 
+/** What modernizing costs in subsidie once there is enough vooruitgang, or null in the last era. */
+export function eraUpCost(s: SimState, side: Side): number | null {
+  const me = s.sides[side];
+  if (me.era + 1 >= FACTIONS[me.faction].eras.length) return null;
+  return eraOf(me.faction, me.era).eraUpCost;
+}
+
 /** The one place that decides whether a command is allowed. The sim, the HUD and the bots all ask here. */
 export function canDo(s: SimState, side: Side, cmd: Command): boolean {
   if (s.winner !== null) return false;
@@ -84,9 +91,11 @@ export function canDo(s: SimState, side: Side, cmd: Command): boolean {
     case 'special':
       return s.tick >= me.specialReadyAt;
     case 'eraUp': {
-      // Modernizing is not for sale: it takes vooruitgang, which comes from time and fighting.
+      // Vooruitgang opens the door; it comes from time and fighting and cannot be
+      // bought. Walking through it costs subsidie, which is what makes it a choice.
       const needed = progressNeeded(s, side);
-      return needed !== null && me.progress >= needed;
+      const cost = eraUpCost(s, side);
+      return needed !== null && cost !== null && me.progress >= needed && me.gold >= cost;
     }
     case 'subsidy': {
       // Once the kraan is closed in overtime, more subsidie would buy nothing.
@@ -123,6 +132,7 @@ export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimE
     case 'eraUp': {
       // New units, a new special and a stronger base at once. Units already
       // out, units in training and turrets already built stay as they are.
+      me.gold -= eraUpCost(s, side)!;
       me.progress -= progressNeeded(s, side)!; // what was gathered beyond the need counts for the next era
       me.era += 1;
       const next = eraOf(me.faction, me.era);

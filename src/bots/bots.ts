@@ -1,7 +1,8 @@
-import { SUBSIDY } from '../defs/balance.ts';
+import { LANE, SUBSIDY } from '../defs/balance.ts';
 import { eraOf, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
-import { canDo, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { frontUnit } from '../sim/lane.ts';
 import { kraanDicht } from '../sim/overtime.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
 import { other, type Command, type Side, type SimState } from '../sim/types.ts';
@@ -43,6 +44,10 @@ function special(s: SimState, side: Side): Command | null {
     case 'snipe':
       worth = foe.units.length >= 3 || foe.units.some((u) => unitDef(u.def).role === 'heavy');
       break;
+    case 'convert':
+      // Worth it for anything big; a light unit is not worth a takeover.
+      worth = foe.units.some((u) => unitDef(u.def).role === 'heavy') || foe.units.length >= 4;
+      break;
     case 'stun':
       worth = foe.units.length >= 3 && fighting >= 2;
       break;
@@ -83,13 +88,23 @@ export function brain(style: Style): Bot {
   return (s, side) => {
     const sp = special(s, side);
     if (sp) return sp;
-    // Modernizing costs nothing but the vooruitgang that has been gathered, so take it when it is there.
     if (style.modernizes && canDo(s, side, ERA_UP)) return ERA_UP;
 
     const me = s.sides[side];
     const foe = s.sides[other(side)];
     const mine = me.units.length + me.queue.length;
     const pressed = foe.units.length > mine;
+
+    // Enough vooruitgang but not the money yet: it keeps the purse shut until
+    // it can pay, as long as it has a few units out and the enemy is not on
+    // its doorstep. That is the choice modernizing asks for: a thinner army
+    // now for a better one in a moment.
+    const needed = progressNeeded(s, side);
+    if (style.modernizes && needed !== null && me.progress >= needed) {
+      const theirs = frontUnit(foe.units);
+      const safe = !theirs || theirs.pos < (LANE * 6) / 10;
+      if (safe && mine >= Math.min(style.guard, 3) && foe.units.length <= mine + 2) return null;
+    }
 
     if (!pressed && mine >= style.guard) {
       // Money first, then defences. While it is close to affording the next

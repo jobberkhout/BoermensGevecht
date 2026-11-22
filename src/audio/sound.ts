@@ -1,3 +1,5 @@
+import type { Voice } from '../defs/types.ts';
+
 /**
  * All sound in the game, made on the spot with the Web Audio API. There are no
  * audio files: every effect is a few oscillators and some noise, and the tune
@@ -317,15 +319,20 @@ export class Sound {
     this.tone({ type: 'triangle', freq: 170, to: 110, dur: 0.16, gain: 0.4 });
   }
 
-  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country. */
-  spawn(side: number): void {
-    if (!this.due(`spawn${side}`, 0.1)) return;
-    if (side === 0) {
+  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country, a desk phone at the office. */
+  spawn(voice: Voice): void {
+    if (!this.due(`spawn.${voice}`, 0.1)) return;
+    if (voice === 'town') {
       this.tone({ type: 'sine', freq: 1568, dur: 0.22, gain: 0.16 });
       this.tone({ type: 'sine', freq: 1976, dur: 0.3, gain: 0.12, at: 0.09 });
-    } else {
+    } else if (voice === 'country') {
       this.hiss({ from: 420, to: 180, dur: 0.07, gain: 0.5, q: 2 });
       this.hiss({ from: 380, to: 160, dur: 0.07, gain: 0.4, q: 2, at: 0.11 });
+    } else {
+      // Two short rings, each a quick trill between two tones.
+      for (const at of [0, 0.16]) {
+        for (let i = 0; i < 4; i++) this.tone({ type: 'triangle', freq: i % 2 === 0 ? 1320 : 1108, dur: 0.03, gain: 0.13, at: at + i * 0.03 });
+      }
     }
   }
 
@@ -342,14 +349,17 @@ export class Sound {
     this.hiss({ from: 500, to: 2000, dur: 0.16, gain: 0.18, q: 1.4 });
   }
 
-  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn. */
-  turret(side: number): void {
-    if (!this.due(`turret${side}`, 0.2)) return;
-    if (side === 0) {
+  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn, glasses clinking at the office. */
+  turret(voice: Voice): void {
+    if (!this.due(`turret.${voice}`, 0.2)) return;
+    if (voice === 'town') {
       this.tone({ type: 'triangle', freq: 300, to: 380, dur: 0.07, gain: 0.22 });
       this.tone({ type: 'triangle', freq: 360, to: 270, dur: 0.09, gain: 0.22, at: 0.08 });
-    } else {
+    } else if (voice === 'country') {
       this.tone({ type: 'sawtooth', freq: 180, to: 105, dur: 0.2, gain: 0.2, attack: 0.02 });
+    } else {
+      this.tone({ type: 'sine', freq: 2093, dur: 0.18, gain: 0.12 });
+      this.tone({ type: 'sine', freq: 2637, dur: 0.22, gain: 0.1, at: 0.05 });
     }
   }
 
@@ -449,6 +459,14 @@ export class Sound {
     this.tone({ type: 'square', freq: 196, dur: 0.12, gain: 0.2 });
     this.tone({ type: 'square', freq: 139, dur: 0.34, gain: 0.22, at: 0.13 });
     this.hiss({ from: 3000, to: 400, dur: 0.3, gain: 0.2, q: 2, at: 0.13 });
+  }
+
+  /** A deal is closed: a stamp comes down, then the till rings. */
+  deal(): void {
+    this.hiss({ from: 300, to: 120, dur: 0.09, gain: 0.5, q: 1.5 });
+    this.tone({ type: 'sine', freq: 1318, dur: 0.12, gain: 0.16, at: 0.14 });
+    this.tone({ type: 'sine', freq: 1760, dur: 0.4, gain: 0.16, at: 0.22 });
+    this.tone({ type: 'triangle', freq: 2637, dur: 0.3, gain: 0.07, at: 0.22 });
   }
 
   /** Overtime starts. */
@@ -569,11 +587,11 @@ export class Sound {
    */
   demo(): number {
     const effects: (() => void)[] = [
-      () => this.click(), () => this.refuse(), () => this.spawn(0), () => this.spawn(1), () => this.hit(),
-      () => this.whoosh(), () => this.turret(0), () => this.turret(1), () => this.defeat(), () => this.coin(),
-      () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(), () => this.chant(),
-      () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.giant(),
-      () => this.alarm(), () => this.surge(), () => this.fanfare(),
+      () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'),
+      () => this.hit(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'),
+      () => this.defeat(), () => this.coin(), () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(),
+      () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(),
+      () => this.giant(), () => this.alarm(), () => this.surge(), () => this.fanfare(),
     ];
     const gap = 0.6;
     // Start in the busiest part of the tune: melody, drums and all.
@@ -590,8 +608,8 @@ export class Sound {
     this.baseHit();
     this.defeat();
     this.coin();
-    this.turret(0);
-    this.turret(1);
+    this.turret('town');
+    this.turret('country');
     this.offset = 0;
     return steps * stepLength;
   }

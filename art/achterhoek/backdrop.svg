@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>De Achterhoek: coulisselandschap, een molen en een zandweg</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    This land was first painted for the right-hand side, so the details sit in a mirrored group here.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- The ground: verge, sand road, grass in front. -->
+    <rect fill="#8bcd6c" y="598" width="1100" height="42"/>
+    <rect fill="#d9c38c" y="638" width="1100" height="104"/>
+    <rect fill="#7ac15f" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+
+    <g transform="matrix(-1 0 0 1 1920 0)">
+      <!-- Fields and hedgerows, oaks, a windmill, a church spire, a farm and a few cows. -->
+      <path fill="#b5dba6" d="M980 598 Q1090 548 1220 566 Q1340 540 1470 562 Q1560 546 1620 560 L1920 552 L1920 598 Z"/>
+      <path fill="#e6d77e" d="M1060 598 L1110 574 L1290 570 L1250 598 Z"/>
+      <path fill="#94cf7c" d="M1250 598 L1290 570 L1480 568 L1470 598 Z"/>
+      <path fill="#dccb6c" d="M1470 598 L1480 568 L1610 566 L1620 598 Z"/>
+      <path fill="#5fa35a" d="M1110 576 q10 -12 20 -2 q10 -12 22 -2 q10 -11 22 -1 q10 -12 22 -1 q10 -11 22 -1 q10 -10 20 0 q10 -10 22 0 q10 -8 16 2 L1296 574 Z"/>
+      <path fill="#c9d6c9" d="M1496 598 L1496 520 L1503 492 L1510 520 L1510 598 Z M1488 598 L1488 548 L1518 548 L1518 598 Z"/>
+      <path fill="#c0563a" d="M1196 576 L1214 558 L1250 558 L1264 576 Z"/>
+      <path fill="#efe8d8" d="M1200 598 L1200 576 L1260 576 L1260 598 Z"/>
+      <!-- the windmill -->
+      <path fill="#efe8d8" d="M1322 598 L1332 486 L1356 486 L1366 598 Z"/>
+      <path fill="#8a6a46" d="M1328 488 Q1344 462 1360 488 Z"/>
+      <g fill="none" stroke="#8a6a46" stroke-width="4" stroke-linecap="round">
+        <path d="M1344 474 L1290 420 M1344 474 L1398 420 M1344 474 L1290 528 M1344 474 L1398 528"/>
+      </g>
+      <g fill="#f4ecdc" fill-opacity="0.9">
+        <path d="M1338 468 L1296 426 L1304 418 L1346 460 Z M1350 468 L1392 426 L1384 418 L1342 460 Z M1338 480 L1296 522 L1304 530 L1346 488 Z M1350 480 L1392 522 L1384 530 L1342 488 Z"/>
+      </g>
+      <path fill="#8a6a46" d="M1035 598 L1037 520 L1043 520 L1045 598 Z"/><circle fill="#6fb463" cx="1040" cy="502" r="30"/><circle fill="#6fb463" cx="1019" cy="516" r="22"/><circle fill="#6fb463" cx="1062" cy="514" r="21"/><path fill="#5a9c50" d="M1004 523 Q1040 542 1078 522 Q1040 530 1004 523 Z"/>
+      <path fill="#8a6a46" d="M1145 598 L1147 541 L1153 541 L1155 598 Z"/><circle fill="#6fb463" cx="1150" cy="528" r="22"/><circle fill="#6fb463" cx="1135" cy="538" r="16"/><circle fill="#6fb463" cx="1166" cy="537" r="15"/><path fill="#5a9c50" d="M1124 543 Q1150 558 1178 542 Q1150 549 1124 543 Z"/>
+      <path fill="#8a6a46" d="M1415 598 L1417 513 L1423 513 L1425 598 Z"/><circle fill="#6fb463" cx="1420" cy="494" r="32"/><circle fill="#6fb463" cx="1398" cy="508" r="23"/><circle fill="#6fb463" cx="1443" cy="507" r="22"/><path fill="#5a9c50" d="M1382 516 Q1420 537 1460 515 Q1420 524 1382 516 Z"/>
+      <path fill="#8a6a46" d="M1555 598 L1557 532 L1563 532 L1565 598 Z"/><circle fill="#6fb463" cx="1560" cy="516" r="26"/><circle fill="#6fb463" cx="1542" cy="528" r="19"/><circle fill="#6fb463" cx="1579" cy="526" r="18"/><path fill="#5a9c50" d="M1529 534 Q1560 551 1592 533 Q1560 541 1529 534 Z"/>
+      <g><ellipse fill="#fafafa" cx="1190" cy="590" rx="13" ry="7"/><path fill="#2b2b2b" d="M1184 584 q5 -2 8 1 q1 5 -4 6 q-6 -1 -4 -7 Z"/><circle fill="#fafafa" cx="1204" cy="586" r="4.6"/><path fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" d="M1182 596 v6 M1188 596 v6 M1195 596 v6 M1200 596 v6"/></g>
+      <g><ellipse fill="#fafafa" cx="1450" cy="592" rx="13" ry="7"/><path fill="#2b2b2b" d="M1444 586 q5 -2 8 1 q1 5 -4 6 q-6 -1 -4 -7 Z"/><circle fill="#fafafa" cx="1464" cy="588" r="4.6"/><path fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round" d="M1442 598 v6 M1448 598 v6 M1455 598 v6 M1460 598 v6"/></g>
+
+      <!-- Grass on the verge, ruts and pebbles in the sand, tufts and flowers in front. -->
+      <path fill="#6fb85a" d="M1080 628 q4 -12 8 0 q4 -14 8 0 Z M1300 618 q4 -12 8 0 q4 -14 8 0 Z M1520 630 q4 -12 8 0 q4 -14 8 0 Z M1180 610 q4 -10 8 0 Z M1440 608 q4 -10 8 0 Z"/>
+      <path fill="none" stroke="#c7ae75" stroke-width="7" stroke-linecap="round" stroke-dasharray="60 26" d="M980 676 L1920 676 M990 716 L1920 716"/>
+      <path fill="#c2a96f" d="M1100 694 a4 3 0 1 0 8 0 a4 3 0 1 0 -8 0 Z M1330 660 a5 3.4 0 1 0 10 0 a5 3.4 0 1 0 -10 0 Z M1500 730 a4 3 0 1 0 8 0 a4 3 0 1 0 -8 0 Z M1240 728 a3 2.4 0 1 0 6 0 a3 2.4 0 1 0 -6 0 Z"/>
+      <path fill="#6ab451" d="M1040 800 q5 -16 10 0 q5 -18 10 0 Z M1180 880 q5 -16 10 0 q5 -18 10 0 Z M1010 960 q5 -16 10 0 q5 -18 10 0 Z M1120 1030 q5 -16 10 0 q5 -18 10 0 Z M930 870 q5 -14 10 0 Z M960 1010 q5 -14 10 0 Z"/>
+      <g>
+        <circle fill="#ffffff" cx="1090" cy="842" r="4"/><circle fill="#ffd21f" cx="1090" cy="842" r="1.8"/>
+        <circle fill="#ffffff" cx="1150" cy="960" r="4"/><circle fill="#ffd21f" cx="1150" cy="960" r="1.8"/>
+        <circle fill="#ffffff" cx="1000" cy="910" r="4"/><circle fill="#ffd21f" cx="1000" cy="910" r="1.8"/>
+        <circle fill="#ff7ac0" cx="1060" cy="1000" r="3.6"/><circle fill="#ffd21f" cx="1060" cy="1000" r="1.6"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,7 +1,9 @@
 import type { EraKey } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas';
 export type Role = 'light' | 'ranged' | 'heavy' | 'super';
+/** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
+export type Voice = 'town' | 'country' | 'office';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -12,6 +14,8 @@ export interface ShotDef {
   arc: number;
   /** Turns per second while it flies. 0 for things that should stay upright. Looks only. */
   spin: number;
+  /** Colour of the puff it leaves where it lands. Looks only. */
+  splash: string;
 }
 
 /** All distances in lane sub-units, all times in ticks. See defs/balance.ts. */
@@ -65,6 +69,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
     | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
+    | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
   );
 
 export interface EraDef {
@@ -76,6 +81,8 @@ export interface EraDef {
   baseHp: number;
   /** Vooruitgang needed to modernize to the next era; null for the last one. */
   progressNeeded: number | null;
+  /** What modernizing to the next era costs on top of that; null for the last one. */
+  eraUpCost: number | null;
   /** Light, ranged, heavy; the last era adds a fourth, the super unit. The index is the buy button. */
   units: UnitDef[];
   turret: TurretDef;
@@ -85,5 +92,10 @@ export interface EraDef {
 export interface FactionDef {
   id: FactionId;
   flagRig: string;
+  /** Its half of the backdrop, drawn for the left side of the screen. */
+  backdropRig: string;
+  voice: Voice;
+  /** For the stand-in boxes where art is missing, the reach marker of its turrets, and the plain ground under a missing backdrop. */
+  colors: { main: string; dark: string; light: string };
   eras: EraDef[];
 }

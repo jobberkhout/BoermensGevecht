@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>Amsterdam: de grachten, de kade en het asfalt</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <g fill="none" stroke="#c9d4e4" stroke-width="5" stroke-linecap="round">
+      <path d="M562 598 L562 232 M500 250 L690 250 M562 232 L600 250 M562 232 L520 250 M562 300 L590 250"/>
+    </g>
+    <path fill="#ccd7e6" d="M928 598 L928 340 L968 340 L968 598 Z M934 340 L934 286 L962 286 L962 340 Z M939 286 L939 254 L957 254 L957 286 Z M939 254 Q948 226 957 254 Z"/>
+    <path fill="#e3eaf3" d="M942 300 h12 v26 h-12 Z M940 370 h16 v30 h-16 Z M940 440 h16 v30 h-16 Z"/>
+    <path fill="none" stroke="#ccd7e6" stroke-width="3.4" stroke-linecap="round" d="M948 232 L948 214 M942 220 L954 220"/>
+    <path fill="#b7c5da" d="M318 598 L318 448 L318 438 L329.0 438 L329.0 426 L340.0 426 L340.0 414 L362.0 414 L362.0 426 L373.0 426 L373.0 438 L384 438 L384 448 L384 598 Z"/>
+    <path fill="#dfe8f3" d="M329.5 462 h10 v22 h-10 Z M346.0 462 h10 v22 h-10 Z M362.5 462 h10 v22 h-10 Z M329.5 506 h10 v22 h-10 Z M346.0 506 h10 v22 h-10 Z M362.5 506 h10 v22 h-10 Z"/>
+    <path fill="#c1cde0" d="M386 598 L386 422 Q391.8 392 403.4 390 Q406.3 372 415.0 370 Q423.7 372 426.6 390 Q438.2 392 444 422 L444 422 L444 598 Z"/>
+    <path fill="#dfe8f3" d="M400.3 436 h10 v22 h-10 Z M419.7 436 h10 v22 h-10 Z M400.3 480 h10 v22 h-10 Z M419.7 480 h10 v22 h-10 Z M400.3 524 h10 v22 h-10 Z M419.7 524 h10 v22 h-10 Z"/>
+    <path fill="#b3c1d6" d="M446 598 L446 458 L476.0 422 L476.0 414 L486.0 414 L486.0 422 L516 458 L516 598 Z"/>
+    <path fill="#dfe8f3" d="M458.5 472 h10 v22 h-10 Z M476.0 472 h10 v22 h-10 Z M493.5 472 h10 v22 h-10 Z M458.5 516 h10 v22 h-10 Z M476.0 516 h10 v22 h-10 Z M493.5 516 h10 v22 h-10 Z"/>
+    <path fill="#c4d0e2" d="M518 598 L518 408 L533.6 408 L533.6 372 Q548.0 356 562.4 372 L562.4 408 L578 408 L578 598 Z"/>
+    <path fill="#dfe8f3" d="M533.0 422 h10 v22 h-10 Z M553.0 422 h10 v22 h-10 Z M533.0 466 h10 v22 h-10 Z M553.0 466 h10 v22 h-10 Z M533.0 510 h10 v22 h-10 Z M553.0 510 h10 v22 h-10 Z"/>
+    <path fill="#b9c7db" d="M580 598 L580 442 L580 432 L592.0 432 L592.0 420 L604.0 420 L604.0 408 L628.0 408 L628.0 420 L640.0 420 L640.0 432 L652 432 L652 442 L652 598 Z"/>
+    <path fill="#dfe8f3" d="M593.0 456 h10 v22 h-10 Z M611.0 456 h10 v22 h-10 Z M629.0 456 h10 v22 h-10 Z M593.0 500 h10 v22 h-10 Z M611.0 500 h10 v22 h-10 Z M629.0 500 h10 v22 h-10 Z"/>
+    <path fill="#c1cde0" d="M654 598 L654 428 Q659.8 398 671.4 396 Q674.3 378 683.0 376 Q691.7 378 694.6 396 Q706.2 398 712 428 L712 428 L712 598 Z"/>
+    <path fill="#dfe8f3" d="M668.3 442 h10 v22 h-10 Z M687.7 442 h10 v22 h-10 Z M668.3 486 h10 v22 h-10 Z M687.7 486 h10 v22 h-10 Z M668.3 530 h10 v22 h-10 Z M687.7 530 h10 v22 h-10 Z"/>
+    <path fill="#b3c1d6" d="M714 598 L714 460 L742.0 424 L742.0 416 L752.0 416 L752.0 424 L780 460 L780 598 Z"/>
+    <path fill="#dfe8f3" d="M725.5 474 h10 v22 h-10 Z M742.0 474 h10 v22 h-10 Z M758.5 474 h10 v22 h-10 Z M725.5 518 h10 v22 h-10 Z M742.0 518 h10 v22 h-10 Z M758.5 518 h10 v22 h-10 Z"/>
+    <path fill="#c4d0e2" d="M782 598 L782 416 L798.1 416 L798.1 380 Q813.0 364 827.9 380 L827.9 416 L844 416 L844 598 Z"/>
+    <path fill="#dfe8f3" d="M797.7 430 h10 v22 h-10 Z M818.3 430 h10 v22 h-10 Z M797.7 474 h10 v22 h-10 Z M818.3 474 h10 v22 h-10 Z M797.7 518 h10 v22 h-10 Z M818.3 518 h10 v22 h-10 Z"/>
+    <path fill="#b9c7db" d="M846 598 L846 452 L846 442 L857.7 442 L857.7 430 L869.3 430 L869.3 418 L892.7 418 L892.7 430 L904.3 430 L904.3 442 L916 442 L916 452 L916 598 Z"/>
+    <path fill="#dfe8f3" d="M858.5 466 h10 v22 h-10 Z M876.0 466 h10 v22 h-10 Z M893.5 466 h10 v22 h-10 Z M858.5 510 h10 v22 h-10 Z M876.0 510 h10 v22 h-10 Z M893.5 510 h10 v22 h-10 Z"/>
+    <path fill="#8a7a6a" d="M349 598 L350 568 L354 568 L355 598 Z"/><circle fill="#9cc48f" cx="352" cy="554" r="20"/><circle fill="#8fb984" cx="360" cy="562" r="13"/>
+    <path fill="#8a7a6a" d="M493 598 L494 568 L498 568 L499 598 Z"/><circle fill="#9cc48f" cx="496" cy="554" r="20"/><circle fill="#8fb984" cx="504" cy="562" r="13"/>
+    <path fill="#8a7a6a" d="M697 598 L698 568 L702 568 L703 598 Z"/><circle fill="#9cc48f" cx="700" cy="554" r="20"/><circle fill="#8fb984" cx="708" cy="562" r="13"/>
+    <path fill="#8a7a6a" d="M903 598 L904 568 L908 568 L909 598 Z"/><circle fill="#9cc48f" cx="906" cy="554" r="20"/><circle fill="#8fb984" cx="914" cy="562" r="13"/>
+    <g fill="none" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"><circle cx="408" cy="589" r="9"/><circle cx="434" cy="589" r="9"/><path d="M408 589 L418 576 L430 576 L434 589 M418 576 L422 589 L408 589 M430 576 L428 570 L433 569 M416 573 L421 573"/></g>
+    <g fill="none" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"><circle cx="596" cy="589" r="9"/><circle cx="622" cy="589" r="9"/><path d="M596 589 L606 576 L618 576 L622 589 M606 576 L610 589 L596 589 M618 576 L616 570 L621 569 M604 573 L609 573"/></g>
+    <g fill="none" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"><circle cx="796" cy="589" r="9"/><circle cx="822" cy="589" r="9"/><path d="M796 589 L806 576 L818 576 L822 589 M806 576 L810 589 L796 589 M818 576 L816 570 L821 569 M804 573 L809 573"/></g>
+
+    <!-- The pavement behind the road. -->
+    <rect fill="#cbc6bd" y="598" width="1100" height="42"/>
+    <path fill="none" stroke="#aaa59c" stroke-width="2" d="M0 612 L1100 612 M0 626 L1100 626 M90 598 v42 M240 598 v42 M390 598 v42 M540 598 v42 M690 598 v42 M840 598 v42 M990 598 v42"/>
+
+    <!-- The road: asphalt with a red bike path along it. -->
+    <rect fill="#93908c" y="638" width="1100" height="104"/>
+    <path fill="#c66a55" d="M0 638 L1100 638 L1100 658 L0 658 Z"/>
+    <path fill="none" stroke="#f4ecdc" stroke-width="3" stroke-dasharray="26 22" d="M0 664 L1100 664"/>
+    <path fill="none" stroke="#f4ecdc" stroke-width="3" stroke-dasharray="34 30" d="M0 700 L1100 700"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+
+    <!-- In front of the road, where the buttons sit: paving. -->
+    <rect fill="#bfb9af" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#a8a297" stroke-width="2" d="M0 790 L1100 790 M0 850 L1100 850 M0 910 L1100 910 M0 970 L1100 970 M0 1030 L1100 1030 M120 742 L80 1080 M300 742 L270 1080 M480 742 L460 1080 M660 742 L650 1080 M840 742 L836 1080 M1020 742 L1022 1080"/>
+  </g>
+</svg>

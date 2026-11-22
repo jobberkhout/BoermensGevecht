@@ -412,6 +412,11 @@ body {
   pointer-events: none;
 }
 
+/* The bar is full but the money is not there yet: the fill stays, solid, and waits. */
+.btn.full .fill {
+  background: rgba(47, 145, 64, 0.45);
+}
+
 .btn.ready {
   background: var(--gold);
   animation: ready 0.9s ease-in-out infinite;
@@ -704,6 +709,49 @@ body {
   font-weight: 800;
   font-size: 1.6cqw;
   cursor: pointer;
+}
+
+/* A second, quieter button under the main one. */
+.go.quiet {
+  display: block;
+  margin: 0.8cqw auto 0;
+  padding: 0.4cqw 1.4cqw;
+  background: var(--paper);
+  font-size: 1.1cqw;
+}
+
+/* The arrows with which a player steps through the factions on the title card. */
+.side h3 .who {
+  flex: 1;
+  min-width: 0;
+}
+
+.side h3 .arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3cqw;
+  padding: 0.3cqw 0.5cqw;
+  border: 0.22cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: var(--gold);
+  box-shadow: 0 0.25cqw 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.2cqw;
+  cursor: pointer;
+}
+
+.side h3 .arrow kbd {
+  min-width: 1.5cqw;
+  padding: 0.05cqw 0.3cqw;
+  border: 0.16cqw solid var(--ink);
+  border-radius: 0.4cqw;
+  background: #fff;
+  font: inherit;
+  font-size: 0.95cqw;
+  text-align: center;
 }
 
 .go:active {

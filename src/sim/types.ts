@@ -42,6 +42,8 @@ export interface Unit {
   actTick: number;
   /** Can neither walk nor fight before this tick. */
   stunUntil: number;
+  /** Bought over: it fights for the side it is listed under, not for the side that trained it. */
+  turncoat: boolean;
 }
 
 export interface QueueItem {
@@ -146,13 +148,18 @@ export interface SimState {
 /** `unit` value that means "the base". */
 export const BASE = -1;
 
-/** Damage waiting to be applied at the end of the tick, so that simultaneous blows all land. */
+/**
+ * What waits for the end of the tick, so that everything that happens at the
+ * same moment lands together: a blow, or a unit that is bought over.
+ */
 export interface Damage {
   /** The side that takes it. */
   side: Side;
   /** Unit id, or BASE. */
   unit: number;
   amount: number;
+  /** Not a blow: this unit of `side` was bought and changes sides, if it is still standing. */
+  bought?: boolean;
 }
 
 /** What happened during one tick, for effects and sound. `pos` is in the frame of `side`. */
@@ -172,6 +179,8 @@ export type SimEvent =
   | { t: 'stunned'; side: Side; ids: number[]; ticks: number }
   | { t: 'buffed'; side: Side; ticks: number }
   | { t: 'healed'; side: Side; ids: number[] }
+  /** Unit `id` was bought over and now fights for `side`, standing at `pos` in that side's frame. */
+  | { t: 'converted'; side: Side; id: number; def: string; pos: number }
   /** An enemy special had no effect on these units of `side`. */
   | { t: 'shrugged'; side: Side; ids: number[] }
   /** The algorithm came down on unit `id` of `side`. */

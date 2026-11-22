@@ -1,9 +1,9 @@
 import { CLIPS } from '../anim/clips/index.ts';
 import { sampleClip } from '../anim/sample.ts';
 import type { Clip } from '../anim/types.ts';
-import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
-import { FACTIONS, eraOf, turretDef, turretEra } from '../defs/index.ts';
-import type { FactionId, Role } from '../defs/types.ts';
+import { GATE_X, GROUND_Y, SUB, WORLD_H } from '../defs/balance.ts';
+import { FACTIONS, eraOf, homeOf, turretDef, turretEra } from '../defs/index.ts';
+import type { FactionDef, Role } from '../defs/types.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
 import { loadImage, openTag, type Rig } from '../rig/raster.ts';
 import { turretRange } from '../sim/turrets.ts';
@@ -34,8 +34,12 @@ import {
 const FONT = 'ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif';
 const INK = '#2b1b16';
 
-/** The painted backdrop: sky, skyline, fields and the road. The same for every era. */
-const SCENERY = 'scenery/2025';
+/** The sky every match is played under. Each faction brings its own half of the land below it. */
+export const SKY = 'scenery/sky';
+
+/** The right-hand faction's half of the backdrop fades in over this stretch of the stage, so any two halves meet without a seam. */
+const BLEND_FROM = 860;
+const BLEND_TO = 1060;
 
 /** Where the drones of a swarm fly relative to its leader: a loose V. */
 const FORMATION: readonly (readonly [number, number])[] = [
@@ -46,11 +50,6 @@ const FORMATION: readonly (readonly [number, number])[] = [
   [-148, 92],
   [-150, 4],
 ];
-
-const LOOK: Record<FactionId, { main: string; dark: string; light: string }> = {
-  havermelk: { main: '#c8a8f0', dark: '#7d5fb8', light: '#efe3ff' },
-  achterhoek: { main: '#2f9140', dark: '#1f5a2a', light: '#a8d98f' },
-};
 
 const base6 = new Float32Array(6);
 
@@ -73,9 +72,15 @@ export class Renderer {
   private readonly stage: Stage;
   private rigs = new Map<string, Rig>();
   private wanted = new Set<string>();
+  /** Whole-screen drawings: the sky and the factions' backdrops. */
+  private scenes = new Map<string, HTMLImageElement>();
+  private wantedScenes = new Set<string>([SKY]);
   private scale = 0;
   private background: HTMLCanvasElement | null = null;
-  private scenery: HTMLImageElement | null = null;
+  /** Which two factions the cached background was painted for. */
+  private backgroundFor = '';
+  /** The colours of the faction on each side in the match being drawn. */
+  private colorsOf: [FactionDef['colors'], FactionDef['colors']] = [FACTIONS.havermelk.colors, FACTIONS.achterhoek.colors];
   private loading = 0;
   /** Scratch space per rig for things drawn in passing, so drawing one does not allocate every frame. */
   private scratch = new WeakMap<Rig, { pose: Pose; world: Float32Array }>();
@@ -94,9 +99,13 @@ export class Renderer {
   /** The loaded rig for an art id, if that art exists and is ready. */
   rig = (id: string): Rig | undefined => this.rigs.get(id);
 
-  /** Makes sure these rigs are loaded at the current screen scale. Art that does not exist is skipped. */
-  async prepare(ids: Iterable<string>): Promise<void> {
+  /**
+   * Makes sure these rigs and whole-screen scenes are loaded at the current
+   * screen size. Art that does not exist is skipped.
+   */
+  async prepare(ids: Iterable<string>, scenes: Iterable<string> = []): Promise<void> {
     for (const id of ids) this.wanted.add(id);
+    for (const id of scenes) this.wantedScenes.add(id);
     await this.reload();
   }
 
@@ -105,22 +114,23 @@ export class Renderer {
     const scale = Math.max(0.5, Math.ceil(this.stage.k * TURRET_SCALE * 20) / 20);
     const ticket = ++this.loading;
     const ids = [...this.wanted].filter(hasRig);
+    const sceneIds = [...this.wantedScenes].filter(hasRig);
     const { width, height } = this.stage.canvas;
-    const [loaded, scenery] = await Promise.all([
+    const [loaded, scenes] = await Promise.all([
       Promise.all(ids.map(async (id) => [id, await loadRig(id, scale)] as const)),
-      hasRig(SCENERY) ? this.loadScenery(width, height) : null,
+      Promise.all(sceneIds.map(async (id) => [id, await this.loadScene(id, width, height)] as const)),
     ]);
-    if (ticket !== this.loading) return; // a newer resize overtook this one
+    if (ticket !== this.loading) return; // a newer resize or request overtook this one
     this.rigs = new Map(loaded);
-    this.scenery = scenery;
+    this.scenes = new Map(scenes);
     this.background = null;
     if (scale !== this.scale) forgetRigsExcept(scale);
     this.scale = scale;
   }
 
-  /** The backdrop as one picture, rendered by the browser at exactly the canvas size. */
-  private loadScenery(width: number, height: number): Promise<HTMLImageElement> {
-    const src = rigSource(SCENERY);
+  /** A whole-screen drawing as one picture, rendered by the browser at exactly the canvas size. */
+  private loadScene(id: string, width: number, height: number): Promise<HTMLImageElement> {
+    const src = rigSource(id);
     return loadImage(`${openTag(src, width, height)}${src.head}${src.parts.map((part) => part.markup).join('')}</svg>`);
   }
 
@@ -129,7 +139,12 @@ export class Renderer {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
-    if (!this.background) this.background = this.paintBackground();
+    this.colorsOf = [FACTIONS[s.sides[0].faction].colors, FACTIONS[s.sides[1].faction].colors];
+    const pair = `${s.sides[0].faction}|${s.sides[1].faction}`;
+    if (!this.background || this.backgroundFor !== pair) {
+      this.background = this.paintBackground(FACTIONS[s.sides[0].faction], FACTIONS[s.sides[1].faction]);
+      this.backgroundFor = pair;
+    }
     this.ox = view.shake > 0 ? Math.sin(view.time * 90) * view.shake * k : 0;
     this.oy = view.shake > 0 ? Math.cos(view.time * 70) * view.shake * 0.6 * k : 0;
     ctx.drawImage(this.background, this.ox, this.oy);
@@ -192,59 +207,70 @@ export class Renderer {
 
   // ---- scenery ------------------------------------------------------------
 
-  private paintBackground(): HTMLCanvasElement {
+  /**
+   * The backdrop for a match between these two: the shared sky, the left
+   * faction's land as drawn, and the right faction's land mirrored and faded in
+   * over the middle.
+   */
+  private paintBackground(left: FactionDef, right: FactionDef): HTMLCanvasElement {
     const { canvas, k } = this.stage;
     const bg = document.createElement('canvas');
     bg.width = canvas.width;
     bg.height = canvas.height;
     const c = bg.getContext('2d')!;
-    if (this.scenery) {
-      c.drawImage(this.scenery, 0, 0, bg.width, bg.height);
-      return bg;
-    }
 
-    // No scenery art yet: a plain sky, a hint of skyline and hedges, grass and the road.
-    c.setTransform(k, 0, 0, k, 0, 0);
-    const horizon = GROUND_Y - 92;
-    const sky = c.createLinearGradient(0, 0, 0, horizon);
-    sky.addColorStop(0, '#9fd3f2');
-    sky.addColorStop(1, '#e8f6fb');
-    c.fillStyle = sky;
-    c.fillRect(0, 0, WORLD_W, horizon + 20);
-    c.fillStyle = '#b9c7dc';
-    for (let i = 0; i < 9; i++) {
-      const x = 40 + i * 88;
-      const h = 150 + ((i * 53) % 70);
-      c.fillRect(x, horizon - h, 76, h);
-      c.beginPath();
-      c.moveTo(x, horizon - h);
-      c.lineTo(x + 38, horizon - h - 44);
-      c.lineTo(x + 76, horizon - h);
-      c.fill();
+    const sky = this.scenes.get(SKY);
+    if (sky) {
+      c.drawImage(sky, 0, 0, bg.width, bg.height);
+    } else {
+      const fill = c.createLinearGradient(0, 0, 0, bg.height * 0.56);
+      fill.addColorStop(0, '#8fd0f5');
+      fill.addColorStop(1, '#def3fb');
+      c.fillStyle = fill;
+      c.fillRect(0, 0, bg.width, bg.height);
     }
-    c.fillStyle = '#9ccf8a';
-    for (let i = 0; i < 12; i++) {
-      c.beginPath();
-      c.arc(1000 + i * 80, horizon, 46 + ((i * 37) % 30), Math.PI, 0);
-      c.fill();
-    }
-    const ground = c.createLinearGradient(0, 0, WORLD_W, 0);
-    ground.addColorStop(0, '#b8c4ae');
-    ground.addColorStop(0.5, '#9bcb7d');
-    ground.addColorStop(1, '#7dbd5f');
-    c.fillStyle = ground;
-    c.fillRect(0, horizon, WORLD_W, WORLD_H - horizon);
-    const road = c.createLinearGradient(0, 0, WORLD_W, 0);
-    road.addColorStop(0, '#9a958f');
-    road.addColorStop(0.45, '#aaa398');
-    road.addColorStop(0.6, '#cdb98a');
-    road.addColorStop(1, '#d4bd85');
-    c.fillStyle = road;
-    c.fillRect(0, GROUND_Y - 52, WORLD_W, 104);
-    c.strokeStyle = 'rgba(43,27,22,0.25)';
-    c.lineWidth = 3;
-    c.strokeRect(-10, GROUND_Y - 52, WORLD_W + 20, 104);
+    this.paintLand(c, left, false);
+
+    const half = document.createElement('canvas');
+    half.width = bg.width;
+    half.height = bg.height;
+    const h = half.getContext('2d')!;
+    this.paintLand(h, right, true);
+    // Keep of the right-hand half only what lies past the middle, with a soft edge.
+    h.setTransform(1, 0, 0, 1, 0, 0);
+    h.globalCompositeOperation = 'destination-in';
+    const mask = h.createLinearGradient(k * BLEND_FROM, 0, k * BLEND_TO, 0);
+    mask.addColorStop(0, 'rgba(0,0,0,0)');
+    mask.addColorStop(1, 'rgba(0,0,0,1)');
+    h.fillStyle = mask;
+    h.fillRect(0, 0, half.width, half.height);
+    c.drawImage(half, 0, 0);
     return bg;
+  }
+
+  /** One faction's half of the land, mirrored for the right-hand side. Plain ground in its colours if it has no backdrop yet. */
+  private paintLand(c: CanvasRenderingContext2D, faction: FactionDef, mirrored: boolean): void {
+    const { width, height } = c.canvas;
+    const k = this.stage.k;
+    c.setTransform(mirrored ? -1 : 1, 0, 0, 1, mirrored ? width : 0, 0);
+    const land = this.scenes.get(faction.backdropRig);
+    if (land) {
+      c.drawImage(land, 0, 0, width, height);
+      return;
+    }
+    c.scale(k, k);
+    c.fillStyle = faction.colors.light;
+    c.fillRect(0, GROUND_Y - 92, 1100, WORLD_H - (GROUND_Y - 92));
+    c.fillStyle = '#b7b1a8';
+    c.fillRect(0, GROUND_Y - 52, 1100, 104);
+    c.strokeStyle = 'rgba(43,27,22,0.28)';
+    c.lineWidth = 3;
+    c.beginPath();
+    c.moveTo(0, GROUND_Y - 52);
+    c.lineTo(1100, GROUND_Y - 52);
+    c.moveTo(0, GROUND_Y + 52);
+    c.lineTo(1100, GROUND_Y + 52);
+    c.stroke();
   }
 
   // ---- bases --------------------------------------------------------------
@@ -254,7 +280,7 @@ export class Renderer {
     const state = s.sides[side];
     const era = eraOf(state.faction, state.era);
     const rig = this.rigs.get(era.baseRig);
-    const look = LOOK[state.faction];
+    const look = FACTIONS[state.faction].colors;
     const dir = dirOf(side);
     const gate = GATE_X[side];
     const flash = view.baseFlash[side];
@@ -331,7 +357,7 @@ export class Renderer {
     if (reach === 0) return;
     const { ctx } = this.stage;
     const x = GATE_X[side] + dirOf(side) * (reach / SUB);
-    const look = LOOK[state.faction];
+    const look = FACTIONS[state.faction].colors;
     ctx.strokeStyle = look.dark;
     ctx.globalAlpha = 0.6;
     ctx.lineWidth = 4;
@@ -431,7 +457,7 @@ export class Renderer {
     const y = rowY(v.row);
     const scale = rowScale(v.row);
     const len = v.def.len / SUB;
-    const x = v.x + (v.stunned ? Math.sin(time * 45 + v.id) * 1.5 : 0);
+    const x = v.x + v.slide + (v.stunned ? Math.sin(time * 45 + v.id) * 1.5 : 0);
     // Fresh units fade in as they come out of the dark doorway.
     const fade = Math.min(1, v.age / SPAWN_FADE);
     ctx.globalAlpha = fade;
@@ -442,7 +468,7 @@ export class Renderer {
       ctx.strokeStyle = INK;
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.ellipse(v.x, y + 4, Math.max(26, len * scale * 0.55), 9, 0, 0, Math.PI * 2);
+      ctx.ellipse(x, y + 4, Math.max(26, len * scale * 0.55), 9, 0, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
     }
@@ -457,7 +483,7 @@ export class Renderer {
         ctx.globalAlpha = fade;
       }
     } else {
-      const fill = v.flash > 0.3 ? '#ffffff' : v.side === 0 ? '#d9c5f5' : '#a8d98f';
+      const fill = v.flash > 0.3 ? '#ffffff' : FACTIONS[homeOf(v.def.id)].colors.light;
       this.drawBox(x, y, len * scale, BUILD[v.def.role].box * scale, v.def.role[0]!.toUpperCase(), fill);
     }
     ctx.globalAlpha = 1;
@@ -472,6 +498,29 @@ export class Renderer {
       ctx.fillStyle = '#7fd35b';
       ctx.fillRect(x - w / 2, top, w * Math.max(0, v.hp / v.def.hp), 6);
     }
+    if (v.turncoat) this.drawBadge(x, y - BUILD[v.def.role].bar * scale - 12, this.colorsOf[v.side]);
+  }
+
+  /** The keycord of a unit that was bought over: a pass on a strap, in the colours of its new side. */
+  private drawBadge(x: number, y: number, look: { main: string; dark: string }): void {
+    const { ctx } = this.stage;
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = look.dark;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(x - 9, y - 26);
+    ctx.lineTo(x, y - 12);
+    ctx.lineTo(x + 9, y - 26);
+    ctx.stroke();
+    ctx.fillStyle = '#fffdf5';
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.rect(x - 8, y - 13, 16, 13);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = look.main;
+    ctx.fillRect(x - 6, y - 11, 12, 4);
   }
 
   private drawGhost(g: Ghost): void {

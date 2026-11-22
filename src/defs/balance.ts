@@ -108,18 +108,23 @@ interface EraScale {
   baseHp: number;
   /** Vooruitgang needed to modernize to the next era; null for the last one. */
   progressNeeded: number | null;
+  /** Subsidie that modernizing to the next era costs on top of that; null for the last one. */
+  eraUpCost: number | null;
 }
 
 const SCALE: Record<EraKey, EraScale> = {
-  '1975': { power: 1, price: 1, baseHp: 2500, progressNeeded: 1500 },
-  '2025': { power: 2.4, price: 2, baseHp: 5500, progressNeeded: 4200 },
-  '2050': { power: 5.6, price: 4, baseHp: 12000, progressNeeded: null },
+  '1975': { power: 1, price: 1, baseHp: 2500, progressNeeded: 1500, eraUpCost: 500 },
+  '2025': { power: 2.4, price: 2, baseHp: 5500, progressNeeded: 4200, eraUpCost: 1000 },
+  '2050': { power: 5.6, price: 4, baseHp: 12000, progressNeeded: null, eraUpCost: null },
 };
 
 /**
- * Vooruitgang: what a side needs to modernize. It cannot be bought. It comes
- * with time and with fighting, for the winner of a fight and, less, for the
- * loser, so both sides move through the eras and neither is left in the past.
+ * Vooruitgang: what a side needs before it may modernize. It cannot be bought.
+ * It comes with time and with fighting, for the winner of a fight and, less,
+ * for the loser, so both sides get the chance to move on and neither is left
+ * in the past. Once there is enough of it, modernizing still costs subsidie
+ * (eraUpCost), which makes it a choice: save up for the next era, or spend on
+ * the army of this one.
  */
 export const PROGRESS = {
   /** Gained every INCOME_EVERY ticks, whatever happens. */
@@ -170,6 +175,7 @@ export interface TurretStats {
 export interface EraStats {
   baseHp: number;
   progressNeeded: number | null;
+  eraUpCost: number | null;
   light: RoleStats;
   ranged: RoleStats;
   heavy: RoleStats;
@@ -267,6 +273,7 @@ function scaleEra(key: EraKey): EraStats {
   return {
     baseHp: s.baseHp,
     progressNeeded: s.progressNeeded,
+    eraUpCost: s.eraUpCost,
     light: scaleRole(FIRST.light, s),
     ranged: scaleRole(FIRST.ranged, s),
     heavy: scaleRole(FIRST.heavy, s),
@@ -317,6 +324,10 @@ export const SPECIAL = {
   blokkade: { ticks: sec(5) },
   /** 2050, Achterhoek: drones dive on the foremost enemy, one after another. */
   zwerm: { strikes: 10, every: sec(0.4), dmg: 300 },
+  /** 1975, De Zuidas: the gong opens trading. The same kind of trick as Høken, with the same numbers. */
+  gong: { ticks: sec(7), dmgPercent: 135, speedPercent: 140 },
+  /** 2050, De Zuidas: a flash crash sweeps the lane. The convoy of 2025, scaled to the last era. */
+  flitskrach: { speed: pxPerSec(520), dmg: 112 },
   /**
    * 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane,
    * and whatever outrage is left over goes to the next toughest, and so on.
