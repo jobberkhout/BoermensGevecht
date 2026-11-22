@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -156 126 162" data-rig="humanoid">
+  <title>Matras-Marleen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .coil { stroke: #2b1b16; stroke-width: 4.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .steel { stroke: #c9c9d2; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="hips" transform="translate(-14 -38)"/>
+
+  <!-- The far arm hangs free: one hand is enough for a mattress, she says. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-23 -72)">
+    <path class="o" fill="#c9982a" d="M-6 -3 Q-8 12 -5.5 21 L5.5 21 Q7 10 6 -3 Z"/>
+    <rect class="o" fill="#b3861f" x="-6.2" y="18.5" width="12.4" height="4.6" rx="1.5"/>
+    <path class="o" fill="#dea888" d="M-4 23 L-3.5 30 Q0 35.5 3.5 30 L4 23 Z"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-19 -38)">
+    <path class="o" fill="#5a1f2a" d="M-5.6 20 L5.6 20 L5 33 L-5 33 Z"/>
+    <path class="o" fill="#5a1f2a" d="M-7.5 33.5 Q-7.5 30.5 -4 30.5 L4 30.5 Q11.5 31 13.5 35 L13.5 38 L-7.5 38 Z"/>
+    <path class="n" fill="#18161d" d="M-6.5 35.8 L13 35.8 L13 37.6 L-6.5 37.6 Z"/>
+    <path class="o" fill="#7459a3" d="M-7.5 -3 L7.5 -3 L7 26 L-7 26 Z"/>
+    <rect class="o" fill="#8a6fb8" x="-7.6" y="23.5" width="15.2" height="5" rx="1.5"/>
+  </g>
+
+  <!-- Purple dungarees with a patch on the knee, turned up over oxblood boots. -->
+  <g id="leg_front" data-parent="hips" transform="translate(-9 -38)">
+    <path class="o" fill="#7a2a2a" d="M-5.6 20 L5.6 20 L5 33 L-5 33 Z"/>
+    <path class="o" fill="#7a2a2a" d="M-7.5 33.5 Q-7.5 30.5 -4 30.5 L4 30.5 Q11.5 31 13.5 35 L13.5 38 L-7.5 38 Z"/>
+    <path class="n" fill="#18161d" d="M-6.5 35.8 L13 35.8 L13 37.6 L-6.5 37.6 Z"/>
+    <path fill="none" stroke="#ffd21f" stroke-width="1.1" stroke-linecap="round" stroke-dasharray="2 1.7" d="M-6 34.9 L12.4 34.9"/>
+    <path class="o" fill="#8a6fb8" d="M-7.5 -3 L7.5 -3 L7 26 L-7 26 Z"/>
+    <path class="n" fill="#a48bd0" d="M1.5 -1 L5.8 -1 L5.5 22 L1.8 22 Z"/>
+    <rect class="o" style="stroke-width:1.4" fill="#ffb52e" x="-5.2" y="7" width="8.4" height="8.4" rx="1.2"/>
+    <path fill="none" stroke="#fffdf5" stroke-width="1" stroke-linecap="round" d="M-3.4 9 L-1.6 10.8 M-1.6 9 L-3.4 10.8 M-0.2 11.8 L1.6 13.6 M1.6 11.8 L-0.2 13.6"/>
+    <rect class="o" fill="#a48bd0" x="-7.6" y="23.5" width="15.2" height="5" rx="1.5"/>
+  </g>
+
+  <!-- A mustard polo neck under the bib. -->
+  <g id="torso" data-parent="hips" transform="translate(-14 -40)">
+    <path class="o" fill="#e6b422" d="M-15 6 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 15 6 Z"/>
+    <path class="n" fill="#c9982a" d="M-14 5 Q-16.5 -14 -14 -29 Q-10 -20 -9 5 Z"/>
+    <path class="o" fill="#8a6fb8" d="M-16.6 -9 L-9.5 -9 L-8 -27 L8.5 -27 L10 -9 L17.2 -9 Q16.6 -1 15 6 L-15 6 Q-16.3 -1 -16.6 -9 Z"/>
+    <path class="o" fill="#8a6fb8" d="M-8 -27 L-10.2 -36 L-6 -37 L-3.8 -27 Z"/>
+    <path class="o" fill="#8a6fb8" d="M4.5 -27 L8 -37 L12.2 -36.4 L8.5 -27 Z"/>
+    <path class="t" style="stroke:#5a4285" d="M-9.5 -9 L10 -9 M-3.6 -20.5 L4.8 -20.5 L4.4 -13.6 Q0.6 -12.2 -3.2 -13.6 Z M-12.5 -4.5 Q-10 -1 -11 5"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffd21f" cx="-5.8" cy="-24.6" r="1.8"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffd21f" cx="6.4" cy="-24.6" r="1.8"/>
+  </g>
+
+  <!-- The mattress: striped ticking, a border that runs the other way, tufts. Joint in her fist. -->
+  <g id="shield" data-parent="arm_front" transform="translate(-3 -43)">
+    <path class="n" fill="#f6eedd" d="M3 -79 Q19 -80.6 35 -79 Q43 -79 43 -71 Q44.6 -52 43 -33 Q44.6 -14 43 5 Q44.4 16 43 27 Q43 35 35 35 Q19 36.4 3 35 Q-5 35 -5 27 L-5 -71 Q-5 -79 3 -79 Z"/>
+    <path class="n" fill="#7592b8" d="M8.83 -79 L11.83 -79 L11.83 35 L8.83 35 Z M15.67 -79 L18.67 -79 L18.67 35 L15.67 35 Z M22.50 -79 L25.50 -79 L25.50 35 L22.50 35 Z M29.33 -79 L32.33 -79 L32.33 35 L29.33 35 Z M36.17 -79 L39.17 -79 L39.17 35 L36.17 35 Z"/>
+    <path class="n" fill="#e4d6b9" d="M3 -79 L5 -79 L5 35 L3 35 Q-5 35 -5 27 L-5 -71 Q-5 -79 3 -79 Z"/>
+    <path class="n" fill="#7592b8" d="M-5 -68 L5 -68 L5 -65.6 L-5 -65.6 Z M-5 -60.5 L5 -60.5 L5 -58.1 L-5 -58.1 Z M-5 -53 L5 -53 L5 -50.6 L-5 -50.6 Z M-5 -45.5 L5 -45.5 L5 -43.1 L-5 -43.1 Z M-5 -38 L5 -38 L5 -35.6 L-5 -35.6 Z M-5 -30.5 L5 -30.5 L5 -28.1 L-5 -28.1 Z M-5 -23 L5 -23 L5 -20.6 L-5 -20.6 Z M-5 -15.5 L5 -15.5 L5 -13.1 L-5 -13.1 Z M-5 -8 L5 -8 L5 -5.6 L-5 -5.6 Z M-5 -0.5 L5 -0.5 L5 1.9 L-5 1.9 Z M-5 7 L5 7 L5 9.4 L-5 9.4 Z M-5 14.5 L5 14.5 L5 16.9 L-5 16.9 Z M-5 22 L5 22 L5 24.4 L-5 24.4 Z"/>
+    <path class="t" d="M5 -79 L5 35"/>
+    <path class="t" style="stroke:#b9a684;stroke-width:1.2" d="M9.3 -33 L11.5 -33 M16 -33 L18.2 -33 M29.8 -33 L32 -33 M36.5 -33 L38.7 -33 M9.3 5 L11.5 5 M16 5 L18.2 5 M29.8 5 L32 5 M36.5 5 L38.7 5 M19.5 -56 L21.7 -56 M26.3 -56 L28.5 -56 M19.5 -14 L21.7 -14 M26.3 -14 L28.5 -14 M19.5 22 L21.7 22 M26.3 22 L28.5 22"/>
+    <circle class="n" fill="#2b1b16" cx="13.75" cy="-33" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="34.25" cy="-33" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="13.75" cy="5" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="34.25" cy="5" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="24" cy="-56" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="24" cy="-14" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="24" cy="22" r="1.5"/>
+    <path class="o" fill="none" d="M3 -79 Q19 -80.6 35 -79 Q43 -79 43 -71 Q44.6 -52 43 -33 Q44.6 -14 43 5 Q44.4 16 43 27 Q43 35 35 35 Q19 36.4 3 35 Q-5 35 -5 27 L-5 -71 Q-5 -79 3 -79 Z"/>
+  </g>
+
+  <!-- One spring has had enough. Joint where it comes through the ticking. -->
+  <g id="spring" data-parent="shield" transform="translate(27 -122)">
+    <path class="coil" d="M0 1 L-4.5 -3.5 L4.5 -6.5 L-4.5 -10.5 L4.5 -13.5 L-3.5 -17.5 L3.5 -20"/>
+    <path class="steel" d="M0 1 L-4.5 -3.5 L4.5 -6.5 L-4.5 -10.5 L4.5 -13.5 L-3.5 -17.5 L3.5 -20"/>
+    <path class="o" style="stroke-width:1.4" fill="#fffdf5" d="M-6.5 1.6 Q-7.5 -2 -4 -1.6 Q-2.5 -4 0 -1.8 Q2.5 -4 4 -1.4 Q7.4 -1.6 6.4 1.8 Z"/>
+  </g>
+
+  <!-- The ends of her headscarf. Joint at the knot. -->
+  <g id="knot" data-parent="head" transform="translate(-29 -98)">
+    <path class="o" fill="#b9281f" d="M1.5 0 Q-4 3.5 -4.5 11 L0 8.5 Q0.5 5 3.5 3 Z"/>
+    <path class="o" fill="#d9342b" d="M1.5 -2 Q-7 -2.5 -10.5 4.5 L-5.2 4.2 Q-2.5 1.5 2 2 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-13 -76)">
+    <rect class="o" fill="#c9982a" x="-5" y="-7" width="11" height="10" rx="2.5"/>
+    <path class="o" fill="#5a4636" d="M-17 -22 Q-21 -8 -13 -3 L-5 -10 Z"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#f3c9a5" cx="-9" cy="-18" rx="3.4" ry="4.8"/>
+    <circle fill="none" stroke="#e6b422" stroke-width="1.5" cx="-9.6" cy="-11.6" r="2.2"/>
+    <!-- a fringe under a red spotted headscarf -->
+    <path class="o" fill="#5a4636" d="M2 -33 Q13 -35 20.5 -27 Q15 -25.5 11 -28 Q7 -30.5 2 -30 Z"/>
+    <path class="o" fill="#d9342b" d="M-16 -17.5 Q-21 -40 2 -39.5 Q17 -39.5 20.8 -29.5 Q10 -34 0 -32 Q-8 -30 -11 -22 Q-12.5 -18 -16 -17.5 Z"/>
+    <circle class="n" fill="#fffdf5" cx="-11.5" cy="-27" r="1.4"/>
+    <circle class="n" fill="#fffdf5" cx="-6" cy="-33.5" r="1.4"/>
+    <circle class="n" fill="#fffdf5" cx="2" cy="-36" r="1.4"/>
+    <circle class="n" fill="#fffdf5" cx="10" cy="-35" r="1.4"/>
+    <circle class="o" fill="#d9342b" cx="-15.5" cy="-21" r="2.6"/>
+    <ellipse class="n" fill="#f29b8e" fill-opacity="0.6" cx="6.5" cy="-12" rx="3.6" ry="2.1"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-20" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-20" r="1.8"/>
+    <path class="t" style="stroke-width:2" d="M5.5 -26.2 Q9 -27.6 12.8 -25.2 M15.6 -25.4 Q18 -27 20 -26.2"/>
+    <path class="o" fill="#f3c9a5" d="M19.5 -18 Q24 -15 19.8 -12.8"/>
+    <!-- tongue out: it is heavier than it looks -->
+    <path class="t" style="stroke-width:1.9" d="M9 -9.6 Q13 -7.4 17.4 -9.4"/>
+    <path class="o" style="stroke-width:1.3" fill="#ff8f9a" d="M13.6 -8.4 Q14.4 -4.6 17 -5.4 Q18.4 -6.4 17.2 -9 Z"/>
+  </g>
+
+  <g id="arm_front" data-parent="torso" transform="translate(-4 -72)">
+    <path class="o" fill="#f3c9a5" d="M-4.2 19 L-3.4 26.5 L4.8 26.5 L5.2 19 Z"/>
+    <path class="o" fill="#e6b422" d="M-6.5 -3 Q-8.5 8 -6.5 19 L6.2 19 Q8.2 8 6.5 -3 Q0 -6 -6.5 -3 Z"/>
+    <rect class="o" fill="#f2c94c" x="-7" y="16.5" width="13.6" height="4.6" rx="1.5"/>
+    <circle class="o" fill="#f3c9a5" cx="1" cy="29" r="4.8"/>
+    <path class="t" style="stroke-width:1.2" d="M-1.4 27 L3.4 27 M-1.8 29.3 L3.8 29.3"/>
+  </g>
+</svg>

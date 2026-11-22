@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -166 126 172" data-rig="humanoid">
+  <title>Sup-Sanne</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .shaft { stroke: #2b1b16; stroke-width: 5.8; stroke-linecap: round; fill: none; }
+    .alu { stroke: #d9d9e2; stroke-width: 2.8; stroke-linecap: round; fill: none; }
+    .cord { stroke: #27406b; stroke-width: 1.9; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="hips" transform="translate(-8 -38)"/>
+
+  <!-- The paddle, blade up like a halberd. Joint in her far fist. -->
+  <g id="paddle" data-parent="arm_back" transform="translate(-32 -46)">
+    <path class="shaft" d="M0 40 L0 -62"/>
+    <path class="alu" d="M0 40 L0 -62"/>
+    <rect class="o" fill="#3a3a3a" x="-4.6" y="39" width="9.2" height="4.6" rx="2"/>
+    <path class="o" fill="#c8a8f0" d="M0 -58 Q-7.5 -63 -7 -78 Q-6.5 -92 0 -93 Q6.5 -92 7 -78 Q7.5 -63 0 -58 Z"/>
+    <path class="n" fill="#e3d1fa" d="M-3.6 -86 Q-1.5 -90 1.5 -89.5 Q-1 -86 -2.4 -78 Q-4.4 -80 -3.6 -86 Z"/>
+    <path class="t" style="stroke:#a584d6" d="M0 -62 L0 -74"/>
+  </g>
+
+  <!-- The far arm, out behind her to hold the paddle. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-17 -72)">
+    <g transform="rotate(30)">
+      <path class="o" fill="#dea888" d="M-5.5 -3 Q-7 10 -4.4 26 L4.4 26 Q6.6 10 5.5 -3 Q0 -5.5 -5.5 -3 Z"/>
+      <circle class="o" fill="#dea888" cx="0" cy="30" r="4.6"/>
+    </g>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-13 -38)">
+    <rect class="o" fill="#dea888" x="-3" y="26" width="6" height="7"/>
+    <path class="o" fill="#1f3357" d="M-7 -3 L7 -3 L5 27.5 L-5 27.5 Z"/>
+    <path class="o" fill="#e9e9e9" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#c9c9c9" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+  </g>
+
+  <!-- Navy leggings with a teal stripe, bare ankles, water shoes. -->
+  <g id="leg_front" data-parent="hips" transform="translate(-3 -38)">
+    <rect class="o" fill="#f3c9a5" x="-3" y="26" width="6" height="7"/>
+    <path class="o" fill="#27406b" d="M-7 -3 L7 -3 L5 27.5 L-5 27.5 Z"/>
+    <path class="n" fill="#3b5a91" d="M1.2 -1 L5.4 -1 L3.9 25.5 L1.4 25.5 Z"/>
+    <path fill="none" stroke="#2bb8a4" stroke-width="1.8" stroke-linecap="round" d="M-4.6 22.8 L4.5 22.8"/>
+    <path class="o" fill="#fafafa" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#d6d6d6" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+    <path class="t" style="stroke:#a584d6" d="M2 32.5 L6 35"/>
+  </g>
+
+  <!-- A lilac sports top, the leggings' waistband under it. -->
+  <g id="torso" data-parent="hips" transform="translate(-8 -40)">
+    <path class="o" fill="#c8a8f0" d="M-14.5 6 Q-17.5 -14 -14.5 -30 Q-11.5 -37 0 -37 Q12.5 -37 15.5 -30 Q18.5 -14 14.5 6 Z"/>
+    <path class="n" fill="#a584d6" d="M-13.5 5 Q-16 -14 -13.5 -29 Q-9.5 -20 -8.5 5 Z"/>
+    <path class="o" fill="#f3c9a5" d="M-8.5 -36.2 Q0.5 -25 10 -36.4 Q4 -38 0 -37 Q-5 -38 -8.5 -36.2 Z"/>
+    <path class="o" fill="#27406b" d="M-15.6 -1 L15.9 -1 Q15.4 3 14.5 6 L-14.5 6 Q-15.2 3 -15.6 -1 Z"/>
+    <path fill="none" stroke="#2bb8a4" stroke-width="1.6" stroke-linecap="round" d="M-13.6 2.4 L13.8 2.4"/>
+  </g>
+
+  <!-- The phone, dry in its pouch. Joint at her collar, so it swings. -->
+  <g id="pouch" data-parent="torso" transform="translate(-7 -73)">
+    <path class="t" d="M-4.2 1 L-2.4 16.5 M4.6 1 L0.8 16.5"/>
+    <rect class="o" style="stroke-width:1.6" fill="#dff1f7" x="-6.2" y="17" width="10.6" height="14.6" rx="2.2"/>
+    <rect class="n" fill="#2f2a3a" x="-3.9" y="20.6" width="6" height="9.2" rx="1.2"/>
+    <path class="n" fill="#79a6ff" d="M-2.9 21.8 L1.1 21.8 L1.1 25 L-2.9 25 Z"/>
+    <rect class="o" style="stroke-width:1.4" fill="#27406b" x="-6.9" y="15.4" width="12" height="3.4" rx="1.4"/>
+  </g>
+
+  <!-- The board, deck towards us. Joint at the carrying grip, under her fist. -->
+  <g id="shield" data-parent="arm_front" transform="translate(23.2 -52.2)">
+    <path class="n" fill="#2bb8a4" d="M0 -97.8 C10 -97.8 16 -82 16 -60 L16 28 C16 39 12.5 46.2 6.5 46.2 L-6.5 46.2 C-12.5 46.2 -16 39 -16 28 L-16 -60 C-16 -82 -10 -97.8 0 -97.8 Z"/>
+    <path class="n" fill="#57d6c4" d="M-13 -58 C-13 -74 -9 -88 -3.5 -93.5 C-8 -84 -9.6 -72 -9.6 -58 L-9.6 24 L-13 24 Z"/>
+    <path class="n" fill="#fafafa" d="M-16 -46 L16 -46 L16 -40.5 L-16 -40.5 Z"/>
+    <path class="o" fill="none" d="M0 -97.8 C10 -97.8 16 -82 16 -60 L16 28 C16 39 12.5 46.2 6.5 46.2 L-6.5 46.2 C-12.5 46.2 -16 39 -16 28 L-16 -60 C-16 -82 -10 -97.8 0 -97.8 Z"/>
+    <!-- the deck pad, with the grip in it -->
+    <path class="o" style="stroke-width:1.6" fill="#ecdcb9" d="M-10.5 -30 Q-10.5 -33.5 -7 -33.5 L7 -33.5 Q10.5 -33.5 10.5 -30 L10.5 33 Q10.5 39.5 5.5 39.5 L-5.5 39.5 Q-10.5 39.5 -10.5 33 Z"/>
+    <path fill="none" stroke="#d2bf93" stroke-width="1.3" stroke-linecap="round" d="M-7.5 -26 L7.5 -26 M-7.5 -19 L7.5 -19 M-7.5 -12 L7.5 -12 M-7.5 12 L7.5 12 M-7.5 19 L7.5 19 M-7.5 26 L7.5 26 M-6 33 L6 33"/>
+    <rect class="n" fill="#2b1b16" x="-5" y="-2" width="10" height="4" rx="2"/>
+    <!-- a cutting in a pot, under the luggage elastic -->
+    <path class="o" style="stroke-width:1.6" fill="#c97b4a" d="M-5.6 -76 L5.6 -76 L4.2 -63.5 L-4.2 -63.5 Z"/>
+    <rect class="o" style="stroke-width:1.6" fill="#d08e70" x="-6.6" y="-78.6" width="13.2" height="3.8" rx="1.3"/>
+    <path class="cord" d="M-8.5 -81 L10 -60 M8.5 -81 L-10 -60 M-10 -60 L10 -60"/>
+    <circle class="n" fill="#2b1b16" cx="-8.5" cy="-81" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="8.5" cy="-81" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="-10" cy="-60" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="10" cy="-60" r="1.6"/>
+  </g>
+
+  <!-- The leaves of the cutting. Joint at the rim of the pot. -->
+  <g id="plant" data-parent="shield" transform="translate(23.2 -130.6)">
+    <path class="t" style="stroke:#2c7a40;stroke-width:2" d="M-0.5 0.5 L-3 -7 M0.8 0.5 L3.5 -9"/>
+    <path class="o" style="stroke-width:1.6" fill="#3f9b57" d="M-2.2 -4 Q-10.5 -5 -10.5 -12.5 Q-9.5 -18.5 -4 -18 Q0.5 -13 -2.2 -4 Z"/>
+    <path class="t" style="stroke:#2c7a40;stroke-width:1.2" d="M-3 -6 Q-5.5 -11 -6.5 -15.5"/>
+    <path class="o" style="stroke-width:1.6" fill="#4bb167" d="M2.6 -5.5 Q11 -8 10.8 -16 Q9.5 -22 4 -21.5 Q0 -15.5 2.6 -5.5 Z"/>
+    <path class="t" style="stroke:#2c7a40;stroke-width:1.2" d="M3.4 -7.5 Q5.5 -13 7 -18.5"/>
+  </g>
+
+  <!-- Her ponytail, through the back of the cap. Joint where it comes out. -->
+  <g id="ponytail" data-parent="head" transform="translate(-23 -103)">
+    <path class="o" fill="#d9763a" d="M3 -3.5 Q-8 -7 -12.5 1 Q-15 9 -10.5 17.5 Q-7 13 -5.5 8 Q-3 3 3.5 2.5 Z"/>
+    <path class="t" style="stroke:#b85a22" d="M-1 -2 Q-8.5 -1.5 -9.5 8"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-7 -76)">
+    <rect class="o" fill="#dea888" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <path class="o" fill="#d9763a" d="M-14.5 -24 Q-12 -30 -3 -31 L-5.5 -22.5 Q-8.5 -16.5 -12.5 -12 Q-16 -17 -14.5 -24 Z"/>
+    <ellipse class="o" fill="#f3c9a5" cx="-8.5" cy="-18" rx="3.4" ry="4.8"/>
+    <!-- an earbud -->
+    <path class="t" style="stroke:#fafafa;stroke-width:1.8" d="M-8 -17.5 L-7 -13.5"/>
+    <circle class="o" style="stroke-width:1.2" fill="#fafafa" cx="-8.3" cy="-18.3" r="2"/>
+    <!-- a white cap with a lilac peak -->
+    <path class="o" fill="#a584d6" d="M11 -33 Q22 -34.5 30 -28 Q30.5 -25 27.5 -25 Q20 -28.5 11.5 -28.5 Z"/>
+    <path class="o" fill="#fafafa" d="M-16 -19.5 Q-21 -41 2 -40.5 Q16.5 -40.5 20.8 -29.5 Q10 -33 0 -31.5 Q-8 -30 -11.5 -23.5 Q-13 -20 -16 -19.5 Z"/>
+    <path class="t" style="stroke:#d6d6d6" d="M-3 -39.5 Q-7.5 -34 -8.5 -28"/>
+    <ellipse class="n" fill="#f29b8e" fill-opacity="0.6" cx="6.5" cy="-12" rx="3.6" ry="2.1"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-20" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-20" r="1.8"/>
+    <path class="t" style="stroke-width:1.8" d="M6 -25.4 Q9.5 -27.2 13 -25.4 M15.8 -25.6 Q18 -26.8 20 -25.8"/>
+    <path class="o" fill="#f3c9a5" d="M19.5 -18 Q24 -15 19.8 -12.8"/>
+    <path class="t" style="stroke-width:1.9" d="M8.5 -9.6 Q13 -5.6 18 -9.8"/>
+  </g>
+
+  <!-- The near arm reaches across the deck to the grip. A sports watch, of course. -->
+  <g id="arm_front" data-parent="torso" transform="translate(2 -72)">
+    <g transform="rotate(-45)">
+      <path class="o" fill="#f3c9a5" d="M-5.5 -3 Q-7 10 -4.4 25 L4.6 25 Q6.6 10 5.5 -3 Q0 -5.5 -5.5 -3 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#2b1b16" x="-5.4" y="17.6" width="10.6" height="4.4" rx="1.6"/>
+      <rect class="n" fill="#7bc8a4" x="-1.8" y="18.6" width="3.6" height="2.4" rx="0.8"/>
+      <circle class="o" fill="#f3c9a5" cx="1" cy="29" r="4.8"/>
+      <path class="t" style="stroke-width:1.2" d="M-1.4 27 L3.4 27 M-1.8 29.3 L3.8 29.3"/>
+    </g>
+  </g>
+</svg>
