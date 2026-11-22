@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 30 22" data-rig="static">
+  <title>Het deksel van de melkbus, onderweg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="lid" transform="translate(0 0)">
+    <rect class="o" fill="#b9c2bd" x="-11.5" y="-1" width="23" height="4.5" rx="2"/>
+    <path class="o" fill="#d5dcd8" d="M-8.5 -1 Q-8.5 -7.5 0 -7.5 Q8.5 -7.5 8.5 -1 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.75" d="M-5.5 -3 Q-3 -5.8 1 -5.6 Q-2.5 -4.6 -4.2 -2.4 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#8b9690" x="-3.2" y="-11" width="6.4" height="4.2" rx="1.6"/>
+    <path class="n" fill="#4d4d4d" fill-opacity="0.6" d="M4 2.8 Q8 1.2 10.5 2.8 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-114 -150 228 156" data-rig="vehicle">
+  <title>Groot Ploegink: oude trekker met een ploegschaar voorop</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The plough share on two home-welded arms, as a battering ram. Joint where the arms hinge on the frame. -->
+  <g id="tool" data-parent="body" transform="translate(60 -36)">
+    <g transform="translate(-60 36)">
+      <path class="t" style="stroke-width:3" d="M64 -48 L88 -44"/>
+      <path class="t" style="stroke-width:8.4" d="M60 -36 L90 -24"/>
+      <path fill="none" stroke="#7a5a3a" stroke-width="4.6" stroke-linecap="round" d="M60 -36 L90 -24"/>
+      <path class="o" fill="#c3ccd0" d="M108 -2 L85 -2 Q79 -30 85 -58 Q100 -38 108 -2 Z"/>
+      <path class="n" fill="#e9eef0" d="M86.5 -49 Q95 -34 100.5 -13 Q92.5 -29 86 -40 Z"/>
+      <path class="o" fill="#8b9690" d="M108 -2 L85 -2 L84.4 -9.5 L105.6 -9.5 Z"/>
+      <path class="n" fill="#8a4f2a" d="M87 -24 Q90.5 -26 92 -22.5 Q89.5 -20.5 87 -24 Z"/>
+      <circle class="n" fill="#5c5c5c" cx="88" cy="-45" r="1.7"/>
+      <circle class="n" fill="#5c5c5c" cx="90.5" cy="-24.5" r="1.7"/>
+    </g>
+  </g>
+
+  <!-- A straw bale on the carrier at the back. Joint under the bale. -->
+  <g id="bale" data-parent="body" transform="translate(-93 -40)">
+    <g transform="translate(93 40)">
+      <path class="t" style="stroke-width:5" d="M-72 -38.5 L-107 -38.5 L-107 -47"/>
+      <rect class="o" fill="#e6c24a" x="-106" y="-67" width="27" height="26" rx="2.5"/>
+      <path class="t" style="stroke:#b5651d;stroke-width:2" d="M-97 -67 L-97 -41 M-88 -67 L-88 -41"/>
+      <path class="t" style="stroke:#c39a2b" d="M-103 -59 L-99.5 -60 M-94.5 -49 L-90.5 -50 M-86 -58 L-82 -59 M-103.5 -47 L-100 -48"/>
+    </g>
+  </g>
+
+  <!-- Frame, engine, bonnet, seat and exhaust. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -48)">
+    <g transform="translate(0 48)">
+      <path class="o" fill="#3a3a3a" d="M-58 -44 L4 -46 L62 -40 L62 -30 L-58 -28 Z"/>
+      <rect class="o" fill="#2f2f2f" x="42" y="-31" width="12" height="15" rx="2"/>
+      <rect class="o" fill="#4a4a4a" x="6" y="-48" width="50" height="14" rx="2"/>
+      <path class="t" style="stroke:#2b2b2b" d="M15 -47 L15 -35 M24 -47 L24 -35 M33 -47 L33 -35"/>
+      <circle class="o" style="stroke-width:2" fill="#7a7a7a" cx="48" cy="-41" r="4.2"/>
+      <!-- the seat on its leaf spring -->
+      <path class="t" style="stroke-width:3.6" d="M-24 -46 Q-28 -62 -40 -68"/>
+      <path class="o" fill="#7a3b2a" d="M-52 -73 Q-51 -79 -43 -76 L-28 -73 Q-25.5 -69 -29.5 -67.5 L-48 -67.5 Q-53 -68.5 -52 -73 Z"/>
+      <!-- the exhaust stack with its rain flap -->
+      <rect class="o" fill="#3a3a3a" x="27" y="-110" width="6.5" height="46" rx="2"/>
+      <path class="n" fill="#1c1c1c" d="M28 -108.5 L32.5 -108.5 L32.5 -99 L28 -99 Z"/>
+      <path class="o" fill="#3a3a3a" d="M25 -109 L37 -115 L38.2 -112.2 L26.5 -106 Z"/>
+      <!-- bonnet: green with a yellow stripe, a dent, a riveted patch and some rust -->
+      <path class="o" fill="#2f9140" d="M-8 -70 L56 -68 Q66 -67 66 -59 L66 -46 L-8 -46 Z"/>
+      <path class="n" fill="#48ad59" d="M-5 -67.4 L55 -65.4 Q60 -65 61 -62 L-5 -64 Z"/>
+      <path class="n" fill="#ffd21f" d="M-8 -53.5 L58 -53.5 L58 -49.8 L-8 -49.8 Z"/>
+      <path class="t" d="M-8 -53.5 L58 -53.5 M-8 -49.8 L58 -49.8"/>
+      <path class="n" fill="#237832" d="M30 -63 Q36 -59.5 45 -62 Q38 -56.5 31 -58.5 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#5cb96d" x="7" y="-64.5" width="14" height="9" rx="1"/>
+      <circle class="n" fill="#2b1b16" cx="9" cy="-62.5" r="0.8"/>
+      <circle class="n" fill="#2b1b16" cx="19" cy="-62.5" r="0.8"/>
+      <circle class="n" fill="#2b1b16" cx="9" cy="-57.5" r="0.8"/>
+      <circle class="n" fill="#2b1b16" cx="19" cy="-57.5" r="0.8"/>
+      <path class="n" fill="#8a4f2a" d="M44 -56.5 Q48.5 -59 51.5 -56 Q48 -54.5 44 -56.5 Z"/>
+      <!-- radiator grille -->
+      <path class="o" fill="#3a3a3a" d="M58 -67.6 Q66 -67 66 -59 L66 -46 L58 -46 Z"/>
+      <path class="t" style="stroke:#9aa59f" d="M60 -62 L64.5 -62 M60 -57.5 L64.5 -57.5 M60 -53 L64.5 -53 M60 -48.8 L64.5 -48.8"/>
+      <!-- the one headlight that still works -->
+      <path class="t" style="stroke-width:2.6" d="M56 -68 L58 -74"/>
+      <circle class="o" fill="#fff3b0" cx="59.5" cy="-77.5" r="4.6"/>
+      <!-- dashboard and steering column -->
+      <path class="o" fill="#237832" d="M-17 -46 L-14 -72 L-7 -72 L-7 -46 Z"/>
+      <path class="t" style="stroke-width:3.2" d="M-10.5 -70 L-19 -85"/>
+    </g>
+  </g>
+
+  <!-- Groot Ploegink himself: a big man in a kiel and a flat cap. Joint at the seat. -->
+  <g id="driver" data-parent="body" transform="translate(-39 -72)">
+    <g transform="translate(39 72)">
+      <path class="o" fill="#2f5f9e" d="M-52 -70 Q-55 -92 -46 -100 L-31 -100 Q-22 -95 -23 -70 Z"/>
+      <path class="n" fill="#274f86" d="M-51 -71 Q-53 -90 -47 -98 Q-45 -86 -45 -71 Z"/>
+      <rect class="o" fill="#dba27f" x="-43" y="-105" width="9.5" height="8" rx="2"/>
+      <path class="o" fill="#d9342b" d="M-46.5 -100.5 Q-38.5 -96 -30 -100.5 L-34 -93 Q-38.5 -90.5 -42 -93 Z"/>
+      <circle class="n" fill="#ffffff" cx="-41" cy="-97" r="0.8"/>
+      <circle class="n" fill="#ffffff" cx="-36.5" cy="-96" r="0.8"/>
+      <!-- his arm reaches for the wheel -->
+      <path class="o" fill="#2f5f9e" d="M-37 -98.5 L-20.5 -92 L-22 -84.5 L-38.5 -89.5 Z"/>
+      <circle class="o" fill="#efc09a" cx="-19.5" cy="-88" r="4"/>
+      <ellipse class="o" fill="#efc09a" cx="-45" cy="-114" rx="2.8" ry="3.8"/>
+      <circle class="o" fill="#efc09a" cx="-35.5" cy="-115" r="12.5"/>
+      <path class="o" fill="#efc09a" d="M-24 -117.5 Q-17.5 -114 -23.5 -110"/>
+      <path class="o" fill="#8f8880" d="M-32.5 -110 Q-26 -113.5 -20.5 -109.5 Q-18 -106.5 -19.5 -104 Q-24 -106.5 -27.5 -106 Q-31 -105 -34.5 -106.5 Q-35 -108.8 -32.5 -110 Z"/>
+      <path class="t" style="stroke-width:2.4;stroke:#8f8880" d="M-33 -121 L-26 -119.5"/>
+      <circle class="n" fill="#2b1b16" cx="-29" cy="-116.5" r="1.5"/>
+      <path class="o" fill="#6b5b4b" d="M-49 -118.5 Q-49.5 -129.5 -35.5 -129.5 Q-24 -129.5 -22.8 -122 L-14.5 -120 L-15 -117.2 L-24 -118.8 Q-36 -122.5 -49 -118.5 Z"/>
+      <path class="t" style="stroke:#544538" d="M-44.5 -124 Q-35 -127.5 -26 -123.5"/>
+    </g>
+  </g>
+
+  <!-- The steering wheel and the near mudguard, drawn over the driver. -->
+  <g id="guard" data-parent="body" transform="translate(0 -48)">
+    <g transform="translate(0 48)">
+      <ellipse class="t" style="stroke-width:3.2" cx="-20" cy="-88" rx="3.4" ry="10.5" transform="rotate(-30 -20 -88)"/>
+      <path class="o" fill="#2f9140" d="M-86 -40 Q-86 -79 -44 -79 Q-7 -79 -5 -46 L-15 -46 Q-17 -69.5 -44 -69.5 Q-75 -69.5 -76 -40 Z"/>
+      <path class="n" fill="#48ad59" d="M-82 -52 Q-78 -75 -47 -76.5 Q-68 -71 -75 -52 Z"/>
+      <path class="n" fill="#8a4f2a" d="M-23 -64 Q-18.5 -66 -16.5 -61.5 Q-20 -59.5 -23 -64 Z"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-44 -33)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="33"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="7" stroke-dasharray="6 6.745" cx="0" cy="0" r="28.4"/>
+    <circle class="o" fill="#ffd21f" cx="0" cy="0" r="17"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -17 L0 -6 M0 17 L0 6 M-17 0 L-6 0 M17 0 L6 0 M-12 -12 L-4.2 -4.2 M12 12 L4.2 4.2 M-12 12 L-4.2 4.2 M12 -12 L4.2 -4.2"/>
+    <path class="n" fill="#b98a1c" d="M-12 6 Q-8 4 -6 8 Q-9 11 -12 6 Z"/>
+    <circle class="o" fill="#e0b400" cx="0" cy="0" r="6"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(48 -17)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="17"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="4.5" stroke-dasharray="5 5.995" cx="0" cy="0" r="14"/>
+    <circle class="o" fill="#ffd21f" cx="0" cy="0" r="8.5"/>
+    <path class="t" style="stroke-width:2" d="M0 -8.5 L0 -3.4 M0 8.5 L0 3.4 M-8.5 0 L-3.4 0 M8.5 0 L3.4 0"/>
+    <circle class="o" fill="#e0b400" cx="0" cy="0" r="3.4"/>
+  </g>
+
+  <!-- Two puffs from the stack. They rise and vanish in turn. -->
+  <g id="puff_a" data-parent="body" transform="translate(32 -122)">
+    <path class="o" style="stroke-width:2" fill="#d9d5cc" d="M-6 1 Q-8 -4 -3 -5 Q0 -9 4 -5 Q8 -4 6 1 Q3 5 -1 3.5 Q-4 5 -6 1 Z"/>
+  </g>
+  <g id="puff_b" data-parent="body" transform="translate(39 -136)">
+    <path class="o" style="stroke-width:2" fill="#e8e4dc" d="M-8 1 Q-10.5 -5 -4 -6.5 Q0 -11 5 -6.5 Q10.5 -5 8 1.5 Q4 6.5 -1 4.5 Q-5 6.5 -8 1 Z"/>
+  </g>
+</svg>

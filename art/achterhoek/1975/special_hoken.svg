@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -148 232 154" data-rig="static">
+  <title>Høken! Boerenrock op de platte wagen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The flat wagon: frame, deck, drawbar, a bale and a crate. It bounces on the beat; everything on it hangs from it. Origin = the ground under its middle. -->
+  <g id="wagon" transform="translate(0 -16)">
+    <g transform="translate(0 16)">
+      <path class="t" style="stroke-width:6.8" d="M62 -25 L104 -6"/>
+      <path fill="none" stroke="#7a5a3a" stroke-width="3.4" stroke-linecap="round" d="M62 -25 L104 -6"/>
+      <circle class="t" style="stroke-width:2.6" cx="107.5" cy="-4.5" r="3.4"/>
+      <rect class="o" fill="#3a3a3a" x="-71" y="-29" width="10" height="13"/>
+      <rect class="o" fill="#3a3a3a" x="53" y="-29" width="10" height="13"/>
+      <rect class="o" fill="#5c4329" x="-98" y="-35" width="184" height="7" rx="2"/>
+      <rect class="o" fill="#a8743f" x="-112" y="-43" width="210" height="9" rx="2"/>
+      <path class="t" style="stroke:#7a5a3a" d="M-86 -42.5 L-86 -34.5 M-60 -42.5 L-60 -34.5 M-34 -42.5 L-34 -34.5 M-8 -42.5 L-8 -34.5 M18 -42.5 L18 -34.5 M44 -42.5 L44 -34.5 M70 -42.5 L70 -34.5"/>
+      <!-- the bale he puts his foot on -->
+      <rect class="o" fill="#e6c24a" x="54" y="-65" width="31" height="22" rx="2.5"/>
+      <path class="t" style="stroke:#b5651d;stroke-width:2" d="M64 -65 L64 -43 M75 -65 L75 -43"/>
+      <path class="t" style="stroke:#c39a2b" d="M57 -58 L61 -59 M67 -50 L71 -51 M78 -57 L82 -58"/>
+      <!-- a crate, for after the show -->
+      <rect class="o" style="stroke-width:1.8" fill="#6b3a1e" x="5" y="-63.5" width="4" height="8" rx="1.5"/>
+      <rect class="o" style="stroke-width:1.8" fill="#6b3a1e" x="10.5" y="-63.5" width="4" height="8" rx="1.5"/>
+      <rect class="o" style="stroke-width:1.8" fill="#6b3a1e" x="16" y="-63.5" width="4" height="8" rx="1.5"/>
+      <rect class="o" style="stroke-width:1.8" fill="#6b3a1e" x="21.5" y="-63.5" width="4" height="8" rx="1.5"/>
+      <rect class="o" fill="#f2c230" x="2" y="-58" width="26" height="15" rx="1.5"/>
+      <path class="t" style="stroke:#b98a1c;stroke-width:2" d="M2.5 -50.5 L27.5 -50.5 M10.5 -57.5 L10.5 -43.5 M19.5 -57.5 L19.5 -43.5"/>
+    </g>
+  </g>
+
+  <g id="wheels" transform="translate(0 0)">
+    <circle class="o" fill="#2b2b2b" cx="-66" cy="-15" r="15"/>
+    <circle class="o" fill="#c0563a" cx="-66" cy="-15" r="8.5"/>
+    <circle class="o" style="stroke-width:2" fill="#3a3a3a" cx="-66" cy="-15" r="3"/>
+    <circle class="o" fill="#2b2b2b" cx="58" cy="-15" r="15"/>
+    <circle class="o" fill="#c0563a" cx="58" cy="-15" r="8.5"/>
+    <circle class="o" style="stroke-width:2" fill="#3a3a3a" cx="58" cy="-15" r="3"/>
+  </g>
+
+  <!-- The speaker stack with the amplifier on top. Joint at its foot; it swells with every beat. -->
+  <g id="speaker" data-parent="wagon" transform="translate(-91 -43)">
+    <g transform="translate(91 43)">
+      <rect class="o" fill="#2b2b2b" x="-110" y="-103" width="38" height="60" rx="3"/>
+      <circle class="o" fill="#4a4a4a" cx="-91" cy="-62" r="13"/>
+      <circle class="o" style="stroke-width:2" fill="#6f6f6f" cx="-91" cy="-62" r="5"/>
+      <circle class="o" fill="#4a4a4a" cx="-91" cy="-88" r="8"/>
+      <circle class="n" fill="#8b9690" cx="-91" cy="-88" r="2.6"/>
+      <rect class="o" fill="#8b9690" x="-107" y="-113" width="32" height="10" rx="2"/>
+      <circle class="n" fill="#2b1b16" cx="-101" cy="-108" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-95" cy="-108" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-89" cy="-108" r="1.7"/>
+      <circle class="n" fill="#ff4a3d" cx="-80.5" cy="-108" r="1.9"/>
+    </g>
+  </g>
+
+  <!-- The drummer: long hair, headband, denim vest. Joint at his stool. -->
+  <g id="drummer" data-parent="wagon" transform="translate(-36 -62)">
+    <g transform="translate(36 62)">
+      <path class="o" fill="#5b86c4" d="M-48 -60 Q-50 -80 -45 -86 Q-36 -90 -27 -86 Q-22 -80 -24 -60 Z"/>
+      <path class="t" d="M-36 -88 L-36 -62"/>
+      <path class="o" fill="#5a3d28" d="M-45.5 -105 Q-51 -92 -45 -82 L-39.5 -95 Z"/>
+      <circle class="o" fill="#efc09a" cx="-35" cy="-100" r="11.5"/>
+      <path class="o" fill="#efc09a" d="M-24.5 -102.5 Q-19 -99.5 -24.2 -96.5"/>
+      <path class="o" fill="#5a3d28" d="M-46.6 -102 Q-47.5 -112.5 -35 -112.5 Q-25 -112.5 -23.6 -105 Q-34 -109 -46.6 -102 Z"/>
+      <path class="t" style="stroke:#d9342b;stroke-width:3" d="M-46.2 -102.6 Q-35 -109 -24 -105.2"/>
+      <circle class="n" fill="#2b1b16" cx="-29.5" cy="-101" r="1.4"/>
+      <path class="t" style="stroke:#5a3d28;stroke-width:2.6" d="M-32.5 -96.6 Q-28 -99 -23.8 -96.6"/>
+      <ellipse class="o" style="stroke-width:1.6" fill="#7a2a22" cx="-28" cy="-93.4" rx="3" ry="2.3"/>
+    </g>
+  </g>
+
+  <!-- The kit: bass drum, hi-hat and the stand of the crash. Joint in the middle of the bass drum. -->
+  <g id="drum" data-parent="wagon" transform="translate(-36 -60)">
+    <g transform="translate(36 60)">
+      <path class="t" style="stroke-width:2.4" d="M-62 -43 L-62 -86 M-11 -43 L-11 -80"/>
+      <path class="t" style="stroke-width:2.8" d="M-50 -47 L-56 -43 M-22 -47 L-16 -43"/>
+      <circle class="o" fill="#d9342b" cx="-36" cy="-60.5" r="17.5"/>
+      <circle class="o" style="stroke-width:2" fill="#f4ecdc" cx="-36" cy="-60.5" r="13.5"/>
+      <circle class="t" style="stroke:#c9bfa8" cx="-36" cy="-60.5" r="8"/>
+      <ellipse class="o" style="stroke-width:2" fill="#e6b422" cx="-11" cy="-80" rx="10" ry="2.7"/>
+      <ellipse class="o" style="stroke-width:2" fill="#f0c53a" cx="-11" cy="-82.6" rx="10" ry="2.7"/>
+    </g>
+  </g>
+
+  <g id="cymbal" data-parent="drum" transform="translate(-62 -87)">
+    <ellipse class="o" style="stroke-width:2" fill="#e6b422" cx="0" cy="0" rx="13" ry="3.2"/>
+    <path class="o" style="stroke-width:1.8" fill="#f0c53a" d="M-3.5 -1.5 Q0 -5 3.5 -1.5 Z"/>
+  </g>
+
+  <!-- His arms with the sticks. Joints at the shoulders. As drawn, both sticks are down on the cymbals. -->
+  <g id="stick_a" data-parent="drummer" transform="translate(-44 -84)">
+    <g transform="translate(44 84)">
+      <path class="t" style="stroke-width:4.4" d="M-50.5 -99.5 L-63 -88"/>
+      <path fill="none" stroke="#e6c9a0" stroke-width="2" stroke-linecap="round" d="M-50.5 -99.5 L-63 -88"/>
+      <path class="o" fill="#efc09a" d="M-41.5 -86 L-46.5 -81.5 L-57 -93 L-52 -97.5 Z"/>
+      <circle class="o" fill="#efc09a" cx="-54.5" cy="-95.5" r="3.7"/>
+    </g>
+  </g>
+  <g id="stick_b" data-parent="drummer" transform="translate(-27 -84)">
+    <g transform="translate(27 84)">
+      <path class="t" style="stroke-width:4.4" d="M-20.5 -98 L-10 -83"/>
+      <path fill="none" stroke="#e6c9a0" stroke-width="2" stroke-linecap="round" d="M-20.5 -98 L-10 -83"/>
+      <path class="o" fill="#efc09a" d="M-29.5 -86 L-24.5 -81.5 L-14.5 -92 L-19.5 -96.5 Z"/>
+      <circle class="o" fill="#efc09a" cx="-17" cy="-94.5" r="3.7"/>
+    </g>
+  </g>
+
+  <!-- The guitarist: singlet, flared jeans, klompen, one foot on the bale. Joint at his standing foot. -->
+  <g id="rocker" data-parent="wagon" transform="translate(35 -43)">
+    <g transform="translate(-35 43)">
+      <path class="o" fill="#d9a826" d="M27 -43 Q27 -48.5 33 -48.5 L38 -48.5 Q45 -47 44.5 -43 Z"/>
+      <path class="o" fill="#4a74b0" d="M32.5 -81 L43.5 -81 L42 -53 L44.5 -47 L29 -47 L31.5 -53 Z"/>
+      <path class="o" fill="#f2c230" d="M51 -65 Q51 -70.5 57 -70.5 L62 -70.5 Q69 -69 68.5 -65 Z"/>
+      <path class="o" fill="#5b86c4" d="M52 -86 L62 -88.5 L64 -74 L66.5 -68 L51 -68 L53.5 -74 Z"/>
+      <path class="o" fill="#5b86c4" d="M37 -83.5 L56 -91.5 L61.5 -81.5 L43 -73 Z"/>
+      <path class="o" fill="#fafafa" d="M30.5 -79 Q28 -98 33 -104.5 Q41 -108.5 49 -104.5 Q53.5 -96 50.5 -79 Z"/>
+      <path class="o" fill="#3a3a3a" d="M30.6 -83 L50.6 -83 L50.3 -78.5 L30.8 -78.5 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#e6b422" x="43" y="-83.6" width="5" height="5.6" rx="1"/>
+    </g>
+  </g>
+
+  <!-- His hair hangs from the crown and whips about when he bangs his head. -->
+  <g id="hair" data-parent="rocker_head" transform="translate(35 -124)">
+    <g transform="translate(-35 124)">
+      <path class="o" fill="#e3b94d" d="M32 -125 Q21 -114 23.5 -97 Q28 -88 35 -95 Q32.5 -107 37 -118 Z"/>
+      <path class="t" style="stroke:#c79a2e" d="M28 -115 Q26 -105 28.5 -97"/>
+    </g>
+  </g>
+
+  <g id="rocker_head" data-parent="rocker" transform="translate(40 -104)">
+    <g transform="translate(-40 104)">
+      <rect class="o" fill="#dba27f" x="37" y="-108" width="8" height="7" rx="2"/>
+      <circle class="o" fill="#efc09a" cx="41.5" cy="-117" r="11.5"/>
+      <path class="o" fill="#efc09a" d="M52 -119.5 Q57.5 -116.5 52.3 -113.5"/>
+      <path class="o" fill="#e3b94d" d="M30 -118 Q29 -130 42 -129.5 Q52 -129 53.5 -121.5 Q42 -125.5 30 -118 Z"/>
+      <path class="t" style="stroke-width:2" d="M32.5 -117.5 L44.5 -118.5"/>
+      <circle class="o" style="stroke-width:1.6" fill="#2b2b2b" cx="47.6" cy="-118" r="3.5"/>
+      <ellipse class="o" style="stroke-width:1.6" fill="#7a2a22" cx="48.6" cy="-110.4" rx="3.2" ry="2.8"/>
+    </g>
+  </g>
+
+  <!-- The guitar and the arm on its neck. Joint at his far shoulder. -->
+  <g id="guitar" data-parent="rocker" transform="translate(44 -100)">
+    <g transform="translate(-44 100)">
+      <path class="o" fill="#dba27f" d="M43 -104 L64 -99.5 L63 -93 L42 -97 Z"/>
+      <path class="t" style="stroke-width:6.2" d="M50 -84 L78 -103"/>
+      <path fill="none" stroke="#7a5a3a" stroke-width="3.2" stroke-linecap="round" d="M50 -84 L78 -103"/>
+      <path class="o" style="stroke-width:2" fill="#2b2b2b" d="M75.5 -106.5 L85 -108.5 L84 -101 L77.5 -99 Z"/>
+      <path class="o" fill="#d9342b" d="M31 -84 Q29 -93 39 -92 Q47 -94 53 -88.5 Q58 -82 52.5 -75.5 Q46 -69.5 37.5 -71.5 Q29.5 -73.5 31 -84 Z"/>
+      <path class="n" fill="#fafafa" d="M38 -86.5 Q45 -88.5 49.5 -84 Q46 -80 40 -80.5 Q36.5 -82.5 38 -86.5 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M36 -79 L50 -85.5 M37 -76.6 L51.4 -83.3"/>
+      <circle class="o" fill="#dba27f" cx="66" cy="-95.5" r="3.8"/>
+    </g>
+  </g>
+
+  <!-- The strumming arm. Joint at the near shoulder. -->
+  <g id="strum" data-parent="rocker" transform="translate(37 -101)">
+    <g transform="translate(-37 101)">
+      <path class="o" fill="#efc09a" d="M33 -103 L40.5 -101.5 L38.5 -87 L31 -88.5 Z"/>
+      <path class="o" fill="#efc09a" d="M31 -86.5 L36.5 -91.5 L46 -82 L41 -77 Z"/>
+      <path class="n" fill="#efc09a" d="M32.5 -90 L37.5 -89 L37 -86 L33 -86.5 Z"/>
+      <circle class="o" fill="#efc09a" cx="43.5" cy="-79.5" r="3.8"/>
+    </g>
+  </g>
+
+  <!-- Notes that pop out of the noise. -->
+  <g id="note_a" transform="translate(-6 -128)">
+    <path class="t" style="stroke-width:2.8" d="M1.5 4 L1.5 -10"/>
+    <path class="o" style="stroke-width:2" fill="#ffd21f" d="M1.5 -10 Q9 -8 8 0 Q6 -4.5 1.5 -5 Z"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ffd21f" cx="-3" cy="5" rx="4.8" ry="3.5" transform="rotate(-20 -3 5)"/>
+  </g>
+  <g id="note_b" transform="translate(84 -128)">
+    <path class="t" style="stroke-width:2.8" d="M-4.5 5 L-4.5 -8 M8.5 2 L8.5 -11"/>
+    <path class="t" style="stroke-width:4.2" d="M-4.5 -8 L8.5 -11"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ffd21f" cx="-8.5" cy="6" rx="4.6" ry="3.3" transform="rotate(-20 -8.5 6)"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ffd21f" cx="4.5" cy="3" rx="4.6" ry="3.3" transform="rotate(-20 4.5 3)"/>
+  </g>
+</svg>

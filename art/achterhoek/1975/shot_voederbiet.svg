@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-13 -20 26 40" data-rig="static">
+  <title>Een voederbiet, onderweg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="beet" transform="translate(0 0)">
+    <path class="o" fill="#4f9a3c" d="M-3 -6 Q-9 -11 -6.5 -16.5 Q-1.5 -12 -0.5 -6 Z"/>
+    <path class="o" fill="#62b04a" d="M0.5 -6.5 Q1 -14 6.5 -16 Q7 -9.5 3 -5.5 Z"/>
+    <path class="o" fill="#e9a13b" d="M0 -7.5 Q9 -7 8.5 1 Q7.5 9.5 0 14.5 Q-7.5 9.5 -8.5 1 Q-9 -7 0 -7.5 Z"/>
+    <path class="n" fill="#f6c768" d="M-5.5 -3 Q-2 -6 2 -5 Q-2 -3.5 -4.5 0.5 Z"/>
+    <path class="t" style="stroke:#c47f24" d="M-5.5 4.5 Q0 7 5.5 4.5"/>
+    <path class="t" d="M0 14.5 L0.8 17"/>
+  </g>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -142 104 148" data-rig="humanoid">
+  <title>Klein Mepperink: boerenknecht met riek en klompen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#274f86" d="M-6 -3 Q-8 9 -6.5 20 L6 20 Q7 9 6 -3 Z"/>
+    <path class="o" fill="#dba27f" d="M-4 20 L-3.5 27 Q0 33 3.5 27 L4 20 Z"/>
+  </g>
+
+  <!-- Brown corduroy, thick woollen socks, klompen. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#4d3f31" d="M-7 -3 L7 -3 L6 26 L-6 26 Z"/>
+    <path class="o" fill="#bdb6a6" d="M-5.5 25 L5.5 25 L5 31 L-5 31 Z"/>
+    <path class="o" fill="#d9a826" d="M-8 38 L-8 33 Q-8 29.5 -3 29.5 L4 29.5 Q12 30 17.5 32.5 Q19 36 15 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#6b5741" d="M-7 -3 L7 -3 L6 26 L-6 26 Z"/>
+    <path class="t" style="stroke:#58462f" d="M-2.4 -1 L-2.1 24 M2.4 -1 L2.1 24"/>
+    <path class="o" fill="#e4dece" d="M-5.5 25 L5.5 25 L5 31 L-5 31 Z"/>
+    <path class="t" style="stroke:#b9b2a2" d="M-5 27.6 L5 27.6"/>
+    <path class="o" fill="#f2c230" d="M-8 38 L-8 33 Q-8 29.5 -3 29.5 L4 29.5 Q12 30 17.5 32.5 Q19 36 15 38 Z"/>
+    <path class="t" style="stroke:#c9981a" d="M-1 31.4 Q6 31 12 34"/>
+  </g>
+
+  <!-- A blue kiel with a red farmer's neckerchief. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2f5f9e" d="M-15.5 8 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 16.5 8 Z"/>
+    <path class="n" fill="#274f86" d="M-14.5 7 Q-16.5 -14 -14 -29 Q-10 -20 -9.5 7 Z"/>
+    <path class="t" d="M4 -27 L4 -5"/>
+    <circle class="n" fill="#f4ecdc" cx="4" cy="-21" r="1.5"/>
+    <circle class="n" fill="#f4ecdc" cx="4" cy="-13" r="1.5"/>
+    <path class="t" style="stroke:#1d3f6e" d="M-15.4 2.5 L16.6 2.5"/>
+    <path class="o" fill="#d9342b" d="M4.5 -29.5 L11 -22 L7 -20 L2.5 -27 Z"/>
+    <path class="o" fill="#d9342b" d="M-9 -37.5 Q1 -32 11 -37.5 L7 -28 Q2 -25 -3 -28 Z"/>
+    <circle class="n" fill="#ffffff" cx="-3" cy="-33.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="2" cy="-30.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="6.5" cy="-33" r="0.9"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#dba27f" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#efc09a" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#efc09a" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- straw-blond hair sticking out under the cap -->
+    <path class="o" fill="#e3b94d" d="M-16 -27 Q-19 -15 -12.5 -9 L-10.5 -22 Z"/>
+    <!-- flat cap -->
+    <path class="o" fill="#6b5b4b" d="M-17 -25 Q-19 -41.5 0 -42.5 Q16 -43 20 -34 L29 -30.5 L28 -27 L17 -29.5 Q0 -34.5 -17 -25 Z"/>
+    <path class="t" style="stroke:#544538" d="M-10 -33.5 Q2 -39 15 -35"/>
+    <circle class="n" fill="#544538" cx="1" cy="-41" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-20" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-20" r="1.8"/>
+    <path class="t" style="stroke-width:2" d="M5.5 -25 Q9.5 -27.5 13 -25"/>
+    <path class="o" fill="#efc09a" d="M19.5 -18 Q24.5 -15 19.8 -12.5"/>
+    <circle class="n" fill="#d98a5f" cx="3.5" cy="-15" r="0.9"/>
+    <circle class="n" fill="#d98a5f" cx="6.5" cy="-13" r="0.9"/>
+    <circle class="n" fill="#d98a5f" cx="2.6" cy="-11.4" r="0.9"/>
+    <!-- a cheeky grin with a grass stalk in the corner -->
+    <path class="t" style="stroke:#7a9a3a;stroke-width:2" d="M14 -9.5 L25 -5.5"/>
+    <path class="o" fill="#ffffff" d="M7 -10.5 Q12.5 -4.5 18.5 -10.8 Q12.5 -12.3 7 -10.5 Z"/>
+  </g>
+
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#2f5f9e" d="M-5.5 -4 Q0 -8 5.5 -4 L21.5 17 L14 23.5 L-6.5 4.5 Q-7.5 0 -5.5 -4 Z"/>
+    <circle class="o" fill="#efc09a" cx="20" cy="24" r="4.8"/>
+  </g>
+
+  <!-- The riek. Joint in his fist; it stands upright, leaning a little forward, when his arm is at rest. -->
+  <g id="prop" data-parent="arm_front" transform="translate(30 -48)">
+    <g transform="rotate(5)">
+      <path class="t" style="stroke-width:6.4" d="M0 46 L0 -61"/>
+      <path fill="none" stroke="#b5803f" stroke-width="3.4" stroke-linecap="round" d="M0 46 L0 -61"/>
+      <path class="t" style="stroke-width:5.6" d="M-9 -62 L9 -62 M-9 -62 Q-10 -74 -8.5 -85 M0 -62 L0 -87 M9 -62 Q10 -74 8.5 -85"/>
+      <path fill="none" stroke="#c3ccd0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M-9 -62 L9 -62 M-9 -62 Q-10 -74 -8.5 -85 M0 -62 L0 -87 M9 -62 Q10 -74 8.5 -85"/>
+      <rect class="o" style="stroke-width:2" fill="#8b9690" x="-3.2" y="-66" width="6.4" height="7.5" rx="1.5"/>
+      <ellipse class="o" fill="#efc09a" cx="0.6" cy="0.4" rx="3.7" ry="4.5"/>
+    </g>
+  </g>
+</svg>
