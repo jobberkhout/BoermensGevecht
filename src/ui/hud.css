@@ -459,13 +459,22 @@ body {
   letter-spacing: -0.02cqw;
 }
 
+/* On a patch of its own, so a wide drawing behind it cannot swallow the digits. */
 .btn .cost {
   position: absolute;
-  top: 0.3cqw;
-  right: 0.45cqw;
+  top: 0.25cqw;
+  right: 0.3cqw;
+  padding: 0 0.25cqw;
+  border-radius: 0.4cqw;
+  background: rgba(255, 250, 240, 0.85);
   font-weight: 800;
   font-size: 1.05cqw;
   color: #8a5a00;
+}
+
+.btn.off .cost,
+.btn.ready .cost {
+  background: none;
 }
 
 .btn kbd {

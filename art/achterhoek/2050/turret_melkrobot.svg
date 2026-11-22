@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -114 222 118" data-rig="static">
+  <title>De melkrobot: een robotkoe die melk spuit, en een boer die het wel gelooft</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The stall: floor, rails, milk tank, feed trough and the tablet that runs it all. Origin = middle of the floor. -->
+  <g id="stall" transform="translate(0 0)">
+    <!-- milk tank with a pressure gauge -->
+    <rect class="o" fill="#c9d2d6" x="80" y="-62" width="24" height="58" rx="8"/>
+    <path class="n" fill="#e6ecee" d="M84 -52 Q84 -57 88 -57 L89.6 -57 L89.6 -10 L84 -10 Z"/>
+    <path class="t" style="stroke:#9aa59f" d="M81 -42 L103 -42 M81 -20 L103 -20"/>
+    <rect class="o" fill="#9aa59f" x="86" y="-67" width="12" height="6" rx="2"/>
+    <circle class="o" style="stroke-width:1.8" fill="#fdfdf6" cx="95.4" cy="-31" r="5.2"/>
+    <path class="t" style="stroke:#d9342b;stroke-width:1.5" d="M95.4 -31 L98.4 -34"/>
+    <path class="t" style="stroke-width:3.4" d="M80 -14 L77 -14"/>
+    <!-- rails behind the cow -->
+    <rect class="o" fill="#6f8799" x="-48" y="-96" width="5" height="92"/>
+    <rect class="o" fill="#6f8799" x="72" y="-96" width="5" height="92"/>
+    <rect class="o" fill="#8fa3b3" x="-50" y="-98" width="129" height="5.5" rx="2"/>
+    <path class="t" style="stroke:#56697a;stroke-width:3" d="M-43 -44 L72 -44"/>
+    <!-- floor -->
+    <rect class="o" fill="#9aa0a4" x="-106" y="-5" width="212" height="5" rx="1.5"/>
+    <path class="t" style="stroke:#c9cdd0" d="M-100 -2.6 L-88 -2.6 M-60 -2.6 L-40 -2.6 M0 -2.6 L24 -2.6 M60 -2.6 L72 -2.6"/>
+    <!-- feed trough with hay -->
+    <path class="o" fill="#e6c24a" d="M-60 -18 L-63 -25 L-56 -22 L-52 -28 L-48 -22 L-43 -26 L-40 -18 Z"/>
+    <path class="o" fill="#56697a" d="M-64 -19 L-36 -19 L-39 -5 L-61 -5 Z"/>
+    <!-- the tablet on its stalk -->
+    <path class="t" style="stroke-width:3" d="M-47 -93 L-57 -98"/>
+    <rect class="o" fill="#34424b" x="-78" y="-110" width="22" height="17" rx="2.5"/>
+    <rect class="n" fill="#d7f1fa" x="-75.4" y="-107.4" width="16.8" height="11.8" rx="1"/>
+    <path class="n" fill="#3aa655" d="M-73.6 -97.4 L-71 -97.4 L-71 -100.6 L-73.6 -100.6 Z M-69.6 -97.4 L-67 -97.4 L-67 -102.6 L-69.6 -102.6 Z M-65.6 -97.4 L-63 -97.4 L-63 -105 L-65.6 -105 Z"/>
+    <circle class="n" fill="#d9342b" cx="-72.2" cy="-104.6" r="1.3"/>
+  </g>
+
+  <!-- The cow's body: white panels with black ones riveted on, four legs, a battery on her flank. Joint in the middle. -->
+  <g id="cow_body" transform="translate(15 -54)">
+    <g transform="translate(-15 54)">
+      <!-- far legs -->
+      <rect class="o" fill="#b9c2bd" x="-16.5" y="-40" width="8" height="21"/>
+      <rect class="o" fill="#7a857f" x="-15" y="-20" width="5" height="14"/>
+      <path class="o" fill="#2b2b2b" d="M-17.5 0 L-17.5 -5 Q-17.5 -7.6 -14.5 -7.6 L-10.5 -7.6 Q-7.5 -7.6 -7.5 -5 L-7.5 0 Z"/>
+      <rect class="o" fill="#b9c2bd" x="36.5" y="-40" width="8" height="21"/>
+      <rect class="o" fill="#7a857f" x="38" y="-20" width="5" height="14"/>
+      <path class="o" fill="#2b2b2b" d="M35.5 0 L35.5 -5 Q35.5 -7.6 38.5 -7.6 L42.5 -7.6 Q45.5 -7.6 45.5 -5 L45.5 0 Z"/>
+      <!-- body -->
+      <path class="o" fill="#f6f5ef" d="M-28 -70 Q-28 -77 -20 -77 L48 -77 Q58 -77 58 -67 L58 -45 Q58 -37 50 -37 L-20 -37 Q-28 -37 -28 -45 Z"/>
+      <path class="n" fill="#2b2b2b" d="M-12 -76 L8 -76 Q11 -63 1 -57 Q-11 -55 -15 -65 Q-16 -71 -12 -76 Z"/>
+      <path class="n" fill="#2b2b2b" d="M34 -76 L48 -76 Q56.8 -76 56.8 -66 Q51 -55 40 -59 Q30 -64 34 -76 Z"/>
+      <path class="n" fill="#2b2b2b" d="M8 -38.2 Q10 -48 19 -47 Q25 -44 23.4 -38.2 Z"/>
+      <path class="n" fill="#dedcd2" d="M-26.8 -47 Q-26.8 -38.2 -20 -38.2 L8 -38.2 Q8.6 -41 10 -43 L-26.8 -43 Z"/>
+      <path class="t" style="stroke:#b9c2bd" d="M14 -75.6 L14 -48.6 M30 -58 L30 -38.4"/>
+      <circle class="n" fill="#9aa59f" cx="-23" cy="-72" r="1.2"/>
+      <circle class="n" fill="#9aa59f" cx="-23" cy="-42" r="1.2"/>
+      <circle class="n" fill="#9aa59f" cx="53" cy="-42" r="1.2"/>
+      <circle class="n" fill="#9aa59f" cx="18" cy="-72" r="1.2"/>
+      <path class="t" style="stroke-width:2.5" d="M-28 -70 Q-28 -77 -20 -77 L48 -77 Q58 -77 58 -67 L58 -45 Q58 -37 50 -37 L-20 -37 Q-28 -37 -28 -45 Z"/>
+      <!-- battery -->
+      <rect class="o" style="stroke-width:1.6" fill="#34424b" x="16" y="-69" width="14" height="7.6" rx="1.5"/>
+      <path class="n" fill="#7fd35b" d="M18 -67 L20.6 -67 L20.6 -63.4 L18 -63.4 Z M21.8 -67 L24.4 -67 L24.4 -63.4 L21.8 -63.4 Z M25.6 -67 L28.2 -67 L28.2 -63.4 L25.6 -63.4 Z"/>
+      <!-- near legs -->
+      <rect class="o" fill="#f6f5ef" x="-23" y="-41" width="10" height="22" rx="2"/>
+      <rect class="o" fill="#9aa59f" x="-21" y="-20" width="6" height="14"/>
+      <circle class="o" style="stroke-width:1.8" fill="#c9cdd0" cx="-18" cy="-20" r="3.6"/>
+      <path class="o" fill="#2b2b2b" d="M-23.5 0 L-23.5 -5 Q-23.5 -8 -20 -8 L-16 -8 Q-12.5 -8 -12.5 -5 L-12.5 0 Z"/>
+      <rect class="o" fill="#f6f5ef" x="43" y="-41" width="10" height="22" rx="2"/>
+      <rect class="o" fill="#9aa59f" x="45" y="-20" width="6" height="14"/>
+      <circle class="o" style="stroke-width:1.8" fill="#c9cdd0" cx="48" cy="-20" r="3.6"/>
+      <path class="o" fill="#2b2b2b" d="M42.5 0 L42.5 -5 Q42.5 -8 46 -8 L50 -8 Q53.5 -8 53.5 -5 L53.5 0 Z"/>
+    </g>
+  </g>
+
+  <!-- The udder and the hose the arm aims. Joint where it hangs from her belly. -->
+  <g id="udder" data-parent="cow_body" transform="translate(30 -38)">
+    <path class="o" fill="#f2a4b4" d="M-8.4 12 L-8 18 Q-6.4 19.6 -4.8 18 L-4.4 13 Z"/>
+    <path class="o" fill="#f2a4b4" d="M-0.4 13 L0 18.6 Q1.6 20.2 3.2 18.6 L3.6 12.6 Z"/>
+    <path class="o" fill="#f2a4b4" d="M-12 0 Q-14 12 -3 14 Q9 14.5 11 3 L11 0 Z"/>
+    <path class="n" fill="#f8c6d0" d="M-9 2 Q-10 9 -5.4 11.4 Q-7 6 -6 2 Z"/>
+    <path class="t" style="stroke-width:8.4" d="M7 7.6 Q19 9.4 31 4"/>
+    <path class="t" style="stroke:#f2a4b4;stroke-width:4.8" d="M7 7.6 Q19 9.4 31 4"/>
+    <path class="o" style="stroke-width:2" fill="#dfe6ea" d="M30 -0.4 L37.6 -2.4 L39.4 5 L31.8 7.4 Z"/>
+    <circle data-mount="muzzle" fill="none" cx="40" cy="1" r="1"/>
+  </g>
+
+  <!-- The robot arm on the rail. Joint at its bracket. -->
+  <g id="arm" data-parent="stall" transform="translate(50 -95)">
+    <g transform="translate(-50 95)">
+      <path class="t" style="stroke-width:3.6" d="M62 -44 L56 -41 L56 -35.4 M62 -44 L64.8 -39.6 L62.8 -34.6"/>
+      <path class="t" style="stroke-width:9.5" d="M50 -93 L73 -64 L62 -44"/>
+      <path class="t" style="stroke:#f28c1f;stroke-width:5.6" d="M50 -93 L73 -64 L62 -44"/>
+      <path class="t" style="stroke:#ffb561;stroke-width:1.6" d="M53 -92 L71.4 -68.6"/>
+      <circle class="o" fill="#d9731a" cx="73" cy="-64" r="5.2"/>
+      <circle class="n" fill="#2b1b16" cx="73" cy="-64" r="1.6"/>
+      <circle class="o" style="stroke-width:2" fill="#d9731a" cx="62" cy="-44" r="3.8"/>
+      <rect class="o" fill="#3a3a3a" x="43.5" y="-100.5" width="13" height="11" rx="2.5"/>
+      <circle class="n" fill="#7fd35b" cx="50" cy="-95" r="1.6"/>
+    </g>
+  </g>
+
+  <!-- Her lower jaw. It never stops chewing. -->
+  <g id="cow_jaw" data-parent="cow_head" transform="translate(-48 -53)">
+    <path class="o" style="stroke-width:2" fill="#e58aa0" d="M9 -3 L-13 -1.6 Q-16 1 -13.4 3.6 L5 4.8 Q10 2 9 -3 Z"/>
+  </g>
+
+  <!-- Head and neck: horn, antenna, ear tag, cowbell. She looks the other way. Joint at the shoulder. -->
+  <g id="cow_head" data-parent="cow_body" transform="translate(-24 -63)">
+    <g transform="translate(24 63)">
+      <path class="o" fill="#f6f5ef" d="M-18 -75.6 L-35 -72 L-35 -55 L-18 -49.6 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#b3402f" d="M-31.4 -72.8 L-26.8 -73.8 L-26.8 -52.4 L-31.4 -54 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffd21f" d="M-32.6 -53.6 L-25.4 -53.6 L-23.8 -45.6 L-34.2 -45.6 Z"/>
+      <circle class="n" fill="#2b1b16" cx="-29" cy="-44.8" r="1.7"/>
+      <!-- ear with its yellow tag -->
+      <path class="o" fill="#2b2b2b" d="M-37 -75 Q-32 -85 -23 -81 Q-26 -73 -37 -71 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#ffd21f" x="-29.4" y="-77" width="5.8" height="7.2" rx="1"/>
+      <circle class="n" fill="#2b1b16" cx="-26.5" cy="-75" r="0.9"/>
+      <!-- horn and antenna -->
+      <path class="o" style="stroke-width:2" fill="#dfe6ea" d="M-43.4 -78 L-41.4 -88 L-36.4 -77 Z"/>
+      <path class="t" style="stroke-width:2" d="M-50 -77.6 L-52.6 -87"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ff4a3d" cx="-53" cy="-88.6" r="2.6"/>
+      <!-- head -->
+      <path class="o" fill="#f6f5ef" d="M-33 -77.4 Q-44 -80.4 -51 -75.6 L-61 -65 Q-66 -58 -62 -53.6 L-55 -51 Q-43 -48.6 -33 -53 Z"/>
+      <path class="n" fill="#2b2b2b" d="M-34.2 -76.4 Q-41 -78.4 -45.4 -76 Q-44 -70.4 -39 -69.6 Q-35.4 -70 -34.2 -72 Z"/>
+      <path class="o" style="stroke-width:2" fill="#f2a4b4" d="M-56 -67.4 L-61 -65 Q-66 -58 -62 -53.6 L-55 -51 Q-51.6 -59 -56 -67.4 Z"/>
+      <ellipse class="n" fill="#2b1b16" cx="-61" cy="-60.6" rx="1.1" ry="1.8"/>
+      <path class="t" d="M-62.2 -55.6 L-56 -54"/>
+      <path class="t" style="stroke-width:2.5" d="M-33 -77.4 Q-44 -80.4 -51 -75.6 L-61 -65 Q-66 -58 -62 -53.6 L-55 -51 Q-43 -48.6 -33 -53 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#1d1d1d" cx="-47" cy="-66" r="4"/>
+      <circle class="n" fill="#3fc8f0" cx="-47" cy="-66" r="2.5"/>
+      <circle class="n" fill="#ffffff" cx="-47.8" cy="-67" r="0.8"/>
+    </g>
+  </g>
+
+  <!-- The glow of her eye. Joint in the middle of it. -->
+  <g id="cow_glow" data-parent="cow_head" transform="translate(-47 -66)">
+    <circle class="n" fill="#3fc8f0" fill-opacity="0.3" cx="0" cy="0" r="6"/>
+  </g>
+
+  <!-- The boer: overall, checked shirt, klompen, one hand in his pocket. Joint at his feet. -->
+  <g id="boer_body" transform="translate(-90 0)">
+    <path class="o" fill="#f2c230" d="M-12 -1 Q-12 -7 -5 -7 L-1 -7 Q1 -4 -1 -1 Z"/>
+    <path class="o" fill="#f2c230" d="M0 -1 Q0 -7 6 -7 L10 -7 Q15 -5 13 -1 Z"/>
+    <path class="o" fill="#2c7a3e" d="M-10 -31 L10 -31 L9 -6 L1 -6 L0 -20 L-1 -6 L-9 -6 Z"/>
+    <path class="o" fill="#c94a38" d="M-13 -29 Q-15 -50 -10 -58 Q0 -62 10 -58 Q15 -50 13 -29 Z"/>
+    <path fill="none" stroke="#f4ecdc" stroke-width="1.3" d="M-13.6 -50 L13.6 -50 M-14 -42 L14 -42 M-6 -59.6 L-6 -44 M5 -59.6 L5 -44"/>
+    <path class="o" fill="#2c7a3e" d="M-12.6 -29 L-13.4 -37 L-8 -38.6 L-8 -47 L8.4 -47 L8.4 -38.6 L13.8 -37 L13 -29 Z"/>
+    <path class="t" d="M-8 -47 L-9.4 -58 M8.4 -47 L9.8 -58"/>
+    <circle class="n" fill="#ffd21f" cx="-8" cy="-46.2" r="1.5"/>
+    <circle class="n" fill="#ffd21f" cx="8.4" cy="-46.2" r="1.5"/>
+    <!-- the far arm, hand in his pocket -->
+    <path class="o" fill="#b3402f" d="M-12.4 -55 Q-17 -44 -14 -32.6 L-8.4 -33.6 Q-10.6 -44 -8.6 -53 Z"/>
+  </g>
+
+  <g id="boer_head" data-parent="boer_body" transform="translate(-90 -59)">
+    <ellipse class="o" fill="#efc09a" cx="-9.5" cy="-12" rx="2.8" ry="3.8"/>
+    <circle class="o" fill="#efc09a" cx="1" cy="-13" r="12.5"/>
+    <path class="n" fill="#8a6a4a" fill-opacity="0.5" d="M-6.6 -8 Q-5 -0.8 3 -0.8 Q11.6 -1.4 13.2 -9 Q8 -5.4 3.4 -6 Q-2 -6.4 -6.6 -8 Z"/>
+    <path class="o" fill="#efc09a" d="M12.2 -15.5 Q18.5 -12.5 12.5 -9"/>
+    <!-- eyes half shut, mouth a flat line -->
+    <circle class="n" fill="#2b1b16" cx="7.4" cy="-14.6" r="1.4"/>
+    <path class="t" style="stroke-width:2.2" d="M3.6 -16.6 L10.8 -16.2"/>
+    <path class="t" style="stroke-width:1.9" d="M3 -21 L9.6 -19.6"/>
+    <path class="t" style="stroke-width:1.9" d="M5.6 -6.6 L11.6 -6.8"/>
+    <!-- cap -->
+    <path class="o" fill="#2f9140" d="M-12.5 -17 Q-13 -27.5 1 -27.5 Q13 -27.5 14 -20 L21.5 -18.5 L21 -15.8 L12 -17 Q0 -20.5 -12.5 -17 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M4 -27.2 Q12.6 -26.8 14 -20 L5.4 -19.6 Z"/>
+  </g>
+
+  <!-- The arm with the mug of coffee. Joint at the shoulder. -->
+  <g id="boer_arm" data-parent="boer_body" transform="translate(-84 -52)">
+    <path fill="none" stroke="#f4ecdc" stroke-width="1.5" stroke-linecap="round" d="M15.6 1.6 Q13.6 -1 15.6 -3.4 Q17.6 -5.8 15.6 -8.4 M20.6 2.6 Q19 0 20.6 -2.4"/>
+    <rect class="o" style="stroke-width:2" fill="#fdfdf6" x="13" y="4.6" width="10" height="11" rx="1.6"/>
+    <path class="n" fill="#3f74b8" d="M14 5.6 L22 5.6 L22 7.8 L14 7.8 Z"/>
+    <path class="o" fill="#c94a38" d="M-4.4 -3 Q-6 7 -4.4 14.6 L0.6 17.4 L13 14.4 L12 9 L3.8 10.4 Q4.8 3 4.4 -3 Z"/>
+    <circle class="o" fill="#efc09a" cx="13" cy="11.6" r="3.8"/>
+  </g>
+</svg>

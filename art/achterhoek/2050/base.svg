@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-316 -596 332 602" data-rig="static">
+  <title>Boerderij 3000: boogschuur met zonnedak, silo met schotel, windmolen en een haan van licht</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The barn stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- the silo behind the barn, with a dish on its shoulder -->
+    <path class="t" style="stroke-width:3.4" d="M-102 -524 L-112 -533"/>
+    <g transform="rotate(38 -114 -536)">
+      <ellipse class="o" style="stroke-width:2.4" fill="#f4f4ee" cx="-114" cy="-536" rx="5.4" ry="12"/>
+      <ellipse class="n" fill="#cfd6da" cx="-115" cy="-536" rx="2.6" ry="8.6"/>
+    </g>
+    <path class="t" style="stroke-width:2" d="M-114 -536 L-122 -541.4"/>
+    <circle class="n" fill="#2b1b16" cx="-122.6" cy="-541.8" r="2.2"/>
+    <path class="o" fill="#5b7fa6" d="M-104 -468 L-104 -524 Q-104 -548 -67 -548 Q-30 -548 -30 -524 L-30 -468 Z"/>
+    <path class="n" fill="#7396bd" d="M-102.5 -524 Q-102.5 -546.5 -67 -546.5 Q-31.5 -546.5 -31.5 -524 Z"/>
+    <path class="n" fill="#8fb0d4" d="M-94 -520 Q-94 -538 -78 -542 L-74 -542 Q-86 -536 -86 -520 L-86 -470 L-94 -470 Z"/>
+    <path class="t" style="stroke:#3f5f85;stroke-width:2.2" d="M-104 -524 L-30 -524 M-104 -508 L-30 -508 M-104 -492 L-30 -492"/>
+    <path class="t" style="stroke-width:3" d="M-104 -468 L-104 -524 Q-104 -548 -67 -548 Q-30 -548 -30 -524 L-30 -468"/>
+    <rect class="o" style="stroke-width:2.4" fill="#3f5f85" x="-73" y="-553" width="12" height="6" rx="2"/>
+
+    <!-- flagpole on the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -476 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- mast and nacelle of the windmill; the blades are their own part -->
+    <path class="o" style="stroke-width:2.4" fill="#f4f4ee" d="M-158.6 -500 L-157.2 -530 L-154 -530 L-152.6 -500 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#f4f4ee" x="-162.6" y="-535" width="13" height="8" rx="3.5"/>
+
+    <!-- the projector for the weathercock -->
+    <path class="n" fill="#7dff9e" fill-opacity="0.22" d="M-14 -488 L-28 -503 L0 -503 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#34424b" x="-20" y="-490" width="12" height="8" rx="2"/>
+
+    <!-- arched roof, solar panels from eave to eave -->
+    <path class="o" fill="#27406b" d="M-312 -438 Q-312 -506 -150 -506 Q12 -506 12 -438 Z"/>
+    <path class="t" style="stroke:#6f8fc4" d="M-276 -440 L-276 -484 M-240 -440 L-240 -495.4 M-204 -440 L-204 -500.7 M-168 -440 L-168 -502.8 M-132 -440 L-132 -502.8 M-96 -440 L-96 -500.7 M-60 -440 L-60 -495.4 M-24 -440 L-24 -484"/>
+    <path class="t" style="stroke:#6f8fc4" d="M-306 -456 Q-300 -484 -150 -484 Q0 -484 6 -456 M-310 -447 Q-306 -464 -150 -464 Q6 -464 10 -447"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.26" d="M-232 -496.6 L-214 -499.4 L-224 -448 L-244 -448 Z"/>
+    <rect class="o" fill="#f4ecdc" x="-312" y="-446" width="324" height="10" rx="3"/>
+
+    <!-- the inside of the barn, seen through its open front -->
+    <rect class="o" fill="#263238" x="-296" y="-438" width="292" height="438"/>
+    <path class="t" style="stroke:#33434d;stroke-width:2.4" d="M-262 -434 L-262 -296 M-226 -434 L-226 -296 M-190 -434 L-190 -296 M-116 -434 L-116 -296 M-80 -434 L-80 -296 M-44 -434 L-44 -296 M-262 -284 L-262 -146 M-226 -284 L-226 -146 M-190 -284 L-190 -146 M-116 -284 L-116 -146 M-80 -284 L-80 -146 M-44 -284 L-44 -146"/>
+
+    <!-- bales in the lofts, wrapped in plastic these days -->
+    <circle class="o" fill="#bfe6d0" cx="-256" cy="-326" r="30"/>
+    <path class="t" style="stroke:#8fcfae;stroke-width:2.4" d="M-256 -326 m-18 0 a18 18 0 1 1 18 18 M-256 -326 m-7 -3 a8 8 0 1 1 5 10"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.5" d="M-274 -340 Q-268 -350 -258 -352 Q-266 -346 -270 -336 Z"/>
+    <circle class="o" fill="#f2b6c6" cx="-46" cy="-322" r="26"/>
+    <path class="t" style="stroke:#dd8fa6;stroke-width:2.4" d="M-46 -322 m-15 0 a15 15 0 1 1 15 15 M-46 -322 m-6 -3 a7 7 0 1 1 4 9"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.5" d="M-62 -334 Q-56 -343 -48 -344 Q-55 -339 -58 -331 Z"/>
+    <circle class="o" fill="#eef1f2" cx="-48" cy="-176" r="30"/>
+    <path class="t" style="stroke:#c9cdd0;stroke-width:2.4" d="M-48 -176 m-18 0 a18 18 0 1 1 18 18 M-48 -176 m-7 -3 a8 8 0 1 1 5 10"/>
+    <rect class="o" fill="#f2b6c6" x="-286" y="-190" width="52" height="44" rx="8"/>
+    <path class="t" style="stroke:#dd8fa6;stroke-width:2.2" d="M-270 -189 L-270 -147 M-250 -189 L-250 -147"/>
+
+    <!-- loft floors of steel, a strip of light under each -->
+    <rect class="o" fill="#8fa3b3" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <rect class="n" fill="#5fe3ff" x="-297" y="-288.4" width="294" height="2.6"/>
+    <rect class="o" fill="#8fa3b3" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <rect class="n" fill="#5fe3ff" x="-297" y="-138.4" width="294" height="2.6"/>
+    <rect class="o" fill="#dfe6ea" x="-298" y="-438" width="12" height="438"/>
+    <rect class="o" fill="#dfe6ea" x="-14" y="-438" width="12" height="304"/>
+    <path class="t" style="stroke:#6f8799;stroke-width:4" d="M-286 -400 L-262 -436 M-14 -400 L-38 -436 M-286 -250 L-262 -284 M-14 -250 L-38 -284"/>
+
+    <!-- ground floor: still brick, still the green door with its white braces and the hourglass shutters -->
+    <rect class="o" fill="#a8553c" x="-286" y="-134" width="184" height="134"/>
+    <path class="t" style="stroke:#c4775e;stroke-width:2.2" d="M-126 -120 L-110 -120 M-282 -20 L-266 -20 M-122 -28 L-108 -28 M-282 -112 L-268 -112"/>
+    <rect class="o" fill="#1f5a2a" x="-258" y="-116" width="96" height="116"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:5" d="M-252 -110 L-168 -110 L-168 -6 L-252 -6 Z M-252 -110 L-168 -6 M-168 -110 L-252 -6"/>
+    <rect class="o" fill="#f4ecdc" x="-150" y="-104" width="38" height="50"/>
+    <path class="o" fill="#1f5a2a" d="M-150 -104 L-112 -104 L-131 -79 Z M-150 -54 L-112 -54 L-131 -79 Z"/>
+    <!-- a charging point where the lamp used to hang -->
+    <path class="t" style="stroke-width:2.6" d="M-273 -66 Q-279 -40 -271 -30 Q-264 -26 -265 -38"/>
+    <rect class="o" style="stroke-width:2.4" fill="#f4f4ee" x="-280" y="-90" width="15" height="24" rx="3.5"/>
+    <circle class="n" fill="#7fd35b" cx="-272.5" cy="-82" r="2.4"/>
+    <path class="t" style="stroke:#9aa59f" d="M-276 -74 L-269 -74"/>
+    <rect class="o" fill="#9a958f" x="-298" y="-10" width="198" height="10"/>
+
+    <!-- the doorway units come out of, lit along its edge -->
+    <rect class="o" fill="#8fa3b3" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#1b2227" x="-90" y="-122" width="76" height="122"/>
+    <path class="t" style="stroke:#5fe3ff;stroke-width:2.6" d="M-85 -1 L-85 -117 L-19 -117 L-19 -1"/>
+    <rect class="o" fill="#dfe6ea" x="-102" y="-134" width="12" height="134"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The blades of the windmill. Joint at the hub. -->
+  <g id="blades" data-parent="building" transform="translate(-156 -531)">
+    <path class="o" style="stroke-width:2.2" fill="#f4f4ee" d="M0 0 Q4 -9 1.4 -24 Q-3 -12 0 0 Z"/>
+    <g transform="rotate(120)">
+      <path class="o" style="stroke-width:2.2" fill="#f4f4ee" d="M0 0 Q4 -9 1.4 -24 Q-3 -12 0 0 Z"/>
+    </g>
+    <g transform="rotate(240)">
+      <path class="o" style="stroke-width:2.2" fill="#f4f4ee" d="M0 0 Q4 -9 1.4 -24 Q-3 -12 0 0 Z"/>
+    </g>
+    <circle class="o" style="stroke-width:2.2" fill="#ffd21f" cx="0" cy="0" r="3.6"/>
+  </g>
+
+  <!-- The weathercock, a hologram now. It flickers. Joint in its middle. -->
+  <g id="holo" data-parent="building" transform="translate(-14 -516)">
+    <g fill="#7dff9e" fill-opacity="0.82" stroke="#1f8a45" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M-5 -1 Q-15 -4 -13 -15 Q-8 -9 -3 -5 Z"/>
+      <path d="M-9 4 Q-10 -3 -2 -4 Q6 -4 8 2 Q9 9 0 10 Q-7 10 -9 4 Z"/>
+      <path d="M4 -1 Q4 -10 9 -12 Q13.4 -12 12.4 -7 Q11 -1 8 3 Z"/>
+      <path d="M7.6 -12 Q7.6 -15.6 9.8 -14.4 Q11 -16.6 12.8 -13.6 Z"/>
+      <path d="M12.6 -9.8 L16.4 -8.6 L12.6 -7.2 Z"/>
+    </g>
+    <path fill="none" stroke="#1f8a45" stroke-width="1.6" stroke-linecap="round" d="M-2 10 L-2 14 M3 10 L3 14 M-5 14 L6 14"/>
+    <path fill="none" stroke="#e8fff0" stroke-width="1" stroke-opacity="0.8" d="M-8 0 L7 0 M-8 4 L8 4 M5 -6 L11 -6 M-11 -8 L-6 -8"/>
+  </g>
+</svg>

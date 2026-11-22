@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-21 -10 38 20" data-rig="static">
+  <title>Een straal melk van de melkrobot</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- Flies along +x: a fat blob in front, its tail and two droplets trailing behind. -->
+  <g id="squirt" transform="translate(0 0)">
+    <circle class="o" style="stroke-width:2" fill="#fdfdf6" cx="-17" cy="2.4" r="1.9"/>
+    <circle class="o" style="stroke-width:2.2" fill="#fdfdf6" cx="-11.6" cy="-1.6" r="2.9"/>
+    <path class="o" fill="#fdfdf6" d="M-7 0.4 Q-2 -2.6 1.5 -5.8 Q8 -8.4 12.4 -4 Q15.6 0.6 12 5 Q7.4 8.4 1.4 6 Q-2.6 3.4 -7 0.4 Z"/>
+    <path class="n" fill="#cfe1ee" d="M-3.4 1.8 Q1 5.2 5.6 6 Q9.8 6 12 3 Q8 5 3.5 3.8 Q0 2.8 -3.4 1.8 Z"/>
+    <path class="n" fill="#ffffff" d="M3 -5 Q7 -6.8 10.4 -4 Q6.6 -4.6 3.8 -3 Z"/>
+  </g>
+</svg>

@@ -609,7 +609,9 @@ export class Renderer {
       ctx.stroke();
     }
     ctx.textAlign = 'center';
-    for (const f of view.floaters) {
+    // Small talk first, big news on top of it.
+    const floaters = [...view.floaters].sort((a, b) => a.size - b.size);
+    for (const f of floaters) {
       const t = f.age / f.life;
       ctx.globalAlpha = t < 0.75 ? 1 : 1 - (t - 0.75) / 0.25;
       ctx.font = `700 ${f.size}px ${FONT}`;

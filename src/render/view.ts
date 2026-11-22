@@ -179,8 +179,8 @@ const SPLASH: Record<string, string> = {
   shot_geklaag: '#ffffff',
   shot_ei: '#ffd94a',
   shot_spray: '#b6d24a',
-  shot_boba: '#8a5a3c',
-  shot_dislike: '#ff7a66',
+  shot_boba: '#6b4630',
+  shot_dislike: '#ff5d73',
   shot_laser: '#ff6a55',
   shot_melk: '#ffffff',
 };
@@ -679,10 +679,13 @@ export class BattleView {
         rig: shot.rig,
         x: lane + offX,
         y: targetY + (from.y - targetY) * (1 - progress) - shot.arc * 4 * progress * (1 - progress),
+        // Thrown things tumble, floating things wobble, and a beam that flies flat stays dead straight.
         angle:
           shot.spin !== 0
             ? this.time * shot.spin * Math.PI * 2 * dirOf(shot.side)
-            : Math.sin(this.time * 11 + shot.id) * 0.14,
+            : shot.arc === 0
+              ? 0
+              : Math.sin(this.time * 11 + shot.id) * 0.14,
       };
       this.shots.push(view);
       now.set(shot.id, view);
