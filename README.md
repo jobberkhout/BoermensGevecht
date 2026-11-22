@@ -26,6 +26,9 @@ If you cloned the repository, the file is in its root: open it from there.
 | Art pipeline, gallery, screenshots, three-browser check | Done |
 | Sound | Done: synthesized effects and a tune, no audio files. Checked for errors and loudness by test, not judged by ear |
 
+**What comes next:** seven more factions are planned. [`docs/factions.md`](docs/factions.md) is the
+blueprint: who they are, every unit and special per era, and the list of drawings each one needs.
+
 ## The two sides
 
 | | Havermelkelite (Amsterdam, left) | Achterhoek (right) |
