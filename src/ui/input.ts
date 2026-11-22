@@ -1,9 +1,12 @@
 import type { Command, Side } from '../sim/types.ts';
 
-/** The six things a player can do. Buttons and keys both speak in these. */
-export type Action = 'buy0' | 'buy1' | 'buy2' | 'turret' | 'special' | 'eraUp';
+/**
+ * The things a player can do. Buttons and keys both speak in these. `buy3` is
+ * the super unit, which only the last era has.
+ */
+export type Action = 'buy0' | 'buy1' | 'buy2' | 'buy3' | 'turret' | 'special' | 'subsidy' | 'eraUp';
 
-export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'turret', 'special', 'eraUp'];
+export const ACTIONS: readonly Action[] = ['buy0', 'buy1', 'buy2', 'buy3', 'turret', 'special', 'subsidy', 'eraUp'];
 
 export function commandOf(action: Action): Command {
   switch (action) {
@@ -13,10 +16,14 @@ export function commandOf(action: Action): Command {
       return { t: 'buy', slot: 1 };
     case 'buy2':
       return { t: 'buy', slot: 2 };
+    case 'buy3':
+      return { t: 'buy', slot: 3 };
     case 'turret':
       return { t: 'turret' };
     case 'special':
       return { t: 'special' };
+    case 'subsidy':
+      return { t: 'subsidy' };
     case 'eraUp':
       return { t: 'eraUp' };
   }
@@ -30,27 +37,32 @@ const KEYS: Record<string, { side: Side; action: Action }> = {
   KeyQ: { side: 0, action: 'buy0' },
   KeyW: { side: 0, action: 'buy1' },
   KeyE: { side: 0, action: 'buy2' },
+  KeyR: { side: 0, action: 'buy3' },
   KeyA: { side: 0, action: 'turret' },
   KeyS: { side: 0, action: 'special' },
-  KeyD: { side: 0, action: 'eraUp' },
+  KeyD: { side: 0, action: 'subsidy' },
+  KeyF: { side: 0, action: 'eraUp' },
   KeyU: { side: 1, action: 'buy0' },
   KeyI: { side: 1, action: 'buy1' },
   KeyO: { side: 1, action: 'buy2' },
+  KeyP: { side: 1, action: 'buy3' },
   KeyJ: { side: 1, action: 'turret' },
   KeyK: { side: 1, action: 'special' },
-  KeyL: { side: 1, action: 'eraUp' },
+  KeyL: { side: 1, action: 'subsidy' },
+  Semicolon: { side: 1, action: 'eraUp' },
 };
 
 /** What is printed on the key in the usual layout, shown on the buttons. */
 export const KEY_LABEL: Record<Side, Record<Action, string>> = {
-  0: { buy0: 'Q', buy1: 'W', buy2: 'E', turret: 'A', special: 'S', eraUp: 'D' },
-  1: { buy0: 'U', buy1: 'I', buy2: 'O', turret: 'J', special: 'K', eraUp: 'L' },
+  0: { buy0: 'Q', buy1: 'W', buy2: 'E', buy3: 'R', turret: 'A', special: 'S', subsidy: 'D', eraUp: 'F' },
+  1: { buy0: 'U', buy1: 'I', buy2: 'O', buy3: 'P', turret: 'J', special: 'K', subsidy: 'L', eraUp: ';' },
 };
 
 export interface KeyHandlers {
   act(side: Side, action: Action): void;
   pause(): void;
   confirm(): void;
+  mute(): void;
 }
 
 /** Listens for the game's keys. Returns a function that stops listening. */
@@ -68,6 +80,9 @@ export function bindKeys(handlers: KeyHandlers): () => void {
     } else if (e.code === 'Enter' || e.code === 'NumpadEnter') {
       e.preventDefault();
       handlers.confirm();
+    } else if (e.code === 'KeyM') {
+      e.preventDefault();
+      handlers.mute();
     }
   };
   window.addEventListener('keydown', onKey);

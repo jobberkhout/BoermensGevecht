@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -140 214 146" data-rig="vehicle">
+  <title>Flowerpowerbusje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .f { stroke: #2b1b16; stroke-width: 1.5; stroke-linejoin: round; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- Two puffs of smoke. Joint at the end of the exhaust, so they grow out of it. -->
+  <g id="puff_b" data-parent="chassis" transform="translate(-92 -13)">
+    <path class="o" style="stroke-width:2" fill="#f1ece4" d="M-5 -21 Q-5 -26 -9 -26.5 Q-10 -31.5 -14.5 -30.5 Q-19.5 -29.5 -18.5 -25 Q-21.5 -21 -17 -18.5 Q-12 -16 -8 -18 Q-4.5 -18.5 -5 -21 Z"/>
+  </g>
+  <g id="puff_a" data-parent="chassis" transform="translate(-92 -13)">
+    <path class="o" style="stroke-width:2" fill="#f1ece4" d="M-3 -4 Q-3 -10 -8 -11 Q-9 -17 -15 -16 Q-21 -15 -20 -9 Q-24 -4 -18 -1 Q-12 3 -6 0 Q-2 -1 -3 -4 Z"/>
+  </g>
+
+  <!-- The van. Joint in the middle; the art inside is drawn in whole-van coordinates. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <rect class="o" fill="#8a8f93" x="-94" y="-16" width="13" height="5" rx="2"/>
+      <rect class="o" fill="#c9c9d2" x="-91" y="-26" width="10" height="8" rx="3"/>
+      <rect class="o" fill="#c9c9d2" x="82" y="-26" width="10" height="8" rx="3"/>
+      <path class="o" fill="#f5923e" d="M-84 -14 Q-87 -15 -86.5 -22 L-86 -62 Q-86 -100 -66 -102 L50 -102 Q74 -102 80 -80 Q88 -60 88 -44 L88 -22 Q88 -15 84 -14 Z"/>
+      <path class="n" fill="#e07a2a" d="M-84 -14 L84 -14 Q87 -15 86.8 -20 L-85.3 -20 Q-86 -15 -84 -14 Z"/>
+      <path class="o" fill="#fff6e0" d="M-86 -58 L-86 -62 Q-86 -100 -66 -102 L50 -102 Q74 -102 80 -80 Q85 -67 86.8 -58 Z"/>
+      <path fill="none" stroke="#ff7ac0" stroke-width="2.2" d="M-84.6 -55.4 L85.6 -55.4"/>
+      <path fill="none" stroke="#ffd21f" stroke-width="2.2" d="M-84.6 -53.2 L85.9 -53.2"/>
+      <path fill="none" stroke="#3fb8a8" stroke-width="2.2" d="M-84.6 -51 L86.2 -51"/>
+
+      <!-- windows, with curtains in the back -->
+      <rect class="o" fill="#cfe9f2" x="-76" y="-94" width="32" height="28" rx="5"/>
+      <path class="n" fill="#8a6fb8" d="M-74.6 -92.6 L-62 -92.6 Q-66 -83 -74.6 -79 Z M-45.4 -92.6 L-58 -92.6 Q-54 -83 -45.4 -79 Z"/>
+      <rect class="o" fill="#cfe9f2" x="-38" y="-94" width="32" height="28" rx="5"/>
+      <path class="n" fill="#8a6fb8" d="M-36.6 -92.6 L-24 -92.6 Q-28 -83 -36.6 -79 Z M-7.4 -92.6 L-20 -92.6 Q-16 -83 -7.4 -79 Z"/>
+      <rect class="o" fill="#cfe9f2" x="0" y="-94" width="28" height="28" rx="5"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M9 -92.4 L15 -92.4 L7 -67.6 L3 -67.6 Z"/>
+      <path class="o" fill="#2f3a4a" d="M36 -66 L36 -89 Q36 -94 41 -94 L58 -94 Q66 -93 70 -82 L72.5 -66 Z"/>
+
+      <!-- doors -->
+      <path class="t" d="M-2 -49 L-2 -15 M32 -49 L32 -15"/>
+      <rect class="o" style="stroke-width:1.6" fill="#c9c9d2" x="22" y="-46" width="7" height="3.4" rx="1.5"/>
+      <rect class="o" style="stroke-width:1.6" fill="#c9c9d2" x="36" y="-46" width="7" height="3.4" rx="1.5"/>
+
+      <!-- wheel wells -->
+      <path class="o" fill="#241b26" d="M-71 -14 A21 21 0 0 1 -29 -14 Z"/>
+      <path class="o" fill="#241b26" d="M33 -14 A21 21 0 0 1 75 -14 Z"/>
+
+      <!-- painted on by hand: a daisy, a heart and some small ones -->
+      <circle class="f" fill="#fffdf5" cx="5.5" cy="-33" r="5.4"/>
+      <circle class="f" fill="#fffdf5" cx="1.25" cy="-25.6" r="5.4"/>
+      <circle class="f" fill="#fffdf5" cx="-7.25" cy="-25.6" r="5.4"/>
+      <circle class="f" fill="#fffdf5" cx="-11.5" cy="-33" r="5.4"/>
+      <circle class="f" fill="#fffdf5" cx="-7.25" cy="-40.4" r="5.4"/>
+      <circle class="f" fill="#fffdf5" cx="1.25" cy="-40.4" r="5.4"/>
+      <circle class="f" fill="#ffd21f" cx="-3" cy="-33" r="5.6"/>
+      <path class="f" fill="#ff7ac0" d="M20 -31 q-3.6 -5.2 -7 -1.4 q-2.2 3.7 7 9.4 q9.2 -5.7 7 -9.4 q-3.4 -3.8 -7 1.4 Z"/>
+      <circle class="f" fill="#ff7ac0" cx="-70" cy="-40" r="4.6"/>
+      <circle class="n" fill="#ffd21f" cx="-70" cy="-40" r="1.8"/>
+      <circle class="f" fill="#3fb8a8" cx="-20" cy="-23" r="3.4"/>
+      <circle class="n" fill="#fffdf5" cx="-20" cy="-23" r="1.3"/>
+      <circle class="f" fill="#fffdf5" cx="76" cy="-40" r="4.2"/>
+      <circle class="n" fill="#ffd21f" cx="76" cy="-40" r="1.7"/>
+
+      <!-- lights -->
+      <rect class="o" style="stroke-width:1.6" fill="#d9342b" x="-88" y="-47" width="4.4" height="9" rx="1.6"/>
+      <ellipse class="o" fill="#fff3b0" cx="85.5" cy="-37" rx="4" ry="6.5"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-50 -17)">
+    <circle class="o" fill="#3a3a3a" cx="0" cy="0" r="17"/>
+    <circle class="n" fill="#efe5cf" cx="0" cy="0" r="11.5"/>
+    <circle class="o" fill="#c9c9d2" cx="0" cy="0" r="6.5"/>
+    <circle class="n" fill="#ff7ac0" cx="0" cy="-9.2" r="1.9"/>
+    <circle class="n" fill="#3fb8a8" cx="8" cy="4.6" r="1.9"/>
+    <circle class="n" fill="#ffb52e" cx="-8" cy="4.6" r="1.9"/>
+    <circle class="n" fill="#2b1b16" cx="0" cy="0" r="1.8"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(54 -17)">
+    <circle class="o" fill="#3a3a3a" cx="0" cy="0" r="17"/>
+    <circle class="n" fill="#efe5cf" cx="0" cy="0" r="11.5"/>
+    <circle class="o" fill="#c9c9d2" cx="0" cy="0" r="6.5"/>
+    <circle class="n" fill="#ff7ac0" cx="0" cy="-9.2" r="1.9"/>
+    <circle class="n" fill="#3fb8a8" cx="8" cy="4.6" r="1.9"/>
+    <circle class="n" fill="#ffb52e" cx="-8" cy="4.6" r="1.9"/>
+    <circle class="n" fill="#2b1b16" cx="0" cy="0" r="1.8"/>
+  </g>
+
+  <!-- On the roof: a rolled-up rug, a guitar, and a daisy on the aerial. Joint in the middle of the roof. -->
+  <g id="rack" data-parent="body" transform="translate(-10 -102)">
+    <g transform="translate(10 102)">
+      <path class="t" d="M59 -101 L64 -127"/>
+      <circle class="f" fill="#fffdf5" cx="64.5" cy="-129" r="4.4"/>
+      <circle class="n" fill="#ffd21f" cx="64.5" cy="-129" r="1.8"/>
+      <path class="t" style="stroke-width:2.8" d="M-64 -107.5 L44 -107.5 M-58 -107.5 L-58 -102 M-24 -107.5 L-24 -102 M10 -107.5 L10 -102 M40 -107.5 L40 -102"/>
+      <rect class="o" fill="#b9443a" x="-60" y="-124.5" width="44" height="15" rx="7"/>
+      <path fill="none" stroke="#ffd21f" stroke-width="2.4" d="M-50 -123.2 L-50 -110.8 M-38 -123.2 L-38 -110.8"/>
+      <path fill="none" stroke="#3fb8a8" stroke-width="2.4" d="M-44 -123.2 L-44 -110.8 M-32 -123.2 L-32 -110.8"/>
+      <circle class="o" fill="#e9c9a0" cx="-17" cy="-117" r="7.5"/>
+      <path class="t" style="stroke:#b9443a" d="M-17 -117 q2.4 -2.8 4.2 0 q0 4.6 -4.6 4.2 q-5 -1 -4.2 -6 q1.8 -4.6 7.4 -3"/>
+      <path class="o" fill="#8a5a3a" d="M14 -119.5 L38 -122 L38 -118 L14 -114.5 Z"/>
+      <path class="o" fill="#5a4636" d="M37 -123.5 L45 -124.5 L45.5 -117 L37.5 -116.5 Z"/>
+      <path class="o" fill="#e0a85a" d="M-6 -116.5 Q-7 -124.5 1 -124.5 Q6 -124.5 8 -121.5 Q12 -123 15 -120.5 Q17 -117 15 -113.5 Q12 -111 8 -112.5 Q6 -109.5 1 -109.5 Q-7 -109.5 -6 -116.5 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#3a2a1e" cx="4.5" cy="-117" r="3"/>
+      <path fill="none" stroke="#f4ecdc" stroke-width="1" stroke-linecap="round" d="M-1 -116.6 L44 -120.6"/>
+      <path class="t" d="M-53 -125 L-53 -107.5 M-27 -125 L-27 -107.5 M1 -125 L1 -107.5"/>
+    </g>
+  </g>
+
+  <!-- The driver, one arm out of the window. Joint on the window sill. -->
+  <g id="driver" data-parent="body" transform="translate(56 -66)">
+    <g transform="translate(-56 66)">
+      <path class="o" fill="#ffd21f" d="M41 -66 Q41 -74 49 -75 L60 -75 Q67 -73 67.5 -66 Z"/>
+      <path class="o" fill="#7a5236" d="M47 -86 Q43.5 -76 47 -68 L55 -69 Z"/>
+      <circle class="o" fill="#f0c19a" cx="57" cy="-82.5" r="9.5"/>
+      <path class="o" fill="#7a5236" d="M47.6 -79 Q45 -93.5 57 -93 Q66 -92.5 66.8 -86.5 Q60 -89.5 54 -87 Q50.5 -84.5 50.2 -78 Z"/>
+      <path fill="none" stroke="#d9342b" stroke-width="2.4" stroke-linecap="round" d="M48 -86 Q57 -91.5 66.4 -87.2"/>
+      <circle class="t" style="fill:#ffb52e" cx="60.2" cy="-82.5" r="3.3"/>
+      <circle class="t" style="fill:#ffb52e" cx="66" cy="-82.5" r="2.6"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a5236" d="M56.5 -77.5 Q62 -79.5 67 -77.5 Q66.5 -71.5 61.5 -71.5 Q57 -72.5 56.5 -77.5 Z"/>
+      <path class="o" fill="#ffd21f" d="M42.5 -70.5 L58 -70.5 L58 -63.5 L42.5 -63.5 Z"/>
+      <path class="o" fill="#f0c19a" d="M53.5 -68.5 L60.5 -68.5 L60 -56.5 Q57 -52.5 54 -56.5 Z"/>
+    </g>
+  </g>
+</svg>

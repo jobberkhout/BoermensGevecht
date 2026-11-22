@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-21 -8 40 16" data-rig="static">
+  <title>Een laserstraal uit het oog van Verschrikkerink</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- Points along +x. Origin in the middle of the bolt. -->
+  <g id="bolt" transform="translate(0 0)">
+    <path class="t" style="stroke:#e5231b;stroke-width:2" d="M-19 -3.6 L-14.5 -3.6 M-19.5 3.6 L-15 3.6"/>
+    <path class="o" fill="#e5231b" d="M-11 -4.2 L10.5 -4.2 Q16 -4.2 16 0 Q16 4.2 10.5 4.2 L-11 4.2 Q-15 0 -11 -4.2 Z"/>
+    <path class="n" fill="#ff8f7a" d="M-9 -1.9 L10.5 -1.9 Q13.2 -1.9 13.2 0 Q13.2 1.9 10.5 1.9 L-9 1.9 Q-10.8 0 -9 -1.9 Z"/>
+    <path class="n" fill="#fff4ec" d="M-3 -0.8 L10 -0.8 Q11.6 -0.8 11.6 0 Q11.6 0.8 10 0.8 L-3 0.8 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -138 224 142" data-rig="static">
+  <title>Podcaststudio: twee hosts met blauw haar die overal over klagen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The room: back wall, acoustic foam, a neon squiggle, a plant, the unlit lamp. Origin = middle of the floor. -->
+  <g id="room" transform="translate(0 0)">
+    <rect class="o" fill="#ddd2ee" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <rect class="n" fill="#c9bade" x="-98" y="-13" width="196" height="11"/>
+    <rect class="o" fill="#5a4a78" x="-92" y="-96" width="60" height="40" rx="2"/>
+    <path class="t" style="stroke:#3f3358" d="M-72 -96 L-72 -56 M-52 -96 L-52 -56 M-92 -76 L-32 -76 M-92 -96 L-72 -76 M-72 -96 L-92 -76 M-72 -96 L-52 -76 M-52 -96 L-72 -76 M-52 -96 L-32 -76 M-32 -96 L-52 -76 M-92 -76 L-72 -56 M-72 -76 L-92 -56 M-72 -76 L-52 -56 M-52 -76 L-72 -56 M-52 -76 L-32 -56 M-32 -76 L-52 -56"/>
+    <path fill="none" stroke="#ff7ac0" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="M-20 -88 q5 -9 10 0 t10 0 t10 0 t10 0"/>
+    <rect class="o" fill="#8a6a4a" x="58" y="-56" width="36" height="4" rx="1"/>
+    <path class="o" fill="#c97b4a" d="M68 -56 L70 -68 L82 -68 L84 -56 Z"/>
+    <path class="o" fill="#3f9b57" d="M76 -68 Q65 -76 62 -90 Q74 -86 76 -72 Q79 -88 92 -92 Q90 -78 77 -68 Z"/>
+    <path class="t" style="stroke:#2c7a40" d="M66 -86 Q71 -80 75 -70 M88 -88 Q82 -80 78 -70"/>
+    <rect class="o" fill="#7a2a2a" x="36" y="-100" width="28" height="12" rx="3"/>
+  </g>
+
+  <!-- The ON AIR lamp when lit. It blinks by scaling to nothing. -->
+  <g id="lamp" transform="translate(50 -94)">
+    <rect class="o" fill="#ff4a3d" x="-14" y="-6" width="28" height="12" rx="3"/>
+    <circle class="n" fill="#ffe1dc" cx="-7" cy="0" r="2.6"/>
+    <path fill="none" stroke="#ffe1dc" stroke-width="2" stroke-linecap="round" d="M-1.5 0 L9 0"/>
+  </g>
+
+  <!-- A's free arm, thrown up in despair behind her, clear of her face. Joint at the shoulder. -->
+  <g id="a_arm" data-parent="a_body" transform="translate(-63 -51)">
+    <path class="o" fill="#f6efe2" d="M4 -2 L-7 6 L-12 2 L-15 -15 L-9 -17 L-7 -5 L0 -8 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="-12.5" cy="-20" r="4.2"/>
+    <path class="t" d="M-15.5 -22.5 L-17 -26 M-12.5 -24 L-12.5 -28 M-9.5 -22.5 L-8 -26"/>
+  </g>
+
+  <!-- Host A: blue bob, dungarees. Joint at the waist, behind the desk. -->
+  <g id="a_body" transform="translate(-50 -30)">
+    <path class="o" fill="#f6efe2" d="M-17 4 Q-19 -18 -12 -26 Q0 -31 12 -26 Q19 -18 17 4 Z"/>
+    <path fill="none" stroke="#d9534f" stroke-width="2" stroke-linecap="round" d="M-14.5 -19 L14.5 -19 M-16.5 -12 L16.5 -12 M-17 -5 L17 -5"/>
+    <path class="o" fill="#4f7fb8" d="M-9 4 L-9 -15 L9 -15 L9 4 Z"/>
+    <path class="t" d="M-9 -15 L-10.5 -26 M9 -15 L10.5 -26"/>
+    <circle class="n" fill="#ffd21f" cx="-9" cy="-15" r="1.6"/>
+    <circle class="n" fill="#ffd21f" cx="9" cy="-15" r="1.6"/>
+  </g>
+
+  <g id="a_head" data-parent="a_body" transform="translate(-50 -57)">
+    <rect class="o" fill="#e9b796" x="-3.5" y="-5" width="8" height="8" rx="2"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-18" rx="16" ry="15.5"/>
+    <path class="o" fill="#2f6bff" d="M-15 -7 Q-22 -37 2 -36.5 Q22 -36.5 19.5 -22 Q11 -29.5 1 -27.5 Q-7 -26 -9 -18 L-9.5 -5 Q-13 -3.5 -15 -7 Z"/>
+    <path class="n" fill="#79a6ff" d="M-8 -32 Q0 -35.5 9 -33 Q2 -32 -6 -28.5 Z"/>
+    <path class="t" style="stroke-width:3.6" d="M-11.5 -31 Q2 -45 16 -31.5"/>
+    <rect class="o" fill="#3a2e4a" x="-16" y="-26" width="8.5" height="14" rx="4"/>
+    <path class="t" style="stroke-width:1.9" d="M4.5 -25 L10.5 -22.8 M14.5 -22.8 L19 -25"/>
+    <circle class="n" fill="#2b1b16" cx="8.2" cy="-18.6" r="1.7"/>
+    <circle class="n" fill="#2b1b16" cx="15.6" cy="-18.6" r="1.5"/>
+    <path class="o" fill="#f3c9a5" d="M17.5 -16.5 Q21.5 -14 17.5 -12.2"/>
+    <ellipse class="n" fill="#f29b8e" fill-opacity="0.55" cx="5" cy="-11.5" rx="3" ry="1.8"/>
+  </g>
+
+  <g id="a_mouth" data-parent="a_head" transform="translate(-37.5 -65.5)">
+    <ellipse class="o" style="stroke-width:1.8" fill="#5a1f2a" cx="0" cy="0" rx="4.4" ry="3.8"/>
+    <path class="n" fill="#ff8f9a" d="M-2.6 1.4 Q0 4 2.6 1.4 Q0 0.2 -2.6 1.4 Z"/>
+  </g>
+
+  <!-- Host B: blue man bun, beard, black turtleneck. -->
+  <g id="b_body" transform="translate(34 -30)">
+    <path class="o" fill="#2f2a3a" d="M-18 4 Q-20 -18 -13 -26 Q0 -31 13 -26 Q20 -18 18 4 Z"/>
+    <path class="o" fill="#3d3750" d="M-7 -27 Q0 -31.5 8 -27 L7 -21 Q0 -23.5 -6 -21 Z"/>
+  </g>
+
+  <g id="b_head" data-parent="b_body" transform="translate(34 -57)">
+    <circle class="o" fill="#2f6bff" cx="-7" cy="-38" r="6.2"/>
+    <ellipse class="o" fill="#f0c19a" cx="2" cy="-18" rx="15.5" ry="15.5"/>
+    <path class="o" fill="#7a5236" d="M-10 -15 Q-11 1 4 1.5 Q17.5 1 19 -11 Q12 -6.5 6 -8 Q-2 -8 -10 -15 Z"/>
+    <path class="o" fill="#2f6bff" d="M-14 -15 Q-19 -36 2 -36 Q20 -35.5 19 -24 Q9 -30.5 -1 -27.5 Q-8 -25.5 -10 -17 Q-12 -14 -14 -15 Z"/>
+    <path class="n" fill="#79a6ff" d="M-7 -32 Q1 -35 9 -32.5 Q2 -31.5 -5 -28.5 Z"/>
+    <path class="t" style="stroke-width:3.6" d="M-11.5 -31 Q2 -45 16 -31.5"/>
+    <rect class="o" fill="#3a2e4a" x="-16" y="-26" width="8.5" height="14" rx="4"/>
+    <path class="t" style="stroke-width:1.9" d="M4.5 -24 Q8 -26.5 11 -24.5 M14.5 -25.5 Q17 -27 19.5 -25"/>
+    <circle class="n" fill="#2b1b16" cx="8.2" cy="-19" r="1.7"/>
+    <circle class="n" fill="#2b1b16" cx="15.8" cy="-19" r="1.5"/>
+    <path class="o" fill="#f0c19a" d="M17.5 -17 Q21.5 -14.5 17.5 -12.8"/>
+  </g>
+
+  <g id="b_mouth" data-parent="b_head" transform="translate(45.5 -64.5)">
+    <ellipse class="o" style="stroke-width:1.8" fill="#5a1f2a" cx="0" cy="0" rx="4.2" ry="3.6"/>
+    <path class="n" fill="#ff8f9a" d="M-2.4 1.3 Q0 3.8 2.4 1.3 Q0 0.2 -2.4 1.3 Z"/>
+  </g>
+
+  <!-- B's arm with a wagging finger, held up high above his microphone. -->
+  <g id="b_arm" data-parent="b_body" transform="translate(49 -51)">
+    <path class="o" fill="#2f2a3a" d="M-4 -2 L6 8 L12 5 L14.5 -20 L8 -21.5 L7 -3 L0 -8 Z"/>
+    <circle class="o" fill="#f0c19a" cx="11.5" cy="-24.5" r="4"/>
+    <path class="o" fill="#f0c19a" d="M10.3 -27.5 L10.6 -36 Q12 -37.6 13.6 -36 L13.3 -27.5 Z"/>
+  </g>
+
+  <!-- The desk with the laptop and both microphones, in front of the hosts. -->
+  <g id="desk" transform="translate(0 -30)">
+    <rect class="o" fill="#ffffff" x="-82" y="5" width="164" height="24" rx="2"/>
+    <rect class="o" fill="#f2e6d0" x="-90" y="-3" width="180" height="9" rx="3"/>
+    <path class="o" fill="#c9c9d2" d="M-20 -3 L-16.5 -19 L8.5 -19 L12 -3 Z"/>
+    <circle class="n" fill="#ff7ac0" cx="-4" cy="-11" r="3"/>
+    <path class="n" fill="#7bc8a4" d="M2 -15 l4 0 l0 4 l-4 0 Z"/>
+    <path class="o" fill="#fffaf0" d="M-78 -14 L-68 -14 L-69.5 -3 L-76.5 -3 Z"/>
+    <rect class="o" fill="#fffaf0" x="-79" y="-17" width="12" height="3.4" rx="1.4"/>
+    <path class="t" style="stroke-width:2.6" d="M-18 -3 L-18 -13 L-23.5 -27"/>
+    <circle class="o" fill="#3a2e4a" cx="-24.5" cy="-31" r="5"/>
+    <path class="t" style="stroke:#8f84a6" d="M-27.5 -33 L-21.5 -29 M-27.8 -30 L-22.5 -26.8"/>
+    <path class="t" style="stroke-width:2.6" d="M70 -3 L70 -13 L64 -26"/>
+    <circle class="o" fill="#3a2e4a" cx="62.5" cy="-30" r="5"/>
+    <path class="t" style="stroke:#8f84a6" d="M59.5 -32 L65.5 -28 M59.2 -29 L64.5 -25.8"/>
+    <path class="n" fill="#ff7ac0" d="M-58 13 q4 -6 8 0 q-4 7 -8 0 Z"/>
+    <path class="t" style="stroke:#b9adc9" d="M-40 12 L20 12 M-40 18 L4 18"/>
+  </g>
+
+  <!-- The glass front and its frame. -->
+  <g id="glass" transform="translate(0 0)">
+    <rect class="n" fill="#bfe6f5" fill-opacity="0.16" x="-100" y="-104" width="200" height="104"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.32" d="M-74 -104 L-56 -104 L-94 -42 L-100 -42 L-100 -62 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.22" d="M-44 -104 L-36 -104 L-88 -18 L-96 -18 Z"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="7" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <rect fill="none" stroke="#4b3d63" stroke-width="3.6" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <circle data-mount="muzzle" fill="none" cx="104" cy="-64" r="1"/>
+  </g>
+
+  <!-- What A has to say about it. Joint at the tip of the tail, so it grows out of her mouth. -->
+  <g id="bubble_a" transform="translate(-30 -80)">
+    <path class="o" fill="#ffffff" d="M0 0 L5 -15 Q-9 -16 -9 -30 Q-9 -52 16 -52 L34 -52 Q58 -52 58 -32 Q58 -15 38 -15 L16 -15 Z"/>
+    <path class="t" style="stroke-width:2.4" d="M2 -40 L10 -40 M2 -35 L10 -35 M4 -44 L4 -31 M8 -44 L8 -31"/>
+    <path class="t" style="stroke-width:2.6" d="M20 -45 L19 -34"/>
+    <circle class="n" fill="#2b1b16" cx="18.6" cy="-29" r="1.7"/>
+    <path class="t" style="stroke-width:2.4" d="M28 -44 L36 -30 M36 -44 L28 -30 M26.5 -37 L37.5 -37"/>
+    <path class="t" style="stroke-width:2.4" d="M43 -42 Q47 -47 51 -42 Q52 -37 47.5 -35 L47.5 -33"/>
+    <circle class="n" fill="#2b1b16" cx="47.5" cy="-28.5" r="1.6"/>
+  </g>
+
+  <!-- What B has to say about that. -->
+  <g id="bubble_b" transform="translate(54 -80)">
+    <path class="o" fill="#ffffff" d="M0 0 L-3 -15 Q-22 -16 -22 -32 Q-22 -52 0 -52 L22 -52 Q44 -52 44 -33 Q44 -15 24 -15 L9 -15 Z"/>
+    <path class="t" style="stroke-width:2.4" d="M-14 -42 q4 -5 8 0 t8 0 t8 0 t8 0 t8 0 M-14 -33 q4 -5 8 0 t8 0 t8 0 t8 0 M-14 -24 q4 -5 8 0 t8 0 t8 0"/>
+  </g>
+</svg>

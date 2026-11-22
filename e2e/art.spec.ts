@@ -26,8 +26,9 @@ for (const id of rigIds(ART)) {
     await page.waitForSelector('body[data-ready="1"]');
     expect(await page.locator('.bad').allTextContents()).toEqual([]);
     const difference = Number(await page.locator('body').getAttribute('data-rest-diff'));
-    // Edges are anti-aliased slightly differently once a drawing is cut up; whole shapes must not move.
-    expect(difference).toBeLessThan(0.02);
+    // The measure forgives a one-pixel shift (browsers place edges a fraction of a pixel apart);
+    // beyond that, nothing may move, vanish or change colour.
+    expect(difference).toBeLessThan(0.005);
     // The same comparison on a puppet shoved out of place must see the damage,
     // or a silently broken comparison would pass everything.
     const control = Number(await page.locator('body').getAttribute('data-rest-diff-control'));

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-39 -21 78 46" data-rig="static">
+  <title>Een spuitdrone uit de Dronezwerm</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- One drone, nose to the right. Origin in the middle of its body. -->
+  <g id="body" transform="translate(0 0)">
+    <!-- the arms and the motors at their ends -->
+    <path class="t" style="stroke-width:4" d="M-25 -7 L25 -7"/>
+    <rect class="o" fill="#3a3a3a" x="-29" y="-13" width="8" height="8" rx="2"/>
+    <rect class="o" fill="#3a3a3a" x="21" y="-13" width="8" height="8" rx="2"/>
+    <!-- spray boom under the tank -->
+    <path class="t" style="stroke-width:2.2" d="M-8 9 L-11 17 M8 9 L11 17"/>
+    <path class="t" style="stroke-width:3" d="M-21 17.5 L21 17.5"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffd21f" d="M-20.5 18 L-14.5 18 L-17.5 23 Z M-3 18 L3 18 L0 23 Z M14.5 18 L20.5 18 L17.5 23 Z"/>
+    <!-- tank of spray -->
+    <path class="o" fill="#b6d24a" d="M-10 4 L10 4 L8 14 L-8 14 Z"/>
+    <path class="n" fill="#d8ec7a" d="M-7.4 6 L-3.6 6 L-4.2 12 L-6.6 12 Z"/>
+    <!-- the body: green with a yellow stripe and one angry red eye -->
+    <path class="o" fill="#2f9140" d="M-14 -6 Q-14 -13 -7 -13 L7 -13 Q15 -13 16 -5 L16 1 Q16 5 12 5 L-10 5 Q-14 5 -14 1 Z"/>
+    <path class="n" fill="#48ad59" d="M-10.5 -10.6 L6.6 -10.6 Q10 -10.6 11.4 -8.6 L-11.6 -8.6 Q-11.4 -10 -10.5 -10.6 Z"/>
+    <path class="n" fill="#ffd21f" d="M-13 0.2 L15 0.2 L15 2.8 L-13 2.8 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#1d1d1d" cx="9.5" cy="-4.6" r="4.4"/>
+    <circle class="n" fill="#ff4a3d" cx="9.8" cy="-4.4" r="2.5"/>
+    <circle class="n" fill="#ffffff" cx="10.8" cy="-5.4" r="0.9"/>
+    <path class="t" style="stroke-width:2.6" d="M3.4 -11.2 L14.6 -7.4"/>
+    <!-- antenna -->
+    <path class="t" d="M-8 -13 L-11 -19"/>
+    <circle class="n" fill="#ffd21f" cx="-11.2" cy="-19.2" r="1.5"/>
+  </g>
+
+  <!-- Rotors, as a blur. They flicker by squashing sideways. -->
+  <g id="rotor_back" data-parent="body" transform="translate(-25 -14.5)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#dfe6ea" fill-opacity="0.75" cx="0" cy="0" rx="12.5" ry="3"/>
+  </g>
+  <g id="rotor_front" data-parent="body" transform="translate(25 -14.5)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#dfe6ea" fill-opacity="0.75" cx="0" cy="0" rx="12.5" ry="3"/>
+  </g>
+</svg>

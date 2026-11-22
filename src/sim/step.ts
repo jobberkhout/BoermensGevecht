@@ -5,16 +5,21 @@ import {
   INCOME_EVERY,
   LANE,
   OVERTIME,
+  PROGRESS,
   ROW_ORDER,
   ROWS,
   SHOT_SLACK,
   SIEGE_REACH,
+  SUBSIDY,
   UNIT_CAP,
 } from '../defs/balance.ts';
-import { eraOf, turretDef, unitDef } from '../defs/index.ts';
+import { turretDef, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
-import { advanceWaves } from './specials.ts';
+import { frontUnit } from './lane.ts';
+import { kraanDicht, overtimeLevel, unitDamagePercent } from './overtime.ts';
+import { advanceBarrages, advanceWaves } from './specials.ts';
+import { turretDamage, turretRange } from './turrets.ts';
 import {
   BASE,
   SIDES,
@@ -22,6 +27,7 @@ import {
   type Damage,
   type Shot,
   type Side,
+  type SideState,
   type SimEvent,
   type SimState,
   type Stamped,
@@ -42,11 +48,14 @@ import {
 export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]): void {
   if (s.winner !== null) return;
 
-  // 1. Commands. A command only ever changes its own side's purse, queue or
-  //    specials, so the order of the two sides cannot matter.
+  // Everything that hurts this tick is collected here and applied at the end.
+  const dmg: Damage[] = [];
+
+  // 1. Commands. A command changes its own side's purse, queue and base, sets
+  //    flags, or queues damage; none of that depends on which side goes first.
   for (const side of SIDES) {
     for (const c of cmds) {
-      if (c.side === side && c.tick === s.tick && canDo(s, side, c.cmd)) applyCommand(s, side, c.cmd, events);
+      if (c.side === side && c.tick === s.tick && canDo(s, side, c.cmd)) applyCommand(s, side, c.cmd, events, dmg);
     }
   }
 
@@ -54,7 +63,6 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   for (const side of SIDES) economy(s, side, events);
 
   // 3. Everyone decides what to do, looking at the lane as it is right now.
-  const dmg: Damage[] = [];
   const fronts = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)] as const;
   for (const side of SIDES) decide(s, side, fronts[other(side)], dmg, events);
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
@@ -63,6 +71,7 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   move(s, fronts);
   advanceShots(s, dmg);
   advanceWaves(s, dmg);
+  advanceBarrages(s, dmg, events);
   overtime(s, dmg, events);
 
   // 7-8. Damage lands, beaten units leave, and a base at zero ends the match.
@@ -71,18 +80,17 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   s.tick++;
 }
 
-/** The unit furthest from its own gate. Everything on the other side aims at it. */
-export function frontUnit(units: readonly Unit[]): Unit | undefined {
-  let best: Unit | undefined;
-  for (const u of units) {
-    if (!best || u.pos > best.pos || (u.pos === best.pos && u.id < best.id)) best = u;
-  }
-  return best;
+/** True while this side's units are fired up by a buff. */
+function buffed(side: SideState, tick: number): boolean {
+  return side.buffUntil > tick;
 }
 
 function economy(s: SimState, side: Side, events: SimEvent[]): void {
   const me = s.sides[side];
-  if (s.tick > 0 && s.tick % INCOME_EVERY === 0) me.gold += eraOf(me.faction, me.era).income;
+  if (s.tick > 0 && s.tick % INCOME_EVERY === 0) {
+    if (!kraanDicht(s.tick)) me.gold += SUBSIDY.income[me.subsidy]!;
+    me.progress += PROGRESS.perInterval;
+  }
 
   const head = me.queue[0];
   if (!head) return;
@@ -176,6 +184,10 @@ function strike(
   events: SimEvent[],
 ): void {
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
+  const me = s.sides[side];
+  // A buff and overtime both make a unit hit harder; one on top of the other.
+  const fired = buffed(me, s.tick) ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
+  const amount = Math.floor((fired * unitDamagePercent(s.tick)) / 100);
   if (def.shot) {
     s.shots.push({
       id: s.nextId++,
@@ -186,9 +198,11 @@ function strike(
       dist0: Math.max(dist, 1),
       limit: u.pos + def.range + SHOT_SLACK,
       speed: def.shot.speed,
-      dmg: def.dmg,
+      dmg: amount,
       rig: def.shot.rig,
       arc: def.shot.arc,
+      spin: def.shot.spin,
+      src: u.id,
       row: u.row,
       slot: -1,
     });
@@ -197,13 +211,13 @@ function strike(
   if (dist > def.range) return; // the target is gone; the blow hits air
   const foe = other(side);
   if (!foeFront) {
-    dmg.push({ side: foe, unit: BASE, amount: def.dmg });
+    dmg.push({ side: foe, unit: BASE, amount });
   } else if (def.cleave) {
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.range) dmg.push({ side: foe, unit: f.id, amount: def.dmg });
+      if (LANE - u.pos - f.pos <= def.range) dmg.push({ side: foe, unit: f.id, amount });
     }
   } else {
-    dmg.push({ side: foe, unit: foeFront.id, amount: def.dmg });
+    dmg.push({ side: foe, unit: foeFront.id, amount });
   }
 }
 
@@ -215,8 +229,9 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
     if (t.cd > 0) t.cd--;
     if (t.cd > 0 || !foeFront) continue;
     const def = turretDef(t.def);
+    const range = turretRange(def, t.level);
     const dist = LANE - foeFront.pos;
-    if (dist > def.range) continue;
+    if (dist > range) continue;
     t.cd = def.cooldown;
     s.shots.push({
       id: s.nextId++,
@@ -225,11 +240,13 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
       prevPos: 0,
       origin: 0,
       dist0: Math.max(dist, 1),
-      limit: def.range + SHOT_SLACK,
+      limit: range + SHOT_SLACK,
       speed: def.shot.speed,
-      dmg: def.dmg,
+      dmg: turretDamage(def, t.level),
       rig: def.shot.rig,
       arc: def.shot.arc,
+      spin: def.shot.spin,
+      src: -1,
       row: foeFront.row,
       slot,
     });
@@ -243,9 +260,11 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
   // speed, rounded down for both, so neither side gains from the rounding.
   const line: [number, number] = [fronts[0]?.pos ?? 0, fronts[1]?.pos ?? 0];
   const fastest: [number, number] = [0, 0];
+  const pace: [number, number] = [100, 100];
   for (const side of SIDES) {
+    if (buffed(s.sides[side], s.tick)) pace[side] = s.sides[side].buffSpeedPercent;
     for (const u of s.sides[side].units) {
-      if (u.act === 'walk') fastest[side] = Math.max(fastest[side], unitDef(u.def).speed);
+      if (u.act === 'walk') fastest[side] = Math.max(fastest[side], Math.floor((unitDef(u.def).speed * pace[side]) / 100));
     }
   }
   const gap = Math.max(0, LANE - line[0] - line[1] - CONTACT_GAP);
@@ -264,7 +283,8 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
       const def = unitDef(u.def);
       u.prevPos = u.pos;
       if (u.act === 'walk') {
-        const next = Math.max(u.pos, Math.min(u.pos + def.speed, rowLimit[u.row]!));
+        const speed = Math.floor((def.speed * pace[side]) / 100);
+        const next = Math.max(u.pos, Math.min(u.pos + speed, rowLimit[u.row]!));
         if (next === u.pos) u.act = 'idle';
         u.pos = next;
       }
@@ -301,9 +321,15 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
 function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   if (s.tick < OVERTIME.at) return;
   if (s.tick === OVERTIME.at) events.push({ t: 'overtime' });
-  if ((s.tick - OVERTIME.at) % OVERTIME.every !== 0) return;
+  // The harder hitting itself happens where units strike; this only announces each step.
+  if ((s.tick - OVERTIME.at) % OVERTIME.every === 0) {
+    events.push({ t: 'escalate', level: overtimeLevel(s.tick), percent: unitDamagePercent(s.tick) - 100 });
+  }
+  if (s.tick < OVERTIME.crumbleAt) return;
+  if (s.tick === OVERTIME.crumbleAt) events.push({ t: 'crumble' });
+  if ((s.tick - OVERTIME.crumbleAt) % OVERTIME.crumbleEvery !== 0) return;
   for (const side of SIDES) {
-    const amount = Math.ceil((s.sides[side].baseMaxHp * OVERTIME.percent) / 100);
+    const amount = Math.ceil((s.sides[side].baseMaxHp * OVERTIME.crumblePercent) / 100);
     dmg.push({ side, unit: BASE, amount });
   }
 }
@@ -331,8 +357,12 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
         alive.push(u);
         continue;
       }
-      const bounty = unitDef(u.def).bounty;
+      const def = unitDef(u.def);
+      const bounty = def.bounty;
       foe.gold += bounty;
+      // Both sides learn from a fight; the one that won it learns more.
+      foe.progress += Math.floor((def.cost * PROGRESS.killPercent) / 100);
+      me.progress += Math.floor((def.cost * PROGRESS.lossPercent) / 100);
       events.push({ t: 'defeat', side, id: u.id, def: u.def, pos: u.pos });
       events.push({ t: 'gold', side: other(side), amount: bounty, pos: LANE - u.pos });
     }

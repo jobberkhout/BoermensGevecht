@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-316 -596 332 602" data-rig="static">
+  <title>De Saksische boerderij van de jaren zeventig: rieten kap, vakwerk en hooi op de hilde</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The farmhouse stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole -->
+    <path class="t" style="stroke-width:5" d="M-288 -462 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- a television aerial on the thatch: it is 1975 after all -->
+    <path class="t" style="stroke-width:3.2" d="M-58 -504 L-58 -556 M-80 -550 L-36 -550 M-75 -541 L-41 -541 M-70 -532 L-46 -532"/>
+    <path class="t" style="stroke-width:2" d="M-58 -522 Q-70 -514 -66 -506"/>
+
+    <!-- crossed gable boards at the end of the ridge -->
+    <path class="t" style="stroke-width:6.5" d="M-24 -498 L-2 -530 M-6 -498 L-28 -530"/>
+    <path fill="none" stroke="#f4ecdc" stroke-width="3" stroke-linecap="round" d="M-24 -498 L-2 -530 M-6 -498 L-28 -530"/>
+
+    <!-- the thatched roof -->
+    <path class="o" fill="#b39a5c" d="M-312 -440 Q-296 -474 -262 -500 Q-250 -508 -236 -508 L-36 -508 Q-22 -508 -12 -500 Q4 -474 12 -440 Z"/>
+    <path class="t" style="stroke:#8f7a45;stroke-width:2.2" d="M-300 -456 L0 -456 M-288 -470 L-10 -470 M-274 -484 L-20 -484"/>
+    <path class="t" style="stroke:#8f7a45" d="M-262 -500 L-270 -486 M-230 -506 L-232 -494 M-190 -507 L-190 -495 M-150 -507 L-150 -495 M-110 -507 L-110 -495 M-70 -507 L-70 -495 M-40 -506 L-38 -494 M-250 -482 L-254 -472 M-200 -482 L-202 -472 M-150 -482 L-150 -472 M-100 -482 L-98 -472 M-50 -482 L-46 -472 M-280 -468 L-286 -458 M-225 -468 L-228 -458 M-170 -468 L-172 -458 M-120 -468 L-120 -458 M-70 -468 L-68 -458 M-22 -468 L-16 -458"/>
+    <!-- the ridge, capped with sods -->
+    <path class="o" fill="#6f7a45" d="M-266 -497 Q-252 -513 -236 -513 L-36 -513 Q-20 -513 -8 -497 L-18 -492 Q-26 -500 -38 -500 L-234 -500 Q-246 -500 -256 -492 Z"/>
+    <path class="t" style="stroke:#55602f" d="M-240 -507 L-236 -503 M-200 -508 L-196 -504 M-160 -508 L-156 -504 M-120 -508 L-116 -504 M-80 -508 L-76 -504 M-44 -507 L-40 -503"/>
+
+    <!-- the inside of the hall, seen through its open gable -->
+    <rect class="o" fill="#3a3226" x="-296" y="-438" width="292" height="438"/>
+    <path class="t" style="stroke:#4b4233;stroke-width:2.4" d="M-262 -426 L-262 -296 M-226 -426 L-226 -296 M-190 -426 L-190 -296 M-116 -426 L-116 -296 M-80 -426 L-80 -296 M-44 -426 L-44 -296 M-262 -284 L-262 -146 M-226 -284 L-226 -146 M-190 -284 L-190 -146 M-116 -284 L-116 -146 M-80 -284 L-80 -146 M-44 -284 L-44 -146"/>
+
+    <!-- upper loft: square bales, loose hay, and the little owl that lives here -->
+    <rect class="o" fill="#e6c24a" x="-284" y="-336" width="46" height="40" rx="3"/>
+    <rect class="o" fill="#edcb58" x="-236" y="-336" width="46" height="40" rx="3"/>
+    <rect class="o" fill="#edcb58" x="-262" y="-374" width="46" height="38" rx="3"/>
+    <path class="t" style="stroke:#b5651d;stroke-width:2.2" d="M-270 -336 L-270 -296 M-252 -336 L-252 -296 M-222 -336 L-222 -296 M-204 -336 L-204 -296 M-248 -374 L-248 -336 M-230 -374 L-230 -336"/>
+    <path class="o" fill="#e6c24a" d="M-112 -296 Q-110 -328 -84 -336 Q-66 -354 -44 -340 Q-20 -334 -16 -296 Z"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.2" d="M-96 -306 Q-88 -322 -74 -326 M-70 -304 Q-62 -324 -48 -330 M-44 -304 Q-38 -316 -28 -318"/>
+    <g transform="translate(-89 35)">
+      <path class="o" fill="#8a6f4e" d="M-150 -438 Q-161 -436 -160 -424 Q-160 -410 -150 -409 Q-140 -410 -140 -424 Q-139 -436 -150 -438 Z"/>
+      <path class="n" fill="#e9dcc0" d="M-150 -430 Q-157 -430 -156.5 -422 Q-156 -414 -150 -413.5 Q-144 -414 -143.5 -422 Q-143 -430 -150 -430 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ffd21f" cx="-154" cy="-426" r="3"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ffd21f" cx="-146" cy="-426" r="3"/>
+      <circle class="n" fill="#2b1b16" cx="-154" cy="-426" r="1.2"/>
+      <circle class="n" fill="#2b1b16" cx="-146" cy="-426" r="1.2"/>
+      <path class="o" style="stroke-width:1.4" fill="#e0a030" d="M-151.5 -422.5 L-148.5 -422.5 L-150 -419.5 Z"/>
+    </g>
+
+    <!-- lower loft: a heap of loose hay, a ladder, a scythe and a row of sausages drying on the beam -->
+    <path class="o" fill="#edcb58" d="M-286 -146 Q-286 -176 -262 -186 Q-244 -204 -222 -190 Q-200 -186 -196 -146 Z"/>
+    <path class="t" style="stroke:#c39a2b;stroke-width:2.2" d="M-272 -156 Q-264 -172 -250 -176 M-246 -154 Q-238 -174 -224 -180 M-222 -154 Q-216 -166 -206 -168"/>
+    <path class="t" style="stroke-width:6" d="M-40 -146 L-22 -284 M-22 -146 L-4 -284"/>
+    <path fill="none" stroke="#a8743f" stroke-width="3" stroke-linecap="round" d="M-40 -146 L-22 -284 M-22 -146 L-4 -284 M-37 -168 L-19 -168 M-34 -192 L-16 -192 M-31 -216 L-13 -216 M-28 -240 L-10 -240 M-25 -264 L-7 -264"/>
+    <path class="t" style="stroke-width:3.4;stroke:#7a5a3a" d="M-150 -270 L-176 -160"/>
+    <path class="o" style="stroke-width:2" fill="#c3ccd0" d="M-150 -270 Q-128 -278 -104 -262 Q-126 -268 -148 -264 Z"/>
+    <path class="t" style="stroke-width:2.2;stroke:#c9bfa8" d="M-98 -284 L-98 -272 M-84 -284 L-84 -272 M-70 -284 L-70 -272"/>
+    <rect class="o" style="stroke-width:2" fill="#8a3a2a" x="-101.5" y="-273" width="7" height="22" rx="3.5"/>
+    <rect class="o" style="stroke-width:2" fill="#9c4632" x="-87.5" y="-273" width="7" height="26" rx="3.5"/>
+    <rect class="o" style="stroke-width:2" fill="#8a3a2a" x="-73.5" y="-273" width="7" height="20" rx="3.5"/>
+
+    <!-- loft floors and the oak frame that carries them -->
+    <rect class="o" fill="#6b4f33" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#6b4f33" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#7a5a3a" x="-298" y="-438" width="12" height="438"/>
+    <rect class="o" fill="#7a5a3a" x="-14" y="-438" width="12" height="304"/>
+    <path class="t" style="stroke:#4a3622;stroke-width:5" d="M-286 -396 L-258 -436 M-14 -396 L-42 -436 M-286 -250 L-262 -284 M-14 -250 L-38 -284"/>
+    <!-- the shaggy eave -->
+    <path class="o" fill="#9c8449" d="M-316 -449 L16 -449 L16 -436 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 q-8.30 9.0 -16.60 0 Z"/>
+
+    <!-- ground floor: half-timbering on a brick plinth, the big green doors, an hourglass shutter, two churns waiting for the milk lorry -->
+    <rect class="o" fill="#efe3c4" x="-286" y="-134" width="184" height="134"/>
+    <rect class="o" fill="#a8553c" x="-286" y="-24" width="184" height="24"/>
+    <path class="t" style="stroke:#c4775e;stroke-width:2.2" d="M-280 -12 L-264 -12 M-150 -14 L-134 -14 M-124 -8 L-110 -8"/>
+    <rect class="o" fill="#6b4f33" x="-286" y="-76" width="28" height="8"/>
+    <rect class="o" fill="#6b4f33" x="-162" y="-118" width="60" height="8"/>
+    <rect class="o" fill="#6b4f33" x="-162" y="-46" width="60" height="8"/>
+    <rect class="o" fill="#1f5a2a" x="-258" y="-120" width="96" height="120"/>
+    <path class="o" fill="#1f5a2a" d="M-258 -120 Q-210 -140 -162 -120 Z"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:5" d="M-252 -112 L-168 -112 L-168 -6 L-252 -6 Z M-210 -124 L-210 -6 M-252 -112 L-210 -6 M-168 -112 L-210 -6"/>
+    <rect class="o" style="stroke-width:2" fill="#3a3a3a" x="-216" y="-66" width="12" height="5" rx="2"/>
+    <rect class="o" fill="#d9342b" x="-152" y="-104" width="40" height="52"/>
+    <rect class="n" fill="#1f5a2a" x="-148.5" y="-100.5" width="33" height="45"/>
+    <path class="n" fill="#f4ecdc" d="M-148.5 -100.5 L-115.5 -100.5 L-132 -78 Z M-148.5 -55.5 L-115.5 -55.5 L-132 -78 Z"/>
+    <rect class="o" fill="#9a958f" x="-298" y="-10" width="198" height="10"/>
+    <!-- the milk churns -->
+    <path class="o" fill="#b9c2bd" d="M-152 -10 L-152 -32 Q-152 -38 -147.5 -39 L-147.5 -43 L-138.5 -43 L-138.5 -39 Q-134 -38 -134 -32 L-134 -10 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#9aa59f" x="-150" y="-46.5" width="14" height="4.5" rx="2"/>
+    <path class="o" fill="#c7cfca" d="M-130 -10 L-130 -32 Q-130 -38 -125.5 -39 L-125.5 -43 L-116.5 -43 L-116.5 -39 Q-112 -38 -112 -32 L-112 -10 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#9aa59f" x="-128" y="-46.5" width="14" height="4.5" rx="2"/>
+    <path class="t" style="stroke:#8b9690" d="M-152 -22 L-134 -22 M-130 -22 L-112 -22"/>
+
+    <!-- the doorway units come out of -->
+    <rect class="o" fill="#6b4f33" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#241d17" x="-90" y="-122" width="76" height="122"/>
+    <rect class="o" fill="#7a5a3a" x="-102" y="-134" width="12" height="134"/>
+    <!-- a horseshoe over the door, for luck -->
+    <path class="t" style="stroke-width:3.6;stroke:#8b9690" d="M-58 -124 Q-60 -134.5 -52 -134.5 Q-44 -134.5 -46 -124"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+</svg>

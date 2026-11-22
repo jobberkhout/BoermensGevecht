@@ -15,27 +15,27 @@
     <rect class="o" fill="#b9c2bd" x="-50" y="-56" width="94" height="48" rx="22"/>
     <path class="n" fill="#9aa59f" d="M-38 -12 Q-3 -9.5 32 -12 Q22 -16 -3 -16 Q-28 -16 -38 -12 Z"/>
     <path class="n" fill="#dbe2de" d="M-34 -51 Q-3 -54 28 -51 Q20 -47.5 -3 -47.5 Q-26 -47.5 -34 -51 Z"/>
-    <path class="t" stroke="#8b9690" stroke-width="3" d="M-30 -55 L-30 -9 M-4 -56 L-4 -8 M22 -55 L22 -9"/>
+    <path class="t" style="stroke:#8b9690;stroke-width:3" d="M-30 -55 L-30 -9 M-4 -56 L-4 -8 M22 -55 L22 -9"/>
     <rect class="o" fill="#1f5a2a" x="-14" y="-62" width="20" height="8" rx="3"/>
     <!-- gier that slopped over the hatch -->
     <path class="n" fill="#6b4a2b" d="M-10 -54 Q-10 -44 -7.5 -40 Q-5.5 -44 -5 -54 L1 -54 Q1 -36 3.5 -31 Q6 -36 5.5 -54 Z"/>
     <!-- suction hose folded along the side -->
-    <path class="o" fill="none" stroke-width="8" d="M-42 -28 L30 -36 L38 -48"/>
+    <path class="o" style="stroke-width:8" fill="none" d="M-42 -28 L30 -36 L38 -48"/>
     <path fill="none" stroke="#4d4d4d" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" d="M-42 -28 L30 -36 L38 -48"/>
   </g>
 
   <!-- The nozzle on top of the tank. Joint at its base. -->
   <g id="tool" data-parent="tank" transform="translate(-30 -78)">
-    <path class="o" fill="none" stroke-width="11" d="M0 0 L22 -20"/>
+    <path class="o" style="stroke-width:11" fill="none" d="M0 0 L22 -20"/>
     <path fill="none" stroke="#2f9140" stroke-width="7" stroke-linecap="round" d="M0 0 L22 -20"/>
     <path class="o" fill="#ffd21f" d="M17 -22 L24 -15 L31 -22 L24 -29 Z"/>
     <circle class="o" fill="#1f5a2a" cx="0" cy="0" r="6.5"/>
-    <circle data-mount="muzzle" cx="29" cy="-27" r="1"/>
+    <circle data-mount="muzzle" fill="none" cx="29" cy="-27" r="1"/>
   </g>
 
   <g id="wheel_tank" data-parent="chassis" transform="translate(-58 -21)">
     <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="21"/>
-    <circle class="n" fill="none" stroke="#474747" stroke-width="5" stroke-dasharray="5 5.6" cx="0" cy="0" r="17.5"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="5" stroke-dasharray="5 5.6" cx="0" cy="0" r="17.5"/>
     <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="10"/>
     <path class="t" d="M0 -10 L0 -3.5 M0 10 L0 3.5 M-10 0 L-3.5 0 M10 0 L3.5 0"/>
     <circle class="o" fill="#9aa0a4" cx="0" cy="0" r="3.5"/>
@@ -52,14 +52,14 @@
     <path class="n" fill="#48ad59" d="M3 -18 L49 -14.5 Q54 -14 55 -11 L3 -13.5 Z"/>
     <path class="n" fill="#ffd21f" d="M0 2.5 L59 2.5 L59 6.5 L0 6.5 Z"/>
     <path class="t" d="M0 2.5 L59 2.5 M0 6.5 L59 6.5"/>
-    <path class="t" stroke-width="2" d="M55 -12 L59 -12 M55 -8 L59 -8 M55 -4 L59 -4"/>
+    <path class="t" style="stroke-width:2" d="M55 -12 L59 -12 M55 -8 L59 -8 M55 -4 L59 -4"/>
     <circle class="o" fill="#fff3b0" cx="56" cy="-15" r="2.6"/>
     <!-- mudguard and the lower half of the cab -->
     <path class="o" fill="#2f9140" d="M-50 9 Q-52 -24 -30 -25 L4 -25 L6 9 Z"/>
     <path class="n" fill="#237832" d="M-48 7 Q-49 -20 -31 -22 Q-42 -14 -42 7 Z"/>
     <!-- the inside of the cab, seen through the glass -->
     <path class="o" fill="#34424b" d="M-42 -25 L-40 -53 L-2 -53 L4 -25 Z"/>
-    <path class="t" stroke-width="2.6" d="M-10 -27 L-6 -36 M-10.5 -37.5 L-2 -34.5"/>
+    <path class="t" style="stroke-width:2.6" d="M-10 -27 L-6 -36 M-10.5 -37.5 L-2 -34.5"/>
   </g>
 
   <!-- Giertink himself. Joint at the seat. -->
@@ -85,24 +85,24 @@
     <path class="o" fill="#2f9140" d="M-48 -52 Q-48 -60 -40 -60 L-2 -60 Q6 -60 6 -52 Z"/>
     <path class="n" fill="#48ad59" d="M-43 -57.5 L-3 -57.5 Q1 -57.5 2 -55.5 L-45 -55.5 Q-45 -57 -43 -57.5 Z"/>
     <path class="o" fill="#ff9a1f" d="M-38 -60 Q-38 -66 -34 -66 Q-30 -66 -30 -60 Z"/>
-    <path class="t" stroke-width="2" d="M2 -40 L11 -43"/>
+    <path class="t" style="stroke-width:2" d="M2 -40 L11 -43"/>
     <rect class="o" fill="#34424b" x="10" y="-49" width="4.5" height="11" rx="1.5"/>
     <path class="t" d="M-24 -24 L-24 5 M-29 -12 L-25 -12"/>
   </g>
 
   <g id="wheel_back" data-parent="chassis" transform="translate(18 -30)">
     <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="30"/>
-    <circle class="n" fill="none" stroke="#474747" stroke-width="7" stroke-dasharray="6 6.6" cx="0" cy="0" r="25.5"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="7" stroke-dasharray="6 6.6" cx="0" cy="0" r="25.5"/>
     <circle class="o" fill="#ffd21f" cx="0" cy="0" r="16"/>
-    <path class="t" stroke-width="2.2" d="M0 -16 L0 -6 M0 16 L0 6 M-16 0 L-6 0 M16 0 L6 0 M-11.3 -11.3 L-4.2 -4.2 M11.3 11.3 L4.2 4.2 M-11.3 11.3 L-4.2 4.2 M11.3 -11.3 L4.2 -4.2"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -16 L0 -6 M0 16 L0 6 M-16 0 L-6 0 M16 0 L6 0 M-11.3 -11.3 L-4.2 -4.2 M11.3 11.3 L4.2 4.2 M-11.3 11.3 L-4.2 4.2 M11.3 -11.3 L4.2 -4.2"/>
     <circle class="o" fill="#e0b400" cx="0" cy="0" r="6"/>
   </g>
 
   <g id="wheel_front" data-parent="chassis" transform="translate(80 -20)">
     <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="20"/>
-    <circle class="n" fill="none" stroke="#474747" stroke-width="5" stroke-dasharray="5 5.2" cx="0" cy="0" r="16.6"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="5" stroke-dasharray="5 5.2" cx="0" cy="0" r="16.6"/>
     <circle class="o" fill="#ffd21f" cx="0" cy="0" r="10"/>
-    <path class="t" stroke-width="2" d="M0 -10 L0 -4 M0 10 L0 4 M-10 0 L-4 0 M10 0 L4 0"/>
+    <path class="t" style="stroke-width:2" d="M0 -10 L0 -4 M0 10 L0 4 M-10 0 L-4 0 M10 0 L4 0"/>
     <circle class="o" fill="#e0b400" cx="0" cy="0" r="4"/>
   </g>
 </svg>

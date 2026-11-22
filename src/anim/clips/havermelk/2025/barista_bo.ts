@@ -1,11 +1,11 @@
-import { bob, flinch, idle, slinkOff, swing, walk } from '../humanoid.ts';
-import type { ClipSet } from '../types.ts';
+import { bob, flinch, idle, slinkOff, swing, walk } from '../../../humanoid.ts';
+import type { ClipSet } from '../../../types.ts';
 
 /**
  * Barista Bo: struts with her cup held steady, swings it back and lobs a
  * haver-flat-white underhand. The bun bounces along with everything she does.
  */
-export const baristaBo: ClipSet = {
+const baristaBo: ClipSet = {
   idle: idle(
     { seconds: 2.6, breathe: 0.035, armSway: 3 },
     {
@@ -63,3 +63,5 @@ export const baristaBo: ClipSet = {
     },
   ),
 };
+
+export default baristaBo;

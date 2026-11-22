@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-54 -108 110 114" data-rig="vehicle">
+  <title>Quadink op zijn quad</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The quad itself. Joint in the middle, between the wheels. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -26)">
+    <rect class="o" fill="#3a3a3a" x="-20" y="2" width="42" height="12" rx="3"/>
+    <path class="t" style="stroke-width:3" d="M40 -2 L48 -2 L48 10 L40 10 M44 -2 L44 10"/>
+    <!-- hay bale strapped on the back -->
+    <rect class="o" fill="#e6c24a" x="-44" y="-24" width="22" height="14" rx="2.5"/>
+    <path class="t" style="stroke:#b5651d;stroke-width:2" d="M-36 -24 L-36 -10 M-29 -24 L-29 -10"/>
+    <path class="o" fill="#d9342b" d="M-46 6 Q-45 -11 -26 -11 Q-10 -11 -8 -2 L-12 2 Q-25 -5 -40 6 Z"/>
+    <path class="o" fill="#d9342b" d="M6 -2 Q11 -13 28 -13 Q45 -11 47 6 L41 6 Q30 -6 12 2 Z"/>
+    <path class="o" fill="#d9342b" d="M-16 -4 L-12 -12 L12 -15 L24 -8 L14 2 L-14 2 Z"/>
+    <path class="n" fill="#ee5a4f" d="M-9 -10.5 L10 -13 L16 -9.5 L-10 -7.5 Z"/>
+    <path class="o" fill="#2b2b2b" d="M-24 -9 Q-22 -14.5 -14 -14 L2 -15 L2 -10 L-22 -7 Z"/>
+    <circle class="o" fill="#fff3b0" cx="27" cy="-12" r="3.4"/>
+    <path class="t" style="stroke-width:3" d="M14 -14 L9 -31"/>
+    <path class="t" style="stroke-width:4" d="M3 -32 L13 -32"/>
+  </g>
+
+  <!-- The rider, leaning into it. Joint at the saddle. -->
+  <g id="rider" data-parent="body" transform="translate(-8 -39)">
+    <path class="o" fill="#274f86" d="M-4 2 L3 -6 L15 8 L16 20 L9 21 L7 11 Z"/>
+    <path class="o" fill="#3a3a3a" d="M6 20 L18 19 Q22 21 20 25 L6 25 Z"/>
+    <path class="o" fill="#2f5f9e" d="M-10 0 Q-11 -16 -2 -31 Q6 -38 16 -33 Q18 -22 9 -6 L5 3 Z"/>
+    <path class="o" fill="#2f5f9e" d="M6 -29 L22 -10 L18 -5 L3 -19 Z"/>
+    <circle class="o" fill="#f0c19a" cx="20.5" cy="-7.5" r="4"/>
+    <circle class="o" fill="#f0c19a" cx="16" cy="-45" r="13"/>
+    <path class="o" fill="#f0c19a" d="M27.5 -46.5 Q32 -43.5 27.8 -41"/>
+    <path class="o" fill="#e8c35a" d="M4.5 -41 Q2.5 -35 6 -31 L8.5 -41 Z"/>
+    <path class="o" fill="#2f6fd0" d="M2.5 -48.5 Q3 -59.5 17 -59 Q27.5 -58.5 29.5 -51 Q16 -55 2.5 -48.5 Z"/>
+    <path class="o" fill="#fafafa" d="M19 -59 Q27.5 -58.5 29.5 -51 L20 -53 Z"/>
+    <path class="o" fill="#2458aa" d="M27 -53.5 L37.5 -49.5 L36.5 -46.5 L26.5 -48.5 Z"/>
+    <circle class="n" fill="#2b1b16" cx="22" cy="-46" r="1.6"/>
+    <path class="t" style="stroke-width:1.9" d="M18.5 -50.5 L25 -50"/>
+    <path class="o" fill="#ffffff" d="M18 -39.5 Q23 -34.5 27.5 -39.5 Q23 -41 18 -39.5 Z"/>
+    <path class="o" fill="#d9342b" d="M4 -34 Q10 -29 17 -32 L13.5 -26 Q8 -24.5 4.5 -28 Z"/>
+  </g>
+
+  <!-- The tail of his zakdoek, flapping behind him. -->
+  <g id="scarf" data-parent="rider" transform="translate(-3 -72)">
+    <path class="o" fill="#d9342b" d="M0 0 Q-8 -4 -17 -1 Q-12 3 -16 7 Q-7 7 0 4 Z"/>
+    <circle class="n" fill="#ffffff" cx="-7" cy="1.4" r="1"/>
+    <circle class="n" fill="#ffffff" cx="-11.5" cy="3.4" r="1"/>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-25 -15)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="15"/>
+    <circle fill="none" stroke="#474747" stroke-width="5" stroke-dasharray="4.4 4.4" cx="0" cy="0" r="12"/>
+    <circle class="o" fill="#8a8f93" cx="0" cy="0" r="6"/>
+    <path class="t" d="M0 -6 L0 6 M-6 0 L6 0"/>
+    <circle class="o" fill="#d9342b" cx="0" cy="0" r="2.2"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(27 -15)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="15"/>
+    <circle fill="none" stroke="#474747" stroke-width="5" stroke-dasharray="4.4 4.4" cx="0" cy="0" r="12"/>
+    <circle class="o" fill="#8a8f93" cx="0" cy="0" r="6"/>
+    <path class="t" d="M0 -6 L0 6 M-6 0 L6 0"/>
+    <circle class="o" fill="#d9342b" cx="0" cy="0" r="2.2"/>
+  </g>
+</svg>

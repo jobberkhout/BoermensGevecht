@@ -100,8 +100,31 @@ body {
   margin-bottom: 0.25cqw;
 }
 
-.team.right .name {
-  text-align: right;
+/* The faction's name with the era it is in next to it. */
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6cqw;
+  margin-bottom: 0.25cqw;
+}
+
+.team.right .title {
+  flex-direction: row-reverse;
+}
+
+.title .name {
+  margin-bottom: 0;
+}
+
+.title small {
+  padding: 0.05cqw 0.5cqw;
+  border: 0.18cqw solid var(--ink);
+  border-radius: 0.7cqw;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.95cqw;
+  white-space: nowrap;
 }
 
 .hp {
@@ -153,9 +176,68 @@ body {
     0 -0.16cqw 0 var(--ink);
 }
 
+.middle {
+  display: grid;
+  justify-items: center;
+  gap: 0.3cqw;
+}
+
+.mute {
+  display: flex;
+  align-items: center;
+  gap: 0.3cqw;
+  padding: 0.2cqw 0.5cqw;
+  border: 0.2cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: var(--paper);
+  box-shadow: 0 0.2cqw 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.mute svg {
+  width: 2.3cqw;
+  height: 1.5cqw;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mute svg .spk,
+.mute svg .head {
+  fill: var(--ink);
+}
+
+.mute svg .no-music,
+.mute svg .no-sound {
+  display: none;
+  stroke: #e0442c;
+  stroke-width: 3;
+}
+
+.mute[data-mode='effects'] svg .no-music,
+.mute[data-mode='off'] svg .no-music,
+.mute[data-mode='off'] svg .no-sound {
+  display: inline;
+}
+
+.mute[data-mode='off'] svg .waves {
+  display: none;
+}
+
+.mute kbd {
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.85cqw;
+}
+
 .banner {
   position: absolute;
-  top: 6.2cqw;
+  top: 8.4cqw;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5cqw 1.4cqw;
@@ -173,12 +255,23 @@ body {
   display: none;
 }
 
+/* Every time overtime turns the screw the banner jumps. */
+.banner.bump {
+  animation: bump 0.35s ease-out;
+}
+
+@keyframes bump {
+  30% {
+    scale: 1.18;
+  }
+}
+
 /* ---- the two control panels ---- */
 
 .panel {
   position: absolute;
   bottom: 1.1cqw;
-  width: 31cqw;
+  width: 33cqw;
   display: grid;
   gap: 0.55cqw;
 }
@@ -219,6 +312,7 @@ body {
 .purse small {
   font-size: 1.05cqw;
   color: #fff;
+  white-space: nowrap;
 }
 
 .queue {
@@ -227,7 +321,7 @@ body {
 }
 
 .queue i {
-  width: 2.3cqw;
+  width: 1.9cqw;
   height: 0.95cqw;
   border: 0.18cqw solid var(--ink);
   border-radius: 0.5cqw;
@@ -244,7 +338,7 @@ body {
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   gap: 0.6cqw;
 }
 
@@ -265,25 +359,72 @@ body {
   pointer-events: auto;
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
-.btn.wide {
-  height: 4.4cqw;
+/* The four action buttons under the units: key and price on top, name and a hint below. */
+.btn.small {
+  height: 4.7cqw;
+  grid-column: span 3;
   display: flex;
-  align-items: center;
-  gap: 0.5cqw;
-  padding: 0 0.6cqw;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0.4cqw 0.3cqw;
+  text-align: left;
 }
 
-.btn.wide kbd,
-.btn.wide .cost {
-  position: static;
-  flex: none;
+/* The last era has four units to choose from: narrower buttons, smaller names. */
+.buttons.four .btn:not(.small) {
+  grid-column: span 3;
 }
 
-.btn.wide kbd {
-  order: -1;
+.buttons.four .btn:not(.small) .label {
+  font-size: 0.82cqw;
+  letter-spacing: -0.02cqw;
+}
+
+/* In the last era the modernize button is gone and the other three share the row. */
+.buttons.three .btn.small {
+  grid-column: span 4;
+}
+
+.btn .sub {
+  position: relative;
+  font-weight: 700;
+  font-size: 0.8cqw;
+  line-height: 1.1;
+  color: #6f5a4c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn.off .sub {
+  color: inherit;
+}
+
+/* Vooruitgang: the modernize button fills up, and calls for attention once it is full. */
+.btn .fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: rgba(47, 145, 64, 0.32);
+  pointer-events: none;
+}
+
+.btn.ready {
+  background: var(--gold);
+  animation: ready 0.9s ease-in-out infinite;
+}
+
+.btn.ready .fill {
+  background: none;
+}
+
+@keyframes ready {
+  50% {
+    background: #fff3b8;
+  }
 }
 
 .btn.pressed {
@@ -326,24 +467,38 @@ body {
   text-overflow: ellipsis;
 }
 
-.btn.wide .label {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.98cqw;
-  line-height: 1.02;
-  text-align: left;
-  white-space: normal;
-  /* Long names carry a soft hyphen in nl.ts that says where they may break. */
-  hyphens: manual;
+.btn.small .label {
+  position: relative;
+  font-size: 0.92cqw;
+  line-height: 1.1;
+  letter-spacing: -0.01cqw;
 }
 
+/* Names that would not fit otherwise, such as Trekkerkolonne. */
+.btn.small .label.long {
+  font-size: 0.8cqw;
+  letter-spacing: -0.02cqw;
+}
+
+/* On a patch of its own, so a wide drawing behind it cannot swallow the digits. */
 .btn .cost {
   position: absolute;
-  top: 0.3cqw;
-  right: 0.45cqw;
+  top: 0.25cqw;
+  right: 0.3cqw;
+  padding: 0 0.25cqw;
+  border-radius: 0.4cqw;
+  background: rgba(255, 250, 240, 0.85);
   font-weight: 800;
   font-size: 1.05cqw;
   color: #8a5a00;
+}
+
+.btn.off .cost {
+  background: rgba(207, 199, 186, 0.85);
+}
+
+.btn.ready .cost {
+  background: none;
 }
 
 .btn kbd {
@@ -500,10 +655,21 @@ body {
 
 .keys {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.35cqw 0.7cqw;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.3cqw 0.7cqw;
   align-items: center;
-  font-size: 1.12cqw;
+  font-size: 1.08cqw;
+}
+
+.keys .pic {
+  width: 4.4cqw;
+  height: 3.5cqw;
+  background: center / contain no-repeat;
+}
+
+/* The farmers face left, towards the city, as they do on the field. */
+.side.right .keys .pic.flip {
+  transform: scaleX(-1);
 }
 
 .keys kbd {

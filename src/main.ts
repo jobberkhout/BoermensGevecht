@@ -6,8 +6,10 @@ import { installTestHooks } from './testhooks.ts';
 const canvas = document.getElementById('field') as HTMLCanvasElement;
 const hud = document.getElementById('hud') as HTMLElement;
 
-const game = new Game(createStage(canvas), hud);
-if (new URLSearchParams(location.search).has('test')) installTestHooks(game);
+// With ?test=1 a script steps the match by hand; it runs silently.
+const test = new URLSearchParams(location.search).has('test');
+const game = new Game(createStage(canvas), hud, { sound: !test });
+if (test) installTestHooks(game);
 
 game
   .boot()

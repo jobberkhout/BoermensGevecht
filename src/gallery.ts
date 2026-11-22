@@ -13,7 +13,7 @@ import { CLIP_NAMES, type Clip } from './anim/types.ts';
 import { loadRig, rigIds, rigSource, rigUrl } from './render/assets.ts';
 import { applyX, applyY } from './rig/mat.ts';
 import { addPose, drawRig, makePose, solve, type Pose } from './rig/pose.ts';
-import type { Rig } from './rig/raster.ts';
+import { loadImage, openTag, type Rig } from './rig/raster.ts';
 
 const app = document.getElementById('app')!;
 const params = new URLSearchParams(location.search);
@@ -111,29 +111,54 @@ function liveCanvas(rig: Rig, name: string, clip: Clip, idle: Clip | undefined):
   return canvas;
 }
 
+/** True if pixel (x, y) of `a` has no near-identical pixel within one pixel of the same spot in `b`. */
+function strays(a: Uint8ClampedArray, b: Uint8ClampedArray, width: number, height: number, x: number, y: number): boolean {
+  const i = (y * width + x) * 4;
+  for (let dy = -1; dy <= 1; dy++) {
+    const ny = y + dy;
+    if (ny < 0 || ny >= height) continue;
+    for (let dx = -1; dx <= 1; dx++) {
+      const nx = x + dx;
+      if (nx < 0 || nx >= width) continue;
+      const j = (ny * width + nx) * 4;
+      const delta = Math.max(
+        Math.abs(a[i]! - b[j]!),
+        Math.abs(a[i + 1]! - b[j + 1]!),
+        Math.abs(a[i + 2]! - b[j + 2]!),
+        Math.abs(a[i + 3]! - b[j + 3]!),
+      );
+      if (delta <= 64) return false;
+    }
+  }
+  return true;
+}
+
 /**
- * How much the assembled puppet differs from the SVG file itself, as the share
- * of pixels that are clearly different. Cutting a drawing into parts and putting
- * it back together must give the same picture, in every browser.
+ * How much the assembled puppet differs from the drawing rendered whole, as the share
+ * of pixels that have no match within one pixel in the other picture. Cutting a
+ * drawing into parts and putting it back together must give the same picture in
+ * every browser. Browsers place edges a fraction of a pixel apart, which is why
+ * a one-pixel shift is forgiven; a shape that moved, vanished or changed colour is not.
  */
-function restDifference(rig: Rig, raw: HTMLImageElement, nudge = 0): number {
+function restDifference(rig: Rig, whole: HTMLImageElement, nudge = 0): number {
   const { canvas, ctx } = sheet(rig, 1);
   const pose = makePose(rig.parts.length);
   // With a nudge every drawn part is shoved aside on purpose: the comparison must notice.
-  if (nudge !== 0) rig.parts.forEach((part, i) => (pose.x[i] = part.sw > 0 && part.parent < 0 ? nudge : 0));
-  if (nudge !== 0 && rig.parts.every((part) => part.sw === 0 || part.parent >= 0)) pose.x.fill(nudge);
+  if (nudge !== 0) rig.parts.forEach((part, i) => (pose.x[i] = part.parent < 0 ? nudge : 0));
   drawPose(ctx, rig, pose, 0, new Float32Array(rig.parts.length * 6));
-  const reference = el('canvas', { width: canvas.width, height: canvas.height });
+  const { width, height } = canvas;
+  const reference = el('canvas', { width, height });
   const rctx = reference.getContext('2d', { willReadFrequently: true })!;
-  rctx.drawImage(raw, 0, 0, canvas.width, canvas.height);
-  const a = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-  const b = rctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  rctx.drawImage(whole, 0, 0, width, height);
+  const a = ctx.getImageData(0, 0, width, height).data;
+  const b = rctx.getImageData(0, 0, width, height).data;
   let different = 0;
-  for (let i = 0; i < a.length; i += 4) {
-    const delta = Math.max(Math.abs(a[i]! - b[i]!), Math.abs(a[i + 1]! - b[i + 1]!), Math.abs(a[i + 2]! - b[i + 2]!), Math.abs(a[i + 3]! - b[i + 3]!));
-    if (delta > 64) different++;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      if (strays(a, b, width, height, x, y) || strays(b, a, width, height, x, y)) different++;
+    }
   }
-  return different / (a.length / 4);
+  return different / (width * height);
 }
 
 function restFigure(rig: Rig): HTMLElement {
@@ -189,10 +214,14 @@ async function showOne(id: string): Promise<void> {
   await raw.decode().catch(() => undefined);
   const atlas = rig.atlas;
   atlas.style.maxWidth = '420px';
-  const difference = restDifference(rig, raw);
+  // The whole drawing rendered in one go, at exactly the size the puppet is drawn at.
+  const whole = await loadImage(
+    `${openTag(src, Math.ceil(src.viewBox.w * zoom), Math.ceil(src.viewBox.h * zoom))}${src.head}${src.parts.map((part) => part.markup).join('')}</svg>`,
+  );
+  const difference = restDifference(rig, whole);
   document.body.dataset.restDiff = difference.toFixed(5);
   // The control: the same comparison on a puppet that is deliberately wrong.
-  document.body.dataset.restDiffControl = restDifference(rig, raw, 8).toFixed(5);
+  document.body.dataset.restDiffControl = restDifference(rig, whole, 8).toFixed(5);
   app.append(
     el('div', { className: 'row' }, [
       el('figure', {}, [raw, el('figcaption', { textContent: `the SVG file as the browser shows it (the puppet differs in ${(difference * 100).toFixed(2)}% of pixels)` })]),

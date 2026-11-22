@@ -24,6 +24,8 @@ export interface Part {
   /** The joint's position inside that rectangle, in atlas pixels. */
   ox: number;
   oy: number;
+  /** Stays readable when the rig is mirrored (lettering). */
+  upright: boolean;
 }
 
 export interface Mount {
@@ -50,7 +52,8 @@ export interface Rig {
 
 const PAD = 2;
 
-function loadImage(svg: string): Promise<HTMLImageElement> {
+/** Lets the browser render a complete SVG document into an image. */
+export function loadImage(svg: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => resolve(img);
@@ -87,6 +90,16 @@ function alphaBounds(data: Uint8ClampedArray, width: number, height: number): Bo
   return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
 }
 
+/**
+ * The opening tag of a standalone document for (part of) a rig. Browsers treat
+ * an SVG image without explicit pixel dimensions differently from one another,
+ * so every document we hand them states its own.
+ */
+export function openTag(src: RigSource, width: number, height: number): string {
+  const vb = src.viewBox;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb.x} ${vb.y} ${vb.w} ${vb.h}" width="${width}" height="${height}">`;
+}
+
 interface Piece {
   canvas: HTMLCanvasElement | null;
   bounds: Bounds;
@@ -102,9 +115,7 @@ export async function rasterize(src: RigSource, scale: number): Promise<Rig> {
   const kx = width / vb.w;
   const ky = height / vb.h;
 
-  // Firefox and Safari draw nothing for an SVG image without explicit pixel
-  // dimensions, so every part document states its own.
-  const open = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb.x} ${vb.y} ${vb.w} ${vb.h}" width="${width}" height="${height}">`;
+  const open = openTag(src, width, height);
 
   const pieces: Piece[] = await Promise.all(
     src.parts.map(async (part): Promise<Piece> => {
@@ -179,6 +190,7 @@ export async function rasterize(src: RigSource, scale: number): Promise<Rig> {
       sh: b.h,
       ox: (p.x - vb.x) * kx - b.x,
       oy: (p.y - vb.y) * ky - b.y,
+      upright: p.upright,
     };
   });
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BASE_GAP, CONTACT_GAP } from '../src/defs/balance.ts';
 import { FACTIONS, UNITS } from '../src/defs/index.ts';
-import { mixed, random, rush } from '../src/bots/bots.ts';
+import { BOTS, mixed, random } from '../src/bots/bots.ts';
 import { runMatch, runReplay } from '../src/bots/runMatch.ts';
 import type { SideState, SimState } from '../src/sim/types.ts';
 
@@ -13,6 +13,9 @@ function shape(side: SideState): unknown {
     baseHp: side.baseHp,
     queue: side.queue,
     turrets: side.turrets,
+    subsidy: side.subsidy,
+    progress: side.progress,
+    buffUntil: side.buffUntil,
     specialReadyAt: side.specialReadyAt,
     units: side.units.map((u) => ({ ...u, id: 0 })),
   };
@@ -38,23 +41,27 @@ describe('no side has a built-in advantage', () => {
   for (const faction of ['havermelk', 'achterhoek'] as const) {
     it(`${faction} against itself with identical play stays a perfect mirror`, () => {
       let checked = 0;
+      let maxEra = 0;
       const result = runMatch({
         seed: 1,
         factions: [faction, faction],
         bots: [mixed(), mixed()],
         onTick: (s: SimState) => {
           expect(shape(s.sides[0])).toEqual(shape(s.sides[1]));
+          maxEra = Math.max(maxEra, s.sides[0].era);
           checked++;
         },
       });
       expect(checked).toBeGreaterThan(1000);
       expect(result.winner).toBe('draw');
+      // A real match, not two bots standing still: both got at least to the second era.
+      expect(maxEra).toBeGreaterThanOrEqual(1);
     });
   }
 
   it('swapping the two bots swaps the outcome', () => {
-    const a = runMatch({ seed: 2, factions: ['achterhoek', 'achterhoek'], bots: [rush, mixed()] });
-    const b = runMatch({ seed: 2, factions: ['achterhoek', 'achterhoek'], bots: [mixed(), rush] });
+    const a = runMatch({ seed: 2, factions: ['achterhoek', 'achterhoek'], bots: [BOTS.rush!(), mixed()] });
+    const b = runMatch({ seed: 2, factions: ['achterhoek', 'achterhoek'], bots: [mixed(), BOTS.rush!()] });
     expect(a.ticks).toBe(b.ticks);
     expect(a.baseHp[0]).toBe(b.baseHp[1]);
     expect(a.baseHp[1]).toBe(b.baseHp[0]);
@@ -79,7 +86,11 @@ describe('the data makes sense', () => {
     a.eras.forEach((era, i) => {
       const twin = b.eras[i]!;
       expect(era.baseHp).toBe(twin.baseHp);
-      expect(era.income).toBe(twin.income);
+      expect(era.progressNeeded).toBe(twin.progressNeeded);
+      expect(era.year).toBe(twin.year);
+      const { id: _g, rig: _h, shot: _i, ...turret } = era.turret;
+      const { id: _j, rig: _k, shot: _l, ...twinTurret } = twin.turret;
+      expect(turret).toEqual(twinTurret);
       era.units.forEach((u, slot) => {
         const v = twin.units[slot]!;
         const { id: _a, rig: _b, shot: _c, ...stats } = u;

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-92 -146 188 152" data-rig="vehicle">
+  <title>Bakfiets-Babette</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .tube { stroke: #2b1b16; stroke-width: 8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .mint { stroke: #7fbfa6; stroke-width: 4.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-58 -23)">
+    <path class="t" style="stroke:#8a8f93" d="M0 -19 L0 19 M-19 0 L19 0 M-13.4 -13.4 L13.4 13.4 M-13.4 13.4 L13.4 -13.4"/>
+    <path class="o" fill="#efe5cf" fill-rule="evenodd" d="M-23 0 a23 23 0 1 0 46 0 a23 23 0 1 0 -46 0 Z M-18.5 0 a18.5 18.5 0 1 0 37 0 a18.5 18.5 0 1 0 -37 0 Z"/>
+    <circle class="o" fill="#3a3a3a" cx="0" cy="0" r="6"/>
+    <circle class="n" fill="#7fd35b" cx="3" cy="-2" r="1.2"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(70 -16)">
+    <path class="t" style="stroke:#8a8f93" d="M0 -12 L0 12 M-12 0 L12 0 M-8.5 -8.5 L8.5 8.5 M-8.5 8.5 L8.5 -8.5"/>
+    <path class="o" fill="#efe5cf" fill-rule="evenodd" d="M-16 0 a16 16 0 1 0 32 0 a16 16 0 1 0 -32 0 Z M-12 0 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 Z"/>
+    <circle class="o" fill="#8a8f93" cx="0" cy="0" r="3"/>
+  </g>
+
+  <!-- Chainring, crank and pedal. Turns with the back wheel. -->
+  <g id="crank" data-parent="chassis" transform="translate(-30 -20)">
+    <circle class="o" fill="#9aa0a4" cx="0" cy="0" r="6.5"/>
+    <path class="t" style="stroke-width:3" d="M0 0 L0 11"/>
+    <rect class="o" fill="#3a3a3a" x="-5" y="10" width="10" height="3.6" rx="1.5"/>
+  </g>
+
+  <!-- Frame and box. The joint is in the middle; the art inside is drawn in whole-bike coordinates. -->
+  <g id="body" data-parent="chassis" transform="translate(10 -40)">
+    <g transform="translate(-10 40)">
+      <path class="tube" d="M-58 -23 L-30 -20 L-46 -64 M-44 -58 L-58 -23 M-38 -42 L-4 -20 L56 -18 L70 -16 M-6 -22 L-12 -84 L-24 -86"/>
+      <path class="mint" d="M-58 -23 L-30 -20 L-46 -64 M-44 -58 L-58 -23 M-38 -42 L-4 -20 L56 -18 L70 -16 M-6 -22 L-12 -84 L-24 -86"/>
+      <path class="tube" style="stroke-width:6.5" d="M54 -24 Q58 -36 71 -35 Q83 -33 87 -23"/>
+      <path class="mint" style="stroke-width:3.2" d="M54 -24 Q58 -36 71 -35 Q83 -33 87 -23"/>
+      <rect class="o" fill="#3a3a3a" x="-44.5" y="-54" width="8" height="19" rx="2.5" transform="rotate(-20 -40.5 -44.5)"/>
+      <path class="o" fill="#5a4636" d="M-58 -66 Q-58 -71 -50 -70 L-38 -68 Q-36 -65 -40 -64 L-56 -64 Z"/>
+      <rect class="o" fill="#2b2b2b" x="-29" y="-89.5" width="8" height="6" rx="2.5"/>
+      <circle class="o" fill="#d9d9d9" cx="-14" cy="-88" r="3.2"/>
+      <!-- the box -->
+      <path class="o" fill="#d9a45f" d="M-6 -64 L64 -64 L56 -20 L2 -20 Z"/>
+      <path class="t" style="stroke:#b98045;stroke-width:2" d="M10 -62 L13 -22 M28 -62 L29 -22 M46 -62 L45 -22"/>
+      <path class="o" fill="#b98045" d="M-9 -70 L67 -70 L66 -62 L-8 -62 Z"/>
+      <path class="n" fill="#ff7ac0" d="M34 -46 q-5 -7 -9.5 -2 q-3 5 9.5 13 q12.5 -8 9.5 -13 q-4.5 -5 -9.5 2 Z"/>
+    </g>
+  </g>
+
+  <!-- What is in the box: a monstera, oat milk and a baguette. It all wobbles. -->
+  <g id="cargo" data-parent="body" transform="translate(30 -68)">
+    <g transform="translate(-30 68)">
+      <path class="o" fill="#e3b574" d="M46 -66 L60 -98 Q64 -102 66 -97 L53 -65 Z"/>
+      <path class="t" style="stroke:#b98045" d="M52 -76 L55 -74 M55.5 -84 L58.5 -82 M59 -92 L62 -90"/>
+      <path class="o" fill="#ecdcb9" d="M32 -66 L32 -80 L36 -85 L40 -80 L40 -66 Z"/>
+      <path class="o" fill="#ecdcb9" d="M41 -66 L41 -79 L45 -84 L49 -79 L49 -66 Z"/>
+      <path class="n" fill="#2f6bff" d="M33.5 -76 L38.5 -76 L38.5 -72 L33.5 -72 Z M42.5 -75 L47.5 -75 L47.5 -71 L42.5 -71 Z"/>
+      <path class="o" fill="#c97b4a" d="M4 -66 L6 -76 L24 -76 L26 -66 Z"/>
+      <path class="t" style="stroke:#2c7a40;stroke-width:2.4" d="M12 -76 L4 -98 M17 -76 L24 -106"/>
+      <path class="o" fill="#3f9b57" d="M4 -94 Q-14 -98 -14 -116 Q-8 -128 4 -128 Q14 -124 16 -112 Q14 -98 4 -94 Z"/>
+      <path class="t" style="stroke:#2c7a40" d="M4 -96 L2 -124 M3 -104 L-10 -110 M3 -112 L-8 -120 M3.5 -106 L13 -112"/>
+      <path class="n" fill="#f4efe6" d="M-14 -112 L-7 -110.5 L-13.5 -107 Z M16 -116 L9 -113.5 L15.5 -110 Z"/>
+      <path class="o" fill="#4bb167" d="M24 -102 Q8 -110 12 -128 Q20 -140 32 -138 Q42 -132 42 -120 Q38 -106 24 -102 Z"/>
+      <path class="t" style="stroke:#2c7a40" d="M24 -104 L27 -135 M25 -114 L14 -122 M26 -122 L17 -131 M26 -116 L38 -122"/>
+      <path class="n" fill="#f4efe6" d="M12 -124 L19 -121 L13 -117 Z M42 -124 L35 -121.5 L41 -117 Z"/>
+    </g>
+  </g>
+
+  <!-- Babette, leaning on the handlebars. Joint at the saddle. -->
+  <g id="rider" data-parent="body" transform="translate(-46 -66)">
+    <g transform="translate(46 66)">
+      <path class="o" fill="#fafafa" d="M-55 -64 Q-56 -86 -42 -100 Q-32 -105 -25 -97 Q-25 -85 -34 -73 L-38 -62 Z"/>
+      <path fill="none" stroke="#27406b" stroke-width="2.2" stroke-linecap="round" d="M-53.5 -70 L-36.5 -68 M-53 -78 L-32 -77 M-50 -86 L-27.5 -86.5 M-45 -94 L-25.5 -95"/>
+      <path class="o" fill="#fafafa" d="M-35 -99 L-20 -90 L-23.5 -83.5 L-39 -92 Z"/>
+      <circle class="o" fill="#f3c9a5" cx="-21" cy="-86" r="4"/>
+      <circle class="o" fill="#e8c35a" cx="-37" cy="-126" r="6.5"/>
+      <circle class="o" fill="#f3c9a5" cx="-22" cy="-114" r="14"/>
+      <path class="o" fill="#f3c9a5" d="M-9.6 -115 Q-5 -112.5 -9.4 -110"/>
+      <path class="o" fill="#e8c35a" d="M-35.5 -112 Q-38 -129 -22 -129.5 Q-10 -129 -8.5 -121 Q-17 -125 -25 -122.5 Q-30 -120 -31 -112 Q-33 -109 -35.5 -112 Z"/>
+      <path class="o" fill="#2b2b2b" d="M-21 -121 L-9 -120.5 Q-7.5 -114.5 -11 -113 L-19 -113 Q-22 -116 -21 -121 Z"/>
+      <path class="n" fill="#6a6a6a" d="M-19 -119.5 L-15 -119.3 L-17.5 -115 Z"/>
+      <path class="t" d="M-21 -119 L-31 -118"/>
+      <circle class="o" style="stroke-width:1.4" fill="#fafafa" cx="-29.5" cy="-112" r="2"/>
+      <path class="t" style="stroke-width:1.9" d="M-18 -106.5 Q-14 -104 -10.5 -107"/>
+    </g>
+  </g>
+
+  <!-- Her leg, pedalling. Joint at the hip. -->
+  <g id="leg" data-parent="body" transform="translate(-44 -62)">
+    <g transform="translate(44 62)">
+      <path class="o" fill="#7fa3c9" d="M-50 -64 L-38 -68 L-22 -46 L-24 -20 L-33 -20 L-33 -41 Z"/>
+      <path class="o" fill="#fafafa" d="M-36 -20 L-23 -20 Q-16 -18 -15 -13 L-36 -13 Z"/>
+    </g>
+  </g>
+</svg>

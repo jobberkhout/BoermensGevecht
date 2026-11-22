@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -17 32 34" data-rig="static">
+  <title>Een bosje bloemen, onderweg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <g id="bunch" transform="translate(0 0)">
+    <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M-1 13 L-5 -1 M0 13 L1 -4 M1 13 L7 1"/>
+    <path fill="none" stroke="#3f9b57" stroke-width="2.2" stroke-linecap="round" d="M-1 13 L-5 -1 M0 13 L1 -4 M1 13 L7 1"/>
+    <path class="o" style="stroke-width:1.6" fill="#ff7ac0" d="M-4 6.5 L0 8.5 L4 6.5 L3.4 10.5 L0 9.4 L-3.4 10.5 Z"/>
+    <circle class="o" fill="#ffb52e" cx="8" cy="-2" r="5"/>
+    <circle class="n" fill="#c9631a" cx="8" cy="-2" r="1.8"/>
+    <circle class="o" fill="#ff7ac0" cx="-6.5" cy="-4.5" r="5.4"/>
+    <circle class="n" fill="#ffd21f" cx="-6.5" cy="-4.5" r="2"/>
+    <circle class="o" fill="#fffdf5" cx="1.5" cy="-9" r="5.6"/>
+    <circle class="n" fill="#ffd21f" cx="1.5" cy="-9" r="2.2"/>
+  </g>
+</svg>

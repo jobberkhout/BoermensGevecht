@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De Ecotoren: een woontoren vol planten, met de drie kruisen als hologram op het dak</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .g1 { fill: #3f9b57; stroke: #2b1b16; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+    .g2 { fill: #56b96e; stroke: #2b1b16; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The tower stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole on the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -444 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- solar panels -->
+    <path class="o" fill="#27406b" d="M-277 -449 L-272 -474 L-242 -474 L-237 -449 Z"/>
+    <path class="t" style="stroke:#7fa3e0;stroke-width:1.5" d="M-274.6 -462 L-239.4 -462 M-262 -474 L-263.6 -449 M-252 -474 L-250.4 -449"/>
+    <path class="o" fill="#27406b" d="M-233 -449 L-229 -472 L-209 -472 L-205 -449 Z"/>
+    <path class="t" style="stroke:#7fa3e0;stroke-width:1.5" d="M-231 -461 L-207 -461 M-219 -472 L-219 -449"/>
+
+    <!-- the stepped gable, rebuilt as three planted terraces -->
+    <rect class="o" fill="#fbfaf5" x="-152" y="-516" width="48" height="26" rx="4"/>
+    <path class="g2" d="M-152 -516 q-2 -8 6 -9 q6 -4 10 3 l0 6 Z"/>
+    <path class="g1" d="M-104 -516 q2 -9 -6 -9.5 q-6 -3.5 -10 3.5 l0 6 Z"/>
+    <path class="o" fill="#8a8f93" d="M-136 -516 Q-136 -525 -128 -525 Q-120 -525 -120 -516 Z"/>
+    <circle class="n" fill="#7fe9ff" cx="-128" cy="-520.5" r="2.6"/>
+    <rect class="o" fill="#fbfaf5" x="-178" y="-494" width="100" height="26" rx="4"/>
+    <path class="g1" d="M-178 -494 q-3 -10 7 -10 q7 -5 12 2 q6 0 7 8 Z"/>
+    <path class="g2" d="M-78 -494 q3 -10 -7 -10 q-7 -5 -12 2 q-6 0 -7 8 Z"/>
+    <circle class="o" style="stroke-width:2.2" fill="#bfe6f5" cx="-128" cy="-481" r="6.5"/>
+    <rect class="o" fill="#fbfaf5" x="-204" y="-472" width="152" height="26" rx="4"/>
+    <path class="g2" d="M-204 -472 q-3 -11 8 -10 q7 -6 13 2 q6 0 5 8 Z"/>
+    <path class="g1" d="M-52 -472 q3 -11 -8 -10 q-7 -6 -13 2 q-6 0 -5 8 Z"/>
+    <circle class="o" style="stroke-width:2.2" fill="#bfe6f5" cx="-164" cy="-459" r="6.5"/>
+    <circle class="o" style="stroke-width:2.2" fill="#bfe6f5" cx="-128" cy="-459" r="6.5"/>
+    <circle class="o" style="stroke-width:2.2" fill="#bfe6f5" cx="-92" cy="-459" r="6.5"/>
+
+    <!-- the landing pad for delivery drones -->
+    <path class="t" style="stroke-width:4" d="M-22 -448 L-22 -462 M-22 -452 L-38 -462 M-22 -452 L-6 -462"/>
+    <ellipse class="o" fill="#fbfaf5" cx="-22" cy="-465" rx="27" ry="6.5"/>
+    <ellipse class="t" style="stroke:#ff5d73;stroke-width:2.4" cx="-22" cy="-465" rx="15" ry="3.3"/>
+
+    <!-- the front -->
+    <path class="o" fill="#f1efe6" d="M-296 0 L-296 -420 Q-296 -440 -276 -440 L-24 -440 Q-4 -440 -4 -420 L-4 0 Z"/>
+    <rect class="o" fill="#fbfaf5" x="-302" y="-450" width="304" height="12" rx="6"/>
+    <rect class="o" fill="#b7bfb4" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- two open floors: empty until someone moves in -->
+    <rect class="o" fill="#24353a" x="-290" y="-432" width="280" height="140" rx="20"/>
+    <path class="n" fill="#2f474d" d="M-284 -306 L-16 -306 L-16 -300 Q-16 -294.5 -22 -294.5 L-278 -294.5 Q-284 -294.5 -284 -300 Z"/>
+    <path class="t" style="stroke:#5f7f87" d="M-150 -430 L-150 -408"/>
+    <circle class="o" fill="#ffe9a8" cx="-150" cy="-399" r="8.5"/>
+    <path class="o" fill="#3b545b" d="M-257 -294.5 L-253 -318 Q-251 -338 -237 -338 Q-223 -338 -223 -320 L-225 -294.5 Z"/>
+    <path class="n" fill="#24353a" d="M-248 -300 L-246 -318 Q-244 -330 -237 -330 Q-230 -330 -230 -319 L-231 -300 Z"/>
+    <path class="t" style="stroke:#4f6f77;stroke-width:3" d="M-70 -317 L-56 -333 L-40 -317 M-56 -333 L-52 -317 M-60 -335 L-50 -335"/>
+    <circle class="t" style="stroke:#4f6f77;stroke-width:3" cx="-70" cy="-308" r="11"/>
+    <circle class="t" style="stroke:#4f6f77;stroke-width:3" cx="-40" cy="-308" r="11"/>
+    <path class="g1" d="M-290 -412 L-290 -432 L-262 -432 Q-262 -420 -268 -414 Q-264 -404 -272 -398 Q-268 -388 -278 -384 Q-284 -376 -290 -382 Z"/>
+    <path class="g2" d="M-10 -412 L-10 -432 L-40 -432 Q-40 -422 -33 -416 Q-37 -406 -28 -400 Q-31 -392 -22 -388 Q-16 -382 -10 -388 Z"/>
+
+    <rect class="o" fill="#24353a" x="-290" y="-282" width="280" height="140" rx="20"/>
+    <path class="n" fill="#2f474d" d="M-284 -156 L-16 -156 L-16 -150 Q-16 -144.5 -22 -144.5 L-278 -144.5 Q-284 -144.5 -284 -150 Z"/>
+    <path class="t" style="stroke:#5f7f87" d="M-150 -280 L-150 -258"/>
+    <circle class="o" fill="#ffe9a8" cx="-150" cy="-249" r="8.5"/>
+    <path class="o" fill="#3b545b" d="M-250 -144.5 L-247 -160 L-229 -160 L-226 -144.5 Z"/>
+    <path class="t" style="stroke:#4f6f77;stroke-width:3" d="M-238 -160 L-238 -182"/>
+    <circle class="o" fill="#3b545b" cx="-238" cy="-194" r="15"/>
+    <path class="o" fill="#3b545b" d="M-82 -144.5 L-82 -176 L-44 -176 L-44 -144.5 L-50 -144.5 L-50 -168 L-76 -168 L-76 -144.5 Z"/>
+    <path class="g2" d="M-290 -262 L-290 -282 L-264 -282 Q-264 -272 -270 -266 Q-266 -256 -275 -251 Q-272 -242 -281 -239 Q-286 -233 -290 -238 Z"/>
+    <path class="g1" d="M-10 -262 L-10 -282 L-38 -282 Q-38 -271 -31 -266 Q-35 -256 -26 -250 Q-29 -241 -20 -238 Q-14 -231 -10 -238 Z"/>
+
+    <!-- the balconies, with everything that grows over the edge -->
+    <rect class="o" fill="#fbfaf5" x="-300" y="-292" width="300" height="10" rx="5"/>
+    <path class="g1" d="M-300 -289 Q-306 -281 -299 -275 Q-298 -266 -289 -270 Q-283 -264 -277 -271 Q-270 -269 -269 -277 Q-264 -283 -269 -289 Z"/>
+    <path class="g2" d="M-206 -289 Q-209 -279 -200 -277 Q-195 -270 -188 -276 Q-180 -274 -180 -283 L-178 -289 Z"/>
+    <path class="g1" d="M0 -289 Q6 -281 -1 -275 Q-2 -266 -11 -270 Q-17 -264 -23 -271 Q-30 -269 -31 -277 Q-36 -283 -31 -289 Z"/>
+    <rect class="o" fill="#fbfaf5" x="-300" y="-142" width="300" height="10" rx="5"/>
+    <path class="g2" d="M-300 -139 Q-306 -131 -299 -125 Q-298 -117 -290 -121 Q-285 -116 -280 -122 L-278 -139 Z"/>
+    <path class="g1" d="M-122 -139 Q-125 -129 -116 -127 Q-111 -120 -104 -126 Q-99 -124 -98 -131 L-98 -139 Z"/>
+    <path class="g2" d="M0 -139 Q6 -131 -1 -125 Q-3 -118 -10 -122 Q-15 -118 -18 -124 L-20 -139 Z"/>
+
+    <!-- ground floor: lettuce grown on shelves under pink lamps -->
+    <rect class="o" fill="#2f6f66" x="-286" y="-124" width="176" height="110" rx="14"/>
+    <rect class="o" fill="#d8f3e6" x="-279" y="-117" width="162" height="96" rx="9"/>
+    <path fill="none" stroke="#ff7ac0" stroke-width="3.2" stroke-linecap="round" d="M-270 -109 L-126 -109 M-270 -77 L-126 -77 M-270 -46 L-126 -46"/>
+    <path class="n" fill="#ffd1e6" fill-opacity="0.55" d="M-272 -107 L-124 -107 L-124 -99 L-272 -99 Z M-272 -75 L-124 -75 L-124 -68 L-272 -68 Z M-272 -44 L-124 -44 L-124 -37 L-272 -37 Z"/>
+    <path class="g1" d="M-271 -86 Q-273.5 -94 -267.5 -95 Q-264 -99.5 -260.5 -95 Q-254.5 -94 -257 -86 Z"/>
+    <path class="g2" d="M-252 -86 Q-254.5 -94 -248.5 -95 Q-245 -99.5 -241.5 -95 Q-235.5 -94 -238 -86 Z"/>
+    <path class="g1" d="M-233 -86 Q-235.5 -94 -229.5 -95 Q-226 -99.5 -222.5 -95 Q-216.5 -94 -219 -86 Z"/>
+    <path class="g2" d="M-214 -86 Q-216.5 -94 -210.5 -95 Q-207 -99.5 -203.5 -95 Q-197.5 -94 -200 -86 Z"/>
+    <path class="g1" d="M-195 -86 Q-197.5 -94 -191.5 -95 Q-188 -99.5 -184.5 -95 Q-178.5 -94 -181 -86 Z"/>
+    <path class="g2" d="M-176 -86 Q-178.5 -94 -172.5 -95 Q-169 -99.5 -165.5 -95 Q-159.5 -94 -162 -86 Z"/>
+    <path class="g1" d="M-157 -86 Q-159.5 -94 -153.5 -95 Q-150 -99.5 -146.5 -95 Q-140.5 -94 -143 -86 Z"/>
+    <path class="g2" d="M-138 -86 Q-140.5 -94 -134.5 -95 Q-131 -99.5 -127.5 -95 Q-121.5 -94 -124 -86 Z"/>
+    <path class="g2" d="M-266 -56 Q-268.5 -64 -262.5 -65 Q-259 -69.5 -255.5 -65 Q-249.5 -64 -252 -56 Z"/>
+    <path class="g1" d="M-247 -56 Q-249.5 -64 -243.5 -65 Q-240 -69.5 -236.5 -65 Q-230.5 -64 -233 -56 Z"/>
+    <path class="g2" d="M-228 -56 Q-230.5 -64 -224.5 -65 Q-221 -69.5 -217.5 -65 Q-211.5 -64 -214 -56 Z"/>
+    <path class="g1" d="M-209 -56 Q-211.5 -64 -205.5 -65 Q-202 -69.5 -198.5 -65 Q-192.5 -64 -195 -56 Z"/>
+    <path class="g2" d="M-190 -56 Q-192.5 -64 -186.5 -65 Q-183 -69.5 -179.5 -65 Q-173.5 -64 -176 -56 Z"/>
+    <path class="g1" d="M-171 -56 Q-173.5 -64 -167.5 -65 Q-164 -69.5 -160.5 -65 Q-154.5 -64 -157 -56 Z"/>
+    <path class="g2" d="M-152 -56 Q-154.5 -64 -148.5 -65 Q-145 -69.5 -141.5 -65 Q-135.5 -64 -138 -56 Z"/>
+    <path class="g1" d="M-133 -56 Q-135.5 -64 -129.5 -65 Q-126 -69.5 -122.5 -65 Q-116.5 -64 -119 -56 Z"/>
+    <path class="g1" d="M-271 -23 Q-273.5 -31 -267.5 -32 Q-264 -36.5 -260.5 -32 Q-254.5 -31 -257 -23 Z"/>
+    <path class="g2" d="M-252 -23 Q-254.5 -31 -248.5 -32 Q-245 -36.5 -241.5 -32 Q-235.5 -31 -238 -23 Z"/>
+    <path class="g1" d="M-233 -23 Q-235.5 -31 -229.5 -32 Q-226 -36.5 -222.5 -32 Q-216.5 -31 -219 -23 Z"/>
+    <path class="g2" d="M-214 -23 Q-216.5 -31 -210.5 -32 Q-207 -36.5 -203.5 -32 Q-197.5 -31 -200 -23 Z"/>
+    <path class="g1" d="M-195 -23 Q-197.5 -31 -191.5 -32 Q-188 -36.5 -184.5 -32 Q-178.5 -31 -181 -23 Z"/>
+    <path class="g2" d="M-176 -23 Q-178.5 -31 -172.5 -32 Q-169 -36.5 -165.5 -32 Q-159.5 -31 -162 -23 Z"/>
+    <path class="g1" d="M-157 -23 Q-159.5 -31 -153.5 -32 Q-150 -36.5 -146.5 -32 Q-140.5 -31 -143 -23 Z"/>
+    <path class="g2" d="M-138 -23 Q-140.5 -31 -134.5 -32 Q-131 -36.5 -127.5 -32 Q-121.5 -31 -124 -23 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-279 -86 L-117 -86 M-279 -56 L-117 -56"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.5" d="M-262 -117 L-244 -117 L-270 -72 L-279 -72 L-279 -88 Z"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="3" stroke-linejoin="round" x="-279" y="-117" width="162" height="96" rx="9"/>
+
+    <!-- the doorway units come out of -->
+    <path class="o" fill="#2f6f66" d="M-98 0 L-98 -100 Q-98 -128 -52 -128 Q-6 -128 -6 -100 L-6 0 Z"/>
+    <path class="o" fill="#1b2a2e" d="M-88 0 L-88 -98 Q-88 -118 -52 -118 Q-16 -118 -16 -98 L-16 0 Z"/>
+
+    <!-- ivy up the corner -->
+    <path class="g2" d="M-296 -436 Q-309 -420 -301 -404 Q-308 -388 -299 -374 Q-305 -361 -296 -350 Z"/>
+    <path class="g1" d="M-296 -140 Q-308 -126 -300 -112 Q-306 -98 -298 -86 Q-303 -74 -296 -64 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The hologram on the roof: the three crosses of the city, floating over their projector. Joint in its middle. -->
+  <g id="holo" transform="translate(-128 -547)">
+    <path class="n" fill="#7fe9ff" fill-opacity="0.32" d="M-3 26 L-32 13 L32 13 L3 26 Z"/>
+    <rect class="o" style="stroke:#1f8fa8;stroke-width:2.2" fill="#7fe9ff" fill-opacity="0.5" x="-38" y="-13" width="76" height="26" rx="6"/>
+    <path fill="none" stroke="#ffffff" stroke-width="3.8" stroke-linecap="round" d="M-30 -6.5 L-18 6.5 M-30 6.5 L-18 -6.5 M-6 -6.5 L6 6.5 M-6 6.5 L6 -6.5 M18 -6.5 L30 6.5 M18 6.5 L30 -6.5"/>
+  </g>
+
+  <!-- A delivery drone waiting above its pad. -->
+  <g id="drone" transform="translate(-22 -494)">
+    <path class="t" d="M0 5 L0 11"/>
+    <rect class="o" style="stroke-width:2" fill="#d9a45f" x="-7" y="11" width="14" height="11" rx="1.5"/>
+    <path class="t" style="stroke:#b98045;stroke-width:1.4" d="M-7 16 L7 16 M0 11 L0 22"/>
+    <path class="t" style="stroke-width:3" d="M-14 -3 L14 -3 M-14 -3 L-14 -7 M14 -3 L14 -7"/>
+    <rect class="o" style="stroke-width:2.2" fill="#f4f1fa" x="-9" y="-4" width="18" height="10" rx="4"/>
+    <circle class="n" fill="#5ef2c4" cx="4.6" cy="1" r="1.8"/>
+  </g>
+  <g id="rotor_l" data-parent="drone" transform="translate(-36 -502)">
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.55" cx="0" cy="0" rx="10" ry="2.2"/>
+  </g>
+  <g id="rotor_r" data-parent="drone" transform="translate(-8 -502)">
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.55" cx="0" cy="0" rx="10" ry="2.2"/>
+  </g>
+</svg>

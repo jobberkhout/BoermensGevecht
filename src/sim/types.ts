@@ -6,10 +6,11 @@ export const SIDES: readonly [Side, Side] = [0, 1];
 export const other = (side: Side): Side => (side === 0 ? 1 : 0);
 
 export type Command =
-  | { t: 'buy'; slot: 0 | 1 | 2 }
+  | { t: 'buy'; slot: 0 | 1 | 2 | 3 }
   | { t: 'turret' }
   | { t: 'special' }
-  | { t: 'eraUp' };
+  | { t: 'eraUp' }
+  | { t: 'subsidy' };
 
 /** A command with the tick it takes effect on. A list of these is a full replay. */
 export interface Stamped {
@@ -19,7 +20,7 @@ export interface Stamped {
 }
 
 export interface Replay {
-  v: 1;
+  v: 2;
   seed: number;
   factions: [FactionId, FactionId];
   cmds: Stamped[];
@@ -50,7 +51,10 @@ export interface QueueItem {
 }
 
 export interface Turret {
+  /** TurretDef id. After modernizing this may be an older era's turret, until it is bought again. */
   def: string;
+  /** 1 to TURRET.maxLevel. */
+  level: number;
   /** Ticks until it can fire again. */
   cd: number;
 }
@@ -60,6 +64,10 @@ export interface SideState {
   /** Index into the faction's era list. */
   era: number;
   gold: number;
+  /** How often "subsidie aanvragen" was bought; decides the income. */
+  subsidy: number;
+  /** Vooruitgang gathered in the current era. Enough of it allows modernizing. */
+  progress: number;
   baseHp: number;
   baseMaxHp: number;
   /** In the order they walked out. Within one row that is front to back, because nobody overtakes in a row. */
@@ -68,6 +76,10 @@ export interface SideState {
   turrets: (Turret | null)[];
   /** Tick from which the special can be used. */
   specialReadyAt: number;
+  /** Own units hit harder and move faster until this tick. */
+  buffUntil: number;
+  buffDmgPercent: number;
+  buffSpeedPercent: number;
 }
 
 export interface Shot {
@@ -85,6 +97,9 @@ export interface Shot {
   dmg: number;
   rig: string;
   arc: number;
+  spin: number;
+  /** Id of the unit that fired it, or -1 for a turret's shot. Looks only. */
+  src: number;
   /** Row it flies along. Looks only. */
   row: number;
   /** Turret slot it came from, or -1 for a unit's shot. Looks only. */
@@ -103,6 +118,20 @@ export interface Wave {
   hit: number[];
 }
 
+/** Blows still to come from a barrage special. */
+export interface Barrage {
+  id: number;
+  /** The side that launched it. */
+  side: Side;
+  /** Strikes still to land. */
+  left: number;
+  every: number;
+  /** Ticks until the next strike. */
+  timer: number;
+  dmg: number;
+  rig: string;
+}
+
 export interface SimState {
   tick: number;
   rng: number;
@@ -111,6 +140,7 @@ export interface SimState {
   sides: [SideState, SideState];
   shots: Shot[];
   waves: Wave[];
+  barrages: Barrage[];
 }
 
 /** `unit` value that means "the base". */
@@ -134,10 +164,23 @@ export type SimEvent =
   | { t: 'defeat'; side: Side; id: number; def: string; pos: number }
   | { t: 'gold'; side: Side; amount: number; pos: number }
   | { t: 'baseHit'; side: Side; amount: number }
-  | { t: 'turretBuilt'; side: Side; slot: number }
+  | { t: 'turretBuilt'; side: Side; slot: number; how: 'build' | 'replace' | 'upgrade'; level: number }
   | { t: 'turretFire'; side: Side; slot: number }
+  | { t: 'subsidy'; side: Side; level: number }
+  | { t: 'eraUp'; side: Side; era: number }
   | { t: 'special'; side: Side; id: string }
   | { t: 'stunned'; side: Side; ids: number[]; ticks: number }
-  | { t: 'eraUp'; side: Side; era: number }
+  | { t: 'buffed'; side: Side; ticks: number }
+  | { t: 'healed'; side: Side; ids: number[] }
+  /** An enemy special had no effect on these units of `side`. */
+  | { t: 'shrugged'; side: Side; ids: number[] }
+  /** The algorithm came down on unit `id` of `side`. */
+  | { t: 'sniped'; side: Side; id: number; pos: number }
+  /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */
+  | { t: 'barrageHit'; side: Side; id: number; pos: number }
   | { t: 'overtime' }
+  /** Overtime turned the screw: units now hit `percent` of their normal damage harder. */
+  | { t: 'escalate'; level: number; percent: number }
+  /** Overtime has gone on so long that both bases start to crumble. */
+  | { t: 'crumble' }
   | { t: 'win'; winner: Side | 'draw' };

@@ -1,11 +1,13 @@
 import { QUEUE_MAX, TPS } from './defs/balance.ts';
-import { DEFAULT_FACTIONS, FACTIONS } from './defs/index.ts';
+import { Sound } from './audio/sound.ts';
+import { DEFAULT_FACTIONS, FACTIONS, specialDef, unitDef } from './defs/index.ts';
 import type { FactionId } from './defs/types.ts';
 import { Renderer } from './render/renderer.ts';
 import type { Stage } from './render/stage.ts';
 import { BattleView } from './render/view.ts';
-import { canDo } from './sim/commands.ts';
+import { canDo, progressNeeded, subsidyCost, turretPlan } from './sim/commands.ts';
 import { createMatch } from './sim/create.ts';
+import { kraanDicht } from './sim/overtime.ts';
 import { step } from './sim/step.ts';
 import type { Replay, Side, SimEvent, SimState, Stamped } from './sim/types.ts';
 import { Hud } from './ui/hud.ts';
@@ -25,7 +27,7 @@ function artFor(factions: readonly FactionId[]): Set<string> {
       ids.add(era.baseRig);
       ids.add(era.turret.rig);
       ids.add(era.turret.shot.rig);
-      if ('rig' in era.special) ids.add(era.special.rig);
+      if (era.special.rig) ids.add(era.special.rig);
       for (const unit of era.units) {
         ids.add(unit.rig);
         if (unit.shot) ids.add(unit.shot.rig);
@@ -45,6 +47,7 @@ export class Game {
   paused = false;
 
   private readonly renderer: Renderer;
+  private readonly sound: Sound;
   private readonly hud: Hud;
   private readonly screens: Screens;
   private view: BattleView;
@@ -57,11 +60,17 @@ export class Game {
   /** When true the clock does not drive the match; tests step it by hand. */
   manual = false;
 
-  constructor(stage: Stage, hudRoot: HTMLElement) {
+  constructor(stage: Stage, hudRoot: HTMLElement, options: { sound?: boolean } = {}) {
     this.renderer = new Renderer(stage);
+    this.sound = new Sound(options.sound ?? true);
     this.state = createMatch(this.seed, DEFAULT_FACTIONS);
     this.view = new BattleView(this.renderer.rig);
-    this.hud = new Hud(hudRoot, (side, action) => this.press(side, action));
+    this.hud = new Hud(
+      hudRoot,
+      (side, action) => this.press(side, action),
+      () => this.toggleMute(),
+    );
+    this.hud.setSoundMode(this.sound.mode);
     this.screens = new Screens(
       hudRoot,
       () => this.confirm(),
@@ -71,6 +80,7 @@ export class Game {
       act: (side, action) => this.press(side, action),
       pause: () => this.togglePause(),
       confirm: () => this.confirm(),
+      mute: () => this.toggleMute(),
     });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && this.phase === 'playing' && !this.paused) this.togglePause();
@@ -100,17 +110,28 @@ export class Game {
     this.acc = 0;
     this.paused = false;
     this.phase = 'playing';
+    // This runs inside a key press or a click, which is the only moment a browser lets sound start.
+    this.sound.unlock();
+    this.sound.tempo = 1;
+    this.sound.startMusic();
+    document.body.dataset.audio = this.sound.state;
     this.screens.showTitle(false);
     this.screens.showPause(false);
     this.screens.showWinner(null);
     this.hud.show(true);
-    this.hud.setOvertime(false);
+    this.hud.setOvertime(null);
   }
 
   togglePause(): void {
     if (this.phase !== 'playing') return;
     this.paused = !this.paused;
+    this.sound.pause(this.paused);
     this.screens.showPause(this.paused);
+  }
+
+  /** M: everything, effects without the tune, silence, and round again. */
+  toggleMute(): void {
+    this.hud.setSoundMode(this.sound.nextMode());
   }
 
   press(side: Side, action: Action): void {
@@ -119,17 +140,28 @@ export class Game {
     if (canDo(this.state, side, cmd)) {
       this.pending.push({ tick: this.state.tick, side, cmd });
       this.hud.pulse(side, action);
+      this.sound.click();
     } else {
       this.hud.refuse(side, action, this.reason(side, action));
+      this.sound.refuse();
     }
   }
 
   private reason(side: Side, action: Action): string {
     const me = this.state.sides[side];
-    if (action === 'special') return NL.refuse.special;
-    if (action === 'turret' && !me.turrets.includes(null)) return NL.refuse.turret;
-    if (action.startsWith('buy') && me.queue.length >= QUEUE_MAX) return NL.refuse.queue;
-    return NL.refuse.gold;
+    switch (action) {
+      case 'special':
+        return NL.refuse.special;
+      case 'turret':
+        return turretPlan(this.state, side) ? NL.refuse.gold : NL.refuse.turret;
+      case 'subsidy':
+        if (kraanDicht(this.state.tick)) return NL.refuse.kraanDicht;
+        return subsidyCost(this.state, side) === null ? NL.refuse.subsidy : NL.refuse.gold;
+      case 'eraUp':
+        return progressNeeded(this.state, side) === null ? NL.refuse.lastEra : NL.refuse.progress;
+      default:
+        return me.queue.length >= QUEUE_MAX ? NL.refuse.queue : NL.refuse.gold;
+    }
   }
 
   /** One tick of the rules, with everything that was pressed since the last one. */
@@ -140,21 +172,98 @@ export class Game {
     this.events.length = 0;
     step(this.state, cmds, this.events);
     this.view.consume(this.events, this.state);
-    for (const e of this.events) {
-      if (e.t === 'overtime') this.hud.setOvertime(true);
-      if (e.t === 'win') this.finish();
+    for (const e of this.events) this.react(e);
+  }
+
+  /** What the player hears, and the few things the HUD shows, for one event. */
+  private react(e: SimEvent): void {
+    switch (e.t) {
+      case 'spawn':
+        if (unitDef(e.def).role === 'super') this.sound.giant();
+        else this.sound.spawn(e.side);
+        break;
+      case 'strike':
+        if (e.ranged) this.sound.whoosh();
+        break;
+      case 'hit':
+        this.sound.hit();
+        break;
+      case 'defeat':
+        this.sound.defeat();
+        break;
+      case 'gold':
+        this.sound.coin();
+        break;
+      case 'baseHit':
+        this.sound.baseHit();
+        break;
+      case 'turretBuilt':
+        this.sound.built();
+        break;
+      case 'turretFire':
+        this.sound.turret(e.side);
+        break;
+      case 'subsidy':
+        this.sound.coin();
+        break;
+      case 'eraUp':
+        this.sound.eraUp();
+        break;
+      case 'special':
+        // Each kind of trick has its own sound.
+        switch (specialDef(e.id).kind) {
+          case 'wave':
+            this.sound.horn();
+            break;
+          case 'stun':
+            this.sound.chant();
+            break;
+          case 'buff':
+            this.sound.riff();
+            break;
+          case 'heal':
+            this.sound.mend();
+            break;
+          case 'barrage':
+            this.sound.swarm();
+            break;
+          case 'snipe':
+            this.sound.zap();
+            break;
+        }
+        break;
+      case 'overtime':
+        this.sound.alarm();
+        break;
+      case 'escalate':
+        // The banner counts up, the tune speeds up a little with every step.
+        this.hud.setOvertime(NL.hud.overtimeHarder.replace('{n}', String(e.percent)));
+        this.sound.tempo = Math.min(1.5, 1.1 + e.level * 0.02);
+        if (e.level > 1) this.sound.surge();
+        break;
+      case 'crumble':
+        this.hud.setOvertime(NL.hud.overtimeCrumble);
+        this.sound.alarm();
+        break;
+      case 'win':
+        this.finish();
+        break;
+      default:
+        break;
     }
   }
 
   private finish(): void {
     this.phase = 'over';
+    this.sound.stopMusic();
+    this.sound.fanfare();
     const w = this.state.winner;
     this.screens.showWinner(w === null ? null : w === 'draw' ? 'draw' : this.state.sides[w].faction);
   }
 
   /** Everything needed to play this exact match again. */
   replay(): Replay {
-    return { v: 1, seed: this.seed, factions: [this.state.sides[0].faction, this.state.sides[1].faction], cmds: [...this.log] };
+    return { v: 2, seed: this.seed, factions: [this.state.sides[0].faction, this.state.sides[1].faction], cmds: [...this.log] };
   }
 
   /** `alpha` is how far between the last tick and the next the picture should be (0..1). */

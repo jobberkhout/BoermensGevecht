@@ -1,7 +1,9 @@
-import { TPS } from '../defs/balance.ts';
+import type { SoundMode } from '../audio/sound.ts';
+import { SUBSIDY, TPS, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
-import { canDo } from '../sim/commands.ts';
+import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { kraanDicht } from '../sim/overtime.ts';
 import { SIDES, type Side, type SimState } from '../sim/types.ts';
 import { ACTIONS, KEY_LABEL, commandOf, type Action } from './input.ts';
 import { NL, nameOf } from './nl.ts';
@@ -30,15 +32,22 @@ export function setPicture(node: HTMLElement, rigId: string, fallback: string): 
 
 interface ButtonParts {
   root: HTMLButtonElement;
+  /** Unit buttons show the unit. */
   pic: HTMLElement | null;
   label: HTMLElement;
+  /** The small line under the name on the four action buttons. */
+  sub: HTMLElement | null;
   cost: HTMLElement;
+  /** The special button darkens from the top while it recharges. */
   cool: HTMLElement | null;
+  /** The modernize button fills from the left as vooruitgang comes in. */
+  fill: HTMLElement | null;
 }
 
 interface SideParts {
   flag: HTMLElement;
   name: HTMLElement;
+  eraName: HTMLElement;
   hp: HTMLElement;
   hpFill: HTMLElement;
   hpText: HTMLElement;
@@ -61,17 +70,31 @@ export class Hud {
 
   private readonly root: HTMLElement;
   private readonly onPress: (side: Side, action: Action) => void;
+  private readonly muteButton: HTMLButtonElement;
 
-  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void) {
+  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void, onMute: () => void) {
     this.root = root;
     this.onPress = onPress;
     const top = el('div', 'top');
+    const middle = el('div', 'middle');
     this.clock = el('div', 'clock', '0:00');
-    this.banner = el('div', 'banner', NL.hud.overtime);
+    this.muteButton = el('button', 'mute');
+    this.muteButton.type = 'button';
+    // A loudspeaker and a note. A stroke through the note means no music, through both means silence.
+    this.muteButton.innerHTML =
+      '<svg viewBox="0 0 36 24" aria-hidden="true"><path class="spk" d="M3 9h4l5-4v14l-5-4H3z"/><path class="waves" d="M15 9q2.5 3 0 6"/>' +
+      '<path class="stem" d="M24 17V6l8-2v10"/><circle class="head" cx="21.8" cy="17" r="2.4"/><circle class="head" cx="29.8" cy="14" r="2.4"/>' +
+      '<path class="no-music" d="M19 21L34 3"/><path class="no-sound" d="M1 21L16 3"/></svg><kbd>M</kbd>';
+    this.muteButton.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      onMute();
+    });
+    middle.append(this.clock, this.muteButton);
+    this.banner = el('div', 'banner');
     this.banner.hidden = true;
     const left = this.buildSide(0);
     const right = this.buildSide(1);
-    top.append(left.team, this.clock, right.team);
+    top.append(left.team, middle, right.team);
     root.append(top, this.banner, left.panel, right.panel);
     this.sides = [left.parts, right.parts];
   }
@@ -83,11 +106,14 @@ export class Hud {
     const flag = el('div', 'flag');
     const who = el('div', 'who');
     const name = el('div', 'name');
+    const eraName = el('small');
+    const title = el('div', 'title');
+    title.append(name, eraName);
     const hp = el('div', 'hp');
     const hpFill = el('i');
     const hpText = el('span');
     hp.append(hpFill, hpText);
-    who.append(name, hp);
+    who.append(title, hp);
     team.append(flag, who);
 
     const panel = el('div', `panel ${where}`);
@@ -110,28 +136,34 @@ export class Hud {
     const grid = el('div', 'buttons');
     const buttons = {} as Record<Action, ButtonParts>;
     for (const action of ACTIONS) {
-      const wide = !action.startsWith('buy');
-      const root = el('button', wide ? 'btn wide' : 'btn');
+      const unit = action.startsWith('buy');
+      const root = el('button', unit ? 'btn' : `btn small ${action}`);
       root.type = 'button';
-      const pic = wide ? null : el('div', 'pic');
+      const pic = unit ? el('div', 'pic') : null;
       const label = el('div', 'label');
+      const sub = unit ? null : el('div', 'sub');
       const cost = el('div', 'cost');
       const cool = action === 'special' ? el('div', 'cool') : null;
+      const fill = action === 'eraUp' ? el('div', 'fill') : null;
       const key = el('kbd', '', KEY_LABEL[side][action]);
+      if (fill) root.append(fill);
       if (pic) root.append(pic);
-      root.append(label, cost, key);
+      root.append(label);
+      if (sub) root.append(sub);
+      root.append(cost, key);
       if (cool) root.append(cool);
       root.addEventListener('pointerdown', (e) => {
         e.preventDefault();
         this.onPress(side, action);
       });
       grid.append(root);
-      buttons[action] = { root, pic, label, cost, cool };
+      buttons[action] = { root, pic, label, sub, cost, cool, fill };
     }
 
     const why = el('div', 'why');
     panel.append(why, status, grid);
-    return { team, panel, parts: { flag, name, hp, hpFill, hpText, gold, money, pips, buttons, why, whyTimer: 0, era: -1 } };
+    const parts: SideParts = { flag, name, eraName, hp, hpFill, hpText, gold, money, pips, buttons, why, whyTimer: 0, era: -1 };
+    return { team, panel, parts };
   }
 
   private write(node: HTMLElement, text: string): void {
@@ -140,7 +172,7 @@ export class Hud {
     node.textContent = text;
   }
 
-  /** Names, pictures and prices: these only change when a side modernizes. */
+  /** Names, pictures and prices of the units: these only change when a side modernizes. */
   private label(s: SimState, side: Side): void {
     const parts = this.sides[side];
     const state = s.sides[side];
@@ -150,24 +182,30 @@ export class Hud {
 
     setPicture(parts.flag, faction.flagRig, '');
     this.write(parts.name, NL.faction[state.faction].name);
-    this.write(parts.money, NL.faction[state.faction].money);
+    this.write(parts.eraName, NL.era[era.id] ?? String(era.year));
 
-    era.units.forEach((unit, slot) => {
+    // Three unit buttons, and a fourth in the era that has a super unit.
+    for (let slot = 0; slot < 4; slot++) {
       const b = parts.buttons[`buy${slot}` as Action];
+      const unit = era.units[slot];
+      b.root.style.display = unit ? '' : 'none';
+      if (!unit) continue;
       if (b.pic) setPicture(b.pic, unit.rig, unit.role[0]!.toUpperCase());
       this.write(b.label, nameOf(unit.id));
       this.write(b.cost, String(unit.cost));
-    });
+    }
+    parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);
     this.write(parts.buttons.special.label, nameOf(era.special.id));
+    parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
+    this.write(parts.buttons.subsidy.label, NL.hud.subsidy);
     this.write(parts.buttons.eraUp.label, NL.hud.eraUp);
-    this.write(parts.buttons.eraUp.cost, era.eraUpCost === null ? '' : String(era.eraUpCost));
 
-    // With a single era there is nothing to modernize to, so the button makes way
-    // and the other two share the row.
-    const hasNext = state.era + 1 < faction.eras.length;
-    parts.buttons.eraUp.root.style.display = hasNext ? '' : 'none';
-    parts.buttons.turret.root.style.gridColumn = hasNext ? 'span 2' : 'span 3';
-    parts.buttons.special.root.style.gridColumn = hasNext ? 'span 2' : 'span 3';
+    // In the last era there is nothing left to modernize to: the button makes
+    // way and the other three share the row.
+    const next = faction.eras[state.era + 1];
+    parts.buttons.eraUp.root.style.display = next ? '' : 'none';
+    parts.buttons.eraUp.root.parentElement!.classList.toggle('three', !next);
+    this.write(parts.buttons.eraUp.sub!, next ? `→ ${NL.era[next.id] ?? next.year}` : '');
   }
 
   update(s: SimState): void {
@@ -185,6 +223,10 @@ export class Hud {
       parts.hp.classList.toggle('low', share < 0.3);
       this.write(parts.hpText, `${state.baseHp} / ${state.baseMaxHp}`);
       this.write(parts.gold, String(state.gold));
+      const income = SUBSIDY.income[state.subsidy]!;
+      const dry = kraanDicht(s.tick);
+      // Once the kraan is closed there is no income to show, and no room for both texts.
+      this.write(parts.money, dry ? NL.hud.kraanDicht : `${NL.faction[state.faction].money} +${income}${NL.hud.perSecond}`);
 
       parts.pips.forEach((pip, i) => {
         const item = state.queue[i];
@@ -203,20 +245,57 @@ export class Hud {
         parts.buttons[action].root.classList.toggle('off', !canDo(s, side, commandOf(action)));
       }
 
+      // The turret button says what it will do next: build, replace an old one, or upgrade.
       const turret = parts.buttons.turret;
-      const full = !state.turrets.includes(null);
-      this.write(turret.label, full ? `${nameOf(era.turret.id)}: ${NL.hud.turretFull}` : nameOf(era.turret.id));
-      this.write(turret.cost, full ? '' : String(era.turret.cost));
+      const plan = turretPlan(s, side);
+      const turretName = nameOf(plan ? plan.def.id : era.turret.id);
+      this.write(turret.label, turretName);
+      turret.label.classList.toggle('long', turretName.length > 13);
+      this.write(turret.cost, plan ? String(plan.cost) : '');
+      this.write(
+        turret.sub!,
+        !plan ? NL.hud.turretMax : plan.how === 'upgrade' ? `${NL.hud.turretHow.upgrade} ${'★'.repeat(plan.level)}` : NL.hud.turretHow[plan.how],
+      );
 
       const special = parts.buttons.special;
       const wait = state.specialReadyAt - s.tick;
       const total = state.specialReadyAt === era.special.firstReady ? era.special.firstReady : era.special.cooldown;
       special.cool?.style.setProperty('--cool', wait > 0 ? (wait / total).toFixed(3) : '0');
+      this.write(special.sub!, wait > 0 ? `${Math.ceil(wait / TPS)} s` : NL.hud.special);
+
+      const subsidy = parts.buttons.subsidy;
+      const price = subsidyCost(s, side);
+      this.write(subsidy.cost, price === null ? '' : String(price));
+      this.write(
+        subsidy.sub!,
+        dry ? NL.hud.dry : price === null ? NL.hud.subsidyMax : `+${income} → +${SUBSIDY.income[state.subsidy + 1]}${NL.hud.perSecond}`,
+      );
+
+      const eraUp = parts.buttons.eraUp;
+      const needed = progressNeeded(s, side);
+      if (needed !== null) {
+        const done = Math.min(1, state.progress / needed);
+        eraUp.fill!.style.width = `${(done * 100).toFixed(1)}%`;
+        this.write(eraUp.cost, `${Math.floor(done * 100)}%`);
+        eraUp.root.classList.toggle('ready', done >= 1);
+      }
     }
   }
 
-  setOvertime(on: boolean): void {
-    this.banner.hidden = !on;
+  /** Shows the overtime banner with this text, or takes it away with null. It jumps whenever the text changes. */
+  setOvertime(text: string | null): void {
+    this.banner.hidden = text === null;
+    if (text === null || this.banner.textContent === text) return;
+    this.banner.textContent = text;
+    this.banner.classList.remove('bump');
+    void this.banner.offsetWidth; // restart the animation
+    this.banner.classList.add('bump');
+  }
+
+  setSoundMode(mode: SoundMode): void {
+    this.muteButton.dataset.mode = mode;
+    this.muteButton.title = NL.sound[mode];
+    this.muteButton.setAttribute('aria-label', NL.sound[mode]);
   }
 
   /** The button dips, whether it was a key or a finger that pressed it. */

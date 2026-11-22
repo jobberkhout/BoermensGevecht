@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, LANE, OVERTIME, px } from '../src/defs/balance.ts';
-import { unitDef } from '../src/defs/index.ts';
+import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, px } from '../src/defs/balance.ts';
+import { turretDef, unitDef } from '../src/defs/index.ts';
+import { canDo } from '../src/sim/commands.ts';
+import { overtimeLevel } from '../src/sim/overtime.ts';
 import { SIDES } from '../src/sim/types.ts';
-import { AH, HM, match, place, run, unit } from './helpers.ts';
+import { AH, HM, act, match, place, run, unit } from './helpers.ts';
 
 describe('walking', () => {
   it('a lone unit advances by its speed every tick', () => {
@@ -198,6 +200,8 @@ describe('the end of a match', () => {
         dmg: 5,
         rig: 'test',
         arc: 0,
+        spin: 0,
+        src: -1,
         row: 1,
         slot: -1,
       });
@@ -205,20 +209,95 @@ describe('the end of a match', () => {
     run(s, 1);
     expect(s.winner).toBe('draw');
   });
+});
 
-  it('in overtime both bases crumble, so the more damaged one loses', () => {
+describe('overtime', () => {
+  it('announces itself, and then turns the screw at a steady beat', () => {
+    const s = match();
+    s.tick = OVERTIME.at;
+    const events = run(s, OVERTIME.every * 3);
+    expect(events.filter((e) => e.t === 'overtime')).toHaveLength(1);
+    const steps = events.filter((e) => e.t === 'escalate').map((e) => (e.t === 'escalate' ? e.percent : 0));
+    expect(steps).toEqual([OVERTIME.stepPercent, OVERTIME.stepPercent * 2, OVERTIME.stepPercent * 3]);
+  });
+
+  it('makes every unit hit harder with each step', () => {
+    const def = unitDef(HM.light);
+    // What one blow does to a target, landed at the given moment of the match.
+    const blow = (tick: number): number => {
+      const s = match();
+      s.tick = tick;
+      place(s, 0, HM.light, LANE / 2 - px(4), 1_000_000);
+      const target = place(s, 1, AH.heavy, LANE / 2, 1_000_000);
+      target.stunUntil = 1e9;
+      run(s, 1 + def.windup);
+      return 1_000_000 - target.hp;
+    };
+    expect(overtimeLevel(OVERTIME.at - 1)).toBe(0);
+    expect(blow(OVERTIME.at - 100)).toBe(def.dmg);
+    expect(blow(OVERTIME.at)).toBe(Math.floor((def.dmg * (100 + OVERTIME.stepPercent)) / 100));
+    expect(blow(OVERTIME.at + OVERTIME.every * 4)).toBe(Math.floor((def.dmg * (100 + OVERTIME.stepPercent * 5)) / 100));
+  });
+
+  it('leaves turrets as they were, so defences fall behind', () => {
+    const turret = turretDef('hm.1975.turret');
+    const shot = (tick: number): number => {
+      const s = match();
+      s.sides[0].gold = 100000;
+      act(s, 0, { t: 'turret' });
+      s.tick = tick;
+      const target = place(s, 1, AH.heavy, LANE - px(100), 1_000_000);
+      target.stunUntil = 1e9;
+      // Exactly one shot leaves and lands in this stretch.
+      run(s, turret.cooldown + 12);
+      return 1_000_000 - target.hp;
+    };
+    expect(shot(100)).toBe(turret.dmg);
+    expect(shot(OVERTIME.at + OVERTIME.every * 6)).toBe(turret.dmg);
+  });
+
+  it('closes the subsidiekraan: the regular income stops, bounties still pay', () => {
+    const s = match();
+    s.tick = OVERTIME.at - INCOME_EVERY * 2;
+    const before = s.sides[0].gold;
+    run(s, INCOME_EVERY * 2);
+    const earned = s.sides[0].gold - before;
+    expect(earned).toBeGreaterThan(0);
+    run(s, INCOME_EVERY * 10);
+    expect(s.sides[0].gold).toBe(before + earned);
+
+    // Beating a unit still pays.
+    place(s, 0, HM.light, LANE / 2 - px(4), 1_000_000);
+    place(s, 1, AH.light, LANE / 2, 1);
+    run(s, 1 + unitDef(HM.light).windup);
+    expect(s.sides[0].gold).toBe(before + earned + unitDef(AH.light).bounty);
+
+    // And applying for more subsidie is pointless now, so it is refused.
+    s.sides[0].gold = 100000;
+    expect(canDo(s, 0, { t: 'subsidy' })).toBe(false);
+  });
+
+  it('does not touch the bases until the long stop', () => {
+    const s = match();
+    s.tick = OVERTIME.at;
+    run(s, OVERTIME.crumbleAt - OVERTIME.at - 1);
+    expect(s.sides.map((side) => side.baseHp)).toEqual(s.sides.map((side) => side.baseMaxHp));
+    expect(s.winner).toBeNull();
+  });
+
+  it('from the long stop both bases crumble, so the more damaged one loses', () => {
     const s = match();
     s.sides[0].baseHp -= 10;
-    s.tick = OVERTIME.at;
-    const events = run(s, OVERTIME.every * 200);
-    expect(events.some((e) => e.t === 'overtime')).toBe(true);
+    s.tick = OVERTIME.crumbleAt;
+    const events = run(s, OVERTIME.crumbleEvery * 200);
+    expect(events.some((e) => e.t === 'crumble')).toBe(true);
     expect(s.winner).toBe(1);
   });
 
-  it('untouched bases in overtime end in a draw', () => {
+  it('untouched bases that crumble end in a draw', () => {
     const s = match();
-    s.tick = OVERTIME.at;
-    run(s, OVERTIME.every * 200);
+    s.tick = OVERTIME.crumbleAt;
+    run(s, OVERTIME.crumbleEvery * 200);
     expect(s.winner).toBe('draw');
   });
 });

@@ -14,15 +14,18 @@ function el<K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text 
   return node;
 }
 
-function keyRow(grid: HTMLElement, key: string, name: string, blurb: string): void {
+function keyRow(grid: HTMLElement, key: string, rig: string, name: string, blurb: string, flip = true): void {
+  // Drawings with lettering in them are shown as drawn; mirroring would turn NEE into EEN.
+  const picture = el('i', flip ? 'pic flip' : 'pic');
+  setPicture(picture, rig, '');
   const text = el('div');
   text.append(el('b', '', name), document.createTextNode(' '), el('span', '', blurb));
-  grid.append(el('kbd', '', key), text);
+  grid.append(el('kbd', '', key), picture, text);
 }
 
 function sideCard(side: Side, faction: FactionId): HTMLElement {
   const era = eraOf(faction, 0);
-  const box = el('div', 'side');
+  const box = el('div', side === 0 ? 'side' : 'side right');
   const head = el('h3');
   const flag = el('div', 'flag');
   setPicture(flag, FACTIONS[faction].flagRig, '');
@@ -33,10 +36,14 @@ function sideCard(side: Side, faction: FactionId): HTMLElement {
   const keys = el('div', 'keys');
   const label = KEY_LABEL[side];
   era.units.forEach((unit, slot) => {
-    keyRow(keys, label[`buy${slot}` as Action], nameOf(unit.id), NL.blurbs[unit.id] ?? '');
+    keyRow(keys, label[`buy${slot}` as Action], unit.rig, nameOf(unit.id), NL.blurbs[unit.id] ?? '');
   });
-  keyRow(keys, label.turret, nameOf(era.turret.id), NL.blurbs[era.turret.id] ?? '');
-  keyRow(keys, label.special, nameOf(era.special.id), NL.blurbs[era.special.id] ?? '');
+  keyRow(keys, label.turret, era.turret.rig, nameOf(era.turret.id), NL.blurbs[era.turret.id] ?? '', false);
+  keyRow(keys, label.special, era.special.rig ?? '', nameOf(era.special.id), NL.blurbs[era.special.id] ?? '');
+  // What the last two keys do is the same in every era; the picture shows what is to come.
+  const future = FACTIONS[faction].eras.at(-1)!;
+  keyRow(keys, label.subsidy, '', NL.start.subsidy.name, NL.start.subsidy.blurb);
+  keyRow(keys, label.eraUp, future.units.at(-1)!.rig, NL.start.eraUp.name, NL.start.eraUp.blurb);
   box.append(head, keys);
   return box;
 }
@@ -57,7 +64,13 @@ export class Screens {
     const go = el('button', 'go', NL.start.go);
     go.type = 'button';
     go.addEventListener('click', onConfirm);
-    card.append(el('h1', '', NL.title), el('h2', '', NL.tagline), versus, el('p', '', `${NL.start.goal} ${NL.start.pause}.`), go);
+    card.append(
+      el('h1', '', NL.title),
+      el('h2', '', NL.tagline),
+      versus,
+      el('p', '', `${NL.start.goal} ${NL.start.eras} ${NL.start.pause}.`),
+      go,
+    );
     this.title.append(card);
 
     this.pause = el('div', 'screen');

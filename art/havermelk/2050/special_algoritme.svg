@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120" data-rig="static">
+  <title>Het Algoritme: gecanceld</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A seal with a spiky edge, like a stamp: red, with a white ring and one fat thumbs-down. Origin = its middle. -->
+  <g id="seal" transform="translate(0 0)">
+    <path class="o" fill="#e5283f" d="M0 -56 L9.5 -47.6 L21.4 -51.7 L27 -40.4 L39.6 -39.6 L40.4 -27 L51.7 -21.4 L47.6 -9.5 L56 0 L47.6 9.5 L51.7 21.4 L40.4 27 L39.6 39.6 L27 40.4 L21.4 51.7 L9.5 47.6 L0 56 L-9.5 47.6 L-21.4 51.7 L-27 40.4 L-39.6 39.6 L-40.4 27 L-51.7 21.4 L-47.6 9.5 L-56 0 L-47.6 -9.5 L-51.7 -21.4 L-40.4 -27 L-39.6 -39.6 L-27 -40.4 L-21.4 -51.7 L-9.5 -47.6 Z"/>
+    <circle class="o" fill="#ffffff" cx="0" cy="0" r="40"/>
+    <circle class="o" fill="#ff5d73" cx="0" cy="0" r="33"/>
+    <path class="n" fill="#ff8d9c" d="M-25 -12 Q-19 -27 -2 -29.5 Q-14 -22 -19.5 -8 Z"/>
+    <!-- cuff, fist, thumb -->
+    <rect class="o" fill="#2f6bff" x="-25" y="-18" width="10.5" height="22" rx="3"/>
+    <path class="o" fill="#ffffff" d="M-12 -19 L11 -19 Q21 -19 21 -10 L21 -4 Q21 6 11 6 L8 6 L9.5 15 Q11 27.5 1.5 27.5 Q-7.5 27.5 -8 18.5 L-9 6 L-12 6 Z"/>
+    <path class="t" d="M3 -11.5 L19.5 -11.5 M3 -3.5 L19.5 -3.5"/>
+  </g>
+</svg>

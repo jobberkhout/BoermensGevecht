@@ -37,6 +37,12 @@ export interface PartSource {
   markup: string;
   /** True for groups without any art, such as `hips`. */
   empty: boolean;
+  /**
+   * Set with data-mirror="no", for lettering. When the rig is drawn facing left
+   * this part is flipped back around its joint, so the text stays readable.
+   * Put the joint in the middle of such a part.
+   */
+  upright: boolean;
   mounts: MountSource[];
 }
 
@@ -61,6 +67,23 @@ function elements(node: Node): Element[] {
   for (let i = 0; i < node.childNodes.length; i++) {
     const child = node.childNodes[i]!;
     if (child.nodeType === ELEMENT) out.push(child as Element);
+  }
+  return out;
+}
+
+/** Which properties each class in the file's <style> sets. Understands plain `.name { a: b; c: d }` rules. */
+function classProperties(root: Element): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const el of elements(root)) {
+    if (localName(el) !== 'style') continue;
+    const css = el.textContent ?? '';
+    for (const rule of css.matchAll(/\.([\w-]+)\s*\{([^}]*)\}/g)) {
+      const props = rule[2]!
+        .split(';')
+        .map((decl) => decl.split(':')[0]!.trim())
+        .filter(Boolean);
+      out.set(rule[1]!, [...(out.get(rule[1]!) ?? []), ...props]);
+    }
   }
   return out;
 }
@@ -112,9 +135,19 @@ export function parseRig(id: string, text: string, dom: Dom): RigSource {
   if (archetype && ARCHETYPES.includes(archetype)) rig.archetype = archetype;
   else problems.push(`data-rig must be one of ${ARCHETYPES.join(', ')}`);
 
+  // A rule in <style> beats an attribute on the element. `<path class="o" stroke="red">` is
+  // therefore not red, and nothing says so. Catch it here.
+  const styled = classProperties(root);
   walk(root, (el) => {
     const name = localName(el);
     if (BANNED_ELEMENTS.includes(name)) problems.push(`<${name}> is not allowed`);
+    for (const cls of (el.getAttribute('class') ?? '').split(/\s+/)) {
+      for (const prop of styled.get(cls) ?? []) {
+        if (el.getAttribute(prop) !== null) {
+          problems.push(`<${name} class="${cls}" ${prop}="${el.getAttribute(prop)}">: the class sets ${prop}, so the attribute is ignored; use style="${prop}:..." instead`);
+        }
+      }
+    }
     for (const attr of ['href', 'xlink:href']) {
       const value = el.getAttribute(attr);
       if (value && !value.startsWith('#')) problems.push(`external reference ${value}`);
@@ -156,6 +189,9 @@ export function parseRig(id: string, text: string, dom: Dom): RigSource {
       const mount = child.getAttribute('data-mount');
       if (!mount) continue;
       mounts.push({ name: mount, x: Number(child.getAttribute('cx') ?? 0), y: Number(child.getAttribute('cy') ?? 0) });
+      if (child.getAttribute('fill') !== 'none') {
+        problems.push(`mount "${mount}" needs fill="none", or it shows as a dot when the file is viewed as-is`);
+      }
       el.removeChild(child);
     }
 
@@ -166,6 +202,7 @@ export function parseRig(id: string, text: string, dom: Dom): RigSource {
       y,
       markup: dom.serialize(el),
       empty: elements(el).length === 0,
+      upright: el.getAttribute('data-mirror') === 'no',
       mounts,
     });
   }

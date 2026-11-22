@@ -28,7 +28,7 @@
     <rect class="o" fill="#f3c9a5" x="-3" y="29" width="6" height="4"/>
     <path class="o" fill="#fafafa" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
     <path class="n" fill="#d6d6d6" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
-    <path class="t" stroke="#7bc8a4" d="M2 32.5 L6 35"/>
+    <path class="t" style="stroke:#7bc8a4" d="M2 32.5 L6 35"/>
   </g>
 
   <g id="torso" data-parent="hips" transform="translate(0 -40)">
@@ -39,7 +39,7 @@
     <path class="n" fill="#d9c79d" d="M-3 -23 L0 -23 L-3.5 8 L-6 8 Z"/>
     <path class="o" fill="#dfcda4" d="M1 -7 L11.5 -7 L12 3 L0 3 Z"/>
     <!-- the house logo: a sprig of oats -->
-    <path class="t" stroke="#8a7447" d="M5 -12 L5 -19 M5 -14 L2.5 -16.5 M5 -15.5 L7.5 -18 M5 -17 L3 -19.5"/>
+    <path class="t" style="stroke:#8a7447" d="M5 -12 L5 -19 M5 -14 L2.5 -16.5 M5 -15.5 L7.5 -18 M5 -17 L3 -19.5"/>
   </g>
 
   <g id="bun" data-parent="head" transform="translate(-5 -122)">
@@ -57,12 +57,12 @@
     <ellipse class="n" fill="#f29b8e" fill-opacity="0.6" cx="6.5" cy="-12.5" rx="3.6" ry="2.1"/>
     <circle class="n" fill="#2b1b16" cx="9.5" cy="-21" r="2"/>
     <circle class="n" fill="#2b1b16" cx="18" cy="-21" r="1.8"/>
-    <circle class="t" fill="#ffffff" fill-opacity="0.28" cx="9.5" cy="-21" r="5.6"/>
-    <circle class="t" fill="#ffffff" fill-opacity="0.28" cx="19" cy="-21" r="4.4"/>
+    <circle class="t" style="fill:#ffffff" fill-opacity="0.28" cx="9.5" cy="-21" r="5.6"/>
+    <circle class="t" style="fill:#ffffff" fill-opacity="0.28" cx="19" cy="-21" r="4.4"/>
     <path class="t" d="M3.9 -21 L-6 -19.5"/>
     <path class="o" fill="#f3c9a5" d="M20.5 -18.5 Q24.5 -15.5 20.5 -13.5"/>
-    <circle class="n" fill="none" stroke="#e6b422" stroke-width="1.4" cx="21.6" cy="-13" r="1.7"/>
-    <path class="t" stroke-width="1.9" d="M9 -9 Q13 -6 17.5 -9.5"/>
+    <circle class="n" style="stroke:#e6b422" fill="none" stroke-width="1.4" cx="21.6" cy="-13" r="1.7"/>
+    <path class="t" style="stroke-width:1.9" d="M9 -9 Q13 -6 17.5 -9.5"/>
     <path class="t" d="M6 -28.5 Q9.5 -30.5 13 -28.5"/>
   </g>
 
@@ -71,7 +71,7 @@
     <path class="o" fill="#c8a8f0" d="M-5.5 13 L11 6 L13.5 13.5 L-2 22.5 Z"/>
     <path class="n" fill="#c8a8f0" d="M-4.5 13.5 L4 10 L5 18 L-2 21 Z"/>
     <circle class="o" fill="#f3c9a5" cx="15.5" cy="8.5" r="4.6"/>
-    <circle data-mount="hand" cx="17" cy="0" r="1"/>
+    <circle data-mount="hand" fill="none" cx="17" cy="0" r="1"/>
   </g>
 
   <g id="prop" data-parent="arm_front" transform="translate(27 -65)">

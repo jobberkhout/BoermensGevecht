@@ -37,17 +37,59 @@ interface Job {
 
 type Press = [side: 0 | 1, action: string];
 
-/** A staged battle: what gets pressed when, and when to take a picture. */
-const BATTLE: { run: number; press?: Press[]; fund?: number; base?: [0 | 1, number]; shot?: string }[] = [
-  { run: 0, fund: 900, press: [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1']] },
-  { run: 240, press: [[0, 'turret'], [1, 'turret'], [0, 'buy0'], [1, 'buy0']], shot: 'march' },
-  { run: 330, press: [[0, 'buy1'], [1, 'buy1'], [0, 'buy0'], [1, 'buy2']], shot: 'clash' },
-  { run: 200, press: [[0, 'buy2'], [1, 'buy1'], [1, 'buy0']] },
-  { run: 14, press: [[1, 'special']], shot: 'kolonne' },
+/** One step of the staged battle: set things up, press, run some ticks, maybe take a picture. */
+interface Stage {
+  run: number;
+  press?: Press[];
+  /** Subsidie for both sides. */
+  fund?: number;
+  /** Vooruitgang for both sides, so they can modernize. */
+  progress?: number;
+  /** Makes both specials ready. */
+  charge?: boolean;
+  base?: [0 | 1, number];
+  shot?: string;
+  /** Also saves a close-up of both button panels. */
+  panels?: boolean;
+}
+
+const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1']];
+const MORE: Press[] = [[0, 'buy1'], [1, 'buy1'], [0, 'buy0'], [1, 'buy2'], [0, 'buy2'], [1, 'buy0']];
+const TURRETS: Press[] = [[0, 'turret'], [1, 'turret']];
+const MODERNIZE: Press[] = [[0, 'eraUp'], [1, 'eraUp']];
+
+/** A staged battle that walks through all three eras, every special and the end screen. */
+const BATTLE: Stage[] = [
+  // 1975
+  { run: 0, fund: 900, press: ARMY },
+  { run: 240, press: [...TURRETS, [0, 'subsidy'], [1, 'subsidy'], [0, 'buy0'], [1, 'buy0']], shot: '1975-march' },
+  { run: 330, fund: 900, press: MORE, shot: '1975-clash' },
+  { run: 45, charge: true, press: [[1, 'special']], shot: '1975-hoken' },
+  { run: 22, press: [[0, 'special']], shot: '1975-lovein' },
+  // 2025: the old turrets stay until they are bought again, then get upgraded
+  { run: 2, progress: 1500, shot: '1975-ready', panels: true },
+  { run: 8, press: MODERNIZE, shot: '2025-modernized' },
+  { run: 150, fund: 6000, press: [...TURRETS, ...ARMY], shot: '2025-old-and-new' },
+  { run: 240, fund: 6000, press: [...TURRETS, ...TURRETS, ...MORE], shot: '2025-clash' },
+  { run: 14, charge: true, press: [[1, 'special']], shot: '2025-kolonne' },
   { run: 90, press: [[0, 'buy1'], [0, 'buy0']] },
-  { run: 20, press: [[0, 'special']], shot: 'wegblokkade' },
-  { run: 400, base: [0, 30], shot: 'late' },
-  { run: 3000, shot: 'win' },
+  { run: 20, press: [[0, 'special']], shot: '2025-wegblokkade' },
+  // 2050
+  { run: 8, progress: 4200, press: MODERNIZE, shot: '2050-modernized' },
+  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, [0, 'buy3'], [1, 'buy3'], ...ARMY] },
+  { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash', panels: true },
+  { run: 30, charge: true, press: [[1, 'special']], shot: '2050-zwerm' },
+  { run: 60, fund: 20000, press: [[1, 'buy2'], [1, 'buy0']] },
+  { run: 6, press: [[0, 'special']], shot: '2050-algoritme' },
+  { run: 300, shot: '2050-late' },
+  // From here only the right player keeps buying, so the left base falls and the end screen shows.
+  ...Array.from({ length: 10 }, (): Stage => ({
+    run: 300,
+    fund: 20000,
+    base: [0, 300],
+    press: [[1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1'], [1, 'buy0']],
+  })),
+  { run: 0, shot: 'win' },
 ];
 
 function jobs(): Job[] {
@@ -99,9 +141,10 @@ try {
       for (const stage of BATTLE) {
         await page.evaluate((st) => {
           const g = (window as any).__game;
-          if (st.fund !== undefined) {
-            g.fund(0, st.fund);
-            g.fund(1, st.fund);
+          for (const side of [0, 1]) {
+            if (st.fund !== undefined) g.fund(side, st.fund);
+            if (st.progress !== undefined) g.progress(side, st.progress);
+            if (st.charge) g.charge(side);
           }
           if (st.base) g.setBase(st.base[0], st.base[1]);
           for (const [side, action] of st.press ?? []) g.press(side, action);
@@ -111,6 +154,11 @@ try {
           const file = `screens/${engineName}/battle-${stage.shot}.png`;
           await page.screenshot({ path: file });
           console.log(file, JSON.stringify(await page.evaluate(() => (window as any).__game.summary())));
+          if (stage.panels) {
+            for (const where of ['left', 'right']) {
+              await page.locator(`.panel.${where}`).screenshot({ path: `screens/${engineName}/panel-${stage.shot}-${where}.png` });
+            }
+          }
         }
       }
       await browser.close();
