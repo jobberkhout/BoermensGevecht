@@ -7,6 +7,15 @@ from the seventies to the future. Whoever wrecks the other base wins.
 
 All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no image or sound files.
 
+## Play it
+
+Download **`BoermensGevecht.html`** from this repository and double-click it. It opens in your browser and
+that is all: one file, nothing to install, no internet needed. Any current browser will do; it is tested
+in the engines of Chrome and Edge, Firefox, and Safari. Two players share one keyboard; the keys are on the
+title screen.
+
+If you cloned the repository, the file is in its root: open it from there.
+
 ## Status
 
 | Part | State |
@@ -27,7 +36,7 @@ All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no
 
 Both sides have the same numbers for the same role in the same era; they differ in looks, projectiles and specials.
 
-## Running it
+## Working on it
 
 ```
 npm install
@@ -35,6 +44,10 @@ npm run dev
 ```
 
 Open the address it prints. `/gallery.html` on the same address shows every drawing with its animations.
+
+`npm run build` makes the static site in `dist/` and rebuilds `BoermensGevecht.html`, the whole game folded
+into one file. That file is committed on purpose, so the repository always holds a playable game; `npm test`
+fails when it is older than the source, which means: build again and commit it.
 
 ## Controls
 
@@ -129,11 +142,11 @@ does not exist.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Rules, fairness between the two sides, and the lint over all art and animations |
-| `npm run e2e` | In Chromium, Firefox and WebKit: plays a match, modernizes through all three eras, uses every special, checks every puppet against its drawing, and measures that the sound is audible and never clips |
+| `npm test` | Rules, fairness between the two sides, the lint over all art and animations, and that `BoermensGevecht.html` is up to date |
+| `npm run e2e` | In Chromium, Firefox and WebKit: plays a match, modernizes through all three eras, uses every special, checks every puppet against its drawing, measures that the sound is audible and never clips, and opens `BoermensGevecht.html` straight from disk to see that it plays |
 | `npm run balance` | Bot tournament: win share per faction, match length, how many reach overtime, which era matches end in |
 | `npm run shots -- battle` | Screenshots of the title and a staged battle through all three eras in `screens/` |
-| `npm run build` | Type check and static build in `dist/`, ready for any static host |
+| `npm run build` | Type check, static build in `dist/` ready for any static host, and the single file `BoermensGevecht.html` |
 
 Adding `?test=1` to the game's address stops the clock; `window.__game` then steps the match by hand
 (see `src/testhooks.ts`).
