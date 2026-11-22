@@ -92,7 +92,10 @@ Every action is also a button on screen.
   takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials have
   no effect on it: it cannot be cancelled, glued down, run over or picked out by drones. Six heavies or a
   steady supply of units and turrets still bring it down.
-- After ten minutes both bases start to crumble. The less damaged one outlasts the other.
+- **Overtime.** After ten minutes the subsidiekraan closes: the regular income stops and only bounties
+  still pay. From then on units also hit 20% harder, and another 20% every ten seconds. Turrets and specials
+  do not, so defences fall behind and one side breaks through. Should a match still be going at thirteen
+  minutes, both bases start to crumble as well and the less damaged one outlasts the other.
 
 ## Where things are
 

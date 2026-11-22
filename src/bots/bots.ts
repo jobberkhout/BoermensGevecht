@@ -2,6 +2,7 @@ import { SUBSIDY } from '../defs/balance.ts';
 import { eraOf, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
 import { canDo, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { kraanDicht } from '../sim/overtime.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
 import { other, type Command, type Side, type SimState } from '../sim/types.ts';
 
@@ -95,7 +96,7 @@ export function brain(style: Style): Bot {
       // step it stops buying units, as a person saving up would.
       const eco = Math.min(SUBSIDY.cost.length, style.eco + me.era);
       const ecoCost = subsidyCost(s, side);
-      if (me.subsidy < eco && ecoCost !== null) {
+      if (me.subsidy < eco && ecoCost !== null && !kraanDicht(s.tick)) {
         if (me.gold >= ecoCost) return SUBSIDY_CMD;
         if (me.gold * 2 >= ecoCost) return null;
       }

@@ -17,6 +17,7 @@ import { turretDef, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit } from './lane.ts';
+import { kraanDicht, overtimeLevel, unitDamagePercent } from './overtime.ts';
 import { advanceBarrages, advanceWaves } from './specials.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
@@ -87,7 +88,7 @@ function buffed(side: SideState, tick: number): boolean {
 function economy(s: SimState, side: Side, events: SimEvent[]): void {
   const me = s.sides[side];
   if (s.tick > 0 && s.tick % INCOME_EVERY === 0) {
-    me.gold += SUBSIDY.income[me.subsidy]!;
+    if (!kraanDicht(s.tick)) me.gold += SUBSIDY.income[me.subsidy]!;
     me.progress += PROGRESS.perInterval;
   }
 
@@ -184,7 +185,9 @@ function strike(
 ): void {
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
   const me = s.sides[side];
-  const amount = buffed(me, s.tick) ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
+  // A buff and overtime both make a unit hit harder; one on top of the other.
+  const fired = buffed(me, s.tick) ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
+  const amount = Math.floor((fired * unitDamagePercent(s.tick)) / 100);
   if (def.shot) {
     s.shots.push({
       id: s.nextId++,
@@ -318,9 +321,15 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
 function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   if (s.tick < OVERTIME.at) return;
   if (s.tick === OVERTIME.at) events.push({ t: 'overtime' });
-  if ((s.tick - OVERTIME.at) % OVERTIME.every !== 0) return;
+  // The harder hitting itself happens where units strike; this only announces each step.
+  if ((s.tick - OVERTIME.at) % OVERTIME.every === 0) {
+    events.push({ t: 'escalate', level: overtimeLevel(s.tick), percent: unitDamagePercent(s.tick) - 100 });
+  }
+  if (s.tick < OVERTIME.crumbleAt) return;
+  if (s.tick === OVERTIME.crumbleAt) events.push({ t: 'crumble' });
+  if ((s.tick - OVERTIME.crumbleAt) % OVERTIME.crumbleEvery !== 0) return;
   for (const side of SIDES) {
-    const amount = Math.ceil((s.sides[side].baseMaxHp * OVERTIME.percent) / 100);
+    const amount = Math.ceil((s.sides[side].baseMaxHp * OVERTIME.crumblePercent) / 100);
     dmg.push({ side, unit: BASE, amount });
   }
 }

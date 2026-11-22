@@ -71,10 +71,11 @@ const pct = (n: number, d: number) => (d === 0 ? '-' : `${((100 * n) / d).toFixe
 const at = (q: number) => (minutes.length ? minutes[Math.min(minutes.length - 1, Math.floor(q * minutes.length))]!.toFixed(1) : '-');
 
 const overtime = tally.ticks.filter((t) => t >= OVERTIME.at).length + tally.stalls;
+const crumbled = tally.ticks.filter((t) => t >= OVERTIME.crumbleAt).length;
 console.log(`${games} matches (${all.length} bots, both seats, ${SEEDS} seeds)`);
 console.log(`  ${FACTIONS[0].padEnd(11)} wins ${tally.wins[0]}  (${pct(tally.wins[0], decided)} of decided)`);
 console.log(`  ${FACTIONS[1].padEnd(11)} wins ${tally.wins[1]}  (${pct(tally.wins[1], decided)} of decided)`);
-console.log(`  draws ${tally.draws}, stalls ${tally.stalls}, decided in overtime ${pct(overtime, games)}`);
+console.log(`  draws ${tally.draws}, stalls ${tally.stalls}, decided in overtime ${pct(overtime, games)}, of which only by crumbling bases ${pct(crumbled, games)}`);
 console.log(`  length in minutes: shortest ${at(0)}, median ${at(0.5)}, longest ${at(0.999)}`);
 console.log(`  furthest era reached: 1975 in ${tally.eras[0]} matches, 2025 in ${tally.eras[1]}, 2050 in ${tally.eras[2]}`);
 console.log('  win rate per bot:');

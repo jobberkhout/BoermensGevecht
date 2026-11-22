@@ -22,6 +22,8 @@ export interface TestApi {
   progress(side: Side, amount: number): void;
   /** Makes a side's special ready now. */
   charge(side: Side): void;
+  /** Moves the match clock to this many seconds, to stage overtime without playing ten minutes. */
+  setClock(seconds: number): void;
   summary(): Summary;
   /** Renders the tune and every effect into a buffer and reports how loud it gets. */
   audioLevels(): Promise<Levels>;
@@ -101,6 +103,9 @@ export function installTestHooks(game: Game): void {
     },
     charge: (side) => {
       if (game.phase === 'playing') game.state.sides[side].specialReadyAt = 0;
+    },
+    setClock: (seconds) => {
+      if (game.phase === 'playing') game.state.tick = Math.round(seconds * TPS);
     },
     audioLevels: () => measure(12, (sound) => sound.demo()),
     musicLevels: (bars) => measure(bars * 4 + 4, (sound) => sound.demoMusic(bars)),

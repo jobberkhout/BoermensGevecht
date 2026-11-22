@@ -179,4 +179,8 @@ export type SimEvent =
   /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */
   | { t: 'barrageHit'; side: Side; id: number; pos: number }
   | { t: 'overtime' }
+  /** Overtime turned the screw: units now hit `percent` of their normal damage harder. */
+  | { t: 'escalate'; level: number; percent: number }
+  /** Overtime has gone on so long that both bases start to crumble. */
+  | { t: 'crumble' }
   | { t: 'win'; winner: Side | 'draw' };

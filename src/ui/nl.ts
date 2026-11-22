@@ -104,7 +104,13 @@ export const NL = {
     turretMax: 'maximaal ★★★',
     paused: 'Pauze',
     resume: 'Spatie om verder te gaan',
-    overtime: 'Overtijd! Beide bases brokkelen af',
+    /** The overtime banner: {n} is how much harder units hit by now. */
+    overtimeHarder: 'Overtijd! Subsidiekraan dicht, eenheden slaan {n}% harder',
+    /** Next to the purse once the regular income has stopped. */
+    kraanDicht: 'subsidiekraan dicht',
+    /** The same, short enough for the subsidie button. */
+    dry: 'kraan dicht',
+    overtimeCrumble: 'Overtijd! Nu brokkelen ook de bases af',
   },
 
   /** What floats over the field when something happens. */
@@ -133,6 +139,7 @@ export const NL = {
     special: 'Nog niet klaar',
     progress: 'Nog niet genoeg vooruitgang',
     subsidy: 'Meer subsidie zit er niet in',
+    kraanDicht: 'De subsidiekraan is dicht',
     lastEra: 'Moderner bestaat niet',
   },
 
@@ -141,7 +148,7 @@ export const NL = {
     left: 'Linker speler',
     right: 'Rechter speler',
     pause: 'Spatie = pauze, M = muziek of geluid uit',
-    goal: 'Sloop de basis van de ander. Wie in de overtijd de minste schade heeft, wint.',
+    goal: 'Sloop de basis van de ander. Na tien minuten is het overtijd: de subsidiekraan gaat dicht en eenheden slaan steeds harder.',
     /** The two rows on the title card that are the same for every era. */
     subsidy: { name: 'Subsidie aanvragen', blurb: 'Kost nu geld, levert daarna elke tel meer op.' },
     eraUp: {

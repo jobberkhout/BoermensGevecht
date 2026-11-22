@@ -49,8 +49,34 @@ export const UNIT_CAP = 10;
 export const QUEUE_MAX = 5;
 export const TURRET_SLOTS = 2;
 
-/** Past this point both bases lose `percent` of their full strength every `every` ticks. */
-export const OVERTIME = { at: sec(10 * 60), every: sec(1), percent: 1.5 } as const;
+/**
+ * Overtime: nobody gets to sit a match out.
+ *
+ * From `at` two things change. The subsidiekraan closes: the regular income
+ * stops, so both sides live off their savings and the bounties they earn. And
+ * every `every` ticks all units hit `stepPercent` of their normal damage harder
+ * than before, on top of the last step. Turrets and specials do not, so
+ * defences fall behind, fights are over in a blow or two, and one side breaks
+ * through.
+ *
+ * If even that does not finish it, from `crumbleAt` both bases also lose
+ * `crumblePercent` of their full strength every `crumbleEvery` ticks. That ends
+ * any match within about a minute; the less damaged base outlasts the other.
+ *
+ * Measured over 324 bot matches, a quarter reach overtime. With bases that
+ * simply crumbled from the start, none of those were decided by play; with
+ * harder hits alone about a third are, with the closed kraan as well more than half.
+ */
+export const OVERTIME = {
+  at: sec(10 * 60),
+  every: sec(10),
+  stepPercent: 20,
+  /** Whether the regular income keeps coming in during overtime. Bounties always do. */
+  income: false,
+  crumbleAt: sec(13 * 60),
+  crumbleEvery: sec(1),
+  crumblePercent: 1.5,
+} as const;
 
 // ---- Money ------------------------------------------------------------------
 

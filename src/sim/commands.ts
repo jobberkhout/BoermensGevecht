@@ -1,6 +1,7 @@
 import { QUEUE_MAX, SUBSIDY, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf } from '../defs/index.ts';
 import type { TurretDef } from '../defs/types.ts';
+import { kraanDicht } from './overtime.ts';
 import { startSpecial } from './specials.ts';
 import type { Command, Damage, Side, SimEvent, SimState } from './types.ts';
 
@@ -88,8 +89,9 @@ export function canDo(s: SimState, side: Side, cmd: Command): boolean {
       return needed !== null && me.progress >= needed;
     }
     case 'subsidy': {
+      // Once the kraan is closed in overtime, more subsidie would buy nothing.
       const cost = subsidyCost(s, side);
-      return cost !== null && me.gold >= cost;
+      return cost !== null && me.gold >= cost && !kraanDicht(s.tick);
     }
   }
 }

@@ -255,6 +255,17 @@ body {
   display: none;
 }
 
+/* Every time overtime turns the screw the banner jumps. */
+.banner.bump {
+  animation: bump 0.35s ease-out;
+}
+
+@keyframes bump {
+  30% {
+    scale: 1.18;
+  }
+}
+
 /* ---- the two control panels ---- */
 
 .panel {

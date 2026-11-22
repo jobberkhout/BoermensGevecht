@@ -456,6 +456,12 @@ export class Sound {
     for (const at of [0, 0.22, 0.44]) this.tone({ type: 'triangle', freq: 880, to: 660, dur: 0.18, gain: 0.3, at });
   }
 
+  /** Overtime turns the screw: a quick step up. */
+  surge(): void {
+    this.tone({ type: 'triangle', freq: 660, dur: 0.08, gain: 0.22 });
+    this.tone({ type: 'triangle', freq: 880, dur: 0.14, gain: 0.22, at: 0.08 });
+  }
+
   /** Somebody won. */
   fanfare(): void {
     const notes = [523.25, 659.25, 783.99, 1046.5];
@@ -567,7 +573,7 @@ export class Sound {
       () => this.whoosh(), () => this.turret(0), () => this.turret(1), () => this.defeat(), () => this.coin(),
       () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(), () => this.chant(),
       () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.giant(),
-      () => this.alarm(), () => this.fanfare(),
+      () => this.alarm(), () => this.surge(), () => this.fanfare(),
     ];
     const gap = 0.6;
     // Start in the busiest part of the tune: melody, drums and all.

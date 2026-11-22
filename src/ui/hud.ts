@@ -3,6 +3,7 @@ import { SUBSIDY, TPS, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { kraanDicht } from '../sim/overtime.ts';
 import { SIDES, type Side, type SimState } from '../sim/types.ts';
 import { ACTIONS, KEY_LABEL, commandOf, type Action } from './input.ts';
 import { NL, nameOf } from './nl.ts';
@@ -89,7 +90,7 @@ export class Hud {
       onMute();
     });
     middle.append(this.clock, this.muteButton);
-    this.banner = el('div', 'banner', NL.hud.overtime);
+    this.banner = el('div', 'banner');
     this.banner.hidden = true;
     const left = this.buildSide(0);
     const right = this.buildSide(1);
@@ -223,7 +224,9 @@ export class Hud {
       this.write(parts.hpText, `${state.baseHp} / ${state.baseMaxHp}`);
       this.write(parts.gold, String(state.gold));
       const income = SUBSIDY.income[state.subsidy]!;
-      this.write(parts.money, `${NL.faction[state.faction].money} +${income}${NL.hud.perSecond}`);
+      const dry = kraanDicht(s.tick);
+      // Once the kraan is closed there is no income to show, and no room for both texts.
+      this.write(parts.money, dry ? NL.hud.kraanDicht : `${NL.faction[state.faction].money} +${income}${NL.hud.perSecond}`);
 
       parts.pips.forEach((pip, i) => {
         const item = state.queue[i];
@@ -265,7 +268,7 @@ export class Hud {
       this.write(subsidy.cost, price === null ? '' : String(price));
       this.write(
         subsidy.sub!,
-        price === null ? NL.hud.subsidyMax : `+${income} → +${SUBSIDY.income[state.subsidy + 1]}${NL.hud.perSecond}`,
+        dry ? NL.hud.dry : price === null ? NL.hud.subsidyMax : `+${income} → +${SUBSIDY.income[state.subsidy + 1]}${NL.hud.perSecond}`,
       );
 
       const eraUp = parts.buttons.eraUp;
@@ -279,8 +282,14 @@ export class Hud {
     }
   }
 
-  setOvertime(on: boolean): void {
-    this.banner.hidden = !on;
+  /** Shows the overtime banner with this text, or takes it away with null. It jumps whenever the text changes. */
+  setOvertime(text: string | null): void {
+    this.banner.hidden = text === null;
+    if (text === null || this.banner.textContent === text) return;
+    this.banner.textContent = text;
+    this.banner.classList.remove('bump');
+    void this.banner.offsetWidth; // restart the animation
+    this.banner.classList.add('bump');
   }
 
   setSoundMode(mode: SoundMode): void {

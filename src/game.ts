@@ -7,6 +7,7 @@ import type { Stage } from './render/stage.ts';
 import { BattleView } from './render/view.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan } from './sim/commands.ts';
 import { createMatch } from './sim/create.ts';
+import { kraanDicht } from './sim/overtime.ts';
 import { step } from './sim/step.ts';
 import type { Replay, Side, SimEvent, SimState, Stamped } from './sim/types.ts';
 import { Hud } from './ui/hud.ts';
@@ -118,7 +119,7 @@ export class Game {
     this.screens.showPause(false);
     this.screens.showWinner(null);
     this.hud.show(true);
-    this.hud.setOvertime(false);
+    this.hud.setOvertime(null);
   }
 
   togglePause(): void {
@@ -154,6 +155,7 @@ export class Game {
       case 'turret':
         return turretPlan(this.state, side) ? NL.refuse.gold : NL.refuse.turret;
       case 'subsidy':
+        if (kraanDicht(this.state.tick)) return NL.refuse.kraanDicht;
         return subsidyCost(this.state, side) === null ? NL.refuse.subsidy : NL.refuse.gold;
       case 'eraUp':
         return progressNeeded(this.state, side) === null ? NL.refuse.lastEra : NL.refuse.progress;
@@ -231,9 +233,17 @@ export class Game {
         }
         break;
       case 'overtime':
-        this.hud.setOvertime(true);
         this.sound.alarm();
-        this.sound.tempo = 1.12;
+        break;
+      case 'escalate':
+        // The banner counts up, the tune speeds up a little with every step.
+        this.hud.setOvertime(NL.hud.overtimeHarder.replace('{n}', String(e.percent)));
+        this.sound.tempo = Math.min(1.5, 1.1 + e.level * 0.02);
+        if (e.level > 1) this.sound.surge();
+        break;
+      case 'crumble':
+        this.hud.setOvertime(NL.hud.overtimeCrumble);
+        this.sound.alarm();
         break;
       case 'win':
         this.finish();
