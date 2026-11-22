@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het kraakpand: een grachtenpand dat betere tijden heeft gekend</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .f { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; }
+    .tube { stroke: #2b1b16; stroke-width: 6.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .lilac { stroke: #a48bd0; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The building stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- a bamboo pole for the flag, lashed to the gutter -->
+    <path class="t" style="stroke-width:5.4" d="M-289 -440 Q-292 -500 -287 -553"/>
+    <path class="t" style="stroke:#c9a35a;stroke-width:2.4" d="M-289 -440 Q-292 -500 -287 -553"/>
+    <path class="t" style="stroke:#e9dcc3;stroke-width:2.2" d="M-293.5 -456 L-285.5 -459 M-293.5 -461 L-285.5 -456"/>
+    <circle class="o" style="stroke-width:2.2" fill="#c9c9d2" cx="-287" cy="-556" r="4"/>
+
+    <!-- chimney with two pots -->
+    <path class="o" fill="#c97b4a" d="M-27 -503 L-26 -512 L-21 -512 L-20 -503 Z M-19 -503 L-18 -512 L-13 -512 L-12 -503 Z"/>
+    <rect class="o" fill="#7d4c3d" x="-30" y="-498" width="20" height="60"/>
+    <rect class="o" fill="#e9dcc3" x="-33" y="-503" width="26" height="7" rx="2"/>
+
+    <!-- the stepped gable -->
+    <path class="o" fill="#8f5a48" d="M-228 -438 L-228 -468 L-206 -468 L-206 -486 L-184 -486 L-184 -504 L-162 -504 L-162 -522 L-78 -522 L-78 -504 L-56 -504 L-56 -486 L-34 -486 L-34 -468 L-12 -468 L-12 -438 Z"/>
+    <path class="t" style="stroke:#a8705c;stroke-width:2.4" d="M-216 -454 L-200 -454 M-70 -456 L-54 -456 M-150 -494 L-134 -494 M-46 -476 L-36 -476 M-196 -474 L-186 -474"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-231" y="-472" width="27" height="6" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-187" y="-508" width="27" height="6" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-165" y="-526" width="90" height="6" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-81" y="-508" width="27" height="6" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-59" y="-490" width="27" height="6" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9dcc3" x="-37" y="-472" width="27" height="6" rx="1.5"/>
+    <!-- one coping stone has gone; something green grows there instead -->
+    <path class="t" style="stroke:#3f9b57;stroke-width:2.6" d="M-198 -486 q-3 -8 -8 -9 M-195 -486 q0 -10 3 -13 M-192 -486 q4 -6 8 -6"/>
+    <!-- the hoisting beam, with a boot on the hook -->
+    <path class="o" fill="#5a4636" d="M-150 -518 L-90 -518 L-90 -511 L-150 -511 Z"/>
+    <path class="t" d="M-98 -511 L-98 -500"/>
+    <path class="t" style="stroke-width:2.4" d="M-98 -500 Q-93 -496 -98 -492"/>
+    <path class="o" style="stroke-width:2" fill="#3a2e2a" d="M-102 -493 L-95 -493 L-95 -485 Q-88 -485 -88 -480 L-103 -480 Z"/>
+    <!-- ropes for the bed sheet (the sheet itself is a part of its own) -->
+    <path class="t" style="stroke:#e9dcc3" d="M-190 -480 L-196 -490 M-50 -480 L-44 -490"/>
+
+    <!-- a home-made aerial -->
+    <path class="t" style="stroke-width:4.6" d="M-150 -524 L-147 -574"/>
+    <path class="t" style="stroke:#b98045;stroke-width:2" d="M-150 -524 L-147 -574"/>
+    <path class="t" style="stroke-width:4.2" d="M-164 -560 L-132 -562 M-160 -560 L-150 -571 L-140 -561"/>
+    <path class="t" style="stroke:#c9c9d2;stroke-width:1.8" d="M-164 -560 L-132 -562 M-160 -560 L-150 -571 L-140 -561"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#aab0b8" cx="-130" cy="-546" rx="9" ry="6" transform="rotate(-24 -130 -546)"/>
+    <path class="t" style="stroke-width:1.3" d="M-146 -572 Q-80 -520 -22 -505"/>
+
+    <!-- the front -->
+    <rect class="o" fill="#8f5a48" x="-296" y="-440" width="292" height="440"/>
+    <rect class="o" fill="#e9dcc3" x="-302" y="-450" width="304" height="12" rx="3"/>
+    <rect class="o" fill="#9a958f" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- second floor: nobody home yet. A mattress, a candle in a bottle, a ladder. -->
+    <rect class="o" fill="#3a2e4a" x="-290" y="-432" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -306 L-12 -306 L-12 -294 L-288 -294 Z"/>
+    <path class="t" style="stroke:#6f6289" d="M-150 -430 L-150 -408"/>
+    <circle class="o" style="stroke-width:2" fill="#ffe9a8" cx="-150" cy="-402" r="5.5"/>
+    <path class="o" style="stroke-width:2.2" fill="#8a7a9f" d="M-272 -294 L-272 -303 Q-272 -309 -264 -309 L-204 -309 Q-196 -309 -196 -303 L-196 -294 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#b3a5c9" d="M-270 -309 Q-270 -317 -260 -317 L-248 -317 Q-240 -317 -240 -309 Z"/>
+    <path class="t" style="stroke:#6f6289;stroke-width:2.2" d="M-228 -308 L-228 -295 M-216 -308 L-216 -295 M-206 -308 L-206 -295"/>
+    <path class="o" style="stroke-width:2" fill="#5d8a5a" d="M-183 -294 L-183 -308 Q-183 -312 -180 -313 L-180 -317 L-176 -317 L-176 -313 Q-173 -312 -173 -308 L-173 -294 Z"/>
+    <path class="n" fill="#fffdf5" d="M-179.5 -317 L-176.5 -317 L-176.5 -324 L-179.5 -324 Z"/>
+    <path class="n" fill="#ffd21f" d="M-178 -324 Q-181.5 -329 -178 -334 Q-174.5 -329 -178 -324 Z"/>
+    <path class="t" style="stroke:#6f6289;stroke-width:3" d="M-66 -294 L-52 -380 M-36 -294 L-40 -380 M-63 -314 L-37 -314 M-60 -336 L-38 -336 M-56 -358 L-39 -358"/>
+    <path class="t" style="stroke:#6f6289;stroke-width:1.2" d="M-290 -432 L-262 -404 M-290 -412 Q-276 -414 -270 -432 M-290 -420 Q-282 -421 -278 -432 M-282 -424 L-276 -418"/>
+
+    <!-- first floor: the house cat keeps watch until somebody moves in -->
+    <rect class="o" fill="#3a2e4a" x="-290" y="-282" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -156 L-12 -156 L-12 -144 L-288 -144 Z"/>
+    <path class="t" style="stroke:#6f6289" d="M-150 -280 L-150 -256"/>
+    <circle class="o" style="stroke-width:2" fill="#ffe9a8" cx="-150" cy="-250" r="5.5"/>
+    <path class="o" style="stroke-width:2.2" fill="#8a7a9f" d="M-262 -144 L-262 -170 L-222 -170 L-222 -144 Z"/>
+    <path class="t" style="stroke:#6f6289;stroke-width:2.2" d="M-262 -157 L-222 -157 M-249 -170 L-249 -144 M-235 -170 L-235 -144"/>
+    <path class="o" style="stroke-width:2.2" fill="#e0903a" d="M-62 -144 Q-66 -162 -54 -168 Q-40 -168 -40 -144 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#e0903a" d="M-58 -168 L-59 -180 L-53 -175 L-46 -175 L-41 -181 L-41 -168 Q-41 -160 -49.5 -160 Q-58 -160 -58 -168 Z"/>
+    <path class="t" style="stroke:#b3661e;stroke-width:1.6" d="M-60 -156 L-55 -155 M-61 -150 L-56 -149 M-44 -156 L-41.5 -155"/>
+    <circle class="n" fill="#ffd21f" cx="-52.5" cy="-169.5" r="1.9"/>
+    <circle class="n" fill="#ffd21f" cx="-45.5" cy="-169.5" r="1.9"/>
+    <path class="n" fill="#2b1b16" d="M-52.5 -171.3 L-52 -169.5 L-52.5 -167.7 L-53 -169.5 Z M-45.5 -171.3 L-45 -169.5 L-45.5 -167.7 L-46 -169.5 Z"/>
+
+    <rect class="o" fill="#e9dcc3" x="-300" y="-292" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#e9dcc3" x="-300" y="-142" width="300" height="10" rx="3"/>
+    <path class="n" fill="#7d4c3d" fill-opacity="0.7" d="M-112 -131 L-104 -131 L-106 -112 Q-108 -106 -110 -112 Z M-22 -131 L-12 -131 L-15 -104 Q-17 -98 -19 -104 Z"/>
+
+    <!-- ground floor: the old shop, boarded up and painted on -->
+    <rect class="o" fill="#2f2a3a" x="-286" y="-120" width="176" height="106" rx="3"/>
+    <path class="o" style="stroke-width:2.4" fill="#b98045" d="M-289 -109 L-107 -113 L-107 -100 L-289 -96 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#a06a35" d="M-289 -87 L-107 -83 L-107 -70 L-289 -74 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#b98045" d="M-289 -61 L-107 -65 L-107 -52 L-289 -48 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#a06a35" d="M-289 -37 L-107 -35 L-107 -22 L-289 -24 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#c9955a" d="M-150 -118 L-137 -118 L-168 -17 L-181 -17 Z"/>
+    <path class="n" fill="#2b1b16" d="M-283 -104.5 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-116 -108 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-283 -79 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-116 -77 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-283 -56 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-116 -59 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-116 -29 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z"/>
+    <!-- paint: a flower, a heart, a wave -->
+    <circle class="n" fill="#ff7ac0" cx="-131" cy="-88" r="5"/>
+    <circle class="n" fill="#ff7ac0" cx="-124.5" cy="-83.2" r="5"/>
+    <circle class="n" fill="#ff7ac0" cx="-127" cy="-75.5" r="5"/>
+    <circle class="n" fill="#ff7ac0" cx="-135" cy="-75.5" r="5"/>
+    <circle class="n" fill="#ff7ac0" cx="-137.5" cy="-83.2" r="5"/>
+    <circle class="n" fill="#ffd21f" cx="-131" cy="-81.2" r="4.4"/>
+    <path fill="none" stroke="#3fb8a8" stroke-width="3.2" stroke-linecap="round" d="M-128 -56 q5 -7 10 0 t10 0"/>
+    <path fill="none" stroke="#2f6bff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M-282 -42 q7 -9 14 0 t14 0 t14 0"/>
+
+    <!-- a bed sheet on the sill: a house with a heart in it -->
+    <path class="o" style="stroke-width:2.4" fill="#fffdf5" d="M-282 -133 L-206 -133 L-208 -93 Q-225 -87 -243 -93 Q-262 -99 -280 -92 Z"/>
+    <path fill="none" stroke="#2f6bff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="M-262 -110 L-244 -125 L-226 -110 M-257 -112 L-257 -98 L-231 -98 L-231 -112"/>
+    <path class="n" fill="#ff4a3d" d="M-244 -107.5 q-2.6 -3.8 -5.2 -1 q-1.6 2.8 5.2 7 q6.8 -4.2 5.2 -7 q-2.6 -2.8 -5.2 1 Z"/>
+
+    <!-- the doorway units come out of: the door was the first thing to go -->
+    <path class="o" fill="#4b6475" d="M-98 0 L-98 -100 Q-98 -128 -52 -128 Q-6 -128 -6 -100 L-6 0 Z"/>
+    <path class="o" fill="#241b26" d="M-88 0 L-88 -98 Q-88 -118 -52 -118 Q-16 -118 -16 -98 L-16 0 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#b98045" d="M-102 -106 L-58 -131 L-53 -121 L-97 -96 Z"/>
+    <path class="n" fill="#2b1b16" d="M-96 -103.5 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z M-62 -123 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 Z"/>
+    <path class="n" fill="#ffd21f" d="M-12 -76 q4 -1 5 3 q3 2 0 5 q0 5 -5 3 q-4 3 -6 -1 q-4 -2 -1 -5 q-1 -5 4 -4 q1 -2 4 0 Z"/>
+
+    <!-- a rusty drainpipe that stopped caring -->
+    <path class="t" style="stroke-width:7" d="M-294 -437 L-294 -40 Q-294 -30 -302 -28"/>
+    <path class="t" style="stroke:#a0623a;stroke-width:3.4" d="M-294 -437 L-294 -40 Q-294 -30 -302 -28"/>
+    <path class="t" style="stroke-width:2.4" d="M-299 -286 L-289 -286 M-299 -136 L-289 -136"/>
+    <path class="o" style="stroke-width:1.6" fill="#6fa8ff" d="M-304 -22 Q-307 -16 -304 -13.5 Q-301 -16 -304 -22 Z"/>
+
+    <!-- weeds -->
+    <path class="t" style="stroke:#3f9b57;stroke-width:2.6" d="M-106 -14 q-2 -8 -7 -10 M-103 -14 q0 -11 2 -14 M-100 -14 q3 -6 7 -7 M-282 -14 q-2 -7 -6 -8 M-279 -14 q1 -9 4 -11 M-276 -14 q3 -5 6 -5"/>
+    <path class="t" style="stroke:#8a7a3a;stroke-width:2.2" d="M-252 -450 L-251 -466"/>
+    <path class="f" fill="#4bb167" d="M-251 -466 Q-260 -468 -261 -476 Q-253 -474 -251 -466 Z M-251 -464 Q-243 -465 -241 -472 Q-249 -472 -251 -464 Z M-251 -468 Q-253 -476 -249 -481 Q-246 -474 -251 -468 Z"/>
+
+    <!-- a bicycle against the boards: lilac frame, a crate of flowers on the front -->
+    <circle class="t" style="stroke-width:4.4" cx="-240" cy="-22" r="20"/>
+    <circle class="t" style="stroke-width:4.4" cx="-188" cy="-22" r="20"/>
+    <path class="t" style="stroke:#8a8f93;stroke-width:1.3" d="M-240 -40 L-240 -4 M-258 -22 L-222 -22 M-253 -35 L-227 -9 M-253 -9 L-227 -35 M-188 -40 L-188 -4 M-206 -22 L-170 -22 M-201 -35 L-175 -9 M-201 -9 L-175 -35"/>
+    <path class="tube" d="M-240 -22 L-216 -22 L-224 -58 M-240 -22 L-222 -50 M-194 -60 Q-202 -32 -216 -22 M-195 -52 Q-208 -36 -221 -42 M-194 -66 L-188 -22"/>
+    <path class="lilac" d="M-240 -22 L-216 -22 L-224 -58 M-240 -22 L-222 -50 M-194 -60 Q-202 -32 -216 -22 M-195 -52 Q-208 -36 -221 -42 M-194 -66 L-188 -22"/>
+    <path class="o" style="stroke-width:2.2" fill="#2f2a3a" d="M-242 -27 L-214 -28 Q-210 -22.5 -214 -17.5 L-242 -18.5 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#5a4636" d="M-234 -60 Q-234 -65.5 -226 -64.5 L-216 -62.5 Q-214 -59.5 -218 -58.5 L-232 -58.5 Z"/>
+    <path class="t" style="stroke-width:3" d="M-194 -68 Q-204 -73 -209 -66"/>
+    <path class="t" style="stroke-width:2.4" d="M-250 -46 L-226 -46 M-248 -46 L-240 -24"/>
+    <path class="o" style="stroke-width:2.2" fill="#d9a45f" d="M-200 -70 L-174 -70 L-176 -86 L-198 -86 Z"/>
+    <path class="t" style="stroke:#b98045" d="M-199 -75.5 L-175 -75.5 M-198.5 -81 L-175.5 -81"/>
+    <path class="t" style="stroke:#3f9b57;stroke-width:2" d="M-193 -86 L-195 -94 M-187 -86 L-186 -97 M-181 -86 L-178 -93"/>
+    <circle class="f" fill="#ff7ac0" cx="-195.5" cy="-96" r="4.2"/>
+    <circle class="f" fill="#fffdf5" cx="-186" cy="-99.5" r="4.4"/>
+    <circle class="n" fill="#ffd21f" cx="-186" cy="-99.5" r="1.7"/>
+    <circle class="f" fill="#ffb52e" cx="-177.5" cy="-95" r="4"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The bed sheet on the gable: a flower, a heart and a sun. Joint in the middle of its top edge. -->
+  <g id="sheet" transform="translate(-120 -481)">
+    <path class="o" style="stroke-width:2.4" fill="#fffdf5" d="M-70 0 L70 0 L68 31 Q51 37 34 31 Q17 25 0 32 Q-18 38 -36 31 Q-52 26 -69 33 Z"/>
+    <circle class="n" fill="#ff7ac0" cx="-44" cy="8.6" r="4.6"/>
+    <circle class="n" fill="#ff7ac0" cx="-38" cy="13" r="4.6"/>
+    <circle class="n" fill="#ff7ac0" cx="-40.3" cy="20" r="4.6"/>
+    <circle class="n" fill="#ff7ac0" cx="-47.7" cy="20" r="4.6"/>
+    <circle class="n" fill="#ff7ac0" cx="-50" cy="13" r="4.6"/>
+    <circle class="n" fill="#ffd21f" cx="-44" cy="14.8" r="4.2"/>
+    <path class="n" fill="#ff4a3d" d="M0 11 q-5 -7.4 -10 -2 q-3.2 5.4 10 13.6 q13.2 -8.2 10 -13.6 q-5 -5.4 -10 2 Z"/>
+    <circle class="n" fill="#ffb52e" cx="44" cy="15" r="6.4"/>
+    <path fill="none" stroke="#ffb52e" stroke-width="2.6" stroke-linecap="round" d="M44 4.5 L44 2 M44 25.5 L44 28 M33.5 15 L31 15 M54.5 15 L57 15 M36.6 7.6 L34.8 5.8 M51.4 7.6 L53.2 5.8 M36.6 22.4 L34.8 24.2 M51.4 22.4 L53.2 24.2"/>
+  </g>
+
+  <!-- The cat's tail. Joint where it leaves the cat. -->
+  <g id="cat_tail" transform="translate(-61 -146)">
+    <path class="t" style="stroke-width:7.4" d="M0 0 Q-16 3 -22 -6 Q-25 -13 -19 -16"/>
+    <path class="t" style="stroke:#e0903a;stroke-width:3.6" d="M0 0 Q-16 3 -22 -6 Q-25 -13 -19 -16"/>
+  </g>
+
+  <!-- Smoke from the chimney. Joint on top of the pots. -->
+  <g id="smoke_a" transform="translate(-20 -512)">
+    <path class="o" style="stroke-width:2.2" fill="#f1ece4" d="M7 -5 Q8 -11 3 -12 Q3 -18 -3 -18 Q-9 -18 -9 -12 Q-14 -8 -9 -4 Q-4 -1 2 -3 Q6 -2 7 -5 Z"/>
+  </g>
+  <g id="smoke_b" transform="translate(-20 -512)">
+    <path class="o" style="stroke-width:2.2" fill="#f1ece4" d="M13 -27 Q14 -32 9.5 -33 Q9.5 -38 4.5 -38 Q-0.5 -38 -0.5 -33 Q-5 -29.5 -0.5 -26 Q4 -23.5 9 -25 Q12.5 -24.5 13 -27 Z"/>
+  </g>
+</svg>

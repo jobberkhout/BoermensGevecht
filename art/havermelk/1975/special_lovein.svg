@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -24 50 48" data-rig="static">
+  <title>Love-in: een hart met een bloem erin</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .f { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; }
+    .n { stroke: none; }
+  </style>
+  <g id="heart" transform="translate(0 0)">
+    <path class="o" fill="#ff7ac0" d="M0 19 C-26 3 -22 -18 -10 -18 C-4 -18 0 -13.5 0 -10 C0 -13.5 4 -18 10 -18 C22 -18 26 3 0 19 Z"/>
+    <path class="n" fill="#ffb3dc" d="M-15 -9 Q-13.5 -14.5 -8.5 -14.5 Q-12 -12.5 -12.5 -7 Z"/>
+    <circle class="f" fill="#fffdf5" cx="0" cy="-8.6" r="4.1"/>
+    <circle class="f" fill="#fffdf5" cx="5.2" cy="-4.8" r="4.1"/>
+    <circle class="f" fill="#fffdf5" cx="3.2" cy="1.4" r="4.1"/>
+    <circle class="f" fill="#fffdf5" cx="-3.2" cy="1.4" r="4.1"/>
+    <circle class="f" fill="#fffdf5" cx="-5.2" cy="-4.8" r="4.1"/>
+    <circle class="f" fill="#ffd21f" cx="0" cy="-3" r="3.6"/>
+  </g>
+</svg>

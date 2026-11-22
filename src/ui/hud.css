@@ -472,7 +472,10 @@ body {
   color: #8a5a00;
 }
 
-.btn.off .cost,
+.btn.off .cost {
+  background: rgba(207, 199, 186, 0.85);
+}
+
 .btn.ready .cost {
   background: none;
 }
