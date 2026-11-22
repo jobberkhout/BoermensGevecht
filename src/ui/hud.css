@@ -486,12 +486,17 @@ body {
   letter-spacing: -0.01cqw;
 }
 
-/* Names that would not fit otherwise, such as Trekkerkolonne; two words, such as Vijandige overname, take two lines. */
+/* Names that would not fit otherwise, such as Trekkerkolonne. */
 .btn.small .label.long {
   font-size: 0.8cqw;
   letter-spacing: -0.02cqw;
+}
+
+/* Long names of two words, such as Vijandige overname, take two lines; the first starts beside the key. */
+.btn.small .label.long.two {
   white-space: normal;
   line-height: 1;
+  text-indent: 2.7cqw;
 }
 
 /* On a patch of its own, so a wide drawing behind it cannot swallow the digits. */

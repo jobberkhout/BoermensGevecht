@@ -326,7 +326,8 @@ export class Renderer {
       }
     }
 
-    const flag = this.rigs.get(FACTIONS[state.faction].flagRig);
+    const def = FACTIONS[state.faction];
+    const flag = this.rigs.get(side === 1 && def.flagRigRight ? def.flagRigRight : def.flagRig);
     if (flag) {
       const wave = CLIPS[flag.id]?.idle;
       this.drawLoose(flag, flagSpot.x, flagSpot.y, dir, FLAG_SCALE, wave, wave ? ((view.time + side * 0.4) / (wave.seconds ?? 2)) % 1 : 0);

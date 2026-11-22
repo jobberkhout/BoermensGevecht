@@ -96,6 +96,11 @@ export interface EraDef {
 export interface FactionDef {
   id: FactionId;
   flagRig: string;
+  /**
+   * For a flag that would read wrong in mirror image: a second drawing of it,
+   * itself mirrored, that flies over the base when the faction plays on the right.
+   */
+  flagRigRight?: string;
   /** Its half of the backdrop, drawn for the left side of the screen. */
   backdropRig: string;
   voice: Voice;

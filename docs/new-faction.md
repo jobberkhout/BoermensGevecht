@@ -6,15 +6,8 @@ faction. Nothing in it assumes you were there when the game was built.
 
 ## For the owner: what to give an agent
 
-Paste one of these as the whole task. The document does the rest.
-
-To finish the faction that is nearly done:
-
-> Finish De Zuidas in this repository. Read `docs/new-faction.md` first and follow it; the section
-> "Finishing De Zuidas" lists exactly what is missing. Work on a branch, open a pull request when
-> everything under "Done means" holds, and do not merge it.
-
-To add a new one (replace the name; it must be one of the sections in `docs/factions.md`):
+Paste this as the whole task, with the name of the faction you want. It must be one of the sections in
+`docs/factions.md`. The document does the rest.
 
 > Add the faction Carnaval to this repository. Read `docs/new-faction.md` first and follow it to the
 > letter; the brief is the section "2. Carnaval" in `docs/factions.md`. Work on a branch, open a pull
@@ -269,7 +262,9 @@ it: smoke, a cat's tail, a window cleaner.
 **The flag.** Copy `art/flags/zuidas.svg`, keep the eight strips `s0` to `s7` exactly as they are, and
 replace what is inside `<g id="flag">` with your design on a 120 by 80 field. Its animation file is one
 line: `export { default } from './achterhoek.ts';`. The flag is mirrored for the player on the right, so
-it must survive that.
+it must survive that. If its design cannot (the Zuidas flag has a line that must go up, not down), add a
+second file with the design itself mirrored and name it as `flagRigRight` in the data sheet, as
+`art/flags/zuidas_rechts.svg` does.
 
 **The backdrop** is the faction's half of the scenery, drawn for the left side of the screen; the game
 mirrors it on the right and fades the two halves into each other between x = 860 and x = 1060. Read the
@@ -389,31 +384,19 @@ All of these, in this order:
 - [ ] README and `docs/factions.md` say what is true now.
 - [ ] A pull request is open, with an honest list of what was and was not checked. It is not merged.
 
-## Finishing De Zuidas
+## A faction that is half done
 
-De Zuidas has its rules, its texts and 27 of its 29 drawings in the repository. It is in `FACTIONS` but not in
-`FACTION_IDS`, so it cannot be picked yet. What is missing:
+Work on a faction can stop halfway: a session ends, a budget runs out. That is why a faction is only
+added to `FACTION_IDS` when its last drawing is there. If you are asked to finish one:
 
-1. **De brandkast**, the schild of 1975: `art/zuidas/1975/de_brandkast.svg` and
-   `src/anim/clips/zuidas/1975/de_brandkast.ts`. A bank cashier (grey dustcoat, sleeve garters, perhaps a
-   green eyeshade) pushing a heavy safe on a sack truck in front of him: dark green or black steel, a big
-   dial and a handle, brass corners. He peeks over it. `humanoid` with extra parts for the safe and the
-   sack truck's wheel, about 80 wide and 125 to 150 tall. When he wheels it home, beaten, the door hangs
-   open and the safe is empty. Its neighbours for style: `zuidas/1975/jongste_bediende`,
-   `zuidas/1975/de_hoekman` and the schild next door, `zuidas/2025/de_disclaimer`.
-2. **The animations of De Gouden Handdruk**, the super unit of 2050:
-   `src/anim/clips/zuidas/2050/gouden_handdruk.ts`. The drawing exists
-   (`art/zuidas/2050/gouden_handdruk.svg`): a colossal golden hand in a pinstriped cuff that walks on its
-   fingers. It flattens by shaking hands; a hit is a flick of the cuff and a glint, not pain; beaten, it
-   drifts off under a golden parachute if the drawing has one, and otherwise walks home. Read the file
-   for its parts first.
-3. Some drawings of the last hours before the work was paused were written but not looked at by a second
-   pair of eyes: the bases of 1975 and 2025, `special_gong`, `turret_vrijmibo`, `gouden_handdruk`. Make
-   contact sheets of all three eras and the staged battles of Step 5, and fix what does not hold up.
-4. Then Steps 5 to 8: add `'zuidas'` to `FACTION_IDS`, change the comment above it, and set the README
-   (status table and the header of the factions table) and `docs/factions.md` (state: **Built**) right.
-   The browser test "De Zuidas plays, and its takeover makes an enemy unit change sides" skips itself
-   while De Zuidas is not on the list and runs once it is.
+1. Put it in `FACTION_IDS` for a moment and run `npx vitest run tests/art.test.ts`. The test "every
+   drawing a faction needs is there" lists the drawings that are missing, and "every unit that has art
+   has all five clips" the animations.
+2. Make contact sheets of all three eras (`node scripts/shot.ts gallery <faction>/<era>`) and look at what
+   is there with fresh eyes. Drawings written just before the work stopped may never have been checked.
+3. Carry on from Step 3, with the brief in `docs/factions.md` for anything that is missing.
+
+De Zuidas was built that way, in three sittings.
 
 ## Things that went wrong before
 

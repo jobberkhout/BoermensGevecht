@@ -6,6 +6,8 @@ import type { FactionDef } from './types.ts';
 export const zuidas: FactionDef = {
   id: 'zuidas',
   flagRig: 'flags/zuidas',
+  // Its gold line only goes up, also when the flag is mirrored.
+  flagRigRight: 'flags/zuidas_rechts',
   backdropRig: 'zuidas/backdrop',
   voice: 'office',
   colors: { main: '#5b86c4', dark: '#24426e', light: '#d3e2f5' },

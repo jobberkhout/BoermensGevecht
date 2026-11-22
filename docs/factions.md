@@ -1,13 +1,13 @@
 # Faction blueprint
 
 Seven new factions for Boermens Gevecht, written out far enough that drawing can start the day one is
-approved. The groundwork for more factions is built and the first of the seven, De Zuidas, nearly so; the
-other six are a plan to pick from and to change. How to build one, step by step, is in
+approved. The groundwork for more factions and the first of the seven, De Zuidas, are built; the other
+six are a plan to pick from and to change. How to build one, step by step, is in
 [`new-faction.md`](new-faction.md).
 
 | Faction | In one line | State |
 |---|---|---|
-| [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Nearly built**: rules, texts and 27 of 29 drawings. Missing: De brandkast (1975) and the animations of De Gouden Handdruk |
+| [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Built** |
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates | Concept, waiting for approval |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
@@ -943,8 +943,8 @@ the super unit, the flag and the backdrop; then the wiring, my own check of ever
 battle, and one pull request per faction.
 
 1. ~~**The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.~~ Done.
-2. **De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
-   first new kind of special, the convert. Nearly done: two drawings to go.
+2. ~~**De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
+   first new kind of special, the convert.~~ Done.
 3. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
 4. **Rotterdam.** Amsterdam's rival, with the container as the block.
 5. **De Toeristen.** The summon and the lockout.
