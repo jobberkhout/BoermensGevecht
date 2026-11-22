@@ -6,7 +6,7 @@ import { CLIPS } from '../src/anim/clips/index.ts';
 import { CLIP_NAMES, type Clip, type Key } from '../src/anim/types.ts';
 import { FACTIONS } from '../src/defs/index.ts';
 import { parseRig, type Dom, type RigSource } from '../src/rig/parse.ts';
-import { NL } from '../src/ui/nl.ts';
+import { NL, linesFor } from '../src/ui/nl.ts';
 
 /** Lints every drawing and every animation, so a typo fails here instead of on screen. */
 
@@ -118,6 +118,9 @@ describe('text', () => {
           if (!NL.blurbs[id]) missing.push(`description for ${id}`);
         }
         if (!NL.era[era.id]) missing.push(`era name for ${era.id}`);
+        for (const kind of ['slinkOff', 'battleCry'] as const) {
+          if (linesFor(kind, faction.id, era.units[0].id).length === 0) missing.push(`${kind} lines for ${era.id}`);
+        }
       }
     }
     expect(missing).toEqual([]);

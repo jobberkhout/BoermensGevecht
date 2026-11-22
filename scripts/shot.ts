@@ -49,6 +49,8 @@ interface Stage {
   charge?: boolean;
   base?: [0 | 1, number];
   shot?: string;
+  /** Also saves a close-up of both button panels. */
+  panels?: boolean;
 }
 
 const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1']];
@@ -65,7 +67,8 @@ const BATTLE: Stage[] = [
   { run: 45, charge: true, press: [[1, 'special']], shot: '1975-hoken' },
   { run: 22, press: [[0, 'special']], shot: '1975-lovein' },
   // 2025: the old turrets stay until they are bought again, then get upgraded
-  { run: 8, progress: 1500, press: MODERNIZE, shot: '2025-modernized' },
+  { run: 2, progress: 1500, shot: '1975-ready', panels: true },
+  { run: 8, press: MODERNIZE, shot: '2025-modernized' },
   { run: 150, fund: 6000, press: [...TURRETS, ...ARMY], shot: '2025-old-and-new' },
   { run: 240, fund: 6000, press: [...TURRETS, ...TURRETS, ...MORE], shot: '2025-clash' },
   { run: 14, charge: true, press: [[1, 'special']], shot: '2025-kolonne' },
@@ -74,7 +77,7 @@ const BATTLE: Stage[] = [
   // 2050
   { run: 8, progress: 4200, press: MODERNIZE, shot: '2050-modernized' },
   { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, ...ARMY] },
-  { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash' },
+  { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash', panels: true },
   { run: 30, charge: true, press: [[1, 'special']], shot: '2050-zwerm' },
   { run: 60, fund: 20000, press: [[1, 'buy2'], [1, 'buy0']] },
   { run: 6, press: [[0, 'special']], shot: '2050-algoritme' },
@@ -151,6 +154,11 @@ try {
           const file = `screens/${engineName}/battle-${stage.shot}.png`;
           await page.screenshot({ path: file });
           console.log(file, JSON.stringify(await page.evaluate(() => (window as any).__game.summary())));
+          if (stage.panels) {
+            for (const where of ['left', 'right']) {
+              await page.locator(`.panel.${where}`).screenshot({ path: `screens/${engineName}/panel-${stage.shot}-${where}.png` });
+            }
+          }
         }
       }
       await browser.close();

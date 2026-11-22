@@ -8,7 +8,7 @@ import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } f
 import type { Rig } from '../rig/raster.ts';
 import { frontUnit } from '../sim/lane.ts';
 import { BASE, SIDES, other, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
-import { NL, nameOf } from '../ui/nl.ts';
+import { NL, linesFor, nameOf } from '../ui/nl.ts';
 import { dirOf, laneX, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
 
 /**
@@ -277,9 +277,9 @@ export class BattleView {
     for (const e of events) {
       switch (e.t) {
         case 'spawn': {
-          if (this.random() < 0.35) {
-            const faction = s.sides[e.side].faction;
-            this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(1) - 150, this.pick(NL.battleCry[faction]), '#fffdf5', 1.4, 20);
+          const cries = linesFor('battleCry', s.sides[e.side].faction, e.def);
+          if (cries.length > 0 && this.random() < 0.35) {
+            this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(1) - 150, this.pick(cries), '#fffdf5', 1.4, 20);
           }
           break;
         }
@@ -299,10 +299,10 @@ export class BattleView {
           this.ghosts.push({ side: v.side, def: v.def, row: v.row, x: v.x, puppet: v.puppet, travelled: 0, age: 0 });
           if (v.puppet) v.puppet.blend = 1;
           // One line per side per tick: a whole rank going down at once should not stack five of them.
-          if (!muttered[v.side]) {
+          const lines = linesFor('slinkOff', s.sides[v.side].faction, v.def.id);
+          if (!muttered[v.side] && lines.length > 0) {
             muttered[v.side] = true;
-            const faction = s.sides[v.side].faction;
-            this.say(v.x, rowY(v.row) - 135, this.pick(NL.slinkOff[faction]), '#fffdf5', 1.5, 19);
+            this.say(v.x, rowY(v.row) - 135, this.pick(lines), '#fffdf5', 1.5, 19);
           }
           break;
         }

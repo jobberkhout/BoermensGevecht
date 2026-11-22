@@ -152,19 +152,41 @@ export const NL = {
     again: 'Enter = nog een keer',
   },
 
-  /** What a beaten unit mutters while it slinks off. */
+  /** What a beaten unit mutters while it slinks off, by the era it comes from. */
   slinkOff: {
-    havermelk: ['Ik heb zo brunch', 'Dit is niet oké', 'Even bijkomen', 'Mijn havermelk!', 'Ik ga een podcast maken'],
-    achterhoek: ['Mot melken', 'Goodgoan!', "'t Is mooi geweest", 'Ik mot nog hooien', 'Naor huus'],
-  },
+    havermelk: {
+      '1975': ['Peace, man', 'Dit is niet groovy', 'Terug naar de commune', 'Slechte vibes hier', 'No future!'],
+      '2025': ['Ik heb zo brunch', 'Dit is niet oké', 'Even bijkomen', 'Mijn havermelk!', 'Ik ga een podcast maken'],
+      '2050': ['Mijn accu is leeg', 'Ik ga offline', 'Dit staat niet in de app', 'Even resetten', 'Geen bereik hier'],
+    },
+    achterhoek: {
+      '1975': ['Mot melken', 'De koeien roepen', "'t Is etenstied", 'Ik mot nog hooien', 'Naor huus'],
+      '2025': ['Mot melken', 'Goodgoan!', "'t Is mooi geweest", 'Ik mot nog hooien', 'Naor huus'],
+      '2050': ['Accu leeg', 'Mot updaten', 'De melkrobot piept', 'Storing!', 'Naor huus'],
+    },
+  } as Record<string, Record<string, readonly string[]>>,
 
   /** What a fresh unit shouts as it walks out. */
   battleCry: {
-    havermelk: ['Let’s go!', 'Lekker bezig', 'Literally oorlog', 'Vamos!'],
-    achterhoek: ["D'ran!", 'Pak an!', 'Laot maor kommen', 'Vort met de geit'],
-  },
+    havermelk: {
+      '1975': ['Flower power!', 'Maak liefde, geen oorlog', 'Kraken gaat door!', 'Far out!'],
+      '2025': ['Let’s go!', 'Lekker bezig', 'Literally oorlog', 'Vamos!'],
+      '2050': ['Loading…', 'Ik ga live!', 'Swipe ze weg', 'Level up!'],
+    },
+    achterhoek: {
+      '1975': ["D'ran!", 'Pak an!', 'Høken!', 'Vort met de geit'],
+      '2025': ["D'ran!", 'Pak an!', 'Laot maor kommen', 'Vort met de geit'],
+      '2050': ["D'ran!", 'Vol gas!', 'Zet um op automatisch', 'Laot maor kommen'],
+    },
+  } as Record<string, Record<string, readonly string[]>>,
 } as const;
 
 export function nameOf(id: string): string {
   return NL.names[id] ?? id;
+}
+
+/** The lines of one kind (slinkOff, battleCry) for a unit, going by the era in its id ('hm.1975.light'). */
+export function linesFor(kind: 'slinkOff' | 'battleCry', faction: string, unitId: string): readonly string[] {
+  const era = unitId.split('.')[1] ?? '';
+  return NL[kind][faction]?.[era] ?? [];
 }
