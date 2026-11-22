@@ -77,7 +77,10 @@ Every action is also a button on screen.
 - Light units are fast and cheap. Ranged units throw from a distance. Heavies are slow, tough, and hit
   everything within reach at once.
 - **Turrets.** Each base has two slots, and one button does it all: it fills an empty slot, then upgrades
-  the turret with the lowest level (three levels: 100%, 150% and 200% damage).
+  the turret with the lowest level. There are three levels, and each makes it hit harder (100%, 150%, 200%)
+  and reach further (300, 480 and 660 pixels of the 1280 pixel lane). A new turret only guards the doorstep;
+  a fully upgraded one reaches just past the middle and joins the fight there. A dotted line across the road
+  shows how far each side's turrets reach.
 - **Moderniseren** cannot be bought. It takes vooruitgang, which comes in slowly by itself and faster with
   every unit beaten or lost. The button fills up; when it is full, pressing it gives the next era: new
   units, a new special, a much stronger base. A unit of the next era costs twice as much and is well over

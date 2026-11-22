@@ -98,10 +98,10 @@ export const NL = {
     eraUp: 'Moderniseren',
     subsidy: 'Subsidie',
     perSecond: '/s',
-    subsidyMax: 'meer zit er niet in',
+    subsidyMax: 'maximaal',
     /** Under the turret's name: what the button will do. */
     turretHow: { build: 'bouwen', replace: 'oude vervangen', upgrade: 'verbeteren' },
-    turretMax: 'beter wordt het niet',
+    turretMax: 'maximaal ★★★',
     paused: 'Pauze',
     resume: 'Spatie om verder te gaan',
     overtime: 'Overtijd! Beide bases brokkelen af',
@@ -110,7 +110,7 @@ export const NL = {
   /** What floats over the field when something happens. */
   shout: {
     subsidy: 'Subsidie toegekend!',
-    upgraded: 'Verbeterd!',
+    upgraded: 'Verder en harder!',
     cancelled: 'Gecanceld!',
     healed: 'Opgeknapt!',
     modern: 'Gemoderniseerd:',

@@ -11,7 +11,6 @@ import {
   SHOT_SLACK,
   SIEGE_REACH,
   SUBSIDY,
-  TURRET,
   UNIT_CAP,
 } from '../defs/balance.ts';
 import { turretDef, unitDef } from '../defs/index.ts';
@@ -19,6 +18,7 @@ import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit } from './lane.ts';
 import { advanceBarrages, advanceWaves } from './specials.ts';
+import { turretDamage, turretRange } from './turrets.ts';
 import {
   BASE,
   SIDES,
@@ -226,8 +226,9 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
     if (t.cd > 0) t.cd--;
     if (t.cd > 0 || !foeFront) continue;
     const def = turretDef(t.def);
+    const range = turretRange(def, t.level);
     const dist = LANE - foeFront.pos;
-    if (dist > def.range) continue;
+    if (dist > range) continue;
     t.cd = def.cooldown;
     s.shots.push({
       id: s.nextId++,
@@ -236,9 +237,9 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
       prevPos: 0,
       origin: 0,
       dist0: Math.max(dist, 1),
-      limit: def.range + SHOT_SLACK,
+      limit: range + SHOT_SLACK,
       speed: def.shot.speed,
-      dmg: Math.floor((def.dmg * TURRET.damagePercent[t.level - 1]!) / 100),
+      dmg: turretDamage(def, t.level),
       rig: def.shot.rig,
       arc: def.shot.arc,
       spin: def.shot.spin,

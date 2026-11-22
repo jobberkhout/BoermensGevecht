@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { INCOME_EVERY, LANE, PROGRESS, SPECIAL, STATS, SUBSIDY, TURRET, TURRET_SLOTS, px } from '../src/defs/balance.ts';
-import { eraOf, turretDef, unitDef } from '../src/defs/index.ts';
+import { TURRETS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan } from '../src/sim/commands.ts';
+import { turretRange } from '../src/sim/turrets.ts';
 import { BASE } from '../src/sim/types.ts';
 import { AH, ERA, HM, SUPER, act, match, place, rich, run } from './helpers.ts';
 
@@ -158,6 +159,35 @@ describe('turret button', () => {
     }
     expect(hits[1]).toBeGreaterThan(hits[0]!);
     expect(hits[2]).toBeGreaterThan(hits[1]!);
+  });
+
+  it('a higher level reaches further down the lane', () => {
+    const def = turretDef('hm.1975.turret');
+    // Fires at an enemy standing `away` pixels from the turret owner's gate?
+    const fires = (level: number, away: number): boolean => {
+      const s = match();
+      rich(s, 0);
+      act(s, 0, { t: 'turret' });
+      s.sides[0].turrets[0]!.level = level;
+      const target = place(s, 1, AH.heavy, LANE - px(away), 1_000_000);
+      target.stunUntil = 1e9;
+      return run(s, def.cooldown * 3).some((e) => e.t === 'turretFire');
+    };
+    expect([1, 2, 3].map((level) => turretRange(def, level))).toEqual([px(300), px(480), px(660)]);
+    expect(fires(1, 290)).toBe(true);
+    expect(fires(1, 400)).toBe(false);
+    expect(fires(2, 400)).toBe(true);
+    expect(fires(2, 600)).toBe(false);
+    expect(fires(3, 600)).toBe(true);
+    expect(fires(3, 700)).toBe(false);
+  });
+
+  it('a fully upgraded turret joins the fight in the middle, and no turret reaches the enemy base', () => {
+    for (const def of Object.values(TURRETS)) {
+      expect(turretRange(def, 1), `${def.id} level 1`).toBeLessThan(LANE / 2);
+      expect(turretRange(def, TURRET.maxLevel), `${def.id} at its best`).toBeGreaterThan(LANE / 2);
+      expect(turretRange(def, TURRET.maxLevel), `${def.id} at its best`).toBeLessThan(LANE - px(300));
+    }
   });
 
   it('after modernizing, old turrets keep working until they are bought again, oldest first', () => {

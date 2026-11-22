@@ -2,10 +2,11 @@ import { CLIPS } from '../anim/clips/index.ts';
 import { sampleClip } from '../anim/sample.ts';
 import type { Clip } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, SUB, WORLD_H, WORLD_W } from '../defs/balance.ts';
-import { FACTIONS, eraOf, turretEra } from '../defs/index.ts';
+import { FACTIONS, eraOf, turretDef, turretEra } from '../defs/index.ts';
 import type { FactionId, Role } from '../defs/types.ts';
 import { drawRig, makePose, solve, type Pose } from '../rig/pose.ts';
 import { loadImage, openTag, type Rig } from '../rig/raster.ts';
+import { turretRange } from '../sim/turrets.ts';
 import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
 import { forgetRigsExcept, hasRig, loadRig, rigSource } from './assets.ts';
 import { dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
@@ -134,6 +135,7 @@ export class Renderer {
     ctx.drawImage(this.background, this.ox, this.oy);
     this.world();
 
+    for (const side of SIDES) this.drawReach(s, side);
     for (const side of SIDES) this.drawBase(s, view, side);
     // The band stands on the verge behind the road, so everyone walks past in front of it.
     for (const b of view.bands) this.drawBand(b, view.time);
@@ -313,6 +315,47 @@ export class Renderer {
         this.drawStars(spot.x + dir * 60, spot.y + 13, dir, turret.level, turretEra(state.faction, turret.def) < state.era);
       }
     });
+  }
+
+  /**
+   * How far down the lane a side's best turret reaches: a dotted line across
+   * the road in that side's colour, with a marker on the kerb. Upgrading a
+   * turret moves it, which is how a player sees what the upgrade bought.
+   */
+  private drawReach(s: SimState, side: Side): void {
+    const state = s.sides[side];
+    let reach = 0;
+    for (const turret of state.turrets) {
+      if (turret) reach = Math.max(reach, turretRange(turretDef(turret.def), turret.level));
+    }
+    if (reach === 0) return;
+    const { ctx } = this.stage;
+    const x = GATE_X[side] + dirOf(side) * (reach / SUB);
+    const look = LOOK[state.faction];
+    ctx.strokeStyle = look.dark;
+    ctx.globalAlpha = 0.6;
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.setLineDash([3, 11]);
+    ctx.beginPath();
+    ctx.moveTo(x, GROUND_Y - 50);
+    ctx.lineTo(x, GROUND_Y + 50);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.lineCap = 'butt';
+    ctx.globalAlpha = 1;
+    // A marker on the near kerb, where no unit stands in front of it.
+    ctx.fillStyle = look.main;
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x, GROUND_Y + 52);
+    ctx.lineTo(x + 10, GROUND_Y + 68);
+    ctx.lineTo(x - 10, GROUND_Y + 68);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
   }
 
   private drawTurret(t: TurretView, dir: number): void {
