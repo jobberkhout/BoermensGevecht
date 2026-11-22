@@ -250,6 +250,9 @@ export class Game {
       case 'hit':
         this.sound.hit();
         break;
+      case 'glance':
+        this.sound.clang();
+        break;
       case 'defeat':
         this.sound.defeat();
         break;
@@ -305,7 +308,11 @@ export class Game {
         break;
       case 'escalate':
         // The banner counts up, the tune speeds up a little with every step.
-        this.hud.setOvertime(NL.hud.overtimeHarder.replace('{n}', String(e.percent)));
+        this.hud.setOvertime(
+          (kraanDicht(this.state.tick) ? NL.hud.overtimeDry : '') +
+            NL.hud.overtimeHarder.replace('{n}', String(e.percent)) +
+            (e.turrets >= 100 ? '' : e.turrets <= 0 ? NL.hud.overtimeSilent : NL.hud.overtimeTurrets.replace('{m}', String(100 - e.turrets))),
+        );
         this.sound.tempo = Math.min(1.5, 1.1 + e.level * 0.02);
         if (e.level > 1) this.sound.surge();
         break;

@@ -54,7 +54,7 @@ interface Stage {
   panels?: boolean;
 }
 
-const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1']];
+const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy3'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy3'], [1, 'buy1'], [1, 'buy1']];
 const MORE: Press[] = [[0, 'buy1'], [1, 'buy1'], [0, 'buy0'], [1, 'buy2'], [0, 'buy2'], [1, 'buy0']];
 const TURRETS: Press[] = [[0, 'turret'], [1, 'turret']];
 const MODERNIZE: Press[] = [[0, 'eraUp'], [1, 'eraUp']];
@@ -79,7 +79,7 @@ const BATTLE: Stage[] = [
   { run: 50, shot: '2025-after' },
   // 2050
   { run: 8, progress: 4200, fund: 6000, press: MODERNIZE, shot: '2050-modernized' },
-  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, [0, 'buy3'], [1, 'buy3'], ...ARMY] },
+  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, ...ARMY] },
   { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash', panels: true },
   { run: 30, charge: true, press: [[1, 'special']], shot: '2050-special-right' },
   { run: 60, fund: 20000, press: [[1, 'buy2'], [1, 'buy0']] },

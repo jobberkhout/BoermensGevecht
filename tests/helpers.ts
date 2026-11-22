@@ -10,6 +10,9 @@ export const AH = { light: 'ah.1975.light', ranged: 'ah.1975.ranged', heavy: 'ah
 
 export const ZA = { light: 'za.1975.light', ranged: 'za.1975.ranged', heavy: 'za.1975.heavy' } as const;
 
+/** The schild of the first era: the unit that takes the turrets' fire. */
+export const SHIELD = { hm: 'hm.1975.shield', ah: 'ah.1975.shield', za: 'za.1975.shield' } as const;
+
 /** The super units, which only the last era has. */
 export const SUPER = { hm: 'hm.2050.super', ah: 'ah.2050.super', za: 'za.2050.super' } as const;
 

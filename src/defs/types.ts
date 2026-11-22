@@ -1,7 +1,7 @@
 import type { EraKey } from './balance.ts';
 
 export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas';
-export type Role = 'light' | 'ranged' | 'heavy' | 'super';
+export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
 export type Voice = 'town' | 'country' | 'office';
 
@@ -38,6 +38,10 @@ export interface UnitDef {
   cleave: boolean;
   /** Enemy specials have no effect on it. */
   immune: boolean;
+  /** The share of a turret's shot it takes, in percent: 100 for most units. */
+  turretPercent: number;
+  /** Enemy turrets that can reach it fire at it, wherever it stands, instead of at the foremost unit. */
+  drawsFire: boolean;
   /** Present on ranged units: they launch this instead of hitting directly. */
   shot?: ShotDef;
 }
@@ -83,7 +87,7 @@ export interface EraDef {
   progressNeeded: number | null;
   /** What modernizing to the next era costs on top of that; null for the last one. */
   eraUpCost: number | null;
-  /** Light, ranged, heavy; the last era adds a fourth, the super unit. The index is the buy button. */
+  /** Light, ranged, heavy, and a fourth: the schild, or in the last era the super unit. The index is the buy button. */
   units: UnitDef[];
   turret: TurretDef;
   special: SpecialDef;

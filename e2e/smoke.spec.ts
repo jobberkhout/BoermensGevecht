@@ -173,10 +173,11 @@ test('subsidie, turret levels and modernizing work from the keyboard', async ({ 
   summary = await advance(page, 2);
   expect(summary.turrets[0]).toEqual([1, 1]);
 
-  // Until the last era there are three units to choose from; R does nothing yet.
-  await expect(page.locator('.panel.left .btn:not(.small):visible')).toHaveCount(3);
+  // Every era has four units to choose from. Until the last era the fourth is the schild, on R.
+  await expect(page.locator('.panel.left .btn:not(.small):visible')).toHaveCount(4);
+  await expect(page.locator('.panel.left .btn:not(.small) .label').nth(3)).toHaveText('Sup-Sanne');
   await page.keyboard.press('KeyR');
-  expect((await advance(page, 2)).units[0]).toBe(0);
+  expect((await advance(page, 3 * 30 + 5)).units[0]).toBe(1);
 
   // In the last era there is nothing left to modernize to, and the button makes way.
   await hooks((g) => g.progress(0, 4200));
@@ -186,14 +187,15 @@ test('subsidie, turret levels and modernizing work from the keyboard', async ({ 
   await expect(page.locator('.panel.left .btn.eraUp')).toBeHidden();
   await expect(page.locator('.panel.right .btn.eraUp')).toBeVisible();
 
-  // It brings a fourth unit, the super unit, on R for the left player and P for the right.
+  // There the fourth unit is the super unit, on R for the left player and P for the right.
   await expect(page.locator('.panel.left .btn:not(.small):visible')).toHaveCount(4);
-  await expect(page.locator('.panel.right .btn:not(.small):visible')).toHaveCount(3);
+  await expect(page.locator('.panel.right .btn:not(.small):visible')).toHaveCount(4);
   await expect(page.locator('.panel.left .btn:not(.small) .label').nth(3)).toHaveText('Havermelkreus');
+  await expect(page.locator('.panel.right .btn:not(.small) .label').nth(3)).toHaveText('Balink');
   await hooks((g) => g.fund(0, 3000));
   await page.keyboard.press('KeyR');
   summary = await advance(page, 12 * 30 + 5);
-  expect(summary.units[0]).toBe(1);
+  expect(summary.units[0]).toBe(2);
   await hooks((g) => {
     g.progress(1, 4200);
     g.fund(1, 1000);

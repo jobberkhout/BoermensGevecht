@@ -36,8 +36,8 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 
 | | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas |
 |---|---|---|---|
-| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) |
-| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) |
+| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) |
+| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) |
 | The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: Flitskrach (sweeps the lane) |
 
 All factions have the same numbers for the same role in the same era; they differ in looks, projectiles and specials.
@@ -62,7 +62,7 @@ Keys are read by position on the keyboard, so the layout does not matter.
 | Action | Left player | Right player |
 |---|---|---|
 | Unit 1 / 2 / 3 | Q / W / E | U / I / O |
-| Super unit (the future only) | R | P |
+| Fourth unit: the schild, or in the future the super unit | R | P |
 | Turret: build, replace an old one, or upgrade | A | J |
 | Special | S | K |
 | Subsidie aanvragen | D | L |
@@ -88,7 +88,13 @@ Every action is also a button on screen.
   the turret with the lowest level. There are three levels, and each makes it hit harder (100%, 150%, 200%)
   and reach further (300, 480 and 660 pixels of the 1280 pixel lane). A new turret only guards the doorstep;
   a fully upgraded one reaches just past the middle and joins the fight there. A dotted line across the road
-  shows how far each side's turrets reach.
+  shows how far each side's turrets reach. A turret fires at the foremost enemy unit.
+- **The schild** is the answer to turrets, and the fourth unit of the first two eras: someone behind
+  something big, such as a barn door or a mattress. Every enemy turret that can reach it fires at it
+  instead, wherever it stands in the ranks, and it takes only a fifth of what they throw. For as long as
+  it stands, the army around it is safe from turrets; two fully upgraded turrets need about a quarter of a
+  minute to wear one down. Against units it is a pushover, so turrets alone no longer hold a base, and a
+  schild alone does not take one.
 - **Moderniseren** takes two things. First vooruitgang, which cannot be bought: it comes in slowly by
   itself and faster with every unit beaten or lost, and it fills the button. Once the button is full the
   step itself costs subsidie: 500 for the Jaren '20 and 1000 for the future, about two heavy units of the
@@ -101,14 +107,15 @@ Every action is also a button on screen.
 - **Vijandige overname**, the Zuidas special of the Jaren '20, buys the toughest enemy unit on the lane. It
   turns round where it stands and fights for the buyer with the hit points it has left, wearing a keycord.
   A super unit cannot be bought.
-- **The super unit.** The future has a fourth unit: one machine that is an army by itself. It costs 3000,
-  takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials have
-  no effect on it: it cannot be cancelled, glued down, run over or picked out by drones. Six heavies or a
-  steady supply of units and turrets still bring it down.
-- **Overtime.** After ten minutes the subsidiekraan closes: the regular income stops and only bounties
-  still pay. From then on units also hit 20% harder, and another 20% every ten seconds. Turrets and specials
-  do not, so defences fall behind and one side breaks through. Should a match still be going at thirteen
-  minutes, both bases start to crumble as well and the less damaged one outlasts the other.
+- **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
+  3000, takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
+  have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
+  the schild it draws the fire of turrets and takes only a fifth of it. Six heavies or a steady supply of
+  units still bring it down.
+- **Overtime.** After ten minutes units hit 20% harder, and another 20% every ten seconds. Turrets go the
+  other way: they lose 10% of their damage every ten seconds and fall silent at 11:40. The money keeps
+  coming in, so there is always something to send. Should a match still be going at thirteen minutes, both
+  bases start to crumble as well and the less damaged one outlasts the other.
 
 ## Where things are
 

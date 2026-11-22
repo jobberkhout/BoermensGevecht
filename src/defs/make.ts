@@ -21,6 +21,8 @@ function makeUnit(id: string, role: Role, rig: string, stats: RoleStats, shot?: 
     bounty: stats.bounty,
     cleave: stats.cleave ?? false,
     immune: stats.immune ?? false,
+    turretPercent: stats.turretPercent ?? 100,
+    drawsFire: stats.drawsFire ?? false,
   };
   if (shot) {
     if (stats.shotSpeed === undefined) throw new Error(`${id}: a shot needs shotSpeed in its role stats`);
@@ -50,7 +52,8 @@ export interface EraLook {
   ranged: string;
   rangedShot: Look;
   heavy: string;
-  /** The fourth unit, in the era that has one. */
+  /** The fourth unit: the schild in the first two eras, the super unit in the last. */
+  shield?: string;
   super?: string;
   turret: string;
   turretShot: Look;
@@ -81,6 +84,10 @@ export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
     makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), stats.ranged, withArt(look.rangedShot)),
     makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), stats.heavy),
   ];
+  if (stats.shield) {
+    if (!look.shield) throw new Error(`${id}: this era has a schild, so it needs a drawing for one`);
+    units.push(makeUnit(`${id}.shield`, 'shield', art(look.shield), stats.shield));
+  }
   if (stats.super) {
     if (!look.super) throw new Error(`${id}: this era has a super unit, so it needs a drawing for one`);
     units.push(makeUnit(`${id}.super`, 'super', art(look.super), stats.super));

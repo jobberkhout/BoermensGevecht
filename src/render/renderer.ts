@@ -61,6 +61,7 @@ const BUILD: Record<Role, { bar: number; barWidth: number; box: number }> = {
   light: { bar: 140, barWidth: 40, box: 100 },
   ranged: { bar: 140, barWidth: 40, box: 92 },
   heavy: { bar: 128, barWidth: 74, box: 110 },
+  shield: { bar: 162, barWidth: 48, box: 130 },
   super: { bar: 244, barWidth: 110, box: 215 },
 };
 
@@ -160,6 +161,7 @@ export class Renderer {
     for (const g of ghosts) this.drawGhost(g);
     const units = [...view.units.values()].sort((a, b) => a.row - b.row || a.x - b.x);
     for (const v of units) this.drawUnit(v, view.time);
+    for (const v of units) if (v.turncoat) this.drawBadge(v, view.time);
 
     // The activists sit low, so they go on top: otherwise whoever stands next to them hides them.
     for (const b of view.blockades) this.drawBlockade(b, view.time);
@@ -498,29 +500,38 @@ export class Renderer {
       ctx.fillStyle = '#7fd35b';
       ctx.fillRect(x - w / 2, top, w * Math.max(0, v.hp / v.def.hp), 6);
     }
-    if (v.turncoat) this.drawBadge(x, y - BUILD[v.def.role].bar * scale - 12, this.colorsOf[v.side]);
   }
 
-  /** The keycord of a unit that was bought over: a pass on a strap, in the colours of its new side. */
-  private drawBadge(x: number, y: number, look: { main: string; dark: string }): void {
+  /**
+   * The keycord of a unit that was bought over: a pass on a strap, in the
+   * colours of its new side. Drawn after all units, so nobody stands in front of it.
+   */
+  private drawBadge(v: UnitView, time: number): void {
     const { ctx } = this.stage;
+    const look = this.colorsOf[v.side];
+    const x = v.x + v.slide;
+    // It dangles a little.
+    const sway = Math.sin(time * 3 + v.id) * 2;
+    const y = rowY(v.row) - BUILD[v.def.role].bar * rowScale(v.row) - 14;
     ctx.lineJoin = 'round';
     ctx.strokeStyle = look.dark;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(x - 9, y - 26);
-    ctx.lineTo(x, y - 12);
-    ctx.lineTo(x + 9, y - 26);
+    ctx.moveTo(x - 13, y - 40);
+    ctx.lineTo(x + sway, y - 20);
+    ctx.lineTo(x + 13, y - 40);
     ctx.stroke();
     ctx.fillStyle = '#fffdf5';
     ctx.strokeStyle = INK;
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
-    ctx.rect(x - 8, y - 13, 16, 13);
+    ctx.rect(x + sway - 12, y - 21, 24, 20);
     ctx.fill();
     ctx.stroke();
     ctx.fillStyle = look.main;
-    ctx.fillRect(x - 6, y - 11, 12, 4);
+    ctx.fillRect(x + sway - 9, y - 18, 18, 6);
+    ctx.fillStyle = look.dark;
+    ctx.fillRect(x + sway - 9, y - 9, 12, 2.5);
   }
 
   private drawGhost(g: Ghost): void {

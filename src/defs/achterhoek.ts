@@ -18,6 +18,7 @@ export const achterhoek: FactionDef = {
       ranged: 'smijtink',
       rangedShot: { rig: 'shot_voederbiet', arc: 80, spin: 1.4, splash: '#e9a63a' },
       heavy: 'groot_ploegink',
+      shield: 'deurink',
       turret: 'turret_carbid',
       turretShot: { rig: 'shot_deksel', arc: 60, spin: 3, splash: '#c9ced6' },
       special: {
@@ -36,6 +37,7 @@ export const achterhoek: FactionDef = {
       ranged: 'dronink',
       rangedShot: { rig: 'shot_spray', arc: 26, spin: 0, splash: '#b6d24a' },
       heavy: 'giertink',
+      shield: 'balink',
       turret: 'turret_heitinks',
       turretShot: { rig: 'shot_ei', arc: 110, spin: 2.2, splash: '#ffd94a' },
       special: { kind: 'wave', rig: 'special_kolonne', speed: SPECIAL.kolonne.speed, dmg: SPECIAL.kolonne.dmg },

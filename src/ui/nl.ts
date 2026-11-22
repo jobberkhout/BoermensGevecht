@@ -50,8 +50,12 @@ export const NL = {
     resume: 'Spatie om verder te gaan',
     /** On the pause card: give up this match and go back to the title card. */
     quit: 'Esc = stoppen en andere facties kiezen',
-    /** The overtime banner: {n} is how much harder units hit by now. */
-    overtimeHarder: 'Overtijd! Subsidiekraan dicht, eenheden slaan {n}% harder',
+    /** The overtime banner: {n} is how much harder units hit by now, {m} how much weaker turrets are. */
+    overtimeHarder: 'Overtijd! Eenheden slaan {n}% harder',
+    overtimeTurrets: ', torens {m}% zwakker',
+    overtimeSilent: ', de torens zwijgen',
+    /** In front of it all when the rules are set to stop the income in overtime. */
+    overtimeDry: 'Subsidiekraan dicht. ',
     /** Next to the purse once the regular income has stopped. */
     kraanDicht: 'subsidiekraan dicht',
     /** The same, short enough for the subsidie button. */
@@ -100,12 +104,12 @@ export const NL = {
     left: 'Linker speler',
     right: 'Rechter speler',
     pause: 'Spatie = pauze, M = muziek of geluid uit',
-    goal: 'Sloop de basis van de ander. Na tien minuten is het overtijd: de subsidiekraan gaat dicht en eenheden slaan steeds harder.',
+    goal: 'Sloop de basis van de ander. Torens schieten op wie vooraan loopt, behalve als er een schild meeloopt: dat vangt alles op. Na tien minuten is het overtijd: eenheden slaan steeds harder en torens raken op.',
     /** The two rows on the title card that are the same for every era. */
     subsidy: { name: 'Subsidie aanvragen', blurb: 'Kost nu geld, levert daarna elke tel meer op.' },
     eraUp: {
       name: 'Moderniseren',
-      blurb: 'Vooruitgang verdien je met vechten. Is de balk vol, dan koop je het volgende tijdperk: nieuwe eenheden, een sterkere basis, een nieuwe truc.',
+      blurb: 'Vooruitgang verdien je met vechten. Is de balk vol, dan koop je het volgende tijdperk.',
     },
     eras: "Drie tijdperken: Jaren '70, Jaren '20 en de toekomst.",
   },

@@ -343,6 +343,13 @@ export class Sound {
     this.tone({ type: 'sine', freq: 170, to: 70, dur: 0.1, gain: 0.4 });
   }
 
+  /** A turret's shot bounces off a schild or a super unit: a short metallic tick. */
+  clang(): void {
+    if (!this.due('clang', 0.12)) return;
+    this.tone({ type: 'triangle', freq: 2200, to: 1500, dur: 0.07, gain: 0.12 });
+    this.tone({ type: 'sine', freq: 3300, dur: 0.05, gain: 0.06 });
+  }
+
   /** Something is thrown. */
   whoosh(): void {
     if (!this.due('whoosh', 0.12)) return;
@@ -588,7 +595,7 @@ export class Sound {
   demo(): number {
     const effects: (() => void)[] = [
       () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'),
-      () => this.hit(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'),
+      () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'),
       () => this.defeat(), () => this.coin(), () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(),
       () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(),
       () => this.giant(), () => this.alarm(), () => this.surge(), () => this.fanfare(),

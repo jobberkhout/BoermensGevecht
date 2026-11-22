@@ -36,12 +36,19 @@ A faction is the same size as the two that exist, so that any two can play each 
 | Light unit: fast, cheap, melee | 1, with five animations |
 | Ranged unit and what it throws | 2 |
 | Heavy unit: slow, tough, hits everything in reach | 1 |
+| Fourth unit, the answer to turrets: the schild in 1975 and 2025, the super unit in 2050 | 1 |
 | Turret: a scene of two or three people, and what it throws | 2 |
 | Special: its drawing on the field | 1 |
 | Base | 1 |
 
-That is eight drawings per era, twenty-four in all. On top of that come the **super unit** of 2050, the
-**flag** and the faction's half of the **backdrop**: **27 drawings per faction**.
+That is nine drawings per era, twenty-seven in all. On top of that come the **flag** and the faction's
+half of the **backdrop**: **29 drawings per faction**.
+
+**The schild** was added on 22 November 2026, after turrets turned out to decide matches by themselves:
+someone behind something big. Every enemy turret that can reach it fires at it, wherever it stands in the
+ranks, and their shots do it very little, so for as long as it stands the army around it is safe from
+turrets. Against units it is a pushover. In 2050 the super unit does the same job. The drawing has to say
+"nothing gets through here" at a glance, and its hit animation is a "ting", not pain.
 
 Besides the drawings a faction needs words: a name and a one-line description for everything that can be
 bought, a handful of lines to shout when walking out and to mutter when beaten (per era), a name for its
@@ -86,7 +93,7 @@ These were one-off jobs before a third faction could exist. They are built, and 
 
 **What adding a faction takes now**
 
-1. The drawings: 24 for the three eras, the super unit, the flag in `art/flags/`, and the backdrop.
+1. The drawings: 27 for the three eras, the flag in `art/flags/`, and the backdrop.
 2. `src/defs/<faction>.ts`: which drawing is which unit, per era, and the three specials.
 3. `src/ui/factions/<faction>.ts`: names, one-line descriptions, lines, the name of its money, its win line.
 4. One line each in `src/defs/types.ts` (the id), `src/defs/index.ts` (the list the players step through)
@@ -126,7 +133,8 @@ New kinds the rest of this plan asks for:
 | Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
 
-As with the existing specials, the super units of 2050 shrug all of these off.
+As with the existing specials, the super units of 2050 shrug all of these off. The schild does not: it
+can be cancelled, glued down, run over and bought like any other unit.
 
 The twenty-one specials at a glance:
 
@@ -199,6 +207,7 @@ the canals, and ends up in the cloud.
 | Ranged | `de_hoekman` | De hoekman | Stands in his corner and makes the price. Throws needle-sharp pencils | humanoid |
 | His projectile | `shot_potlood` | | A pencil with a coloured price slip stuck on it | static |
 | Heavy | `directiewagen` | De directiewagen | A long black saloon with a chauffeur in a cap. The director sits in the back behind a cloud of cigar smoke | vehicle |
+| Schild | `de_brandkast` | De brandkast | A cashier in a dustcoat pushing a safe on a sack truck. Turrets aim at it and hear only "tink". When he wheels it home the door hangs open and it is empty | humanoid |
 | Turret | `turret_societeit` | De Sociëteit | Two members in leather armchairs playing toepen, and a waiter in tails. They flick cards | static |
 | Its projectile | `shot_speelkaart` | | A playing card, spinning | static |
 | Special | `special_gong` | De gong | The gong that opens trading, and a rain of price slips. See below | static |
@@ -215,6 +224,7 @@ seconds.
 | Ranged | `mr_declarabel` | Mr. Declarabel | A lawyer in gown and bands. Every six minutes are billable, and every invoice leaves as a paper plane | humanoid |
 | His projectile | `shot_factuur` | | An invoice folded into a plane | static |
 | Heavy | `leasebak` | De Leasebak | A fat electric car with a ski box on the roof. The partner inside is on a call | vehicle |
+| Schild | `de_disclaimer` | De Disclaimer | A compliance officer behind a wall of fine print, with an asterisk. No rights can be derived from turrets | humanoid |
 | Turret | `turret_vrijmibo` | De Vrijmibo | Three colleagues on the roof terrace on a Friday afternoon. They lob bitterballen that are still far too hot | static |
 | Its projectile | `shot_bitterbal` | | A steaming bitterbal on a cocktail stick | static |
 | Special | `special_overname` | Vijandige overname | A giant rubber stamp, a lanyard and a blue jacket. See below | static |
@@ -311,6 +321,7 @@ that is pure party.
 | Ranged | `sousafonist` | De Sousafonist | Blows oompah and confetti out of the bell | humanoid |
 | His projectile | `shot_hoempa` | | A fat note trailing confetti | static |
 | Heavy | `praalwagen` | De Praalwagen | A farm tractor pulling a papier-mâché float with a giant nodding jester's head | vehicle |
+| Schild | `de_grote_trom` | De Grote Trom | The bass drummer of the hofkapel, drum first. Every shot is one more boom, in time | humanoid |
 | Turret | `turret_pronkzitting` | De Pronkzitting | A tonprater in his barrel between two council members in feathered hats, behind a table of beer mugs | static |
 | Its projectile | `shot_bierviltje` | | A beer mat, spinning | static |
 | Special | `special_polonaise` | De Polonaise | A conga line of revellers, hands on shoulders. See below | free |
@@ -326,6 +337,7 @@ Special, **De Polonaise** (wave): the line sweeps the whole lane and bumps every
 | Ranged | `confettischutter` | De Confettischutter | Emblem jacket, ski goggles, a confetti cannon under the arm | humanoid |
 | Their projectile | `shot_confetti` | | A burst of confetti and one serpentine | static |
 | Heavy | `zuipwagen` | De Zuipwagen | A closed box of loudspeakers behind an enormous tractor, with the compulsory fence around it | vehicle |
+| Schild | `verkeersregelaar` | De Verkeersregelaar | A volunteer in an orange vest carrying a crowd barrier. He did the online course and takes it very seriously | humanoid |
 | Turret | `turret_vipdeck` | Het VIP-deck | Two guests with wristbands and a bouncer, on the raised deck of the tent. They throw drink tokens | static |
 | Its projectile | `shot_munt` | | A consumptiemunt | static |
 | Special | `special_kanonschoten` | Elf Kanonschoten | A row of confetti cannons. See below | static |
@@ -417,6 +429,7 @@ Fryslân: proud, stubborn, and still waiting for ice. The teasing here is the ki
 | Ranged | `opslagger` | De Opslagger | A kaatser in whites who serves small hard balls | humanoid |
 | His projectile | `shot_keatsbal` | | A kaatsbal | static |
 | Heavy | `melkrijder` | De Melkrijder | A flat cart piled with milk churns that roll off like bowling balls | vehicle |
+| Schild | `baanveger_bauke` | Baanveger Bauke | Pushes a wide wooden snow scraper ahead of him, sweeping a track that is not frozen yet | humanoid |
 | Turret | `turret_leugenbank` | De Leugenbank | Three old men in caps on the liars' bench, each one sure he finished in '63. They flick dúmkes from a biscuit tin | static |
 | Its projectile | `shot_dumke` | | A thumb-sized biscuit | static |
 | Special | `special_winter63` | De winter van '63 | Pake starts telling, and the blizzard of the last tocht comes back. See below | static |
@@ -433,6 +446,7 @@ seconds; they can still fight.
 | Ranged | `bakker_tjitske` | Bakker Tjitske | Lobs loaves of sûkerbôle, sticky with sugar | humanoid |
 | Her projectile | `shot_sukerbole` | | A sugar loaf | static |
 | Heavy | `skutsje` | It Skûtsje | A racing barge on a boat trailer. The crew hangs over the high side and the leeboard slams down | vehicle |
+| Schild | `koek_en_zopie` | Beppe's Koek-en-zopie | Beppe behind her stall on runners, striped awning and all. What is thrown at her lands in the pea soup | humanoid |
 | Turret | `turret_brugwachter` | De Brugwachter | A bridge keeper on a raised drawbridge who swings the toll clog on its rod, with two anglers beside him | static |
 | Its projectile | `shot_klompje` | | The little clog that collects the bridge toll | static |
 | Special | `special_it_giet_oan` | It giet oan! | A man in a fur hat says the words, and a crowd of tour skaters comes through. See below | free |
@@ -525,6 +539,7 @@ verdiend, in Amsterdam wordt het uitgegeven."
 | Ranged | `sjaak_de_sjouwer` | Sjaak de Sjouwer | Carries a sack on each shoulder and hurls them one at a time | humanoid |
 | His projectile | `shot_baal` | | A jute sack | static |
 | Heavy | `straddle_carrier` | De Straddle Carrier | One of the first, tall on its legs with a single container underneath, dripping oil | vehicle |
+| Schild | `lasser_leen` | Lasser Leen | A shipyard welder, mask down, carrying the steel plate he was about to weld. Shots only make sparks | humanoid |
 | Turret | `turret_schaft` | De Schaft | Three dock workers on a stack of crates during their break. They throw their lunch tins | static |
 | Its projectile | `shot_broodtrommel` | | A dented lunch tin | static |
 | Special | `special_mouwen` | Mouwen opstropen! | A giant pair of rolled-up sleeves over the quay. See below | static |
@@ -540,6 +555,7 @@ Special, **Mouwen opstropen!** (buff): own units hit harder and move faster for 
 | Ranged | `kapsalonkoerier` | De Kapsalonkoerier | A delivery rider with an insulated bag who flings aluminium trays | humanoid |
 | Their projectile | `shot_kapsalon` | | A tray trailing garlic sauce | static |
 | Heavy | `agv` | De AGV | A driverless container carrier. Its "driver" rides along on top, at a desk with a joystick and a coffee | vehicle |
+| Schild | `bouwvakker_ben` | Bouwvakker Ben | Yellow helmet, a formwork panel on his shoulder, a permit stapled to it. The city is never finished, so he is always on his way somewhere | humanoid |
 | Turret | `turret_kubuswoning` | De Kubuswoning | A tilted cube house. Everything in it slides, so the people who live there throw the furniture out | static |
 | Its projectile | `shot_stoel` | | A kitchen chair | static |
 | Special | `special_container` | De container | A sea container on a crane hook. See below | static |
@@ -637,6 +653,7 @@ visitor, never nationalities: no flags, no accents, no football shirts.
 | Ranged | `flitsblokje_fien` | Flitsblokje-Fien | Sun hat, camera on a neck strap. Blinds you with the flash and then throws the spent cube | humanoid |
 | Her projectile | `shot_flitsblokje` | | A flash cube | static |
 | Heavy | `touringcar` | De Touringcar | Nine countries in seven days. A guide with a pennant leans out of the door | vehicle |
+| Schild | `plattegrond_paula` | Plattegrond-Paula | Lost behind a fold-out city map the size of a tablecloth. Shots tear holes in it, which she does not notice | humanoid |
 | Turret | `turret_parkslapers` | De Parkslapers | Three in sleeping bags under a no-sleeping sign. They throw their sandals without getting up | static |
 | Its projectile | `shot_sandaal` | | A sandal | static |
 | Special | `special_dia_avond` | De Dia-avond | A slide projector the size of a house and a screen full of holiday pictures. See below | static |
@@ -652,6 +669,7 @@ Special, **De Dia-avond** (stun): everyone on the enemy side nods off for five s
 | Ranged | `selfiestick_steve` | Selfiestick-Steve | Looks at his phone on a stick, never at you, and throws stroopwafels like frisbees | humanoid |
 | His projectile | `shot_stroopwafel` | | A stroopwafel, spinning | static |
 | Heavy | `bierfiets` | De Bierfiets | A party in matching outfits pedalling a bar. It carries its own no-entry sign | vehicle |
+| Schild | `paraplu_pam` | Paraplu-Pam | The guide of the free walking tour, bright umbrella held out in front so the group can follow. Everything bounces off it | humanoid |
 | Turret | `turret_hyperij` | De Hype-rij | Three people behind a rope and a queue manager. They throw fries and never leave the queue | static |
 | Its projectile | `shot_friet` | | A paper cone of fries | static |
 | Special | `special_cruiseschip` | Cruiseschip legt aan | A ship taller than the base slides in behind it. See below | static |
@@ -737,6 +755,7 @@ bureaucracy, not about politics. There is no minister, no party and no policy in
 | Ranged | `commies_cor` | Commies Cor | A clerk of the rank that really existed until the eighties. Sends every form off three at a time | humanoid |
 | His projectile | `shot_drievoud` | | Three sheets fanned out, the carbon copies trailing | static |
 | Heavy | `het_kastje` | Het Kastje | A steel filing cabinet on castors, pushed by two caretakers in dust coats. Its drawers shoot out to punch | vehicle |
+| Schild | `de_portier` | De Portier | The doorman, who has brought his glass lodge along. When something comes his way he slides the hatch shut | humanoid |
 | Turret | `turret_loket7` | Loket 7 | Three behind one counter: one eats a sandwich under a lunch sign, one stamps, one smokes. The shutter keeps dropping | static |
 | Its projectile | `shot_stempel` | | A rubber stamp, spinning, leaving a red ring | static |
 | Special | `special_inspraak` | Inspraakavond | Folding chairs, a squealing microphone, a slide projector. See below | static |
@@ -753,6 +772,7 @@ units on the lane wait three seconds while everybody has their say.
 | Ranged | `beleidsmedewerker_bert` | Beleidsmedewerker Bert | Laptop under one arm. "Schiet een vergadering in je agenda" | humanoid |
 | His projectile | `shot_uitnodiging` | | A calendar block with a little bell | static |
 | Heavy | `ict_project` | Het ICT-project | A half-built machine in scaffolding with hired consultants on top. It smokes, blinks red and arrives late | vehicle |
+| Schild | `de_zwartlakker` | De Zwartlakker | Carries a released document the size of a door, blacked out almost completely, and a fat marker for whatever is still legible | humanoid |
 | Turret | `turret_flexplek` | De Flexplek | Two colleagues fight over the one free desk; a third joins in on a screen. They throw headsets | static |
 | Its projectile | `shot_headset` | | A headset, cord flapping | static |
 | Special | `special_overleg` | Het Overleg | A meeting table with a flip-over that drops onto the lane. See below | static |
@@ -850,6 +870,7 @@ The Netherlands on holiday: the caravan, the awning, and the neighbour who knows
 | Ranged | `boulesopa` | De Jeu-de-boulesopa | Measures first, with a folding rule, then throws a ball from the plastic set | humanoid |
 | His projectile | `shot_boule` | | A boule | static |
 | Heavy | `sleurhut` | De Sleurhut | A small round car, bulging, with suitcases on a sagging roof rack, an egg-shaped caravan behind it and a steaming radiator | vehicle |
+| Schild | `windschermzetter` | De Windschermzetter | Walks behind a striped windbreak on wooden poles, looking for the one spot out of the wind | humanoid |
 | Turret | `turret_bermtoeristen` | De Bermtoeristen | A family at a folding table in the verge of the motorway. They throw the eggs they were frying | static |
 | Its projectile | `shot_spiegelei` | | A fried egg | static |
 | Special | `special_zwarte_zaterdag` | Zwarte Zaterdag | Heat shimmer and a wall of caravans that barely moves. See below | vehicle |
@@ -866,6 +887,7 @@ they can still fight.
 | Ranged | `oma_pieper` | Oma Pieper | Brought ten kilos of potatoes from home, because you never know what they eat there. Lobs them underhand | humanoid |
 | Her projectile | `shot_pieper` | | A potato | static |
 | Heavy | `witte_muur` | De Witte Muur | A motorhome the size of a bus with a satellite dish and two e-bikes on the back. It blocks everyone's view | vehicle |
+| Schild | `luchtbedsjouwer` | De Luchtbedsjouwer | An air bed held upright, the foot pump under one arm. Every shot goes "pfff"; beaten, he carries it home deflated | humanoid |
 | Turret | `turret_skottelbraai` | De Skottelbraai | Dad with the tongs, mum with the hot-air fryer, and the campingburgemeester giving advice. They throw speklapjes | static |
 | Its projectile | `shot_speklap` | | A sizzling slice of pork belly | static |
 | Special | `special_stil` | Na tienen is het stil! | The campingburgemeester in his dressing gown with a torch. See below | static |

@@ -13,11 +13,14 @@ import { other, type Command, type Side, type SimState } from '../sim/types.ts';
  */
 export type Bot = (s: SimState, side: Side) => Command | null;
 
+/** The fourth button sells the schild in the first two eras and the super unit in the last. */
+const FOURTH: Command = { t: 'buy', slot: 3 };
 const BUY: Record<Role, Command> = {
   light: { t: 'buy', slot: 0 },
   ranged: { t: 'buy', slot: 1 },
   heavy: { t: 'buy', slot: 2 },
-  super: { t: 'buy', slot: 3 },
+  shield: FOURTH,
+  super: FOURTH,
 };
 const TURRET: Command = { t: 'turret' };
 const SPECIAL: Command = { t: 'special' };
@@ -70,9 +73,11 @@ function special(s: SimState, side: Side): Command | null {
 
 export interface Style {
   /** The order in which it buys ordinary units, over and over. */
-  units: Exclude<Role, 'super'>[];
+  units: Exclude<Role, 'shield' | 'super'>[];
   /** In the last era it saves up for a super unit whenever it has none out. */
   supers?: boolean;
+  /** Against an enemy with turrets it keeps one schild out, to take their fire. */
+  shields?: boolean;
   /** How many times it applies for subsidie in the first era; one more in each later era. */
   eco: number;
   /** False for a bot that stays in the first era whatever happens. */
@@ -118,11 +123,19 @@ export function brain(style: Style): Bot {
       // The big one. With its guard out and no super unit of its own on the
       // lane, it keeps the purse shut until it can pay for one. That is the
       // real trade: a thin army now for a giant later.
-      const big = style.supers ? eraOf(me.faction, me.era).units[3] : undefined;
+      const fourth = eraOf(me.faction, me.era).units[3];
+      const big = style.supers && fourth?.role === 'super' ? fourth : undefined;
       const has = big !== undefined && (me.units.some((u) => u.def === big.id) || me.queue.some((q) => q.def === big.id));
       if (big && !has) return me.gold >= big.cost ? BUY.super : null;
       const plan = style.turrets ? turretPlan(s, side) : null;
       if (plan && me.gold >= plan.cost) return TURRET;
+    }
+
+    // Turrets on the other side: one schild goes along with the army to take their fire.
+    const schild = eraOf(me.faction, me.era).units[3];
+    if (style.shields && schild?.role === 'shield' && foe.turrets.some((t) => t !== null) && mine >= 2) {
+      const out = me.units.some((u) => u.def === schild.id) || me.queue.some((q) => q.def === schild.id);
+      if (!out && canDo(s, side, BUY.shield)) return BUY.shield;
     }
 
     const cmd = tryCmd(s, side, BUY[style.units[bought % style.units.length]!]);
@@ -134,7 +147,7 @@ export function brain(style: Style): Bot {
 /** Presses random buttons. Finds the situations a sensible player would never create. */
 export function random(seed: number): Bot {
   let state = seed >>> 0;
-  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, BUY.light, BUY.ranged, BUY.super, TURRET, SPECIAL, ERA_UP, SUBSIDY_CMD];
+  const options: Command[] = [BUY.light, BUY.ranged, BUY.heavy, BUY.light, BUY.ranged, FOURTH, TURRET, SPECIAL, ERA_UP, SUBSIDY_CMD];
   return (s, side) => {
     state = nextRng(state);
     const roll = rngValue(state);
@@ -147,19 +160,19 @@ export const BOTS: Record<string, () => Bot> = {
   /** Nothing but the cheapest unit, and it never modernizes. */
   rush: () => brain({ units: ['light'], eco: 0, modernizes: false, turrets: false, guard: 99 }),
   /** Cheap units only, but it does move with the times. */
-  swarm: () => brain({ units: ['light', 'light', 'ranged'], eco: 0, modernizes: true, turrets: false, guard: 99 }),
+  swarm: () => brain({ units: ['light', 'light', 'ranged'], eco: 0, modernizes: true, turrets: false, guard: 99, shields: true }),
   /** One unit up front, ranged behind it. */
-  archers: () => brain({ units: ['light', 'ranged', 'ranged', 'ranged'], eco: 1, modernizes: true, turrets: false, guard: 4 }),
+  archers: () => brain({ units: ['light', 'ranged', 'ranged', 'ranged'], eco: 1, modernizes: true, turrets: false, guard: 4, shields: true }),
   /** Saves for heavies, and for the super unit once there is one. */
-  heavies: () => brain({ units: ['heavy'], supers: true, eco: 1, modernizes: true, turrets: false, guard: 1 }),
+  heavies: () => brain({ units: ['heavy'], supers: true, eco: 1, modernizes: true, turrets: false, guard: 1, shields: true }),
   /** Defences and a firing line. */
   turtle: () => brain({ units: ['light', 'ranged', 'ranged'], eco: 2, modernizes: true, turrets: true, guard: 3 }),
   /** A bit of everything, the super unit included. */
-  mixed: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], supers: true, eco: 1, modernizes: true, turrets: true, guard: 4 }),
+  mixed: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], supers: true, eco: 1, modernizes: true, turrets: true, guard: 4, shields: true }),
   /** The same army without ever buying a super unit: the yardstick for how much one is worth. */
-  plain: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], eco: 1, modernizes: true, turrets: true, guard: 4 }),
+  plain: () => brain({ units: ['light', 'ranged', 'light', 'ranged', 'heavy'], eco: 1, modernizes: true, turrets: true, guard: 4, shields: true }),
   /** Subsidie first, everything else later. */
-  banker: () => brain({ units: ['light', 'ranged', 'ranged'], supers: true, eco: 4, modernizes: true, turrets: true, guard: 2 }),
+  banker: () => brain({ units: ['light', 'ranged', 'ranged'], supers: true, eco: 4, modernizes: true, turrets: true, guard: 2, shields: true }),
 };
 
 /** A sensible all-rounder, for tests that need two identical players. */

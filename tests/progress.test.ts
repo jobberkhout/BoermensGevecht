@@ -413,12 +413,12 @@ describe('specials', () => {
 });
 
 describe('the super unit', () => {
-  it('can only be bought in the last era', () => {
+  it('is the fourth unit of the last era only; before that the fourth button sells the schild', () => {
     const s = match();
     rich(s, 0);
     for (const era of [ERA.y1975, ERA.y2025]) {
       s.sides[0].era = era;
-      expect(canDo(s, 0, { t: 'buy', slot: 3 }), `era ${era}`).toBe(false);
+      expect(eraOf('havermelk', era).units[3]!.role, `era ${era}`).toBe('shield');
     }
     s.sides[0].era = ERA.y2050;
     expect(canDo(s, 0, { t: 'buy', slot: 3 })).toBe(true);
@@ -516,10 +516,8 @@ describe('the super unit', () => {
     expect(giant.hp).toBe(unitDef(SUPER.hm).hp);
   });
 
-  it('is still hurt by ordinary units and turrets', () => {
+  it('is still hurt by ordinary units', () => {
     const s = match();
-    rich(s, 0);
-    act(s, 0, { t: 'turret' });
     const giant = place(s, 1, SUPER.ah, LANE - px(100));
     giant.stunUntil = 1e9;
     place(s, 0, HM.light, px(96));

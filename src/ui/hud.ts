@@ -192,6 +192,8 @@ export class Hud {
       if (!unit) continue;
       if (b.pic) setPicture(b.pic, unit.rig, unit.role[0]!.toUpperCase());
       this.write(b.label, nameOf(unit.id));
+      // Four buttons share the row, so a name gets two lines; one long word gets smaller letters instead.
+      b.label.classList.toggle('long', nameOf(unit.id).split(/[ -]/).some((word) => word.length > 14));
       this.write(b.cost, String(unit.cost));
     }
     parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);

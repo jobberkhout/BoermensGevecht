@@ -286,6 +286,17 @@ export class BattleView {
           }
           break;
         }
+        case 'glance': {
+          // A turret's shot bounces off: the shield shudders and sparks, and nobody is hurt much.
+          const v = this.units.get(e.id);
+          if (v) {
+            v.hitTime = 0;
+            const y = rowY(v.row) - 40 - this.random() * 70;
+            this.puffs.push({ x: v.x + dirOf(v.side) * 22, y, age: 0, life: 0.22, color: '#cfe6ff', size: 20 });
+            this.puffs.push({ x: v.x + dirOf(v.side) * 30, y: y - 6, age: -0.04, life: 0.18, color: '#ffffff', size: 10 });
+          }
+          break;
+        }
         case 'defeat': {
           const v = this.units.get(e.id);
           if (!v) break;
@@ -393,10 +404,10 @@ export class BattleView {
           // The deal is stamped onto the unit, which from now on wears the buyer's badge.
           const owner = s.sides[e.side];
           const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
-          const v = this.units.get(e.id);
-          const def = unitDef(e.def);
-          const x = v ? v.x : laneX(e.side, e.pos - def.len / 2);
-          const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
+          // It may have been moved to its new side's front line: the stamp lands where it stands now.
+          const unit = owner.units.find((u) => u.id === e.id);
+          const x = laneX(e.side, e.pos - unitDef(e.def).len / 2);
+          const y = rowY(unit ? unit.row : 1) + STRIKE_Y - 15;
           this.sprites.push({ rig, side: e.side, x0: x, y0: y - 420, x1: x, y1: y, scale: 1.2, age: 0, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ffd21f', landed: false });
           this.say(x, y - 70, NL.shout.bought, '#ffd21f', 1.6, 34);
           break;

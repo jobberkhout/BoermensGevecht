@@ -49,8 +49,8 @@ test('the single file plays when it is opened straight from disk', async ({ page
   await page.keyboard.press('KeyQ');
   await page.keyboard.press('KeyU');
   // The drawings came along: the buttons show pictures, not the letters that stand in for missing art.
-  // (Three units a side for now; the fourth button stays hidden until the last era.)
-  await expect(page.locator('.btn .pic:visible')).toHaveCount(6);
+  // (Four units a side.)
+  await expect(page.locator('.btn .pic:visible')).toHaveCount(8);
   await expect(page.locator('.btn .pic.letter')).toHaveCount(0);
 
   // Both sides walk out, and modernizing swaps in the next era's drawings without a hitch.

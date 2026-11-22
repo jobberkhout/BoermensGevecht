@@ -18,6 +18,7 @@ export const zuidas: FactionDef = {
       ranged: 'de_hoekman',
       rangedShot: { rig: 'shot_potlood', arc: 34, spin: 2, splash: '#f2c94c' },
       heavy: 'directiewagen',
+      shield: 'de_brandkast',
       turret: 'turret_societeit',
       turretShot: { rig: 'shot_speelkaart', arc: 40, spin: 3, splash: '#ffffff' },
       special: {
@@ -36,6 +37,7 @@ export const zuidas: FactionDef = {
       ranged: 'mr_declarabel',
       rangedShot: { rig: 'shot_factuur', arc: 46, spin: 0, splash: '#f5f1e6' },
       heavy: 'leasebak',
+      shield: 'de_disclaimer',
       turret: 'turret_vrijmibo',
       turretShot: { rig: 'shot_bitterbal', arc: 100, spin: 1.5, splash: '#b5722f' },
       special: { kind: 'convert', rig: 'special_overname' },
