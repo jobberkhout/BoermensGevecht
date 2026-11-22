@@ -242,10 +242,13 @@ async function showOne(id: string): Promise<void> {
 }
 
 async function showAll(): Promise<void> {
-  app.append(el('h1', { textContent: 'Galerij' }), el('p', { className: 'muted', textContent: `${rigIds().length} rigs. Click one for its animations.` }));
+  // ?only=zuidas/2025 shows just the drawings with that in their id: one faction, one era.
+  const only = params.get('only') ?? '';
+  const ids = rigIds().filter((id) => id.includes(only));
+  app.append(el('h1', { textContent: only ? `Galerij: ${only}` : 'Galerij' }), el('p', { className: 'muted', textContent: `${ids.length} rigs. Click one for its animations.` }));
   const grid = el('div', { className: 'grid' });
   app.append(grid);
-  for (const id of rigIds()) {
+  for (const id of ids) {
     const src = rigSource(id);
     const card = el('a', { className: 'card', href: `gallery.html?rig=${encodeURIComponent(id)}&zoom=3` });
     if (src.problems.length > 0) {

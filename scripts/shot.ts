@@ -1,7 +1,8 @@
 /**
  * Takes screenshots so the art can be checked without opening a browser by hand.
  *
- *   node scripts/shot.ts gallery                 every rig, rest pose
+ *   node scripts/shot.ts gallery [part of id]    every rig in rest pose, or only those with this in their
+ *                                                id, such as zuidas/2025
  *   node scripts/shot.ts rig <id> [zoom]         one rig with all its clips
  *   node scripts/shot.ts page <path> [name]      any page of the dev server
  *   node scripts/shot.ts battle [left right]     the title screen and a staged battle at set moments,
@@ -99,7 +100,9 @@ function jobs(): Job[] {
   const [mode, a, b] = args;
   switch (mode) {
     case 'gallery':
-      return [{ path: 'gallery.html?zoom=2', name: 'gallery', fullPage: true }];
+      return a
+        ? [{ path: `gallery.html?zoom=2&only=${encodeURIComponent(a)}`, name: `gallery-${a.replace(/\//g, '-')}`, fullPage: true }]
+        : [{ path: 'gallery.html?zoom=2', name: 'gallery', fullPage: true }];
     case 'rig': {
       if (!a) throw new Error('usage: shot.ts rig <id> [zoom]');
       return [{ path: `gallery.html?rig=${encodeURIComponent(a)}&zoom=${b ?? 3}`, name: `rig-${a.replace(/\//g, '-')}`, fullPage: true }];
@@ -111,7 +114,7 @@ function jobs(): Job[] {
     case 'battle':
       return [];
     default:
-      throw new Error('usage: shot.ts gallery | rig <id> [zoom] | page <path> [name] | battle [left right]');
+      throw new Error('usage: shot.ts gallery [part of id] | rig <id> [zoom] | page <path> [name] | battle [left right]');
   }
 }
 

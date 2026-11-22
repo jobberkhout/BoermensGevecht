@@ -113,7 +113,7 @@ Every action is also a button on screen.
   the schild it draws the fire of turrets and takes only a fifth of it. Six heavies or a steady supply of
   units still bring it down.
 - **Overtime.** After ten minutes units hit 20% harder, and another 20% every ten seconds. Turrets go the
-  other way: they lose 10% of their damage every ten seconds and fall silent at 11:40. The money keeps
+  other way: they lose 10% of their damage every ten seconds, starting at once, and fall silent at 11:30. The money keeps
   coming in, so there is always something to send. Should a match still be going at thirteen minutes, both
   bases start to crumble as well and the less damaged one outlasts the other.
 

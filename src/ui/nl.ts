@@ -104,7 +104,7 @@ export const NL = {
     left: 'Linker speler',
     right: 'Rechter speler',
     pause: 'Spatie = pauze, M = muziek of geluid uit',
-    goal: 'Sloop de basis van de ander. Torens schieten op wie vooraan loopt, behalve als er een schild meeloopt: dat vangt alles op. Na tien minuten is het overtijd: eenheden slaan steeds harder en torens raken op.',
+    goal: 'Sloop de basis van de ander. Torens schieten op wie vooraan loopt, behalve als er een schild meeloopt: dat vangt alles op. Na tien minuten is het overtijd: eenheden slaan harder, torens raken op.',
     /** The two rows on the title card that are the same for every era. */
     subsidy: { name: 'Subsidie aanvragen', blurb: 'Kost nu geld, levert daarna elke tel meer op.' },
     eraUp: {

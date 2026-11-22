@@ -240,8 +240,10 @@ describe('overtime', () => {
     expect(shot(100)).toBe(turret.dmg);
     const sixSteps = OVERTIME.at + OVERTIME.every * 5;
     expect(shot(sixSteps)).toBe(Math.floor((turret.dmg * (100 - 6 * OVERTIME.turretStepPercent)) / 100));
-    // Well before the bases start to crumble there is nothing left of them.
-    const silentAt = OVERTIME.at + OVERTIME.every * Math.ceil(100 / OVERTIME.turretStepPercent);
+    // Well before the bases start to crumble there is nothing left of them: the first step comes at once.
+    const silentAt = OVERTIME.at + OVERTIME.every * (Math.ceil(100 / OVERTIME.turretStepPercent) - 1);
+    expect(turretDamagePercent(silentAt - 1)).toBeGreaterThan(0);
+    expect(turretDamagePercent(silentAt)).toBe(0);
     expect(silentAt).toBeLessThan(OVERTIME.crumbleAt);
     expect(shot(silentAt)).toBe(0);
   });

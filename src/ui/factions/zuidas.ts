@@ -39,7 +39,7 @@ export const zuidas: FactionText = {
     'za.2025.light': 'Bodywarmer, keycord en vier koffie to go. Mept met zijn laptoptas.',
     'za.2025.ranged': 'Advocaat in toga. Elke zes minuten een factuur, als papieren vliegtuigje.',
     'za.2025.heavy': 'Elektrisch, loeizwaar en met skibox. De partner zit binnen te bellen.',
-    'za.2025.shield': 'Compliance officer achter een muur van kleine lettertjes. Torens mikken op hem; er kunnen geen rechten aan worden ontleend.',
+    'za.2025.shield': 'Achter een muur van kleine lettertjes. Torens mikken op hem, maar er kunnen geen rechten aan worden ontleend.',
     'za.2025.turret': 'Vrijdagmiddag op het dakterras. De bitterballen zijn nog veel te heet.',
     'za.2025.special': 'Koopt de sterkste vijand op de baan. Die krijgt een keycord en vecht voortaan voor jou.',
     'za.2050.light': 'Stagiair op wieltjes. Haalt koffie, deelt klappen uit, krijgt niks betaald.',
