@@ -220,8 +220,10 @@ async function showOne(id: string): Promise<void> {
   );
   const difference = restDifference(rig, whole);
   document.body.dataset.restDiff = difference.toFixed(5);
-  // The control: the same comparison on a puppet that is deliberately wrong.
-  document.body.dataset.restDiffControl = restDifference(rig, whole, 8).toFixed(5);
+  // The control: the same comparison on a puppet that is deliberately wrong. The shove grows with the
+  // drawing, or a whole-screen scene with few edges, such as the sky, would hardly show it.
+  const shove = Math.max(8, Math.round(Math.max(src.viewBox.w, src.viewBox.h) * 0.04));
+  document.body.dataset.restDiffControl = restDifference(rig, whole, shove).toFixed(5);
   app.append(
     el('div', { className: 'row' }, [
       el('figure', {}, [raw, el('figcaption', { textContent: `the SVG file as the browser shows it (the puppet differs in ${(difference * 100).toFixed(2)}% of pixels)` })]),

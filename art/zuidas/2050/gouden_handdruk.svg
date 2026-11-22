@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-104 -236 208 242" data-rig="free">
+  <title>De Gouden Handdruk: een kolossale gouden hand in een krijtstreepmouw, die op zijn vingers loopt. Legal rijdt mee</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.8; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .crease { stroke: #b98a14; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .pin { stroke: #9fb1dc; stroke-width: 1.2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can lift or shove the whole hand. -->
+  <g id="hand" transform="translate(0 0)"/>
+
+  <!--
+    The golden parachute, in two halves, folded away behind the cuff and the back of the hand until the day
+    it is needed. Each half turns and grows around the point where its cords come together.
+  -->
+  <g id="chute_l" data-parent="cuff" transform="translate(35 -86)">
+    <g transform="scale(0.9)">
+      <path class="t" style="stroke-width:1.5" d="M0 0 L-72 -54 M0 0 L-43 -54 M0 0 L-14 -54"/>
+      <path class="o" style="stroke-width:2.6" fill="#f2c230" d="M-75 -54 Q-74 -112 0 -114 L0 -57.6 Q-7 -60 -14 -54 Q-28.5 -62 -43 -54 Q-60 -62 -75 -54 Z"/>
+      <path class="n" fill="#ffe58a" d="M-42.4 -56 Q-39.6 -94 -8 -112 Q-16 -86 -14.6 -56 Q-28.5 -63.6 -42.4 -56 Z"/>
+      <path class="t" style="stroke-width:1.3" d="M-43 -54 Q-40 -94 -7 -113.4 M-14 -54 Q-16 -86 -3 -113.8"/>
+    </g>
+  </g>
+  <g id="chute_r" data-parent="cuff" transform="translate(-34 -86)">
+    <g transform="scale(0.9)">
+      <path class="t" style="stroke-width:1.5" d="M0 0 L72 -54 M0 0 L43 -54 M0 0 L14 -54"/>
+      <path class="o" style="stroke-width:2.6" fill="#f2c230" d="M75 -54 Q74 -112 0 -114 L0 -57.6 Q7 -60 14 -54 Q28.5 -62 43 -54 Q60 -62 75 -54 Z"/>
+      <path class="n" fill="#ffe58a" d="M42.4 -56 Q39.6 -94 8 -112 Q16 -86 14.6 -56 Q28.5 -63.6 42.4 -56 Z"/>
+      <path class="t" style="stroke-width:1.3" d="M43 -54 Q40 -94 7 -113.4 M14 -54 Q16 -86 3 -113.8"/>
+    </g>
+  </g>
+
+  <!-- The fingers it walks on. Each has two parts: the lower one, with the nail, hangs from the upper one. -->
+  <g id="pinky_b" data-parent="pinky_a" transform="translate(-68 -44)">
+    <rect class="o" fill="#f2c230" x="-11.5" y="-9" width="23" height="53" rx="11.5"/>
+    <rect class="n" fill="#dba91f" x="-10" y="-5" width="5" height="40" rx="2.5"/>
+    <rect class="n" fill="#ffe58a" x="4" y="-2" width="3.6" height="20" rx="1.8"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffeeb0" d="M-6.6 23 Q-6.6 18 0 18 Q6.6 18 6.6 23 L6.6 33 Q6.6 40 0 40 Q-6.6 40 -6.6 33 Z"/>
+  </g>
+  <g id="ring_b" data-parent="ring_a" transform="translate(-40 -48)">
+    <rect class="o" fill="#f2c230" x="-13.5" y="-9" width="27" height="57" rx="13.5"/>
+    <rect class="n" fill="#dba91f" x="-12" y="-5" width="5.6" height="43" rx="2.8"/>
+    <rect class="n" fill="#ffe58a" x="5.4" y="-2" width="4" height="21" rx="2"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffeeb0" d="M-8 26 Q-8 20.6 0 20.6 Q8 20.6 8 26 L8 36 Q8 44 0 44 Q-8 44 -8 36 Z"/>
+  </g>
+  <g id="middle_b" data-parent="middle_a" transform="translate(-10 -50)">
+    <rect class="o" fill="#f2c230" x="-14" y="-9" width="28" height="59" rx="14"/>
+    <rect class="n" fill="#dba91f" x="-12.5" y="-5" width="5.8" height="45" rx="2.9"/>
+    <rect class="n" fill="#ffe58a" x="5.8" y="-2" width="4" height="22" rx="2"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffeeb0" d="M-8.4 28 Q-8.4 22.4 0 22.4 Q8.4 22.4 8.4 28 L8.4 38 Q8.4 46 0 46 Q-8.4 46 -8.4 38 Z"/>
+  </g>
+  <g id="index_b" data-parent="index_a" transform="translate(21 -48)">
+    <rect class="o" fill="#f2c230" x="-14" y="-9" width="28" height="57" rx="14"/>
+    <rect class="n" fill="#dba91f" x="-12.5" y="-5" width="5.8" height="43" rx="2.9"/>
+    <rect class="n" fill="#ffe58a" x="5.8" y="-2" width="4" height="21" rx="2"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffeeb0" d="M-8.4 26 Q-8.4 20.6 0 20.6 Q8.4 20.6 8.4 26 L8.4 36 Q8.4 44 0 44 Q-8.4 44 -8.4 36 Z"/>
+  </g>
+
+  <g id="pinky_a" data-parent="palm" transform="translate(-68 -80)">
+    <rect class="o" fill="#f2c230" x="-11.5" y="-10" width="23" height="55" rx="11.5"/>
+    <rect class="n" fill="#dba91f" x="-10" y="-6" width="5" height="44" rx="2.5"/>
+    <rect class="n" fill="#ffe58a" x="4" y="0" width="3.6" height="9" rx="1.8"/>
+    <!-- the signet ring: it is that sort of hand -->
+    <rect class="o" style="stroke-width:1.8" fill="#c9971c" x="-12.6" y="14" width="25.2" height="8.4" rx="2.4"/>
+    <ellipse class="o" style="stroke-width:1.7" fill="#24376b" cx="0.6" cy="18.2" rx="7.2" ry="5.8"/>
+    <path fill="none" stroke="#f2c230" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M-2.8 20 L-0.4 17.4 L1.2 18.8 L4 15.8"/>
+    <path class="crease" d="M-5.6 33.6 Q0 36.6 5.6 33.6"/>
+  </g>
+  <g id="ring_a" data-parent="palm" transform="translate(-40 -88)">
+    <rect class="o" fill="#f2c230" x="-13.5" y="-10" width="27" height="59" rx="13.5"/>
+    <rect class="n" fill="#dba91f" x="-12" y="-6" width="5.6" height="48" rx="2.8"/>
+    <rect class="n" fill="#ffe58a" x="5.4" y="14" width="4" height="20" rx="2"/>
+    <path class="crease" d="M-7 37.4 Q0 40.8 7 37.4"/>
+  </g>
+  <g id="middle_a" data-parent="palm" transform="translate(-10 -92)">
+    <rect class="o" fill="#f2c230" x="-14" y="-10" width="28" height="61" rx="14"/>
+    <rect class="n" fill="#dba91f" x="-12.5" y="-6" width="5.8" height="50" rx="2.9"/>
+    <rect class="n" fill="#ffe58a" x="5.8" y="14" width="4" height="22" rx="2"/>
+    <path class="crease" d="M-7.4 39.4 Q0 42.8 7.4 39.4"/>
+  </g>
+  <g id="index_a" data-parent="palm" transform="translate(21 -88)">
+    <rect class="o" fill="#f2c230" x="-14" y="-10" width="28" height="59" rx="14"/>
+    <rect class="n" fill="#dba91f" x="-12.5" y="-6" width="5.8" height="48" rx="2.9"/>
+    <rect class="n" fill="#ffe58a" x="5.8" y="14" width="4" height="20" rx="2"/>
+    <path class="crease" d="M-7.4 37.4 Q0 40.8 7.4 37.4"/>
+  </g>
+
+  <!-- The thumb leads the way. Joint of the tip where it bends. -->
+  <g id="thumb_b" data-parent="thumb_a" transform="translate(53 -92)">
+    <g transform="rotate(-30)">
+      <rect class="o" fill="#f2c230" x="-13.5" y="-9" width="27" height="40" rx="13.5"/>
+      <rect class="n" fill="#dba91f" x="-12" y="-5" width="5.4" height="26" rx="2.7"/>
+      <path class="o" style="stroke-width:1.8" fill="#ffeeb0" d="M-7.6 10.6 Q-7.6 5.6 0 5.6 Q7.6 5.6 7.6 10.6 L7.6 19.6 Q7.6 27 0 27 Q-7.6 27 -7.6 19.6 Z"/>
+    </g>
+  </g>
+  <g id="thumb_a" data-parent="palm" transform="translate(38 -118)">
+    <g transform="rotate(-30)">
+      <rect class="o" fill="#f2c230" x="-13.5" y="-12" width="27" height="51" rx="13.5"/>
+      <rect class="n" fill="#dba91f" x="-12" y="-6" width="5.4" height="38" rx="2.7"/>
+      <rect class="n" fill="#ffe58a" x="5.4" y="2" width="4" height="16" rx="2"/>
+      <path class="crease" d="M-7 27 Q0 30.4 7 27"/>
+    </g>
+  </g>
+
+  <!-- The back of the hand, knuckles and all. Joint in the middle of the whole hand: it turns about this to shake. -->
+  <g id="palm" data-parent="hand" transform="translate(-10 -116)">
+    <g transform="translate(10 116)">
+      <path class="o" fill="#f2c230" d="M-36 -160 Q-68 -150 -79 -122 Q-84.5 -102 -82.5 -80 A14.5 14.5 0 0 0 -53.51 -79.43 A16 16 0 0 0 -24.48 -84.1 A16.5 16.5 0 0 0 4.82 -84.75 A16.5 16.5 0 0 0 37.5 -88 Q50 -104 47 -126 Q44 -148 36 -160 Z"/>
+      <path class="n" fill="#dba91f" d="M-36.6 -158.4 Q-67 -149 -77.6 -122 Q-83 -102 -81 -80 Q-80 -72 -73.6 -68 Q-76 -82 -73 -102 Q-66 -138 -36.6 -158.4 Z"/>
+      <path class="n" fill="#ffe58a" d="M8 -152 Q34 -142 41 -118 Q33 -134 12 -144 Z"/>
+      <path class="n" fill="#ffe58a" d="M-76 -84 Q-72 -92 -64 -91 Q-71 -89 -73.6 -82 Z M-50 -93 Q-45 -102 -35 -101 Q-43.6 -98.6 -47.4 -91 Z M-20.6 -97 Q-15.6 -106.6 -5 -105.6 Q-14 -103 -18 -95 Z M10.4 -93 Q15.4 -102.6 26 -101.6 Q17 -99 13 -91 Z"/>
+      <path class="crease" d="M-74 -78 Q-68 -72.6 -62 -78 M-48 -84.6 Q-40 -78.6 -32 -84.6 M-18.4 -88.4 Q-10 -82.4 -1.6 -88.4 M12.6 -84.6 Q21 -78.6 29.4 -84.6"/>
+      <path class="crease" style="stroke:#dba91f" d="M-41 -108 L-24 -144 M-9 -112 L-5 -146 M19 -108 L9 -144"/>
+    </g>
+  </g>
+
+  <!-- The shirt cuff, the cufflink with the scales on it, and the pinstriped sleeve that ends where an arm should be. Joint at the wrist. -->
+  <g id="cuff" data-parent="palm" transform="translate(0 -158)">
+    <g transform="translate(0 158)">
+      <path class="o" fill="#ffffff" d="M-43 -151 Q-44.6 -162 -41.6 -173 L41.6 -173 Q44.6 -162 43 -151 Q0 -145 -43 -151 Z"/>
+      <path class="n" fill="#dfe6ee" d="M-41.6 -152.2 Q-43 -162 -40.2 -171.6 L-30 -171.6 Q-33 -162 -31.6 -151 Z"/>
+      <path class="t" style="stroke:#b9c4d2;stroke-width:1.4" d="M-28 -154 Q0 -150.4 40 -155.6"/>
+      <circle class="o" style="stroke-width:2" fill="#f2c230" cx="27" cy="-162" r="7"/>
+      <path class="t" style="stroke-width:1.2" d="M27 -166.6 L27 -158 M24.6 -157.6 L29.4 -157.6 M22.6 -165 L31.4 -165 M22.6 -165 L21.2 -161.4 M22.6 -165 L24 -161.4 M31.4 -165 L30 -161.4 M31.4 -165 L32.8 -161.4 M20.8 -161.2 Q22.6 -159.2 24.4 -161.2 M29.6 -161.2 Q31.4 -159.2 33.2 -161.2"/>
+      <path class="o" fill="#24376b" d="M-46.6 -167.6 L46.6 -167.6 L42.4 -202 L-42.4 -202 Z"/>
+      <path class="n" fill="#1a2850" d="M-45 -166.2 L-36 -166.2 L-33.4 -200.6 L-41 -200.6 Z"/>
+      <path class="pin" d="M-37 -166.4 L-34 -200.4 M-27 -166.4 L-24.8 -200.4 M-17 -166.4 L-15.6 -200.4 M-7 -166.4 L-6.4 -200.4 M3 -166.4 L2.8 -200.4 M13 -166.4 L12 -200.4 M23 -166.4 L21.2 -200.4 M33 -166.4 L30.4 -200.4 M42 -166.4 L39.2 -200.4"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2c230" cx="-38.6" cy="-176" r="2.7"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2c230" cx="-37.8" cy="-184.4" r="2.7"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2c230" cx="-37" cy="-192.8" r="2.7"/>
+      <ellipse class="o" fill="#141c38" cx="0" cy="-202" rx="42.4" ry="6.2"/>
+    </g>
+  </g>
+
+  <!-- Legal. He sits on the edge of the sleeve with his briefcase and reads out why none of this applies. Joint where he sits. -->
+  <g id="lawyer" data-parent="cuff" transform="translate(9 -203)">
+    <g transform="translate(-9 203)">
+      <rect class="o" style="stroke-width:1.8" fill="#8a5a3a" x="-11" y="-213.6" width="13" height="10.6" rx="1.8"/>
+      <path class="t" style="stroke-width:1.5" d="M-7.6 -213.6 Q-4.6 -217.6 -1.6 -213.6"/>
+      <rect class="n" fill="#f2c230" x="-5.8" y="-209.6" width="2.6" height="2.2"/>
+      <path class="o" style="stroke-width:1.5" fill="#2b2b33" d="M4.2 -192.6 L4.2 -189.8 L10 -189.8 Q10 -192.6 8 -192.6 Z M10.6 -192.6 L10.6 -189.8 L16.6 -189.8 Q16.6 -192.6 14.6 -192.6 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#3a3550" d="M4.6 -204 L4.8 -192.6 L9 -192.6 L9.6 -199 L10.6 -192.6 L14.8 -192.6 L14.4 -204 Z"/>
+      <path class="o" style="stroke-width:2" fill="#3a3550" d="M2 -203 Q0.8 -212 4 -216.4 L14 -216.4 Q18.2 -212 17 -203 Z"/>
+      <!-- the bef -->
+      <path class="o" style="stroke-width:1.3" fill="#ffffff" d="M10 -216.4 L15.4 -216.4 L16 -208 L13 -209.4 L10.4 -208 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f0c19a" cx="10" cy="-221.4" r="5.8"/>
+      <path class="o" style="stroke-width:1.5" fill="#c9c2b0" d="M4.4 -219.6 Q3 -227.6 9.4 -227.4 Q7 -224.6 7.6 -220.6 Q6 -218.6 4.4 -219.6 Z"/>
+      <circle class="n" fill="#2b1b16" cx="12.6" cy="-222" r="1"/>
+      <path class="o" style="stroke-width:1.4" fill="#f0c19a" d="M15.6 -221.8 Q17.8 -220.4 15.6 -219"/>
+    </g>
+  </g>
+  <!-- His arm with the paper that settles it. Joint at the shoulder. -->
+  <g id="writ" data-parent="lawyer" transform="translate(12 -213)">
+    <path class="o" style="stroke-width:1.5" fill="#ffffff" d="M6.4 -12.6 L14.6 -11.4 L13.4 -0.6 L5.2 -1.8 Z"/>
+    <path class="t" style="stroke:#8d98a3;stroke-width:1" d="M8 -9.6 L12.6 -9 M7.6 -6.6 L12.2 -6 M7.2 -3.8 L10.4 -3.4"/>
+    <path class="t" style="stroke-width:4.4" d="M0 0 L7.4 -4"/>
+    <path fill="none" stroke="#3a3550" stroke-width="2" stroke-linecap="round" d="M0 0 L7.4 -4"/>
+  </g>
+
+  <!-- Gold shines. These are the places where it does. Joint in the middle of each. -->
+  <g id="glint_a" data-parent="palm" transform="translate(28 -132)">
+    <path class="n" fill="#ffffff" d="M0 -9 L2.2 -2.2 L9 0 L2.2 2.2 L0 9 L-2.2 2.2 L-9 0 L-2.2 -2.2 Z"/>
+  </g>
+  <g id="glint_b" data-parent="middle_b" transform="translate(-6 -18)">
+    <path class="n" fill="#ffffff" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z"/>
+  </g>
+  <g id="glint_c" data-parent="thumb_b" transform="translate(77 -82)">
+    <path fill="#fff6c9" stroke="#c9971c" stroke-width="1.2" stroke-linejoin="round" d="M0 -7 L1.8 -1.8 L7 0 L1.8 1.8 L0 7 L-1.8 1.8 L-7 0 L-1.8 -1.8 Z"/>
+  </g>
+</svg>

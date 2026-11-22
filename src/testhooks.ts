@@ -1,5 +1,6 @@
 import { Sound } from './audio/sound.ts';
 import { TPS } from './defs/balance.ts';
+import { FACTION_IDS } from './defs/index.ts';
 import type { FactionId } from './defs/types.ts';
 import type { Game } from './game.ts';
 import type { Side } from './sim/types.ts';
@@ -16,6 +17,10 @@ export interface TestApi {
   start(): void;
   /** From the end of a match, or from the pause card, back to the title card. */
   back(): void;
+  /** Gives up whatever is going on and goes back to the title card. */
+  quit(): void;
+  /** Every faction that can be picked, in the order of the title card. */
+  factions(): FactionId[];
   press(side: Side, action: Action): void;
   /** Runs this many ticks, drawing after each as the real loop would. */
   advance(ticks: number): void;
@@ -92,6 +97,12 @@ export function installTestHooks(game: Game): void {
       game.back();
       game.draw(0, 1);
     },
+    quit: () => {
+      if (game.phase === 'playing' && !game.paused) game.togglePause();
+      game.back();
+      game.draw(0, 1);
+    },
+    factions: () => [...FACTION_IDS],
     start: () => {
       game.confirm();
       game.draw(0, 1);

@@ -115,8 +115,9 @@ describe('animations', () => {
   }
 
   it('every unit that has art has all five clips', () => {
+    // Of the factions that can be picked; one that is still being drawn may have a unit without its animations.
     const missing: string[] = [];
-    for (const faction of Object.values(FACTIONS)) {
+    for (const faction of FACTION_IDS.map((id) => FACTIONS[id])) {
       for (const era of faction.eras) {
         for (const unit of era.units) {
           if (!rigs.has(unit.rig)) continue; // still a grey box

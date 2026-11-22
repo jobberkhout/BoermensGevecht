@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-104 -122 200 130" data-rig="free">
+  <title>Flitskrach: de koers, in het rood, op weg naar beneden</title>
+  <style>
+    .ink { stroke: #2b1b16; stroke-width: 15; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .red { stroke: #e5283f; stroke-width: 10; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .lit { stroke: #ff7d86; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shake the whole chart. -->
+  <g id="crash" transform="translate(0 0)"/>
+
+  <!-- The outlines of the three stretches of the line go underneath all three, so the joints do not show. -->
+  <g id="top_ink" data-parent="top" transform="translate(-18 -98)">
+    <path class="ink" d="M-74 20 L-56 2 L-44 14 L-26 -10 L-12 10 L0 0"/>
+  </g>
+  <g id="drop_ink" data-parent="drop" transform="translate(-18 -98)">
+    <path class="ink" d="M0 0 L22 40 L34 28 L58 68"/>
+  </g>
+  <g id="plunge_ink" data-parent="plunge" transform="translate(40 -30)">
+    <path class="ink" d="M0 0 L10 -10 L26 11"/>
+    <path fill="#2b1b16" stroke="#2b1b16" stroke-width="5" stroke-linejoin="round" d="M15.6 18.8 L36.4 3.2 L39.2 28.6 Z"/>
+  </g>
+
+  <!-- What falls off the line on its way down: every one of them points the same way. Joint in the middle of each. -->
+  <g id="tri_a" data-parent="crash" transform="translate(-72 -60)">
+    <path class="o" fill="#e5283f" d="M-7 -5.6 L7 -5.6 L0 6.6 Z"/>
+  </g>
+  <g id="tri_b" data-parent="crash" transform="translate(-45 -70)">
+    <path class="o" style="stroke-width:2.2" fill="#ff5d6c" d="M-5.4 -4.4 L5.4 -4.4 L0 5 Z"/>
+  </g>
+  <g id="tri_c" data-parent="crash" transform="translate(-24 -42)">
+    <path class="o" fill="#e5283f" d="M-8 -6.4 L8 -6.4 L0 7.6 Z"/>
+  </g>
+  <g id="tri_d" data-parent="crash" transform="translate(12 -24)">
+    <path class="o" style="stroke-width:2.2" fill="#ff5d6c" d="M-5.8 -4.6 L5.8 -4.6 L0 5.4 Z"/>
+  </g>
+
+  <!-- The good weeks: up and down, but mostly up. Joint where the fall begins. -->
+  <g id="top" data-parent="crash" transform="translate(-18 -98)">
+    <path class="red" d="M-74 20 L-56 2 L-44 14 L-26 -10 L-12 10 L0 0"/>
+    <path class="lit" d="M-73 17 L-56 -0.6 L-44.4 10.6 L-26.4 -13 M-10.6 6.4 L-1.4 -2"/>
+  </g>
+
+  <!-- The first drop, with the little recovery that fools everyone. Joint at the top of it. -->
+  <g id="drop" data-parent="crash" transform="translate(-18 -98)">
+    <path class="red" d="M0 0 L22 40 L34 28 L58 68"/>
+    <path class="lit" d="M24.6 37 L33.4 25"/>
+  </g>
+
+  <!-- The rest of the way down, and the arrow. Joint where it hangs from the drop. -->
+  <g id="plunge" data-parent="drop" transform="translate(40 -30)">
+    <path class="red" d="M0 0 L10 -10 L26 11"/>
+    <path class="n" fill="#e5283f" d="M15.6 18.8 L36.4 3.2 L39.2 28.6 Z"/>
+    <path class="n" fill="#ff7d86" d="M20.6 16.6 L33.6 6.8 L34.4 11.4 Z"/>
+  </g>
+</svg>

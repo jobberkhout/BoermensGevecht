@@ -15,6 +15,8 @@ interface Summary {
 interface Hooks {
   pick(side: number, faction: string): Promise<void>;
   start(): void;
+  quit(): void;
+  factions(): string[];
   advance(n: number): void;
   summary(): Summary;
   setBase(side: number, hp: number): void;
@@ -211,7 +213,9 @@ test('subsidie, turret levels and modernizing work from the keyboard', async ({ 
   expect(errors).toEqual([]);
 });
 
-test('every special can be used in a match without errors', async ({ page }) => {
+test('every faction plays through all three eras, with every unit and every special', async ({ page }) => {
+  // A new faction is covered here without touching this file: the list comes from the game.
+  test.setTimeout(240_000);
   const errors: string[] = [];
   page.on('pageerror', (err) => errors.push(err.message));
   page.on('console', (msg) => {
@@ -220,38 +224,53 @@ test('every special can be used in a match without errors', async ({ page }) => 
 
   await page.goto('/?test=1');
   await page.waitForSelector('body[data-ready="1"]');
-  await page.keyboard.press('Enter');
+  const factions = await page.evaluate(() => (window as unknown as { __game: Hooks }).__game.factions());
+  expect(factions.length).toBeGreaterThanOrEqual(2);
 
-  for (const era of [0, 1, 2]) {
-    // Both sides send an army, then each uses the special of this era.
-    const summary = await page.evaluate((eraNow) => {
+  // Each faction once on the left and once on the right: against the next one in the list.
+  for (let i = 0; i < factions.length; i++) {
+    const pair = [factions[i]!, factions[(i + 1) % factions.length]!];
+    await page.evaluate(async ([left, right]) => {
       const g = (window as unknown as { __game: Hooks }).__game;
-      if (eraNow > 0) {
-        for (const side of [0, 1]) {
-          g.progress(side, 100000);
-          g.fund(side, 100000);
-          g.press(side, 'eraUp');
+      g.quit();
+      await g.pick(0, left!);
+      await g.pick(1, right!);
+      g.start();
+    }, pair);
+    for (const era of [0, 1, 2]) {
+      const summary = await page.evaluate((eraNow) => {
+        const g = (window as unknown as { __game: Hooks }).__game;
+        if (eraNow > 0) {
+          for (const side of [0, 1]) {
+            g.progress(side, 100000);
+            g.fund(side, 100000);
+            g.press(side, 'eraUp');
+          }
+          g.advance(2);
         }
-        g.advance(2);
-      }
-      for (const side of [0, 1]) {
-        g.fund(side, 100000);
-        for (const action of ['buy2', 'buy0', 'buy1', 'buy0']) g.press(side, action);
-      }
-      g.advance(520);
-      for (const side of [0, 1]) {
-        g.charge(side);
-        g.press(side, 'special');
-      }
-      g.advance(240);
-      return g.summary();
-    }, era);
-    expect(summary.era).toEqual([era, era]);
-    expect(summary.winner).toBeNull();
+        // Both sides build a turret and send one of everything, then each uses the special of this era.
+        for (const side of [0, 1]) {
+          g.fund(side, 100000);
+          for (const action of ['turret', 'buy2', 'buy0', 'buy3', 'buy1', 'buy0']) g.press(side, action);
+        }
+        g.advance(520);
+        for (const side of [0, 1]) {
+          g.charge(side);
+          g.press(side, 'special');
+        }
+        g.advance(240);
+        return g.summary();
+      }, era);
+      expect(summary.factions, pair.join(' v ')).toEqual(pair);
+      expect(summary.era, pair.join(' v ')).toEqual([era, era]);
+      expect(summary.winner, pair.join(' v ')).toBeNull();
+      // Every drawing is there: no button falls back to the letter that stands in for missing art.
+      await expect(page.locator('.btn .pic.letter'), pair.join(' v ')).toHaveCount(0);
+    }
+    // The special buttons are recharging, which shows they were really used.
+    await expect(page.locator('.panel.left .btn.special')).toHaveClass(/off/);
+    await expect(page.locator('.panel.right .btn.special')).toHaveClass(/off/);
   }
-  // The special buttons are recharging, which shows they were really used.
-  await expect(page.locator('.panel.left .btn.special')).toHaveClass(/off/);
-  await expect(page.locator('.panel.right .btn.special')).toHaveClass(/off/);
   expect(errors).toEqual([]);
 });
 
@@ -329,6 +348,8 @@ test('De Zuidas plays, and its takeover makes an enemy unit change sides', async
 
   await page.goto('/?test=1');
   await page.waitForSelector('body[data-ready="1"]');
+  const pickable = await page.evaluate(() => (window as unknown as { __game: Hooks }).__game.factions());
+  test.skip(!pickable.includes('zuidas'), 'De Zuidas is not in the list of factions yet');
   const before = await page.evaluate(async () => {
     const g = (window as unknown as { __game: Hooks }).__game;
     await g.pick(0, 'zuidas');

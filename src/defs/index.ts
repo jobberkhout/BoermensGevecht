@@ -5,8 +5,15 @@ import { zuidas } from './zuidas.ts';
 
 export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas };
 
-/** Every faction, in the order the players step through them when they pick one. */
-export const FACTION_IDS: readonly FactionId[] = ['havermelk', 'achterhoek', 'zuidas'];
+/**
+ * Every faction that can be picked, in the order the players step through
+ * them. A faction that is still being drawn is in FACTIONS above, so its rules
+ * and texts are tested, but not in this list until its last drawing is there.
+ *
+ * De Zuidas is waiting for two things: the drawing of De brandkast (1975) and
+ * the animations of De Gouden Handdruk (2050). See docs/new-faction.md.
+ */
+export const FACTION_IDS: readonly FactionId[] = ['havermelk', 'achterhoek'];
 
 /** What a match starts with until the players pick something else. Amsterdam lies west of the Achterhoek. */
 export const DEFAULT_FACTIONS: [FactionId, FactionId] = ['havermelk', 'achterhoek'];

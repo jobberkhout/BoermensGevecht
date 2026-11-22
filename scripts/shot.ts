@@ -118,7 +118,8 @@ function jobs(): Job[] {
   }
 }
 
-const server = await createServer({ logLevel: 'error', server: { port: 5199, strictPort: false } });
+// No file watching: a picture run must not reload halfway because someone saves a drawing meanwhile.
+const server = await createServer({ logLevel: 'error', server: { port: 5199, strictPort: false, hmr: false, watch: null } });
 await server.listen();
 const origin = server.resolvedUrls?.local[0];
 if (!origin) throw new Error('the dev server did not report an address');

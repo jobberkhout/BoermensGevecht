@@ -1,4 +1,4 @@
-import { FACTION_IDS, homeOf } from '../defs/index.ts';
+import { homeOf } from '../defs/index.ts';
 import type { FactionId } from '../defs/types.ts';
 import { achterhoek } from './factions/achterhoek.ts';
 import { havermelk } from './factions/havermelk.ts';
@@ -12,14 +12,14 @@ import { zuidas } from './factions/zuidas.ts';
  */
 const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas };
 
-/** One value per faction, looked up by faction id. */
+/** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
-  return Object.fromEntries(FACTION_IDS.map((id) => [id, pick(TEXT[id])]));
+  return Object.fromEntries(Object.entries(TEXT).map(([id, text]) => [id, pick(text)]));
 }
 
 /** The factions' own tables of names or descriptions, poured into one. */
 function gathered(pick: (text: FactionText) => Record<string, string>): Record<string, string> {
-  return Object.assign({}, ...FACTION_IDS.map((id) => pick(TEXT[id])));
+  return Object.assign({}, ...Object.values(TEXT).map((text) => pick(text)));
 }
 
 export const NL = {

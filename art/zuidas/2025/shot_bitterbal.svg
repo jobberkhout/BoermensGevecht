@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -21 30 36" data-rig="static">
+  <title>Een bitterbal, nog veel te heet</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A bitterbal on its cocktail stick, with a lick of mustard, steaming. Origin = just above the middle of the ball. -->
+  <g id="ball" transform="translate(0 0)">
+    <path fill="none" stroke="#2b1b16" stroke-width="3.6" stroke-linecap="round" d="M2 -3 L8.5 -15"/>
+    <path fill="none" stroke="#f0dcae" stroke-width="1.6" stroke-linecap="round" d="M2 -3 L8.5 -15"/>
+    <circle class="o" fill="#b06a2c" cx="0" cy="3" r="9"/>
+    <path class="n" fill="#d2924a" d="M-6.4 0.6 Q-5 -4.2 0 -5 Q-3 -2.2 -3.6 1.8 Z"/>
+    <path class="n" fill="#7d4418" d="M3 0.6 a0.9 0.9 0 1 0 0.1 0 Z M-2 6 a0.9 0.9 0 1 0 0.1 0 Z M4.8 6 a0.9 0.9 0 1 0 0.1 0 Z M0.6 9 a0.8 0.8 0 1 0 0.1 0 Z M-5.6 4 a0.8 0.8 0 1 0 0.1 0 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#f2c400" d="M-0.6 -4.6 Q2 -7.6 5 -4.8 Q6.4 -2 3.4 -2.2 Q2.6 -0.2 1.4 -2.4 Q-1 -2.4 -0.6 -4.6 Z"/>
+    <!-- steam -->
+    <path fill="none" stroke="#2b1b16" stroke-width="3.2" stroke-linecap="round" d="M-7.4 -8.4 Q-10 -11 -7.4 -13.6 Q-4.8 -16.2 -7.4 -18.6 M-1.4 -10 Q-3.4 -12.2 -1.4 -14.6"/>
+    <path fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" d="M-7.4 -8.4 Q-10 -11 -7.4 -13.6 Q-4.8 -16.2 -7.4 -18.6 M-1.4 -10 Q-3.4 -12.2 -1.4 -14.6"/>
+  </g>
+</svg>

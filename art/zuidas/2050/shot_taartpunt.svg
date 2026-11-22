@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -14 30 28" data-rig="static">
+  <title>Een punt uit het taartdiagram van de kwartaalcijfers</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="wedge" transform="translate(0 0)">
+    <!-- a sixth of a pie chart, as thick as a slice of cake -->
+    <path class="o" fill="#c9971c" d="M-11 5 L11 -6.6 Q13.6 0.4 11.4 8 Z"/>
+    <path class="o" fill="#f2c230" d="M-11 2 L11 -9.6 Q13.6 -2.6 11.4 5 Z"/>
+    <path class="n" fill="#ffe58a" d="M-5 -0.4 L9.6 -7.6 Q10.6 -5.6 10.8 -3.6 Z"/>
+    <path class="t" style="stroke:#2fc9b5;stroke-width:2" d="M3 2.2 L9 0.9"/>
+  </g>
+</svg>

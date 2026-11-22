@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Bankiershuis aan de Gouden Bocht: zandsteen, een koperen plaat en een telex achter het raam</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .k { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; }
+    .j { stroke: #c2b497; stroke-width: 2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The house stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- the roof: slate, two chimneys, and the flagpole on the corner of the balustrade -->
+    <rect class="o" fill="#c2b497" x="-254" y="-524" width="22" height="34"/>
+    <rect class="o" style="stroke-width:2.2" fill="#efe6d2" x="-257" y="-529" width="28" height="7" rx="2"/>
+    <rect class="o" fill="#c2b497" x="-32" y="-518" width="20" height="30"/>
+    <rect class="o" style="stroke-width:2.2" fill="#efe6d2" x="-35" y="-523" width="26" height="7" rx="2"/>
+    <path class="o" fill="#3a4250" d="M-288 -452 L-268 -500 L-24 -500 L-8 -452 Z"/>
+    <path class="t" style="stroke:#566072;stroke-width:1.6" d="M-272 -488 L-20 -488 M-278 -474 L-14 -474 M-250 -500 L-254 -488 M-226 -500 L-228 -488 M-240 -488 L-244 -474 M-214 -488 L-216 -474 M-262 -474 L-266 -460 M-236 -474 L-238 -460 M-210 -474 L-212 -460"/>
+    <path class="t" style="stroke-width:5" d="M-288 -470 L-288 -552"/>
+    <circle class="o" fill="#f0c53a" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the balustrade -->
+    <path fill="none" stroke="#2b1b16" stroke-width="22" stroke-dasharray="8 4" stroke-dashoffset="1.5" d="M-284 -463.5 L-14 -463.5"/>
+    <path fill="none" stroke="#efe6d2" stroke-width="18" stroke-dasharray="5 7" d="M-284 -463.5 L-14 -463.5"/>
+    <rect class="o" style="stroke-width:2.4" fill="#efe6d2" x="-299" y="-479" width="298" height="7" rx="2"/>
+    <rect class="o" style="stroke-width:2.4" fill="#d8cbb0" x="-298" y="-476" width="14" height="24"/>
+    <rect class="o" style="stroke-width:2.4" fill="#d8cbb0" x="-16" y="-476" width="14" height="24"/>
+    <path class="o" style="stroke-width:2.2" fill="#efe6d2" d="M-13 -479 Q-17.6 -488 -12 -491 L-12 -494 L-6 -494 L-6 -491 Q-0.4 -488 -5 -479 Z"/>
+    <path class="k" fill="#f0c53a" d="M-9 -494 Q-13 -499 -9 -504 Q-5 -499 -9 -494 Z"/>
+
+    <!-- the middle of the cornice rises: scrolls, a curved pediment, and a gilded guilder with an oval where the head goes -->
+    <path class="o" style="stroke-width:2.4" fill="#efe6d2" d="M-176 -452 Q-204 -452 -200 -468 Q-197 -478 -186 -476 Q-180 -474 -182 -468 Q-186 -464 -190 -468 Q-188 -486 -176 -492 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#efe6d2" d="M-48 -452 Q-20 -452 -24 -468 Q-27 -478 -38 -476 Q-44 -474 -42 -468 Q-38 -464 -34 -468 Q-36 -486 -48 -492 Z"/>
+    <path class="o" fill="#efe6d2" d="M-184 -506 Q-112 -548 -40 -506 Z"/>
+    <path class="k" fill="#d8cbb0" d="M-164 -508 Q-112 -536 -60 -508 Z"/>
+    <path class="k" fill="#f0c53a" d="M-112 -527 L-108 -519 L-100 -517.6 L-106 -512 L-104.4 -510 L-112 -513 L-119.6 -510 L-118 -512 L-124 -517.6 L-116 -519 Z"/>
+    <rect class="o" fill="#d8cbb0" x="-176" y="-500" width="128" height="48"/>
+    <rect class="k" fill="#efe6d2" x="-176" y="-500" width="12" height="48"/>
+    <rect class="k" fill="#efe6d2" x="-60" y="-500" width="12" height="48"/>
+    <rect class="o" style="stroke-width:2.4" fill="#efe6d2" x="-184" y="-508" width="144" height="9" rx="2"/>
+    <path fill="none" stroke="#3f9b57" stroke-width="2.6" stroke-linecap="round" d="M-152 -486 Q-142 -468 -132 -466 M-72 -486 Q-82 -468 -92 -466"/>
+    <path fill="none" stroke="#e6b422" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.1 4.4" d="M-152 -486 Q-142 -468 -132 -466 M-72 -486 Q-82 -468 -92 -466"/>
+    <circle class="o" fill="#b98a1c" cx="-112" cy="-476" r="19"/>
+    <circle class="k" fill="#f0c53a" cx="-112" cy="-476" r="15"/>
+    <ellipse class="n" fill="#fff6c8" cx="-112" cy="-478" rx="6.4" ry="8"/>
+    <path class="n" fill="#fff6c8" d="M-121 -464.6 Q-112 -472 -103 -464.6 Q-112 -461 -121 -464.6 Z"/>
+    <path fill="none" stroke="#b98a1c" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="0.1 3.6" d="M-124.4 -476 A12.4 12.4 0 0 1 -99.6 -476"/>
+
+    <!-- the front: sandstone -->
+    <rect class="o" fill="#d8cbb0" x="-296" y="-440" width="292" height="440"/>
+    <path class="j" d="M-294 -112 L-284 -112 M-294 -92 L-284 -92 M-294 -72 L-284 -72 M-294 -52 L-284 -52 M-294 -32 L-284 -32 M-132 -112 L-102 -112 M-132 -100 L-102 -100 M-132 -44 L-102 -44 M-132 -30 L-102 -30"/>
+    <path fill="none" stroke="#c2b497" stroke-width="5" stroke-dasharray="6 6" d="M-292 -435.8 L-8 -435.8"/>
+    <rect class="o" fill="#efe6d2" x="-302" y="-452" width="304" height="14" rx="3"/>
+    <path class="t" style="stroke:#c2b497;stroke-width:1.6" d="M-298 -445 L-2 -445"/>
+    <rect class="o" fill="#8f959c" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- second floor: the board room, dust sheets on, waiting for members -->
+    <rect class="o" fill="#2a3350" x="-290" y="-432" width="280" height="140"/>
+    <path class="n" fill="#3a4568" d="M-288 -306 L-12 -306 L-12 -294 L-288 -294 Z"/>
+    <path class="t" style="stroke:#566490" d="M-150 -430 L-150 -412"/>
+    <path class="t" style="stroke:#b98a1c;stroke-width:2.2" d="M-150 -412 L-150 -402 M-166 -398 Q-166 -406 -150 -406 Q-134 -406 -134 -398"/>
+    <path class="k" fill="#ffe9a8" d="M-168 -398 L-164 -398 L-164.6 -405 L-167.4 -405 Z M-152 -402 L-148 -402 L-148.6 -409 L-151.4 -409 Z M-136 -398 L-132 -398 L-132.6 -405 L-135.4 -405 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#8a93ad" d="M-268 -294 L-266 -322 Q-262 -338 -248 -336 L-214 -336 Q-204 -334 -202 -322 L-198 -294 Z"/>
+    <path class="t" style="stroke:#6b7694;stroke-width:1.8" d="M-250 -334 Q-252 -314 -256 -296 M-226 -334 Q-224 -314 -220 -296"/>
+    <path class="t" style="stroke:#566490;stroke-width:3" d="M-70 -294 L-62 -352 M-40 -294 L-48 -352 M-66 -322 L-44 -322"/>
+
+    <!-- first floor: a hat stand, an umbrella, a pile of deed boxes -->
+    <rect class="o" fill="#2a3350" x="-290" y="-282" width="280" height="140"/>
+    <path class="n" fill="#3a4568" d="M-288 -156 L-12 -156 L-12 -144 L-288 -144 Z"/>
+    <path class="t" style="stroke:#566490" d="M-150 -280 L-150 -258"/>
+    <path class="k" fill="#ffe9a8" d="M-158 -258 L-142 -258 L-138 -247 L-162 -247 Z"/>
+    <path class="t" style="stroke:#566490;stroke-width:3" d="M-56 -144 L-56 -212 M-68 -144 L-44 -144 M-56 -204 L-66 -210 M-56 -204 L-46 -210"/>
+    <path class="o" style="stroke-width:2" fill="#1d1a1c" d="M-76 -208 L-58 -208 L-58 -210 Q-59 -219 -67 -219 Q-75 -219 -76 -210 Z M-80 -208 L-54 -208"/>
+    <path class="t" style="stroke:#8a93ad;stroke-width:2.4" d="M-40 -146 L-45 -200 Q-46 -206 -42 -206"/>
+    <rect class="o" style="stroke-width:2" fill="#6b7694" x="-262" y="-160" width="34" height="16"/>
+    <rect class="o" style="stroke-width:2" fill="#566490" x="-258" y="-176" width="34" height="16"/>
+    <rect class="o" style="stroke-width:2" fill="#6b7694" x="-264" y="-192" width="34" height="16"/>
+    <path class="n" fill="#e6b422" d="M-249 -154 h8 v4 h-8 Z M-245 -170 h8 v4 h-8 Z M-251 -186 h8 v4 h-8 Z"/>
+
+    <rect class="o" fill="#efe6d2" x="-300" y="-292" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#efe6d2" x="-300" y="-142" width="300" height="10" rx="3"/>
+
+    <!-- ground floor: the office window. Venetian blinds, a desk, a banker's lamp, the telex (its moving bits are parts of their own). -->
+    <rect class="o" fill="#efe6d2" x="-284" y="-122" width="150" height="108" rx="3"/>
+    <rect class="o" style="stroke-width:2.2" fill="#cfe9f2" x="-276" y="-114" width="134" height="92"/>
+    <rect class="n" fill="#8a6a4a" x="-274.9" y="-50" width="131.8" height="27"/>
+    <path class="t" style="stroke:#6b4a35;stroke-width:1.6" d="M-274 -44 L-144 -44"/>
+    <path class="k" fill="#b98a1c" d="M-160.6 -50 L-151.4 -50 L-153 -53.4 L-159 -53.4 Z"/>
+    <path class="t" style="stroke:#b98a1c;stroke-width:2.4" d="M-156 -53.4 L-156 -70"/>
+    <path class="n" fill="#ffe9a8" fill-opacity="0.45" d="M-166 -71 L-146 -71 L-140 -50.6 L-172 -50.6 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2f9e9a" d="M-169 -70.6 L-143 -70.6 Q-145 -80 -156 -80 Q-167 -80 -169 -70.6 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#9aa89f" d="M-250 -50 L-250 -78 Q-250 -84 -244 -84 L-202 -84 Q-196 -84 -196 -78 L-196 -50 Z"/>
+    <path class="k" fill="#7d8a82" d="M-248 -50.6 L-244 -62 L-202 -62 L-198 -50.6 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0.1 4" d="M-240 -58.6 L-206 -58.6 M-242 -54.6 L-204 -54.6"/>
+    <rect class="n" fill="#3a4250" x="-242" y="-80" width="36" height="12" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#fffaf0" x="-240" y="-98" width="32" height="12" rx="6"/>
+    <path class="t" style="stroke:#8a8272;stroke-width:1" d="M-234 -95 L-234 -89 M-228 -96 L-228 -88 M-222 -96 L-222 -88 M-216 -96 L-216 -88"/>
+    <rect class="o" style="stroke-width:1.8" fill="#e9dcc3" x="-276" y="-114" width="134" height="15"/>
+    <path class="t" style="stroke:#c2b497;stroke-width:1.4" d="M-275 -110.5 L-143 -110.5 M-275 -106.5 L-143 -106.5 M-275 -102.5 L-143 -102.5"/>
+    <path class="t" style="stroke-width:1.2" d="M-148 -99 L-148 -84"/>
+    <circle class="k" fill="#e9dcc3" cx="-148" cy="-83" r="1.8"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.5" d="M-262 -98.6 L-246 -98.6 L-266 -62 L-275 -62 L-275 -78 Z"/>
+    <path class="t" style="stroke:#efe6d2;stroke-width:3" d="M-209 -114 L-209 -22"/>
+    <rect class="o" style="stroke-width:2.4" fill="#efe6d2" x="-290" y="-22" width="162" height="8" rx="2"/>
+
+    <!-- the pier between window and door: a lantern, the firm's brass plate (pinstripes say it all), the bell -->
+    <path class="t" style="stroke-width:2.6" d="M-117 -126 L-117 -122"/>
+    <path class="o" style="stroke-width:2" fill="#ffe9a8" d="M-123 -121 L-111 -121 L-112.6 -106 L-121.4 -106 Z"/>
+    <path class="k" fill="#b98a1c" d="M-125 -123.4 L-109 -123.4 L-111 -120 L-123 -120 Z M-122 -106 L-112 -106 L-114 -102.6 L-120 -102.6 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e6b422" x="-131" y="-88" width="28" height="19" rx="1.6"/>
+    <path fill="none" stroke="#b98a1c" stroke-width="1.5" stroke-linecap="round" d="M-125.4 -84.6 L-125.4 -72.4 M-121.2 -84.6 L-121.2 -72.4 M-117 -84.6 L-117 -72.4 M-112.8 -84.6 L-112.8 -72.4 M-108.6 -84.6 L-108.6 -72.4"/>
+    <circle class="n" fill="#8a6a1c" cx="-128.6" cy="-85.8" r="1"/>
+    <circle class="n" fill="#8a6a1c" cx="-105.4" cy="-85.8" r="1"/>
+    <circle class="n" fill="#8a6a1c" cx="-128.6" cy="-71.2" r="1"/>
+    <circle class="n" fill="#8a6a1c" cx="-105.4" cy="-71.2" r="1"/>
+    <circle class="o" style="stroke-width:2" fill="#e6b422" cx="-117" cy="-57" r="4.4"/>
+    <circle class="n" fill="#fffdf5" cx="-117" cy="-57" r="1.7"/>
+
+    <!-- the doorway units come out of. Behind it: the marble hall, a runner, a chandelier. -->
+    <path class="o" fill="#efe6d2" d="M-100 0 L-100 -100 Q-100 -131 -52 -131 Q-4 -131 -4 -100 L-4 0 Z"/>
+    <path class="o" fill="#1e2238" d="M-88 0 L-88 -98 Q-88 -118 -52 -118 Q-16 -118 -16 -98 L-16 0 Z"/>
+    <path class="n" fill="#343a5c" d="M-86.4 -22 L-86.4 -96 L-78 -96 L-78 -22 Z M-26 -22 L-26 -96 L-17.6 -96 L-17.6 -22 Z"/>
+    <path class="n" fill="#4a5278" d="M-86.4 -96 L-76 -96 L-78 -90 L-86.4 -90 Z M-28 -96 L-17.6 -96 L-17.6 -90 L-26 -90 Z"/>
+    <path class="n" fill="#8a8fa8" d="M-86.4 -1.6 L-86.4 -22 L-17.6 -22 L-17.6 -1.6 Z"/>
+    <path class="n" fill="#343a5c" d="M-86.4 -22 L-76 -22 L-78 -12 L-86.4 -12 Z M-66 -22 L-58 -22 L-60 -12 L-70 -12 Z M-46 -22 L-38 -22 L-34 -12 L-44 -12 Z M-28 -22 L-17.6 -22 L-17.6 -12 L-26 -12 Z M-78 -12 L-70 -12 L-74 -1.6 L-84 -1.6 Z M-34 -12 L-26 -12 L-20 -1.6 L-30 -1.6 Z"/>
+    <path class="n" fill="#8a2f38" d="M-64 -1.6 L-58.6 -22 L-45.4 -22 L-40 -1.6 Z"/>
+    <path fill="none" stroke="#e6b422" stroke-width="1" d="M-61.6 -1.6 L-57 -22 M-42.4 -1.6 L-47 -22"/>
+    <path class="t" style="stroke:#b98a1c;stroke-width:1.8" d="M-52 -117 L-52 -104 M-62 -99 Q-62 -105 -52 -105 Q-42 -105 -42 -99"/>
+    <path class="n" fill="#ffe9a8" d="M-63.4 -99 L-60.6 -99 L-61 -104 L-63 -104 Z M-53.4 -102 L-50.6 -102 L-51 -107 L-53 -107 Z M-43.4 -99 L-40.6 -99 L-41 -104 L-43 -104 Z"/>
+    <path class="o" style="stroke-width:2" fill="#26365c" d="M-88 -1 L-88 -99 L-80 -93 L-80 -1 Z"/>
+    <circle class="n" fill="#f0c53a" cx="-82.4" cy="-50" r="1.5"/>
+    <path class="o" style="stroke-width:2.2" fill="#efe6d2" d="M-60 -132.6 L-44 -132.6 L-46.6 -117 L-57.4 -117 Z"/>
+    <path class="o" style="stroke-width:2" fill="#8f959c" d="M-97 0 L-97 -30 L-91 -30 L-91 0 Z M-13 0 L-13 -30 L-7 -30 L-7 0 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#e6b422" cx="-94" cy="-33.6" r="4"/>
+    <circle class="o" style="stroke-width:2" fill="#e6b422" cx="-10" cy="-33.6" r="4"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The telex: the bar that types. Joint in its middle. -->
+  <g id="carriage" data-parent="building" transform="translate(-224 -83)">
+    <rect class="k" fill="#3a3a44" x="-9" y="-3" width="18" height="6" rx="1.6"/>
+    <rect class="n" fill="#c9c9d2" x="-2" y="-2" width="4" height="4"/>
+  </g>
+
+  <!-- What it types: the day's prices on one endless strip, over the desk and down. Joint at the slot. -->
+  <g id="tape" data-parent="building" transform="translate(-224 -86)">
+    <path class="t" style="stroke-width:6.6" d="M0 0 Q0 -9 8 -9 Q20 -9 24 4 L30 31 Q31 35 36 33 Q42 30 46 34 Q49 37 54 34.6"/>
+    <path fill="none" stroke="#fffaf0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M0 0 Q0 -9 8 -9 Q20 -9 24 4 L30 31 Q31 35 36 33 Q42 30 46 34 Q49 37 54 34.6"/>
+    <path fill="none" stroke="#8a8272" stroke-width="1" stroke-dasharray="2.2 2" d="M1 -4 Q2 -8 8 -8 Q19 -8 23 4 L29 29"/>
+  </g>
+
+  <!-- Polished every morning. -->
+  <g id="glint" data-parent="building" transform="translate(-128 -86)">
+    <path stroke="#e6b422" stroke-width="1" stroke-linejoin="round" fill="#fffbe0" d="M0 -8 L1.8 -1.8 L8 0 L1.8 1.8 L0 8 L-1.8 1.8 L-8 0 L-1.8 -1.8 Z"/>
+  </g>
+</svg>

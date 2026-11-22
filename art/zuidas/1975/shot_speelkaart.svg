@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -15 24 30" data-rig="static">
+  <title>Een speelkaart uit de Sociëteit: tulpen is troef</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A card from a deck that does not exist: the suit is tulips. Origin in the middle; it spins. -->
+  <g id="card" transform="translate(0 0)">
+    <rect class="o" fill="#fffdf5" x="-8.5" y="-12" width="17" height="24" rx="2.4"/>
+    <path fill="none" stroke="#2f9e9a" stroke-width="1" stroke-linejoin="round" d="M-6.2 -9.7 L6.2 -9.7 L6.2 9.7 L-6.2 9.7 Z"/>
+    <path fill="none" stroke="#3f9b57" stroke-width="1.5" stroke-linecap="round" d="M0 1.6 L0 6.2 M0 5 Q-3 4.6 -3.6 2.4 M0 5.6 Q3 5.2 3.6 3"/>
+    <path class="n" fill="#d9342b" d="M-3.7 -4.4 Q-4.3 2 0 2.2 Q4.3 2 3.7 -4.4 L1.8 -1.6 L0 -5.2 L-1.8 -1.6 Z"/>
+    <path class="n" fill="#d9342b" d="M-5.6 -8.6 Q-5.8 -6 -4.4 -6 Q-3 -6 -3.2 -8.6 L-4.4 -7.4 Z M5.6 8.6 Q5.8 6 4.4 6 Q3 6 3.2 8.6 L4.4 7.4 Z"/>
+  </g>
+</svg>

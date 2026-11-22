@@ -1,7 +1,7 @@
 # Boermens Gevecht
 
 A lane-battle game for two players on one keyboard, in the browser. It started as the Achterhoek against
-the havermelkelite of Amsterdam; De Zuidas has joined, and more factions are planned. Each player picks a
+the havermelkelite of Amsterdam; De Zuidas is nearly drawn, and more factions are planned. Each player picks a
 faction, buys units that walk to the other side on their own, builds and upgrades turrets, applies for
 more subsidie, uses a special move, and modernizes from the seventies to the future. Whoever wrecks the
 other base wins.
@@ -22,7 +22,8 @@ If you cloned the repository, the file is in its root: open it from there.
 | Part | State |
 |---|---|
 | Rules: units, three rows, turrets with levels, specials, subsidie, modernizing, overtime | Done, covered by tests |
-| Three factions, any pair, picked on the title screen | Done |
+| Factions are picked on the title screen, any pair, the same one twice too | Done |
+| De Zuidas, the third faction | Rules, texts and all but two drawings are in; it joins the list when those are done |
 | Three eras per faction: Jaren '70, Jaren '20, the future | Done: each has its own three units, turret, special and base |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
@@ -34,7 +35,7 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 
 ## The factions
 
-| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas |
+| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas (not in the list yet) |
 |---|---|---|---|
 | Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) |
 | Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) |

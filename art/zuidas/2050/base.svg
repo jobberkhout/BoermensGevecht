@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het Spiegelpaleis in 2050: de toren verdwijnt in de wolken, het bouwhek staat er nog</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .m { stroke: #e6f8f5; stroke-width: 2; stroke-linecap: round; fill: none; }
+    .c { stroke: #7f9bb0; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+    .z { stroke: #8d98a3; stroke-width: 1.1; stroke-linecap: round; fill: none; }
+    .g1 { fill: #3f9b57; stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .g2 { fill: #56b96e; stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The tower stands behind it, to the left, and goes up out of sight. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- the shaft that carries on above the roof terrace, into the clouds -->
+    <path class="o" fill="#a8e2dd" d="M-250 -500 L-250 -576 L-50 -576 L-50 -500 Z"/>
+    <path class="n" fill="#86d0cc" d="M-74 -574.5 L-51.5 -574.5 L-51.5 -500 L-74 -500 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.42" d="M-248.5 -530 L-204 -574.5 L-178 -574.5 L-248.5 -504 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-248.5 -574.5 L-51.5 -574.5 L-51.5 -548 L-248.5 -548 Z"/>
+    <path class="m" d="M-210 -574 L-210 -502 M-170 -574 L-170 -502 M-130 -574 L-130 -502 M-90 -574 L-90 -502 M-248 -544 L-52 -544"/>
+
+    <!-- flagpole on the left shoulder -->
+    <path class="t" style="stroke-width:5" d="M-288 -508 L-288 -552"/>
+    <circle class="o" fill="#f2c230" cx="-288" cy="-555" r="4.5"/>
+    <rect class="o" style="stroke-width:2.4" fill="#b7c0c7" x="-278" y="-524" width="22" height="15" rx="2.5"/>
+    <path class="t" style="stroke-width:1.4" d="M-273.6 -519.6 L-260.4 -519.6 M-273.6 -515.6 L-260.4 -515.6"/>
+
+    <!-- what is left of the roof terrace of 2025, on the right shoulder -->
+    <path class="t" style="stroke-width:3" d="M-26 -510 L-26 -538"/>
+    <path class="o" style="stroke-width:2.4" fill="#f2c230" d="M-45 -537 Q-26 -557 -7 -537 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-26 -547 L-34 -537.6 M-26 -547 L-18 -537.6"/>
+    <path class="t" style="stroke-width:2.6" d="M-41 -510 L-41 -520 M-45 -520 L-37 -520 M-11 -510 L-11 -520 M-15 -520 L-7 -520"/>
+
+    <!-- the front: mirror glass from the pavement up -->
+    <path class="o" fill="#8fd9d3" d="M-296 0 L-296 -500 L-4 -500 L-4 0 Z"/>
+    <path class="n" fill="#79cbc7" d="M-30 -498.5 L-5.5 -498.5 L-5.5 -440 L-30 -440 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.4" d="M-294.5 -458 L-254 -498.5 L-222 -498.5 L-280 -440 L-294.5 -440 Z"/>
+    <g class="n" fill="#ffffff" fill-opacity="0.55">
+      <ellipse cx="-118" cy="-466" rx="30" ry="9"/>
+      <ellipse cx="-131" cy="-473" rx="14" ry="9"/>
+      <ellipse cx="-108" cy="-476" rx="17" ry="11"/>
+    </g>
+    <path class="m" d="M-258 -498 L-258 -442 M-220 -498 L-220 -442 M-182 -498 L-182 -442 M-144 -498 L-144 -442 M-106 -498 L-106 -442 M-68 -498 L-68 -442 M-30 -498 L-30 -442"/>
+    <rect class="o" fill="#f4f8f8" x="-302" y="-510" width="304" height="12" rx="5"/>
+    <path class="n" fill="#f2c230" d="M-298 -501.6 L-2 -501.6 L-2 -499.6 L-298 -499.6 Z"/>
+    <!-- glass railing of the terrace -->
+    <rect class="o" style="stroke-width:2" fill="#d9f6f2" fill-opacity="0.7" x="-49" y="-522" width="47" height="12" rx="2"/>
+
+    <!-- two floors of dark glass with a ledge in front: whatever is installed stands there -->
+    <rect class="o" fill="#1e3a4a" x="-290" y="-432" width="280" height="140" rx="10"/>
+    <path class="n" fill="#2a4f60" d="M-285 -306 L-15 -306 L-15 -299 Q-15 -294.5 -20 -294.5 L-280 -294.5 Q-285 -294.5 -285 -299 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.07" d="M-232 -430.5 L-176 -430.5 L-288.5 -318 L-288.5 -374 Z M-150 -430.5 L-132 -430.5 L-267 -295.5 L-285 -295.5 Z"/>
+    <path class="n" fill="#bfe9e4" fill-opacity="0.85" d="M-250 -428 h54 v4 h-54 Z M-177 -428 h54 v4 h-54 Z M-104 -428 h54 v4 h-54 Z"/>
+    <!-- nobody has rented this floor: one chair and the boxes of whoever left -->
+    <path class="n" fill="#2f5566" d="M-262 -306 L-262 -326 L-240 -326 L-240 -306 Z M-258 -326 L-258 -340 L-238 -340 L-238 -326 Z"/>
+    <path fill="none" stroke="#2f5566" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-52 -306 L-44 -312 L-36 -306 M-44 -312 L-44 -322 M-54 -322 L-36 -322 M-36 -322 L-34 -346"/>
+
+    <rect class="o" fill="#1e3a4a" x="-290" y="-282" width="280" height="140" rx="10"/>
+    <path class="n" fill="#2a4f60" d="M-285 -156 L-15 -156 L-15 -149 Q-15 -144.5 -20 -144.5 L-280 -144.5 Q-285 -144.5 -285 -149 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.07" d="M-232 -280.5 L-176 -280.5 L-288.5 -168 L-288.5 -224 Z M-150 -280.5 L-132 -280.5 L-267 -145.5 L-285 -145.5 Z"/>
+    <path class="n" fill="#bfe9e4" fill-opacity="0.85" d="M-250 -278 h54 v4 h-54 Z M-177 -278 h54 v4 h-54 Z M-104 -278 h54 v4 h-54 Z"/>
+    <!-- the table tennis table from the start-up that had this floor -->
+    <path fill="none" stroke="#2f5566" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-82 -172 L-30 -172 M-74 -172 L-78 -156 M-38 -172 L-34 -156 M-56 -172 L-56 -180"/>
+    <path fill="none" stroke="#2f5566" stroke-width="3" stroke-linecap="round" d="M-256 -156 L-256 -196"/>
+    <path class="n" fill="#2f5566" d="M-256 -196 Q-272 -200 -270 -214 Q-256 -212 -256 -196 Z M-256 -204 Q-240 -206 -240 -222 Q-254 -220 -256 -204 Z"/>
+
+    <!-- the ledges, with the gold line of the house -->
+    <rect class="o" fill="#24376b" x="-300" y="-442" width="300" height="10" rx="4"/>
+    <rect class="o" fill="#24376b" x="-300" y="-292" width="300" height="10" rx="4"/>
+    <path class="n" fill="#f2c230" d="M-296 -290.4 L-4 -290.4 L-4 -288.4 L-296 -288.4 Z"/>
+    <rect class="o" fill="#24376b" x="-300" y="-142" width="300" height="10" rx="4"/>
+    <path class="n" fill="#f2c230" d="M-296 -140.4 L-4 -140.4 L-4 -138.4 L-296 -138.4 Z"/>
+
+    <!-- ground floor: the lobby behind its glass -->
+    <rect class="o" fill="#c9f1ec" x="-286" y="-124" width="178" height="112" rx="6"/>
+    <path class="n" fill="#a9e0da" d="M-284.5 -40 L-109.5 -40 L-109.5 -13.5 L-284.5 -13.5 Z"/>
+    <path class="t" style="stroke:#8a8f93;stroke-width:1.6" d="M-150 -122 L-150 -108"/>
+    <path class="o" style="stroke-width:2" fill="#f2c230" d="M-160 -100 Q-160 -109 -150 -109 Q-140 -109 -140 -100 Z"/>
+    <!-- the emblem of the house on the back wall: a gold line that only goes up -->
+    <circle class="o" style="stroke-width:2.4" fill="#24376b" cx="-232" cy="-103" r="15.6"/>
+    <path fill="none" stroke="#f2c230" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-241.6 -97 L-235 -104 L-230.6 -100 L-222.6 -110"/>
+    <path class="n" fill="#f2c230" d="M-220 -113.6 L-219.6 -106.4 L-226 -109.6 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.5" d="M-196 -122.5 L-178 -122.5 L-210 -90.5 L-228 -90.5 Z M-128 -122.5 L-120 -122.5 L-152 -90.5 L-160 -90.5 Z"/>
+    <rect class="o" fill="#b7c0c7" x="-298" y="-13" width="198" height="13"/>
+
+    <!-- the doorway units come out of: what was a revolving door -->
+    <path class="o" fill="#24376b" d="M-102 0 L-102 -124 Q-102 -131 -95 -131 L-9 -131 Q-2 -131 -2 -124 L-2 0 Z"/>
+    <path fill="none" stroke="#f2c230" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M-95.4 -3 L-95.4 -124.4 L-8.6 -124.4 L-8.6 -3"/>
+    <path class="o" fill="#14232e" d="M-88 0 L-88 -110 Q-88 -117 -81 -117 L-23 -117 Q-16 -117 -16 -110 L-16 0 Z"/>
+    <path class="n" fill="#1d3442" d="M-86.5 -103 L-17.5 -103 L-17.5 -110 Q-17.5 -115.5 -23 -115.5 L-81 -115.5 Q-86.5 -115.5 -86.5 -110 Z"/>
+    <path fill="none" stroke="#2a4658" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-52 -102 L-52 -2 M-52 -96 L-78 -88 L-78 -4 M-52 -96 L-28 -101 L-28 -3"/>
+
+    <!-- behind the fence: the heap of sand that was delivered in 2019 -->
+    <path class="o" style="stroke-width:2.4" fill="#e3c98f" d="M-292 -12 Q-272 -46 -252 -32 Q-240 -25 -234 -12 Z"/>
+    <path class="n" fill="#f0dcaa" d="M-280 -22 Q-272 -36 -260 -31 Q-270 -30 -276 -20 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-246 -62 L-256 -34"/>
+    <path class="o" style="stroke-width:2" fill="#9aa4b2" d="M-262 -36 L-251 -32 L-254 -21 Q-260 -19 -265 -24 Z"/>
+
+    <!-- the builder's fence: three panels on concrete feet -->
+    <path class="z" d="M-290 -82 L-290 -14 M-282 -82 L-282 -14 M-274 -82 L-274 -14 M-266 -82 L-266 -14 M-258 -82 L-258 -14 M-250 -82 L-250 -14 M-242 -82 L-242 -14 M-296 -60 L-238 -60 M-296 -36 L-238 -36"/>
+    <path class="z" d="M-228 -82 L-228 -14 M-220 -82 L-220 -14 M-212 -82 L-212 -14 M-204 -82 L-204 -14 M-196 -82 L-196 -14 M-188 -82 L-188 -14 M-180 -82 L-180 -14 M-234 -60 L-176 -60 M-234 -36 L-176 -36"/>
+    <path class="z" d="M-166 -82 L-166 -14 M-158 -82 L-158 -14 M-150 -82 L-150 -14 M-142 -82 L-142 -14 M-134 -82 L-134 -14 M-126 -82 L-126 -14 M-118 -82 L-118 -14 M-172 -60 L-114 -60 M-172 -36 L-114 -36"/>
+    <path class="t" style="stroke-width:5.4" d="M-297 -12 L-297 -84 L-239 -84 L-239 -12 M-235 -12 L-235 -84 L-177 -84 L-177 -12 M-173 -12 L-173 -84 L-115 -84 L-115 -12"/>
+    <path fill="none" stroke="#c9d1d8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M-297 -12 L-297 -84 L-239 -84 L-239 -12 M-235 -12 L-235 -84 L-177 -84 L-177 -12 M-173 -12 L-173 -84 L-115 -84 L-115 -12"/>
+    <path class="o" style="stroke-width:2.2" fill="#b9bec2" d="M-306 0 L-306 -9 Q-306 -12 -303 -12 L-291 -12 Q-288 -12 -288 -9 L-288 0 Z M-248 0 L-248 -9 Q-248 -12 -245 -12 L-229 -12 Q-226 -12 -226 -9 L-226 0 Z M-186 0 L-186 -9 Q-186 -12 -183 -12 L-167 -12 Q-164 -12 -164 -9 L-164 0 Z M-124 0 L-124 -9 Q-124 -12 -121 -12 L-109 -12 Q-106 -12 -106 -9 L-106 0 Z"/>
+
+    <!-- the board with the picture of how it will look when it is finished -->
+    <rect class="o" style="stroke-width:2.2" fill="#fdfbf2" x="-230" y="-78" width="48" height="36" rx="2"/>
+    <rect class="n" fill="#cfeaf7" x="-227" y="-75" width="42" height="26"/>
+    <circle class="n" fill="#ffd84d" cx="-194" cy="-67" r="4.6"/>
+    <path class="n" fill="#58bfc0" d="M-217 -49 L-217 -71 L-205 -71 L-205 -49 Z"/>
+    <path class="n" fill="#a8e2dd" d="M-217 -62 L-208 -71 L-205 -71 L-205 -69 L-217 -57 Z"/>
+    <rect class="n" fill="#9fd08a" x="-227" y="-49" width="42" height="4"/>
+    <path class="o" style="stroke-width:1.6" fill="#e9e3d2" d="M-182 -52 L-182 -42 L-192 -42 Z"/>
+
+    <!-- a red and white board, a helmet somebody hung up, a cone -->
+    <rect class="o" style="stroke-width:2" fill="#ffffff" x="-292" y="-50" width="48" height="10" rx="2"/>
+    <path class="n" fill="#e5283f" d="M-286 -49 L-278 -49 L-284 -41 L-292 -41 L-291 -45 Z M-270 -49 L-262 -49 L-268 -41 L-276 -41 Z M-254 -49 L-246 -49 L-252 -41 L-260 -41 Z"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="2" stroke-linejoin="round" x="-292" y="-50" width="48" height="10" rx="2"/>
+    <path class="o" style="stroke-width:2" fill="#ffd21f" d="M-183 -86 Q-183 -97 -173 -97 Q-163 -97 -163 -86 Z"/>
+    <path class="t" d="M-186 -86 L-160 -86"/>
+    <path class="o" style="stroke-width:2.2" fill="#ff8a1f" d="M-141 -6 L-136.4 -32 L-131.6 -32 L-127 -6 Z"/>
+    <path class="n" fill="#ffffff" d="M-138.6 -20 L-129.4 -20 L-128.4 -14 L-139.6 -14 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#ff8a1f" x="-146" y="-7" width="24" height="7" rx="2"/>
+
+    <!-- it has been here long enough for things to grow on it -->
+    <path class="g1" d="M-297 -12 Q-306 -24 -299 -36 Q-306 -48 -298 -58 Q-303 -68 -296 -76 Q-290 -68 -293 -58 Q-288 -48 -293 -36 Q-289 -24 -297 -12 Z"/>
+    <path class="g2" d="M-232 0 Q-236 -9 -230 -11 Q-229 -18 -223 -13 Q-218 -17 -217 -10 Q-212 -8 -215 0 Z"/>
+    <path class="g1" d="M-170 0 Q-174 -8 -168 -10 Q-166 -16 -161 -11 Q-156 -9 -158 0 Z"/>
+    <path class="g2" d="M-104 0 Q-107 -7 -102 -8 Q-100 -13 -96 -8 Q-92 -6 -94 0 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The window cleaner's cradle. Its cables go up into the cloud, to wherever the roof is now. Joint where the cables leave the cloud. -->
+  <g id="cradle" transform="translate(-160 -572)">
+    <g transform="translate(160 572)">
+      <path class="t" style="stroke-width:1.6" d="M-176 -572 L-176 -486 M-144 -572 L-144 -486"/>
+      <!-- the cleaner -->
+      <path class="o" style="stroke-width:2" fill="#ff8a1f" d="M-166 -486 L-166 -500 Q-166 -505 -160 -505 Q-154 -505 -154 -500 L-154 -486 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f0c19a" cx="-160" cy="-510.6" r="5.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-166 -511.6 Q-166 -517.6 -160 -517.6 Q-154 -517.6 -154 -511.6 Z"/>
+      <rect class="o" style="stroke-width:2.2" fill="#f2c230" x="-180" y="-490" width="40" height="13" rx="2.4"/>
+      <path class="t" style="stroke-width:1.5" d="M-180 -496 L-140 -496 M-170 -490 L-170 -477 M-160 -490 L-160 -477 M-150 -490 L-150 -477"/>
+      <rect class="o" style="stroke-width:1.6" fill="#7fb2e6" x="-149" y="-486" width="7" height="8" rx="1.4"/>
+    </g>
+  </g>
+  <!-- His arm with the wiper. Joint at the shoulder. -->
+  <g id="wiper" data-parent="cradle" transform="translate(-157 -501)">
+    <path class="t" style="stroke-width:4.4" d="M0 0 L9 -7"/>
+    <path fill="none" stroke="#ff8a1f" stroke-width="2" stroke-linecap="round" d="M0 0 L9 -7"/>
+    <path class="t" style="stroke-width:2.6" d="M6 -12 L13 -3"/>
+  </g>
+
+  <!-- A cloud that hangs about half-way up the shaft. Joint in its middle. -->
+  <g id="cloud_low" transform="translate(-78 -530)">
+    <path class="c" fill="#ffffff" d="M-40 8 Q-50 8 -49 0 Q-49 -8 -39 -8 Q-37 -18 -25 -17 Q-18 -26 -6 -21 Q4 -29 15 -20 Q28 -22 31 -11 Q44 -11 44 -1 Q44 8 34 8 Z"/>
+    <path class="n" fill="#dfeaf2" d="M-39 6.6 Q-46 6 -47 0 Q-40 3 -30 2 Q-10 5 10 2 Q28 4 42 -1 Q42 6.6 34 6.6 Z"/>
+  </g>
+
+  <!-- A wisp at the left corner. -->
+  <g id="cloud_wisp" transform="translate(-258 -470)">
+    <path class="c" fill="#ffffff" d="M-30 6 Q-38 6 -37 0 Q-36 -7 -28 -6 Q-25 -14 -15 -12 Q-7 -19 3 -12 Q14 -14 17 -6 Q28 -6 28 1 Q28 6 21 6 Z"/>
+    <path class="n" fill="#dfeaf2" d="M-29 4.8 Q-35 4.4 -35.6 0 Q-28 2.4 -18 1.4 Q0 3.6 14 1 Q22 2.4 26.6 0 Q26.6 4.8 21 4.8 Z"/>
+  </g>
+
+  <!-- The cloud the top of the tower is in. Nobody on the ground has seen the roof for years. Joint in its middle. -->
+  <g id="cloud_top" transform="translate(-150 -572)">
+    <path class="c" fill="#ffffff" d="M-110 16 Q-126 17 -125 6 Q-124 -4 -111 -4 Q-108 -15 -93 -14 Q-84 -22.6 -69 -18 Q-58 -24 -43 -19.6 Q-30 -22.6 -18 -17 Q-4 -22.6 10 -17.6 Q24 -23 38 -17.6 Q54 -21.6 66 -14 Q82 -17 90 -7 Q106 -9 111 2 Q123 3 122 12 Q121 19 108 18 Q98 26 82 20 Q66 28 46 21 Q28 27 8 21 Q-12 28 -32 21 Q-54 28 -74 20 Q-94 26 -110 16 Z"/>
+    <path class="n" fill="#dfeaf2" d="M-109 14.6 Q-120 15 -123 8 Q-108 12 -92 10 Q-60 15 -30 11 Q0 15 30 11 Q62 15 92 10 Q108 13 120.4 9 Q120 17 108 16.6 Q98 24 82 18.6 Q66 26 46 19.6 Q28 25 8 19.6 Q-12 26 -32 19.6 Q-54 26 -74 18.6 Q-94 24 -109 14.6 Z"/>
+    <path class="n" fill="#ffffff" d="M-88 -9 Q-80 -15 -70 -13 Q-78 -11 -82 -6 Z M-10 -13 Q0 -18 10 -14 Q0 -13 -5 -9 Z"/>
+  </g>
+</svg>
