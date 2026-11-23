@@ -54,9 +54,10 @@ describe('the fatbike', () => {
       speed: RIDER.speed,
       dmg: RIDER.ram,
     });
-    // The owner's numbers: 300, and a fifth more hit points than a light unit of its era.
+    // The owner's numbers: 300, and 400 hit points, more than a light unit of its era.
     expect(def.cost).toBe(300);
-    expect(def.hp).toBe(Math.floor(STATS['2025'].light.hp * 1.2));
+    expect(def.hp).toBe(400);
+    expect(def.hp).toBeGreaterThan(STATS['2025'].light.hp);
     const riders = Object.values(FACTIONS).flatMap((f) => f.eras.flatMap((e) => e.units.filter((u) => u.rider).map((u) => u.id)));
     expect(riders).toEqual([FATBIKE]);
   });
