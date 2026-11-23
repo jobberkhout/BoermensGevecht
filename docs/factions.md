@@ -14,7 +14,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
-| [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | Brief, read and changed by the owner; waiting to be merged |
+| [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | **Built** |
 
 Parked for later, outside these eight: **the voetbalvader** and the amateur football club on a Saturday
 morning, as a faction of its own.
@@ -291,6 +291,19 @@ What to know before the balance pass:
   never get a super unit out: in 100 mixed matches De Zuidas' bot never once held the 3300, and the
   others fielded one in a few. So the trick never happens in bot matches, and how much it is worth
   between people is not measured.
+- **De Gasten**, measured on 23 November 2026. With both sides buying a mix, both seats together, it wins
+  48% against Amsterdam, 50% against the farmers and 76% against De Zuidas; over every bot strategy 31%,
+  38% and 56%. The Zuidas result is outside the band and was not fitted further, as the owner asked ("do
+  not focus too much on balance currently, the bots are very bad at the game"). What was found: it is not
+  De Zuidas' takeover (with the takeover switched off De Zuidas does worse still, 17%), and it appeared
+  when the bots stopped sending fatbikes into every crowd. The fatbike changes the most: sent every fifth
+  purchase, into crowds and schilds, as the bots did at first, each one that fell paid the enemy its
+  bounty and vooruitgang, De Gasten stayed in 2025 while the other side reached 2050, and they won one
+  match in five against Amsterdam and the farmers. The bots now send it only when the enemy has no schild
+  on the lane and at most five units, and keep a schild out themselves against a side that can send one.
+  With an ordinary heavy in that slot De Gasten would win 70%, 52% and 57% with a mix. Starting numbers,
+  not fitted: 230, 288 hit points, 130 ram damage, 500 to the base. Raising the ram damage helps De
+  Gasten most; the base damage hardly matters, because bots seldom get one through.
 
 ## The factions
 
@@ -1409,8 +1422,8 @@ battle, and one pull request per faction.
 1. ~~**The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.~~ Done.
 2. ~~**De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
    first new kind of special, the convert.~~ Done.
-3. **De Gasten**, once its brief has been read and settled. The owner's own idea, and the first
-   faction with a unit that does something of its own, the fatbike, which is built before any drawing.
+3. ~~**De Gasten.** The owner's own idea, and the first faction with a unit that does something of its
+   own: the fatbike, a rider.~~ Done.
 4. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
 5. **Rotterdam.** Amsterdam's rival, with the container as the block.
 6. **De Toeristen.** The summon and the lockout.

@@ -28,6 +28,8 @@ export const NL = {
   tagline: 'De slag om de subsidie',
 
   faction: perFaction((text) => ({ name: text.name, place: text.place, trait: text.trait, money: text.money })),
+  /** What is shouted where a faction's snipe special lands, for a faction that has its own word for it. */
+  sniped: perFaction((text) => text.sniped),
 
   /** Display names and one-line descriptions by definition id. */
   names: gathered((text) => text.names),

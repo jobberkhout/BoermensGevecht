@@ -8,6 +8,7 @@ export const gasten: FactionText = {
   money: 'spaargeld',
   win: { head: 'De Gasten winnen!', sub: 'Blijf je eten?' },
   unmoved: 'Volgend jaar.',
+  sniped: 'Nee!',
 
   names: {
     'gs.1975.light': 'De Nachtploeg',
