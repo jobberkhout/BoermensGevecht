@@ -6,15 +6,8 @@ faction. Nothing in it assumes you were there when the game was built.
 
 ## For the owner: what to give an agent
 
-Paste one of these as the whole task. The document does the rest.
-
-To finish the faction that is nearly done:
-
-> Finish De Zuidas in this repository. Read `docs/new-faction.md` first and follow it; the section
-> "Finishing De Zuidas" lists exactly what is missing. Work on a branch, open a pull request when
-> everything under "Done means" holds, and do not merge it.
-
-To add a new one (replace the name; it must be one of the sections in `docs/factions.md`):
+Paste this as the whole task, with the name of the faction you want. It must be one of the sections in
+`docs/factions.md`. The document does the rest.
 
 > Add the faction Carnaval to this repository. Read `docs/new-faction.md` first and follow it to the
 > letter; the brief is the section "2. Carnaval" in `docs/factions.md`. Work on a branch, open a pull
@@ -30,10 +23,17 @@ rules and the controls; read it once.
 
 What matters for this job:
 
-- **A faction brings looks, words and three specials. It brings no numbers.** Price, hit points, damage and
+- **A faction brings looks, words, three specials and a temperament.** Price, hit points, damage and
   speed belong to the role (light, ranged, heavy, schild, super unit) and the era (1975, 2025, 2050), and
-  are the same for every faction. They live in `src/defs/balance.ts`. Do not change that file, apart from
-  the numbers of a new special (see "A special of a kind that does not exist yet").
+  are the same for every faction. They live in `src/defs/balance.ts`. Do not change those, apart from
+  the numbers of a new special (see "A special of a kind that does not exist yet"). What a faction does
+  bring is a small twist on them that makes its units feel like its own: its temperament, a table in its
+  own sheet (see Step 1).
+- **The owner wants the factions to play differently, not only look different.** On 23 November 2026:
+  "later factions should have some more variation in what the units do." A temperament is the least a
+  new faction brings. If its brief gives a unit something of its own to do, build it; if it does not,
+  propose one in the pull request without building it. The ideas and the rules for them are in
+  `docs/factions.md` under "How the factions play differently".
 - **All art is SVG written by hand**, one file per drawing, cut into parts that the game animates like a
   paper puppet. There are no image files, no sound files and no art tools: you write the SVG as text,
   look at a screenshot of it, and improve it.
@@ -102,11 +102,25 @@ After this step the game knows the faction and the tests tell you everything tha
      flies, in pixels; 14 for something that flies flat, 70 to 100 for a lob), `spin` (turns per second,
      0 to stay upright) and `splash` (the colour of the puff where it lands).
    - `special`: one of the kinds in Step 2, with its numbers from `SPECIAL` in `src/defs/balance.ts`.
+   - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
+     role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
+     `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
+     only, `range`. 100 or left out means "as everyone". Rules: nothing further than 30% from the shared
+     number, the super unit is left alone, and every plus is paid for with a minus. Take it from the
+     brief; if the brief has none, write one that fits who they are and say so in the pull request.
+     `tests/temper.test.ts` checks the limits. Then run `npm run balance -- --pairs`: your faction should
+     win between 44% and 56% against each of the others, in both seats. If it does not, soften the twist
+     that helps it most, or strengthen the one that costs it most, and run it again. That fitting is part
+     of the job; changing the shared numbers or another faction's table is not. Do not go further than
+     that: a faction may well be better at one way of playing than at another, and the owner wants it
+     so ("different strategies should pay off").
 3. **Register it** in `src/defs/index.ts`: import it and add it to `FACTIONS`. Do **not** add it to
    `FACTION_IDS` yet. That list is what the players can pick, and a faction only goes on it when its last
    drawing is done; until then its rules and texts are tested but nobody can pick a half-drawn faction.
 4. **Its text sheet**, `src/ui/factions/<faction>.ts`. Copy `src/ui/factions/zuidas.ts`. Everything is in
-   Dutch and comes from the brief: `name`, `place`, `money`, the `win` lines, `unmoved` (what its super
+   Dutch and comes from the brief: `name`, `place`, `trait` (its temperament in two or three words, such
+   as "taai en traag"; it stands next to the name on the title card and must be true of the `TEMPER`
+   table), `money`, the `win` lines, `unmoved` (what its super
    unit says when an enemy special does nothing to it), and per id a name and a one-line description
    (`blurbs`), plus four or five lines per era to shout when walking out (`battleCry`) and to mutter when
    beaten (`slinkOff`). The ids are `<prefix>.<era>.light`, `.ranged`, `.heavy`, `.shield` or `.super`,
@@ -136,21 +150,22 @@ Every era has its own special, and the three must be of different kinds. These k
 | `barrage` | A number of blows, one after another, on the foremost enemy unit, or the base | A small `static` drawing around (0,0) with an `idle` clip, about 78 by 46. Up to six hover in formation over the victim and dive one by one. Example: `achterhoek/2050/special_zwerm` |
 | `snipe` | Damage that starts with the toughest enemy unit and carries on to the next | A `static` drawing around (0,0), about 120 by 120. It drops out of the sky onto each victim. Example: `havermelk/2050/special_algoritme` |
 | `convert` | The toughest enemy unit changes sides | A `static` drawing around (0,0), about 120 by 120. It drops onto the bought unit. Example: `zuidas/2025/special_overname` |
+| `divert` | For a few seconds everything the enemy earns is paid to you instead: their income and their bounties | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, like the one of a `buff`: it stands beside your own base for as long as it lasts. It needs a marker `slot` where the money goes in; the game makes coins fly there from the enemy's purse and from every unit they beat. Example: `zuidas/2050/special_succesfee` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
 
 **Numbers.** A special of an existing kind takes the numbers of the existing special of that kind in the
-same era. In another era, scale damage by the era's power: 1 for 1975, 2.4 for 2025, 5.6 for 2050 (the
-Flitskrach of 2050 is the Trekkerkolonne of 2025 times 5.6 / 2.4). Add an entry to `SPECIAL` in
+same era. In another era, scale damage by the era's power: 1 for 1975, 2.4 for 2025, 5.6 for 2050. Add an
+entry to `SPECIAL` in
 `src/defs/balance.ts` with a one-line comment, as the others have. Do not tune: balance between factions
 is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
 `docs/factions.md` plans four more kinds: slow, summon, block and lockout. If your faction needs one, you
-build the kind. `convert` was added that way; search the code for `convert` and `converted` and you have
-the complete example. The places, in order:
+build the kind. `convert` and `divert` were added that way; search the code for `convert` and `converted`,
+or for `divert` and `diverted`, and you have a complete example of each. The places, in order:
 
 1. `src/defs/types.ts`: a new member of the `SpecialDef` union, with the fields it needs.
 2. `src/defs/balance.ts`: its numbers, under `SPECIAL`.
@@ -269,7 +284,9 @@ it: smoke, a cat's tail, a window cleaner.
 **The flag.** Copy `art/flags/zuidas.svg`, keep the eight strips `s0` to `s7` exactly as they are, and
 replace what is inside `<g id="flag">` with your design on a 120 by 80 field. Its animation file is one
 line: `export { default } from './achterhoek.ts';`. The flag is mirrored for the player on the right, so
-it must survive that.
+it must survive that. If its design cannot (the Zuidas flag has a line that must go up, not down), add a
+second file with the design itself mirrored and name it as `flagRigRight` in the data sheet, as
+`art/flags/zuidas_rechts.svg` does.
 
 **The backdrop** is the faction's half of the scenery, drawn for the left side of the screen; the game
 mirrors it on the right and fades the two halves into each other between x = 860 and x = 1060. Read the
@@ -383,37 +400,27 @@ All of these, in this order:
 
 - [ ] All 29 drawings exist, with their animations, and each was looked at in its own rig page.
 - [ ] The faction is in `FACTION_IDS` and can be picked on the title screen, on either side.
+- [ ] It has a temperament and a `trait` that says the same in words, and `npm run balance -- --pairs`
+      shows it between 44% and 56% against every other faction, in both seats, without a stall.
 - [ ] Staged battles on both sides and against itself were looked at, picture by picture.
 - [ ] `npx tsc --noEmit`, `npm test` and `npm run e2e` are green, the last in all three engines.
 - [ ] `BoermensGevecht.html` was rebuilt after the last change and is committed.
 - [ ] README and `docs/factions.md` say what is true now.
 - [ ] A pull request is open, with an honest list of what was and was not checked. It is not merged.
 
-## Finishing De Zuidas
+## A faction that is half done
 
-De Zuidas has its rules, its texts and 27 of its 29 drawings in the repository. It is in `FACTIONS` but not in
-`FACTION_IDS`, so it cannot be picked yet. What is missing:
+Work on a faction can stop halfway: a session ends, a budget runs out. That is why a faction is only
+added to `FACTION_IDS` when its last drawing is there. If you are asked to finish one:
 
-1. **De brandkast**, the schild of 1975: `art/zuidas/1975/de_brandkast.svg` and
-   `src/anim/clips/zuidas/1975/de_brandkast.ts`. A bank cashier (grey dustcoat, sleeve garters, perhaps a
-   green eyeshade) pushing a heavy safe on a sack truck in front of him: dark green or black steel, a big
-   dial and a handle, brass corners. He peeks over it. `humanoid` with extra parts for the safe and the
-   sack truck's wheel, about 80 wide and 125 to 150 tall. When he wheels it home, beaten, the door hangs
-   open and the safe is empty. Its neighbours for style: `zuidas/1975/jongste_bediende`,
-   `zuidas/1975/de_hoekman` and the schild next door, `zuidas/2025/de_disclaimer`.
-2. **The animations of De Gouden Handdruk**, the super unit of 2050:
-   `src/anim/clips/zuidas/2050/gouden_handdruk.ts`. The drawing exists
-   (`art/zuidas/2050/gouden_handdruk.svg`): a colossal golden hand in a pinstriped cuff that walks on its
-   fingers. It flattens by shaking hands; a hit is a flick of the cuff and a glint, not pain; beaten, it
-   drifts off under a golden parachute if the drawing has one, and otherwise walks home. Read the file
-   for its parts first.
-3. Some drawings of the last hours before the work was paused were written but not looked at by a second
-   pair of eyes: the bases of 1975 and 2025, `special_gong`, `turret_vrijmibo`, `gouden_handdruk`. Make
-   contact sheets of all three eras and the staged battles of Step 5, and fix what does not hold up.
-4. Then Steps 5 to 8: add `'zuidas'` to `FACTION_IDS`, change the comment above it, and set the README
-   (status table and the header of the factions table) and `docs/factions.md` (state: **Built**) right.
-   The browser test "De Zuidas plays, and its takeover makes an enemy unit change sides" skips itself
-   while De Zuidas is not on the list and runs once it is.
+1. Put it in `FACTION_IDS` for a moment and run `npx vitest run tests/art.test.ts`. The test "every
+   drawing a faction needs is there" lists the drawings that are missing, and "every unit that has art
+   has all five clips" the animations.
+2. Make contact sheets of all three eras (`node scripts/shot.ts gallery <faction>/<era>`) and look at what
+   is there with fresh eyes. Drawings written just before the work stopped may never have been checked.
+3. Carry on from Step 3, with the brief in `docs/factions.md` for anything that is missing.
+
+De Zuidas was built that way, in three sittings.
 
 ## Things that went wrong before
 
@@ -434,3 +441,7 @@ De Zuidas has its rules, its texts and 27 of its 29 drawings in the repository. 
   add or change rules of the game on the way. If something in the rules gets in your way, write it in the
   pull request and leave it.
 - **Calling it done on the word of a helper.** Look at the pictures yourself.
+- **A joke the brief itself rules out.** Every faction's section in `docs/factions.md` ends with a list
+  called "Stay away from". Read it again before you name or draw anything that is not literally in the
+  brief. A special for De Zuidas was once built and drawn as a letterbox company, which is on its list;
+  it had to be renamed and redrawn before it could ship.

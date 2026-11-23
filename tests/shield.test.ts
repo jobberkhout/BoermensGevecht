@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { LANE, STATS, TURRET, px } from '../src/defs/balance.ts';
-import { FACTIONS, FACTION_IDS, turretDef, unitDef } from '../src/defs/index.ts';
+import { FACTIONS, FACTION_IDS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo } from '../src/sim/commands.ts';
 import { turretDamage } from '../src/sim/turrets.ts';
 import type { SimState, Unit } from '../src/sim/types.ts';
@@ -84,17 +84,29 @@ describe('the schild', () => {
     expect(lost(front)).toBeGreaterThan(0);
   });
 
-  it('is hurt in full by units, and is no match for one', () => {
+  it('is hurt in full by units, and is no match for its price in them', () => {
     const s = match();
     const schild = place(s, 1, SHIELD.ah, LANE / 2);
-    const light = place(s, 0, HM.light, LANE / 2 - px(4));
+    place(s, 0, HM.light, LANE / 2 - px(4));
     run(s, 1 + unitDef(HM.light).windup);
     expect(unitDef(SHIELD.ah).hp - schild.hp).toBe(unitDef(HM.light).dmg);
-    // Left to it, the cheapest unit beats a schild that costs more than twice as much.
-    run(s, 3000);
-    expect(s.sides[1].units).toEqual([]);
-    expect(s.sides[0].units).toEqual([light]);
-    expect(unitDef(SHIELD.ah).cost).toBeGreaterThan(unitDef(HM.light).cost * 2);
+
+    // Whichever two factions meet: the cheapest units that a schild's price buys beat it without losing one of them.
+    for (const mine of FACTION_IDS) {
+      for (const theirs of FACTION_IDS) {
+        const light = eraOf(mine, ERA.y1975).units[0]!;
+        const shield = eraOf(theirs, ERA.y1975).units[3]!;
+        const count = Math.floor(shield.cost / light.cost);
+        expect(count, `${light.id} for the price of ${shield.id}`).toBeGreaterThanOrEqual(2);
+        const duel = match([mine, theirs]);
+        duel.sides[0].baseHp = duel.sides[1].baseHp = 1e9; // it must not end on a base
+        place(duel, 1, shield.id, LANE / 2);
+        for (let i = 0; i < count; i++) place(duel, 0, light.id, LANE / 2 - px(4), undefined, i);
+        run(duel, 3000);
+        expect(duel.sides[1].units, `${shield.id} against ${light.id}`).toEqual([]);
+        expect(duel.sides[0].units, `${light.id} against ${shield.id}`).toHaveLength(count);
+      }
+    }
   });
 
   it('keeps two fully upgraded turrets busy for about a quarter of a minute', () => {

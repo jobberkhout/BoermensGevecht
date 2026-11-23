@@ -103,11 +103,11 @@
     </g>
   </g>
 
-  <!-- The house pennant on the front wing: pinstripe with a gold line going up. Joint at the pole. -->
+  <!-- The house pennant on the front wing: pinstripe with a gold stripe. Joint at the pole. -->
   <g id="pennant" data-parent="body" transform="translate(76 -61)">
     <path class="o" style="stroke-width:1.8" fill="#26365c" d="M0 -0.5 L-19 4 L0 9 Z"/>
     <path fill="none" stroke="#6f86ba" stroke-width="0.9" d="M-4 0.6 L-4 7.8 M-8.5 1.7 L-8.5 6.6 M-13 2.8 L-13 5.4"/>
-    <path fill="none" stroke="#f0c53a" stroke-width="1.5" stroke-linecap="round" d="M-15 4.6 L-2 2.2"/>
+    <path fill="none" stroke="#f0c53a" stroke-width="1.6" stroke-linecap="round" d="M-15.4 4.2 L-1.6 4.2"/>
   </g>
 
   <!-- Smoke that gets out through the top of the rear window. Joint at the gap. -->

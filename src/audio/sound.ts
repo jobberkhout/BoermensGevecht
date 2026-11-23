@@ -476,6 +476,14 @@ export class Sound {
     this.tone({ type: 'triangle', freq: 2637, dur: 0.3, gain: 0.07, at: 0.22 });
   }
 
+  /** A wand twinkles and somebody else's money pours in: a quick run of coins. */
+  drain(): void {
+    this.tone({ type: 'sine', freq: 2093, to: 3136, dur: 0.1, gain: 0.07 });
+    for (let i = 0; i < 6; i++) {
+      this.tone({ type: 'sine', freq: 1175 + (i % 3) * 196 + i * 30, dur: 0.08, gain: 0.09, at: 0.1 + i * 0.07 });
+    }
+  }
+
   /** Overtime starts. */
   alarm(): void {
     for (const at of [0, 0.22, 0.44]) this.tone({ type: 'triangle', freq: 880, to: 660, dur: 0.18, gain: 0.3, at });
@@ -597,7 +605,7 @@ export class Sound {
       () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'),
       () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'),
       () => this.defeat(), () => this.coin(), () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(),
-      () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(),
+      () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(), () => this.drain(),
       () => this.giant(), () => this.alarm(), () => this.surge(), () => this.fanfare(),
     ];
     const gap = 0.6;

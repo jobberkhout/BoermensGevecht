@@ -105,6 +105,8 @@ export class Screens {
     const flag = el('div', 'flag');
     setPicture(flag, FACTIONS[faction].flagRig, '');
     const title = el('div', 'who', NL.faction[faction].name);
+    // What its units are like, so the choice is about more than the pictures.
+    title.append(el('em', 'trait', NL.faction[faction].trait));
     title.append(el('small', '', `${side === 0 ? NL.start.left : NL.start.right} · ${NL.faction[faction].place}`));
     const arrow = (step: -1 | 1, key: string, hint: string): HTMLButtonElement => {
       const button = el('button', 'arrow');

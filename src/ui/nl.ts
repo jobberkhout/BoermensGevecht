@@ -26,7 +26,7 @@ export const NL = {
   title: 'Boermens Gevecht',
   tagline: 'De slag om de subsidie',
 
-  faction: perFaction((text) => ({ name: text.name, place: text.place, money: text.money })),
+  faction: perFaction((text) => ({ name: text.name, place: text.place, trait: text.trait, money: text.money })),
 
   /** Display names and one-line descriptions by definition id. */
   names: gathered((text) => text.names),
@@ -60,6 +60,8 @@ export const NL = {
     kraanDicht: 'subsidiekraan dicht',
     /** The same, short enough for the subsidie button. */
     dry: 'kraan dicht',
+    /** Next to the purse of a side whose earnings are being paid to the other side, followed by the seconds left. */
+    diverted: 'naar de vijand',
     overtimeCrumble: 'Overtijd! Nu brokkelen ook de bases af',
   },
 

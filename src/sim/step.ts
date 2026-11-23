@@ -16,7 +16,7 @@ import {
 import { turretDef, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
-import { frontUnit } from './lane.ts';
+import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
 import { turretDamage, turretRange } from './turrets.ts';
@@ -88,7 +88,13 @@ function buffed(side: SideState, tick: number): boolean {
 function economy(s: SimState, side: Side, events: SimEvent[]): void {
   const me = s.sides[side];
   if (s.tick > 0 && s.tick % INCOME_EVERY === 0) {
-    if (!kraanDicht(s.tick)) me.gold += SUBSIDY.income[me.subsidy]!;
+    if (!kraanDicht(s.tick)) {
+      // Paid to this side, or to the other one for as long as its earnings are diverted.
+      const to = payee(s, side);
+      const income = SUBSIDY.income[me.subsidy]!;
+      s.sides[to].gold += income;
+      if (to !== side) events.push({ t: 'skimmed', side: to, amount: income });
+    }
     me.progress += PROGRESS.perInterval;
   }
 
@@ -385,12 +391,15 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       }
       const def = unitDef(u.def);
       const bounty = def.bounty;
-      foe.gold += bounty;
+      // The bounty goes to whoever beat it, unless their earnings are diverted: then it comes back to the loser.
+      const to = payee(s, other(side));
+      s.sides[to].gold += bounty;
       // Both sides learn from a fight; the one that won it learns more.
       foe.progress += Math.floor((def.cost * PROGRESS.killPercent) / 100);
       me.progress += Math.floor((def.cost * PROGRESS.lossPercent) / 100);
       events.push({ t: 'defeat', side, id: u.id, def: u.def, pos: u.pos });
-      events.push({ t: 'gold', side: other(side), amount: bounty, pos: LANE - u.pos });
+      if (to === side) events.push({ t: 'gold', side, amount: bounty, pos: u.pos, diverted: true });
+      else events.push({ t: 'gold', side: to, amount: bounty, pos: LANE - u.pos });
     }
     me.units = alive;
   }

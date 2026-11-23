@@ -164,18 +164,4 @@ describe('De Zuidas', () => {
     expect(special.kind).toBe('buff');
     expect(SPECIAL.gong).toEqual(SPECIAL.hoken);
   });
-
-  it('ends with the Flitskrach, which hits every enemy unit once and spares the base', () => {
-    const s = match(['zuidas', 'achterhoek']);
-    s.sides[0].era = ERA.y2050;
-    rich(s, 0);
-    const near = freeze(place(s, 1, AH.heavy, px(900), 1_000_000));
-    const far = freeze(place(s, 1, AH.light, px(200), 1_000_000));
-    const base = s.sides[1].baseHp;
-    act(s, 0, { t: 'special' });
-    run(s, Math.ceil(LANE / SPECIAL.flitskrach.speed) + 2);
-    expect(near.hp).toBe(1_000_000 - SPECIAL.flitskrach.dmg);
-    expect(far.hp).toBe(1_000_000 - SPECIAL.flitskrach.dmg);
-    expect(s.sides[1].baseHp).toBe(base);
-  });
 });

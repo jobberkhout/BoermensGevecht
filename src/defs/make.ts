@@ -1,4 +1,4 @@
-import { SPECIAL, STATS, type EraKey, type RoleStats, type TurretStats } from './balance.ts';
+import { SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats } from './balance.ts';
 import type { EraDef, Role, ShotDef, SpecialDef, TurretDef, UnitDef } from './types.ts';
 
 type Look = Omit<ShotDef, 'speed'>;
@@ -64,10 +64,11 @@ export interface EraLook {
 export type SpecialKind = SpecialDef extends infer S ? (S extends unknown ? Omit<S, 'id' | 'cooldown' | 'firstReady'> : never) : never;
 
 /**
- * Builds one era for one faction: the shared numbers for that era, with this
- * faction's drawings. `prefix` is the short id ('hm', 'ah'), `folder` the art folder.
+ * Builds one era for one faction: the shared numbers for that era with the
+ * faction's temperament on them, and this faction's drawings. `prefix` is the
+ * short id ('hm', 'ah'), `folder` the art folder.
  */
-export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
+export function makeEra(prefix: string, folder: string, look: EraLook, temper: Temper = {}): EraDef {
   const stats = STATS[look.key];
   const id = `${prefix}.${look.key}`;
   const art = (name: string): string => `${folder}/${look.key}/${name}`;
@@ -80,17 +81,17 @@ export function makeEra(prefix: string, folder: string, look: EraLook): EraDef {
     firstReady: SPECIAL.firstReady,
   } as SpecialDef;
   const units = [
-    makeUnit(`${id}.light`, 'light', art(look.light), stats.light),
-    makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), stats.ranged, withArt(look.rangedShot)),
-    makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), stats.heavy),
+    makeUnit(`${id}.light`, 'light', art(look.light), twisted(stats.light, temper.light)),
+    makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot)),
+    makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy)),
   ];
   if (stats.shield) {
     if (!look.shield) throw new Error(`${id}: this era has a schild, so it needs a drawing for one`);
-    units.push(makeUnit(`${id}.shield`, 'shield', art(look.shield), stats.shield));
+    units.push(makeUnit(`${id}.shield`, 'shield', art(look.shield), twisted(stats.shield, temper.shield)));
   }
   if (stats.super) {
     if (!look.super) throw new Error(`${id}: this era has a super unit, so it needs a drawing for one`);
-    units.push(makeUnit(`${id}.super`, 'super', art(look.super), stats.super));
+    units.push(makeUnit(`${id}.super`, 'super', art(look.super), twisted(stats.super, temper.super)));
   }
   return {
     id,

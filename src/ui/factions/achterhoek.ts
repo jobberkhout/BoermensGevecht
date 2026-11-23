@@ -4,6 +4,7 @@ import type { FactionText } from './types.ts';
 export const achterhoek: FactionText = {
   name: 'Achterhoek',
   place: 'De Achterhoek',
+  trait: 'taai en traag',
   money: 'landbouwsubsidie',
   win: { head: 'De Achterhoek wint!', sub: "D'ran! Tijd veur een pilsken." },
   unmoved: 'Ik zit niet online!',
