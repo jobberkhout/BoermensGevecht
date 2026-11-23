@@ -14,7 +14,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
-| [De Gastheren](#8-de-gastheren) | Three generations, from the factory floor to the wedding hall | Brief, read and changed by the owner; waiting to be merged |
+| [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | Brief, read and changed by the owner; waiting to be merged |
 
 Parked for later, outside these eight: **the voetbalvader** and the amateur football club on a Saturday
 morning, as a faction of its own.
@@ -164,7 +164,7 @@ The twenty-four specials at a glance:
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Tijdslot verlopen (lockout) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
 | De Camping | Zwarte Zaterdag (slow) | Na tienen is het stil! (stun) | De Minidisco (buff) |
-| De Gastheren | Eerst thee (heal) | De Toeterstoet (stun) | Nee is nee (snipe) |
+| De Gasten | Eerst thee (heal) | De Toeterstoet (stun) | Nee is nee (snipe) |
 
 The kinds are a first assignment by theme. Which special gets which kind can still be shuffled when the
 balance is looked at; the names and the drawings stay.
@@ -1068,7 +1068,7 @@ Special, **De Minidisco** (buff): everybody joins in. Own units hit harder and m
 - "Skottelbraai" began as a product name. The word is in general use on Dutch camp sites, but if you want
   to be safe the turret can be called De Braaischotel.
 
-### 8. De Gastheren
+### 8. De Gasten
 
 Two families on one street, one Turkish-Dutch and one Moroccan-Dutch, over three generations. In 1975 the
 fathers work night shifts in the metal works and the textile mills, "for two or three years". In 2025
@@ -1076,7 +1076,7 @@ their children and grandchildren, born here, run the barbershop, throw a wedding
 fatbike. In 2050 the great-grandchildren still say that next year they are going back.
 
 The owner's idea, of 23 November 2026, and their working title was **De Gastarbeiders**; the name became
-De Gastheren (question 1 below). This is the first faction about where people's families come from rather
+De Gasten (question 1 below). This is the first faction about where people's families come from rather
 than a region, a trade or a way of life, so the bar is higher. The rule "no jokes about where someone comes
 from" is kept and applied: **only jokes the two communities make about themselves**, in their own films,
 theatre, books and community talk, told with affection. The table further down names the inside source
@@ -1093,13 +1093,13 @@ running joke is exactly that: the plan to go back.
 
 | | |
 |---|---|
-| Code name | `gastheren` (ids start with `gh.`); it follows the name, if another is chosen |
+| Code name | `gasten` (ids start with `gs.`) |
 | Home | De straat: two families, one street (made up) |
 | Money | spaargeld |
 | Colours | Tea amber, mint green, the blue of a tiled wall, and the white of a wedding ribbon |
 | Flag | A tile-blue field with a golden tea glass on a saucer and a white wedding ribbon across the corner: the flag of the street, of no country. No crescent, no star, no national red |
 | Names | What they are in the family and on the street: De Nachtploeg, De Tolk, De Gastvrouw, De Blijver |
-| When it wins | "De Gastheren winnen! Blijf je eten?" |
+| When it wins | "De Gasten winnen! Blijf je eten?" |
 | Super unit shrugs off a special with | "Volgend jaar." |
 
 **The running joke across the eras: next year we go back.** In 1975 the father came for two or three
@@ -1333,9 +1333,9 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 
 **Flag and backdrop**
 
-- **Flag** (`art/flags/gastheren.svg`): the tile-blue field, the golden tea glass on its saucer, the white
+- **Flag** (`art/flags/gasten.svg`): the tile-blue field, the golden tea glass on its saucer, the white
   ribbon across the corner. No lettering, so it mirrors without help.
-- **Backdrop** (`art/gastheren/backdrop.svg`, drawn for the left side): a street of brick houses with a
+- **Backdrop** (`art/gasten/backdrop.svg`, drawn for the left side): a street of brick houses with a
   factory chimney behind them, a barber's pole by a shop door, the fairy lights of a wedding hall further
   down, and a car with a loaded roof rack parked out front, ready for summer.
 
@@ -1361,12 +1361,15 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 
 **Questions, and what the owner decided**
 
-The owner read the brief on 23 November 2026 ("Yes the brief looks good") and changed three things: the
-fatbike's rule, its line and the super unit's name. Five of the six questions are settled.
+The owner read the brief on 23 November 2026 ("Yes the brief looks good") and changed four things: the
+name, the fatbike's rule, its line and the super unit's name. Five of the six questions are settled.
 
-1. **The name.** Settled: **De Gastheren**, as recommended (the guests became the hosts). The owner's working
-   title *De Gastarbeiders* fits 1975 but calls the grandchildren guests too, and the workers themselves
-   objected to the word in 1971. The third option was *Volgend Jaar Terug*.
+1. **The name.** Settled: **De Gasten**, the owner's choice of 23 November 2026 from a second round of
+   funnier names. One word, three jokes: the "gast" of gastarbeider, the 650 guests at the wedding, and
+   "gast" as everyday Dutch for a guy, which the fatbike kid is. The owner's working title was
+   *De Gastarbeiders*; my first recommendation was *De Gastheren*. The owner's reasoning, which applies to
+   every faction: the name may tease the way Havermelk Elite does, since no faction's name is what its
+   people call themselves.
 2. **The fatbike.** Settled: the heavy of 2025, cheap and fragile, riding through the ranks and hitting
    everything it passes, stopped by a schild (both go down) or a super unit, with the numbers above as a
    start. Its lines: "Ik rij maar vijfentwintig, echt!", which every fatbike kid in the country says, and
@@ -1392,7 +1395,7 @@ battle, and one pull request per faction.
 1. ~~**The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.~~ Done.
 2. ~~**De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
    first new kind of special, the convert.~~ Done.
-3. **De Gastheren**, once its brief has been read and settled. The owner's own idea, and the first
+3. **De Gasten**, once its brief has been read and settled. The owner's own idea, and the first
    faction with a unit that does something of its own, the fatbike, which is built before any drawing.
 4. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
 5. **Rotterdam.** Amsterdam's rival, with the container as the block.
@@ -1405,8 +1408,8 @@ Any other order works.
 
 ## Sources
 
-Each faction was researched online on 22 November 2026, and De Gastheren on 23 November 2026. Dates,
-origins, names and spellings in this document were checked against the sources below. For De Gastheren
+Each faction was researched online on 22 November 2026, and De Gasten on 23 November 2026. Dates,
+origins, names and spellings in this document were checked against the sources below. For De Gasten
 every joke was also traced to a source from inside the two communities; see its section. Everyday details, such as the bodywarmer, the
 bitterballen at the Friday drinks, socks in sandals or the guide's umbrella, are common knowledge and were
 not looked up. The 2050 eras are extrapolations, mine and the researchers'.
@@ -1484,7 +1487,7 @@ not looked up. The 2050 eras are extrapolations, mine and the researchers'.
 - Unwritten rules of the camp site: https://www.maxvandaag.nl/sessies/themas/reizen-verkeer/etiquette-op-de-camping-deze-ongeschreven-regels-gelden-er/
 - The voetbalvader on the sideline: https://assets.sire.nl/downloads_accept/infographics/SIRE-2011-Persbericht-22Geef-kinderen-hun-spel-terug22.pdf and https://www.omroepbrabant.nl/nieuws/4547282/lollys-moeten-schreeuwende-ouders-op-het-voetbalveld-stil-houden
 
-**De Gastheren**
+**De Gasten**
 
 - The agreements and the work: https://verdragenbank.overheid.nl/en/Treaty/Details/004441 , https://www.canonvannederland.nl/nl/gastarbeiders , https://nos.nl/l/2533870 and https://nos.nl/l/2213402
 - "Two or three years", and the grandson who feels Dutch: https://nos.nl/artikel/2284642-50-jaar-na-het-wervingsverdrag-ik-voel-me-nederlands-en-marokkaans
