@@ -6,6 +6,7 @@ interface Summary {
   tick: number;
   winner: unknown;
   units: [number, number];
+  gold: [number, number];
   baseHp: [number, number];
   era: [number, number];
   subsidy: [number, number];
@@ -394,5 +395,54 @@ test('De Zuidas plays, and its takeover makes an enemy unit change sides', async
   });
   expect(end.winner).toBe(0);
   await expect(page.locator('.screen:not([hidden]) h1')).toHaveText('De Zuidas wint!');
+  expect(errors).toEqual([]);
+});
+
+test('De Succesfee pays De Zuidas what the enemy earns for five seconds, and both purses say so', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (err) => errors.push(err.message));
+  page.on('console', (msg) => {
+    if (msg.type() === 'error') errors.push(msg.text());
+  });
+
+  await page.goto('/?test=1');
+  await page.waitForSelector('body[data-ready="1"]');
+  const pickable = await page.evaluate(() => (window as unknown as { __game: Hooks }).__game.factions());
+  test.skip(!pickable.includes('zuidas'), 'De Zuidas is not in the list of factions yet');
+  // De Zuidas on the right this time, so the mirrored side is the one that collects.
+  const during = await page.evaluate(async () => {
+    const g = (window as unknown as { __game: Hooks }).__game;
+    await g.pick(1, 'zuidas');
+    g.start();
+    for (let era = 0; era < 2; era++) {
+      g.progress(1, 100000);
+      g.fund(1, 100000);
+      g.press(1, 'eraUp');
+      g.advance(2);
+    }
+    g.fund(0, 1000);
+    g.fund(1, 1000);
+    g.charge(1);
+    g.press(1, 'special');
+    // Long enough for the first payday of the match, at one second.
+    g.advance(31);
+    return g.summary();
+  });
+  expect(during.factions).toEqual(['havermelk', 'zuidas']);
+  expect(during.era).toEqual([0, 2]);
+  // Both sides earn 12 a second. The left player's 12 went to the right.
+  expect(during.gold).toEqual([1000, 1024]);
+  await expect(page.locator('.panel.right .btn.special .label')).toHaveText('De Succesfee');
+  await expect(page.locator('.panel.left .purse')).toHaveClass(/drained/);
+  await expect(page.locator('.panel.left .purse small')).toContainText('naar de vijand');
+  await expect(page.locator('.panel.right .purse')).toHaveClass(/draining/);
+  await expect(page.locator('.panel.right .purse small')).toContainText('+24/s');
+
+  // Five paydays in all go to De Zuidas; the sixth is the left player's own again.
+  const after = await advance(page, 150);
+  expect(after.gold).toEqual([1012, 1132]);
+  await expect(page.locator('.panel.left .purse')).not.toHaveClass(/drained/);
+  await expect(page.locator('.panel.left .purse small')).toContainText('+12/s');
+  await expect(page.locator('.panel.right .purse')).not.toHaveClass(/draining/);
   expect(errors).toEqual([]);
 });

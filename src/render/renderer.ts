@@ -9,7 +9,7 @@ import { loadImage, openTag, type Rig } from '../rig/raster.ts';
 import { turretRange } from '../sim/turrets.ts';
 import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
 import { forgetRigsExcept, hasRig, loadRig, rigSource } from './assets.ts';
-import { dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
+import { BAND_SPOT, dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
 import { useWorld, type Stage } from './stage.ts';
 import {
   GHOST_LIFE,
@@ -169,6 +169,7 @@ export class Renderer {
     for (const w of view.swarms) this.drawSwarm(w, view.time);
     this.drawShots(view);
     for (const sp of view.sprites) this.drawSprite(sp, view.time);
+    this.drawCoins(view);
     this.drawEffects(view);
     useWorld(this.stage);
   }
@@ -579,7 +580,7 @@ export class Renderer {
     ctx.globalAlpha = 1;
   }
 
-  /** The band of a Høken!: it pops up next to its own farm and plays until the buff is over. */
+  /** The scene of a special that lasts a while: it pops up beside its owner's base and stays until the special is over. */
   private drawBand(b: Band, time: number): void {
     const rig = this.rigs.get(b.rig);
     if (!rig) return; // without art the floating notes have to do
@@ -589,7 +590,7 @@ export class Renderer {
     const leave = Math.min(1, (b.life - b.age) / 0.3);
     const idle = CLIPS[rig.id]?.idle;
     ctx.globalAlpha = Math.max(0, leave);
-    this.drawLoose(rig, GATE_X[b.side] + dir * 160, GROUND_Y - 56, dir, 0.7 + 0.3 * grow, idle, idle ? (time / (idle.seconds ?? 0.6)) % 1 : 0);
+    this.drawLoose(rig, GATE_X[b.side] + dir * BAND_SPOT.dx, GROUND_Y + BAND_SPOT.dy, dir, 0.7 + 0.3 * grow, idle, idle ? (time / (idle.seconds ?? 0.6)) % 1 : 0);
     ctx.globalAlpha = 1;
   }
 
@@ -686,6 +687,35 @@ export class Renderer {
   }
 
   // ---- projectiles and effects -------------------------------------------
+
+  /** Money that changes hands: gold coins tumbling through the air, high over everyone's heads. */
+  private drawCoins(view: BattleView): void {
+    const { ctx } = this.stage;
+    ctx.lineJoin = 'round';
+    for (const c of view.coins) {
+      if (c.age < 0) continue; // still in the purse
+      const t = c.age / c.life;
+      // Away quickly, and it eases into the slot.
+      const p = 1 - (1 - t) * (1 - t);
+      const x = c.x0 + (c.x1 - c.x0) * p;
+      const y = c.y0 + (c.y1 - c.y0) * p - c.arc * 4 * p * (1 - p);
+      // A flipping coin shows its face, then its edge.
+      const face = 0.25 + 0.75 * Math.abs(Math.cos(view.time * 13 + c.turn));
+      const r = 12 * (t > 0.85 ? 1 - (t - 0.85) / 0.3 : 1);
+      ctx.fillStyle = '#ffd21f';
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.ellipse(x, y, r * face, r, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.strokeStyle = '#fff3a8';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(x, y, r * face * 0.5, r * 0.5, 0, Math.PI * 1.05, Math.PI * 1.6);
+      ctx.stroke();
+    }
+  }
 
   private drawShots(view: BattleView): void {
     const { ctx } = this.stage;

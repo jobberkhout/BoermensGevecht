@@ -4,6 +4,7 @@ import type { FactionText } from './types.ts';
 export const zuidas: FactionText = {
   name: 'De Zuidas',
   place: 'Amsterdam-Zuid',
+  trait: 'duur en gehaast',
   money: 'bonussen',
   win: { head: 'De Zuidas wint!', sub: 'Dat nemen we mee in de kwartaalcijfers.' },
   unmoved: 'Dat loopt via Legal.',
@@ -26,7 +27,7 @@ export const zuidas: FactionText = {
     'za.2050.heavy': 'De Vergaderpod',
     'za.2050.super': 'De Gouden Handdruk',
     'za.2050.turret': 'De Kwartaalcijfers',
-    'za.2050.special': 'Flitskrach',
+    'za.2050.special': 'De Succesfee',
   },
 
   blurbs: {
@@ -47,7 +48,7 @@ export const zuidas: FactionText = {
     'za.2050.heavy': 'Zelfrijdende vergaderruimte. Het overleg binnen duurt al jaren.',
     'za.2050.super': 'Een gouden hand zo groot als een kantoor. Speciale acties en torens lopen via Legal en doen hem niks.',
     'za.2050.turret': 'Drie analisten met een zwevend dashboard. Ze gooien met taartpunten.',
-    'za.2050.special': 'De koers stort in en sleurt elke vijand op de baan mee.',
+    'za.2050.special': 'Vijf tellen lang int de fee alles wat de vijand verdient: zijn inkomen en wat hij vangt voor jouw eenheden.',
   },
 
   slinkOff: {

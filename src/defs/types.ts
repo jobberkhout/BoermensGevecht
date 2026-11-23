@@ -1,4 +1,4 @@
-import type { EraKey } from './balance.ts';
+import type { EraKey, Temper } from './balance.ts';
 
 export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
@@ -74,6 +74,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
     | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
     | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
+    | { kind: 'divert'; ticks: number } // for a while everything the enemy earns is paid to you instead
   );
 
 export interface EraDef {
@@ -106,5 +107,7 @@ export interface FactionDef {
   voice: Voice;
   /** For the stand-in boxes where art is missing, the reach marker of its turrets, and the plain ground under a missing backdrop. */
   colors: { main: string; dark: string; light: string };
+  /** Its own twist on the shared numbers, per role. Already worked into the units of `eras`; kept here to be read. */
+  temper: Temper;
   eras: EraDef[];
 }

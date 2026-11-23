@@ -38,9 +38,21 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 |---|---|---|---|
 | Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) |
 | Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: Flitskrach (sweeps the lane) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) |
 
-All factions have the same numbers for the same role in the same era; they differ in looks, projectiles and specials.
+All factions start from the same numbers for the same role in the same era. On top of those each has its
+own temperament, a small twist that is the same in every era and is shown next to its name on the title
+card:
+
+| Faction | Its units are | In numbers |
+|---|---|---|
+| Achterhoek | taai en traag: tough and slow | 15% more hit points, 10% slower on the road, a 20% longer pause between blows. What they throw lands 15% harder |
+| Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. The cheapest unit costs 10% less. They throw from 10% further away, 10% softer |
+| De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Everything bigger than the cheapest unit costs 10% more and hits 10% harder |
+
+Bases, turrets, income, the super units and the price of modernizing are the same for everyone. The
+tables are in `src/defs/<faction>.ts`, a test keeps every twist within 30%, and in bot matches no
+faction wins more than 56% against another.
 
 ## Working on it
 
@@ -107,6 +119,12 @@ Every action is also a button on screen.
 - **Vijandige overname**, the Zuidas special of the Jaren '20, buys the toughest enemy unit on the lane. It
   turns round where it stands and fights for the buyer with the hit points it has left, wearing a keycord.
   A super unit cannot be bought.
+- **De Succesfee**, the Zuidas special of the future, is a fee in krijtstreep on a cloud (a "fee" is a
+  fairy in Dutch, and a succesfee is what a consultant charges when things go well). For five seconds
+  everything the enemy earns is paid to De Zuidas instead: the income that comes in every second, and what
+  they get for the units they beat. So it pays most in the middle of a fight, and best of all just before
+  an expensive unit of your own goes down: its bounty comes back to you. What the enemy already has stays
+  theirs, and so does the vooruitgang they earn.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000, takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like

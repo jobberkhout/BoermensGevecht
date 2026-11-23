@@ -1,6 +1,18 @@
-import { SPECIAL } from './balance.ts';
+import { SPECIAL, type Temper } from './balance.ts';
 import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
+
+/**
+ * Farmers: tough and slow. They can take more than anyone and are in no hurry:
+ * slower on the road, and a longer pause between two blows. Whoever throws
+ * something throws it hard.
+ */
+const TEMPER: Temper = {
+  light: { hp: 115, speed: 90, recover: 120 },
+  ranged: { dmg: 115, recover: 120 },
+  heavy: { hp: 115, speed: 90, recover: 120 },
+  shield: { hp: 115, speed: 90 },
+};
 
 /** The Achterhoek, east, right side of the screen. Display names live in ui/nl.ts. */
 export const achterhoek: FactionDef = {
@@ -9,6 +21,7 @@ export const achterhoek: FactionDef = {
   backdropRig: 'achterhoek/backdrop',
   voice: 'country',
   colors: { main: '#2f9140', dark: '#1f5a2a', light: '#a8d98f' },
+  temper: TEMPER,
   eras: [
     // Pitchforks, fodder beets and carbide.
     makeEra('ah', 'achterhoek', {
@@ -28,7 +41,7 @@ export const achterhoek: FactionDef = {
         speedPercent: SPECIAL.hoken.speedPercent,
         rig: 'special_hoken',
       },
-    }),
+    }, TEMPER),
     // Quads, drones and a megatrekker.
     makeEra('ah', 'achterhoek', {
       key: '2025',
@@ -41,7 +54,7 @@ export const achterhoek: FactionDef = {
       turret: 'turret_heitinks',
       turretShot: { rig: 'shot_ei', arc: 110, spin: 2.2, splash: '#ffd94a' },
       special: { kind: 'wave', rig: 'special_kolonne', speed: SPECIAL.kolonne.speed, dmg: SPECIAL.kolonne.dmg },
-    }),
+    }, TEMPER),
     // Exoskeletons, laser scarecrows and a combine that drives itself.
     makeEra('ah', 'achterhoek', {
       key: '2050',
@@ -60,6 +73,6 @@ export const achterhoek: FactionDef = {
         dmg: SPECIAL.zwerm.dmg,
         rig: 'special_zwerm',
       },
-    }),
+    }, TEMPER),
   ],
 };

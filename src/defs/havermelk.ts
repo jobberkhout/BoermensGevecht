@@ -1,6 +1,18 @@
-import { SPECIAL } from './balance.ts';
+import { SPECIAL, type Temper } from './balance.ts';
 import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
+
+/**
+ * The havermelkelite: quick and frail. Everything gets there sooner and folds
+ * sooner. The cheapest unit is cheaper still, and whoever throws something
+ * throws it from further away, but it is only flowers and coffee.
+ */
+const TEMPER: Temper = {
+  light: { speed: 115, hp: 85, cost: 90 },
+  ranged: { range: 110, dmg: 90 },
+  heavy: { speed: 115, hp: 90 },
+  shield: { speed: 110, hp: 90 },
+};
 
 /** Amsterdam, west, left side of the screen. Display names live in ui/nl.ts. */
 export const havermelk: FactionDef = {
@@ -9,6 +21,7 @@ export const havermelk: FactionDef = {
   backdropRig: 'havermelk/backdrop',
   voice: 'town',
   colors: { main: '#c8a8f0', dark: '#7d5fb8', light: '#efe3ff' },
+  temper: TEMPER,
   eras: [
     // Squatters and flower children.
     makeEra('hm', 'havermelk', {
@@ -22,7 +35,7 @@ export const havermelk: FactionDef = {
       turret: 'turret_kraakradio',
       turretShot: { rig: 'shot_herrie', arc: 14, spin: 0, splash: '#fff27a' },
       special: { kind: 'heal', healPercent: SPECIAL.loveIn.healPercent, rig: 'special_lovein' },
-    }),
+    }, TEMPER),
     // The oat-milk elite.
     makeEra('hm', 'havermelk', {
       key: '2025',
@@ -35,7 +48,7 @@ export const havermelk: FactionDef = {
       turret: 'turret_podcast',
       turretShot: { rig: 'shot_geklaag', arc: 14, spin: 0, splash: '#ffffff' },
       special: { kind: 'stun', ticks: SPECIAL.blokkade.ticks, rig: 'special_blokkade' },
-    }),
+    }, TEMPER),
     // Headsets, bubble tea and meat from a vat.
     makeEra('hm', 'havermelk', {
       key: '2050',
@@ -48,6 +61,6 @@ export const havermelk: FactionDef = {
       turret: 'turret_livestream',
       turretShot: { rig: 'shot_dislike', arc: 14, spin: 0, splash: '#ff5d73' },
       special: { kind: 'snipe', dmg: SPECIAL.algoritme.dmg, rig: 'special_algoritme' },
-    }),
+    }, TEMPER),
   ],
 };

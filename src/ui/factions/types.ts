@@ -6,6 +6,8 @@ export interface FactionText {
   name: string;
   /** Where it is from, shown under the name on the title card. */
   place: string;
+  /** What its units are like, in two or three words: its temperament (see defs/balance.ts), shown next to the name on the title card. */
+  trait: string;
   /** What it calls its money. */
   money: string;
   win: { head: string; sub: string };

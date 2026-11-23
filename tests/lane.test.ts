@@ -17,8 +17,9 @@ describe('walking', () => {
 
   it('both sides walk at the same pace, measured from their own gate', () => {
     const s = match();
+    // The same unit on both sides: every faction has a pace of its own, the two seats do not.
     const a = place(s, 0, HM.light, 0);
-    const b = place(s, 1, AH.light, 0);
+    const b = place(s, 1, HM.light, 0);
     run(s, 25);
     expect(a.pos).toBe(b.pos);
   });

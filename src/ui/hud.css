@@ -315,6 +315,27 @@ body {
   white-space: nowrap;
 }
 
+/* Diverted earnings: the purse they leave turns red, the one that gets them glows. */
+.purse.drained,
+.purse.drained small {
+  color: #ff8a75;
+}
+
+.purse.drained {
+  animation: drained 0.5s ease-in-out infinite;
+}
+
+.purse.draining small {
+  color: var(--gold);
+}
+
+@keyframes drained {
+  50% {
+    transform: translateY(0.12cqw);
+    filter: brightness(0.82);
+  }
+}
+
 .queue {
   display: flex;
   gap: 0.3cqw;
@@ -732,6 +753,21 @@ body {
   padding: 0.4cqw 1.4cqw;
   background: var(--paper);
   font-size: 1.1cqw;
+}
+
+/* What a faction's units are like, in two or three words, next to its name. */
+.side h3 .trait {
+  display: inline-block;
+  margin-left: 0.6cqw;
+  padding: 0.05cqw 0.5cqw;
+  border: 0.18cqw solid var(--ink);
+  border-radius: 0.7cqw;
+  background: var(--gold);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.95cqw;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
 /* The arrows with which a player steps through the factions on the title card. */

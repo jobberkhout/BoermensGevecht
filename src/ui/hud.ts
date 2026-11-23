@@ -4,7 +4,7 @@ import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
 import { canDo, eraUpCost, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
 import { kraanDicht } from '../sim/overtime.ts';
-import { SIDES, type Side, type SimState } from '../sim/types.ts';
+import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
 import { ACTIONS, KEY_LABEL, commandOf, type Action } from './input.ts';
 import { NL, nameOf } from './nl.ts';
 
@@ -51,6 +51,7 @@ interface SideParts {
   hp: HTMLElement;
   hpFill: HTMLElement;
   hpText: HTMLElement;
+  purse: HTMLElement;
   gold: HTMLElement;
   money: HTMLElement;
   pips: HTMLElement[];
@@ -162,7 +163,7 @@ export class Hud {
 
     const why = el('div', 'why');
     panel.append(why, status, grid);
-    const parts: SideParts = { flag, name, eraName, hp, hpFill, hpText, gold, money, pips, buttons, why, whyTimer: 0, shown: '' };
+    const parts: SideParts = { flag, name, eraName, hp, hpFill, hpText, purse, gold, money, pips, buttons, why, whyTimer: 0, shown: '' };
     return { team, panel, parts };
   }
 
@@ -195,8 +196,12 @@ export class Hud {
       // Four buttons share the row, so a name gets two lines; one long word gets smaller letters instead.
       b.label.classList.toggle('long', nameOf(unit.id).split(/[ -]/).some((word) => word.length > 14));
       this.write(b.cost, String(unit.cost));
+      b.root.title = NL.blurbs[unit.id] ?? '';
     }
     parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);
+    // What it does, for whoever hovers over it: the title card only explains the first era.
+    parts.buttons.special.root.title = NL.blurbs[era.special.id] ?? '';
+    parts.buttons.turret.root.title = NL.blurbs[era.turret.id] ?? '';
     this.write(parts.buttons.special.label, nameOf(era.special.id));
     parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
     parts.buttons.special.label.classList.toggle('two', nameOf(era.special.id).length > 13 && nameOf(era.special.id).includes(' '));
@@ -227,8 +232,22 @@ export class Hud {
       this.write(parts.gold, String(state.gold));
       const income = SUBSIDY.income[state.subsidy]!;
       const dry = kraanDicht(s.tick);
+      // Earnings that are being diverted: one purse sees them leave, the other gets them on top of its own.
+      const theirs = s.sides[other(side)];
+      const drained = state.divertedUntil > s.tick;
+      const draining = theirs.divertedUntil > s.tick;
+      parts.purse.classList.toggle('drained', drained);
+      parts.purse.classList.toggle('draining', draining && !drained);
+      const coming = draining ? income + SUBSIDY.income[theirs.subsidy]! : income;
       // Once the kraan is closed there is no income to show, and no room for both texts.
-      this.write(parts.money, dry ? NL.hud.kraanDicht : `${NL.faction[state.faction].money} +${income}${NL.hud.perSecond}`);
+      this.write(
+        parts.money,
+        dry
+          ? NL.hud.kraanDicht
+          : drained
+            ? `${NL.hud.diverted} · ${Math.ceil((state.divertedUntil - s.tick) / TPS)} s`
+            : `${NL.faction[state.faction].money} +${coming}${NL.hud.perSecond}`,
+      );
 
       parts.pips.forEach((pip, i) => {
         const item = state.queue[i];

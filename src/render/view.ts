@@ -9,7 +9,7 @@ import type { Rig } from '../rig/raster.ts';
 import { frontUnit } from '../sim/lane.ts';
 import { BASE, SIDES, other, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
 import { NL, linesFor, nameOf } from '../ui/nl.ts';
-import { dirOf, laneX, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
+import { BAND_SPOT, dirOf, laneX, purseSpot, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
 
 /**
  * Everything the screen remembers that the rules do not care about: where a
@@ -123,7 +123,10 @@ export interface Blockade {
   life: number;
 }
 
-/** The band of a Høken!, playing next to the farm for as long as the buff lasts. */
+/**
+ * The scene of a special that lasts a while, beside its owner's base for as
+ * long as it does: the band of a Høken!, the gong, the fee of De Zuidas on her cloud.
+ */
 export interface Band {
   side: Side;
   rig: string;
@@ -151,6 +154,22 @@ export interface Sprite {
   /** Colour of the puff where it lands, or '' for none. */
   puff: string;
   landed: boolean;
+}
+
+/** A coin that changes hands: it flies in an arc from one spot to another and is gone. */
+export interface Coin {
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
+  /** How far above the straight line it is at its highest, in pixels. */
+  arc: number;
+  /** Negative until it sets off. */
+  age: number;
+  /** Seconds it takes to get there. */
+  life: number;
+  /** Where in its tumble it starts, so a handful of coins does not flip in step. */
+  turn: number;
 }
 
 /** The drones of a Dronezwerm, hovering over whoever is next. */
@@ -202,6 +221,7 @@ export class BattleView {
   bands: Band[] = [];
   sprites: Sprite[] = [];
   swarms: Swarm[] = [];
+  coins: Coin[] = [];
   /** 1 right after a base was struck, fading to 0. */
   baseFlash: [number, number] = [0, 0];
   /** 1 right after a side modernized, fading to 0. */
@@ -218,6 +238,8 @@ export class BattleView {
   private lastShot = new Map<number, ShotView>();
   /** Where each swarm hovers, by barrage id, so it glides instead of jumping to the next victim. */
   private hover = new Map<number, number>();
+  /** Counts the sums of diverted money shown so far, to stack the ones that come in together. */
+  private paid = 0;
   /** Seconds until the next note floats up from a side that is høken. */
   private noteIn: [number, number] = [0, 0];
   private seed = 12345;
@@ -313,7 +335,22 @@ export class BattleView {
           break;
         }
         case 'gold':
-          this.say(laneX(e.side, e.pos), rowY(1) - 95, `+${e.amount}`, '#ffd21f', 1.1, 26);
+          // Diverted: the bounty leaves the spot where it was earned and flies to whoever is paid.
+          if (e.diverted) this.pay(e.side, { x: laneX(e.side, e.pos), y: rowY(1) - 80 }, e.amount);
+          else this.say(laneX(e.side, e.pos), rowY(1) - 95, `+${e.amount}`, '#ffd21f', 1.1, 26);
+          break;
+        case 'diverted': {
+          // Whoever collects stands beside the base of the side that is paid, for as long as it lasts.
+          const to = other(e.side);
+          const owner = s.sides[to];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== to);
+          this.bands.push({ side: to, rig, age: 0, life: e.ticks / TPS });
+          break;
+        }
+        case 'skimmed':
+          // The other side's income, straight out of their purse.
+          this.pay(e.side, purseSpot(other(e.side)), e.amount);
           break;
         case 'baseHit':
           this.baseFlash[e.side] = 1;
@@ -449,6 +486,43 @@ export class BattleView {
     }
   }
 
+  /**
+   * Where money lands that is paid to `side` instead of to whoever earned it:
+   * the spot its special's drawing marks as `slot` (the open case of the Succesfee), beside its base.
+   */
+  private slot(side: Side): { x: number; y: number } {
+    const x = GATE_X[side] + dirOf(side) * BAND_SPOT.dx;
+    const y = GROUND_Y + BAND_SPOT.dy;
+    const band = this.bands.find((b) => b.side === side);
+    const rig = band ? this.rigOf(band.rig) : undefined;
+    const m = rig?.mounts.slot;
+    const part = rig && m ? rig.parts[m.part] : undefined;
+    return part && m ? { x: x + dirOf(side) * (part.x + m.x), y: y + part.y + m.y } : { x, y: y - 100 };
+  }
+
+  /** Money that was earned by one side and is paid to the other: coins fly from `from` to where `to` collects, and the sum shows when they land. */
+  private pay(to: Side, from: { x: number; y: number }, amount: number): void {
+    const slot = this.slot(to);
+    const count = Math.min(8, 3 + Math.floor(amount / 40));
+    const life = 0.7;
+    for (let i = 0; i < count; i++) {
+      this.coins.push({
+        x0: from.x + (this.random() - 0.5) * 50,
+        y0: from.y + (this.random() - 0.5) * 24,
+        x1: slot.x,
+        y1: slot.y,
+        arc: 150 + this.random() * 120,
+        age: -i * 0.055,
+        life,
+        turn: this.random() * 6,
+      });
+    }
+    // The sum shows beside whoever collects, on the side of the base and clear of the special's own name, once the
+    // first coin is in. Sums that come in together are stacked, so an income and a bounty can both be read.
+    this.paid = (this.paid + 1) % 3;
+    this.say(slot.x - dirOf(to) * 94 + (this.random() - 0.5) * 30, slot.y - 62 - this.paid * 26, `+${amount}`, '#ffd21f', 1.1, 28, life);
+  }
+
   /** Floats a line of text up from a spot. With `delay` it appears that many seconds later. */
   private say(x: number, y: number, text: string, color: string, life: number, size: number, delay = 0): void {
     this.floaters.push({ x, y, text, color, age: -delay, life, size });
@@ -471,6 +545,7 @@ export class BattleView {
     this.updateBands(s, dt);
     this.updateSwarms(s, dt);
     this.updateSprites(dt);
+    this.updateCoins(dt);
 
     for (const side of SIDES) {
       this.baseFlash[side] = Math.max(0, this.baseFlash[side] - dt * 4);
@@ -512,6 +587,15 @@ export class BattleView {
       this.swarms.push({ side: b.side, rig: b.rig, x, y: GROUND_Y + SWARM_Y, left: b.left });
     }
     for (const id of this.hover.keys()) if (!seen.has(id)) this.hover.delete(id);
+  }
+
+  /** Coins fly; where one lands there is a small glint. */
+  private updateCoins(dt: number): void {
+    for (const c of this.coins) {
+      c.age += dt;
+      if (c.age >= c.life) this.puffs.push({ x: c.x1, y: c.y1, age: 0, life: 0.2, color: '#ffd21f', size: 9 });
+    }
+    this.coins = this.coins.filter((c) => c.age < c.life);
   }
 
   private updateSprites(dt: number): void {

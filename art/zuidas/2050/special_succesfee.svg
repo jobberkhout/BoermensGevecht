@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -150 232 156" data-rig="static">
+  <title>De Succesfee: een fee in krijtstreep, op een wolk, met een koffer waar alles in verdwijnt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .k { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; }
+    .p { stroke: #6f86ba; stroke-width: 0.9; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- She floats, so on the ground there is only her shadow. Origin = the ground under the middle. -->
+  <g id="schaduw" transform="translate(0 -3)">
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.18" cx="0" cy="0" rx="78" ry="5"/>
+  </g>
+
+  <!-- The cloud she works from. Everything on it hangs from it. Joint in its middle. -->
+  <g id="wolk" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <path class="o" fill="#f4f8ff" d="M-92 -24 Q-103 -24 -103 -36 Q-103 -48 -90 -49 Q-88 -62 -74 -60 Q-66 -72 -50 -66 Q-40 -74 -26 -66 Q-14 -74 0 -66 Q12 -76 26 -67 Q40 -74 52 -65 Q66 -72 76 -62 Q90 -62 92 -50 Q104 -48 104 -36 Q104 -24 94 -24 Z"/>
+      <path fill="none" stroke="#c7d9f2" stroke-width="1.6" stroke-linecap="round" d="M-86 -44 Q-80 -52 -70 -50 M-40 -60 Q-30 -66 -20 -60 M40 -60 Q50 -66 60 -58"/>
+    </g>
+  </g>
+
+  <!-- Her wings, behind her. Joint where they leave her back. -->
+  <g id="vleugels" data-parent="fee" transform="translate(-42 -100)">
+    <g transform="translate(42 100)">
+      <path class="o" style="stroke-width:2" fill="#d9ecff" d="M-42 -100 Q-50 -130 -76 -136 Q-86 -116 -62 -102 Q-52 -97 -42 -100 Z"/>
+      <path class="o" style="stroke-width:2" fill="#d9ecff" d="M-42 -98 Q-62 -99 -74 -84 Q-62 -72 -50 -83 Q-45 -90 -42 -98 Z"/>
+      <path fill="none" stroke="#8fb8e6" stroke-width="1.1" stroke-linecap="round" d="M-45 -103 Q-58 -118 -72 -129 M-48 -102 Q-62 -109 -75 -117 M-46 -96 Q-58 -92 -67 -84"/>
+    </g>
+  </g>
+
+  <!-- The fee herself: krijtstreep, a tidy bun, reading glasses. Joint at her feet. -->
+  <g id="fee" data-parent="wolk" transform="translate(-34 -50)">
+    <g transform="translate(34 50)">
+      <path class="o" style="stroke-width:2" fill="#3b4660" d="M-40 -64 L-35 -64 L-35 -52 L-40 -52 Z M-32 -64 L-27 -64 L-27 -52 L-32 -52 Z"/>
+      <path class="o" style="stroke-width:2" fill="#1d1a1c" d="M-41 -54 L-33.6 -54 Q-30 -53.6 -29.6 -50 L-41 -50 Z M-33 -54 L-25.6 -54 Q-22 -53.6 -21.6 -50 L-33 -50 Z"/>
+      <path class="o" fill="#1c2947" d="M-44 -82 L-24 -82 L-25 -62 L-43 -62 Z"/>
+      <path class="p" d="M-40 -80 L-39.4 -64 M-34 -80 L-34 -64 M-28 -80 L-28.6 -64"/>
+      <!-- the arm she keeps on her hip -->
+      <path class="o" style="stroke-width:2" fill="#26365c" d="M-44 -105 Q-52 -99 -51.6 -88 L-46.6 -84 L-43.6 -88 Q-45 -94 -41.6 -100 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="-47.4" cy="-84.6" r="3.2"/>
+      <path class="o" fill="#26365c" d="M-46 -80 Q-48 -98 -44 -106 Q-41 -111 -34 -111 Q-27 -111 -24 -106 Q-20 -98 -22 -80 Z"/>
+      <path class="p" d="M-42.4 -103 L-43 -82 M-38 -108 L-38.6 -82 M-30 -108 L-29.4 -82 M-25.6 -103 L-25 -82"/>
+      <path class="k" fill="#fffdf5" d="M-38.4 -110.6 L-29.6 -110.6 L-34 -99 Z"/>
+      <circle class="k" fill="#f0c53a" cx="-27.4" cy="-100.6" r="1.9"/>
+      <rect class="o" style="stroke-width:1.8" fill="#dba27f" x="-36.8" y="-115" width="5.8" height="6" rx="1.5"/>
+      <ellipse class="o" style="stroke-width:2.2" fill="#efc09a" cx="-33" cy="-122" rx="10" ry="10.6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#b9772c" cx="-42" cy="-132.4" r="5"/>
+      <path class="k" fill="#f0c53a" d="M-42.0 -135.0 L-41.4 -133.3 L-39.5 -133.2 L-41.0 -132.1 L-40.5 -130.3 L-42.0 -131.3 L-43.5 -130.3 L-43.0 -132.1 L-44.5 -133.2 L-42.6 -133.3 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#b9772c" d="M-43.4 -120 Q-45.6 -134 -33 -133.6 Q-22.4 -133.6 -23 -124.6 Q-27 -129.8 -33.6 -129 Q-39.8 -128.2 -40.6 -118.6 Z"/>
+      <path class="o" style="stroke-width:1.5" fill="#efc09a" d="M-23.6 -124 Q-19 -121.6 -23.4 -119"/>
+      <circle class="n" fill="#f2a48f" cx="-29.4" cy="-118.6" r="2"/>
+      <circle class="n" fill="#2b1b16" cx="-27.4" cy="-123.6" r="1.25"/>
+      <circle fill="none" stroke="#2b1b16" stroke-width="1.2" cx="-27.4" cy="-123.6" r="3.8"/>
+      <path class="t" style="stroke-width:1.1" d="M-31.2 -124 L-40.6 -125.4"/>
+      <path class="t" style="stroke-width:1.3" d="M-30 -116.4 Q-27 -113.8 -24.2 -116.6"/>
+    </g>
+  </g>
+
+  <!-- The arm with the wand. As drawn it is up, mid-wave. Joint at her shoulder. -->
+  <g id="arm" data-parent="fee" transform="translate(-25 -104)">
+    <g transform="translate(25 104)">
+      <path class="t" style="stroke-width:3.6" d="M-9 -123 L9 -138"/>
+      <path fill="none" stroke="#fffdf5" stroke-width="1.6" stroke-linecap="round" d="M-9 -123 L9 -138"/>
+      <path class="t" style="stroke-width:8.6" d="M-25 -105 L-11 -121"/>
+      <path fill="none" stroke="#26365c" stroke-width="5.6" stroke-linecap="round" d="M-25 -105 L-11 -121"/>
+      <path fill="none" stroke="#fffdf5" stroke-width="5.6" d="M-13.2 -118.4 L-11.4 -120.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="-9" cy="-123" r="3.7"/>
+      <path class="k" fill="#ffd21f" d="M11.0 -147.6 L12.9 -142.7 L18.2 -142.3 L14.1 -139.0 L15.5 -133.9 L11.0 -136.7 L6.5 -133.9 L7.9 -139.0 L3.8 -142.3 L9.1 -142.7 Z"/>
+    </g>
+  </g>
+
+  <!-- What the wand gives off. Joints in their middles. -->
+  <g id="ster_a" data-parent="arm" transform="translate(27 -131)">
+    <path class="k" style="stroke-width:1" fill="#fff3a8" d="M0 -4.6 L1.3 -1.3 L4.6 0 L1.3 1.3 L0 4.6 L-1.3 1.3 L-4.6 0 L-1.3 -1.3 Z"/>
+  </g>
+  <g id="ster_b" data-parent="arm" transform="translate(-4 -142)">
+    <path class="k" style="stroke-width:1" fill="#fff3a8" d="M0 -3.4 L1.0 -1.0 L3.4 0 L1.0 1.0 L0 3.4 L-1.0 1.0 L-3.4 0 L-1.0 -1.0 Z"/>
+  </g>
+
+  <!-- The case everything ends up in. Open, and already well filled. Joint under its middle. -->
+  <g id="koffer" data-parent="wolk" transform="translate(50 -50)">
+    <circle data-mount="slot" fill="none" cx="0" cy="-26" r="1"/>
+    <g transform="translate(-50 50)">
+      <path class="o" fill="#7a4d2c" d="M20 -70 L80 -70 L72 -108 L12 -108 Z"/>
+      <path class="k" fill="#e9c46a" d="M25.4 -74 L74.6 -74 L68.2 -103.6 L18.4 -103.6 Z"/>
+      <path fill="none" stroke="#c9a35a" stroke-width="1.2" stroke-linecap="round" d="M24 -84 L71.6 -84"/>
+      <circle class="k" fill="#ffd21f" cx="31" cy="-72.6" r="5.6"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="1.2" stroke-linecap="round" d="M28 -74.19999999999999 Q29.4 -76.19999999999999 31.6 -76.39999999999999"/>
+      <circle class="k" fill="#ffd21f" cx="42" cy="-75.6" r="5.6"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="1.2" stroke-linecap="round" d="M39 -77.19999999999999 Q40.4 -79.19999999999999 42.6 -79.39999999999999"/>
+      <circle class="k" fill="#ffd21f" cx="53" cy="-73" r="5.6"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="1.2" stroke-linecap="round" d="M50 -74.6 Q51.4 -76.6 53.6 -76.8"/>
+      <circle class="k" fill="#ffd21f" cx="63" cy="-76" r="5.6"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="1.2" stroke-linecap="round" d="M60 -77.6 Q61.4 -79.6 63.6 -79.8"/>
+      <circle class="k" fill="#ffd21f" cx="71.6" cy="-72.6" r="5.6"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="1.2" stroke-linecap="round" d="M68.6 -74.19999999999999 Q70.0 -76.19999999999999 72.19999999999999 -76.39999999999999"/>
+      <path class="o" fill="#8a5a34" d="M20 -70 L80 -70 L78 -50 L22 -50 Z"/>
+      <path class="k" fill="#f0c53a" d="M20.6 -69.4 L29 -69.4 L21.4 -62 Z M79.4 -69.4 L71 -69.4 L78.6 -62 Z"/>
+      <rect class="k" fill="#f0c53a" x="33" y="-71" width="5" height="6" rx="1"/>
+      <rect class="k" fill="#f0c53a" x="62" y="-71" width="5" height="6" rx="1"/>
+      <path class="t" style="stroke-width:2.2" d="M44 -57 L44 -61.6 Q44 -64 46.4 -64 L53.6 -64 Q56 -64 56 -61.6 L56 -57"/>
+      <rect class="k" fill="#f0c53a" x="47.4" y="-58.6" width="5.2" height="4.6" rx="1"/>
+    </g>
+  </g>
+
+  <!-- The front of the cloud, so she and her case sit in it instead of on it. -->
+  <g id="wolk_voor" data-parent="wolk" transform="translate(0 -36)">
+    <g transform="translate(0 36)">
+      <path class="o" fill="#ffffff" d="M-70 -24 Q-82 -24 -82 -34 Q-82 -44 -70 -44 Q-64 -54 -50 -48 Q-40 -56 -28 -48 Q-16 -54 -6 -46 Q6 -54 18 -46 Q30 -54 44 -47 Q56 -54 66 -46 Q80 -46 82 -36 Q84 -24 72 -24 Z"/>
+      <path fill="none" stroke="#c7d9f2" stroke-width="1.6" stroke-linecap="round" d="M-62 -32 Q-52 -27 -42 -31 M-8 -31 Q4 -26 16 -31 M44 -32 Q54 -28 62 -32"/>
+    </g>
+  </g>
+
+  <!-- Somebody else's money, on its way into the case. Joints in the middle of each coin. -->
+  <g id="munt_a" transform="translate(64 -96)">
+    <circle class="o" style="stroke-width:2" fill="#ffd21f" cx="0" cy="0" r="6.6"/>
+    <circle fill="none" stroke="#c99a12" stroke-width="1.1" cx="0" cy="0" r="3.8"/>
+    <path fill="none" stroke="#fff6c8" stroke-width="1.4" stroke-linecap="round" d="M-3.6 -2.6 Q-2 -4.6 0.6 -4.8"/>
+  </g>
+  <g id="munt_b" transform="translate(84 -118)">
+    <circle class="o" style="stroke-width:2" fill="#ffd21f" cx="0" cy="0" r="6.6"/>
+    <circle fill="none" stroke="#c99a12" stroke-width="1.1" cx="0" cy="0" r="3.8"/>
+    <path fill="none" stroke="#fff6c8" stroke-width="1.4" stroke-linecap="round" d="M-3.6 -2.6 Q-2 -4.6 0.6 -4.8"/>
+  </g>
+  <g id="munt_c" transform="translate(104 -138)">
+    <circle class="o" style="stroke-width:2" fill="#ffd21f" cx="0" cy="0" r="6.6"/>
+    <circle fill="none" stroke="#c99a12" stroke-width="1.1" cx="0" cy="0" r="3.8"/>
+    <path fill="none" stroke="#fff6c8" stroke-width="1.4" stroke-linecap="round" d="M-3.6 -2.6 Q-2 -4.6 0.6 -4.8"/>
+  </g>
+</svg>

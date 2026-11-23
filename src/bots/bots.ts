@@ -54,6 +54,11 @@ function special(s: SimState, side: Side): Command | null {
     case 'stun':
       worth = foe.units.length >= 3 && fighting >= 2;
       break;
+    case 'divert':
+      // The income comes this way whenever it is used. It pays most while units
+      // are being beaten, because the enemy's bounties come along: so in a fight.
+      worth = fighting >= 1 || foe.units.some((u) => u.act === 'attack');
+      break;
     case 'buff':
       worth = fighting >= 2;
       break;

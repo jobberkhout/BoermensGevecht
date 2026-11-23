@@ -23,10 +23,17 @@ rules and the controls; read it once.
 
 What matters for this job:
 
-- **A faction brings looks, words and three specials. It brings no numbers.** Price, hit points, damage and
+- **A faction brings looks, words, three specials and a temperament.** Price, hit points, damage and
   speed belong to the role (light, ranged, heavy, schild, super unit) and the era (1975, 2025, 2050), and
-  are the same for every faction. They live in `src/defs/balance.ts`. Do not change that file, apart from
-  the numbers of a new special (see "A special of a kind that does not exist yet").
+  are the same for every faction. They live in `src/defs/balance.ts`. Do not change those, apart from
+  the numbers of a new special (see "A special of a kind that does not exist yet"). What a faction does
+  bring is a small twist on them that makes its units feel like its own: its temperament, a table in its
+  own sheet (see Step 1).
+- **The owner wants the factions to play differently, not only look different.** On 23 November 2026:
+  "later factions should have some more variation in what the units do." A temperament is the least a
+  new faction brings. If its brief gives a unit something of its own to do, build it; if it does not,
+  propose one in the pull request without building it. The ideas and the rules for them are in
+  `docs/factions.md` under "How the factions play differently".
 - **All art is SVG written by hand**, one file per drawing, cut into parts that the game animates like a
   paper puppet. There are no image files, no sound files and no art tools: you write the SVG as text,
   look at a screenshot of it, and improve it.
@@ -95,11 +102,25 @@ After this step the game knows the faction and the tests tell you everything tha
      flies, in pixels; 14 for something that flies flat, 70 to 100 for a lob), `spin` (turns per second,
      0 to stay upright) and `splash` (the colour of the puff where it lands).
    - `special`: one of the kinds in Step 2, with its numbers from `SPECIAL` in `src/defs/balance.ts`.
+   - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
+     role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
+     `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
+     only, `range`. 100 or left out means "as everyone". Rules: nothing further than 30% from the shared
+     number, the super unit is left alone, and every plus is paid for with a minus. Take it from the
+     brief; if the brief has none, write one that fits who they are and say so in the pull request.
+     `tests/temper.test.ts` checks the limits. Then run `npm run balance -- --pairs`: your faction should
+     win between 44% and 56% against each of the others, in both seats. If it does not, soften the twist
+     that helps it most, or strengthen the one that costs it most, and run it again. That fitting is part
+     of the job; changing the shared numbers or another faction's table is not. Do not go further than
+     that: a faction may well be better at one way of playing than at another, and the owner wants it
+     so ("different strategies should pay off").
 3. **Register it** in `src/defs/index.ts`: import it and add it to `FACTIONS`. Do **not** add it to
    `FACTION_IDS` yet. That list is what the players can pick, and a faction only goes on it when its last
    drawing is done; until then its rules and texts are tested but nobody can pick a half-drawn faction.
 4. **Its text sheet**, `src/ui/factions/<faction>.ts`. Copy `src/ui/factions/zuidas.ts`. Everything is in
-   Dutch and comes from the brief: `name`, `place`, `money`, the `win` lines, `unmoved` (what its super
+   Dutch and comes from the brief: `name`, `place`, `trait` (its temperament in two or three words, such
+   as "taai en traag"; it stands next to the name on the title card and must be true of the `TEMPER`
+   table), `money`, the `win` lines, `unmoved` (what its super
    unit says when an enemy special does nothing to it), and per id a name and a one-line description
    (`blurbs`), plus four or five lines per era to shout when walking out (`battleCry`) and to mutter when
    beaten (`slinkOff`). The ids are `<prefix>.<era>.light`, `.ranged`, `.heavy`, `.shield` or `.super`,
@@ -129,21 +150,22 @@ Every era has its own special, and the three must be of different kinds. These k
 | `barrage` | A number of blows, one after another, on the foremost enemy unit, or the base | A small `static` drawing around (0,0) with an `idle` clip, about 78 by 46. Up to six hover in formation over the victim and dive one by one. Example: `achterhoek/2050/special_zwerm` |
 | `snipe` | Damage that starts with the toughest enemy unit and carries on to the next | A `static` drawing around (0,0), about 120 by 120. It drops out of the sky onto each victim. Example: `havermelk/2050/special_algoritme` |
 | `convert` | The toughest enemy unit changes sides | A `static` drawing around (0,0), about 120 by 120. It drops onto the bought unit. Example: `zuidas/2025/special_overname` |
+| `divert` | For a few seconds everything the enemy earns is paid to you instead: their income and their bounties | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, like the one of a `buff`: it stands beside your own base for as long as it lasts. It needs a marker `slot` where the money goes in; the game makes coins fly there from the enemy's purse and from every unit they beat. Example: `zuidas/2050/special_succesfee` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
 
 **Numbers.** A special of an existing kind takes the numbers of the existing special of that kind in the
-same era. In another era, scale damage by the era's power: 1 for 1975, 2.4 for 2025, 5.6 for 2050 (the
-Flitskrach of 2050 is the Trekkerkolonne of 2025 times 5.6 / 2.4). Add an entry to `SPECIAL` in
+same era. In another era, scale damage by the era's power: 1 for 1975, 2.4 for 2025, 5.6 for 2050. Add an
+entry to `SPECIAL` in
 `src/defs/balance.ts` with a one-line comment, as the others have. Do not tune: balance between factions
 is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
 `docs/factions.md` plans four more kinds: slow, summon, block and lockout. If your faction needs one, you
-build the kind. `convert` was added that way; search the code for `convert` and `converted` and you have
-the complete example. The places, in order:
+build the kind. `convert` and `divert` were added that way; search the code for `convert` and `converted`,
+or for `divert` and `diverted`, and you have a complete example of each. The places, in order:
 
 1. `src/defs/types.ts`: a new member of the `SpecialDef` union, with the fields it needs.
 2. `src/defs/balance.ts`: its numbers, under `SPECIAL`.
@@ -378,6 +400,8 @@ All of these, in this order:
 
 - [ ] All 29 drawings exist, with their animations, and each was looked at in its own rig page.
 - [ ] The faction is in `FACTION_IDS` and can be picked on the title screen, on either side.
+- [ ] It has a temperament and a `trait` that says the same in words, and `npm run balance -- --pairs`
+      shows it between 44% and 56% against every other faction, in both seats, without a stall.
 - [ ] Staged battles on both sides and against itself were looked at, picture by picture.
 - [ ] `npx tsc --noEmit`, `npm test` and `npm run e2e` are green, the last in all three engines.
 - [ ] `BoermensGevecht.html` was rebuilt after the last change and is committed.
@@ -417,3 +441,7 @@ De Zuidas was built that way, in three sittings.
   add or change rules of the game on the way. If something in the rules gets in your way, write it in the
   pull request and leave it.
 - **Calling it done on the word of a helper.** Look at the pictures yourself.
+- **A joke the brief itself rules out.** Every faction's section in `docs/factions.md` ends with a list
+  called "Stay away from". Read it again before you name or draw anything that is not literally in the
+  brief. A special for De Zuidas was once built and drawn as a letterbox company, which is on its list;
+  it had to be renamed and redrawn before it could ship.

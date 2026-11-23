@@ -47,6 +47,8 @@ export interface Summary {
   tick: number;
   winner: unknown;
   units: [number, number];
+  /** What is in each purse. */
+  gold: [number, number];
   baseHp: [number, number];
   era: [number, number];
   subsidy: [number, number];
@@ -139,6 +141,7 @@ export function installTestHooks(game: Game): void {
       tick: game.state.tick,
       winner: game.state.winner,
       units: [game.state.sides[0].units.length, game.state.sides[1].units.length],
+      gold: [game.state.sides[0].gold, game.state.sides[1].gold],
       baseHp: [game.state.sides[0].baseHp, game.state.sides[1].baseHp],
       era: [game.state.sides[0].era, game.state.sides[1].era],
       subsidy: [game.state.sides[0].subsidy, game.state.sides[1].subsidy],

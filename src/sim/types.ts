@@ -82,6 +82,8 @@ export interface SideState {
   buffUntil: number;
   buffDmgPercent: number;
   buffSpeedPercent: number;
+  /** Until this tick whatever this side earns is paid to the other side instead: its income and its bounties. */
+  divertedUntil: number;
 }
 
 export interface Shot {
@@ -177,7 +179,8 @@ export type SimEvent =
   | { t: 'strike'; side: Side; id: number; ranged: boolean }
   | { t: 'hit'; side: Side; id: number; amount: number; pos: number }
   | { t: 'defeat'; side: Side; id: number; def: string; pos: number }
-  | { t: 'gold'; side: Side; amount: number; pos: number }
+  /** `side` is paid for a unit beaten at `pos`. With `diverted` it was the other side that beat it, and the money was sent this way. */
+  | { t: 'gold'; side: Side; amount: number; pos: number; diverted?: true }
   | { t: 'baseHit'; side: Side; amount: number }
   | { t: 'turretBuilt'; side: Side; slot: number; how: 'build' | 'replace' | 'upgrade'; level: number }
   | { t: 'turretFire'; side: Side; slot: number }
@@ -191,6 +194,10 @@ export type SimEvent =
   | { t: 'glance'; side: Side; id: number; amount: number; pos: number }
   /** Unit `id` was bought over and now fights for `side`, standing at `pos` in that side's frame. */
   | { t: 'converted'; side: Side; id: number; def: string; pos: number }
+  /** For the next `ticks` ticks whatever `side` earns is paid to the other side instead. */
+  | { t: 'diverted'; side: Side; ticks: number }
+  /** The regular income of the other side was paid to `side` instead. */
+  | { t: 'skimmed'; side: Side; amount: number }
   /** An enemy special had no effect on these units of `side`. */
   | { t: 'shrugged'; side: Side; ids: number[] }
   /** The algorithm came down on unit `id` of `side`. */
@@ -198,7 +205,6 @@ export type SimEvent =
   /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */
   | { t: 'barrageHit'; side: Side; id: number; pos: number }
   | { t: 'overtime' }
-  /** Overtime turned the screw: units now hit `percent` of their normal damage harder. */
   /** Overtime turns the screw: units now hit `percent` harder than normal, and turrets have `turrets` percent of their damage left. */
   | { t: 'escalate'; level: number; percent: number; turrets: number }
   /** Overtime has gone on so long that both bases start to crumble. */

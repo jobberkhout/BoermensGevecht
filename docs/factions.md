@@ -55,8 +55,10 @@ Besides the drawings a faction needs words: a name and a one-line description fo
 bought, a handful of lines to shout when walking out and to mutter when beaten (per era), a name for its
 money, a line for when it wins, and the line its super unit says when an enemy special passes it by.
 
-**Numbers.** A faction brings no numbers of its own. Price, hit points, damage, speed and build time come
-from the role and the era, the same for everyone (`src/defs/balance.ts`). Factions differ in looks, in
+**Numbers.** Price, hit points, damage, speed and build time come from the role and the era, the same for
+everyone (`src/defs/balance.ts`). On top of those a faction brings its **temperament**: a small twist per
+role, the same in every era, that makes its units feel like its own. See
+[How the factions play differently](#how-the-factions-play-differently). Factions also differ in looks, in
 what they throw, and in their three specials.
 
 **Tone.** It is satire, in small jokes: a detail in a drawing, a line a unit mutters, a name. Nobody is
@@ -107,23 +109,32 @@ would be a little over 2 MB, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Seven kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Eight kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
-| Wave | Sweeps the lane and hits every enemy unit once | Trekkerkolonne, Flitskrach |
+| Wave | Sweeps the lane and hits every enemy unit once | Trekkerkolonne |
 | Stun | Enemy units can neither walk nor fight for a few seconds | Wegblokkade |
 | Buff | Own units hit harder and move faster for a few seconds | Høken!, De gong |
 | Heal | Own units on the lane are patched up | Love-in |
 | Barrage | Repeated blows on the foremost enemy unit, or the base | Dronezwerm |
 | Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
 | Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
+| Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
 the row with the most room there. It costs nothing but the special and pays no bounty. A super unit
 cannot be bought. If the unit is beaten on the very tick it is bought, the deal is off. Two takeovers on
 the same tick make the two units swap sides, whoever pressed first.
+
+**Divert, as built** (23 November 2026, at the owner's request: the special De Zuidas had in 2050, a wave
+called Flitskrach, was too weak and had nothing to do with money). For five seconds whatever the enemy
+earns lands in your purse: the income that comes in every second, and the bounty for every unit they beat,
+your own units included. That last part is what makes the timing matter: used just before an expensive
+unit of yours goes down, its bounty comes back to you. Nothing is taken from what the enemy already has,
+they keep the vooruitgang they earn, and it is not aimed at units, so a super unit has nothing to shrug
+off. Two sides that do it to each other on the same tick simply swap what they earn.
 
 New kinds the rest of this plan asks for:
 
@@ -141,7 +152,7 @@ The twenty-one specials at a glance:
 
 | Faction | 1975 | 2025 | 2050 |
 |---|---|---|---|
-| De Zuidas | De gong (buff) | Vijandige overname (convert) | Flitskrach (wave) |
+| De Zuidas | De gong (buff) | Vijandige overname (convert) | De Succesfee (divert) |
 | Carnaval | De Polonaise (wave) | Elf Kanonschoten (barrage) | De Kater (slow) |
 | De Friezen | De winter van '63 (slow) | It giet oan! (wave) | Kunstijs (stun) |
 | Rotterdam | Mouwen opstropen! (buff) | De container (block) | De kering sluit (wave) |
@@ -152,15 +163,76 @@ The twenty-one specials at a glance:
 The kinds are a first assignment by theme. Which special gets which kind can still be shuffled when the
 balance is looked at; the names and the drawings stay.
 
+## How the factions play differently
+
+**What is built: temperament.** Since 23 November 2026 every faction puts a small twist on the shared
+numbers, per role and the same in every era. It is shown as two or three words next to the faction's name
+on the title card.
+
+| Faction | On the title card | Light | Ranged | Heavy | Schild |
+|---|---|---|---|---|---|
+| Achterhoek | taai en traag | +15% hit points, 10% slower, 20% longer between blows | +15% damage, 20% longer between throws | as the light unit | +15% hit points, 10% slower |
+| Havermelkelite | snel en licht | 15% faster, 15% fewer hit points, 10% cheaper | throws 10% further, 10% softer | 15% faster, 10% fewer hit points | 10% faster, 10% fewer hit points |
+| De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows | the same, and 10% dearer for 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
+
+The rules a temperament keeps (`tests/temper.test.ts` holds them):
+
+- No number strays more than 30% from the shared one.
+- It twists price, time in training, hit points, speed, damage, the pause between blows, and for units
+  that throw their reach. Nothing else: bases, turrets, income, the price of modernizing and the super
+  units are the same for everyone, and so is what makes a role the role it is (the heavy unit hits
+  everything in reach, the schild draws the turrets' fire).
+- Every plus is paid for with a minus, and the three are fitted to each other with bot matches, not to a
+  faction without a twist. The farmers' and Amsterdam's twists each win about 57% of bot matches against
+  a faction on the bare shared numbers, so De Zuidas' was made to be worth about as much. With the three
+  as they are, no faction wins more than 56% against another, in either seat.
+- A price premium is the dangerous twist. With 10% on every unit and 10% more damage for it, De Zuidas
+  lost seven bot matches in ten: fewer units on the lane is not made up for by each hitting a little
+  harder. That is why its cheapest unit costs what everybody's does, and why its dearer units strike
+  both harder and more often.
+
+**What is asked for next: units that do different things.** The owner, on 23 November 2026: "later
+factions should have some more variation in what the units do. Now they are all quite the same which is
+fine, but it would be fun if the factions differ in gameplay a bit as well." So from the next faction on,
+a faction should bring more than a temperament: one or two units that *behave* differently from the unit
+in the same slot elsewhere. The slots stay (light, ranged, heavy, the fourth unit), so any two factions can
+still play each other and the buttons mean the same everywhere.
+
+None of the following is built or decided. They are ways a unit could differ that the rules can carry
+without becoming a different game, as a starting point for whoever writes the next faction's brief:
+
+| A unit that | For example | What it needs in the rules |
+|---|---|---|
+| hits everything in reach while being cheap and weak | a light unit with the heavy unit's sweep | nothing new: `cleave` exists |
+| throws something that also hits whoever stands behind the target | a ranged unit with a splash | a radius on the shot |
+| heals or speeds up the allies next to it instead of fighting | a support unit in the ranged slot | an aura, read every tick |
+| is two weak units for the price of one | a pair that walks out together | spawning two from one queue item |
+| leaves something behind when beaten | a heavy unit that drops a light one | a spawn on defeat |
+| charges: fast until it first hits something, slow after | a heavy unit that arrives early | a speed that depends on its state |
+| cannot be hit by ranged units, only in melee | a low, quick unit | a flag the shots respect |
+| earns money while it lives | a unit that brings in a little every second | income per unit, on top of the subsidie |
+
+Two things to hold on to when one of these is built: it must keep working mirrored (both players press on
+the same tick, seats swapped, same outcome), and a unit's blurb on the title card must say in plain words
+what is different about it, because nobody reads numbers during a match.
+
 ## Balance
 
 Decided on 22 November 2026: balance between factions is looked at **once all factions are in**, not per
-faction. Until then a new faction ships on the shared numbers, with specials set by feel.
+faction. Until then a new faction ships on the shared numbers with its own temperament on top, fitted
+with bot matches so that it wins between 44% and 56% against each of the others, and with specials set
+by feel. That is a guard against a faction that is plainly too strong or too weak, not a balance pass:
+bots do not play like people.
 
-One thing is known and parked until then. Over a whole bot tournament the two existing factions come out
-even, but when both sides play the same way one of them usually wins: the Achterhoek in a light rush and
-in defensive play, Amsterdam when both build only heavies. The specials suit different styles. With nine
-factions and twenty-seven specials that will need a proper pass, with a check per style of play.
+**Different strategies should pay off.** Over a whole bot tournament the factions come out even, but when
+both sides play the same single style one of them nearly always wins, and which one depends on the style:
+De Zuidas when both only send cheap units or only heavies, Amsterdam when both only build a firing line,
+and so on. That was already so before the temperaments, because the specials suit different styles. The
+owner, on 23 November 2026, when I started evening that out: "no need to balance same style test.
+Different strategies should pay off. Like only rushing cheap units is something players do not do." So
+a faction that is better at one way of playing than at another is wanted, and matches in which both
+sides do one and the same thing are not a yardstick. What the balance pass looks at, once all factions
+are in, is whether every faction has a way to win against every other.
 
 ## The factions
 
@@ -245,11 +317,19 @@ on it wears a keycord in your colours over its head. It still mutters in its own
 | Heavy | `vergaderpod` | De Vergaderpod | A self-driving glass meeting room. The meeting inside has been going on for years | vehicle |
 | Turret | `turret_kwartaalcijfers` | De Kwartaalcijfers | Three analysts round a floating dashboard. They throw wedges of pie chart | static |
 | Its projectile | `shot_taartpunt` | | A wedge of pie chart | static |
-| Special | `special_flitskrach` | Flitskrach | A red chart line that plunges across the whole field. See below | static |
+| Special | `special_succesfee` | De Succesfee | A fee (fairy) in krijtstreep on a cloud, with a wand and an open case the coins fly into. See below | static |
 | Base | `base` | | The Spiegelpaleis grown up into the clouds. The builder's fence is still there | static |
 | **Super unit** | `gouden_handdruk` | De Gouden Handdruk | A colossal golden hand in a pinstriped cuff that walks on its fingers. It flattens by shaking hands, and when beaten it drifts off under a golden parachute | free |
 
-Special, **Flitskrach** (wave): the crash sweeps the lane and hits every enemy unit once.
+Special, **De Succesfee** (divert): for five seconds everything the enemy earns is paid to you instead,
+their income and what they get for beating units. The name is a pun that only works in Dutch: a *fee* is a
+fairy, and a *succesfee* is what a consultant charges when things go well. She floats beside your base for
+as long as it lasts, coins fly out of the enemy's purse into her case, and the enemy's purse says where
+its money is going.
+
+Until 23 November 2026 this was Flitskrach, a wave. A first version of the new special was called
+Brievenbusfirma and drawn as a letterbox; that was dropped before it shipped, because letterbox companies
+are on the list below.
 
 **Lines**
 

@@ -298,10 +298,16 @@ export class Game {
           case 'convert':
             // The deal itself is heard when it goes through; see 'converted'.
             break;
+          case 'divert':
+            this.sound.drain();
+            break;
         }
         break;
       case 'converted':
         this.sound.deal();
+        break;
+      case 'skimmed':
+        this.sound.coin();
         break;
       case 'overtime':
         this.sound.alarm();

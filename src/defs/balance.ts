@@ -145,8 +145,9 @@ export const PROGRESS = {
 } as const;
 
 // ---- Stats per role ---------------------------------------------------------
-// Both factions use the same numbers for the same role in the same era, so the
-// only differences between them are looks, projectiles and specials.
+// Every faction starts from the same numbers for the same role in the same
+// era. On top of them comes its temperament, further down: a small twist per
+// role that makes it feel like itself.
 
 export interface RoleStats {
   cost: number;
@@ -246,7 +247,7 @@ const FIRST = {
 } satisfies { light: Omit<RoleStats, 'bounty'>; ranged: Omit<RoleStats, 'bounty'>; heavy: Omit<RoleStats, 'bounty'>; turret: TurretStats };
 
 /** Share of a unit's price that the opponent earns for beating it. */
-const BOUNTY_PERCENT = 40;
+export const BOUNTY_PERCENT = 40;
 
 /**
  * Every era has a fourth unit, and it is the answer to turrets.
@@ -329,6 +330,57 @@ export const STATS: Record<EraKey, EraStats> = {
   '2050': { ...scaleEra('2050'), super: { ...SUPER, bounty: Math.round((SUPER.cost * BOUNTY_PERCENT) / 100) } },
 };
 
+// ---- Temperament ------------------------------------------------------------
+// What makes one faction play differently from another, besides its specials:
+// a twist per role on the shared numbers above, the same in every era. Farmers
+// are tough and slow, the havermelkelite is quick and frail, De Zuidas is dear
+// and prompt. Each faction's table is in its own sheet, src/defs/<faction>.ts.
+//
+// The twists are small on purpose, and a test holds them to TWIST_LIMIT: the
+// factions should feel different, not play a different game. Bases, turrets,
+// income and the price of modernizing are the same for everyone.
+
+/** What a faction changes about a role, each in percent of the shared number. Left out means 100: as everyone. */
+export interface Twist {
+  cost?: number;
+  /** Time in training. Less is sooner out of the door. */
+  buildTicks?: number;
+  hp?: number;
+  speed?: number;
+  /** Reach. Only for units that throw: a melee unit must keep reaching what it stops in front of. */
+  range?: number;
+  dmg?: number;
+  /** The pause after a blow before the next one starts. More is a slower hitter. */
+  recover?: number;
+}
+
+export type Temper = Partial<Record<'light' | 'ranged' | 'heavy' | 'shield' | 'super', Twist>>;
+
+/** No number may stray further than this from the shared one, in percent. */
+export const TWIST_LIMIT = 30;
+
+/** A twisted price is rounded to this, so it still looks like a price. */
+export const PRICE_STEP = 5;
+
+/** The shared numbers of a role with a faction's twist on them. The bounty follows the price. */
+export function twisted(stats: RoleStats, twist: Twist | undefined): RoleStats {
+  if (!twist) return stats;
+  const by = (value: number, percent: number | undefined): number =>
+    percent === undefined ? value : Math.max(1, Math.round((value * percent) / 100));
+  const cost = twist.cost === undefined ? stats.cost : Math.round((stats.cost * twist.cost) / 100 / PRICE_STEP) * PRICE_STEP;
+  return {
+    ...stats,
+    cost,
+    bounty: cost === stats.cost ? stats.bounty : Math.round((cost * BOUNTY_PERCENT) / 100),
+    buildTicks: by(stats.buildTicks, twist.buildTicks),
+    hp: by(stats.hp, twist.hp),
+    speed: by(stats.speed, twist.speed),
+    range: by(stats.range, twist.range),
+    dmg: by(stats.dmg, twist.dmg),
+    recover: by(stats.recover, twist.recover),
+  };
+}
+
 // ---- Turret levels ----------------------------------------------------------
 // A turret can be upgraded twice. Every upgrade makes it hit harder and reach
 // further down the lane: a new turret only guards the doorstep, a fully
@@ -368,8 +420,12 @@ export const SPECIAL = {
   zwerm: { strikes: 10, every: sec(0.4), dmg: 300 },
   /** 1975, De Zuidas: the gong opens trading. The same kind of trick as Høken, with the same numbers. */
   gong: { ticks: sec(7), dmgPercent: 135, speedPercent: 140 },
-  /** 2050, De Zuidas: a flash crash sweeps the lane. The convoy of 2025, scaled to the last era. */
-  flitskrach: { speed: pxPerSec(520), dmg: 112 },
+  /**
+   * 2050, De Zuidas: the success fee. For this long everything the enemy
+   * earns is paid to De Zuidas instead: the income that comes in every second
+   * and what they get for beating units. What they already have stays theirs.
+   */
+  succesfee: { ticks: sec(5) },
   /**
    * 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane,
    * and whatever outrage is left over goes to the next toughest, and so on.

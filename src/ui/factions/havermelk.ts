@@ -4,6 +4,7 @@ import type { FactionText } from './types.ts';
 export const havermelk: FactionText = {
   name: 'Havermelkelite',
   place: 'Amsterdam',
+  trait: 'snel en licht',
   money: 'cultuursubsidie',
   win: { head: 'De Havermelkelite wint!', sub: 'Super chill. Nog een flat white?' },
   unmoved: 'Gemute!',
