@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De Feestzaal: een trouwzaal voor 650 gasten</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    De Feestzaal: a wedding hall for 650 on the edge of town. White and gold, two rings on the gable,
+    fairy lights along the gutter, a red carpet out of the door and a decorated car waiting outside.
+    Origin = the gate on the road; the building stands to the left of it.
+  -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" stroke-linecap="round" d="M-288 -448 L-288 -552"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2.6" stroke-linecap="round" d="M-288 -448 L-288 -552"/>
+    <circle class="o" fill="#e6b422" cx="-288" cy="-556" r="4.6"/>
+
+    <!-- the gable with the two rings, clear of the flag -->
+    <path class="o" fill="#f6efe2" d="M-176 -452 L-176 -480 Q-110 -540 -40 -480 L-40 -452 Z"/>
+    <path class="t" style="stroke:#d9a63a;stroke-width:4" d="M-166 -456 L-166 -478 Q-110 -528 -50 -478 L-50 -456"/>
+    <circle fill="none" stroke="#2b1b16" stroke-width="8" cx="-120" cy="-484" r="13"/>
+    <circle fill="none" stroke="#e6b422" stroke-width="4.4" cx="-120" cy="-484" r="13"/>
+    <circle fill="none" stroke="#2b1b16" stroke-width="8" cx="-98" cy="-484" r="13"/>
+    <circle fill="none" stroke="#e6b422" stroke-width="4.4" cx="-98" cy="-484" r="13"/>
+    <path fill="none" stroke="#e6b422" stroke-width="4.4" d="M-107.3 -492.5 A13 13 0 0 1 -107.3 -475.5"/>
+    <circle class="n" fill="#ffffff" cx="-126" cy="-494" r="2"/>
+
+    <!-- the front -->
+    <rect class="o" fill="#f6efe2" x="-296" y="-446" width="292" height="446"/>
+    <path class="n" fill="#e9dfcb" d="M-294 -440 L-282 -440 L-282 -4 L-294 -4 Z M-18 -440 L-6 -440 L-6 -4 L-18 -4 Z"/>
+    <path class="t" style="stroke:#d9a63a;stroke-width:3" d="M-282 -440 L-282 -6 M-18 -440 L-18 -6"/>
+    <rect class="o" fill="#fbf6ea" x="-302" y="-456" width="304" height="12" rx="3"/>
+    <path class="t" style="stroke:#d9a63a;stroke-width:3" d="M-298 -447 L-2 -447"/>
+    <rect class="o" fill="#c9c2b6" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- two open floors for the turrets -->
+    <rect class="o" fill="#3a2e4a" x="-290" y="-432" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -306 L-12 -306 L-12 -294 L-288 -294 Z"/>
+    <rect class="o" fill="#3a2e4a" x="-290" y="-282" width="280" height="140"/>
+    <path class="n" fill="#4b3d63" d="M-288 -156 L-12 -156 L-12 -144 L-288 -144 Z"/>
+    <!-- a chandelier in each, from the old days of the hall -->
+    <path class="t" style="stroke:#8f84a6" d="M-150 -432 L-150 -414 M-150 -282 L-150 -264"/>
+    <path class="o" style="stroke-width:2" fill="#e6b422" d="M-162 -414 L-138 -414 L-144 -406 L-156 -406 Z M-162 -264 L-138 -264 L-144 -256 L-156 -256 Z"/>
+    <rect class="o" fill="#fbf6ea" x="-300" y="-292" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#fbf6ea" x="-300" y="-142" width="300" height="10" rx="3"/>
+    <path class="t" style="stroke:#d9a63a;stroke-width:2.4" d="M-298 -287 L-2 -287 M-298 -137 L-2 -137"/>
+
+    <!-- the ground floor: tall arched windows with the party inside -->
+    <path class="o" fill="#3a2e4a" d="M-272 -24 L-272 -96 Q-272 -118 -248 -118 Q-224 -118 -224 -96 L-224 -24 Z"/>
+    <path class="n" fill="#ffd98a" fill-opacity="0.75" d="M-266 -30 L-266 -95 Q-266 -112 -248 -112 Q-230 -112 -230 -95 L-230 -30 Z"/>
+    <path class="o" fill="#3a2e4a" d="M-210 -24 L-210 -96 Q-210 -118 -186 -118 Q-162 -118 -162 -96 L-162 -24 Z"/>
+    <path class="n" fill="#ffd98a" fill-opacity="0.75" d="M-204 -30 L-204 -95 Q-204 -112 -186 -112 Q-168 -112 -168 -95 L-168 -30 Z"/>
+    <path class="o" fill="#3a2e4a" d="M-148 -24 L-148 -96 Q-148 -118 -124 -118 Q-100 -118 -100 -96 L-100 -24 Z"/>
+    <path class="n" fill="#ffd98a" fill-opacity="0.75" d="M-142 -30 L-142 -95 Q-142 -112 -124 -112 Q-106 -112 -106 -95 L-106 -30 Z"/>
+    <!-- guests dancing behind the glass, the line dance going round -->
+    <path class="n" fill="#7a5a8a" d="M-256 -30 L-256 -52 Q-256 -60 -250 -60 Q-244 -60 -244 -52 L-244 -30 Z M-196 -30 L-196 -54 Q-196 -62 -190 -62 Q-184 -62 -184 -54 L-184 -30 Z M-134 -30 L-134 -52 Q-134 -60 -128 -60 Q-122 -60 -122 -52 L-122 -30 Z"/>
+    <circle class="n" fill="#7a5a8a" cx="-250" cy="-66" r="5"/>
+    <circle class="n" fill="#7a5a8a" cx="-190" cy="-68" r="5"/>
+    <circle class="n" fill="#7a5a8a" cx="-128" cy="-66" r="5"/>
+    <path fill="none" stroke="#7a5a8a" stroke-width="3" stroke-linecap="round" d="M-244 -50 L-232 -58 M-196 -50 L-206 -58 M-184 -50 L-172 -58 M-134 -50 L-144 -58"/>
+    <path class="t" style="stroke:#d9a63a;stroke-width:3" d="M-272 -96 Q-272 -118 -248 -118 Q-224 -118 -224 -96 M-210 -96 Q-210 -118 -186 -118 Q-162 -118 -162 -96 M-148 -96 Q-148 -118 -124 -118 Q-100 -118 -100 -96"/>
+
+    <!-- the entrance: a gold arch, a white canopy, and the doorway units come out of -->
+    <path class="o" fill="#e6b422" d="M-96 0 L-96 -104 Q-96 -134 -51 -134 Q-6 -134 -6 -104 L-6 0 Z"/>
+    <path class="o" fill="#241b26" d="M-86 0 L-86 -100 Q-86 -122 -51 -122 Q-16 -122 -16 -100 L-16 0 Z"/>
+    <path class="o" fill="#ffffff" d="M-102 -116 L0 -116 L6 -102 L-108 -102 Z"/>
+    <path class="n" fill="#e6b422" d="M-108 -102 L6 -102 L4 -98 L-106 -98 Z"/>
+    <path class="t" style="stroke:#d9a63a" d="M-100 -98 L-98 -94 M-88 -98 L-86 -94 M-76 -98 L-74 -94 M-64 -98 L-62 -94 M-52 -98 L-50 -94 M-40 -98 L-38 -94 M-28 -98 L-26 -94 M-16 -98 L-14 -94 M-4 -98 L-2 -94"/>
+    <!-- flowers either side of the door -->
+    <path class="o" style="stroke-width:2.4" fill="#ffffff" d="M-104 -14 L-100 -36 L-94 -36 L-90 -14 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#ff9ab8" cx="-100" cy="-42" r="5"/>
+    <circle class="o" style="stroke-width:2" fill="#ffffff" cx="-93" cy="-44" r="4"/>
+    <circle class="o" style="stroke-width:2" fill="#7fc4a4" cx="-96" cy="-49" r="3.6"/>
+
+    <!-- the red carpet, out of the door and onto the road -->
+    <path class="o" fill="#c4302b" d="M-88 -1 L-84 -6 L14 -6 L14 -1 Z"/>
+    <path class="n" fill="#e0524c" d="M-82 -5 L12 -5 L12 -4 L-82 -4 Z"/>
+
+    <!-- the car waiting outside: white, ribbons, balloons -->
+    <path fill="none" stroke="#6b5f55" stroke-width="1.2" d="M-208 -46 Q-212 -70 -222 -88 M-206 -46 Q-204 -72 -198 -92 M-204 -46 Q-196 -66 -182 -80"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#e8a23a" cx="-222" cy="-96" rx="8" ry="9.5"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#ffffff" cx="-198" cy="-101" rx="8" ry="9.5"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#7fc4a4" cx="-182" cy="-88" rx="8" ry="9.5"/>
+    <path class="o" fill="#f7f5f0" d="M-276 -10 Q-280 -10 -280 -14 L-279 -26 Q-276 -30 -266 -30 L-256 -44 Q-252 -48 -244 -48 L-218 -48 Q-212 -48 -208 -42 L-202 -30 L-178 -29 Q-172 -28 -172 -22 L-172 -14 Q-172 -10 -176 -10 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#bfe6f5" d="M-254 -32 L-248 -43 L-236 -43 L-236 -32 Z M-232 -32 L-232 -43 L-218 -43 Q-214 -43 -210 -32 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="4" stroke-linecap="round" d="M-204 -32 L-173 -21"/>
+    <path fill="none" stroke="#7fc4a4" stroke-width="2.2" stroke-linecap="round" d="M-204 -32 L-173 -21"/>
+    <path class="o" style="stroke-width:2" fill="#7fc4a4" d="M-190 -28 L-195 -35 L-191 -36 Z M-190 -28 L-184 -34 L-182 -30 Z"/>
+    <circle class="o" fill="#2a2a2e" cx="-260" cy="-9" r="9"/>
+    <circle class="o" style="stroke-width:2" fill="#c3c8cc" cx="-260" cy="-9" r="3.6"/>
+    <circle class="o" fill="#2a2a2e" cx="-190" cy="-9" r="9"/>
+    <circle class="o" style="stroke-width:2" fill="#c3c8cc" cx="-190" cy="-9" r="3.6"/>
+
+    <!-- fairy lights along the gutter -->
+    <path fill="none" stroke="#2b1b16" stroke-width="1.8" d="M-302 -452 Q-271.5 -428 -241 -452 M-241 -452 Q-210.5 -428 -180 -452 M-180 -452 Q-149.5 -428 -119 -452 M-119 -452 Q-88.5 -428 -58 -452 M-58 -452 Q-27.5 -428 3 -452"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-293.2 -443.3 Q-293.4 -435.8 -289.8 -434.8 Q-286.2 -435.8 -286.4 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#7fc4a4" d="M-281.0 -439.5 Q-281.2 -432.0 -277.6 -431.0 Q-274.0 -432.0 -274.2 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ff7a5c" d="M-268.8 -439.5 Q-269.0 -432.0 -265.4 -431.0 Q-261.8 -432.0 -262.0 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#6fb3ff" d="M-256.6 -443.3 Q-256.8 -435.8 -253.2 -434.8 Q-249.6 -435.8 -249.8 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-232.2 -443.3 Q-232.4 -435.8 -228.8 -434.8 Q-225.2 -435.8 -225.4 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-220.0 -439.5 Q-220.2 -432.0 -216.6 -431.0 Q-213.0 -432.0 -213.2 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#7fc4a4" d="M-207.8 -439.5 Q-208.0 -432.0 -204.4 -431.0 Q-200.8 -432.0 -201.0 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ff7a5c" d="M-195.6 -443.3 Q-195.8 -435.8 -192.2 -434.8 Q-188.6 -435.8 -188.8 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#6fb3ff" d="M-171.2 -443.3 Q-171.4 -435.8 -167.8 -434.8 Q-164.2 -435.8 -164.4 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-159.0 -439.5 Q-159.2 -432.0 -155.6 -431.0 Q-152.0 -432.0 -152.2 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-146.8 -439.5 Q-147.0 -432.0 -143.4 -431.0 Q-139.8 -432.0 -140.0 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#7fc4a4" d="M-134.6 -443.3 Q-134.8 -435.8 -131.2 -434.8 Q-127.6 -435.8 -127.8 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ff7a5c" d="M-110.2 -443.3 Q-110.4 -435.8 -106.8 -434.8 Q-103.2 -435.8 -103.4 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#6fb3ff" d="M-98.0 -439.5 Q-98.2 -432.0 -94.6 -431.0 Q-91.0 -432.0 -91.2 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-85.8 -439.5 Q-86.0 -432.0 -82.4 -431.0 Q-78.8 -432.0 -79.0 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-73.6 -443.3 Q-73.8 -435.8 -70.2 -434.8 Q-66.6 -435.8 -66.8 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#7fc4a4" d="M-49.2 -443.3 Q-49.4 -435.8 -45.8 -434.8 Q-42.2 -435.8 -42.4 -443.3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ff7a5c" d="M-37.0 -439.5 Q-37.2 -432.0 -33.6 -431.0 Q-30.0 -432.0 -30.2 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#6fb3ff" d="M-24.8 -439.5 Q-25.0 -432.0 -21.4 -431.0 Q-17.8 -432.0 -18.0 -439.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-12.6 -443.3 Q-12.8 -435.8 -9.2 -434.8 Q-5.6 -435.8 -5.8 -443.3 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The glow round each bulb, so they can twinkle. -->
+  <g id="glow0" transform="translate(-289.8 -438.3)">
+    <circle class="n" fill="#ffd21f" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow1" transform="translate(-277.6 -434.5)">
+    <circle class="n" fill="#7fc4a4" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow2" transform="translate(-265.4 -434.5)">
+    <circle class="n" fill="#ff7a5c" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow3" transform="translate(-253.2 -438.3)">
+    <circle class="n" fill="#6fb3ff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow4" transform="translate(-228.8 -438.3)">
+    <circle class="n" fill="#ffffff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow5" transform="translate(-216.6 -434.5)">
+    <circle class="n" fill="#ffd21f" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow6" transform="translate(-204.4 -434.5)">
+    <circle class="n" fill="#7fc4a4" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow7" transform="translate(-192.2 -438.3)">
+    <circle class="n" fill="#ff7a5c" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow8" transform="translate(-167.8 -438.3)">
+    <circle class="n" fill="#6fb3ff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow9" transform="translate(-155.6 -434.5)">
+    <circle class="n" fill="#ffffff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow10" transform="translate(-143.4 -434.5)">
+    <circle class="n" fill="#ffd21f" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow11" transform="translate(-131.2 -438.3)">
+    <circle class="n" fill="#7fc4a4" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow12" transform="translate(-106.8 -438.3)">
+    <circle class="n" fill="#ff7a5c" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow13" transform="translate(-94.6 -434.5)">
+    <circle class="n" fill="#6fb3ff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow14" transform="translate(-82.4 -434.5)">
+    <circle class="n" fill="#ffffff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow15" transform="translate(-70.2 -438.3)">
+    <circle class="n" fill="#ffd21f" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow16" transform="translate(-45.8 -438.3)">
+    <circle class="n" fill="#7fc4a4" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow17" transform="translate(-33.6 -434.5)">
+    <circle class="n" fill="#ff7a5c" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow18" transform="translate(-21.4 -434.5)">
+    <circle class="n" fill="#6fb3ff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+  <g id="glow19" transform="translate(-9.2 -438.3)">
+    <circle class="n" fill="#ffffff" fill-opacity="0.35" cx="0" cy="0" r="7"/>
+  </g>
+</svg>

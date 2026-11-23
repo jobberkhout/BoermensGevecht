@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -136 108 142" data-rig="humanoid">
+  <title>De Gastvrouw</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .bread { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; fill: #e8ad55; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm carries the stack out in front of her. Sleeve rolled up. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#b5722c" d="M-6 -3 Q-8 8 -5.5 17 L5.5 17 Q7.5 8 6 -3 Z"/>
+    <rect class="o" fill="#e9c08a" x="-6.5" y="13" width="12.5" height="5.5" rx="2"/>
+    <path class="o" fill="#a8724d" d="M-4 17 L22 22 L22 29 L-1 26 Q-6 24 -4 17 Z"/>
+    <circle class="o" fill="#a8724d" cx="23" cy="25.5" r="4.4"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#4a3a44" d="M-6 -3 L6 -3 L5 32 L-5 32 Z"/>
+    <path class="o" fill="#5a3a2a" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#5a4854" d="M-6 -3 L6 -3 L5 32 L-5 32 Z"/>
+    <path class="o" fill="#6b4632" d="M-7 33.5 Q-7 31.5 -4 31.5 L4 31.5 Q11 32 13 35.5 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#8a5e45" d="M3 33.2 Q8 33.4 10.6 35.4 L5 35 Z"/>
+  </g>
+
+  <!-- A long house dress in tea amber, a white apron over it, flour on the apron. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#d18a3c" d="M-14 -30 Q-11 -37 0 -37 Q12 -37 15 -30 Q18 -14 17 4 L21 30 L-20 30 L-16 4 Q-17 -14 -14 -30 Z"/>
+    <path class="n" fill="#b5722c" d="M-13 -28 Q-15.5 -12 -14.5 4 L-18.5 28 L-12.5 28 L-9.5 4 Q-10 -14 -13 -28 Z"/>
+    <path class="o" fill="#fbf7ee" d="M-2 -30 Q5 -32.5 12 -30 L13 -12 Q15 6 18 26 L-6 26 Q-4 6 -3 -12 Z"/>
+    <path class="t" style="stroke:#d9cdb5" d="M-3 -12 Q6 -10 13 -12"/>
+    <path class="t" d="M-3 -13 L-12 -14 M13 -13 L17 -14"/>
+    <path class="n" fill="#efe3c6" d="M2 2 Q4 0 6 2 Q4 4 2 2 Z M9 12 Q11.5 10 13 12.5 Q11 14 9 12 Z M0 18 Q1.5 16.5 3 18 Q1.5 19.5 0 18 Z"/>
+  </g>
+
+  <!-- The stack of msemen on a tiled plate, held out on her far arm. Joint under the plate. -->
+  <g id="stack" data-parent="arm_back" transform="translate(17 -47)">
+    <ellipse class="o" fill="#ffffff" cx="0" cy="1" rx="17" ry="3.8"/>
+    <path class="n" fill="#4a7fc0" d="M-12 1.5 L-9 1.5 L-9 3 L-12 3 Z M-3 2 L0 2 L0 3.6 L-3 3.6 Z M6 2 L9 2 L9 3.4 L6 3.4 Z"/>
+    <path class="bread" d="M-13 -4.5 L13 -4.5 Q14.8 -2.2 13 0 L-13 0 Q-14.8 -2.2 -13 -4.5 Z"/>
+    <path class="bread" d="M-12 -9 L13.5 -9 Q15.2 -6.8 13.5 -4.5 L-12 -4.5 Q-13.8 -6.8 -12 -9 Z"/>
+    <path class="bread" d="M-13.5 -13.5 L12.5 -13.5 Q14.2 -11.2 12.5 -9 L-13.5 -9 Q-15.2 -11.2 -13.5 -13.5 Z"/>
+    <path class="bread" d="M-12.5 -18 L13 -18 Q14.8 -15.8 13 -13.5 L-12.5 -13.5 Q-14.2 -15.8 -12.5 -18 Z"/>
+    <path class="n" fill="#c98a3a" d="M-6 -3 L-3 -3 L-4 -1.6 Z M5 -7.5 L8 -7.5 L7 -6 Z M-3 -12 L0 -12 L-1 -10.6 Z M7 -16.5 L10 -16.5 L9 -15 Z"/>
+  </g>
+
+  <!-- A tile-blue headscarf framing her face, as she wears it every day. -->
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <path class="o" fill="#4a7fc0" d="M-17 -18 Q-20 -44 3 -43.5 Q22 -43 22 -26 Q23 -12 19 -2 Q22 5 12 6 L-12 6 Q-21 2 -17 -18 Z"/>
+    <path class="n" fill="#3a6aa6" d="M-15 -14 Q-17 -32 -6 -39 Q-12 -28 -10 -14 Q-9 -2 -4 5 L-11 5 Q-17 2 -15 -14 Z"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-6" cy="-32" r="1.2"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="0" cy="-38" r="1.2"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-11" cy="-22" r="1.2"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-8" cy="-6" r="1.2"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-14" cy="-10" r="1.2"/>
+    <ellipse class="o" fill="#c98f66" cx="9.5" cy="-19" rx="11" ry="13.5"/>
+    <path class="t" style="stroke:#2f5a8f;stroke-width:3" d="M2.5 -30.5 Q9 -35 16 -31.5"/>
+    <!-- a warm look: you are staying for dinner -->
+    <path class="t" style="stroke-width:2" d="M5.5 -25 Q8.5 -27.5 11.5 -25.5 M14 -26 Q16.5 -27.5 19 -25.5"/>
+    <path class="t" style="stroke-width:2" d="M6.5 -20.5 Q8.5 -22.5 10.5 -20.5 M14.5 -20.5 Q16.5 -22.3 18.5 -20.5"/>
+    <path class="o" fill="#c98f66" d="M19.5 -17.5 Q24 -14.5 19.6 -12.2"/>
+    <ellipse class="n" fill="#e07a6a" fill-opacity="0.55" cx="7.5" cy="-13.5" rx="3" ry="1.8"/>
+    <path class="o" fill="#ffffff" style="stroke-width:1.8" d="M9.5 -10.5 Q14 -5 18.5 -10 Q14 -11.5 9.5 -10.5 Z"/>
+  </g>
+
+  <!-- The slipper: a burgundy house slipper with a fluffy band, open at the heel. Joint in her hand. -->
+  <g id="slipper" data-parent="arm_front" transform="translate(26 -74)">
+    <g transform="rotate(34)">
+      <!-- the sole, seen from above: narrow at the heel she holds, wide at the toe -->
+      <path class="o" fill="#6b4a3a" d="M-6.5 3 Q-8 -5 -8 -14 Q-9 -28 0 -31 Q9 -28 8 -14 Q8 -5 6.5 3 Q4 9 0 9 Q-4 9 -6.5 3 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f1e4cc" d="M-5 2 Q-6.2 -5 -6.4 -13 L6.4 -13 Q6.2 -5 5 2 Q3 6.5 0 6.5 Q-3 6.5 -5 2 Z"/>
+      <path class="n" fill="#e0cfb0" d="M-3.5 1 Q-4.3 -4 -4.5 -9 L-1.5 -9 Q-1.5 -4 -1 2 Z"/>
+      <!-- the upper over the toes -->
+      <path class="o" fill="#9b3a4a" d="M-7.5 -16 Q-9 -27 0 -30.5 Q9 -27 7.5 -16 Q0 -13 -7.5 -16 Z"/>
+      <path class="n" fill="#b8566a" d="M-4.5 -25 Q-1 -29 2 -28.5 Q-2 -26 -3.5 -21 Z"/>
+      <!-- the fluffy band -->
+      <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-8 -15 Q-6.5 -18 -4.5 -16 Q-2.5 -19 0 -16.5 Q2.5 -19 4.5 -16 Q6.5 -18 8 -15 Q6.5 -12 4.5 -13.5 Q2.5 -11 0 -13.5 Q-2.5 -11 -4.5 -13.5 Q-6.5 -12 -8 -15 Z"/>
+    </g>
+  </g>
+
+  <!-- The near arm, sleeve rolled up, slipper raised: eat first, or else. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#d18a3c" d="M-6 -3 Q-8 8 -6 16 L6 15 Q7.5 7 6 -3 Z"/>
+    <rect class="o" fill="#f0cd96" x="-6.8" y="12" width="13.5" height="5.5" rx="2"/>
+    <path class="o" fill="#c98f66" d="M-4.5 18 L12.5 -4 L18.5 0.5 L2.5 21.5 Q-4 22 -4.5 18 Z"/>
+    <circle class="o" fill="#c98f66" cx="16" cy="-2" r="4.6"/>
+    <path class="t" d="M13 -3.5 L17 -6"/>
+  </g>
+</svg>

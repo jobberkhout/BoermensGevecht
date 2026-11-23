@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-18 -18 36 36" data-rig="static">
+  <title>Een opgerolde hete handdoek, dampend</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="towel" transform="translate(0 0)">
+    <!-- the steam -->
+    <path fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" d="M-6 -9 Q-9 -12 -6 -15 M0 -9 Q-3 -12 0 -16 M6 -9 Q3 -12 6 -15"/>
+    <path fill="none" stroke="#b9c4cc" stroke-width="1" stroke-linecap="round" d="M-6 -9 Q-9 -12 -6 -15 M0 -9 Q-3 -12 0 -16 M6 -9 Q3 -12 6 -15"/>
+    <!-- the roll -->
+    <rect class="o" fill="#ffffff" x="-13" y="-7" width="26" height="15" rx="7.5"/>
+    <path class="n" fill="#e6ecef" d="M-11 4 L11 4 Q10 7 7 7 L-7 7 Q-10 7 -11 4 Z"/>
+    <path class="t" style="stroke:#b9c4cc" d="M-4 -6 L-4 7 M3 -6 L3 7"/>
+    <!-- the end of the roll, spiralling in -->
+    <ellipse class="o" style="stroke-width:2" fill="#f4f7f8" cx="11" cy="0.5" rx="4" ry="7"/>
+    <path class="t" style="stroke:#9aa6ae" d="M11 -3.5 Q8.5 0.5 11 4 Q13 2 11 0.5"/>
+  </g>
+</svg>

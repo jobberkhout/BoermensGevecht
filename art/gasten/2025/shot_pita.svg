@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -17 34 34" data-rig="static">
+  <title>Een vliegend pitabroodje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="bread" transform="translate(0 0)">
+    <circle class="o" fill="#efc988" cx="0" cy="0" r="13"/>
+    <path class="n" fill="#f7deb0" d="M-9 -6 Q-3 -11.5 5 -10 Q-2 -8.5 -8 -2 Z"/>
+    <!-- baked spots, and the seam where it puffed up -->
+    <path class="t" style="stroke:#c9934a;stroke-width:1.6" d="M-8 5 Q0 9 8 5"/>
+    <path class="n" fill="#d29a4e" d="M3 -3 Q5.5 -4 6 -1.5 Q4 -0.5 3 -3 Z M-5 2 Q-3 1 -2.5 3.5 Q-4.5 4 -5 2 Z M6 4 Q7.5 3.6 8 5 Q6.6 5.6 6 4 Z M-2 -6 Q0 -7 0.5 -5 Q-1 -4.2 -2 -6 Z"/>
+  </g>
+</svg>
