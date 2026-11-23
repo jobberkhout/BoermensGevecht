@@ -438,8 +438,8 @@ describe('the super unit', () => {
       run(s, 90 * 30);
       return { giant: s.sides[0].units.some((u) => u.id === giant.id), pack: s.sides[1].units.length };
     };
-    // Three heavies cost a little less than one super unit, six nearly twice as much.
-    expect(unitDef(heavy).cost * 3).toBeLessThan(unitDef(SUPER.hm).cost);
+    // On the shared numbers three heavies cost a little less than one super unit, six nearly twice as much.
+    expect(STATS['2050'].heavy.cost * 3).toBeLessThan(STATS['2050'].super!.cost);
     expect(fight(3)).toEqual({ giant: true, pack: 0 });
     const six = fight(6);
     expect(six.giant).toBe(false);

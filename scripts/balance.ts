@@ -4,6 +4,8 @@
  *   npm run balance                          Amsterdam against the Achterhoek, in full
  *   npm run balance -- zuidas achterhoek     any two factions (left, right), in full
  *   npm run balance -- --pairs               every pair of factions, one line each
+ *   npm run balance -- --mix                 every pair, both sides buying a mix (the 'mixed' bot), as
+ *                                            people play; 100 seeds unless --seeds says otherwise
  *   add --seeds=3                            fewer or more matches per pairing (default 6)
  *   add --all                                with a full report: every single match as well
  *
@@ -25,8 +27,8 @@ const flags = new Map(
       return [k!, v ?? '1'] as const;
     }),
 );
-const SEEDS = Number(flags.get('seeds') ?? 6);
-const names = [...Object.keys(BOTS), 'random'];
+const SEEDS = Number(flags.get('seeds') ?? (flags.has('mix') ? 100 : 6));
+const names = flags.has('mix') ? ['mixed'] : [...Object.keys(BOTS), 'random'];
 
 function faction(word: string): FactionId {
   const id = FACTION_IDS.find((f) => f === word);
@@ -118,8 +120,9 @@ function report(t: Tally): void {
   for (const n of names) console.log(`    ${n.padEnd(8)} ${pct(t.perBot[n]!.won, t.perBot[n]!.played)}`);
 }
 
-if (flags.has('pairs')) {
-  console.log(`every pair of factions, ${names.length * names.length * SEEDS} matches each; the share is of decided matches`);
+if (flags.has('pairs') || flags.has('mix')) {
+  const who = flags.has('mix') ? 'both sides buying a mix, ' : '';
+  console.log(`every pair of factions, ${who}${names.length * names.length * SEEDS} matches each; the share is of decided matches`);
   for (const left of FACTION_IDS) {
     for (const right of FACTION_IDS) {
       const t = tournament([left, right]);

@@ -47,12 +47,13 @@ card:
 | Faction | Its units are | In numbers |
 |---|---|---|
 | Achterhoek | taai en traag: tough and slow | 15% more hit points, 10% slower on the road, a 20% longer pause between blows. What they throw lands 15% harder |
-| Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. The cheapest unit costs 10% less. They throw from 10% further away, 10% softer |
-| De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Everything bigger than the cheapest unit costs 10% more and hits 10% harder |
+| Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. Every unit but the Havermelkreus costs 10% less. They throw from 10% further away, 10% softer |
+| De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 
-Bases, turrets, income, the super units and the price of modernizing are the same for everyone. The
-tables are in `src/defs/<faction>.ts`, a test keeps every twist within 30%, and in bot matches no
-faction wins more than 56% against another.
+Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
+units apart from their price. The tables are in `src/defs/<faction>.ts` and a test keeps every twist
+within 30%. How the factions fare against each other in bot matches, and what is still uneven, is in
+the Balance section of `docs/factions.md`.
 
 ## Working on it
 
@@ -126,7 +127,7 @@ Every action is also a button on screen.
   an expensive unit of your own goes down: its bounty comes back to you. What the enemy already has stays
   theirs, and so does the vooruitgang they earn.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
-  3000, takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
+  3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
   the schild it draws the fire of turrets and takes only a fifth of it. Six heavies or a steady supply of
   units still bring it down.

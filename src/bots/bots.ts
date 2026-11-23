@@ -1,4 +1,4 @@
-import { LANE, SUBSIDY } from '../defs/balance.ts';
+import { LANE, SUBSIDY, sec } from '../defs/balance.ts';
 import { eraOf, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
@@ -54,11 +54,20 @@ function special(s: SimState, side: Side): Command | null {
     case 'stun':
       worth = foe.units.length >= 3 && fighting >= 2;
       break;
-    case 'divert':
-      // The income comes this way whenever it is used. It pays most while units
-      // are being beaten, because the enemy's bounties come along: so in a fight.
-      worth = fighting >= 1 || foe.units.some((u) => u.act === 'attack');
+    case 'divert': {
+      // What the enemy earns for beating a unit comes this way while it lasts.
+      // So a player waits until one of their own big units is about to go down,
+      // the Gouden Handdruk above all, and then the fee pays for most of it.
+      // Once it has waited a while for that, it takes the income and whatever
+      // falls in the fight at hand.
+      const falling = me.units.some((u) => {
+        const def = unitDef(u.def);
+        return (def.role === 'super' || def.role === 'heavy') && u.hp * 4 <= def.hp;
+      });
+      const waited = s.tick - me.specialReadyAt >= sec(20);
+      worth = falling || (waited && (fighting >= 1 || foe.units.some((u) => u.act === 'attack')));
       break;
+    }
     case 'buff':
       worth = fighting >= 2;
       break;

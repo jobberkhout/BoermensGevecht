@@ -106,10 +106,15 @@ After this step the game knows the faction and the tests tell you everything tha
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
      only, `range`. 100 or left out means "as everyone". Rules: nothing further than 30% from the shared
-     number, the super unit is left alone, and every plus is paid for with a minus. Take it from the
-     brief; if the brief has none, write one that fits who they are and say so in the pull request.
-     `tests/temper.test.ts` checks the limits. Then run `npm run balance -- --pairs`: your faction should
-     win between 44% and 56% against each of the others, in both seats. If it does not, soften the twist
+     number, the super unit is left alone apart from its price, and every plus is paid for with a minus.
+     Take it from the brief; if the brief has none, write one that fits who they are and say so in the
+     pull request.
+     `tests/temper.test.ts` checks the limits. Then run `npm run balance -- --mix`, which has both sides
+     buy a mix, as people play: your faction should win between 44% and 56% against each of the others,
+     taking both seats together. The three factions there are not inside that band against each other
+     (see Balance in `docs/factions.md`), so when yours cannot be either, get it as close as you can and
+     say so. Also run `npm run balance -- --pairs` (every strategy) and put both in the pull request. If
+     the mix result is off, soften the twist
      that helps it most, or strengthen the one that costs it most, and run it again. That fitting is part
      of the job; changing the shared numbers or another faction's table is not. Do not go further than
      that: a faction may well be better at one way of playing than at another, and the owner wants it
@@ -400,8 +405,8 @@ All of these, in this order:
 
 - [ ] All 29 drawings exist, with their animations, and each was looked at in its own rig page.
 - [ ] The faction is in `FACTION_IDS` and can be picked on the title screen, on either side.
-- [ ] It has a temperament and a `trait` that says the same in words, and `npm run balance -- --pairs`
-      shows it between 44% and 56% against every other faction, in both seats, without a stall.
+- [ ] It has a temperament and a `trait` that says the same in words, and `npm run balance -- --mix`
+      shows it between 44% and 56% against every other faction, both seats together, without a stall.
 - [ ] Staged battles on both sides and against itself were looked at, picture by picture.
 - [ ] `npx tsc --noEmit`, `npm test` and `npm run e2e` are green, the last in all three engines.
 - [ ] `BoermensGevecht.html` was rebuilt after the last change and is committed.

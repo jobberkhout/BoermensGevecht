@@ -84,8 +84,10 @@ describe('temperament', () => {
     }
   });
 
-  it('the super units are the same for everyone', () => {
-    for (const faction of Object.values(FACTIONS)) expect(faction.temper.super, faction.id).toBeUndefined();
+  it('a super unit is the same for everyone, apart from its price', () => {
+    for (const faction of Object.values(FACTIONS)) {
+      expect(Object.keys(faction.temper.super ?? {}).filter((stat) => stat !== 'cost'), faction.id).toEqual([]);
+    }
   });
 });
 
@@ -108,7 +110,10 @@ describe('what each faction is like', () => {
         expect(of('hm', era, role).speed, role).toBeGreaterThan(of('za', era, role).speed);
         expect(of('hm', era, role).hp, role).toBeLessThan(of('za', era, role).hp);
       }
-      expect(of('hm', era, 'light').cost).toBeLessThan(of('ah', era, 'light').cost);
+      // Everything it fields costs less than anyone else's, the Havermelkreus excepted.
+      for (const role of ['light', 'ranged', 'heavy', ...(era === '2050' ? [] : ['shield'])]) {
+        expect(of('hm', era, role).cost, role).toBeLessThan(of('ah', era, role).cost);
+      }
       // It throws from further away than anyone, and softer.
       expect(of('hm', era, 'ranged').range).toBeGreaterThan(of('ah', era, 'ranged').range);
       expect(of('hm', era, 'ranged').dmg).toBeLessThan(of('za', era, 'ranged').dmg);
@@ -119,12 +124,13 @@ describe('what each faction is like', () => {
         expect(of('za', era, role).buildTicks, role).toBeLessThan(of('ah', era, role).buildTicks);
         expect(of('za', era, role).recover, role).toBeLessThan(of('hm', era, role).recover);
       }
-      for (const role of ['ranged', 'heavy']) {
+      // Everything it fields costs more than anyone else's.
+      for (const role of ['light', 'ranged', 'heavy', era === '2050' ? 'super' : 'shield']) {
         expect(of('za', era, role).cost, role).toBeGreaterThan(of('ah', era, role).cost);
+      }
+      for (const role of ['ranged', 'heavy']) {
         expect(of('za', era, role).dmg, role).toBeGreaterThan(of('hm', era, role).dmg);
       }
-      // The junior is paid like everybody else's.
-      expect(of('za', era, 'light').cost).toBe(of('ah', era, 'light').cost);
     });
   }
 });

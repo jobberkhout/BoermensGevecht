@@ -4,14 +4,22 @@ import type { FactionDef } from './types.ts';
 
 /**
  * De Zuidas: dear and in a hurry. Time is money: everything is delivered
- * sooner and strikes again sooner. Whatever is bigger than the junior costs a
- * tenth more and hits harder for it; the schild holds a little longer instead.
+ * sooner and strikes again sooner, and every unit costs a tenth more for it,
+ * the Gouden Handdruk too. The ranged and heavy units hit harder on top; the
+ * schild holds a little longer instead.
+ *
+ * Until 23 November 2026 the junior and the Handdruk cost what everybody's do.
+ * The owner found De Zuidas too strong unit for unit, and it was: with both
+ * players buying a mix it won about two matches in three. At these prices it
+ * wins 57% against Amsterdam and 58% against the farmers. It is weaker in
+ * styles people do not play, such as a firing line behind turrets.
  */
 const TEMPER: Temper = {
-  light: { buildTicks: 70, recover: 85 },
+  light: { cost: 110, buildTicks: 70, recover: 85 },
   ranged: { cost: 110, buildTicks: 70, dmg: 110, recover: 85 },
   heavy: { cost: 110, buildTicks: 70, dmg: 110, recover: 85 },
   shield: { cost: 110, buildTicks: 70, hp: 110 },
+  super: { cost: 110 },
 };
 
 /** De Zuidas: bankers, lawyers and consultants. Display names live in ui/factions/zuidas.ts. */
