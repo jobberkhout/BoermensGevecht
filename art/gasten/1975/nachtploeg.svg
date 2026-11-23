@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -142 106 148" data-rig="humanoid">
+  <title>De Nachtploeg: twintig, net van de nachtdienst, met zijn trommeltje en een kalender in zijn borstzak</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm holds the lunch tin pressed against his side; the tin sticks out behind him. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <rect class="o" fill="#7d8b8f" x="-25" y="12" width="26" height="16" rx="3"/>
+    <path class="o" fill="#9aa8ab" d="M-26 13 Q-26 7 -20 7 L-5 7 Q1 7 1 13 Z"/>
+    <path class="t" style="stroke:#5f6b6e" d="M-22 19.5 L-3 19.5"/>
+    <path class="t" style="stroke-width:2.2" d="M-17 7 Q-12.5 2.5 -8 7"/>
+    <path class="o" fill="#2d4778" d="M-6 -3 Q-8 9 -6.5 20 L6 20 Q7 9 6 -3 Z"/>
+    <circle class="o" fill="#c98f66" cx="0" cy="22.5" r="4.6"/>
+  </g>
+
+  <!-- The overall goes all the way down; heavy work boots. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#2d4778" d="M-7.5 -3 L7.5 -3 L6.5 29 L-6.5 29 Z"/>
+    <path class="o" fill="#2a2522" d="M-8 38 L-8 30 Q-8 27.5 -4 27.5 L5 27.5 Q8 27.5 8.5 30.5 Q15 31.5 16.5 35 L16.5 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#35548c" d="M-7.5 -3 L7.5 -3 L6.5 29 L-6.5 29 Z"/>
+    <path class="t" style="stroke:#26406c" d="M1 -1 L1 27"/>
+    <path class="o" fill="#3a332e" d="M-8 38 L-8 30 Q-8 27.5 -4 27.5 L5 27.5 Q8 27.5 8.5 30.5 Q15 31.5 16.5 35 L16.5 38 Z"/>
+    <path class="n" fill="#1c1816" d="M-7.3 35.6 L15.8 35.6 L15.8 37.3 L-7.3 37.3 Z"/>
+    <path class="t" style="stroke:#57504a;stroke-width:1.2" d="M-1 30.5 L5 30.5"/>
+  </g>
+
+  <!-- The blue overall: zip, belt, and the breast pocket with the paper calendar. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#35548c" d="M-15.5 8 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 16.5 8 Z"/>
+    <path class="n" fill="#2d4778" d="M-14.5 7 Q-16.5 -14 -14 -29 Q-10 -20 -9.5 7 Z"/>
+    <path class="t" style="stroke:#1f3359" d="M2 -34 L2 8"/>
+    <path class="t" style="stroke:#a9b4c9;stroke-width:1.2" d="M2 -33 L2 -27"/>
+    <rect class="o" style="stroke-width:2" fill="#26406c" x="-15.5" y="-4" width="32" height="5.5" rx="1.5"/>
+    <rect class="o" style="stroke-width:1.6" fill="#b9c2bd" x="-0.5" y="-4" width="5" height="5.5" rx="1"/>
+    <!-- collar -->
+    <path class="o" fill="#2d4778" d="M-9 -37.5 L-3 -29 L2 -34 L7 -29 L12 -37.5 Q2 -39.5 -9 -37.5 Z"/>
+    <path class="n" fill="#c98f66" d="M-3 -37 L2 -33.5 L7 -37 Z"/>
+    <!-- the calendar, folded, with the days crossed off -->
+    <rect class="o" style="stroke-width:1.5" fill="#fffaf0" x="5" y="-29" width="10" height="12" rx="1"/>
+    <path fill="none" stroke="#d9342b" stroke-width="1.1" stroke-linecap="round" d="M6.3 -26.3 L8 -24.6 M8 -26.3 L6.3 -24.6 M9.6 -26.3 L11.3 -24.6 M11.3 -26.3 L9.6 -24.6 M12.6 -26.3 L14.2 -24.6 M14.2 -26.3 L12.6 -24.6 M6.3 -22.6 L8 -20.9 M8 -22.6 L6.3 -20.9"/>
+    <path class="o" fill="#2d4778" d="M3.5 -21.5 L16.8 -21.5 L16.4 -11.5 Q10 -9.6 3.8 -11.5 Z"/>
+    <path class="t" style="stroke:#1f3359;stroke-width:1.2" d="M4.2 -19 L16.6 -19"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#bd825b" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#d9a074" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#d9a074" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- thick black hair, combed back, with sideburns down to the ear -->
+    <path class="o" fill="#231c19" d="M-16.5 -22 Q-20 -36 -8 -41 Q4 -45.5 15 -40 Q21 -36.5 20.5 -31 Q12 -35 4 -34.5 Q-3 -34 -6 -30 L-8.5 -14 Q-17 -14 -16.5 -22 Z"/>
+    <path class="t" style="stroke:#4a3f3a;stroke-width:1.3" d="M-8 -37.5 Q2 -41 13 -38.5 M-12 -33 Q-6 -37 2 -37.5"/>
+    <!-- tired eyes: the night shift is over -->
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-19.4" r="1.9"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-19.4" r="1.7"/>
+    <path class="t" style="stroke-width:1.5" d="M7 -21.6 L12 -21.6 M15.3 -21.6 L19.6 -21.6"/>
+    <path class="t" style="stroke:#a86b48;stroke-width:1.1" d="M7.8 -16.4 Q9.8 -15.2 11.6 -16.4 M15.8 -16.4 Q17.4 -15.2 19 -16.4"/>
+    <path class="t" style="stroke:#231c19;stroke-width:2.8" d="M5 -26 Q8.5 -27.8 12.5 -26.2 M14.8 -26.2 Q17.8 -27.6 20.4 -25.6"/>
+    <path class="o" fill="#c98f66" d="M19.5 -18.5 Q25.5 -14.5 20 -11.5"/>
+    <!-- the moustache of 1975 -->
+    <path class="o" fill="#231c19" d="M7.5 -10.5 Q14 -14 21 -10.6 Q22.6 -7 20.6 -4.6 Q18.4 -7.8 14.4 -7.6 Q10.4 -7.4 7.2 -5 Q5.6 -8.2 7.5 -10.5 Z"/>
+  </g>
+
+  <!-- The near arm, forward, with the spanner in his fist. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#35548c" d="M-5.5 -4 Q0 -8 5.5 -4 L21.5 17 L14 23.5 L-6.5 4.5 Q-7.5 0 -5.5 -4 Z"/>
+    <path class="o" fill="#2d4778" d="M14.5 13.5 L22.6 19.6 L19 23.4 L11.6 17.4 Z"/>
+    <circle class="o" fill="#d9a074" cx="20" cy="24" r="4.8"/>
+  </g>
+
+  <!-- The spanner. Joint in his fist; the open jaw points up and forward. -->
+  <g id="prop" data-parent="arm_front" transform="translate(30 -48)">
+    <g transform="rotate(18)">
+      <path class="o" fill="#aeb8bb" d="M-3.4 8 L-3.2 -26 L3.2 -26 L3.4 8 Q0 11 -3.4 8 Z"/>
+      <path class="o" fill="#c6cfd2" d="M-8.5 -27 Q-11 -37.5 -4.5 -42 L-3.5 -33.5 L3.5 -33.5 L4.5 -42 Q11 -37.5 8.5 -27 Q4.5 -23.5 0 -23.5 Q-4.5 -23.5 -8.5 -27 Z"/>
+      <path class="n" fill="#e6ecee" d="M-1.4 -21 L1 -21 L1 4 L-1.4 4 Z"/>
+      <ellipse class="o" fill="#d9a074" cx="0.4" cy="0.6" rx="4.2" ry="4.8"/>
+    </g>
+  </g>
+</svg>

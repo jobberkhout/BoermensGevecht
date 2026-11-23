@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-130 -128 260 134" data-rig="vehicle">
+  <title>De Imperiaal: een lange hoekige auto zonder merk, met een imperiaal twee keer zo hoog als hij zelf</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .r { stroke: #c9a15a; stroke-width: 2.2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- Inside: the father at the wheel, and the back seat packed to the roof with blankets and a pillow. Joint at his collar. -->
+  <g id="driver" data-parent="body" transform="translate(18 -46)">
+    <g transform="translate(-18 46)">
+      <path class="o" style="stroke-width:2" fill="#6b5a48" d="M8 -44 Q8 -51 14 -51 L22 -51 Q28 -51 28 -44 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#d9a074" cx="18" cy="-56" r="6.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#231c19" d="M11.6 -57 Q10.8 -64.4 18 -64.4 Q24.6 -64.4 24.4 -58.6 Q20 -61 15 -60 L13.6 -55.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#d9a074" d="M24 -57 Q27 -55.6 24.2 -54"/>
+      <circle class="n" fill="#2b1b16" cx="21.4" cy="-57.2" r="1.05"/>
+      <path class="n" fill="#231c19" d="M19.6 -53.6 Q22.8 -55.2 25.6 -53.4 Q25.8 -51.6 24.6 -51 Q22.6 -52.6 19.8 -51.8 Z"/>
+      <path class="t" style="stroke-width:2.6" d="M33 -55 Q37.5 -52 36.5 -46"/>
+    </g>
+  </g>
+
+  <!-- The car. Joint in the middle; the art inside is drawn in whole-car coordinates. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <!-- the back seat: blankets and a pillow pressed against the glass -->
+      <path class="n" fill="#3c3530" d="M-50 -45 L-46 -60 L-8.5 -60 L-8.5 -45 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#d96a3a" d="M-49 -45 L-47 -54 Q-40 -58 -33 -54 L-31 -45 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#6fa86a" d="M-33 -45 Q-34 -55 -27 -57 Q-19 -58 -18 -50 L-17 -45 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f4ecdc" d="M-19 -45 Q-21 -53 -15 -56 Q-10 -58 -9.5 -52 L-9.5 -45 Z"/>
+      <path class="t" style="stroke:#a84d24;stroke-width:1.1" d="M-46 -50 L-34 -50 M-30 -52 L-21 -52"/>
+      <!-- glass -->
+      <path class="n" fill="#cfe9f2" fill-opacity="0.28" d="M-50 -45 L-46 -60 L-8.5 -60 L-8.5 -45 Z M-3.5 -45 L-3.5 -60 L35 -60 L45 -45 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.45" d="M2 -59 L7 -59 L0 -46 L-3 -46 Z M-41 -59 L-37.5 -59 L-43 -46 L-46 -46 Z"/>
+      <!-- chrome bumpers and the exhaust -->
+      <rect class="o" style="stroke-width:1.8" fill="#8a8f93" x="-106" y="-14.5" width="12" height="4" rx="1.6"/>
+      <rect class="o" fill="#d5dcd8" x="-103" y="-24" width="9" height="8" rx="2"/>
+      <rect class="o" fill="#d5dcd8" x="94" y="-24" width="9" height="8" rx="2"/>
+      <!-- the cabin, square as a box; the windows are holes -->
+      <path class="o" fill="#e8d6a0" fill-rule="evenodd" d="M-62 -41 L-54 -63 Q-53 -65.5 -50 -65.5 L37 -65.5 Q40 -65.5 41.5 -63 L55 -41 Z M-50 -45 L-46 -60 L-8.5 -60 L-8.5 -45 Z M-3.5 -45 L-3.5 -60 L35 -60 L45 -45 Z"/>
+      <!-- the long flat bonnet and boot -->
+      <path class="o" fill="#e8d6a0" d="M-97 -14 L-97 -38 Q-97 -42 -93 -42 L93 -42 Q97 -42 97 -38 L97 -14 Q97 -12 95 -12 L-95 -12 Q-97 -12 -97 -14 Z"/>
+      <path class="n" fill="#f4e6bc" d="M-94 -40.5 L94 -40.5 L94 -38 L-94 -38 Z"/>
+      <path class="n" fill="#c9b37a" d="M-96 -19 L96 -19 L96 -14 Q96 -13 95 -13 L-95 -13 Q-96 -13 -96 -14 Z"/>
+      <path fill="none" stroke="#8a5a2e" stroke-width="2.4" stroke-linecap="round" d="M-95 -28 L95 -28"/>
+      <!-- doors and handles -->
+      <path class="t" style="stroke:#9c8a58;stroke-width:1.4" d="M-6 -42 L-6 -14 M44 -42 L45 -14 M-58 -42 L-58 -18"/>
+      <rect class="o" style="stroke-width:1.3" fill="#d5dcd8" x="-20" y="-38" width="8" height="2.8" rx="1.3"/>
+      <rect class="o" style="stroke-width:1.3" fill="#d5dcd8" x="28" y="-38" width="8" height="2.8" rx="1.3"/>
+      <!-- square lamps of the seventies, a plain grille, no badge -->
+      <rect class="o" style="stroke-width:1.8" fill="#fff3b0" x="88" y="-38.5" width="8" height="8" rx="1.4"/>
+      <rect class="o" style="stroke-width:1.4" fill="#ff9a3d" x="89.5" y="-29.5" width="5.5" height="3.4" rx="1"/>
+      <rect class="o" style="stroke-width:1.8" fill="#d9342b" x="-97.5" y="-38.5" width="6" height="9" rx="1.4"/>
+      <!-- wheel arches -->
+      <path class="o" fill="#121317" d="M-81 -12 A19 19 0 0 1 -43 -12 Z"/>
+      <path class="o" fill="#121317" d="M43 -12 A19 19 0 0 1 81 -12 Z"/>
+      <!-- the roof rack: two rails on short legs -->
+      <path class="t" style="stroke-width:2.2" d="M-46 -65 L-48 -70 M-14 -65 L-14 -70 M18 -65 L18 -70 M34 -65 L36 -70"/>
+      <rect class="o" style="stroke-width:2" fill="#8b9690" x="-58" y="-73" width="104" height="4" rx="1.6"/>
+    </g>
+  </g>
+
+  <!-- The load. Joint on the rack, in the middle; it all sways a moment after the car. -->
+  <g id="load" data-parent="body" transform="translate(-6 -71)">
+    <g transform="translate(6 71)">
+      <!-- rolled carpets, lying along the rack and sticking out at both ends -->
+      <rect class="o" fill="#b5432f" x="-82" y="-83" width="146" height="11" rx="5.5"/>
+      <path class="t" style="stroke:#e0b84a;stroke-width:1.4" d="M-70 -82 L-70 -73 M-50 -82 L-50 -73 M-30 -82 L-30 -73 M-10 -82 L-10 -73 M10 -82 L10 -73 M30 -82 L30 -73 M50 -82 L50 -73"/>
+      <ellipse class="o" style="stroke-width:2" fill="#d9614a" cx="62" cy="-77.5" rx="4" ry="5.5"/>
+      <path class="t" style="stroke:#7a2a1e;stroke-width:1.2" d="M62 -77.5 Q64 -79 62.6 -81 Q59.6 -79.6 61 -75.6 Q64.6 -74.2 65 -78"/>
+      <rect class="o" fill="#3f6fa0" x="-88" y="-93" width="112" height="10" rx="5"/>
+      <path class="t" style="stroke:#f4ecdc;stroke-width:1.3" d="M-78 -92 L-78 -84 M-62 -92 L-62 -84 M-46 -92 L-46 -84 M-30 -92 L-30 -84 M-14 -92 L-14 -84 M2 -92 L2 -84"/>
+      <ellipse class="o" style="stroke-width:2" fill="#5b8dc0" cx="-86" cy="-88" rx="3.6" ry="5"/>
+      <path class="t" style="stroke:#22476b;stroke-width:1.2" d="M-86 -88 Q-84 -89.6 -85.4 -91 Q-88 -90 -87 -86.4 Q-84 -85.4 -83.6 -88.4"/>
+      <!-- a brown suitcase and a small tan one -->
+      <rect class="o" fill="#8a5a2e" x="-62" y="-111" width="36" height="18" rx="2.5"/>
+      <path class="t" style="stroke:#5f3c1d;stroke-width:1.3" d="M-61 -102 L-27 -102"/>
+      <rect class="o" style="stroke-width:1.6" fill="#e0b84a" x="-47" y="-104" width="6" height="4" rx="1"/>
+      <path class="t" style="stroke-width:2" d="M-49 -111 Q-44 -115.5 -39 -111"/>
+      <!-- the television, with its ears -->
+      <path class="t" style="stroke-width:1.6" d="M-11 -114 L-16 -122 M-5 -114 L0 -123"/>
+      <circle class="n" fill="#2b1b16" cx="-16.2" cy="-122.4" r="1.4"/>
+      <circle class="n" fill="#2b1b16" cx="0.2" cy="-123.4" r="1.4"/>
+      <rect class="o" fill="#6b4a32" x="-24" y="-115" width="28" height="22" rx="3"/>
+      <rect class="o" style="stroke-width:1.8" fill="#8fa4a6" x="-21" y="-112" width="19" height="16" rx="4"/>
+      <path class="n" fill="#c8d6d6" d="M-18.5 -109.5 L-13 -109.5 L-17 -100 L-19 -100 Z"/>
+      <circle class="n" fill="#e0b84a" cx="0.6" cy="-108" r="1.4"/>
+      <circle class="n" fill="#e0b84a" cx="0.6" cy="-102.6" r="1.4"/>
+      <!-- the rope, over everything, tied to the rack -->
+      <path class="r" d="M-60 -73 Q-62 -96 -44 -112 M-30 -73 Q-22 -100 -8 -115 M-2 -73 L-6 -114 M-84 -90 Q-60 -114 -30 -112 Q-12 -117 4 -114"/>
+    </g>
+  </g>
+
+  <!-- The fridge, standing up, at the front. Joint at its foot; it rocks. -->
+  <g id="fridge" data-parent="load" transform="translate(22 -93)">
+    <g transform="translate(-22 93)">
+      <rect class="o" fill="#f4f1e8" x="8" y="-124" width="28" height="31" rx="4"/>
+      <path class="t" style="stroke:#b9b5aa;stroke-width:1.4" d="M9.5 -113 L34.5 -113"/>
+      <path class="t" style="stroke-width:2.6" d="M12 -120 L12 -116 M12 -110 L12 -100"/>
+      <path class="n" fill="#ffffff" d="M30 -122 L33 -122 L33 -96 L30 -96 Z"/>
+      <path class="r" d="M7 -104 L37 -110 M7 -99 L37 -96"/>
+    </g>
+  </g>
+
+  <!-- The blue bathtub, on top of it all, feet on the suitcase. Joint at its middle; it bounces. -->
+  <g id="tub" data-parent="load" transform="translate(-44 -116)">
+    <g transform="translate(44 116)">
+      <path class="o" style="stroke-width:1.8" fill="#e0b84a" d="M-61 -113 L-62.5 -109.5 L-58.5 -109.5 L-57.5 -113 Z M-31 -113 L-30 -109.5 L-26 -109.5 L-27.5 -113 Z"/>
+      <path class="o" fill="#4aa3d8" d="M-66 -121 L-22 -121 L-23.5 -116 Q-25 -112 -30 -112 L-58 -112 Q-63 -112 -64.5 -116 Z"/>
+      <rect class="o" style="stroke-width:2.2" fill="#7cc2ea" x="-68" y="-124" width="48" height="4" rx="1.6"/>
+      <path class="n" fill="#a9daf4" d="M-60 -119 L-40 -119 L-41 -117 L-60 -117 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#d5dcd8" d="M-28 -124 L-28 -125.5 Q-28 -126.5 -27 -126.5 L-22.5 -126.5 L-22.5 -125 L-25.6 -125 L-25.6 -124 Z"/>
+      <path class="r" d="M-67 -117 Q-44 -110 -21 -117"/>
+    </g>
+  </g>
+
+  <!-- Tyres; the hubcaps are not quite symmetrical, so the turning shows. -->
+  <g id="wheel_back" data-parent="chassis" transform="translate(-62 -14)">
+    <circle class="o" fill="#1d1a1c" cx="0" cy="0" r="14"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c9ced2" cx="0" cy="0" r="7.6"/>
+    <circle class="n" fill="#8b9690" cx="0" cy="0" r="2.6"/>
+    <path class="n" fill="#3a3d45" d="M-1.1 -6.4 L1.1 -6.4 L0.8 -3.8 L-0.8 -3.8 Z M4.9 4.1 L6 2.1 L3.8 1.1 L3 2.8 Z M-4.9 4.1 L-6 2.1 L-3.8 1.1 L-3 2.8 Z"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(62 -14)">
+    <circle class="o" fill="#1d1a1c" cx="0" cy="0" r="14"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c9ced2" cx="0" cy="0" r="7.6"/>
+    <circle class="n" fill="#8b9690" cx="0" cy="0" r="2.6"/>
+    <path class="n" fill="#3a3d45" d="M-1.1 -6.4 L1.1 -6.4 L0.8 -3.8 L-0.8 -3.8 Z M4.9 4.1 L6 2.1 L3.8 1.1 L3 2.8 Z M-4.9 4.1 L-6 2.1 L-3.8 1.1 L-3 2.8 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het Pension: een smal bakstenen huis bij de fabriekspoort, te veel bedden achter elk raam, koffers op de kasten en de was over de bovenste verdieping</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .k { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .j { stroke: #8e4630; stroke-width: 1.4; stroke-linecap: round; fill: none; }
+    .w { stroke: #6b5242; stroke-width: 1.6; fill: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The house stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- behind the house: the factory chimney, brick with two white bands -->
+    <path class="o" fill="#9a4a33" d="M-46 -452 L-42.8 -556 L-21.2 -556 L-18 -452 Z"/>
+    <path class="n" fill="#efe6d2" d="M-43.6 -524 L-20.4 -524 L-20.2 -516 L-43.8 -516 Z M-42.6 -545 L-21.4 -545 L-21.2 -538 L-42.8 -538 Z"/>
+    <path class="t" style="stroke-width:1.6" d="M-43.6 -524 L-20.4 -524 M-43.8 -516 L-20.2 -516 M-42.6 -545 L-21.4 -545 M-42.8 -538 L-21.2 -538"/>
+    <rect class="o" style="stroke-width:2.4" fill="#7d3a28" x="-45" y="-562" width="26" height="7" rx="1.5"/>
+
+    <!-- the roof: red tiles, a dormer with yet another bunk in it, the television aerial of 1975 -->
+    <path class="o" fill="#b5533a" d="M-306 -450 L-252 -500 L-62 -500 L2 -450 Z"/>
+    <path class="t" style="stroke:#8e3a26;stroke-width:1.6" d="M-292 -463 L-8 -463 M-278 -476 L-24 -476 M-265 -488 L-41 -488"/>
+    <path class="t" style="stroke:#8e3a26;stroke-width:1.2" d="M-270 -463 L-268 -450 M-240 -463 L-239 -450 M-210 -463 L-210 -450 M-180 -463 L-180 -450 M-90 -463 L-90 -450 M-60 -463 L-61 -450 M-30 -463 L-32 -450 M-255 -476 L-253 -463 M-225 -476 L-224 -463 M-195 -476 L-195 -463 M-75 -476 L-75 -463 M-45 -476 L-46 -463 M-240 -488 L-238 -476 M-210 -488 L-209 -476 M-90 -488 L-90 -476 M-60 -488 L-61 -476"/>
+    <path class="t" style="stroke-width:2.6" d="M-112 -500 L-112 -538 M-126 -530 L-98 -530 M-122 -522 L-102 -522 M-118 -515 L-106 -515"/>
+    <rect class="o" fill="#efe6d2" x="-168" y="-492" width="40" height="38" rx="2"/>
+    <path class="o" style="stroke-width:2.4" fill="#9a4a33" d="M-173 -490 L-148 -506 L-123 -490 Z"/>
+    <rect class="k" fill="#3c3530" x="-162" y="-486" width="28" height="28"/>
+    <path class="t" style="stroke:#7f8a80;stroke-width:2.2" d="M-158 -486 L-158 -458 M-138 -486 L-138 -458 M-158 -478 L-138 -478 M-158 -468 L-138 -468"/>
+    <path class="n" fill="#d8dde6" d="M-157 -480 L-139 -480 L-139 -477 L-157 -477 Z M-157 -470 L-139 -470 L-139 -467 L-157 -467 Z"/>
+    <path class="t" style="stroke:#efe6d2;stroke-width:2.4" d="M-148 -486 L-148 -458"/>
+
+    <!-- the flagpole on the corner -->
+    <path class="t" style="stroke-width:5" d="M-288 -454 L-288 -552"/>
+    <circle class="o" fill="#e0b84a" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the front: brick, with a white gutter board under the roof -->
+    <rect class="o" fill="#a4553b" x="-296" y="-444" width="292" height="444"/>
+    <path class="j" d="M-294 -120 L-284 -120 M-294 -110 L-284 -110 M-294 -100 L-284 -100 M-294 -90 L-284 -90 M-294 -80 L-284 -80 M-294 -70 L-284 -70 M-294 -60 L-284 -60 M-294 -50 L-284 -50 M-294 -40 L-284 -40 M-294 -30 L-284 -30 M-127 -120 L-100 -120 M-127 -110 L-100 -110 M-127 -100 L-100 -100 M-127 -90 L-100 -90 M-127 -80 L-100 -80 M-127 -70 L-100 -70 M-127 -60 L-100 -60 M-127 -50 L-100 -50 M-127 -40 L-100 -40 M-127 -30 L-100 -30"/>
+    <path class="j" d="M-118 -120 L-118 -110 M-108 -110 L-108 -100 M-118 -100 L-118 -90 M-108 -90 L-108 -80 M-118 -80 L-118 -70 M-108 -70 L-108 -60 M-118 -60 L-118 -50 M-108 -50 L-108 -40 M-118 -40 L-118 -30"/>
+    <rect class="o" fill="#efe6d2" x="-302" y="-454" width="304" height="12" rx="3"/>
+
+    <!-- upper floor: a bare room with seventies wallpaper -->
+    <rect class="o" fill="#4e3b30" x="-290" y="-436" width="280" height="142"/>
+    <path class="w" d="M-262 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-222 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-182 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-142 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-102 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-62 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-30 -420 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-242 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-202 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-162 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-122 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-82 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-42 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-270 -392 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0"/>
+    <path class="n" fill="#3f3027" d="M-288 -308 L-12 -308 L-12 -296 L-288 -296 Z"/>
+
+    <!-- first floor: the same room again -->
+    <rect class="o" fill="#4e3b30" x="-290" y="-284" width="280" height="140"/>
+    <path class="w" d="M-262 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-222 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-182 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-142 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-102 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-62 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-30 -268 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-242 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-202 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-162 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-122 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-82 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-42 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M-270 -240 m-7 0 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0"/>
+    <path class="n" fill="#3f3027" d="M-288 -158 L-12 -158 L-12 -146 L-288 -146 Z"/>
+
+    <!-- concrete floor slabs -->
+    <rect class="o" fill="#c9c2b0" x="-300" y="-294" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#c9c2b0" x="-300" y="-144" width="300" height="10" rx="3"/>
+
+    <!-- ground floor: the window. Behind it a bunk with three beds, a wardrobe with suitcases on top, a bare bulb. -->
+    <rect class="o" fill="#efe6d2" x="-286" y="-124" width="154" height="104" rx="2"/>
+    <rect class="k" fill="#4e3b30" x="-278" y="-116" width="138" height="88"/>
+    <path class="t" style="stroke:#8b8478;stroke-width:1.4" d="M-208 -116 L-208 -102"/>
+    <circle class="n" fill="#fff6c8" cx="-208" cy="-98" r="4"/>
+    <circle class="n" fill="#ffe9a8" fill-opacity="0.3" cx="-208" cy="-98" r="11"/>
+    <path class="t" style="stroke:#5d6b5f;stroke-width:3.4" d="M-272 -116 L-272 -28 M-226 -116 L-226 -28"/>
+    <path class="n" fill="#d8dde6" d="M-270 -98 L-228 -98 L-228 -93 L-270 -93 Z M-270 -72 L-228 -72 L-228 -67 L-270 -67 Z M-270 -46 L-228 -46 L-228 -41 L-270 -41 Z"/>
+    <path class="n" fill="#8b8478" d="M-264 -103 Q-264 -106 -258 -106 L-232 -106 L-230 -98 L-264 -98 Z M-266 -77 Q-266 -80 -260 -80 L-234 -80 L-232 -72 L-266 -72 Z M-262 -51 Q-262 -54 -256 -54 L-232 -54 L-230 -46 L-262 -46 Z"/>
+    <circle class="n" fill="#231c19" cx="-266" cy="-102" r="3.4"/>
+    <circle class="n" fill="#231c19" cx="-268" cy="-76" r="3.4"/>
+    <path class="t" style="stroke:#5d6b5f;stroke-width:3" d="M-272 -93 L-226 -93 M-272 -67 L-226 -67 M-272 -41 L-226 -41"/>
+    <rect class="k" fill="#7a5a3e" x="-190" y="-84" width="44" height="56"/>
+    <path class="t" style="stroke:#5a3f2a;stroke-width:1.4" d="M-168 -84 L-168 -28"/>
+    <circle class="n" fill="#e0b84a" cx="-171" cy="-58" r="1.4"/>
+    <circle class="n" fill="#e0b84a" cx="-165" cy="-58" r="1.4"/>
+    <rect class="k" fill="#c48a4a" x="-188" y="-98" width="40" height="14" rx="2"/>
+    <rect class="k" fill="#3f6fa0" x="-184" y="-110" width="32" height="12" rx="2"/>
+    <rect class="k" fill="#8a5a2e" x="-178" y="-116" width="20" height="6" rx="1.5"/>
+    <!-- net curtain halfway up, as everywhere in the street -->
+    <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-278 -62 L-140 -62 L-140 -28 L-278 -28 Z"/>
+    <path fill="none" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.8" d="M-270 -62 L-270 -28 M-258 -62 L-258 -28 M-246 -62 L-246 -28 M-234 -62 L-234 -28 M-222 -62 L-222 -28 M-210 -62 L-210 -28 M-198 -62 L-198 -28 M-186 -62 L-186 -28 M-174 -62 L-174 -28 M-162 -62 L-162 -28 M-150 -62 L-150 -28"/>
+    <path class="k" fill="#efe6d2" d="M-278 -64 L-140 -64 L-140 -60 L-278 -60 Z"/>
+    <path class="t" style="stroke:#efe6d2;stroke-width:3.4" d="M-209 -116 L-209 -64"/>
+    <rect class="o" style="stroke-width:2.4" fill="#efe6d2" x="-292" y="-24" width="166" height="8" rx="2"/>
+
+    <!-- by the door: a column of doorbells, one for every room and then some -->
+    <rect class="o" style="stroke-width:2.2" fill="#c9ced2" x="-123" y="-104" width="14" height="52" rx="2"/>
+    <path class="n" fill="#3a3d45" d="M-119 -99 h6 v4 h-6 Z M-119 -92 h6 v4 h-6 Z M-119 -85 h6 v4 h-6 Z M-119 -78 h6 v4 h-6 Z M-119 -71 h6 v4 h-6 Z M-119 -64 h6 v4 h-6 Z"/>
+    <path class="n" fill="#fffaf0" d="M-112 -98 h2 v2 h-2 Z M-112 -91 h2 v2 h-2 Z M-112 -84 h2 v2 h-2 Z M-112 -77 h2 v2 h-2 Z M-112 -70 h2 v2 h-2 Z M-112 -63 h2 v2 h-2 Z"/>
+
+    <!-- the doorway units come out of: a narrow stair hall, a row of shoes on the mat -->
+    <rect class="o" fill="#efe6d2" x="-100" y="-130" width="96" height="130"/>
+    <rect class="o" fill="#2a221d" x="-88" y="-120" width="72" height="120"/>
+    <path class="n" fill="#3c312a" d="M-86 -2 L-86 -118 L-80 -118 L-80 -2 Z"/>
+    <path class="t" style="stroke:#55473d;stroke-width:3" d="M-72 -2 L-40 -60 L-18 -60 M-64 -16 L-52 -16 M-58 -27 L-46 -27 M-52 -38 L-40 -38 M-46 -49 L-34 -49"/>
+    <path class="n" fill="#6b4a32" d="M-84 -2 L-20 -2 L-22 -7 L-82 -7 Z"/>
+    <path class="k" fill="#231c19" d="M-80 -7 Q-80 -12 -75 -12 L-71 -12 L-71 -7 Z M-69 -7 Q-69 -12 -64 -12 L-60 -12 L-60 -7 Z M-56 -7 Q-56 -12 -51 -12 L-47 -12 L-47 -7 Z M-45 -7 Q-45 -12 -40 -12 L-36 -12 L-36 -7 Z M-32 -7 Q-32 -12 -27 -12 L-23 -12 L-23 -7 Z"/>
+    <path class="o" style="stroke-width:2" fill="#5a3a1e" d="M-88 -1 L-88 -120 L-80 -114 L-80 -1 Z"/>
+    <rect class="o" fill="#8f959c" x="-104" y="-6" width="104" height="6"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The washing, on a line across the top floor: an overall, shirts, socks, a towel. Joint at the middle of the line. -->
+  <g id="washing" data-parent="building" transform="translate(-150 -436)">
+    <g transform="translate(150 436)">
+      <path class="t" style="stroke-width:1.4" d="M-292 -444 Q-150 -426 -6 -444"/>
+      <path class="k" fill="#35548c" d="M-270 -441 L-252 -439 L-253 -424 L-257 -424 L-261 -431 L-264 -424 L-268 -424 Z"/>
+      <path class="k" fill="#ffffff" d="M-240 -437.6 L-222 -436 L-221 -430 L-224 -430 L-224.6 -420 L-237.4 -421 L-237 -431 L-240 -431 Z"/>
+      <path class="k" fill="#e4dccb" d="M-212 -435.4 L-208 -435 L-208.4 -426 L-205 -424 L-210 -423.6 L-212.2 -426 Z M-202 -434.8 L-198 -434.4 L-198.4 -425.4 L-195 -423.4 L-200 -423 L-202.2 -425.4 Z"/>
+      <path class="k" fill="#d96a3a" d="M-186 -434 L-162 -433.4 L-162.4 -418 L-186.2 -418.6 Z"/>
+      <path class="t" style="stroke:#f4ecdc;stroke-width:1.4" d="M-185.6 -422 L-162.6 -421.6"/>
+      <path class="k" fill="#f4f1e8" d="M-150 -433.6 L-132 -434 L-131 -428 L-134 -428 L-134.6 -418 L-147.4 -418 L-147 -428 L-150 -428 Z"/>
+      <path class="k" fill="#e8e2c9" d="M-118 -434.8 L-104 -435.4 L-104.2 -418 L-108 -418 L-111 -426 L-114 -418 L-117.8 -418 Z"/>
+      <path class="k" fill="#6fa86a" d="M-90 -437 L-68 -438.4 L-67.6 -425 L-89.6 -423.6 Z"/>
+      <path class="k" fill="#e4dccb" d="M-52 -439.6 L-48 -440 L-47.8 -431 L-44 -429.4 L-49.4 -428.8 L-52 -431 Z M-40 -440.8 L-36 -441.2 L-35.8 -432.2 L-32 -430.6 L-37.4 -430 L-40 -432.2 Z"/>
+      <path class="k" fill="#35548c" d="M-28 -442 L-12 -443.4 L-12.4 -430 L-15.6 -430 L-19 -436 L-21.6 -430 L-26 -430 Z"/>
+    </g>
+  </g>
+
+  <!-- Factory smoke, drifting off. Joint at the top of the chimney. -->
+  <g id="smoke" data-parent="building" transform="translate(-32 -562)">
+    <path class="k" fill="#d8d4ca" d="M-6 -2 Q-12 -6 -8 -11 Q-8 -18 -1 -17 Q4 -23 10 -17 Q17 -17 16 -10 Q20 -4 13 -2 Q7 2 1 -1 Q-3 2 -6 -2 Z"/>
+  </g>
+</svg>
