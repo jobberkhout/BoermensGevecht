@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -128 226 132" data-rig="static">
+  <title>Het Pension: drie mannen in stapelbedden onder één kale lamp; de wekker voor de nachtdienst gaat, en ze gooien hem</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .k { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <!-- The one bare bulb, on its wire. Joint where the wire hangs from the ceiling. -->
+  <g id="bulb" transform="translate(-8 -128)">
+    <path class="t" style="stroke-width:1.4" d="M0 0 L0 22"/>
+    <circle class="n" fill="#ffe9a8" fill-opacity="0.35" cx="0" cy="30" r="15"/>
+    <rect class="k" fill="#8b9690" x="-3" y="20" width="6" height="5"/>
+    <path class="k" fill="#fff6c8" d="M-4.5 25 Q-8 30 -5.5 34.5 Q0 38.5 5.5 34.5 Q8 30 4.5 25 Z"/>
+    <path class="t" style="stroke:#e0b84a;stroke-width:1" d="M-2 28 Q0 32 2 28"/>
+  </g>
+
+  <!-- The beds: an iron bunk on the left, a single bed on the right, a suitcase underneath, boots on the floor. -->
+  <g id="beds" transform="translate(0 0)">
+    <!-- the suitcase under the bunk -->
+    <rect class="o" fill="#c48a4a" x="-94" y="-17" width="46" height="16" rx="3"/>
+    <rect class="k" fill="#5a3a1e" x="-74" y="-17.5" width="5" height="17" rx="1"/>
+    <path class="t" style="stroke-width:2" d="M-78 -17 Q-71.5 -22 -65 -17"/>
+    <!-- work boots under the single bed -->
+    <path class="o" fill="#3a332e" d="M14 0 L14 -9 Q14 -12 18 -12 L22 -12 Q25 -12 25 -9 Q31 -8 32 -4 L32 0 Z"/>
+    <path class="o" fill="#2a2522" d="M36 0 L36 -9 Q36 -12 40 -12 L44 -12 Q47 -12 47 -9 Q53 -8 54 -4 L54 0 Z"/>
+    <!-- the bunk: posts, rails, two mattresses -->
+    <rect class="o" fill="#5d6b5f" x="-107" y="-98" width="6" height="98" rx="1.5"/>
+    <rect class="o" fill="#5d6b5f" x="-20" y="-98" width="6" height="98" rx="1.5"/>
+    <rect class="k" fill="#d8dde6" x="-101" y="-31" width="81" height="7"/>
+    <path fill="none" stroke="#7f95b8" stroke-width="1.1" d="M-97 -30.5 L-97 -24.5 M-91 -30.5 L-91 -24.5 M-85 -30.5 L-85 -24.5 M-79 -30.5 L-79 -24.5 M-73 -30.5 L-73 -24.5 M-67 -30.5 L-67 -24.5 M-61 -30.5 L-61 -24.5 M-55 -30.5 L-55 -24.5 M-49 -30.5 L-49 -24.5 M-43 -30.5 L-43 -24.5 M-37 -30.5 L-37 -24.5 M-31 -30.5 L-31 -24.5 M-25 -30.5 L-25 -24.5"/>
+    <rect class="o" style="stroke-width:2" fill="#6f7f72" x="-103" y="-25" width="85" height="5" rx="1.5"/>
+    <rect class="k" fill="#d8dde6" x="-101" y="-71" width="81" height="7"/>
+    <path fill="none" stroke="#7f95b8" stroke-width="1.1" d="M-97 -70.5 L-97 -64.5 M-91 -70.5 L-91 -64.5 M-85 -70.5 L-85 -64.5 M-79 -70.5 L-79 -64.5 M-73 -70.5 L-73 -64.5 M-67 -70.5 L-67 -64.5 M-61 -70.5 L-61 -64.5 M-55 -70.5 L-55 -64.5 M-49 -70.5 L-49 -64.5 M-43 -70.5 L-43 -64.5 M-37 -70.5 L-37 -64.5 M-31 -70.5 L-31 -64.5 M-25 -70.5 L-25 -64.5"/>
+    <rect class="o" style="stroke-width:2" fill="#6f7f72" x="-103" y="-65" width="85" height="5" rx="1.5"/>
+    <path class="t" style="stroke:#5d6b5f;stroke-width:3.4" d="M-101 -88 L-20 -88"/>
+    <path class="t" style="stroke-width:1.2" d="M-101 -89.8 L-20 -89.8 M-101 -86.2 L-20 -86.2"/>
+    <!-- the single bed: a tall head end, a low foot end -->
+    <rect class="o" fill="#5d6b5f" x="-6" y="-60" width="6" height="60" rx="1.5"/>
+    <rect class="o" fill="#5d6b5f" x="80" y="-40" width="6" height="40" rx="1.5"/>
+    <rect class="k" fill="#d8dde6" x="0" y="-31" width="80" height="7"/>
+    <rect class="o" style="stroke-width:2" fill="#6f7f72" x="-2" y="-25" width="84" height="5" rx="1.5"/>
+  </g>
+
+  <!-- Bottom bunk: fast asleep, feet out of the end in socks with a hole. Joint in the middle of the blanket. -->
+  <g id="sleeper" transform="translate(-60 -31)">
+    <g transform="translate(60 31)">
+      <ellipse class="k" fill="#f4f1e8" cx="-90" cy="-34" rx="11" ry="4.6"/>
+      <circle class="o" fill="#d9a074" cx="-88" cy="-41" r="9"/>
+      <path class="o" fill="#231c19" d="M-97 -39 Q-99 -48 -92 -50 Q-95 -44 -91.5 -38 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d9a074" d="M-85 -49.5 Q-84 -54 -80.5 -51.5 Q-81 -49 -83 -48.5"/>
+      <path class="n" fill="#231c19" d="M-86 -46.5 Q-81.5 -48.5 -79.5 -45.5 Q-80.5 -44 -82 -44.6 Q-84 -45.6 -86.4 -44.8 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-90.5 -45.5 Q-89 -44 -87.5 -45.5"/>
+      <path class="o" fill="#8b8478" d="M-82 -31 Q-84 -40 -76 -41 L-30 -40 Q-23 -40 -22 -31 Z"/>
+      <path class="n" fill="#a39b8d" d="M-79 -38.6 L-74 -39.2 L-74 -32 L-79.6 -32 Z"/>
+      <path class="t" style="stroke:#5d564c;stroke-width:1.4" d="M-70 -39.6 L-70 -31.5 M-66 -39.8 L-66 -31.5"/>
+      <!-- the socks -->
+      <path class="k" fill="#e4dccb" d="M-23 -33 L-23 -41 Q-23 -46 -18 -46 Q-14 -46 -14 -41 L-14 -33 Z"/>
+      <path class="k" fill="#d6cdb9" d="M-18 -33 L-18 -42 Q-18 -47 -13 -47 Q-9 -47 -9 -42 L-9 -33 Z"/>
+      <circle class="n" fill="#d9a074" cx="-12.4" cy="-44.4" r="1.6"/>
+    </g>
+  </g>
+
+  <!-- Top bunk: under the blanket, a pillow pressed over his head. Joint in the middle of the blanket. -->
+  <g id="top_man" transform="translate(-55 -71)">
+    <g transform="translate(55 71)">
+      <path class="o" fill="#7d6f5f" d="M-84 -71 Q-86 -82 -76 -83 L-31 -81 Q-23 -81 -22 -71 Z"/>
+      <path class="t" style="stroke:#5b5044;stroke-width:1.4" d="M-62 -82 L-62 -71.5 M-58 -82 L-58 -71.5"/>
+      <path class="o" fill="#231c19" d="M-104 -74 Q-106 -79 -101 -80 L-99 -74 Z"/>
+    </g>
+  </g>
+
+  <!-- The pillow, held down over his ears. Joint where his hand presses. -->
+  <g id="pillow" data-parent="top_man" transform="translate(-88 -84)">
+    <g transform="translate(88 84)">
+      <path class="o" fill="#f4f1e8" d="M-102 -72 Q-104 -84 -96 -86 Q-88 -89 -80 -86 Q-74 -84 -75 -72 Z"/>
+      <path class="t" style="stroke:#c9c3b4;stroke-width:1.2" d="M-97 -80 Q-90 -77 -82 -80"/>
+      <path class="o" fill="#c98f66" d="M-92 -88.5 Q-88 -92 -84 -88.5 Q-84 -84.5 -88 -84.5 Q-92 -84.5 -92 -88.5 Z"/>
+      <path class="o" fill="#7d6f5f" d="M-84 -87 L-72 -81 L-75 -76 L-86 -82 Z"/>
+    </g>
+  </g>
+
+  <!-- The single bed: the one who has to get up. His body in a vest. Joint at his hips. -->
+  <g id="c_body" transform="translate(18 -31)">
+    <g transform="translate(-18 31)">
+      <path class="o" fill="#f6f3ea" d="M6 -30 Q4 -50 9 -61 Q18 -66 28 -61 Q33 -50 31 -30 Z"/>
+      <path class="t" style="stroke:#c9c3b4;stroke-width:1.3" d="M12 -61 Q18 -54 25 -61"/>
+      <path class="n" fill="#c98f66" d="M13 -62.5 Q18.5 -57 24 -62.5 Q18.5 -64.5 13 -62.5 Z"/>
+    </g>
+  </g>
+
+  <!-- His far arm: propped on the bed. -->
+  <g id="c_arm_back" data-parent="c_body" transform="translate(10 -58)">
+    <g transform="translate(-10 58)">
+      <path class="o" fill="#c98f66" d="M7 -60 Q2 -48 3 -34 L9 -34 Q10 -46 13 -56 Z"/>
+    </g>
+  </g>
+
+  <!-- His head: just woken, hair on end, not amused. Joint at the neck. -->
+  <g id="c_head" data-parent="c_body" transform="translate(19 -63)">
+    <g transform="translate(-19 63)">
+      <circle class="o" fill="#c98f66" cx="20" cy="-76" r="11.5"/>
+      <path class="o" fill="#231c19" d="M8.8 -78 Q7 -88 13 -90 L12 -94 L17 -90.5 L19 -95.5 L21.5 -90 L26 -93 L25.5 -88 Q31 -86 31 -81 Q24 -85 17 -84 L12.5 -76.5 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#c98f66" d="M31 -77 Q35 -74.5 31.2 -72.5"/>
+      <circle class="n" fill="#2b1b16" cx="27" cy="-78" r="1.4"/>
+      <path class="t" style="stroke-width:1.4" d="M20.6 -78.4 L24 -78.2"/>
+      <path class="t" style="stroke:#231c19;stroke-width:2.2" d="M20 -82 L24.6 -81 M25.6 -82.2 L29.6 -83.6"/>
+      <path class="n" fill="#231c19" d="M24 -71.6 Q28 -73.6 32 -71.4 Q32 -69.4 30.6 -69 Q28 -70.4 24.4 -69.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The blanket over his legs. -->
+  <g id="c_blanket" transform="translate(44 -31)">
+    <g transform="translate(-44 31)">
+      <path class="o" fill="#8b8478" d="M2 -31 Q2 -40 10 -41 L50 -44 Q58 -45 62 -40 L78 -38 Q82 -37 81 -31 Z"/>
+      <path class="t" style="stroke:#5d564c;stroke-width:1.4" d="M66 -38.6 L66 -31.5 M70 -38 L70 -31.5"/>
+      <path class="n" fill="#a39b8d" d="M8 -39.6 L14 -40.2 L14 -32 L8 -32 Z"/>
+    </g>
+  </g>
+
+  <!-- His throwing arm, the alarm clock up over his shoulder. Joint at the shoulder. -->
+  <g id="c_arm" data-parent="c_body" transform="translate(27 -58)">
+    <g transform="translate(-27 58)">
+      <path class="o" fill="#c98f66" d="M23 -61 Q26 -66 31 -63 L36 -82 L30 -85 Z"/>
+      <circle class="o" fill="#c98f66" cx="34" cy="-86" r="4.4"/>
+      <circle data-mount="muzzle" fill="none" cx="37" cy="-94" r="1"/>
+    </g>
+  </g>
+
+  <!-- The alarm clock, ringing. Joint at his fist. -->
+  <g id="clock" data-parent="c_arm" transform="translate(35 -90)">
+    <g transform="translate(-35 90)">
+      <path class="k" fill="#c9ced2" d="M30.5 -95.5 Q28 -101 32.5 -102.5 L34.5 -98 Z M43.5 -95.5 Q46 -101 41.5 -102.5 L39.5 -98 Z"/>
+      <circle class="o" fill="#d9342b" cx="37" cy="-93" r="7.5"/>
+      <circle class="k" fill="#fffaf0" cx="37" cy="-93" r="5"/>
+      <path class="t" style="stroke-width:1.3" d="M37 -96.5 L37 -93 L39.6 -92"/>
+    </g>
+  </g>
+
+  <!-- The ring: little arcs round the clock. Joint at the clock. -->
+  <g id="ring" data-parent="clock" transform="translate(37 -93)">
+    <path class="t" style="stroke:#d9342b;stroke-width:1.8" d="M-12 -6 Q-14 0 -12 6 M12 -6 Q14 0 12 6 M-16.5 -9 Q-19.5 0 -16.5 9 M16.5 -9 Q19.5 0 16.5 9"/>
+  </g>
+</svg>

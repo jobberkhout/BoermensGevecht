@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -140 116 146" data-rig="humanoid">
+  <title>De Kapbot: een kappersrobot met vier armen. Tondeuse, kam, spiegel, en één om mee te praten</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .glow { stroke: #7ff0c8; stroke-width: 2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The upper back arm holds the hand mirror up behind the head: "and how is it at the back?" Joint at the shoulder. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -74)">
+    <g transform="translate(9 74)">
+      <path class="t" style="stroke-width:6.4" d="M-9 -74 L-19 -86 L-24 -98"/>
+      <path fill="none" stroke="#9aa4b2" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M-9 -74 L-19 -86 L-24 -98"/>
+      <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="-19" cy="-86" r="2.8"/>
+      <!-- the mirror: a round one on a handle, as every barber has -->
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="-27.5" y="-107" width="6" height="12" rx="2.4" transform="rotate(-20 -24.5 -101)"/>
+      <ellipse class="o" fill="#2f6fb3" cx="-29" cy="-119" rx="10.5" ry="13" transform="rotate(-20 -29 -119)"/>
+      <ellipse class="o" style="stroke-width:1.6" fill="#cfeaf7" cx="-29" cy="-119" rx="7.4" ry="9.8" transform="rotate(-20 -29 -119)"/>
+      <path class="n" fill="#ffffff" d="M-33.6 -121 Q-33 -126.6 -28.6 -128 Q-31 -124 -31 -119.4 Z"/>
+    </g>
+  </g>
+
+  <!-- The lower back arm keeps the comb ready. Joint where it comes out of the waist. -->
+  <g id="arm_comb" data-parent="torso" transform="translate(-10 -54)">
+    <g transform="translate(10 54)">
+      <path class="t" style="stroke-width:6" d="M-10 -54 L-20 -48 L-27 -56"/>
+      <path fill="none" stroke="#8d97a6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-10 -54 L-20 -48 L-27 -56"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b4bdc9" cx="-20" cy="-48" r="2.6"/>
+      <!-- a black comb, teeth to the back -->
+      <g transform="rotate(-24 -29 -62)">
+        <rect class="o" style="stroke-width:1.8" fill="#2b2b33" x="-31.5" y="-76" width="6" height="26" rx="1.6"/>
+        <path class="t" style="stroke-width:1.4" d="M-31.5 -72 L-35.5 -72 M-31.5 -68 L-35.5 -68 M-31.5 -64 L-35.5 -64 M-31.5 -60 L-35.5 -60 M-31.5 -56 L-35.5 -56"/>
+      </g>
+      <path class="o" style="stroke-width:1.8" fill="#5d6675" d="M-30 -60 L-25 -60 L-24 -54 L-30.5 -54 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <g transform="translate(5 38)">
+      <rect class="o" fill="#8d97a6" x="-10" y="-39" width="10" height="33" rx="4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b4bdc9" cx="-5" cy="-21" r="3"/>
+      <path class="o" fill="#4a5262" d="M-12 -2 Q-12 -9 -6 -9 L2 -9 Q9 -8 10 -3 L10 0 L-12 0 Z"/>
+      <path class="n" fill="#2f6fb3" d="M-11 -2.6 L9 -2.6 L9 -1.2 L-11 -1.2 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <g transform="translate(-5 38)">
+      <rect class="o" fill="#b4bdc9" x="0" y="-39" width="10" height="33" rx="4"/>
+      <path class="n" fill="#dde3ea" d="M6 -36 L8 -36 L8 -10 L6 -10 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#dde3ea" cx="5" cy="-21" r="3"/>
+      <path class="o" fill="#5d6675" d="M-2 -2 Q-2 -9 4 -9 L12 -9 Q19 -8 20 -3 L20 0 L-2 0 Z"/>
+      <path class="n" fill="#7ff0c8" d="M-1 -2.6 L19 -2.6 L19 -1.2 L-1 -1.2 Z"/>
+    </g>
+  </g>
+
+  <!-- A white barber's tunic with buttons on the shoulder, mint collar, tile-blue trim. Joint at the waist. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <rect class="o" fill="#9aa4b2" x="-14" y="-42" width="28" height="7" rx="2.5"/>
+      <path class="o" fill="#fbf8f0" d="M-16 -38 Q-19.5 -58 -15.5 -74 Q-10.5 -82.5 1 -82.5 Q13 -82.5 17 -74 Q20.5 -58 16 -38 Z"/>
+      <path class="n" fill="#e6e0d2" d="M-15 -40 Q-18 -58 -14.6 -72 Q-11 -62 -10 -40 Z"/>
+      <path class="t" style="stroke:#2f6fb3;stroke-width:2.2" d="M-15.4 -42.6 L15.6 -42.6"/>
+      <path class="o" style="stroke-width:2" fill="#5fc9a0" d="M-7 -82 Q1 -78 10 -82 L8 -76 Q1 -73 -5 -76 Z"/>
+      <!-- the side buttons of a barber's tunic -->
+      <circle class="o" style="stroke-width:1.4" fill="#2f6fb3" cx="11" cy="-73" r="1.8"/>
+      <circle class="o" style="stroke-width:1.4" fill="#2f6fb3" cx="12.6" cy="-64" r="1.8"/>
+      <circle class="o" style="stroke-width:1.4" fill="#2f6fb3" cx="13.2" cy="-55" r="1.8"/>
+      <!-- a pocket with spare combs -->
+      <rect class="o" style="stroke-width:1.6" fill="#2b2b33" x="-6.4" y="-70" width="2.4" height="9" rx="1"/>
+      <rect class="o" style="stroke-width:1.6" fill="#e5283f" x="-3" y="-71" width="2.4" height="10" rx="1"/>
+      <path class="o" style="stroke-width:1.8" fill="#fbf8f0" d="M-9.6 -64 L2 -64 L1.4 -55 L-9 -55 Z"/>
+      <path class="t" style="stroke:#2f6fb3;stroke-width:1.4" d="M-9.4 -61.6 L1.8 -61.6"/>
+      <!-- sockets for the lower pair of arms -->
+      <circle class="o" style="stroke-width:1.8" fill="#5d6675" cx="-10" cy="-54" r="3.4"/>
+    </g>
+  </g>
+
+  <!-- A box of a head with a screen for a face, a polished moustache and a barber's pole on top. Joint at the neck. -->
+  <g id="head" data-parent="torso" transform="translate(1 -82)">
+    <g transform="translate(-1 82)">
+      <rect class="o" fill="#9aa4b2" x="-3" y="-89" width="8" height="8" rx="2"/>
+      <rect class="o" fill="#e8ecf1" x="-16" y="-123" width="37" height="35" rx="10"/>
+      <path class="n" fill="#c9d1dc" d="M-14.6 -100 Q-14 -91 -6 -90 L10 -90 Q18 -91 19.6 -98 Q12 -94.6 0 -94.6 Q-9 -94.6 -14.6 -100 Z"/>
+      <path class="n" fill="#ffffff" d="M-11 -116 Q-9 -121 -3 -121.4 L3 -121.4 Q-4.6 -119.8 -8 -114.6 Z"/>
+      <!-- the screen -->
+      <rect class="o" style="stroke-width:1.8" fill="#16243a" x="-2.6" y="-119.6" width="22" height="18" rx="5.5"/>
+      <!-- a speaker for an ear -->
+      <circle class="o" style="stroke-width:1.8" fill="#5d6675" cx="-8.6" cy="-106" r="4.6"/>
+      <path class="t" style="stroke:#c9d1dc;stroke-width:1.2" d="M-11 -107.6 L-6.2 -107.6 M-11.4 -105.6 L-5.8 -105.6 M-11 -103.6 L-6.2 -103.6"/>
+      <!-- the moustache, polished every morning -->
+      <path class="o" style="stroke-width:1.8" fill="#3a2d28" d="M9 -98.2 Q4 -100.6 1 -97 Q-1.4 -94 1.8 -93.4 Q3 -96.4 6 -96 Q8.4 -95.6 9 -94.4 Q9.6 -95.6 12 -96 Q15 -96.4 16.2 -93.4 Q19.4 -94 17 -97 Q14 -100.6 9 -98.2 Z"/>
+    </g>
+  </g>
+
+  <!-- Friendly eyes on the screen. -->
+  <g id="eyes" data-parent="head" transform="translate(9.6 -110.6)">
+    <ellipse class="n" fill="#7ff0c8" cx="-3.8" cy="0" rx="2.4" ry="3.4"/>
+    <ellipse class="n" fill="#7ff0c8" cx="4" cy="0" rx="2.4" ry="3.4"/>
+  </g>
+
+  <!-- The mouth, a glowing slot under the moustache. It never stops. -->
+  <g id="mouth" data-parent="head" transform="translate(9.6 -91.6)">
+    <rect class="o" style="stroke-width:1.4" fill="#16243a" x="-4.6" y="-2" width="9.2" height="4" rx="2"/>
+    <path class="glow" style="stroke-width:1.6" d="M-2.6 0 L2.6 0"/>
+  </g>
+
+  <!-- The barber's pole on top, red and white. Joint at its foot. -->
+  <g id="pole" data-parent="head" transform="translate(-4 -123)">
+    <g transform="translate(4 123)">
+      <rect class="o" fill="#fbf8f0" x="-7.6" y="-134" width="7.2" height="11.5" rx="2"/>
+      <path class="n" fill="#e5283f" d="M-7 -129.4 L-1 -133.4 L-1 -131 L-7 -127 Z M-7 -125 L-1 -129 L-1 -126.6 L-7 -122.6 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#fbf8f0" x="-7.6" y="-134" width="7.2" height="11.5" rx="2" fill-opacity="0"/>
+      <circle class="o" style="stroke-width:1.8" fill="#9aa4b2" cx="-4" cy="-135.4" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- The fourth arm, the free one: it gestures while the Kapbot talks. Joint at the waist socket. -->
+  <g id="arm_talk" data-parent="torso" transform="translate(10 -54)">
+    <g transform="translate(-10 54)">
+      <path class="t" style="stroke-width:6" d="M10 -54 L18 -46 L27 -50"/>
+      <path fill="none" stroke="#c9d1dc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M10 -54 L18 -46 L27 -50"/>
+      <circle class="o" style="stroke-width:1.8" fill="#5d6675" cx="10" cy="-54" r="3.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#dde3ea" cx="18" cy="-46" r="2.6"/>
+      <!-- an open hand, palm up: "listen, let me tell you something" -->
+      <path class="o" style="stroke-width:1.9" fill="#e8ecf1" d="M25 -53 Q30 -55 36 -54.4 Q38 -53.4 36.4 -52 L31.6 -51.6 Q36.6 -50.4 37.6 -49 Q38 -47 35.6 -47.4 L28 -46.6 Q24 -47 24 -50 Z"/>
+      <path class="o" style="stroke-width:1.7" fill="#e8ecf1" d="M27.6 -53.4 Q28.6 -58.6 31.4 -59.6 Q33.2 -59.4 32 -57 L30.6 -53.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The upper front arm with the trimmer. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -74)">
+    <g transform="translate(-10 74)">
+      <path class="t" style="stroke-width:6.6" d="M10 -74 L16 -60 L27 -66"/>
+      <path fill="none" stroke="#e8ecf1" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M10 -74 L16 -60 L27 -66"/>
+      <circle class="o" style="stroke-width:1.8" fill="#c9d1dc" cx="10" cy="-74" r="4.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#9aa4b2" cx="16" cy="-60" r="3"/>
+    </g>
+  </g>
+  <g id="trimmer" data-parent="arm_front" transform="translate(28 -66)">
+    <g transform="translate(-28 66)">
+      <g transform="rotate(-22 28 -66)">
+        <rect class="o" fill="#2b2b33" x="22" y="-70.5" width="22" height="9.4" rx="4.2"/>
+        <rect class="n" fill="#5fc9a0" x="26" y="-68.4" width="9" height="2.4" rx="1.2"/>
+        <circle class="n" fill="#7ff0c8" cx="38.6" cy="-67" r="1.3"/>
+        <path class="o" style="stroke-width:1.8" fill="#c9d1dc" d="M43 -71.6 L48.4 -71.6 L48.4 -60 L43 -60 Z"/>
+        <path class="t" style="stroke-width:1.2" d="M48.4 -69.6 L50.4 -69.6 M48.4 -67 L50.4 -67 M48.4 -64.4 L50.4 -64.4 M48.4 -61.8 L50.4 -61.8"/>
+        <path class="o" style="stroke-width:1.8" fill="#5d6675" d="M22 -68 L19 -66 L22 -63.6 Z"/>
+      </g>
+    </g>
+  </g>
+  <!-- Buzz lines at the teeth. -->
+  <g id="buzz" data-parent="trimmer" transform="translate(51 -77)">
+    <path class="glow" style="stroke-width:1.6" d="M-1 0 L3 -3 M2 3 L6.6 2 M-3.6 -3 L-2.6 -7.6"/>
+  </g>
+</svg>

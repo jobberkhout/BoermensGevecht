@@ -1,8 +1,8 @@
 # Faction blueprint
 
-Seven new factions for Boermens Gevecht, written out far enough that drawing can start the day one is
-approved. The groundwork for more factions and the first of the seven, De Zuidas, are built; the other
-six are a plan to pick from and to change. How to build one, step by step, is in
+Eight new factions for Boermens Gevecht, written out far enough that drawing can start the day one is
+approved. The groundwork for more factions and the first of them, De Zuidas, are built; the other seven
+are a plan to pick from and to change. How to build one, step by step, is in
 [`new-faction.md`](new-faction.md).
 
 | Faction | In one line | State |
@@ -14,9 +14,16 @@ six are a plan to pick from and to change. How to build one, step by step, is in
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
+| [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | **Built** |
 
-Parked for later, outside these seven: **the voetbalvader** and the amateur football club on a Saturday
+Parked for later, outside these eight: **the voetbalvader** and the amateur football club on a Saturday
 morning, as a faction of its own.
+
+Also parked: **De Dynastie**, the owner's idea of 23 November 2026 for the Chinese-Dutch community: three
+generations of one family that has run its business in a Dutch town since 1975, a big word for something
+everyday, as Havermelk Elite is. The owner chose the name and turned down names that boil the community
+down to a takeaway menu (Babi Pangang, De Afhaalchinees, Extra Kroepoek, Nummer 37) as racist and not
+funny. One community, not "Asian" as a whole. It needs the research De Gasten had before it gets a brief.
 
 ## How to use this
 
@@ -64,12 +71,16 @@ what they throw, and in their three specials.
 **Tone.** It is satire, in small jokes: a detail in a drawing, a line a unit mutters, a name. Nobody is
 lectured and nothing is rubbed in.
 
-**Rules for what goes in**, the same as so far:
+**Rules for what goes in:**
 
 - Types, never real people. No politicians, no parties, no celebrities, no historical persons by name.
 - No real brands or logos. A parody name is fine ("Jan Deere").
-- No jokes at the expense of where someone comes from beyond the regional teasing the regions do
-  themselves; the tourists are types of visitor, never nationalities.
+- No jokes at the expense of where someone comes from. The regions may be teased the way they tease
+  themselves. A faction about people's background, such as section 8, carries only the jokes that
+  community makes about itself, in its own comedy, books, films and family stories, told with affection,
+  and its brief names the inside source of each one. A joke that can only be sourced from outsiders does
+  not go in, unless the owner decides to keep it after reading why; the brief then marks it as the
+  owner's decision. The tourists are types of visitor, never nationalities.
 - Nothing about real tragedies or scandals in which people were hurt.
 - No lettering unless it is drawn as shapes and survives being mirrored. Symbols beat words.
 
@@ -104,8 +115,8 @@ These were one-off jobs before a third faction could exist. They are built, and 
 
 The tests then say what is still missing: a drawing, an animation, a name, a line.
 
-The single file `BoermensGevecht.html` grows by roughly 240 kB per faction. With all nine factions it
-would be a little over 2 MB, which is still fine to send around.
+The single file `BoermensGevecht.html` grows by roughly 240 kB per faction. It
+would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
@@ -148,7 +159,7 @@ New kinds the rest of this plan asks for:
 As with the existing specials, the super units of 2050 shrug all of these off. The schild does not: it
 can be cancelled, glued down, run over and bought like any other unit.
 
-The twenty-one specials at a glance:
+The twenty-four specials at a glance:
 
 | Faction | 1975 | 2025 | 2050 |
 |---|---|---|---|
@@ -159,6 +170,7 @@ The twenty-one specials at a glance:
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Tijdslot verlopen (lockout) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
 | De Camping | Zwarte Zaterdag (slow) | Na tienen is het stil! (stun) | De Minidisco (buff) |
+| De Gasten | Eerst thee (heal) | De Toeterstoet (stun) | Nee is nee (snipe) |
 
 The kinds are a first assignment by theme. Which special gets which kind can still be shuffled when the
 balance is looked at; the names and the drawings stay.
@@ -222,6 +234,10 @@ without becoming a different game, as a starting point for whoever writes the ne
 | cannot be hit by ranged units, only in melee | a low, quick unit | a flag the shots respect |
 | earns money while it lives | a unit that brings in a little every second | income per unit, on top of the subsidie |
 
+The first one asked for is the owner's own, and it is built: the fatbike of section 8, a cheap rider
+that rides through the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a
+door. Its rule is written out there and lives in `src/sim/riders.ts`.
+
 Two things to hold on to when one of these is built: it must keep working mirrored (both players press on
 the same tick, seats swapped, same outcome), and a unit's blurb on the title card must say in plain words
 what is different about it, because nobody reads numbers during a match.
@@ -275,6 +291,19 @@ What to know before the balance pass:
   never get a super unit out: in 100 mixed matches De Zuidas' bot never once held the 3300, and the
   others fielded one in a few. So the trick never happens in bot matches, and how much it is worth
   between people is not measured.
+- **De Gasten**, measured on 23 November 2026. With both sides buying a mix, both seats together, it wins
+  48% against Amsterdam, 50% against the farmers and 76% against De Zuidas; over every bot strategy 31%,
+  38% and 56%. The Zuidas result is outside the band and was not fitted further, as the owner asked ("do
+  not focus too much on balance currently, the bots are very bad at the game"). What was found: it is not
+  De Zuidas' takeover (with the takeover switched off De Zuidas does worse still, 17%), and it appeared
+  when the bots stopped sending fatbikes into every crowd. The fatbike changes the most: sent every fifth
+  purchase, into crowds and schilds, as the bots did at first, each one that fell paid the enemy its
+  bounty and vooruitgang, De Gasten stayed in 2025 while the other side reached 2050, and they won one
+  match in five against Amsterdam and the farmers. The bots now send it only when the enemy has no schild
+  on the lane and at most five units, and keep a schild out themselves against a side that can send one.
+  With an ordinary heavy in that slot De Gasten would win 70%, 52% and 57% with a mix. Starting numbers,
+  not fitted: 230, 288 hit points, 130 ram damage, 500 to the base. Raising the ram damage helps De
+  Gasten most; the base damage hardly matters, because bots seldom get one through.
 
 ## The factions
 
@@ -377,9 +406,9 @@ are on the list below.
 
 | Era | Walking out | Beaten |
 |---|---|---|
-| 1975 | "Bieden!" · "Laten!" · "Aan jou!" · "Liever te duur dan niet te koop!" | "Gedaan… en laten." · "Hoogachtend," · "De beurs is gesloten." · "Ik ga toepen." |
-| 2025 | "Even sparren?" · "Laaghangend fruit!" · "Alle neuzen dezelfde kant op!" · "We gaan je onboarden." | "Ik koppel het nog terug." · "Onder voorbehoud van alle rechten." · "Dat was niet declarabel." · "Vrijmibo?" |
-| 2050 | "Deep dive!" · "Stip op de horizon!" · "Dit schaalt." · "To the moon!" | "Koers gekelderd." · "Verbinding verbroken." · "Wachtwoord kwijt." · "Ik koppel het nog terug." |
+| 1975 | "Bieden!" · "Laten!" · "Aan jou!" · "Liever te duur dan niet te koop!" · "Per omgaande!" · "Conform afspraak!" | "Gedaan… en laten." · "Hoogachtend," · "De beurs is gesloten." · "Ik ga toepen." · "Ter kennisname." · "In afwachting van uw antwoord." |
+| 2025 | "Even sparren?" · "Laaghangend fruit!" · "Alle neuzen dezelfde kant op!" · "We gaan je onboarden." · "Even schakelen!" · "Quick win!" · "Ownership pakken!" · "Ik schiet even een invite in." · "Even out of the box!" | "Ik koppel het nog terug." · "Onder voorbehoud van alle rechten." · "Dat was niet declarabel." · "Vrijmibo?" · "Laten we dit offline nemen." · "Ik heb een harde stop." · "Dat parkeren we even." · "Dat moet even landen." · "Niet in scope." |
+| 2050 | "Deep dive!" · "Stip op de horizon!" · "Dit schaalt." · "To the moon!" · "Disruptie!" · "Synergie!" · "We gaan opschalen!" · "Even agile pivoten!" | "Koers gekelderd." · "Verbinding verbroken." · "Wachtwoord kwijt." · "Ik koppel het nog terug." · "Terug naar de tekentafel." · "Dat was een learning." · "Strategische heroriëntatie." · "Ik neem een sabbatical." |
 
 **Stay away from**
 
@@ -1058,6 +1087,332 @@ Special, **De Minidisco** (buff): everybody joins in. Own units hit harder and m
 - "Skottelbraai" began as a product name. The word is in general use on Dutch camp sites, but if you want
   to be safe the turret can be called De Braaischotel.
 
+### 8. De Gasten
+
+Two families on one street, one Turkish-Dutch and one Moroccan-Dutch, over three generations. In 1975 the
+fathers work night shifts in the metal works and the textile mills, "for two or three years". In 2025
+their children and grandchildren, born here, run the barbershop, throw a wedding for 650 and ride a
+fatbike. In 2050 the great-grandchildren still say that next year they are going back.
+
+The owner's idea, of 23 November 2026, and their working title was **De Gastarbeiders**; the name became
+De Gasten (question 1 below). This is the first faction about where people's families come from rather
+than a region, a trade or a way of life, so the bar is higher. The rule "no jokes about where someone comes
+from" is kept and applied: **only jokes the two communities make about themselves**, in their own films,
+theatre, books and community talk, told with affection. The table further down names the inside source
+of every joke. What could only be sourced from outsiders was left out, and is listed as such, with one
+exception the owner decided on: the fatbike kid's "Wat kijk je?", marked as such in the table.
+
+**Two communities, not one.** Turkish-Dutch and Moroccan-Dutch families have their own languages, food,
+music and weddings, and would mind being drawn as one. The faction keeps them apart unit by unit: each
+unit belongs to one of the two families on the street, and the brief says which. Things they share, such
+as tea and the summer drive south, are shown side by side, each in its own way.
+
+**They are Dutch.** Nothing treats them as visitors. The people of 2025 and 2050 were born here, and the
+running joke is exactly that: the plan to go back.
+
+| | |
+|---|---|
+| Code name | `gasten` (ids start with `gs.`) |
+| Home | De straat: two families, one street (made up) |
+| Money | spaargeld |
+| Colours | Tea amber, mint green, the blue of a tiled wall, and the white of a wedding ribbon |
+| Flag | A tile-blue field with a golden tea glass on a saucer and a white wedding ribbon across the corner: the flag of the street, of no country. No crescent, no star, no national red |
+| Names | What they are in the family and on the street: De Nachtploeg, De Tolk, De Gastvrouw, De Dönerbaas |
+| When it wins | "De Gasten winnen! Blijf je eten?" |
+| Super unit shrugs off a special with | "Volgend jaar." |
+
+**The running joke across the eras: next year we go back.** In 1975 the father came for two or three
+years and crosses off the days on a calendar. In 2025 his son says the same about his pension, with the
+roof rack loaded every summer. In 2050 his great-grandchildren say it too, and nobody ever goes. A man
+who came in 1966 told the NOS: "I thought: I'll work in the Netherlands two or three years and then go
+back." His grandson: "I feel Dutch."
+
+**What makes them recognizable**, each from the inside:
+
+- **The plan to go back.** The first workers meant to stay a year or two (a man who came in 1966, NOS
+  2019; Nilüfer Öder in iAmsterdam, 2025). A mother in the same piece: "We blijven hier, dit is mijn
+  wereld."
+- **The summer drive south**, the car loaded inside and out, "un rituel annuel des Maroco-Néerlandais"
+  (Bladi.net, a site by and for Moroccans abroad). Abdelkarim and Asma El-Fassi made a road movie of it,
+  *Porte Bagage* (2025). A Moroccan-Dutch community list adds the minibus with curtains, and the father who
+  visits twenty travel agencies with his notebook to write down the ferry prices. On the Turkish side the
+  oral histories, gathered in Germany, tell of fridges, televisions and chocolates "like gold" on the way
+  through Yugoslavia, and a 1979 novel by the Turkish-German writer Güney Dal has a blue bathtub strapped to
+  the roof.
+- **The child who translates for his parents**, and translates the teacher's remarks a little too kindly:
+  the youngest son in *Shouf Shouf Habibi!*, co-written by Mimoun Oaïssa.
+- **Hospitality.** At Moroccans', as in Limburg, you get food when you visit (Soundos El Ahmadi). Hospitality
+  and food are what the first Turks brought along (Sahin Yildirim, NOS 2024). And saying goodbye takes
+  another hour at the door (the community list).
+- **The big wedding.** 650 guests, about average at a Rotterdam wedding hall, says a Turkish-Dutch bride
+  (VPRO). The convoy honks "so everyone knows there is a wedding", and the family watches the film
+  afterwards to see how long and how lively the line of cars was (Ibrahim Yerden, author of *Trouwen op z'n
+  Turks*). "The more extravagant, the better," says a wedding planner from the community.
+- **The barber**, where people come for the talk as much as for the cut, and ears are seen to as a matter
+  of course (barbers in the Brussels Times; a father and son in Tilburg, Omroep Brabant).
+- **Mothers**, played with love by their own children on stage and screen: Nasrdin Dchar plays his own
+  mother in *Oumi*, and Soundos El Ahmadi made *Meskina* for more Moroccan-Dutch family on film.
+- **The work.** The metal works of the Zaan and Hilversum, the textile mills of Almelo, the port and a
+  chicken factory, in the words of the men who worked there (NOS 2019 and 2024).
+
+**Where each joke comes from**
+
+| What | Joke | From the inside | Family |
+|---|---|---|---|
+| De Nachtploeg, De Koffer, the lines "Twee jaar, dan terug" and "Volgend jaar" | The plan to go back | A first-generation worker and his grandson (NOS 2019); Öder and Halaceli (iAmsterdam) | Moroccan-Dutch (Koffer), Turkish-Dutch (Nachtploeg) |
+| De Tolk | Translates the teacher a little too kindly | *Shouf Shouf Habibi!* (Oaïssa) | Moroccan-Dutch |
+| De Imperiaal, De Zweefimperiaal | The roof rack | *Porte Bagage* (El-Fassi), Bladi.net; Turkish-German oral histories and Güney Dal | Turkish-Dutch |
+| De Prijzenvader | Twenty travel agencies and a notebook | The Moroccan-Dutch community list | Moroccan-Dutch |
+| Het Pension | Too many men to a room, and the night-shift alarm | The boarding houses in the workers' own accounts (NOS); the alarm clock is mine | both |
+| Eerst thee, Het Theeterras | Tea for everyone | Drawn as what it is; hospitality from El Ahmadi and Yildirim | both, each its own tea |
+| De Gastvrouw, "Eet eerst wat!", "Blijf je eten?" | You get food, whether you came for it or not | Soundos El Ahmadi | Moroccan-Dutch |
+| De Gastvrouw's slipper | Her weapon | **The owner's decision** (23 November 2026). My research found it only in an anonymous forum list; here she swats enemy units with it, never a child | Moroccan-Dutch |
+| De Dönerbaas, "Met alles?" | The man at the counter | The owner's idea (23 November 2026), with an inside source the owner pointed to: Najib Amhali, a Moroccan-Dutch comedian, whose scene in the shoarmazaak is among his best-known sketches (the listing of his *30 jaar on stage*). No text source describes the scene, so nothing is taken from it but the setting. Döner rather than shoarma, because döner is Turkish | Turkish-Dutch |
+| De Feestzaal, De Toeterstoet, De Trouwfilmer | 650 guests; honk so everyone knows; the family watches the film | VPRO; Yerden; Laroussi | Turkish-Dutch, and the convoy both |
+| De Kapperszaak, De Kapbot | Come for the talk | Barbers in the Brussels Times; Omroep Brabant | Turkish-Dutch |
+| Nee is nee | The mother's no | Mothers as their children play them: Nasrdin Dchar, *Meskina*. The look itself is mine | both |
+| De Fatbike | Not a background joke at all | Every Dutch teenager; see the rule | the grandson |
+| "Wat kijk je?" | The fatbike kid's cheek | **The owner's decision**, as a well-known line. My research found no inside source for it, only the outsiders' angry street kid. Here the fatbike kid says it, who belongs to no background: cheek, never a threat | the grandson |
+| Mo-Tron | The worker of 1975 never stopped | The owner's name, softened from MohammedTron; the robot is mine, built on the plan to go back | both: "Mo" is what the street calls him |
+
+**Corrections the research made to the owner's sketch**
+
+- **Shoarma is not theirs.** The first shoarma shops in the Netherlands were opened by Israelis, and most
+  were taken over by Egyptians within ten years (Onze Taal, 1988). The Dutch kind is mostly pork. "Shoarma
+  Sadim" is out. Döner is Turkish, but no source says when it reached Dutch streets, so I left it out;
+  the owner put it back (23 November 2026) as De Dönerbaas, the ranged unit of 2025. The kapsalon
+  (Rotterdam, 2003) is in the Rotterdam brief and belongs to neither community.
+- **The word "gastarbeider"** was made up around 1965 by a press-agency journalist who translated the
+  German *Gastarbeiter* because it fitted a headline. The workers themselves objected even then: they did
+  not feel like guests (Onze Taal, 1971). Hence the name question.
+- **The fatbike belongs to no background.** Every source puts it with Dutch teenagers in general, from
+  Velsen to Enschede, and the debate is about speed, tuning, helmets and age. In this faction that is the
+  joke: the grandson of the man with the suitcase rides what every Dutch fifteen-year-old rides.
+- **"Wat kijk je?"** could not be found anywhere as a joke the community makes about itself. It turns up
+  as the outsiders' picture of the angry street kid, which this section stays away from. The owner kept
+  it, as a well-known line, for the fatbike kid only. See question 2.
+- **Honking after football** has no inside source, and the reporting on it is mostly about unrest. The
+  convoy is a wedding convoy. See question 4.
+- **"MohammedTron".** Mohammed is the commonest boys' name only when all its spellings are counted
+  together (NOS); the popular-name lists put Noah first nationally and Adam first in Amsterdam and The
+  Hague. Parents choose it after the Prophet, so the joke rests on a religious name, and no inside source
+  jokes about it. The owner chose Mo-Tron. See question 3.
+- **Left out because only outsiders tell it**, or nobody does: the mother's flying slipper (found only in
+  an anonymous forum list, and it is a parent hitting a child; the owner later gave De Gastvrouw a slipper
+  to swat enemy units with), the cousin who can fix anything, sunflower
+  seeds, the bakery, backgammon in the coffee house (the one 1976 drawing of a Turkish coffee house in The
+  Hague is framed as the workers' hopelessness), the aunts' WhatsApp group (found only in Germany), and the
+  wedding gold, the henna night and the bride's palanquin (found only in wedding-industry sources).
+
+**1975: de fabriek en het pension**
+
+| Slot | File | Name | What it is, and the joke | Rig |
+|---|---|---|---|---|
+| Light | `nachtploeg` | De Nachtploeg | Twenty, straight from the night shift at the metal works: blue overall, a lunch tin under his arm, a paper calendar in his breast pocket on which he crosses off the two years. Swings a spanner | humanoid |
+| Ranged | `de_tolk` | De Tolk | Ten, in a school jumper, just over with his mother. He translates every letter for his father, and the teacher's remarks a little too kindly. Throws the brown envelopes back | humanoid |
+| His projectile | `shot_envelop` | | A brown official envelope with a window | static |
+| Heavy | `imperiaal` | De Imperiaal | A long boxy saloon without a badge and a roof rack twice its height: suitcases, a fridge, a television, rolled carpets and a blue bathtub, tied down with rope. 3000 kilometres every summer | vehicle |
+| Schild | `de_koffer` | De Koffer | A man behind a suitcase as big as a wardrobe, belted shut, always packed for next year. Turrets go "tok" on it. Beaten, he sits on it, and it still does not close | humanoid |
+| Turret | `turret_pension` | Het Pension | Three men in bunk beds in the window of a boarding house, under one bare bulb. The alarm for the night shift goes off, and they throw it | static |
+| Its projectile | `shot_wekker` | | A ringing wind-up alarm clock | static |
+| Special | `special_thee` | Eerst thee | A neighbour's tray with tulip glasses of Turkish tea and glasses of mint tea side by side. See below | static |
+| Base | `base` | | Het Pension: a narrow brick house near the factory gate, too many beds behind every window, suitcases on the wardrobes, washing on a line across the top floor | static |
+
+Special, **Eerst thee** (heal): before anything else, tea. A tray goes along the line, and every own unit on
+the lane is patched up.
+
+**2025: de bruiloft en de kapper**
+
+| Slot | File | Name | What it is, and the joke | Rig |
+|---|---|---|---|---|
+| Light | `de_gastvrouw` | De Gastvrouw | Apron, sleeves rolled up, a stack of msemen on one arm. Nobody leaves her house hungry, whether they came to eat or not. Swats with a house slipper | humanoid |
+| Ranged | `donerbaas` | De Dönerbaas | White shirt and apron, the long döner knife held upright. Cuts from the spit all day: "Met alles?" Throws pita breads | humanoid |
+| His projectile | `shot_pita` | | A round pita bread, flat and spinning | static |
+| Heavy | `fatbike` | De Fatbike | **A rider: cheap and fast, it rides through the enemy ranks and hits everything it passes. See below.** Fifteen, tyres as fat as a sofa cushion, a phone in one hand, a crossbody bag, a helmet hanging from his elbow | vehicle |
+| Schild | `de_trouwfilmer` | De Trouwfilmer | The wedding cameraman behind a light panel the size of a door. Turrets bounce off the panel; he keeps filming, because the family will watch every minute of it | humanoid |
+| Turret | `turret_kapperszaak` | De Kapperszaak | The barber and two men on the waiting bench, who came for the talk more than for the cut. They throw hot towels | static |
+| Its projectile | `shot_handdoek` | | A rolled hot towel, steaming | static |
+| Special | `special_toeterstoet` | De Toeterstoet | A line of cars with ribbons and balloons on the bonnets, honking. See below | vehicle |
+| Base | `base` | | De Feestzaal: a wedding hall for 650 with fairy lights along the gutter, a red carpet at the door and a row of decorated cars waiting outside | static |
+
+Special, **De Toeterstoet** (stun): a wedding convoy comes past, honking so that everyone knows. Enemy units
+stop and watch it go by: for five seconds they can neither walk nor fight. The cars carry ribbons and
+balloons in the faction's colours, never a national flag.
+
+**2050: de achterkleinkinderen.** Mine, extrapolated from the jokes above; none of it is sourced.
+
+| Slot | File | Name | What it is, and the joke | Rig |
+|---|---|---|---|---|
+| Light | `kapbot` | De Kapbot | A barber robot with four arms: trimmer, comb, mirror, and one free to gesture with, because it still wants to talk. Buzzes | humanoid |
+| Ranged | `prijzenvader` | De Prijzenvader | The trip south takes forty minutes now, but he still visits twenty travel agencies (holograms) and writes every price in his notebook. Throws the tickets he did not buy | humanoid |
+| His projectile | `shot_ticket` | | A glowing ticket stub | static |
+| Heavy | `zweefimperiaal` | De Zweefimperiaal | The summer car of the future, hovering, with a roof rack higher than ever: suitcases, a fridge, a robot vacuum, and the blue bathtub, kept all these years | vehicle |
+| Turret | `turret_theeterras` | Het Theeterras | Three generations on a floating terrace, each with their own tea. They flick sugar cubes | static |
+| Its projectile | `shot_suikerklontje` | | A sugar cube | static |
+| Special | `special_nee_is_nee` | Nee is nee | A mother's face fills the sky, with one raised eyebrow. See below | static |
+| Base | `base` | | Het Familiehuis: a tall narrow house with a floor for every generation and a packed car parked on the roof, ready for next year | static |
+| **Super unit** | `mo_tron` | Mo-Tron | Mo, the night-shift worker of 1975, now a great-grandfather in a colossal walking robot. A roof rack on his shoulders, the calendar on his chest, still crossing off the days | free |
+
+Special, **Nee is nee** (snipe): one look and one "no", and the toughest enemy unit on the lane shrinks
+back; whatever is left of the look goes to the next toughest. The mother is never seen hitting anyone.
+
+**The fatbike: the first unit that does something of its own**
+
+The owner's idea, in their words: "dure zeer snelle unit die overal doorheen raast ... en tegen de base
+aanrijdt (soort base attack unit, wel duur) deuren houden deze tegen ook, daar kan die niet doorheen
+fietsen." After reading the first version of this rule, the owner changed it (23 November 2026): "I would
+let the fatbike damage the units it rides through (so same lane). It can be stopped with shields, both
+killing the fatbike and the shielder. It still should gain rewards. It should be cheaper than the other
+fatties, like half ... but low hp and it can be attacked and killed before it reaches the base. It should
+have the HP of a light unit or something, so that it can be killed, it does damage when failed and when
+there are little number of enemies it can blast the base. It cannot go through the super unit." It takes
+the **heavy slot of 2025**, at about half a heavy's price. In 1975 and 2050 the heavy unit is an ordinary
+one.
+
+Why it cannot simply be a fast unit: nothing in the ranks may pass the enemy's front line, so a unit that
+rides through the enemy army is not a unit in the ranks. It is a **rider**: a traveller of its own on the
+lane, as the convoy of a wave is, but with hit points. The rule, written out:
+
+- **Buying and training.** The heavy button sells it, and it is trained in the queue like any unit. When it
+  is trained it does not join the ranks: it leaves the gate as a rider. Only one rider per side is on the
+  lane at a time; a second one waits at the gate, trained, until the first is gone. It does not count
+  towards the ten units a side may have on the lane.
+- **Riding through.** It passes its own units without touching them. Every enemy unit on its way that does
+  not draw turret fire (light, ranged, heavy, of any era) it rides straight through, and the two trade one
+  blow: the unit takes the rider's ram damage, and the rider takes one blow of the unit's own damage, ready
+  or not (a stunned unit cannot). It does not slow down. A unit the rider beats earns the rider's side its bounty and vooruitgang,
+  as any kill does. So a crowd wears it down, and with only a few enemies on the lane it gets through.
+- **What else can hit it on the way.** Enemy turrets. A turret that can reach a rider fires at it before
+  anything else, because it is the thing going for the base, and its shots hit it at full strength.
+- **A schild stops it, and both go down.** The first enemy unit on its way that draws turret fire, which is
+  the schild of 1975 and 2025, is a door. The rider crashes into it and both are gone, whatever hit points
+  the schild had left. Each side earns the other's bounty and vooruitgang: the rider's side for the schild,
+  the schild's side for the rider. "Deuren houden deze tegen" is meant literally: the Achterhoek's first
+  schild is Deurink, a man carrying a barn door.
+- **A super unit stops it, and stays.** It cannot ride through a super unit either, which it meets when the
+  other side reached 2050 first. The rider crashes and is gone; the super unit takes the ram damage and walks
+  on, and its side earns the rider's bounty and vooruitgang.
+- **Beaten on the way, it has still done its damage.** Every unit it rode through took its blow, and stays
+  hurt or beaten, whatever happens to the rider after.
+- **What it does to the base.** If it reaches the enemy gate, it rides into the base: the base loses the
+  rider's base damage at once, and the rider is wrecked and gone. The enemy earns nothing for it.
+- **What else touches it.** Enemy specials do not: it is not a unit in the ranks and is gone in a few
+  seconds, so waves, stuns, takeovers, snipes and barrages pass it by, as they pass a super unit. Its own
+  side's buffs do not speed it up either. Overtime makes its ram and base damage grow, as it does every
+  unit's blows, and turrets that have fallen silent in overtime no longer fire at it.
+- **Riders pass each other.** Two riders coming from both sides do not touch.
+- **Mirrored.** Its position is its distance from its own gate, as for everything on the lane, so both
+  sides run the same arithmetic. It meets an enemy unit when the lane length minus its position minus the
+  unit's position reaches zero, which reads the same from either side. Within one tick it meets the enemy
+  units nearest first, and its own hit points count down as it goes, so it stops at the unit that beats
+  it. What it does to the units lands at the end of the tick with all other damage, so two riders, or a
+  rider and the other side's blows, never depend on which side is handled first. Turrets choose their
+  target by the same rule on both sides. A test plays it with the seats swapped and expects the same
+  outcome.
+
+**Numbers to start from**, to be fitted with `npm run balance -- --mix` and changed freely: price 230 (half
+the heavy of 2025, which costs 460; its bounty is then 92), trained in 4 seconds, 288 hit points (the light
+unit of 2025), 330 pixels a second (the junior walks 60, so it crosses the 1280-pixel lane in about four
+seconds), 130 ram damage to every unit it rides through (the heavy's blow is 132), and 500 to the base,
+which has 5500 in 2025. What wears it down: a light hits back for 43, a ranged unit for 31, a heavy for
+132, so two heavies and a few lights stop it. Two new turrets land about 100 on it before it reaches the
+gate; two fully upgraded ones land about 380, more than its hit points, so they stop it on their own.
+That, and a schild kept out, is the defender's answer. If bots show the rider never or always getting
+through, change its hit points first.
+
+**What the rules need** (no code here; the building agent writes it): a list of riders in the match state,
+next to the waves; a mark on the unit definition that it is a rider, with its ram damage and base damage;
+the queue sending out a rider instead of a unit; the ride through enemy units, with the blow each way and
+the bounty for what it beats; turrets preferring a rider in reach; shots that can hit a rider; the crash
+into a schild (both gone, both bounties) and into a super unit (the rider gone, the super hurt); the blow
+to the base; events for the renderer (out, through a unit, hit, into a schild, into a super unit, into the
+base, beaten); the renderer drawing a rider; the bots buying it, and answering it by keeping a schild out
+when the other side has riders; and a test file of its own, like `tests/shield.test.ts`, with the mirrored
+case in it. The places are the ones `docs/new-faction.md` lists for a new kind of special, plus
+`src/sim/step.ts` and `src/sim/turrets.ts`. The unit's blurb on the title card says in plain words what it
+does: "Raast overal doorheen, recht op de basis af. Alleen een deur houdt hem tegen."
+
+**Temperament: "met de hele familie"**
+
+A starting point, to be fitted with `npm run balance -- --mix` as `docs/new-faction.md` says:
+
+| Light | Ranged | Heavy (1975, 2050) | Schild |
+|---|---|---|---|
+| 15% cheaper, trained in 80% of the time, 15% fewer hit points | 10% more hit points, 10% longer between throws | 10% more hit points, 10% slower: the roof rack | 10% more hit points, 5% slower |
+
+Many hands, quickly there; the light ones fold sooner, the loaded ones are slow. The fatbike has its own
+numbers and no twist.
+
+**Lines**
+
+Ordinary Dutch, as these families speak it. No accent and no words from a prayer.
+
+| Era | Walking out | Beaten |
+|---|---|---|
+| 1975 | "Twee jaar, dan terug!" · "Nachtdienst!" · "Eerst thee." · "Ik schrijf het op." | "Volgend jaar terug." · "De koffer staat klaar." · "Mijn rug." · "Even naar huis bellen." |
+| 2025 | "Eet eerst wat!" · "Met alles?" · "Iedereen moet het zien!" · "Volgend jaar terug!"; the fatbike kid only: "Ik rij maar vijfentwintig, echt!" · "Wat kijk je?" | "Neem wat mee voor onderweg." · "Wie filmt dit?" · "Volgend jaar terug." · "Knoflooksaus op."; the fatbike kid only: "Mijn band is lek." |
+| 2050 | "Veertig minuten naar het zuiden!" · "Eerst de prijzen vergelijken." · "Blijf je eten?" · "Volgend jaar terug!" | "Volgend jaar." · "Accu leeg." · "Mijn notitieboekje!" · "Eerst thee." |
+
+**Flag and backdrop**
+
+- **Flag** (`art/flags/gasten.svg`): the tile-blue field, the golden tea glass on its saucer, the white
+  ribbon across the corner. No lettering, so it mirrors without help.
+- **Backdrop** (`art/gasten/backdrop.svg`, drawn for the left side): a street of brick houses with a
+  factory chimney behind them, a barber's pole by a shop door, the fairy lights of a wedding hall further
+  down, and a car with a loaded roof rack parked out front, ready for summer.
+
+**Stay away from**
+
+- Crime, police, fines and nuisance, including the reporting on wedding convoys that block junctions and
+  motorways. Every riot, including those after football matches, and any "beats Oranje" angle.
+- Religion as a joke: the mosque, prayer, Ramadan, the feast of the sacrifice, the pilgrimage, and
+  religious words in the lines. Headscarves and other clothes may be drawn as what people wear, never as
+  the punchline.
+- Accents or broken Dutch as the joke. Everyone speaks ordinary Dutch.
+- Politics and the integration debate, the word "allochtoon", benefits, and jokes about houses over there.
+- Real people, including every comedian, writer and filmmaker in the sources, the footballers of 2022 and
+  their mothers, and the man the kapsalon is named after.
+- Real shops, wedding halls, barbershops and ferry lines, and every car brand: no badge, no three-pointed
+  star, no blue oval.
+- Real national flags, crescents and stars, as the faction's flag or on the cars.
+- Smacks of any kind, apart from De Gastvrouw's slipper on enemy units, which the owner decided on.
+- Shoarma and the kapsalon, which are not theirs (döner is in, as the owner decided). The 1972 riots in the Rotterdam Afrikaanderwijk, which
+  the history of the boarding houses leads to. Bribes at borders, which turn up in the stories of the drive.
+- The angry street kid in general. "Wat kijk je?" is in, as the owner decided, but only from the fatbike
+  kid and only as cheek: never with a threat behind it, never from anyone else.
+
+**Questions, and what the owner decided**
+
+The owner read the brief on 23 November 2026 ("Yes the brief looks good") and changed four things: the
+name, the fatbike's rule, its line and the super unit's name. Five of the six questions are settled.
+
+1. **The name.** Settled: **De Gasten**, the owner's choice of 23 November 2026 from a second round of
+   funnier names. One word, three jokes: the "gast" of gastarbeider, the 650 guests at the wedding, and
+   "gast" as everyday Dutch for a guy, which the fatbike kid is. The owner's working title was
+   *De Gastarbeiders*; my first recommendation was *De Gastheren*. The owner's reasoning, which applies to
+   every faction: the name may tease the way Havermelk Elite does, since no faction's name is what its
+   people call themselves.
+2. **The fatbike.** Settled: the heavy of 2025, cheap and fragile, riding through the ranks and hitting
+   everything it passes, stopped by a schild (both go down) or a super unit, with the numbers above as a
+   start. Its lines: "Ik rij maar vijfentwintig, echt!", which every fatbike kid in the country says, and
+   the owner's **"Wat kijk je?"**, which the owner calls a well-known thing. My research found no inside
+   source for the second, only the outsiders' angry street kid, so it is the one line in this faction that
+   rests on the owner's word rather than a source. It is said as cheek, by the fatbike kid only.
+3. **The super unit's name.** Settled: **Mo-Tron**, the owner's choice, softened from their MohammedTron.
+   "Mo" is a nickname for many names, Mohammed among them; the robot is Mo, the night-shift worker of 1975,
+   grown into a giant. My recommendation had been Mega-Opa.
+4. **The honking convoy.** Settled: a wedding convoy, without real flags; ribbons and balloons in the
+   faction's colours.
+5. **One faction for two communities**, as the owner proposed, kept apart unit by unit. Settled.
+6. **A reader from the inside.** Still open, and the owner's to decide: before the build, let someone with
+   a Turkish-Dutch or Moroccan-Dutch family read this section, the lines and the stay-away list. With
+   "Wat kijk je?" and Mo-Tron in, this is where such a reading counts most.
+7. **The light and ranged units of 2025.** Changed by the owner during the build (23 November 2026):
+   De Blijver, the guest who takes an hour to say goodbye, is out ("de blijver seems a bit racist"),
+   since the word can be read as the immigrant who stayed. De Gastvrouw becomes the light unit and swats
+   with a slipper; the new ranged unit is De Dönerbaas, who throws pita breads. The barbershop stays the
+   turret.
+
 ## Suggested order
 
 A faction is built the way the two new eras were: three drawing jobs side by side, one per era, plus
@@ -1067,19 +1422,22 @@ battle, and one pull request per faction.
 1. ~~**The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.~~ Done.
 2. ~~**De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
    first new kind of special, the convert.~~ Done.
-3. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
-4. **Rotterdam.** Amsterdam's rival, with the container as the block.
-5. **De Toeristen.** The summon and the lockout.
-6. **De Camping.**
-7. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
-8. **De Friezen.**
+3. ~~**De Gasten.** The owner's own idea, and the first faction with a unit that does something of its
+   own: the fatbike, a rider.~~ Done.
+4. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
+5. **Rotterdam.** Amsterdam's rival, with the container as the block.
+6. **De Toeristen.** The summon and the lockout.
+7. **De Camping.**
+8. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
+9. **De Friezen.**
 
 Any other order works.
 
 ## Sources
 
-Each faction was researched online on 22 November 2026. Dates, origins, names and spellings in this
-document were checked against the sources below. Everyday details, such as the bodywarmer, the
+Each faction was researched online on 22 November 2026, and De Gasten on 23 November 2026. Dates,
+origins, names and spellings in this document were checked against the sources below. For De Gasten
+every joke was also traced to a source from inside the two communities; see its section. Everyday details, such as the bodywarmer, the
 bitterballen at the Friday drinks, socks in sandals or the guide's umbrella, are common knowledge and were
 not looked up. The 2050 eras are extrapolations, mine and the researchers'.
 
@@ -1155,3 +1513,22 @@ not looked up. The 2050 eras are extrapolations, mine and the researchers'.
 - The skottel: https://dsae.co.za/entry/skottel/e06581
 - Unwritten rules of the camp site: https://www.maxvandaag.nl/sessies/themas/reizen-verkeer/etiquette-op-de-camping-deze-ongeschreven-regels-gelden-er/
 - The voetbalvader on the sideline: https://assets.sire.nl/downloads_accept/infographics/SIRE-2011-Persbericht-22Geef-kinderen-hun-spel-terug22.pdf and https://www.omroepbrabant.nl/nieuws/4547282/lollys-moeten-schreeuwende-ouders-op-het-voetbalveld-stil-houden
+
+**De Gasten**
+
+- The shoarmazaak scene of Najib Amhali, named among his best-known sketches: https://www.ziggo.nl/entertainment/series/najib-amhali/najib-amhali-30-jaar-on-stage
+- The agreements and the work: https://verdragenbank.overheid.nl/en/Treaty/Details/004441 , https://www.canonvannederland.nl/nl/gastarbeiders , https://nos.nl/l/2533870 and https://nos.nl/l/2213402
+- "Two or three years", and the grandson who feels Dutch: https://nos.nl/artikel/2284642-50-jaar-na-het-wervingsverdrag-ik-voel-me-nederlands-en-marokkaans
+- The plan to go back, and staying: https://www.iamsterdam.com/ontdek/echt-amsterdams/door-de-ogen-van-turkse-amsterdammers
+- The word gastarbeider: https://dbnl.org/tekst/_taa014197101_01/_taa014197101_01_0024.php and https://nos.nl/artikel/2140764-gastarbeider-immigrant-of-allochtoon-het-blijft-worstelen
+- The summer drive: https://www.filmfestival.nl/en/film/porte-bagage , https://www.bladi.net/voiture-chargee-direction-maroc-voyage-mre-revient-affiche,124099.html , https://nos.nl/l/2438854 and, for the Turkish side as told in Germany, https://www.cambridge.org/core/product/0B8E6C00ADDB3E88EA96D73DEF44CF72/core-reader
+- The Moroccan-Dutch community list (the minibus, the travel agencies, the goodbye at the door): https://forums.marokko.nl/showthread.php?t=3008474
+- The son who translates: https://nl.wikipedia.org/wiki/Shouf_Shouf_Habibi!
+- Hospitality: https://www.linda.nl/persoonlijk/9-vragen-aan/soundos-el-ahmadi-fatbike-levensgevaarlijk/
+- Mothers on stage and screen: https://denhaag.com/nl/node/15827 and https://en.wikipedia.org/wiki/Meskina
+- Weddings and the convoy: https://www.vpro.nl/dit-zijn-wij/artikelen/hoe-trouwt-nederland and https://nos.nl/artikel/2300726-trouwstoeten-zijn-feestje-voor-de-een-flinke-overlast-voor-de-ander (the second also shows what to stay away from)
+- Barbers: https://www.brusselstimes.com/brussels-2/1245464/why-belgiums-turkish-barbers-are-a-cut-above/ and https://www.omroepbrabant.nl/nieuws/6000398/van-turkije-tot-tilburg-kapper-yetkin-73-denkt-nog-lang-niet-aan-stoppen
+- The fatbike and who rides it: https://nos.nl/l/2542570 , https://nos.nl/l/2526324 and https://www.nhnieuws.nl/nieuws/340354/nieuwe-regels-moeten-fatbike-onaantrekkelijker-maken-maar-gaat-dat-werken
+- Shoarma and the kapsalon: https://dbnl.org/tekst/_taa014198801_01/_taa014198801_01_0194.php , https://nl.wikipedia.org/wiki/Shoarma and https://nos.nl/l/2464018
+- First names: https://nos.nl/artikel/597208-mohamed-muhammed-muhamet and https://www.hartvannederland.nl/advies-en-tips/opvoeding/artikelen/populairste-babynamen-in-2024
+- Left out, and why: the 1976 drawing of a Turkish coffee house, https://haagshistorischmuseum.nl/en/collectie/masterpieces/turkish-coffee-house-hoefkade-the-hague/ ; the aunts' WhatsApp group, told in Germany, https://kubragumusay.com/2013/01/die-digitale-turkische-familie-whats-up/

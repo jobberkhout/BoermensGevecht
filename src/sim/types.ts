@@ -46,6 +46,26 @@ export interface Unit {
   turncoat: boolean;
 }
 
+/**
+ * A unit that does not join the ranks: the fatbike. It rides from its own gate
+ * straight to the enemy base, through every enemy unit on its way. See sim/riders.ts.
+ */
+export interface Rider {
+  id: number;
+  /** UnitDef id. */
+  def: string;
+  /** Row it is drawn in. Looks only. */
+  row: number;
+  /** Front edge, as distance from its own gate, like a unit's. */
+  pos: number;
+  prevPos: number;
+  hp: number;
+  /** Ids of the enemy units it has ridden through, each of which it meets once. */
+  passed: number[];
+  /** It rode into the enemy base and is gone, without a bounty for anyone. */
+  arrived: boolean;
+}
+
 export interface QueueItem {
   def: string;
   /** Ticks of training left. */
@@ -74,6 +94,8 @@ export interface SideState {
   baseMaxHp: number;
   /** In the order they walked out. Within one row that is front to back, because nobody overtakes in a row. */
   units: Unit[];
+  /** Riders on the lane: at most one. They are not units and do not count towards the unit cap. */
+  riders: Rider[];
   queue: QueueItem[];
   turrets: (Turret | null)[];
   /** Tick from which the special can be used. */
@@ -200,6 +222,12 @@ export type SimEvent =
   | { t: 'skimmed'; side: Side; amount: number }
   /** An enemy special had no effect on these units of `side`. */
   | { t: 'shrugged'; side: Side; ids: number[] }
+  /** Rider `id` of `side` rode through enemy unit `foe`, at `pos` in the rider's frame. */
+  | { t: 'rammed'; side: Side; id: number; foe: number; pos: number }
+  /** Rider `id` of `side` crashed into enemy unit `foe`, a schild or a super unit, and is done. */
+  | { t: 'crashed'; side: Side; id: number; foe: number; pos: number }
+  /** Rider `id` of `side` rode into the enemy base and is gone; the base took `amount`. */
+  | { t: 'arrived'; side: Side; id: number; amount: number }
   /** The algorithm came down on unit `id` of `side`. */
   | { t: 'sniped'; side: Side; id: number; pos: number }
   /** A barrage blow landed on `side`: on unit `id`, or on the base when `id` is BASE. */

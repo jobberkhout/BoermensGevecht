@@ -1,4 +1,4 @@
-import { SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats } from './balance.ts';
+import { RIDER, RIDER_STATS, SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats } from './balance.ts';
 import type { EraDef, Role, ShotDef, SpecialDef, TurretDef, UnitDef } from './types.ts';
 
 type Look = Omit<ShotDef, 'speed'>;
@@ -31,6 +31,11 @@ function makeUnit(id: string, role: Role, rig: string, stats: RoleStats, shot?: 
   return def;
 }
 
+/** A rider in the heavy slot: its own numbers, no temperament. See RIDER in defs/balance.ts. */
+function makeRider(id: string, rig: string): UnitDef {
+  return { ...makeUnit(id, 'heavy', rig, RIDER_STATS), rider: { baseDmg: RIDER.baseDmg } };
+}
+
 function makeTurret(id: string, rig: string, stats: TurretStats, shot: Look): TurretDef {
   return {
     id,
@@ -52,6 +57,8 @@ export interface EraLook {
   ranged: string;
   rangedShot: Look;
   heavy: string;
+  /** The heavy slot sells a rider instead, with its own numbers: the fatbike. */
+  heavyRides?: boolean;
   /** The fourth unit: the schild in the first two eras, the super unit in the last. */
   shield?: string;
   super?: string;
@@ -83,7 +90,7 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
   const units = [
     makeUnit(`${id}.light`, 'light', art(look.light), twisted(stats.light, temper.light)),
     makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot)),
-    makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy)),
+    look.heavyRides ? makeRider(`${id}.heavy`, art(look.heavy)) : makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy)),
   ];
   if (stats.shield) {
     if (!look.shield) throw new Error(`${id}: this era has a schild, so it needs a drawing for one`);

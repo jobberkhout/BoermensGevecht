@@ -19,6 +19,7 @@ function shape(side: SideState): unknown {
     divertedUntil: side.divertedUntil,
     specialReadyAt: side.specialReadyAt,
     units: side.units.map((u) => ({ ...u, id: 0 })),
+    riders: side.riders.map((r) => ({ ...r, id: 0, passed: r.passed.length })),
   };
 }
 

@@ -18,6 +18,7 @@ import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
+import { advanceRiders, riderInReach, sendRider } from './riders.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
@@ -25,6 +26,7 @@ import {
   SIDES,
   other,
   type Damage,
+  type Rider,
   type Shot,
   type Side,
   type SideState,
@@ -67,8 +69,9 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   for (const side of SIDES) decide(s, side, fronts[other(side)], dmg, events);
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
 
-  // 4-6. Movement, projectiles, specials.
+  // 4-6. Movement, riders, projectiles, specials.
   move(s, fronts);
+  advanceRiders(s, dmg, events);
   advanceShots(s, dmg);
   advanceWaves(s, dmg);
   advanceBarrages(s, dmg, events);
@@ -104,13 +107,18 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
     head.left--;
     return;
   }
-  // Trained. It walks out as soon as there is room on the lane and at the gate.
+  // Trained. A rider leaves as soon as the last one is gone; it does not join the ranks.
+  const def = unitDef(head.def);
+  if (def.rider) {
+    if (sendRider(s, side, def.id, events)) me.queue.shift();
+    return;
+  }
+  // Anyone else walks out as soon as there is room on the lane and at the gate.
   if (me.units.length >= UNIT_CAP) return;
   const row = freeRow(me.units);
   if (row < 0) return;
 
   me.queue.shift();
-  const def = unitDef(head.def);
   const unit: Unit = {
     id: s.nextId++,
     def: def.id,
@@ -234,16 +242,21 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
   // A unit that draws fire is what every turret in reach aims at, wherever it
   // stands in the enemy's ranks. With several of them, the foremost.
   const rod = frontUnit(s.sides[other(side)].units.filter((u) => unitDef(u.def).drawsFire));
+  const riders = s.sides[other(side)].riders;
   // Deep into overtime turrets are worn out and stay silent.
   const worn = turretDamagePercent(s.tick);
   for (let slot = 0; slot < turrets.length; slot++) {
     const t = turrets[slot];
     if (!t) continue;
     if (t.cd > 0) t.cd--;
-    if (t.cd > 0 || !foeFront || worn <= 0) continue;
+    if (t.cd > 0 || worn <= 0) continue;
     const def = turretDef(t.def);
     const range = turretRange(def, t.level);
-    const target = rod && LANE - rod.pos <= range ? rod : foeFront;
+    // A rider in reach comes before anything else: it is the thing going for the base.
+    const rider = riderInReach(riders, range);
+    const drawn: Unit | Rider | undefined = rider ?? (rod && LANE - rod.pos <= range ? rod : undefined);
+    const target = drawn ?? foeFront;
+    if (!target) continue;
     const dist = LANE - target.pos;
     if (dist > range) continue;
     t.cd = def.cooldown;
@@ -263,7 +276,7 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
       src: -1,
       row: target.row,
       slot,
-      aim: target === rod ? target.id : -1,
+      aim: drawn ? drawn.id : -1,
     });
     events.push({ t: 'turretFire', side, slot });
   }
@@ -316,8 +329,9 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
     const foe = other(shot.side);
     const units = s.sides[foe].units;
     // The first body a shot meets is the enemy's foremost unit. Only a turret's
-    // shot that was drawn to a unit flies on to that unit, for as long as it is there.
-    const drawn = shot.aim >= 0 ? units.find((u) => u.id === shot.aim) : undefined;
+    // shot that was drawn to a unit or a rider flies on to it, for as long as it is there.
+    const drawn: Unit | Rider | undefined =
+      shot.aim >= 0 ? (units.find((u) => u.id === shot.aim) ?? s.sides[foe].riders.find((r) => r.id === shot.aim)) : undefined;
     const front = drawn ?? frontUnit(units);
     const reach = Math.min(shot.pos, shot.limit);
     if (front) {
@@ -367,7 +381,14 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       continue;
     }
     const u = target.units.find((x) => x.id === d.unit);
-    if (!u) continue;
+    if (!u) {
+      const r = target.riders.find((x) => x.id === d.unit);
+      if (r) {
+        r.hp -= d.amount;
+        events.push({ t: 'hit', side: d.side, id: r.id, amount: d.amount, pos: r.pos });
+      }
+      continue;
+    }
     const share = d.turret ? unitDef(u.def).turretPercent : 100;
     if (share < 100) {
       // A turret's shot on a unit that shrugs turrets off: most of it bounces away.
@@ -384,12 +405,8 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     const me = s.sides[side];
     const foe = s.sides[other(side)];
     const alive: Unit[] = [];
-    for (const u of me.units) {
-      if (u.hp > 0) {
-        alive.push(u);
-        continue;
-      }
-      const def = unitDef(u.def);
+    const beaten = (who: Unit | Rider): void => {
+      const def = unitDef(who.def);
       const bounty = def.bounty;
       // The bounty goes to whoever beat it, unless their earnings are diverted: then it comes back to the loser.
       const to = payee(s, other(side));
@@ -397,11 +414,23 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       // Both sides learn from a fight; the one that won it learns more.
       foe.progress += Math.floor((def.cost * PROGRESS.killPercent) / 100);
       me.progress += Math.floor((def.cost * PROGRESS.lossPercent) / 100);
-      events.push({ t: 'defeat', side, id: u.id, def: u.def, pos: u.pos });
-      if (to === side) events.push({ t: 'gold', side, amount: bounty, pos: u.pos, diverted: true });
-      else events.push({ t: 'gold', side: to, amount: bounty, pos: LANE - u.pos });
+      events.push({ t: 'defeat', side, id: who.id, def: who.def, pos: who.pos });
+      if (to === side) events.push({ t: 'gold', side, amount: bounty, pos: who.pos, diverted: true });
+      else events.push({ t: 'gold', side: to, amount: bounty, pos: LANE - who.pos });
+    };
+    for (const u of me.units) {
+      if (u.hp > 0) alive.push(u);
+      else beaten(u);
     }
     me.units = alive;
+    // A rider that reached the base is simply gone; one that was stopped on the way is paid for like a unit.
+    const riding: Rider[] = [];
+    for (const r of me.riders) {
+      if (r.arrived) continue;
+      if (r.hp > 0) riding.push(r);
+      else beaten(r);
+    }
+    me.riders = riding;
   }
   // Whoever was bought and is still standing changes sides now.
   if (sold[0].length > 0 || sold[1].length > 0) applyTakeovers(s, sold, events);

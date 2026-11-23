@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-98 -240 196 246" data-rig="free">
+  <title>Mo-Tron: Mo, de nachtploeg van 1975, nu overgrootvader, in een kolossale robot. Het imperiaal op zijn schouders, de kalender op zijn borst</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.8; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .x { stroke: #e5283f; stroke-width: 1.9; stroke-linecap: round; fill: none; }
+    .rope { stroke: #c9a46a; stroke-width: 2.4; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can lift or shove the whole robot. -->
+  <g id="mech" transform="translate(0 0)"/>
+
+  <!-- The far arm carries the lunch tin, the same one, only bigger. Joint at the shoulder. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-52 -168)">
+    <g transform="translate(52 168)">
+      <path class="o" fill="#2d4778" d="M-66 -172 Q-74 -150 -70 -124 L-50 -124 Q-46 -150 -40 -170 Z"/>
+      <circle class="o" fill="#9aa4b2" cx="-60" cy="-122" r="8"/>
+      <path class="o" fill="#2d4778" d="M-70 -122 L-74 -100 L-56 -98 L-52 -120 Z"/>
+      <!-- the lunch tin, by its handle -->
+      <path class="t" style="stroke-width:4" d="M-80 -86 Q-80 -104 -66 -104 Q-52 -104 -52 -86"/>
+      <path class="o" fill="#b9c2bd" d="M-92 -86 L-40 -86 L-40 -60 Q-40 -54 -46 -54 L-86 -54 Q-92 -54 -92 -60 Z"/>
+      <path class="o" fill="#d5dcd8" d="M-94 -86 Q-94 -98 -66 -98 Q-38 -98 -38 -86 Z"/>
+      <path class="n" fill="#2f6fb3" d="M-91 -76 L-41 -76 L-41 -70 L-91 -70 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-91 -76 L-41 -76 M-91 -70 L-41 -70"/>
+      <rect class="o" style="stroke-width:2" fill="#f2c230" x="-70" y="-90" width="8" height="6" rx="1.4"/>
+      <!-- the grip -->
+      <path class="o" fill="#9aa4b2" d="M-74 -108 Q-74 -100 -66 -100 Q-58 -100 -58 -108 L-58 -112 L-74 -112 Z"/>
+    </g>
+  </g>
+
+  <!-- Legs like the boots of a man who stood at a machine all night. Joints at the hips. -->
+  <g id="leg_back" data-parent="mech" transform="translate(-18 -76)">
+    <g transform="translate(18 76)">
+      <rect class="o" fill="#2d4778" x="-34" y="-84" width="30" height="46" rx="10"/>
+      <circle class="o" fill="#7f8a99" cx="-19" cy="-40" r="8"/>
+      <rect class="o" fill="#2d4778" x="-32" y="-42" width="26" height="28" rx="6"/>
+      <path class="o" fill="#231c19" d="M-44 0 L-44 -10 Q-44 -20 -32 -20 L-6 -20 Q8 -19 12 -8 L12 0 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#c8a032" d="M0 -19 Q8 -17 12 -8 L12 -2 L0 -2 Z"/>
+    </g>
+  </g>
+  <g id="leg_front" data-parent="mech" transform="translate(18 -76)">
+    <g transform="translate(-18 76)">
+      <rect class="o" fill="#35548c" x="3" y="-84" width="30" height="46" rx="10"/>
+      <path class="n" fill="#4a6aa6" d="M24 -80 L29 -80 L29 -44 L24 -44 Z"/>
+      <circle class="o" fill="#9aa4b2" cx="18" cy="-40" r="8"/>
+      <circle class="n" fill="#c9d1dc" cx="15.6" cy="-42.6" r="2.4"/>
+      <rect class="o" fill="#35548c" x="5" y="-42" width="26" height="28" rx="6"/>
+      <path class="o" fill="#2b2420" d="M-6 0 L-6 -10 Q-6 -20 6 -20 L32 -20 Q46 -19 50 -8 L50 0 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#f2c230" d="M38 -19 Q46 -17 50 -8 L50 -2 L38 -2 Z"/>
+      <path class="n" fill="#45403a" d="M-4 -4 L48 -4 L48 -1.4 L-4 -1.4 Z"/>
+    </g>
+  </g>
+
+  <!-- The body: the blue overall, the bib, the belt, and the calendar on its chest. Joint at the hips. -->
+  <g id="torso" data-parent="mech" transform="translate(0 -76)">
+    <g transform="translate(0 76)">
+      <rect class="o" fill="#2d4778" x="-40" y="-84" width="80" height="22" rx="8"/>
+      <rect class="o" fill="#35548c" x="-58" y="-188" width="116" height="114" rx="28"/>
+      <path class="n" fill="#2d4778" d="M-54 -108 Q-55 -150 -48 -176 Q-44 -150 -44 -80 L-50 -80 Q-54 -90 -54 -108 Z"/>
+      <path class="n" fill="#4a6aa6" d="M42 -178 Q52 -170 53 -150 L53 -112 L47 -112 L47 -150 Q46 -168 42 -178 Z"/>
+      <!-- the bib with its straps and buttons -->
+      <path class="o" fill="#4466a3" d="M-30 -176 L36 -176 L38 -98 L-32 -98 Z"/>
+      <path class="t" style="stroke-width:5" d="M-26 -176 L-40 -186 M32 -176 L44 -186"/>
+      <circle class="o" fill="#f2c230" cx="-24" cy="-172" r="4.4"/>
+      <circle class="o" fill="#f2c230" cx="30" cy="-172" r="4.4"/>
+      <!-- the calendar, taped on: two years planned, fifty-one crossed off -->
+      <rect class="o" fill="#fffaf0" x="-20" y="-166" width="44" height="46" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#e5283f" x="-20" y="-166" width="44" height="9" rx="2"/>
+      <circle class="o" style="stroke-width:1.6" fill="#d5dcd8" cx="-10" cy="-166" r="2.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#d5dcd8" cx="14" cy="-166" r="2.4"/>
+      <path class="t" style="stroke:#c6cfd2;stroke-width:1.2" d="M-16 -146 L20 -146 M-16 -137 L20 -137 M-16 -128 L20 -128 M-7 -155 L-7 -122 M2 -155 L2 -122 M11 -155 L11 -122"/>
+      <path class="x" d="M-15 -154 L-9 -148 M-9 -154 L-15 -148 M-6 -154 L0 -148 M0 -154 L-6 -148 M3 -154 L9 -148 M9 -154 L3 -148 M12 -154 L18 -148 M18 -154 L12 -148 M-15 -145 L-9 -139 M-9 -145 L-15 -139 M-6 -145 L0 -139 M0 -145 L-6 -139 M3 -145 L9 -139 M9 -145 L3 -139 M12 -145 L18 -139 M18 -145 L12 -139 M-15 -136 L-9 -130 M-9 -136 L-15 -130"/>
+      <!-- the breast pocket, with a pencil -->
+      <rect class="o" style="stroke-width:1.8" fill="#f2c230" x="6" y="-122" width="4" height="12" rx="1.4"/>
+      <path class="o" style="stroke-width:2.2" fill="#35548c" d="M-2 -114 L22 -114 L21 -100 L-1 -100 Z"/>
+      <!-- belt and buckle -->
+      <rect class="o" fill="#231c19" x="-56" y="-94" width="112" height="9" rx="3"/>
+      <rect class="o" style="stroke-width:2" fill="#c6cfd2" x="-6" y="-96" width="14" height="13" rx="2"/>
+      <!-- rivets -->
+      <circle class="n" fill="#7f8a99" cx="-48" cy="-178" r="2.2"/>
+      <circle class="n" fill="#7f8a99" cx="48" cy="-178" r="2.2"/>
+      <circle class="n" fill="#7f8a99" cx="-48" cy="-104" r="2.2"/>
+      <circle class="n" fill="#7f8a99" cx="48" cy="-104" r="2.2"/>
+    </g>
+  </g>
+
+  <!-- The roof rack, on his shoulders: next summer is packed already. Joint on the rail, behind the dome. -->
+  <g id="rack" data-parent="torso" transform="translate(-26 -190)">
+    <g transform="translate(26 190)">
+      <path class="t" style="stroke-width:3.4" d="M-58 -188 L-58 -192 M-4 -188 L-4 -192"/>
+      <rect class="o" fill="#7f8a99" x="-66" y="-196" width="70" height="6" rx="3"/>
+      <rect class="o" fill="#8a5c40" x="-64" y="-224" width="40" height="28" rx="4"/>
+      <path class="t" style="stroke:#55382a;stroke-width:2.4" d="M-44 -224 L-44 -196"/>
+      <path class="t" d="M-50 -224 Q-44 -230 -38 -224"/>
+      <rect class="o" fill="#2f6fb3" x="-24" y="-214" width="24" height="18" rx="3.4"/>
+      <rect class="o" style="stroke-width:2.2" fill="#c0392b" x="-70" y="-232" width="52" height="9" rx="4.5"/>
+      <path class="t" style="stroke:#f2c230;stroke-width:1.6" d="M-58 -232 L-58 -223 M-44 -232 L-44 -223 M-30 -232 L-30 -223"/>
+      <path class="rope" d="M-66 -196 L-30 -232 M-26 -196 L-62 -230 M-24 -196 L0 -214"/>
+    </g>
+  </g>
+
+  <!-- The cockpit: a glass dome on a collar, with Mo inside. Joint at the collar. -->
+  <g id="head" data-parent="torso" transform="translate(22 -188)">
+    <g transform="translate(-22 188)">
+      <rect class="o" fill="#9aa4b2" x="-10" y="-195" width="64" height="11" rx="4.4"/>
+      <circle class="n" fill="#7ff0c8" cx="-2" cy="-189.6" r="2.2"/>
+      <circle class="n" fill="#f2c230" cx="46" cy="-189.6" r="2.2"/>
+      <path class="n" fill="#d8ecf4" d="M-6 -195 Q-6 -229 22 -229 Q50 -229 50 -195 Z"/>
+      <path class="n" fill="#c2dde9" d="M-6 -195 Q-6 -212 2 -220 Q0 -206 4 -195 Z"/>
+    </g>
+  </g>
+
+  <!-- Mo himself: great-grandfather now, white moustache, the cap he always wore. Joint at his seat. -->
+  <g id="mo" data-parent="head" transform="translate(20 -195)">
+    <g transform="translate(-20 195)">
+      <path class="o" style="stroke-width:2.2" fill="#35548c" d="M6 -195 Q6 -207 20 -207 Q34 -207 34 -195 Z"/>
+      <path class="t" style="stroke:#2d4778;stroke-width:2" d="M14 -205 L20 -197 L26 -205"/>
+      <circle class="o" style="stroke-width:2.2" fill="#d9a074" cx="22" cy="-214" r="9.6"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#d9a074" cx="13.6" cy="-213" rx="2.4" ry="3.4"/>
+      <path class="o" style="stroke-width:2" fill="#4a5a6a" d="M11.6 -216.4 Q12 -226.4 22 -226.4 Q32 -226.4 33 -217.4 L37 -216.2 Q37.4 -214 34 -214.2 L12.4 -214 Z"/>
+      <path class="n" fill="#f4f1ea" d="M12.6 -213.6 Q11.4 -208.4 14 -206 L15.4 -212.6 Z"/>
+      <path class="t" style="stroke-width:1.8" d="M24.4 -216.6 Q26.6 -218.4 28.6 -216.8"/>
+      <circle class="n" fill="#2b1b16" cx="26.6" cy="-213.4" r="1.4"/>
+      <path class="o" fill="#d9a074" style="stroke-width:1.8" d="M30.6 -214 Q34.4 -211 31 -208.6"/>
+      <path class="o" style="stroke-width:1.6" fill="#f4f1ea" d="M22.4 -208.2 Q27.6 -211.4 33 -208.4 Q31.6 -205.4 27.6 -206 Q24.4 -205.6 22.4 -208.2 Z"/>
+    </g>
+  </g>
+  <!-- His hand, which waves. Joint at his shoulder. -->
+  <g id="mo_arm" data-parent="mo" transform="translate(29 -202)">
+    <g transform="translate(-29 202)">
+      <path class="t" style="stroke:#2b1b16;stroke-width:5.4" d="M29 -202 L37 -211"/>
+      <path class="t" style="stroke:#35548c;stroke-width:3" d="M29 -202 L37 -211"/>
+      <circle class="o" style="stroke-width:1.8" fill="#d9a074" cx="38.4" cy="-213" r="3.6"/>
+    </g>
+  </g>
+
+  <!-- The glass over him. Joint at the collar, so it moves with the head. -->
+  <g id="dome" data-parent="head" transform="translate(22 -195)">
+    <g transform="translate(-22 195)">
+      <path class="n" fill="#bfe6f5" fill-opacity="0.25" d="M-6 -195 Q-6 -229 22 -229 Q50 -229 50 -195 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.8" d="M1 -206 Q3 -221 15 -225 Q7 -217 5 -205 Z"/>
+      <path class="o" fill="none" d="M-6 -195 Q-6 -229 22 -229 Q50 -229 50 -195"/>
+    </g>
+  </g>
+
+  <!-- On top, the alarm clock of the night shift, as a beacon. Joint at its foot. -->
+  <g id="clock" data-parent="head" transform="translate(22 -229)">
+    <g transform="translate(-22 229)">
+      <path class="o" style="stroke-width:1.8" fill="#c8a032" d="M16.4 -235 Q17 -239.4 21 -239 L19.4 -234.4 Z M27.6 -235 Q27 -239.4 23 -239 L24.6 -234.4 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#e5283f" cx="22" cy="-232.6" r="4.6"/>
+      <circle class="n" fill="#fffaf0" cx="22" cy="-232.6" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- The near arm, with the spanner. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(52 -168)">
+    <g transform="translate(-52 168)">
+      <path class="o" fill="#35548c" d="M40 -172 Q38 -150 46 -128 L64 -132 Q62 -152 64 -170 Z"/>
+      <circle class="o" fill="#9aa4b2" cx="56" cy="-130" r="8"/>
+      <circle class="n" fill="#c9d1dc" cx="53.6" cy="-132.6" r="2.4"/>
+      <path class="o" fill="#35548c" d="M50 -136 L74 -126 L68 -110 L46 -122 Z"/>
+      <circle class="o" fill="#9aa4b2" cx="52" cy="-170" r="10"/>
+      <circle class="n" fill="#c9d1dc" cx="49" cy="-173" r="3"/>
+    </g>
+  </g>
+
+  <!-- The spanner, as big as the man was. Joint in the fist; the open jaw points up. -->
+  <g id="spanner" data-parent="arm_front" transform="translate(74 -118)">
+    <g transform="translate(-74 118)">
+      <rect class="o" fill="#c6cfd2" x="69" y="-176" width="11" height="74" rx="4"/>
+      <path class="n" fill="#e6ecee" d="M71 -170 L74 -170 L74 -108 L71 -108 Z"/>
+      <path class="o" fill="#c6cfd2" d="M62 -176 Q60 -190 63 -198 L67.6 -202 L70.6 -199.6 L70.6 -188 L77.4 -188 L77.4 -199.6 L80.4 -202 L85 -198 Q88 -190 86 -176 Q84 -170 76 -170 L72 -170 Q64 -170 62 -176 Z"/>
+      <path class="n" fill="#e6ecee" d="M65 -180 Q64 -192 67.4 -198 L68.4 -186 Z"/>
+      <!-- the fist round it -->
+      <path class="o" fill="#9aa4b2" d="M64 -126 Q62 -112 74 -110 Q86 -112 84 -126 Q84 -132 74 -132 Q64 -132 64 -126 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M66 -124 L82 -124 M66 -118 L82 -118"/>
+    </g>
+  </g>
+</svg>

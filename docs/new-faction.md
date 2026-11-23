@@ -53,7 +53,11 @@ These were agreed with the owner and are not up for reinterpretation.
 - **Types, never real people.** No politicians, no parties, no celebrities, no historical persons by name
   or by face.
 - **No real brands or logos.** A parody name is fine ("Jan Deere"). No real clubs, firms or products.
-- **No jokes about where someone comes from**, beyond the regional teasing the regions do themselves.
+- **No jokes about where someone comes from.** The regions may be teased the way they tease
+  themselves. A faction about people's background carries only the jokes that community makes about
+  itself, told with affection; its brief names the inside source of each one, and nothing goes in that
+  the brief does not source or mark as the owner's decision. That goes for the lines and the details in
+  the drawings as well.
 - **Nothing about real tragedies or scandals** in which people were hurt.
 - **No lettering in drawings.** The right-hand player's drawings are mirrored, so words would read
   backwards. Use symbols. If a word cannot be avoided, draw the letters as paths inside a part with
@@ -102,6 +106,9 @@ After this step the game knows the faction and the tests tell you everything tha
      flies, in pixels; 14 for something that flies flat, 70 to 100 for a lob), `spin` (turns per second,
      0 to stay upright) and `splash` (the colour of the puff where it lands).
    - `special`: one of the kinds in Step 2, with its numbers from `SPECIAL` in `src/defs/balance.ts`.
+   - `heavyRides: true` only if the brief makes the heavy unit a rider, as De Gasten's fatbike is: a unit
+     that leaves the gate outside the ranks and rides through them to the enemy base. Its numbers are
+     `RIDER` in `src/defs/balance.ts` and its rule is `src/sim/riders.ts`; nothing else needs building.
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
@@ -128,7 +135,8 @@ After this step the game knows the faction and the tests tell you everything tha
    table), `money`, the `win` lines, `unmoved` (what its super
    unit says when an enemy special does nothing to it), and per id a name and a one-line description
    (`blurbs`), plus four or five lines per era to shout when walking out (`battleCry`) and to mutter when
-   beaten (`slinkOff`). The ids are `<prefix>.<era>.light`, `.ranged`, `.heavy`, `.shield` or `.super`,
+   beaten (`slinkOff`). A unit with lines of its own gets them under its id instead of an era, as De
+   Gasten's fatbike kid does in `src/ui/factions/gasten.ts`; only it says those. The ids are `<prefix>.<era>.light`, `.ranged`, `.heavy`, `.shield` or `.super`,
    `.turret` and `.special`.
    - A description is one or two short sentences, at most about 95 characters, or the title card no
      longer fits. For the schild and the super unit it must say what they do to turrets, as the existing

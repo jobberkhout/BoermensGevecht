@@ -1,6 +1,6 @@
 import type { EraKey, Temper } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
 export type Voice = 'town' | 'country' | 'office';
@@ -44,6 +44,12 @@ export interface UnitDef {
   drawsFire: boolean;
   /** Present on ranged units: they launch this instead of hitting directly. */
   shot?: ShotDef;
+  /**
+   * Present on a rider, the fatbike: it does not join the ranks but rides
+   * through them to the enemy base. `dmg` is what each enemy unit it rides
+   * through takes, `baseDmg` what the base takes when it gets there. See sim/riders.ts.
+   */
+  rider?: { baseDmg: number };
 }
 
 export interface TurretDef {

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>De Gasten: een straat met een fabriek erachter, de kapper en de feestzaal</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    Mirrored, the stretch from x = 662 to 818 lies under the sun of the shared sky, so nothing there
+    reaches above y = 250. The paving joints and the road markings are placed so that they meet their own
+    mirror image, for a match of De Gasten against itself.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- Behind the base: two plain brick houses further off, mostly hidden. -->
+    <path fill="#d7c4b8" d="M24 598 L24 470 L80 430 L136 470 L136 598 Z"/>
+    <path fill="#d2bcae" d="M156 598 L156 450 L230 404 L304 450 L304 598 Z"/>
+    <path fill="#e6dad1" d="M48 492 h18 v26 h-18 Z M94 492 h18 v26 h-18 Z M180 474 h20 v28 h-20 Z M220 474 h20 v28 h-20 Z M260 474 h20 v28 h-20 Z M180 526 h20 v28 h-20 Z M220 526 h20 v28 h-20 Z M260 526 h20 v28 h-20 Z"/>
+    <!-- The factory behind the street: a sawtooth roof and its chimney. The smoke drifts away from the sun. -->
+    <path fill="#cdb9ae" d="M470 598 L470 452 L500 420 L500 452 L530 420 L530 452 L560 420 L560 452 L590 420 L590 452 L620 420 L620 452 L650 420 L650 452 L650 598 Z"/>
+    <path fill="#ddd0c6" d="M476 430 h20 v12 h-20 Z M506 430 h20 v12 h-20 Z M536 430 h20 v12 h-20 Z M566 430 h20 v12 h-20 Z M596 430 h20 v12 h-20 Z M626 430 h20 v12 h-20 Z" fill-opacity="0.8"/>
+    <path fill="#c9ad9f" d="M548 598 L552 236 L580 236 L584 598 Z"/>
+    <path fill="#bfa192" d="M549 248 h34 v10 h-34 Z M550 300 h33 v6 h-33 Z M550 360 h33 v6 h-33 Z"/>
+    <g fill="#ffffff" fill-opacity="0.42"><ellipse cx="560" cy="222" rx="18" ry="11"/><ellipse cx="538" cy="204" rx="22" ry="13"/><ellipse cx="508" cy="190" rx="26" ry="14"/><ellipse cx="472" cy="182" rx="22" ry="11"/></g>
+    <!-- The street: terraced brick houses, each its own height. -->
+    <path fill="#d9c0b0" d="M330 598 L330 474 L340 474 L340 459.333 L350 459.333 L350 444.667 L360 444.667 L360 430 L380 430 L380 444.667 L390 444.667 L390 459.333 L400 459.333 L400 474 L410 474 L410 598 Z"/>
+    <path fill="#ebe1d8" d="M346 492 h18 v28 h-18 Z M376 492 h18 v28 h-18 Z M346 540 h18 v28 h-18 Z"/><path fill="#c3a797" d="M378 556 h16 v42 h-16 Z"/>
+    <path fill="#d3b7a6" d="M412 598 L412 470 L453 424 L494 470 L494 598 Z"/>
+    <path fill="#ebe1d8" d="M426 486 h18 v28 h-18 Z M462 486 h18 v28 h-18 Z M426 536 h18 v28 h-18 Z"/><path fill="#c0a393" d="M462 554 h16 v44 h-16 Z"/>
+    <path fill="#ebe1d8" d="M445 440 h8 v12 h-8 Z"/>
+    <!-- The barber: a wide window with the waiting bench behind it, and the pole by the door. -->
+    <path fill="#dcc6b6" d="M496 598 L496 478 L590 478 L590 598 Z"/>
+    <path fill="#cfb6a5" d="M494 474 h98 v8 h-98 Z"/>
+    <path fill="#ebe1d8" d="M508 494 h18 v26 h-18 Z M540 494 h18 v26 h-18 Z"/>
+    <path fill="#c9d6dc" d="M502 534 h52 v50 h-52 Z"/><path fill="#b4c3ca" d="M506 568 h44 v6 h-44 Z"/>
+    <path fill="#e2ebee" d="M506 538 L520 538 L506 556 Z"/>
+    <path fill="#bfa190" d="M560 540 h20 v58 h-20 Z"/><path fill="#d7c9c0" d="M556 534 h28 v6 h-28 Z"/>
+    <rect fill="#f1ece6" x="582" y="534" width="9" height="42" rx="2.5"/>
+    <path fill="none" stroke="#d98378" stroke-width="2.6" d="M582 542 L591 536 M582 552 L591 546 M582 562 L591 556 M582 572 L591 566"/>
+    <path fill="none" stroke="#86a9d0" stroke-width="2.6" d="M582 547 L591 541 M582 557 L591 551 M582 567 L591 561"/>
+    <rect fill="#cdbfb2" x="580.5" y="530" width="12" height="5" rx="2.5"/><rect fill="#cdbfb2" x="580.5" y="575" width="12" height="5" rx="2.5"/>
+    <path fill="#d5bba9" d="M592 598 L592 466 L628 422 L664 466 L664 598 Z"/>
+    <path fill="#ebe1d8" d="M604 482 h16 v26 h-16 Z M636 482 h16 v26 h-16 Z M604 530 h16 v26 h-16 Z M636 530 h16 v26 h-16 Z"/><path fill="#ebe1d8" d="M624 438 h8 v12 h-8 Z"/>
+    <path fill="#dbc3b3" d="M666 598 L666 476 L675.5 476 L675.5 463.333 L685 463.333 L685 450.667 L694.5 450.667 L694.5 438 L713.5 438 L713.5 450.667 L723 450.667 L723 463.333 L732.5 463.333 L732.5 476 L742 476 L742 598 Z"/>
+    <path fill="#ebe1d8" d="M678 492 h16 v26 h-16 Z M712 492 h16 v26 h-16 Z M678 538 h16 v26 h-16 Z"/><path fill="#c3a797" d="M712 552 h16 v46 h-16 Z"/>
+    <!-- Further down: the wedding hall, wide and low, with fairy lights along the gutter. -->
+    <path fill="#e0d0c4" d="M748 598 L748 494 L906 494 L906 598 Z"/>
+    <path fill="#d4c0b2" d="M744 486 h166 v10 h-166 Z"/>
+    <path fill="#ece3da" d="M762 524 Q770 508 778 524 L778 560 L762 560 Z M796 524 Q804 508 812 524 L812 560 L796 560 Z M842 524 Q850 508 858 524 L858 560 L842 560 Z M876 524 Q884 508 892 524 L892 560 L876 560 Z"/>
+    <path fill="#c8ab9b" d="M818 548 h18 v50 h-18 Z"/><path fill="#e7d8cc" d="M812 540 h30 v8 h-30 Z"/>
+    <path fill="#e2b9b0" d="M820 596 h14 v2 h-14 Z"/>
+    <path fill="none" stroke="#a8978a" stroke-width="1.4" d="M746 498 Q760 510 774 498 Q788 510 802 498 Q816 510 830 498 Q844 510 858 498 Q872 510 886 498 Q898 510 910 498"/>
+    <g><circle fill="#ffe07a" cx="753.0" cy="504.0" r="3.6"/><circle fill="#f3a3a3" cx="760.0" cy="505.5" r="3.6"/><circle fill="#98d9b4" cx="767.0" cy="504.0" r="3.6"/><circle fill="#ffe07a" cx="781.0" cy="504.0" r="3.6"/><circle fill="#a6c6ee" cx="788.0" cy="505.5" r="3.6"/><circle fill="#ffe07a" cx="795.0" cy="504.0" r="3.6"/><circle fill="#f3a3a3" cx="809.0" cy="504.0" r="3.6"/><circle fill="#98d9b4" cx="816.0" cy="505.5" r="3.6"/><circle fill="#ffe07a" cx="823.0" cy="504.0" r="3.6"/><circle fill="#a6c6ee" cx="837.0" cy="504.0" r="3.6"/><circle fill="#ffe07a" cx="844.0" cy="505.5" r="3.6"/><circle fill="#f3a3a3" cx="851.0" cy="504.0" r="3.6"/><circle fill="#98d9b4" cx="865.0" cy="504.0" r="3.6"/><circle fill="#ffe07a" cx="872.0" cy="505.5" r="3.6"/><circle fill="#a6c6ee" cx="879.0" cy="504.0" r="3.6"/><circle fill="#ffe07a" cx="892.0" cy="504.0" r="3.6"/><circle fill="#f3a3a3" cx="898.0" cy="505.5" r="3.6"/><circle fill="#98d9b4" cx="904.0" cy="504.0" r="3.6"/></g>
+    <!-- Thinning out before the middle: a low hedge and a tree. -->
+    <path fill="#b9d0ae" d="M908 598 L908 574 Q920 564 934 572 Q948 562 962 574 L962 598 Z"/>
+    <path fill="#8a7a6a" d="M937 598 L938 556 L942 556 L943 598 Z"/><circle fill="#a8c99b" cx="940" cy="540" r="22"/><circle fill="#9cc090" cx="950" cy="550" r="14"/>
+    <path fill="#8a7a6a" d="M407 598 L408 566 L412 566 L413 598 Z"/><circle fill="#a8c99b" cx="410" cy="552" r="19"/><circle fill="#9cc090" cx="418" cy="560" r="12"/>
+    <path fill="#8a7a6a" d="M741 598 L742 566 L746 566 L747 598 Z"/><circle fill="#a8c99b" cx="744" cy="552" r="19"/><circle fill="#9cc090" cx="752" cy="560" r="12"/>
+    <!-- Out front: a car with its roof rack loaded for the summer. No badge. -->
+    <path fill="#c7d0d8" d="M612 592 L612 574 Q614 568 622 567 L632 556 Q636 552 644 552 L680 552 Q688 552 692 558 L700 567 Q710 568 712 574 L712 592 Z"/>
+    <path fill="#e3eaef" d="M636 556 L646 556 L646 566 L628 566 Z M650 556 L668 556 L668 566 L650 566 Z M672 556 L684 556 L694 566 L672 566 Z"/>
+    <path fill="none" stroke="#a9b4be" stroke-width="2" d="M624 548 L700 548 M632 548 L634 553 M692 548 L690 553"/>
+    <rect fill="#d9c3a6" x="628" y="530" width="26" height="18" rx="2"/>
+    <rect fill="#c9d6c2" x="656" y="524" width="20" height="24" rx="2"/>
+    <rect fill="#e2cfc0" x="678" y="534" width="20" height="14" rx="2"/>
+    <rect fill="#d6b9b4" x="630" y="518" width="44" height="10" rx="5"/>
+    <path fill="#cbd8e4" d="M656 516 h16 v8 h-16 Z"/>
+    <path fill="none" stroke="#b8a690" stroke-width="1.4" d="M628 538 L700 532 M640 518 L640 548 M686 534 L686 548"/>
+    <circle fill="#9aa4ad" cx="632" cy="592" r="9"/><circle fill="#9aa4ad" cx="692" cy="592" r="9"/>
+    <circle fill="#c4cbd1" cx="632" cy="592" r="4"/><circle fill="#c4cbd1" cx="692" cy="592" r="4"/>
+
+    <!-- The pavement behind the road: tiles and a kerb. -->
+    <rect fill="#d4ccc3" y="598" width="1100" height="42"/>
+    <path fill="none" stroke="#bfb6ac" stroke-width="2" d="M0 619 L1100 619 M80 598 v42 M160 598 v42 M240 598 v42 M320 598 v42 M400 598 v42 M480 598 v42 M560 598 v42 M640 598 v42 M720 598 v42 M800 598 v42 M880 598 v42 M960 598 v42 M1040 598 v42"/>
+    <path fill="#c4bbb1" d="M0 632 L1100 632 L1100 640 L0 640 Z"/>
+
+    <!-- The road: a plain street with a dashed line down the middle. -->
+    <rect fill="#928e89" y="638" width="1100" height="104"/>
+    <path fill="none" stroke="#efe9df" stroke-width="3" stroke-dasharray="40 40" d="M0 690 L1100 690"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+
+    <!-- In front of the road, where the buttons sit: pale brick paving. -->
+    <rect fill="#d2c8bd" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#c0b5a9" stroke-width="2" d="M0 802 L1100 802 M0 862 L1100 862 M0 922 L1100 922 M0 982 L1100 982 M0 1042 L1100 1042 M0 742 L-77 1080 M120 742 L53 1080 M240 742 L182 1080 M360 742 L312 1080 M480 742 L442 1080 M600 742 L571 1080 M720 742 L701 1080 M840 742 L830 1080 M960 742 L960 1080 M1080 742 L1090 1080"/>
+  </g>
+</svg>

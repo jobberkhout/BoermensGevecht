@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -140 98 146" data-rig="humanoid">
+  <title>De Koffer: een man achter een koffer zo groot als een kast, met riemen dicht, altijd gepakt voor volgend jaar</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-21 -38)"/>
+
+  <!-- The far arm reaches round the back of the suitcase. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-30 -72)">
+    <path class="o" fill="#6e4a2c" d="M2 -4.5 L22 4.5 L18 13.5 L-2.5 5.5 Q-6.5 3 -5.5 -1.5 Q-3 -5.5 2 -4.5 Z"/>
+    <circle class="o" fill="#b97f58" cx="24.5" cy="11" r="4.4"/>
+  </g>
+
+  <!-- Grey travelling trousers with a crease, polished shoes. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-26 -38)">
+    <path class="o" fill="#55565c" d="M-7.5 -3 L7.5 -3 L6.5 31 L-6.5 31 Z"/>
+    <path class="o" fill="#241d19" d="M-7.5 38 L-7.5 33 Q-7.5 30 -3.5 30 L4 30 Q12 30.5 16.5 33.5 Q17.5 36.5 14 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-16 -38)">
+    <path class="o" fill="#67686f" d="M-7.5 -3 L7.5 -3 L6.5 31 L-6.5 31 Z"/>
+    <path class="t" style="stroke:#4a4b51;stroke-width:1.2" d="M0.6 -1 L0.4 29"/>
+    <path class="o" fill="#2f2622" d="M-7.5 38 L-7.5 33 Q-7.5 30 -3.5 30 L4 30 Q12 30.5 16.5 33.5 Q17.5 36.5 14 38 Z"/>
+    <path class="n" fill="#6a5a50" d="M3 31.2 L9 31.6 L8 32.6 L3 32.4 Z"/>
+  </g>
+
+  <!-- His best brown jacket for the journey, wide lapels, an open collar. -->
+  <g id="torso" data-parent="hips" transform="translate(-21 -40)">
+    <path class="o" fill="#7d5533" d="M-17 8 Q-20.5 -14 -16.5 -30 Q-13 -37 0 -37 Q14 -37 17.5 -30 Q21.5 -13 18.5 8 Z"/>
+    <path class="n" fill="#6e4a2c" d="M-15.8 6.8 Q-18.6 -14 -15.2 -29 Q-11 -20 -10.5 6.8 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f1e6c8" d="M-6 -37.5 L1 -26 L8 -37.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#8e643f" d="M-9 -37 L1 -22 L-3 -12 L-11 -33 Z M11 -37 L1 -22 L5 -12 L13 -33 Z"/>
+  </g>
+
+  <!-- The near arm: hand on the edge of the suitcase. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-11 -72)">
+    <path class="o" fill="#7d5533" d="M-3.4 13.2 L3 21 L-3.4 26.8 L-10.2 19 Z"/>
+    <circle class="o" fill="#c98f66" cx="-0.5" cy="27" r="4.6"/>
+    <path class="o" fill="#7d5533" d="M-5.5 -4 Q0 -7.5 5.5 -3.5 Q5.5 8 0.5 18.5 Q-4.5 23 -10.5 19.5 Q-12 9 -5.5 -4 Z"/>
+  </g>
+
+  <!-- The suitcase, standing on end, as big as a wardrobe. Joint where he holds it, on the edge. -->
+  <g id="koffer" data-parent="hips" transform="translate(-9 -55)">
+    <rect class="o" fill="#c48a4a" x="0" y="-66" width="47" height="119" rx="6"/>
+    <rect class="n" fill="#b37a3c" x="3" y="-63" width="9" height="113" rx="3"/>
+    <rect fill="none" stroke="#8e5f2c" stroke-width="1.4" x="4.5" y="-61.5" width="38" height="110" rx="4"/>
+    <!-- metal corners -->
+    <path class="o" style="stroke-width:1.6" fill="#c9ced2" d="M0 -56 L0 -60 Q0 -66 6 -66 L10 -66 L10 -61 Q5 -61 5 -56 Z M47 -56 L47 -60 Q47 -66 41 -66 L37 -66 L37 -61 Q42 -61 42 -56 Z M0 43 L0 47 Q0 53 6 53 L10 53 L10 48 Q5 48 5 43 Z M47 43 L47 47 Q47 53 41 53 L37 53 L37 48 Q42 48 42 43 Z"/>
+    <!-- two belts round it, because the locks gave up -->
+    <rect class="o" style="stroke-width:1.8" fill="#5a3a1e" x="-1.5" y="-36" width="50" height="7" rx="1.5"/>
+    <rect class="o" style="stroke-width:1.8" fill="#5a3a1e" x="-1.5" y="20" width="50" height="7" rx="1.5"/>
+    <rect class="o" style="stroke-width:1.6" fill="#e0b84a" x="30" y="-37.5" width="8" height="10" rx="1.2"/>
+    <rect class="n" fill="#5a3a1e" x="32.4" y="-35" width="3.2" height="5"/>
+    <rect class="o" style="stroke-width:1.6" fill="#e0b84a" x="30" y="18.5" width="8" height="10" rx="1.2"/>
+    <rect class="n" fill="#5a3a1e" x="32.4" y="21" width="3.2" height="5"/>
+    <!-- the handle, on top -->
+    <path class="t" style="stroke-width:5.6" d="M15 -66 Q15 -73.5 23.5 -73.5 Q32 -73.5 32 -66"/>
+    <path fill="none" stroke="#5a3a1e" stroke-width="3" stroke-linecap="round" d="M15 -66 Q15 -73.5 23.5 -73.5 Q32 -73.5 32 -66"/>
+    <!-- a travel sticker: a sun over the sea -->
+    <circle class="o" style="stroke-width:1.6" fill="#f4ecdc" cx="24" cy="-5" r="9"/>
+    <path class="n" fill="#4aa3d8" d="M15.6 -2 L32.4 -2 Q31 3 24 4 Q17 3 15.6 -2 Z"/>
+    <circle class="n" fill="#f2a43a" cx="24" cy="-5.5" r="3.6"/>
+    <!-- his fingers round the edge -->
+    <path class="n" fill="#c98f66" d="M-3 5.5 L2.2 5.5 Q4.2 5.5 4.2 6.9 Q4.2 8.2 2.6 8.3 Q4.2 8.4 4.2 9.8 Q4.2 11.1 2.6 11.2 Q4.2 11.3 4.2 12.7 Q4.2 14.5 2.2 14.5 L-3 14.5 Z"/>
+    <path class="t" style="stroke-width:1.5" d="M-1.4 5.5 L2.2 5.5 Q4.2 5.5 4.2 6.9 Q4.2 8.2 2.6 8.3 Q4.2 8.4 4.2 9.8 Q4.2 11.1 2.6 11.2 Q4.2 11.3 4.2 12.7 Q4.2 14.5 2.2 14.5 L-1.4 14.5 M0.4 8.3 L2.6 8.3 M0.4 11.2 L2.6 11.2"/>
+  </g>
+
+  <!-- A shirtsleeve caught in the lid: it never quite closes. Joint where it comes out. -->
+  <g id="sleeve" data-parent="koffer" transform="translate(37 -48)">
+    <path class="o" style="stroke-width:1.8" fill="#f4ecdc" d="M0 -3 L13 -1 Q15 2.5 13 6 L0 4.5 Z"/>
+    <path fill="none" stroke="#7fa3c9" stroke-width="1.2" d="M3 -2.4 L3 4.6 M7 -1.8 L7 5.2 M11 -1.2 L11 5.6"/>
+    <circle class="n" fill="#2b1b16" cx="12" cy="2.4" r="0.9"/>
+  </g>
+
+  <!-- His head comes round the suitcase: drawn over it. -->
+  <g id="head" data-parent="torso" transform="translate(-20 -76)">
+    <rect class="o" fill="#b97f58" x="-4.5" y="-6" width="10" height="9" rx="2"/>
+    <ellipse class="o" fill="#c98f66" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#c98f66" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- short dark hair and long sideburns -->
+    <path class="o" fill="#231c19" d="M-16 -26 Q-19 -16 -13 -11 L-10.5 -22 Z"/>
+    <!-- his travelling hat -->
+    <path class="o" fill="#6b6256" d="M-14 -31 Q-15 -45 2 -45 Q17 -45 17.5 -32 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2f2a25" d="M-14.4 -33.5 L17.7 -34.5 L17.6 -30.6 L-14.6 -29.6 Z"/>
+    <path class="o" fill="#5d5549" d="M-21 -29 Q2 -34.5 25 -30.5 Q26.5 -27.5 23 -27.5 Q2 -30.5 -19.5 -26 Q-22.5 -26.5 -21 -29 Z"/>
+    <path class="t" style="stroke:#4c443a;stroke-width:1.3" d="M-8 -42.5 Q2 -39.5 11 -42.5"/>
+    <circle class="n" fill="#2b1b16" cx="9.5" cy="-20" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.5" cy="-20" r="1.8"/>
+    <!-- raised eyebrows: will it shut this time? -->
+    <path class="t" style="stroke:#231c19;stroke-width:2.6" d="M5.5 -25.6 Q9 -27.8 12.5 -26.4 M15 -26.6 Q18 -28 20.6 -26"/>
+    <path class="o" fill="#b97f58" d="M19.5 -19 Q26 -15.5 20 -12"/>
+    <path class="t" style="stroke-width:1.9" d="M10 -9.6 Q13.5 -8 17 -10"/>
+    <path class="n" fill="#a8704c" fill-opacity="0.5" d="M-4 -8 Q4 -3 18 -7 Q14 -3.4 4 -3.6 Q-2 -4 -4 -8 Z"/>
+  </g>
+</svg>

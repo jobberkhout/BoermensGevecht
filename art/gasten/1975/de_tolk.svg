@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -112 98 118" data-rig="humanoid">
+  <title>De Tolk: tien jaar, schooltrui, en een tas vol bruine enveloppen die hij voor zijn vader vertaalt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -30)"/>
+
+  <!-- The school satchel on his back, stuffed with brown envelopes. Joint where the straps meet his shoulders. -->
+  <g id="satchel" data-parent="torso" transform="translate(-12 -54)">
+    <path class="o" fill="#c9a26b" d="M-16 -2 L-14.5 -13 L-8 -10.5 L-9 -1 Z"/>
+    <path class="o" fill="#d8b27a" d="M-9.5 -2 L-6 -14.5 L0.5 -12.5 L-2.5 -1 Z"/>
+    <path class="t" style="stroke:#a07c48;stroke-width:1.1" d="M-13.6 -8.6 L-10.4 -7.6 M-6 -9.6 L-2.4 -8.6"/>
+    <rect class="o" fill="#8a5a2e" x="-19" y="-3" width="20" height="24" rx="3"/>
+    <path class="o" fill="#a56d3a" d="M-19 -3 L1 -3 L1 7 Q-9 10 -19 7 Z"/>
+    <rect class="o" style="stroke-width:1.6" fill="#e0b84a" x="-11.5" y="5" width="5" height="4" rx="1"/>
+    <path class="t" style="stroke:#6e4520;stroke-width:1.2" d="M-17 13 L-1 13"/>
+  </g>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-8 -57)">
+    <path class="o" fill="#8e2f3a" d="M-5 -3 Q-6.5 7 -5.5 16 L5 16 Q6 7 5 -3 Z"/>
+    <circle class="o" fill="#c48a62" cx="0" cy="19" r="4"/>
+  </g>
+
+  <!-- Short trousers, knee socks, school shoes. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-4.5 -30)">
+    <path class="o" fill="#5a4636" d="M-6.5 -3 L6.5 -3 L6 10 L-6 10 Z"/>
+    <path class="o" fill="#c48a62" d="M-4.5 9.5 L4.5 9.5 L4.2 14 L-4.2 14 Z"/>
+    <path class="o" fill="#d9d4c6" d="M-4.6 13.5 L4.6 13.5 L4.3 25 L-4.3 25 Z"/>
+    <path class="o" fill="#3b2a22" d="M-6 30 L-6 26.5 Q-6 24 -2.5 24 L3.5 24 Q10 24.5 12.5 27.5 L12.5 30 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(4.5 -30)">
+    <path class="o" fill="#6b5442" d="M-6.5 -3 L6.5 -3 L6 10 L-6 10 Z"/>
+    <path class="t" style="stroke:#55402f;stroke-width:1.1" d="M-2 -1 L-1.8 8.5 M2 -1 L1.8 8.5"/>
+    <path class="o" fill="#d9a074" d="M-4.5 9.5 L4.5 9.5 L4.2 14 L-4.2 14 Z"/>
+    <path class="o" fill="#f1ede2" d="M-4.6 13.5 L4.6 13.5 L4.3 25 L-4.3 25 Z"/>
+    <path class="t" style="stroke:#8e2f3a;stroke-width:1.3" d="M-4.2 16 L4.2 16"/>
+    <path class="o" fill="#4a362b" d="M-6 30 L-6 26.5 Q-6 24 -2.5 24 L3.5 24 Q10 24.5 12.5 27.5 L12.5 30 Z"/>
+    <path class="n" fill="#2a1d17" d="M-5.4 28.2 L12 28.2 L12 29.4 L-5.4 29.4 Z"/>
+  </g>
+
+  <!-- The school jumper, a white collar sticking out, and the strap of the satchel. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -32)">
+    <path class="o" fill="#a33a46" d="M-13 6 Q-15 -10 -12.5 -23 Q-9.5 -29 0 -29 Q10 -29 13 -23 Q15.5 -10 13.5 6 Z"/>
+    <path class="n" fill="#8e2f3a" d="M-12 5 Q-13.6 -10 -11.5 -22 Q-8.4 -15 -8 5 Z"/>
+    <path class="t" style="stroke:#e0b84a;stroke-width:2.2" d="M-13.6 -11 L14.2 -11"/>
+    <path class="t" style="stroke:#7a2530;stroke-width:1.1" d="M-13.4 2.5 L13.6 2.5 M-13.2 4.5 L13.4 4.5"/>
+    <path class="o" style="stroke-width:1.8" fill="#fbf8f0" d="M-6.5 -29.5 L0 -24 L6.5 -29.5 L3 -30.8 L0 -28.3 L-3 -30.8 Z"/>
+    <path class="t" style="stroke:#5d3c1f;stroke-width:3.2" d="M-11.5 -26 Q-6 -17 -10.5 4"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -62)">
+    <rect class="o" fill="#c48a62" x="-3.5" y="-5" width="8" height="7" rx="2"/>
+    <ellipse class="o" fill="#d9a074" cx="2" cy="-19" rx="17" ry="16.5"/>
+    <ellipse class="o" fill="#d9a074" cx="-8.5" cy="-17" rx="3.2" ry="4.4"/>
+    <!-- dark curls -->
+    <path class="o" fill="#221a17" d="M-15 -21 Q-19 -27 -14.5 -31 Q-14 -37 -7.5 -37.5 Q-3.5 -42 2.5 -39 Q8 -42.5 12 -37.5 Q18.5 -37 18 -30.5 Q14 -31.5 11 -29 Q7.5 -32 3.5 -29.5 Q-1 -32 -4.5 -28.5 Q-6 -24 -7 -20 L-8.5 -14.5 Q-15 -16 -15 -21 Z"/>
+    <path class="t" style="stroke:#4a3f3a;stroke-width:1.2" d="M-11 -33 Q-8 -35.5 -5 -33.5 M0 -36 Q3 -38 6 -36 M9 -34.5 Q12 -36 14.5 -34"/>
+    <!-- big serious eyes: this letter is important -->
+    <ellipse class="n" fill="#ffffff" cx="9.5" cy="-18.5" rx="3.2" ry="3.6"/>
+    <ellipse class="n" fill="#ffffff" cx="16.8" cy="-18.5" rx="2.8" ry="3.4"/>
+    <circle class="n" fill="#2b1b16" cx="10.4" cy="-18.2" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.4" cy="-18.2" r="1.8"/>
+    <path class="t" style="stroke:#221a17;stroke-width:2.2" d="M6 -24.2 L12.5 -23.4 M14.8 -23.4 L19.4 -24"/>
+    <path class="o" fill="#c98f66" d="M18.8 -16.5 Q23.6 -13.5 19.2 -11"/>
+    <path class="t" style="stroke-width:1.8" d="M11.5 -8.6 Q14.2 -9.4 16.8 -8.8"/>
+  </g>
+
+  <g id="arm_front" data-parent="torso" transform="translate(9 -57)">
+    <path class="o" fill="#d9a074" d="M-5 13 L10 8.5 L12.5 15 L-1.5 21.5 Z"/>
+    <path class="o" fill="#a33a46" d="M-5.5 -3 Q-7.5 5 -6 12 Q-1 15.5 5 12.5 Q6.5 5 5.5 -3 Z"/>
+    <path class="o" fill="#fbf8f0" d="M-6.8 10.6 Q-1 14.6 5.8 11.2 L6.2 14.6 Q0 18.6 -6.4 14.8 Z"/>
+    <circle class="o" fill="#d9a074" cx="14.5" cy="11" r="4.4"/>
+    <circle data-mount="hand" fill="none" cx="17" cy="5" r="1"/>
+  </g>
+
+  <!-- The envelope in his hand, ready to go. -->
+  <g id="prop" data-parent="arm_front" transform="translate(23.5 -46)">
+    <g transform="rotate(-14)">
+      <rect class="o" style="stroke-width:2" fill="#c9a26b" x="-11" y="-14" width="22" height="15" rx="1.2"/>
+      <path class="t" style="stroke:#a07c48;stroke-width:1.2" d="M-10.4 -13.4 L0 -6.4 L10.4 -13.4"/>
+      <rect class="n" fill="#f6efe0" x="-8" y="-6.4" width="9" height="4.6"/>
+      <path class="t" style="stroke:#9a8f7a;stroke-width:0.8" d="M-7 -4.9 L-0.5 -4.9 M-7 -3.3 L-2.5 -3.3"/>
+      <ellipse class="o" fill="#d9a074" cx="-2" cy="1.8" rx="3.4" ry="3"/>
+    </g>
+  </g>
+</svg>

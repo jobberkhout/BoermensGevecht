@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-118 -126 236 132" data-rig="vehicle">
+  <title>De Zweefimperiaal: de zomerauto van de toekomst, zwevend, met een imperiaal hoger dan ooit. De blauwe badkuip gaat nog steeds mee</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .rope { stroke: #c9a46a; stroke-width: 2.2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shove the whole car. -->
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The glow the fans blow onto the road. Joint at the road. -->
+  <g id="jets" data-parent="chassis" transform="translate(0 0)">
+    <path class="n" fill="#7ff0c8" fill-opacity="0.45" d="M-72 -8 L-52 -8 L-46 2 L-78 2 Z M52 -8 L72 -8 L78 2 L46 2 Z"/>
+    <ellipse class="n" fill="#7ff0c8" fill-opacity="0.35" cx="-62" cy="2" rx="20" ry="3"/>
+    <ellipse class="n" fill="#7ff0c8" fill-opacity="0.35" cx="62" cy="2" rx="20" ry="3"/>
+  </g>
+
+  <!-- Hover fans instead of wheels. Joints at their hubs. -->
+  <g id="wheel_back" data-parent="chassis" transform="translate(-62 -19)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="12"/>
+    <circle class="n" fill="#7ff0c8" fill-opacity="0.6" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2.4" d="M0 -9 Q4 -3 0 0 Q-4 3 0 9 M-9 0 Q-3 -4 0 0 Q3 4 9 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c9d1dc" cx="0" cy="0" r="2.8"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(62 -19)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="12"/>
+    <circle class="n" fill="#7ff0c8" fill-opacity="0.6" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2.4" d="M0 -9 Q4 -3 0 0 Q-4 3 0 9 M-9 0 Q-3 -4 0 0 Q3 4 9 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c9d1dc" cx="0" cy="0" r="2.8"/>
+  </g>
+
+  <!-- The car: long, boxy, family-sized, no badge. Joint in the middle of its floor. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -24)">
+    <g transform="translate(0 24)">
+      <!-- the fan housings -->
+      <path class="o" fill="#d4c095" d="M-80 -24 Q-80 -36 -62 -36 Q-44 -36 -44 -24 Z M44 -24 Q44 -36 62 -36 Q80 -36 80 -24 Z"/>
+      <!-- the hull -->
+      <path class="o" fill="#efe2bf" d="M-106 -26 L-106 -46 Q-106 -54 -98 -55 L-70 -56 L-54 -76 Q-50 -80 -42 -80 L36 -80 Q44 -80 50 -74 L70 -57 L100 -54 Q110 -52 110 -42 L110 -28 Q110 -22 102 -22 L80 -22 Q80 -36 62 -36 Q44 -36 44 -22 L-44 -22 Q-44 -36 -62 -36 Q-80 -36 -80 -22 L-100 -22 Q-106 -22 -106 -26 Z"/>
+      <path class="n" fill="#d9c79c" d="M-104 -30 L-104 -26 Q-104 -24 -100 -24 L-82 -24 Q-82 -30 -78 -33 L-104 -33 Z M108 -30 L108 -28 Q108 -24 104 -24 L82 -24 Q82 -30 78 -33 L108 -33 Z M-42 -24 L42 -24 Q42 -30 40 -33 L-40 -33 Q-42 -30 -42 -24 Z"/>
+      <!-- the stripe in tile blue -->
+      <path class="n" fill="#2f6fb3" d="M-105 -45 L109 -45 L109 -39 L-105 -39 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-105 -45 L109 -45 M-105 -39 L109 -39"/>
+      <!-- windows -->
+      <path class="o" style="stroke-width:2" fill="#bfe6f5" d="M-62 -58 L-49 -74 Q-46 -76 -42 -76 L-8 -76 L-8 -58 Z"/>
+      <path class="o" style="stroke-width:2" fill="#bfe6f5" d="M-2 -58 L-2 -76 L34 -76 Q40 -76 45 -72 L62 -58 Z"/>
+      <!-- the family: the children in the back, father at the wheel -->
+      <circle class="n" fill="#96613c" cx="-38" cy="-64" r="6.6"/>
+      <path class="n" fill="#2b2422" d="M-44.6 -65 Q-44 -72.6 -37 -72.4 Q-31 -72 -31.6 -66 Q-37 -69 -44.6 -65 Z"/>
+      <circle class="n" fill="#c98e62" cx="-21" cy="-63" r="5.8"/>
+      <path class="n" fill="#3a2d28" d="M-27 -63 Q-27 -70.6 -21 -70.4 Q-15 -70 -15.4 -64.6 Q-20 -67 -27 -63 Z M-28 -62 Q-30 -56 -27 -54 L-26 -62 Z"/>
+      <circle class="n" fill="#b07850" cx="24" cy="-65" r="7"/>
+      <path class="n" fill="#2b2422" d="M17 -66 Q17.6 -73.6 24.6 -73.4 Q30.6 -73 30.4 -67 Q24 -70 17 -66 Z"/>
+      <path class="n" fill="#3a2d28" d="M26 -61.6 Q29 -63 32 -61.4 Q30 -60 26 -61.6 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-50 -60 L-40 -74 L-34 -74 L-44 -60 Z M10 -60 L18 -74 L23 -74 L15 -60 Z"/>
+      <path class="t" style="stroke-width:2" d="M-62 -58 L-49 -74 Q-46 -76 -42 -76 L-8 -76 L-8 -58 Z M-2 -58 L-2 -76 L34 -76 Q40 -76 45 -72 L62 -58 Z"/>
+      <path class="t" d="M-5 -56 L-5 -24 M-60 -52 L-52 -52 M4 -52 L12 -52"/>
+      <!-- lights: mint at the front, red at the back -->
+      <path class="o" style="stroke-width:1.8" fill="#7ff0c8" d="M104 -52 Q110 -50 109.6 -46 L101 -46 Q100 -50 104 -52 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e5283f" x="-107" y="-53" width="6" height="7" rx="2"/>
+      <!-- the roof rack rails -->
+      <path class="t" style="stroke-width:3" d="M-46 -80 L-46 -84 M30 -80 L30 -84"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="-60" y="-86" width="102" height="4" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Everything for the summer, higher than ever. Joint on the rack, so it all sways together. -->
+  <g id="load" data-parent="body" transform="translate(-8 -86)">
+    <g transform="translate(8 86)">
+      <!-- a rolled carpet along the bottom -->
+      <rect class="o" fill="#c0392b" x="-70" y="-96" width="58" height="10" rx="5"/>
+      <path class="t" style="stroke:#f2c230;stroke-width:1.6" d="M-60 -96 L-60 -86 M-44 -96 L-44 -86 M-28 -96 L-28 -86"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#e06b5d" cx="-70" cy="-91" rx="3.6" ry="5"/>
+      <!-- suitcases, strapped -->
+      <rect class="o" fill="#8a5c40" x="-66" y="-112" width="30" height="16" rx="3"/>
+      <path class="t" style="stroke:#55382a;stroke-width:2" d="M-51 -112 L-51 -96"/>
+      <rect class="o" fill="#2f6fb3" x="-36" y="-110" width="22" height="14" rx="3"/>
+      <rect class="o" style="stroke-width:1.8" fill="#5fc9a0" x="-62" y="-122" width="20" height="10" rx="2.6"/>
+      <path class="t" style="stroke-width:1.8" d="M-55 -122 Q-52 -126 -49 -122"/>
+      <!-- the fridge, standing up -->
+      <rect class="o" fill="#fbf8f0" x="-12" y="-122" width="24" height="36" rx="3"/>
+      <path class="t" d="M-12 -108 L12 -108 M8 -118 L8 -112 M8 -104 L8 -96"/>
+      <!-- the blue bathtub, upside down, feet in the air: it has gone south every summer since 1975 -->
+      <path class="o" fill="#4aa3d8" d="M16 -86 L16 -96 Q16 -106 26 -106 L54 -106 Q62 -106 62 -96 L62 -86 Z"/>
+      <path class="n" fill="#a9daf4" d="M20 -98 Q20 -103 26 -103 L40 -103 Q30 -101 24 -95 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#e0b84a" d="M20 -106 L18 -112 Q20 -114 22 -112 L24 -106 Z M54 -106 L56 -112 Q58 -114 60 -112 L58 -106 Z"/>
+      <!-- the ropes that hold it all -->
+      <path class="rope" d="M-68 -86 L-40 -122 M-20 -86 L-62 -118 M-14 -86 L12 -120 M14 -86 L40 -106 M60 -86 L34 -106"/>
+    </g>
+  </g>
+
+  <!-- The robot vacuum on top of the bathtub: even it goes on holiday. Joint at its middle. -->
+  <g id="vacuum" data-parent="load" transform="translate(40 -110)">
+    <ellipse class="o" fill="#3a3d4a" cx="0" cy="0" rx="12" ry="4.6"/>
+    <path class="o" style="stroke-width:1.8" fill="#5d6675" d="M-9 -2 Q-9 -6 0 -6 Q9 -6 9 -2 Z"/>
+    <circle class="n" fill="#7ff0c8" cx="3" cy="-4" r="1.5"/>
+  </g>
+</svg>

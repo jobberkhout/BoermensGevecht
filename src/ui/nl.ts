@@ -4,13 +4,14 @@ import { achterhoek } from './factions/achterhoek.ts';
 import { havermelk } from './factions/havermelk.ts';
 import type { FactionText } from './factions/types.ts';
 import { zuidas } from './factions/zuidas.ts';
+import { gasten } from './factions/gasten.ts';
 
 /**
  * Every piece of text the player sees. What a faction says and is called lives
  * in ui/factions/<faction>.ts; what they all share is here. Change a name in
  * one of those files and it changes everywhere.
  */
-const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas };
+const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten };
 
 /** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
@@ -27,6 +28,8 @@ export const NL = {
   tagline: 'De slag om de subsidie',
 
   faction: perFaction((text) => ({ name: text.name, place: text.place, trait: text.trait, money: text.money })),
+  /** What is shouted where a faction's snipe special lands, for a faction that has its own word for it. */
+  sniped: perFaction((text) => text.sniped),
 
   /** Display names and one-line descriptions by definition id. */
   names: gathered((text) => text.names),
@@ -134,6 +137,8 @@ export function nameOf(id: string): string {
  * that trained it, for the era in its id ('hm.1975.light').
  */
 export function linesFor(kind: 'slinkOff' | 'battleCry', unitId: string): readonly string[] {
+  // A unit may have lines of its own (the fatbike kid's); everyone else shares those of their era.
+  const lines = NL[kind][homeOf(unitId)];
   const era = unitId.split('.')[1] ?? '';
-  return NL[kind][homeOf(unitId)]?.[era] ?? [];
+  return lines?.[unitId] ?? lines?.[era] ?? [];
 }

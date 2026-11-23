@@ -1,7 +1,7 @@
 # Boermens Gevecht
 
 A lane-battle game for two players on one keyboard, in the browser. It started as the Achterhoek against
-the havermelkelite of Amsterdam; De Zuidas has joined, and more factions are planned. Each player picks a
+the havermelkelite of Amsterdam; De Zuidas and De Gasten have joined, and more factions are planned. Each player picks a
 faction, buys units that walk to the other side on their own, builds and upgrades turrets, applies for
 more subsidie, uses a special move, and modernizes from the seventies to the future. Whoever wrecks the
 other base wins.
@@ -34,11 +34,11 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 
 ## The factions
 
-| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas |
-|---|---|---|---|
-| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) |
-| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) |
+| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten |
+|---|---|---|---|---|
+| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) |
+| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (enemy units stand still) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: Nee is nee (the toughest enemy, then the next) |
 
 All factions start from the same numbers for the same role in the same era. On top of those each has its
 own temperament, a small twist that is the same in every era and is shown next to its name on the title
@@ -48,6 +48,7 @@ card:
 |---|---|---|
 | Achterhoek | taai en traag: tough and slow | 15% more hit points, 10% slower on the road, a 20% longer pause between blows. What they throw lands 15% harder |
 | Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. Every unit but the Havermelkreus costs 10% less. They throw from 10% further away, 10% softer |
+| De Gasten | met de hele familie: many hands, quickly there | Light units cost 15% less, are trained in 80% of the time and have 15% fewer hit points. Ranged units have 10% more hit points and a 10% longer pause between throws; heavies and the schild have 10% more hit points and are 5 to 10% slower. The fatbike has numbers of its own |
 | De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 
 Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
@@ -126,6 +127,13 @@ Every action is also a button on screen.
   they get for the units they beat. So it pays most in the middle of a fight, and best of all just before
   an expensive unit of your own goes down: its bounty comes back to you. What the enemy already has stays
   theirs, and so does the vooruitgang they earn.
+- **De Fatbike**, the heavy unit of De Gasten in the Jaren '20, is not a unit in the ranks but a rider.
+  It costs half a heavy and has the hit points of a light unit. It leaves the gate on its own, one at a
+  time and outside the ten-unit limit, and rides straight through the enemy ranks: every unit it passes
+  takes a blow and hits it back once, and what it beats earns you the bounty. A schild stops it and both
+  go down; a super unit stops it and walks on. Turrets fire at it before anything else, and enemy specials
+  leave it alone. If it gets through, it rides into the enemy base. So it is for a thin lane without a
+  schild on it.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
@@ -208,4 +216,5 @@ Adding `?test=1` to the game's address stops the clock; `window.__game` then ste
 - The Achterhoekse vlag was designed by Paul Heutinck (2018); it is redrawn here from the published design.
 - The flag of Amsterdam is the city's historic flag, redrawn.
 - The flag of De Zuidas is made up: the house flag of Krijtstreep & Zn., a firm that does not exist.
+- The flag of De Gasten is made up: the flag of the street, a tea glass and a wedding ribbon on a tiled wall.
 - Everything else is original to this project.

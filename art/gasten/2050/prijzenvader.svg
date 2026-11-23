@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -138 118 144" data-rig="humanoid">
+  <title>De Prijzenvader: de reis duurt veertig minuten, maar hij vergelijkt nog steeds twintig reisbureaus, in zijn boekje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .holo { fill: #7ff0c8; fill-opacity: 0.28; stroke: #3fcfa6; stroke-width: 1.8; stroke-linejoin: round; }
+    .hl { stroke: #2f9f80; stroke-width: 1.6; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- Two travel agencies, as holograms, floating at his shoulder. He is comparing them. Joint between them. -->
+  <g id="holo" transform="translate(-31 -104)">
+    <g transform="translate(31 104)">
+      <rect class="holo" x="-46" y="-130" width="26" height="20" rx="4"/>
+      <path class="n" fill="#2f9f80" d="M-41 -121 L-30 -121 L-26 -124 L-24.4 -124 L-26.4 -120.4 L-24 -118.6 L-25.4 -118.2 L-28 -119.4 L-30.6 -119.4 L-33.6 -116 L-35.4 -116 L-33.6 -119.4 L-40 -119.4 Z"/>
+      <path class="hl" d="M-41 -114.4 L-34 -114.4 M-31 -114.4 L-25 -114.4"/>
+      <rect class="holo" x="-44" y="-104" width="22" height="17" rx="4"/>
+      <path class="n" fill="#2f9f80" d="M-40.6 -97 L-25.6 -97 L-28 -93 L-38.6 -93 Z M-34 -97 L-34 -101.6 L-29.6 -97 Z"/>
+      <path class="hl" d="M-40 -89.6 L-34.4 -89.6 M-31.6 -89.6 L-26 -89.6"/>
+    </g>
+  </g>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-8 -72)">
+    <g transform="translate(8 72)">
+      <path class="o" fill="#255a93" d="M-14 -75 Q-17 -62 -12 -52 L-3 -52 Q-2 -64 -3 -75 Z"/>
+      <path class="o" fill="#255a93" d="M-13 -57 L6 -62 L8 -54 L-9 -49 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <g transform="translate(5 38)">
+      <path class="o" fill="#ad9a72" d="M-12.5 -41 L2.5 -41 L1.5 -7 L-11.5 -7 Z"/>
+      <path class="o" fill="#55382a" d="M-12 -2.5 Q-12 -8.5 -7 -8.5 L1 -8.5 Q8.5 -7.5 9 -2.5 L9 0 L-12 0 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <g transform="translate(-5 38)">
+      <path class="o" fill="#c8b48a" d="M-2.5 -41 L12.5 -41 L11.5 -7 L-1.5 -7 Z"/>
+      <path class="t" style="stroke:#a8946c;stroke-width:1.4" d="M6 -38 L6 -10"/>
+      <path class="o" fill="#6b4630" d="M-2 -2.5 Q-2 -8.5 3 -8.5 L11 -8.5 Q18.5 -7.5 19 -2.5 L19 0 L-2 0 Z"/>
+      <path class="n" fill="#8a5c40" d="M6 -7.4 L12 -7.4 Q15 -7 16 -5 L6 -5 Z"/>
+    </g>
+  </g>
+
+  <!-- A tile-blue cardigan over a mint polo, a pen in the pocket. Joint at the waist. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <path class="o" fill="#2f6fb3" d="M-16 -36 Q-19 -56 -16 -72 Q-11.5 -80.5 1 -80.5 Q12.5 -80.5 16.5 -72 Q19.5 -56 15.5 -36 Z"/>
+      <path class="n" fill="#255a93" d="M-15 -38 Q-17.5 -56 -15 -70 Q-11 -60 -10 -38 Z"/>
+      <path class="o" style="stroke-width:2" fill="#5fc9a0" d="M2 -80 Q8 -80.5 12 -78 L7 -62 Z"/>
+      <path class="t" style="stroke-width:1.8" d="M2 -80 L7 -62 L8 -37"/>
+      <circle class="n" fill="#fbf8f0" cx="10.6" cy="-56" r="1.4"/>
+      <circle class="n" fill="#fbf8f0" cx="11" cy="-47" r="1.4"/>
+      <!-- the pocket, and the pen that goes with the notebook -->
+      <path class="o" style="stroke-width:1.8" fill="#2f6fb3" d="M-9 -66 L0 -66 L-0.6 -58 L-8.6 -58 Z"/>
+      <rect class="o" style="stroke-width:1.4" fill="#f2c230" x="-6.2" y="-71" width="2.6" height="7" rx="1"/>
+      <rect class="o" style="stroke-width:2" fill="#3a2d28" x="-16" y="-41" width="31.5" height="5" rx="1.8"/>
+      <rect class="n" fill="#c9971c" x="5" y="-40" width="4" height="3" rx="0.6"/>
+    </g>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -78)">
+    <g transform="translate(-1 78)">
+      <rect class="o" fill="#96613c" x="-3.5" y="-84" width="9" height="8" rx="2"/>
+      <ellipse class="o" fill="#b07850" cx="3" cy="-97.5" rx="16.5" ry="17.5"/>
+      <!-- short hair, grey at the sides -->
+      <path class="o" fill="#2b2422" d="M-13.6 -97 Q-17 -116.5 3 -116.4 Q17 -116.6 19.4 -105 Q12 -109.4 2 -108.6 Q-6 -108 -8 -101 Q-9.6 -96 -11.6 -92 Q-14 -93.4 -13.6 -97 Z"/>
+      <path class="n" fill="#9c9690" d="M-12.4 -96 Q-12.8 -102 -9.6 -104 Q-9 -99 -11.2 -93 Z"/>
+      <ellipse class="o" fill="#b07850" cx="-6.6" cy="-95" rx="3.4" ry="4.6"/>
+      <!-- the pencil behind his ear -->
+      <path class="o" style="stroke-width:1.6" fill="#f2c230" d="M-10.6 -100.6 L-0.6 -108.6 L0.8 -106.8 L-9.2 -98.8 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#f3d9b5" d="M-0.6 -108.6 L3.2 -110.4 L0.8 -106.8 Z"/>
+      <!-- eyebrow up: is that the price with luggage? -->
+      <path class="t" style="stroke-width:2.6" d="M7.6 -106.4 Q11.4 -109.4 15.4 -106.6"/>
+      <circle class="n" fill="#2b1b16" cx="12" cy="-100.4" r="1.9"/>
+      <!-- reading glasses, down his nose -->
+      <circle class="t" style="stroke-width:1.8" cx="12.4" cy="-99" r="4.6"/>
+      <path class="t" style="stroke-width:1.6" d="M7.8 -99.6 L-5 -101"/>
+      <path class="o" fill="#b07850" d="M18.6 -100 Q23.6 -95.6 19 -92.6"/>
+      <!-- the moustache -->
+      <path class="o" style="stroke-width:1.6" fill="#3a2d28" d="M9 -89.6 Q13 -92.6 19.6 -90.4 Q20 -87.6 16 -87.8 Q12.6 -87.4 9 -89.6 Z"/>
+      <path class="t" d="M12 -84.4 Q14.6 -83.4 17 -84.8"/>
+    </g>
+  </g>
+
+  <!-- The notebook: every price he has ever been quoted, with ticks. Held in the far hand, in front of his chest. -->
+  <g id="notebook" data-parent="arm_back" transform="translate(5 -58)">
+    <g transform="translate(-5 58)">
+      <g transform="rotate(-8 5 -58)">
+        <path class="o" style="stroke-width:2" fill="#c0392b" d="M-6 -67 L16 -67 L16 -50 L-6 -50 Z"/>
+        <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M-4.6 -66 L4.6 -66.6 L5 -51.2 L-4.6 -51 Z"/>
+        <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M5 -66.6 L14.6 -66 L14.6 -51 L5 -51.2 Z"/>
+        <path class="t" style="stroke:#6fa3dd;stroke-width:1" d="M-3 -62.6 L3.2 -62.6 M-3 -59.6 L3.2 -59.6 M-3 -56.6 L3.2 -56.6 M-3 -53.6 L3.2 -53.6 M6.6 -62.6 L13 -62.6 M6.6 -59.6 L13 -59.6 M6.6 -56.6 L13 -56.6"/>
+        <path class="t" style="stroke:#2f9f80;stroke-width:1.3" d="M10.4 -54.6 L11.6 -53 L13.6 -56"/>
+      </g>
+      <path class="o" style="stroke-width:1.8" fill="#b07850" d="M-1.6 -59.6 Q-6 -59.4 -6.4 -55.6 Q-6 -52 -1.6 -52.4 Q1 -53 1 -56 Q0.8 -59 -1.6 -59.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The throwing arm, with the tickets he did not buy fanned in his hand. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <g transform="translate(-10 72)">
+      <path class="o" fill="#2f6fb3" d="M4 -77 Q2 -64 6 -54 L15 -55 Q17 -66 16 -77 Z"/>
+      <path class="o" fill="#2f6fb3" d="M7 -58 L21 -70 L27 -64 L13 -51 Z"/>
+      <path class="n" fill="#3f82c9" d="M9 -74 L13 -74 L13 -60 L10 -58 Z"/>
+      <!-- the tickets -->
+      <g transform="rotate(-30 27 -74)">
+        <rect class="o" style="stroke-width:1.5" fill="#bdf7e2" x="22" y="-83" width="15" height="8" rx="1.6"/>
+        <path class="t" style="stroke:#2f9f80;stroke-width:1.1;stroke-dasharray:1.4 1.4" d="M32 -82 L32 -76"/>
+      </g>
+      <g transform="rotate(-8 27 -74)">
+        <rect class="o" style="stroke-width:1.5" fill="#d6fbee" x="22" y="-82" width="15" height="8" rx="1.6"/>
+        <path class="t" style="stroke:#2f9f80;stroke-width:1.1;stroke-dasharray:1.4 1.4" d="M32 -81 L32 -75"/>
+      </g>
+      <circle class="o" fill="#b07850" cx="25" cy="-69" r="4.8"/>
+      <circle data-mount="hand" fill="none" cx="29" cy="-76" r="1"/>
+    </g>
+  </g>
+</svg>

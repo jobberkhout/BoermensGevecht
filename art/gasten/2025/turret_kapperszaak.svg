@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -116 224 120" data-rig="static">
+  <title>De Kapperszaak: de kapper en twee mannen die voor het praatje komen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The shop: white tiles, a blue band, a chequered floor, the mirror, the pole, the bench, the chair. Origin = middle of the floor. -->
+  <g id="room" transform="translate(0 0)">
+    <rect class="o" fill="#f4f1ea" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <path class="t" style="stroke:#e0d9cb;stroke-width:1.2" d="M-98 -88 L98 -88 M-98 -72 L98 -72 M-98 -56 L98 -56 M-80 -104 L-80 -42 M-60 -104 L-60 -42 M-40 -104 L-40 -42 M-20 -104 L-20 -42 M0 -104 L0 -42 M20 -104 L20 -42 M40 -104 L40 -42 M60 -104 L60 -42 M80 -104 L80 -42"/>
+    <rect class="n" fill="#4a7fc0" x="-98" y="-42" width="196" height="30"/>
+    <path class="t" style="stroke:#3a6aa6;stroke-width:1.2" d="M-78 -42 L-78 -12 M-58 -42 L-58 -12 M-38 -42 L-38 -12 M-18 -42 L-18 -12 M2 -42 L2 -12 M22 -42 L22 -12 M42 -42 L42 -12 M62 -42 L62 -12 M82 -42 L82 -12 M-98 -27 L98 -27"/>
+    <!-- the floor -->
+    <rect class="n" fill="#fafafa" x="-98" y="-12" width="196" height="10"/>
+    <path class="n" fill="#2f3138" d="M-98 -12 L-88 -12 L-88 -7 L-98 -7 Z M-78 -12 L-68 -12 L-68 -7 L-78 -7 Z M-58 -12 L-48 -12 L-48 -7 L-58 -7 Z M-38 -12 L-28 -12 L-28 -7 L-38 -7 Z M-18 -12 L-8 -12 L-8 -7 L-18 -7 Z M2 -12 L12 -12 L12 -7 L2 -7 Z M22 -12 L32 -12 L32 -7 L22 -7 Z M42 -12 L52 -12 L52 -7 L42 -7 Z M62 -12 L72 -12 L72 -7 L62 -7 Z M82 -12 L92 -12 L92 -7 L82 -7 Z M-88 -7 L-78 -7 L-78 -2 L-88 -2 Z M-68 -7 L-58 -7 L-58 -2 L-68 -2 Z M-48 -7 L-38 -7 L-38 -2 L-48 -2 Z M-28 -7 L-18 -7 L-18 -2 L-28 -2 Z M-8 -7 L2 -7 L2 -2 L-8 -2 Z M12 -7 L22 -7 L22 -2 L12 -2 Z M32 -7 L42 -7 L42 -2 L32 -2 Z M52 -7 L62 -7 L62 -2 L52 -2 Z M72 -7 L82 -7 L82 -2 L72 -2 Z"/>
+    <!-- the barber's pole -->
+    <rect class="o" fill="#d9d9d9" x="-95" y="-100" width="12" height="5" rx="2"/>
+    <rect class="o" fill="#ffffff" x="-94" y="-95" width="10" height="48"/>
+    <path class="n" fill="#d9342b" d="M-94 -93 L-84 -99 L-84 -93 L-94 -87 Z M-94 -77 L-84 -83 L-84 -77 L-94 -71 Z M-94 -61 L-84 -67 L-84 -61 L-94 -55 Z"/>
+    <path class="n" fill="#4a7fc0" d="M-94 -85 L-84 -91 L-84 -85 L-94 -79 Z M-94 -69 L-84 -75 L-84 -69 L-94 -63 Z M-94 -53 L-84 -59 L-84 -53 L-94 -47 Z"/>
+    <path class="t" d="M-94 -95 L-94 -47 M-84 -95 L-84 -47"/>
+    <rect class="o" fill="#d9d9d9" x="-95" y="-47" width="12" height="5" rx="2"/>
+    <!-- the mirror -->
+    <rect class="o" fill="#c9ced4" x="-6" y="-100" width="70" height="42" rx="4"/>
+    <rect class="n" fill="#d8eef5" x="-1" y="-95" width="60" height="32" rx="2"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.7" d="M6 -95 L18 -95 L2 -70 L-1 -70 L-1 -86 Z M24 -95 L30 -95 L12 -63 L6 -63 Z"/>
+    <!-- the shelf: a bottle, a comb in blue water, a glass of tea, the towel warmer -->
+    <rect class="o" fill="#8a6a4a" x="-8" y="-58" width="74" height="5" rx="1.5"/>
+    <path class="o" fill="#9ad3c2" d="M-2 -58 L-2 -66 L0 -70 L4 -70 L6 -66 L6 -58 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#6fb3e6" fill-opacity="0.8" x="10" y="-68" width="7" height="10" rx="1"/>
+    <path class="t" style="stroke-width:1.4" d="M12 -72 L12 -64 M14 -72 L14 -64 M16 -72 L16 -64"/>
+    <path class="o" style="stroke-width:1.8" fill="#c8641e" fill-opacity="0.85" d="M22 -66 Q20 -62 23 -58 L27 -58 Q30 -62 28 -66 Z"/>
+    <rect class="o" fill="#ffffff" x="44" y="-72" width="18" height="14" rx="2"/>
+    <path class="t" style="stroke:#c9c9c9" d="M47 -66 L59 -66"/>
+    <circle class="n" fill="#ff7a3d" cx="58" cy="-62" r="1.5"/>
+    <!-- the bench along the wall -->
+    <rect class="o" fill="#8a6a4a" x="-84" y="-34" width="74" height="7" rx="2"/>
+    <path class="t" style="stroke-width:3" d="M-78 -27 L-78 -12 M-16 -27 L-16 -12"/>
+    <!-- the chair: empty, because nobody came for a haircut -->
+    <path class="o" fill="#2f3138" d="M30 -12 L46 -12 L42 -20 L34 -20 Z"/>
+    <rect class="o" fill="#8a9096" x="36" y="-26" width="4" height="7"/>
+    <path class="o" fill="#b8322e" d="M18 -34 Q18 -40 24 -40 L52 -40 Q56 -40 56 -34 L56 -27 L18 -27 Z"/>
+    <path class="o" fill="#b8322e" d="M18 -40 L16 -64 Q16 -70 22 -70 L28 -70 Q32 -70 31 -64 L30 -40 Z"/>
+    <path class="n" fill="#d24a44" d="M20 -64 Q20 -67 23 -67 L25 -67 L24 -42 L21 -42 Z"/>
+    <rect class="o" fill="#2f3138" x="16" y="-46" width="16" height="4" rx="1.5"/>
+  </g>
+
+  <!-- The steam from the towel warmer. -->
+  <g id="steam" transform="translate(53 -74)">
+    <path fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" d="M-3 0 Q-6 -4 -3 -8 Q0 -12 -3 -16 M4 0 Q1 -4 4 -8 Q7 -12 4 -16"/>
+    <path fill="none" stroke="#c9ced4" stroke-width="1.2" stroke-linecap="round" d="M-3 0 Q-6 -4 -3 -8 Q0 -12 -3 -16 M4 0 Q1 -4 4 -8 Q7 -12 4 -16"/>
+  </g>
+
+  <!-- A: the older man, flat cap and cardigan, a glass of tea. Joint where he sits. -->
+  <g id="a_body" transform="translate(-64 -33)">
+    <g transform="translate(64 33)">
+      <path class="o" fill="#3e4a5c" d="M-74 -34 L-54 -34 Q-50 -34 -50 -30 L-51 -12 L-58 -12 L-58 -27 L-74 -27 Z"/>
+      <path class="o" fill="#3d2a20" d="M-59 -15 L-49 -15 Q-44 -14 -43 -10 L-60 -10 Z"/>
+      <path class="o" fill="#8a6a4a" d="M-76 -33 Q-78 -50 -74 -58 Q-66 -63 -56 -59 Q-52 -50 -53 -33 Z"/>
+      <path class="t" style="stroke:#6b4f36" d="M-64 -58 L-63 -36"/>
+      <circle class="n" fill="#e9c08a" cx="-62" cy="-50" r="1.2"/>
+      <circle class="n" fill="#e9c08a" cx="-62" cy="-43" r="1.2"/>
+    </g>
+  </g>
+
+  <g id="a_head" data-parent="a_body" transform="translate(-65 -61)">
+    <g transform="translate(65 61)">
+      <rect class="o" fill="#b5805a" x="-68" y="-64" width="7" height="6" rx="2"/>
+      <circle class="o" fill="#cf9a72" cx="-64" cy="-74" r="12"/>
+      <ellipse class="o" fill="#cf9a72" cx="-72" cy="-73" rx="2.6" ry="3.6"/>
+      <!-- the flat cap -->
+      <path class="o" fill="#5a5148" d="M-77 -77 Q-77 -89 -64 -89 Q-53 -89 -52 -80 L-46 -79 Q-46 -76 -51 -76 L-77 -76 Z"/>
+      <path class="o" fill="#e9e6e1" d="M-60 -68 Q-56 -70.5 -52 -68.5 Q-56 -66 -60 -68 Z"/>
+      <circle class="n" fill="#2b1b16" cx="-58" cy="-74" r="1.5"/>
+      <circle class="n" fill="#2b1b16" cx="-53" cy="-74" r="1.3"/>
+      <path class="o" fill="#cf9a72" d="M-52.5 -72.5 Q-49 -70.5 -52.3 -68.8"/>
+      <path class="t" style="stroke:#e9e6e1;stroke-width:2" d="M-60.5 -78 Q-58 -79.5 -55.5 -78.2"/>
+    </g>
+  </g>
+
+  <g id="a_mouth" data-parent="a_head" transform="translate(-56 -65)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f2a" cx="0" cy="0" rx="3" ry="2.6"/>
+  </g>
+
+  <!-- A's arm, with the tulip glass. -->
+  <g id="a_arm" data-parent="a_body" transform="translate(-60 -55)">
+    <g transform="translate(60 55)">
+      <path class="o" fill="#8a6a4a" d="M-63 -57 L-55 -58 L-50 -46 L-44 -52 L-40 -48 L-49 -38 Q-53 -36 -56 -40 Z"/>
+      <circle class="o" fill="#cf9a72" cx="-42" cy="-50" r="3.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#c8641e" fill-opacity="0.85" d="M-44 -60 Q-46 -56 -43 -52 L-39 -52 Q-36 -56 -38 -60 Z"/>
+      <ellipse class="o" style="stroke-width:1.4" fill="#ffffff" cx="-41" cy="-51" rx="5" ry="1.4"/>
+    </g>
+  </g>
+
+  <!-- B: the younger one, beard and a mint tracksuit top, turned to A, explaining. -->
+  <g id="b_body" transform="translate(-30 -33)">
+    <g transform="translate(30 33)">
+      <path class="o" fill="#2b2d33" d="M-40 -34 L-20 -34 Q-16 -34 -16 -30 L-17 -12 L-24 -12 L-24 -27 L-40 -27 Z"/>
+      <path class="o" fill="#fafafa" d="M-25 -15 L-15 -15 Q-10 -14 -9 -10 L-26 -10 Z"/>
+      <path class="o" fill="#7fc4a4" d="M-42 -33 Q-44 -50 -40 -58 Q-32 -63 -22 -59 Q-18 -50 -19 -33 Z"/>
+      <path class="t" style="stroke:#fafafa;stroke-width:1.6" d="M-31 -60 L-30 -35"/>
+    </g>
+  </g>
+
+  <g id="b_head" data-parent="b_body" transform="translate(-31 -61)">
+    <g transform="translate(31 61)">
+      <rect class="o" fill="#a9734f" x="-34" y="-64" width="7" height="6" rx="2"/>
+      <circle class="o" fill="#c99069" cx="-32" cy="-74" r="12"/>
+      <ellipse class="o" fill="#c99069" cx="-24" cy="-73" rx="2.6" ry="3.6"/>
+      <path class="o" fill="#1f1a18" d="M-45 -76 Q-46 -88 -33 -88 Q-21 -88 -20 -78 Q-26 -83 -33 -82 Q-40 -81 -45 -76 Z"/>
+      <path class="o" fill="#2a2220" d="M-43 -73 Q-44 -63 -35 -62 Q-26 -62 -25 -70 Q-28 -67 -33 -67 Q-39 -67 -43 -73 Z"/>
+      <!-- he faces left, at A -->
+      <circle class="n" fill="#2b1b16" cx="-38" cy="-75" r="1.5"/>
+      <circle class="n" fill="#2b1b16" cx="-43" cy="-75" r="1.3"/>
+      <path class="o" fill="#c99069" d="M-44.5 -73.5 Q-48 -71.5 -44.7 -69.8"/>
+      <path class="t" style="stroke-width:1.8" d="M-36 -80 Q-38.5 -81.5 -41 -80"/>
+    </g>
+  </g>
+
+  <g id="b_mouth" data-parent="b_head" transform="translate(-40 -66)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f2a" cx="0" cy="0" rx="3" ry="2.6"/>
+  </g>
+
+  <!-- B's arm, raised: let me tell you how it really went. -->
+  <g id="b_arm" data-parent="b_body" transform="translate(-26 -55)">
+    <g transform="translate(26 55)">
+      <path class="o" fill="#7fc4a4" d="M-29 -57 L-21 -58 L-16 -70 L-11 -67 L-16 -52 Q-19 -48 -24 -50 Z"/>
+      <circle class="o" fill="#c99069" cx="-13" cy="-71" r="3.6"/>
+      <path class="o" fill="#c99069" d="M-15 -73 L-15.5 -79 Q-14 -80.5 -12.6 -79 L-12 -73.5 Z"/>
+    </g>
+  </g>
+
+  <!-- The barber: white smock, a beard kept as sharp as his scissors. -->
+  <g id="barber" transform="translate(66 -36)">
+    <g transform="translate(-76 36)">
+      <path class="o" fill="#2b2d33" d="M68 -38 L84 -38 L83 -12 L77 -12 L76 -30 L75 -12 L69 -12 Z"/>
+      <path class="o" fill="#1d1d21" d="M66 -14 L76 -14 L76 -9 L64 -9 Q64 -13 66 -14 Z M76 -14 L86 -14 Q88 -13 88 -9 L76 -9 Z"/>
+      <path class="o" fill="#ffffff" d="M64 -34 Q62 -56 66 -64 Q76 -69 86 -64 Q90 -56 88 -34 Z"/>
+      <path class="t" style="stroke:#d6d6d6" d="M76 -64 L76 -36 M66 -46 L86 -46"/>
+      <path class="t" d="M74 -60 L74 -52 M73 -59 L76 -54"/>
+      <path class="n" fill="#4a7fc0" d="M80 -56 L86 -56 L86 -48 L80 -48 Z"/>
+    </g>
+  </g>
+
+  <g id="barber_head" data-parent="barber" transform="translate(67 -66)">
+    <g transform="translate(-77 69)">
+      <rect class="o" fill="#b5805a" x="73" y="-70" width="8" height="7" rx="2"/>
+      <circle class="o" fill="#d9a27a" cx="78" cy="-81" r="12.5"/>
+      <ellipse class="o" fill="#d9a27a" cx="70" cy="-80" rx="2.6" ry="3.6"/>
+      <path class="o" fill="#1f1a18" d="M65 -84 Q63 -97 78 -97 Q92 -97 91 -86 Q85 -91 77 -89 Q70 -88 69 -82 Z"/>
+      <path class="o" fill="#1f1a18" d="M72 -96 Q82 -103 91 -94 Q85 -95 80 -92 Z"/>
+      <path class="o" fill="#2a2220" d="M69 -78 Q69 -68 78 -68 Q88 -68 90.5 -76 Q86 -73 81 -74 Q74 -74 69 -78 Z"/>
+      <circle class="n" fill="#2b1b16" cx="83" cy="-82" r="1.5"/>
+      <circle class="n" fill="#2b1b16" cx="88.5" cy="-82" r="1.3"/>
+      <path class="o" fill="#d9a27a" d="M90 -80.5 Q93.5 -78.5 90.2 -76.8"/>
+      <path class="t" style="stroke-width:1.8" d="M81 -87 Q83.5 -88.5 86 -87"/>
+      <path class="t" d="M82 -73.5 Q85 -71.5 88 -74"/>
+    </g>
+  </g>
+
+  <!-- His arm, a hot towel ready in his hand. Joint at the shoulder. -->
+  <g id="barber_arm" data-parent="barber" transform="translate(74 -62)">
+    <g transform="translate(-84 62)">
+      <path class="o" fill="#ffffff" d="M80 -64 Q87 -66 89 -59 L94 -50 Q93 -45 88 -47 L82 -56 Z"/>
+      <circle class="o" fill="#d9a27a" cx="93" cy="-49" r="3.8"/>
+    </g>
+  </g>
+
+  <g id="towel" data-parent="barber_arm" transform="translate(86 -52)">
+    <g transform="translate(-96 52)">
+      <rect class="o" fill="#ffffff" x="90" y="-57" width="13" height="8" rx="4" transform="rotate(-30 96 -53)"/>
+      <path class="t" style="stroke:#c9c9c9" d="M94 -57 Q96 -54 94 -50" transform="rotate(-30 96 -53)"/>
+      <path fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" d="M98 -61 Q96 -64 98 -67 M103 -60 Q101 -63 103 -66"/>
+    </g>
+  </g>
+
+  <!-- The shop window and its frame. -->
+  <g id="frame" transform="translate(0 0)">
+    <rect class="n" fill="#bfe6f5" fill-opacity="0.14" x="-100" y="-104" width="200" height="104"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.28" d="M-74 -104 L-58 -104 L-94 -44 L-100 -44 L-100 -62 Z"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="7" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <rect fill="none" stroke="#3a6aa6" stroke-width="3.6" stroke-linejoin="round" x="-100" y="-104" width="200" height="104" rx="4"/>
+    <circle data-mount="muzzle" fill="none" cx="104" cy="-60" r="1"/>
+  </g>
+</svg>

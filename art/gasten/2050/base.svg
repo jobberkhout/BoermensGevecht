@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het Familiehuis: een smal, hoog huis met een verdieping per generatie, en op het dak de auto, al ingepakt voor volgend jaar</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .rope { stroke: #c9a46a; stroke-width: 2.4; stroke-linecap: round; fill: none; }
+    .g1 { fill: #5fc9a0; stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The house stands behind it, to the left. -->
+  <g id="house" transform="translate(0 0)">
+    <!-- flagpole on the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -476 L-288 -552"/>
+    <circle class="o" fill="#f2c230" cx="-288" cy="-555" r="4.5"/>
+    <!-- the brick front -->
+    <rect class="o" fill="#b5553c" x="-296" y="-474" width="292" height="474"/>
+    <path fill="none" stroke="#9a4532" stroke-width="1.3" d="M-296 -12 H-4 M-296 -24 H-4 M-296 -36 H-4 M-296 -48 H-4 M-296 -60 H-4 M-296 -72 H-4 M-296 -84 H-4 M-296 -96 H-4 M-296 -108 H-4 M-296 -120 H-4 M-296 -132 H-4 M-296 -144 H-4 M-296 -156 H-4 M-296 -168 H-4 M-296 -180 H-4 M-296 -192 H-4 M-296 -204 H-4 M-296 -216 H-4 M-296 -228 H-4 M-296 -240 H-4 M-296 -252 H-4 M-296 -264 H-4 M-296 -276 H-4 M-296 -288 H-4 M-296 -300 H-4 M-296 -312 H-4 M-296 -324 H-4 M-296 -336 H-4 M-296 -348 H-4 M-296 -360 H-4 M-296 -372 H-4 M-296 -384 H-4 M-296 -396 H-4 M-296 -408 H-4 M-296 -420 H-4 M-296 -432 H-4 M-296 -444 H-4 M-296 -456 H-4 M-296 -468 H-4"/>
+    <path fill="none" stroke="#9a4532" stroke-width="1.3" d="M-282 0 V-12 M-254 0 V-12 M-226 0 V-12 M-198 0 V-12 M-170 0 V-12 M-142 0 V-12 M-114 0 V-12 M-86 0 V-12 M-58 0 V-12 M-30 0 V-12 M-268 -12 V-24 M-240 -12 V-24 M-212 -12 V-24 M-184 -12 V-24 M-156 -12 V-24 M-128 -12 V-24 M-100 -12 V-24 M-72 -12 V-24 M-44 -12 V-24 M-16 -12 V-24 M-282 -24 V-36 M-254 -24 V-36 M-226 -24 V-36 M-198 -24 V-36 M-170 -24 V-36 M-142 -24 V-36 M-114 -24 V-36 M-86 -24 V-36 M-58 -24 V-36 M-30 -24 V-36 M-268 -36 V-48 M-240 -36 V-48 M-212 -36 V-48 M-184 -36 V-48 M-156 -36 V-48 M-128 -36 V-48 M-100 -36 V-48 M-72 -36 V-48 M-44 -36 V-48 M-16 -36 V-48 M-282 -48 V-60 M-254 -48 V-60 M-226 -48 V-60 M-198 -48 V-60 M-170 -48 V-60 M-142 -48 V-60 M-114 -48 V-60 M-86 -48 V-60 M-58 -48 V-60 M-30 -48 V-60 M-268 -60 V-72 M-240 -60 V-72 M-212 -60 V-72 M-184 -60 V-72 M-156 -60 V-72 M-128 -60 V-72 M-100 -60 V-72 M-72 -60 V-72 M-44 -60 V-72 M-16 -60 V-72 M-282 -72 V-84 M-254 -72 V-84 M-226 -72 V-84 M-198 -72 V-84 M-170 -72 V-84 M-142 -72 V-84 M-114 -72 V-84 M-86 -72 V-84 M-58 -72 V-84 M-30 -72 V-84 M-268 -84 V-96 M-240 -84 V-96 M-212 -84 V-96 M-184 -84 V-96 M-156 -84 V-96 M-128 -84 V-96 M-100 -84 V-96 M-72 -84 V-96 M-44 -84 V-96 M-16 -84 V-96 M-282 -96 V-108 M-254 -96 V-108 M-226 -96 V-108 M-198 -96 V-108 M-170 -96 V-108 M-142 -96 V-108 M-114 -96 V-108 M-86 -96 V-108 M-58 -96 V-108 M-30 -96 V-108 M-268 -108 V-120 M-240 -108 V-120 M-212 -108 V-120 M-184 -108 V-120 M-156 -108 V-120 M-128 -108 V-120 M-100 -108 V-120 M-72 -108 V-120 M-44 -108 V-120 M-16 -108 V-120 M-282 -120 V-132 M-254 -120 V-132 M-226 -120 V-132 M-198 -120 V-132 M-170 -120 V-132 M-142 -120 V-132 M-114 -120 V-132 M-86 -120 V-132 M-58 -120 V-132 M-30 -120 V-132 M-268 -132 V-144 M-240 -132 V-144 M-212 -132 V-144 M-184 -132 V-144 M-156 -132 V-144 M-128 -132 V-144 M-100 -132 V-144 M-72 -132 V-144 M-44 -132 V-144 M-16 -132 V-144 M-282 -144 V-156 M-254 -144 V-156 M-226 -144 V-156 M-198 -144 V-156 M-170 -144 V-156 M-142 -144 V-156 M-114 -144 V-156 M-86 -144 V-156 M-58 -144 V-156 M-30 -144 V-156 M-268 -156 V-168 M-240 -156 V-168 M-212 -156 V-168 M-184 -156 V-168 M-156 -156 V-168 M-128 -156 V-168 M-100 -156 V-168 M-72 -156 V-168 M-44 -156 V-168 M-16 -156 V-168 M-282 -168 V-180 M-254 -168 V-180 M-226 -168 V-180 M-198 -168 V-180 M-170 -168 V-180 M-142 -168 V-180 M-114 -168 V-180 M-86 -168 V-180 M-58 -168 V-180 M-30 -168 V-180 M-268 -180 V-192 M-240 -180 V-192 M-212 -180 V-192 M-184 -180 V-192 M-156 -180 V-192 M-128 -180 V-192 M-100 -180 V-192 M-72 -180 V-192 M-44 -180 V-192 M-16 -180 V-192 M-282 -192 V-204 M-254 -192 V-204 M-226 -192 V-204 M-198 -192 V-204 M-170 -192 V-204 M-142 -192 V-204 M-114 -192 V-204 M-86 -192 V-204 M-58 -192 V-204 M-30 -192 V-204 M-268 -204 V-216 M-240 -204 V-216 M-212 -204 V-216 M-184 -204 V-216 M-156 -204 V-216 M-128 -204 V-216 M-100 -204 V-216 M-72 -204 V-216 M-44 -204 V-216 M-16 -204 V-216 M-282 -216 V-228 M-254 -216 V-228 M-226 -216 V-228 M-198 -216 V-228 M-170 -216 V-228 M-142 -216 V-228 M-114 -216 V-228 M-86 -216 V-228 M-58 -216 V-228 M-30 -216 V-228 M-268 -228 V-240 M-240 -228 V-240 M-212 -228 V-240 M-184 -228 V-240 M-156 -228 V-240 M-128 -228 V-240 M-100 -228 V-240 M-72 -228 V-240 M-44 -228 V-240 M-16 -228 V-240 M-282 -240 V-252 M-254 -240 V-252 M-226 -240 V-252 M-198 -240 V-252 M-170 -240 V-252 M-142 -240 V-252 M-114 -240 V-252 M-86 -240 V-252 M-58 -240 V-252 M-30 -240 V-252 M-268 -252 V-264 M-240 -252 V-264 M-212 -252 V-264 M-184 -252 V-264 M-156 -252 V-264 M-128 -252 V-264 M-100 -252 V-264 M-72 -252 V-264 M-44 -252 V-264 M-16 -252 V-264 M-282 -264 V-276 M-254 -264 V-276 M-226 -264 V-276 M-198 -264 V-276 M-170 -264 V-276 M-142 -264 V-276 M-114 -264 V-276 M-86 -264 V-276 M-58 -264 V-276 M-30 -264 V-276 M-268 -276 V-288 M-240 -276 V-288 M-212 -276 V-288 M-184 -276 V-288 M-156 -276 V-288 M-128 -276 V-288 M-100 -276 V-288 M-72 -276 V-288 M-44 -276 V-288 M-16 -276 V-288 M-282 -288 V-300 M-254 -288 V-300 M-226 -288 V-300 M-198 -288 V-300 M-170 -288 V-300 M-142 -288 V-300 M-114 -288 V-300 M-86 -288 V-300 M-58 -288 V-300 M-30 -288 V-300 M-268 -300 V-312 M-240 -300 V-312 M-212 -300 V-312 M-184 -300 V-312 M-156 -300 V-312 M-128 -300 V-312 M-100 -300 V-312 M-72 -300 V-312 M-44 -300 V-312 M-16 -300 V-312 M-282 -312 V-324 M-254 -312 V-324 M-226 -312 V-324 M-198 -312 V-324 M-170 -312 V-324 M-142 -312 V-324 M-114 -312 V-324 M-86 -312 V-324 M-58 -312 V-324 M-30 -312 V-324 M-268 -324 V-336 M-240 -324 V-336 M-212 -324 V-336 M-184 -324 V-336 M-156 -324 V-336 M-128 -324 V-336 M-100 -324 V-336 M-72 -324 V-336 M-44 -324 V-336 M-16 -324 V-336 M-282 -336 V-348 M-254 -336 V-348 M-226 -336 V-348 M-198 -336 V-348 M-170 -336 V-348 M-142 -336 V-348 M-114 -336 V-348 M-86 -336 V-348 M-58 -336 V-348 M-30 -336 V-348 M-268 -348 V-360 M-240 -348 V-360 M-212 -348 V-360 M-184 -348 V-360 M-156 -348 V-360 M-128 -348 V-360 M-100 -348 V-360 M-72 -348 V-360 M-44 -348 V-360 M-16 -348 V-360 M-282 -360 V-372 M-254 -360 V-372 M-226 -360 V-372 M-198 -360 V-372 M-170 -360 V-372 M-142 -360 V-372 M-114 -360 V-372 M-86 -360 V-372 M-58 -360 V-372 M-30 -360 V-372 M-268 -372 V-384 M-240 -372 V-384 M-212 -372 V-384 M-184 -372 V-384 M-156 -372 V-384 M-128 -372 V-384 M-100 -372 V-384 M-72 -372 V-384 M-44 -372 V-384 M-16 -372 V-384 M-282 -384 V-396 M-254 -384 V-396 M-226 -384 V-396 M-198 -384 V-396 M-170 -384 V-396 M-142 -384 V-396 M-114 -384 V-396 M-86 -384 V-396 M-58 -384 V-396 M-30 -384 V-396 M-268 -396 V-408 M-240 -396 V-408 M-212 -396 V-408 M-184 -396 V-408 M-156 -396 V-408 M-128 -396 V-408 M-100 -396 V-408 M-72 -396 V-408 M-44 -396 V-408 M-16 -396 V-408 M-282 -408 V-420 M-254 -408 V-420 M-226 -408 V-420 M-198 -408 V-420 M-170 -408 V-420 M-142 -408 V-420 M-114 -408 V-420 M-86 -408 V-420 M-58 -408 V-420 M-30 -408 V-420 M-268 -420 V-432 M-240 -420 V-432 M-212 -420 V-432 M-184 -420 V-432 M-156 -420 V-432 M-128 -420 V-432 M-100 -420 V-432 M-72 -420 V-432 M-44 -420 V-432 M-16 -420 V-432 M-282 -432 V-444 M-254 -432 V-444 M-226 -432 V-444 M-198 -432 V-444 M-170 -432 V-444 M-142 -432 V-444 M-114 -432 V-444 M-86 -432 V-444 M-58 -432 V-444 M-30 -432 V-444 M-268 -444 V-456 M-240 -444 V-456 M-212 -444 V-456 M-184 -444 V-456 M-156 -444 V-456 M-128 -444 V-456 M-100 -444 V-456 M-72 -444 V-456 M-44 -444 V-456 M-16 -444 V-456 M-282 -456 V-468 M-254 -456 V-468 M-226 -456 V-468 M-198 -456 V-468 M-170 -456 V-468 M-142 -456 V-468 M-114 -456 V-468 M-86 -456 V-468 M-58 -456 V-468 M-30 -456 V-468"/>
+    <path class="n" fill="#c9684e" fill-opacity="0.5" d="M-296 -474 L-280 -474 L-280 0 L-296 0 Z"/>
+    <rect class="o" fill="none" x="-296" y="-474" width="292" height="474"/>
+    <!-- the cornice -->
+    <rect class="o" fill="#fbf8f0" x="-304" y="-482" width="308" height="12" rx="5"/>
+    <rect class="o" fill="#b7bfb4" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- wedding lights under the cornice, still up from the last one -->
+    <path fill="none" stroke="#2b1b16" stroke-width="1.2" d="M-294 -470 Q-276 -462 -258 -470 Q-240 -462 -222 -470 Q-204 -462 -186 -470 Q-168 -462 -150 -470 Q-132 -462 -114 -470 Q-96 -462 -78 -470 Q-60 -462 -42 -470 Q-24 -462 -6 -470"/>
+    <!-- the top floor, the youngest generation: three small windows, one with a drawing taped in it -->
+    <rect class="o" fill="#2b3a4a" x="-276" y="-462" width="46" height="24" rx="4"/>
+    <rect class="o" fill="#2b3a4a" x="-176" y="-462" width="46" height="24" rx="4"/>
+    <rect class="o" fill="#2b3a4a" x="-76" y="-462" width="46" height="24" rx="4"/>
+    <rect class="n" fill="#ffe9a8" x="-272" y="-458" width="38" height="16" rx="2"/>
+    <rect class="n" fill="#ffe9a8" x="-72" y="-458" width="38" height="16" rx="2"/>
+    <rect class="o" style="stroke-width:1.6" fill="#fbf8f0" x="-166" y="-458" width="14" height="16" rx="1"/>
+    <circle class="n" fill="#f2c230" cx="-162" cy="-453" r="2.6"/>
+    <path class="n" fill="#5fc9a0" d="M-165 -444 L-160 -450 L-156 -446 L-153 -449 L-153 -443 L-165 -443 Z"/>
+
+    <!-- a satellite dish on the wall, aimed south, of course -->
+    <path class="t" style="stroke-width:2.6" d="M-14 -446 L-22 -452"/>
+    <path class="o" style="stroke-width:2.2" fill="#e6ecee" d="M-28 -466 Q-14 -470 -12 -454 Q-24 -450 -28 -466 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-20 -460 L-14 -466"/>
+    <!-- two open floors, for the turret scenes: a home's rooms, lamp and wallpaper -->
+    <rect class="o" fill="#3a2a26" x="-290" y="-432" width="280" height="140" rx="16"/>
+    <path class="n" fill="#4a3530" d="M-284 -306 L-16 -306 L-16 -300 Q-16 -294.5 -22 -294.5 L-278 -294.5 Q-284 -294.5 -284 -300 Z"/>
+    <path class="t" style="stroke:#5c4640" d="M-150 -430 L-150 -410"/>
+    <path class="o" fill="#f2b54a" d="M-162 -398 Q-162 -410 -150 -410 Q-138 -410 -138 -398 Z"/>
+    <path class="n" fill="#ffe9a8" fill-opacity="0.25" d="M-162 -398 L-138 -398 L-118 -330 L-182 -330 Z"/>
+    <path fill="none" stroke="#4a3530" stroke-width="2" stroke-dasharray="2 10" d="M-280 -420 L-20 -420 M-280 -400 L-20 -400 M-280 -380 L-20 -380 M-280 -360 L-20 -360 M-280 -340 L-20 -340 M-280 -320 L-20 -320"/>
+
+    <rect class="o" fill="#3a2a26" x="-290" y="-282" width="280" height="140" rx="16"/>
+    <path class="n" fill="#4a3530" d="M-284 -156 L-16 -156 L-16 -150 Q-16 -144.5 -22 -144.5 L-278 -144.5 Q-284 -144.5 -284 -150 Z"/>
+    <path class="t" style="stroke:#5c4640" d="M-150 -280 L-150 -260"/>
+    <path class="o" fill="#f2b54a" d="M-162 -248 Q-162 -260 -150 -260 Q-138 -260 -138 -248 Z"/>
+    <path class="n" fill="#ffe9a8" fill-opacity="0.25" d="M-162 -248 L-138 -248 L-118 -180 L-182 -180 Z"/>
+    <path fill="none" stroke="#4a3530" stroke-width="2" stroke-dasharray="2 10" d="M-280 -270 L-20 -270 M-280 -250 L-20 -250 M-280 -230 L-20 -230 M-280 -210 L-20 -210 M-280 -190 L-20 -190 M-280 -170 L-20 -170"/>
+
+    <!-- the balconies, with wedding lights along the rail, still up from the last one -->
+    <rect class="o" fill="#fbf8f0" x="-300" y="-292" width="300" height="10" rx="5"/>
+    <rect class="o" fill="#fbf8f0" x="-300" y="-142" width="300" height="10" rx="5"/>
+
+    <!-- the ground floor: great-grandmother's window, lace curtains, mint and a tea glass on the sill -->
+    <rect class="o" fill="#2f6fb3" x="-282" y="-124" width="160" height="94" rx="8"/>
+    <rect class="o" fill="#d8ecf4" x="-274" y="-116" width="144" height="78" rx="5"/>
+    <path class="t" style="stroke-width:2.4" d="M-202 -116 L-202 -38 M-274 -84 L-130 -84"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.6" d="M-266 -116 L-250 -116 L-270 -86 L-274 -86 L-274 -104 Z"/>
+    <rect class="o" fill="#fbf8f0" x="-288" y="-34" width="172" height="8" rx="3"/>
+    <path class="o" style="stroke-width:2" fill="#c0392b" d="M-270 -34 L-268 -46 L-254 -46 L-252 -34 Z"/>
+    <path class="g1" d="M-262 -46 Q-272 -52 -268 -60 Q-262 -58 -262 -50 Q-264 -62 -258 -66 Q-254 -60 -260 -49 Q-254 -58 -248 -56 Q-250 -49 -258 -46 Z"/>
+    <path class="o" style="stroke-width:2" fill="#c0392b" d="M-158 -34 L-156 -46 L-142 -46 L-140 -34 Z"/>
+    <path class="g1" d="M-150 -46 Q-160 -52 -156 -60 Q-150 -58 -150 -50 Q-152 -62 -146 -66 Q-142 -60 -148 -49 Q-142 -58 -136 -56 Q-138 -49 -146 -46 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#b8411f" d="M-206 -35 Q-208 -39 -206 -41 Q-207.4 -44 -206.4 -47 L-199.6 -47 Q-198.6 -44 -199.8 -41 Q-198 -39 -199.4 -35 Z"/>
+
+    <!-- the front door in a frame of blue tiles -->
+    <rect class="o" fill="#2f6fb3" x="-106" y="-146" width="102" height="146" rx="6"/>
+    <path fill="none" stroke="#fbf8f0" stroke-width="1.6" d="M-106 -128 H-4 M-106 -110 H-4 M-106 -92 H-4 M-106 -74 H-4 M-106 -56 H-4 M-106 -38 H-4 M-106 -20 H-4 M-89 -146 V0 M-72 -146 V0 M-38 -146 V0 M-21 -146 V0"/>
+    <path class="n" fill="#fbf8f0" d="M-55 -141 l3 -3 l3 3 l-3 3 Z M-97.5 -137 l3 -3 l3 3 l-3 3 Z M-12.5 -137 l3 -3 l3 3 l-3 3 Z"/>
+    <rect class="o" fill="none" x="-106" y="-146" width="102" height="146" rx="6"/>
+    <path class="o" fill="#5fc9a0" d="M-96 0 L-96 -96 Q-96 -126 -55 -126 Q-14 -126 -14 -96 L-14 0 Z"/>
+    <path class="o" fill="#1b1a1e" d="M-86 0 L-86 -94 Q-86 -116 -55 -116 Q-24 -116 -24 -94 L-24 0 Z"/>
+    <!-- the doorbells: one per generation -->
+    <rect class="o" style="stroke-width:1.8" fill="#e6ecee" x="-118" y="-84" width="9" height="30" rx="2"/>
+    <circle class="n" fill="#2b1b16" cx="-113.5" cy="-78" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="-113.5" cy="-71" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="-113.5" cy="-64" r="1.6"/>
+    <circle class="n" fill="#2b1b16" cx="-113.5" cy="-57" r="1.6"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-146" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-296" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The bulbs, in two sets that take turns. Joint in the middle of the string. -->
+  <g id="lights_a" transform="translate(-150 -465)">
+    <g transform="translate(150 465)">
+      <circle class="n" fill="#f2c230" cx="-276" cy="-465" r="2.6"/>
+      <circle class="n" fill="#ff8fb0" cx="-240" cy="-465" r="2.6"/>
+      <circle class="n" fill="#7ff0c8" cx="-204" cy="-465" r="2.6"/>
+      <circle class="n" fill="#f2c230" cx="-168" cy="-465" r="2.6"/>
+      <circle class="n" fill="#ff8fb0" cx="-132" cy="-465" r="2.6"/>
+      <circle class="n" fill="#7ff0c8" cx="-96" cy="-465" r="2.6"/>
+      <circle class="n" fill="#f2c230" cx="-60" cy="-465" r="2.6"/>
+      <circle class="n" fill="#ff8fb0" cx="-24" cy="-465" r="2.6"/>
+    </g>
+  </g>
+  <g id="lights_b" transform="translate(-150 -465)">
+    <g transform="translate(150 465)">
+      <circle class="n" fill="#ff8fb0" cx="-258" cy="-465" r="2.6"/>
+      <circle class="n" fill="#7ff0c8" cx="-222" cy="-465" r="2.6"/>
+      <circle class="n" fill="#f2c230" cx="-186" cy="-465" r="2.6"/>
+      <circle class="n" fill="#ff8fb0" cx="-150" cy="-465" r="2.6"/>
+      <circle class="n" fill="#7ff0c8" cx="-114" cy="-465" r="2.6"/>
+      <circle class="n" fill="#f2c230" cx="-78" cy="-465" r="2.6"/>
+      <circle class="n" fill="#ff8fb0" cx="-42" cy="-465" r="2.6"/>
+      <circle class="n" fill="#7ff0c8" cx="-6" cy="-465" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- Great-grandmother's curtain: it twitches when someone passes. Joint at its top left corner. -->
+  <g id="curtain" transform="translate(-274 -116)">
+    <g transform="translate(274 116)">
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-274 -116 L-218 -116 Q-222 -96 -230 -84 Q-238 -74 -236 -40 L-274 -40 Z"/>
+      <path class="t" style="stroke:#d6d0c2;stroke-width:1.4" d="M-264 -112 Q-262 -80 -266 -44 M-252 -112 Q-250 -84 -254 -44 M-240 -112 Q-240 -96 -244 -84"/>
+    </g>
+  </g>
+
+  <!-- The car on the roof, packed for next summer. It hovers a little. Joint under its middle. -->
+  <g id="car" transform="translate(-96 -486)">
+    <g transform="translate(96 486)">
+      <ellipse class="n" fill="#7ff0c8" fill-opacity="0.45" cx="-140" cy="-480" rx="16" ry="3"/>
+      <ellipse class="n" fill="#7ff0c8" fill-opacity="0.45" cx="-52" cy="-480" rx="16" ry="3"/>
+      <circle class="o" style="stroke-width:2.4" fill="#3a3d4a" cx="-140" cy="-492" r="9"/>
+      <circle class="n" fill="#7ff0c8" fill-opacity="0.7" cx="-140" cy="-492" r="6"/>
+      <circle class="o" style="stroke-width:2.4" fill="#3a3d4a" cx="-52" cy="-492" r="9"/>
+      <circle class="n" fill="#7ff0c8" fill-opacity="0.7" cx="-52" cy="-492" r="6"/>
+      <path class="o" fill="#efe2bf" d="M-176 -496 L-176 -510 Q-176 -515 -170 -516 L-150 -516 L-138 -532 Q-135 -535 -130 -535 L-70 -535 Q-64 -535 -60 -531 L-46 -517 L-24 -515 Q-16 -514 -16 -506 L-16 -498 Q-16 -494 -22 -494 L-42 -494 Q-42 -503 -52 -503 Q-62 -503 -62 -494 L-130 -494 Q-130 -503 -140 -503 Q-150 -503 -150 -494 L-172 -494 Q-176 -494 -176 -496 Z"/>
+      <path class="n" fill="#2f6fb3" d="M-175 -508 L-17 -508 L-17 -504 L-175 -504 Z"/>
+      <path class="o" style="stroke-width:2" fill="#bfe6f5" d="M-146 -517 L-136 -530 Q-134 -532 -130 -532 L-104 -532 L-104 -517 Z"/>
+      <path class="o" style="stroke-width:2" fill="#bfe6f5" d="M-99 -517 L-99 -532 L-72 -532 Q-67 -532 -63 -528 L-52 -517 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#7ff0c8" d="M-20 -513 Q-15 -511 -15.6 -507 L-22 -507 Q-23 -511 -20 -513 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="-138" y="-541" width="80" height="4" rx="2"/>
+      <rect class="o" fill="#8a5c40" x="-136" y="-562" width="30" height="21" rx="3"/>
+      <rect class="o" fill="#2f6fb3" x="-104" y="-558" width="22" height="17" rx="3"/>
+      <rect class="o" style="stroke-width:2" fill="#5fc9a0" x="-80" y="-552" width="20" height="11" rx="2.6"/>
+      <rect class="o" style="stroke-width:2.2" fill="#c0392b" x="-132" y="-570" width="44" height="8" rx="4"/>
+      <path class="rope" d="M-136 -541 L-100 -570 M-90 -541 L-126 -568 M-82 -541 L-62 -552"/>
+    </g>
+  </g>
+</svg>
