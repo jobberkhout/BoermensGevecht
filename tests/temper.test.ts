@@ -110,7 +110,10 @@ describe('what each faction is like', () => {
         expect(of('hm', era, role).speed, role).toBeGreaterThan(of('za', era, role).speed);
         expect(of('hm', era, role).hp, role).toBeLessThan(of('za', era, role).hp);
       }
-      expect(of('hm', era, 'light').cost).toBeLessThan(of('ah', era, 'light').cost);
+      // Everything it fields costs less than anyone else's, the Havermelkreus excepted.
+      for (const role of ['light', 'ranged', 'heavy', ...(era === '2050' ? [] : ['shield'])]) {
+        expect(of('hm', era, role).cost, role).toBeLessThan(of('ah', era, role).cost);
+      }
       // It throws from further away than anyone, and softer.
       expect(of('hm', era, 'ranged').range).toBeGreaterThan(of('ah', era, 'ranged').range);
       expect(of('hm', era, 'ranged').dmg).toBeLessThan(of('za', era, 'ranged').dmg);

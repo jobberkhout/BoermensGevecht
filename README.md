@@ -47,11 +47,11 @@ card:
 | Faction | Its units are | In numbers |
 |---|---|---|
 | Achterhoek | taai en traag: tough and slow | 15% more hit points, 10% slower on the road, a 20% longer pause between blows. What they throw lands 15% harder |
-| Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. The cheapest unit costs 10% less. They throw from 10% further away, 10% softer |
+| Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. Every unit but the Havermelkreus costs 10% less. They throw from 10% further away, 10% softer |
 | De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 
 Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
-units apart from De Zuidas' price. The tables are in `src/defs/<faction>.ts` and a test keeps every twist
+units apart from their price. The tables are in `src/defs/<faction>.ts` and a test keeps every twist
 within 30%. How the factions fare against each other in bot matches, and what is still uneven, is in
 the Balance section of `docs/factions.md`.
 

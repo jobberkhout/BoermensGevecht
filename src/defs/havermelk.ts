@@ -4,14 +4,20 @@ import type { FactionDef } from './types.ts';
 
 /**
  * The havermelkelite: quick and frail. Everything gets there sooner and folds
- * sooner. The cheapest unit is cheaper still, and whoever throws something
- * throws it from further away, but it is only flowers and coffee.
+ * sooner, and everything but the Havermelkreus costs a tenth less. Whoever
+ * throws something throws it from further away, but it is only flowers and
+ * coffee.
+ *
+ * Until 23 November 2026 only the cheapest unit was cheaper. The owner then
+ * put all four units at 90% and kept the Havermelkreus at 3000: "they are
+ * faster but a bit weaker and cheaper whereas the achterhoek has slower and
+ * stronger units".
  */
 const TEMPER: Temper = {
   light: { speed: 115, hp: 85, cost: 90 },
-  ranged: { range: 110, dmg: 90 },
-  heavy: { speed: 115, hp: 90 },
-  shield: { speed: 110, hp: 90 },
+  ranged: { range: 110, dmg: 90, cost: 90 },
+  heavy: { speed: 115, hp: 90, cost: 90 },
+  shield: { speed: 110, hp: 90, cost: 90 },
 };
 
 /** Amsterdam, west, left side of the screen. Display names live in ui/nl.ts. */

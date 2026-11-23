@@ -111,8 +111,10 @@ After this step the game knows the faction and the tests tell you everything tha
      pull request.
      `tests/temper.test.ts` checks the limits. Then run `npm run balance -- --mix`, which has both sides
      buy a mix, as people play: your faction should win between 44% and 56% against each of the others,
-     taking both seats together. Also run `npm run balance -- --pairs` (every strategy) and put both in the
-     pull request; that one may come out lower, as De Zuidas' does. If the mix result is off, soften the twist
+     taking both seats together. The three factions there are not inside that band against each other
+     (see Balance in `docs/factions.md`), so when yours cannot be either, get it as close as you can and
+     say so. Also run `npm run balance -- --pairs` (every strategy) and put both in the pull request. If
+     the mix result is off, soften the twist
      that helps it most, or strengthen the one that costs it most, and run it again. That fitting is part
      of the job; changing the shared numbers or another faction's table is not. Do not go further than
      that: a faction may well be better at one way of playing than at another, and the owner wants it
