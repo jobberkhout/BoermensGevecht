@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -116 222 120" data-rig="static">
+  <title>Het Theeterras: drie generaties op een zwevend terras, ieder met zijn eigen thee. Ze schieten suikerklontjes</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The terrace: a deck on two hover pods, a rug, a low table with the tea, mint in a pot. Origin = middle of the floor. -->
+  <g id="terrace" transform="translate(0 0)">
+    <ellipse class="n" fill="#7ff0c8" fill-opacity="0.4" cx="-66" cy="-2" rx="20" ry="3.4"/>
+    <ellipse class="n" fill="#7ff0c8" fill-opacity="0.4" cx="66" cy="-2" rx="20" ry="3.4"/>
+    <rect class="o" style="stroke-width:2" fill="#5d6675" x="-78" y="-6" width="24" height="5" rx="2.4"/>
+    <rect class="o" style="stroke-width:2" fill="#5d6675" x="54" y="-6" width="24" height="5" rx="2.4"/>
+    <rect class="o" fill="#c98b4a" x="-104" y="-13" width="208" height="8" rx="3"/>
+    <path class="t" style="stroke:#a06a34;stroke-width:1.2" d="M-70 -13 L-70 -5 M-30 -13 L-30 -5 M10 -13 L10 -5 M50 -13 L50 -5 M90 -13 L90 -5"/>
+    <!-- the rug -->
+    <path class="o" style="stroke-width:2" fill="#2f6fb3" d="M-96 -13 L92 -13 L88 -17 L-92 -17 Z"/>
+    <path class="n" fill="#f2b54a" d="M-80 -16 L-64 -16 L-66 -14 L-82 -14 Z M-30 -16 L-14 -16 L-16 -14 L-32 -14 Z M20 -16 L36 -16 L34 -14 L18 -14 Z M70 -16 L84 -16 L82 -14 L68 -14 Z"/>
+    <!-- mint in a pot at the back -->
+    <path class="o" style="stroke-width:2" fill="#c0392b" d="M-104 -17 L-102 -30 L-90 -30 L-88 -17 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#5fc9a0" d="M-96 -30 Q-106 -36 -102 -44 Q-96 -42 -96 -34 Q-98 -46 -92 -50 Q-88 -44 -94 -33 Q-88 -42 -82 -40 Q-84 -33 -92 -30 Z"/>
+    <!-- the low table, with a glass waiting to be filled -->
+    <path class="o" fill="#8a5c40" d="M-18 -17 L-16 -27 L16 -27 L18 -17 Z"/>
+    <ellipse class="o" fill="#d9a35a" cx="0" cy="-28" rx="20" ry="4"/>
+    <path class="o" style="stroke-width:1.8" fill="#e8f7f0" d="M-7 -30 L-6 -40 L0 -40 L1 -30 Z"/>
+    <path class="n" fill="#7fbf5a" d="M-6.6 -36 L0.4 -36 L1 -30.6 L-6.4 -30.6 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M6 -30 L14 -30 L14 -36 L6 -36 Z"/>
+    <path class="n" fill="#fbf8f0" d="M7.4 -38.6 L10.4 -38.6 L10.4 -35.8 L7.4 -35.8 Z M10.8 -39.6 L13.6 -39.6 L13.6 -36.8 L10.8 -36.8 Z"/>
+  </g>
+
+  <!-- Great-grandfather, on a cushion, with Turkish tea in a tulip glass. Joint at his seat. -->
+  <g id="gp_body" transform="translate(-80 -18)">
+    <g transform="translate(80 18)">
+      <ellipse class="o" fill="#5fc9a0" cx="-80" cy="-19" rx="17" ry="5"/>
+      <path class="o" fill="#55382a" d="M-90 -24 Q-90 -30 -82 -30 L-60 -28 Q-54 -27 -54 -22 L-54 -19 L-88 -19 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2b2420" d="M-58 -26 L-50 -26 Q-47 -25 -47 -21 L-58 -20 Z"/>
+      <path class="o" fill="#a06a34" d="M-91 -26 Q-93 -46 -86 -56 Q-80 -60 -74 -56 Q-68 -48 -68 -28 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-80 -56 L-79 -30"/>
+    </g>
+  </g>
+  <g id="gp_head" data-parent="gp_body" transform="translate(-78 -58)">
+    <g transform="translate(78 58)">
+      <circle class="o" fill="#d9a074" cx="-77" cy="-67" r="9.6"/>
+      <path class="o" style="stroke-width:2" fill="#4a5a6a" d="M-87 -69 Q-86.4 -78.6 -77 -78.6 Q-68 -78.6 -67.4 -70.6 L-63.4 -69.4 Q-63 -67.4 -66.4 -67.6 L-86.4 -67.4 Z"/>
+      <path class="n" fill="#f4f1ea" d="M-86.4 -67 Q-87.6 -62 -85 -59.6 L-84 -66 Z"/>
+      <path class="t" style="stroke-width:2" d="M-73.4 -67.6 L-70.4 -67.6"/>
+      <path class="o" style="stroke-width:1.6" fill="#f4f1ea" d="M-75.4 -61.4 Q-70.6 -64.6 -66.4 -62 Q-67.4 -59 -70.6 -59.6 Q-73.4 -59.2 -75.4 -61.4 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d9a074" d="M-67.6 -67 Q-64.4 -64.6 -67.4 -62.4"/>
+    </g>
+  </g>
+  <g id="gp_arm" data-parent="gp_body" transform="translate(-74 -50)">
+    <g transform="translate(74 50)">
+      <path class="t" style="stroke-width:6.4" d="M-74 -50 L-66 -36 L-56 -46"/>
+      <path fill="none" stroke="#a06a34" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M-74 -50 L-66 -36 L-56 -46"/>
+      <!-- the tulip glass on its saucer -->
+      <ellipse class="o" style="stroke-width:1.6" fill="#e6ecee" cx="-54" cy="-45.6" rx="6.4" ry="1.8"/>
+      <path class="o" style="stroke-width:1.6" fill="#b8411f" d="M-57.6 -47 Q-59 -51 -57.2 -53 Q-58.4 -56 -57.4 -59 L-50.6 -59 Q-49.6 -56 -50.8 -53 Q-49 -51 -50.4 -47 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-56.4 -57.4 L-55 -57.4 L-55.6 -49 L-56.4 -49 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#d9a074" cx="-56" cy="-46" r="3"/>
+    </g>
+  </g>
+  <g id="gp_steam" data-parent="gp_arm" transform="translate(-54 -63)">
+    <path class="t" style="stroke:#9aa4b2;stroke-width:1.4" d="M0 0 q-2.6 -2.6 0 -5.2 t0 -5 M3 -1 q-2 -2 0 -4"/>
+  </g>
+
+  <!-- Grandmother, pouring mint tea from high up, as it should be poured. Joint at her feet. -->
+  <g id="mum_body" transform="translate(-32 -17)">
+    <g transform="translate(32 17)">
+      <path class="o" fill="#2f6fb3" d="M-44 -17 Q-44 -40 -40 -56 Q-34 -64 -28 -64 Q-21 -64 -18 -56 Q-14 -40 -16 -17 Z"/>
+      <path class="n" fill="#255a93" d="M-42 -19 Q-42 -38 -38 -52 Q-36 -38 -36 -19 Z"/>
+      <path class="t" style="stroke:#f2b54a;stroke-width:1.6" d="M-43.4 -24 L-16.4 -24"/>
+      <path class="o" fill="#fbf8f0" d="M-32 -64 L-24 -64 L-22 -54 L-34 -54 Z"/>
+      <path class="t" style="stroke-width:6" d="M-40 -56 L-38 -36"/>
+      <path fill="none" stroke="#255a93" stroke-width="3" stroke-linecap="round" d="M-40 -56 L-38 -36"/>
+    </g>
+  </g>
+  <g id="mum_head" data-parent="mum_body" transform="translate(-28 -64)">
+    <g transform="translate(28 64)">
+      <circle class="o" fill="#c98e62" cx="-26" cy="-74" r="9.4"/>
+      <!-- a headscarf in mint -->
+      <path class="o" style="stroke-width:2" fill="#5fc9a0" d="M-37 -72 Q-38 -86 -26 -86 Q-15 -86 -15.4 -76 Q-19 -82 -27 -81.6 Q-33 -81 -33.4 -72 Q-33.6 -64 -28 -62 L-34 -61 Q-37.6 -64 -37 -72 Z"/>
+      <circle class="n" fill="#2b1b16" cx="-21" cy="-74.6" r="1.4"/>
+      <path class="t" style="stroke-width:1.6" d="M-23.6 -78.4 Q-21.4 -79.6 -19 -78.4"/>
+      <path class="t" d="M-22 -68.6 Q-19.6 -67.4 -17.6 -68.8"/>
+      <path class="o" style="stroke-width:1.8" fill="#c98e62" d="M-17 -75 Q-13.6 -72.4 -16.6 -70"/>
+    </g>
+  </g>
+  <!-- Her arm, the teapot held high. Joint at the shoulder. -->
+  <g id="mum_arm" data-parent="mum_body" transform="translate(-22 -58)">
+    <g transform="translate(22 58)">
+      <path class="t" style="stroke-width:6.4" d="M-22 -58 L-14 -72 L-8 -86"/>
+      <path fill="none" stroke="#2f6fb3" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M-22 -58 L-14 -72 L-8 -86"/>
+      <!-- the silver teapot -->
+      <path class="o" style="stroke-width:2" fill="#d5dcd8" d="M-14 -88 Q-16 -98 -6 -99 Q4 -98 2 -88 Q0 -84 -6 -84 Q-12 -84 -14 -88 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d5dcd8" d="M1.4 -91 L9 -95 L10 -93 L2 -87 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#c6cfd2" d="M-9 -99 L-3 -99 L-4 -103 L-8 -103 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f2c230" cx="-6" cy="-104.6" r="1.8"/>
+      <path class="n" fill="#ffffff" d="M-11 -92 Q-11 -96 -7.6 -96.4 Q-9.6 -94 -9.4 -90 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#c98e62" cx="-8.6" cy="-86" r="3.2"/>
+    </g>
+  </g>
+  <!-- The stream of tea, from the spout down to the glass. Joint at the spout. -->
+  <g id="stream" data-parent="mum_arm" transform="translate(9.6 -94)">
+    <g transform="translate(-9.6 94)">
+      <path fill="none" stroke="#7fbf5a" stroke-width="2.2" stroke-linecap="round" d="M9.6 -93 Q6 -80 -1.6 -42"/>
+    </g>
+  </g>
+
+  <!-- Great-grandson, with an iced tea in a smart cup, and a spoon for flicking sugar. Joint at his feet. -->
+  <g id="kid_body" transform="translate(52 -17)">
+    <g transform="translate(-52 17)">
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M40 -17 L40 -21 L50 -21 Q53 -20 53 -17 Z M54 -17 L54 -21 L64 -21 Q67 -20 67 -17 Z"/>
+      <path class="o" fill="#3a3d4a" d="M41 -21 L43 -42 L63 -42 L65 -21 L56 -21 L53 -34 L50 -21 Z"/>
+      <path class="o" fill="#5fc9a0" d="M40 -40 Q38 -58 44 -64 Q53 -68 62 -64 Q67 -58 66 -40 Z"/>
+      <path class="t" style="stroke-width:1.6" d="M46 -50 L60 -50"/>
+      <path class="n" fill="#4aa98a" d="M41 -42 Q40 -56 44 -62 Q45 -52 46 -42 Z"/>
+    </g>
+  </g>
+  <g id="kid_head" data-parent="kid_body" transform="translate(54 -66)">
+    <g transform="translate(-54 66)">
+      <circle class="o" fill="#b07850" cx="55" cy="-75" r="9.4"/>
+      <!-- curls, and a cap on backwards -->
+      <path class="o" style="stroke-width:2" fill="#2b2422" d="M45.6 -76 Q44 -86 52 -87 Q57 -90 61 -86 Q66 -84 64.6 -79 Q60 -82 54 -81 Q49 -80 48.6 -74 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f6fb3" d="M46 -80 Q47 -89 56 -89 Q63 -89 64 -83 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f6fb3" d="M47 -81 L39 -79 Q38 -82 46 -84 Z"/>
+      <circle class="n" fill="#2b1b16" cx="59.6" cy="-75.6" r="1.4"/>
+      <path class="t" d="M58 -69.6 Q60.6 -68.6 62.6 -70.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#b07850" d="M63.6 -76 Q67 -73.6 64 -71"/>
+    </g>
+  </g>
+  <!-- His far hand holds the iced tea: tall, glowing lid. Joint at the shoulder. -->
+  <g id="kid_cup" data-parent="kid_body" transform="translate(46 -60)">
+    <g transform="translate(-46 60)">
+      <path class="t" style="stroke-width:6" d="M46 -60 L42 -48 L36 -46"/>
+      <path fill="none" stroke="#4aa98a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M46 -60 L42 -48 L36 -46"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2b54a" d="M29 -60 L39 -60 L38 -42 L30 -42 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#7ff0c8" x="28" y="-63" width="12" height="3.4" rx="1.4"/>
+      <path class="t" style="stroke-width:1.8" d="M35 -63 L37 -70"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b07850" cx="35" cy="-48" r="3"/>
+    </g>
+  </g>
+  <!-- The near arm with the spoon, loaded with a sugar cube. Joint at the shoulder. -->
+  <g id="kid_arm" data-parent="kid_body" transform="translate(60 -60)">
+    <g transform="translate(-60 60)">
+      <path class="t" style="stroke-width:6.4" d="M60 -60 L68 -48 L76 -52"/>
+      <path fill="none" stroke="#5fc9a0" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M60 -60 L68 -48 L76 -52"/>
+      <path class="t" style="stroke:#9aa4b2;stroke-width:2.4" d="M75 -51 L87 -58"/>
+      <ellipse class="o" style="stroke-width:1.6" fill="#c6cfd2" cx="89" cy="-59.6" rx="4" ry="2.4" transform="rotate(-30 89 -59.6)"/>
+      <rect class="o" style="stroke-width:1.4" fill="#fbf8f0" x="86.4" y="-66.4" width="5" height="5" rx="0.8"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b07850" cx="76" cy="-52" r="3.2"/>
+      <circle data-mount="muzzle" fill="none" cx="90" cy="-64" r="1"/>
+    </g>
+  </g>
+</svg>

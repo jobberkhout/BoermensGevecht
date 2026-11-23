@@ -234,9 +234,9 @@ without becoming a different game, as a starting point for whoever writes the ne
 | cannot be hit by ranged units, only in melee | a low, quick unit | a flag the shots respect |
 | earns money while it lives | a unit that brings in a little every second | income per unit, on top of the subsidie |
 
-The first one asked for is the owner's own: the fatbike of section 8, a cheap rider that rides through
-the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a door. Its rule is
-written out there.
+The first one asked for is the owner's own, and it is built: the fatbike of section 8, a cheap rider
+that rides through the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a
+door. Its rule is written out there and lives in `src/sim/riders.ts`.
 
 Two things to hold on to when one of these is built: it must keep working mirrored (both players press on
 the same tick, seats swapped, same outcome), and a unit's blurb on the title card must say in plain words
@@ -1154,7 +1154,7 @@ back." His grandson: "I feel Dutch."
 | Eerst thee, Het Theeterras | Tea for everyone | Drawn as what it is; hospitality from El Ahmadi and Yildirim | both, each its own tea |
 | De Gastvrouw, "Eet eerst wat!", "Blijf je eten?" | You get food, whether you came for it or not | Soundos El Ahmadi | Moroccan-Dutch |
 | De Gastvrouw's slipper | Her weapon | **The owner's decision** (23 November 2026). My research found it only in an anonymous forum list; here she swats enemy units with it, never a child | Moroccan-Dutch |
-| De Dönerbaas, "Met alles?" | The man at the spit | **The owner's decision** (23 November 2026). Döner is Turkish; when it reached Dutch streets is not sourced | Turkish-Dutch |
+| De Dönerbaas, "Met alles?" | The man at the counter | The owner's idea (23 November 2026), with an inside source the owner pointed to: Najib Amhali, a Moroccan-Dutch comedian, whose scene in the shoarmazaak is among his best-known sketches (the listing of his *30 jaar on stage*). No text source describes the scene, so nothing is taken from it but the setting. Döner rather than shoarma, because döner is Turkish | Turkish-Dutch |
 | De Feestzaal, De Toeterstoet, De Trouwfilmer | 650 guests; honk so everyone knows; the family watches the film | VPRO; Yerden; Laroussi | Turkish-Dutch, and the convoy both |
 | De Kapperszaak, De Kapbot | Come for the talk | Barbers in the Brussels Times; Omroep Brabant | Turkish-Dutch |
 | Nee is nee | The mother's no | Mothers as their children play them: Nasrdin Dchar, *Meskina*. The look itself is mine | both |
@@ -1503,6 +1503,7 @@ not looked up. The 2050 eras are extrapolations, mine and the researchers'.
 
 **De Gasten**
 
+- The shoarmazaak scene of Najib Amhali, named among his best-known sketches: https://www.ziggo.nl/entertainment/series/najib-amhali/najib-amhali-30-jaar-on-stage
 - The agreements and the work: https://verdragenbank.overheid.nl/en/Treaty/Details/004441 , https://www.canonvannederland.nl/nl/gastarbeiders , https://nos.nl/l/2533870 and https://nos.nl/l/2213402
 - "Two or three years", and the grandson who feels Dutch: https://nos.nl/artikel/2284642-50-jaar-na-het-wervingsverdrag-ik-voel-me-nederlands-en-marokkaans
 - The plan to go back, and staying: https://www.iamsterdam.com/ontdek/echt-amsterdams/door-de-ogen-van-turkse-amsterdammers

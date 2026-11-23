@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 28" data-rig="static">
+  <title>Een suikerklontje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <!-- A sugar cube, seen a little from above, with a few sparkling grains. Origin = its middle. -->
+  <g id="cube" transform="translate(0 0)">
+    <path class="o" fill="#e8e2d4" d="M-9 -4 L1 -9 L10 -4 L10 7 L0 11 L-9 7 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M-9 -4 L1 -9 L10 -4 L0 1 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#f4f0e6" d="M0 1 L10 -4 L10 7 L0 11 Z"/>
+    <circle class="n" fill="#d4ccb8" cx="-5" cy="4" r="0.9"/>
+    <circle class="n" fill="#d4ccb8" cx="-3" cy="7" r="0.8"/>
+    <circle class="n" fill="#d4ccb8" cx="5" cy="3" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="1" cy="-5" r="1"/>
+  </g>
+</svg>
