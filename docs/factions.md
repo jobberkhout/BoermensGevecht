@@ -305,7 +305,8 @@ What to know before the balance pass:
   With an ordinary heavy in that slot De Gasten would win 70%, 52% and 57% with a mix. Starting numbers,
   not fitted: 230, 288 hit points, 130 ram damage, 500 to the base. Raising the ram damage helps De
   Gasten most; the base damage hardly matters, because bots seldom get one through. Later that day the
-  owner made it 300 with 345 hit points; see the next point for what that and the faster walking did.
+  owner made it 300 with 345 hit points, and then 400 hit points; see the next point for what the first
+  step and the faster walking did.
 - **Faster walking**, 23 November 2026. The owner: "all units need a speed increase of around 20%.
   currently they walk too slowly and there is not enough action". Every unit now walks 20% faster and
   the fatbike rides 20% faster (`PACE_PERCENT` in `src/defs/balance.ts`; speeds are whole steps per
@@ -1333,14 +1334,15 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
   outcome.
 
 **Numbers**, changed freely: price 300 (the owner's, later on 23 November; the heavy of 2025 costs 460, and
-the fatbike's bounty is 120), trained in 4 seconds, 345 hit points (a fifth more than the light unit of 2025,
-the owner's too; it started at 230 and 288), 396 pixels a second (the junior walks 72, so it crosses the
+the fatbike's bounty is 120), trained in 4 seconds, 400 hit points (about 40% more than the light unit of 2025,
+the owner's too; it started at 230 and 288, then 300 and 345), 396 pixels a second (the junior walks 72, so it crosses the
 1280-pixel lane in a little over three seconds; both are 20% faster since the owner asked for more pace,
 see Balance), 130 ram damage to every unit it rides through (the heavy's blow is 132), and 500 to the base,
 which has 5500 in 2025. What wears it down: a light hits back for 43, a ranged unit for 31, a heavy for
-132, so two heavies and a few lights stop it. Two new turrets land about 100 on it before it reaches the
-gate; two fully upgraded ones land about 380, more than its hit points, so they stop it on their own.
-That, and a schild kept out, is the defender's answer. If bots show the rider never or always getting
+132, so two heavies and three or four lights stop it. Two new turrets land about 100 on it before it
+reaches the gate; two fully upgraded ones land about 380, just short of its hit points, so on an empty
+lane it reaches the base with a sliver left: one more blow or throw on the way stops it. Turrets and a
+unit or two at home, and a schild kept out, are the defender's answer. If bots show the rider never or always getting
 through, change its hit points first.
 
 **What the rules need** (no code here; the building agent writes it): a list of riders in the match state,

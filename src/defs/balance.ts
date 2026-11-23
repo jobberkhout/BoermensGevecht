@@ -322,13 +322,14 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
  * The owner's rule of 23 November 2026, in docs/factions.md, section 8.
  *
  * Price and hit points are the owner's of 23 November 2026: 300, about two
- * thirds of a heavy of its era, and a fifth more hit points than a light unit.
+ * thirds of a heavy of its era, and 400 hit points, about 40% more than a
+ * light unit. Two fully upgraded turrets alone no longer quite stop it.
  * Fast enough to cross the lane in a little over three seconds.
  */
 export const RIDER = {
   cost: 300,
   buildTicks: sec(4),
-  hp: 345,
+  hp: 400,
   speed: walk(330),
   len: px(160),
   /** What every enemy unit it rides through takes, and a super unit it crashes into. */
