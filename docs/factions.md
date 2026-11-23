@@ -283,8 +283,9 @@ What to know before the balance pass:
   specials of 2025 swapped (2%). So the Dronezwerm is not it, and neither is the Kolonne or the Blokkade.
   The cause was not found. In full matches the farmers reach 2050 first: at ten minutes they are there
   in nine matches out of ten, Amsterdam in half.
-- Nearly all mixed matches reach 2050 and run into overtime, so the specials of the future and the
-  overtime rules decide many of them.
+- Many mixed matches reach 2050 and run into overtime, so the specials of the future and the overtime
+  rules decide many of them: before the faster walking below two in three ran into overtime, since
+  then a little under half.
 - The bots undersell De Zuidas late in a match. Its strength, in the owner's words, is "using the
   special right before gouden handdruk goes down": during the Succesfee the 1320 the enemy would earn
   for beating the Handdruk is paid to De Zuidas instead. The bots now time it that way, but they almost
@@ -303,7 +304,28 @@ What to know before the balance pass:
   on the lane and at most five units, and keep a schild out themselves against a side that can send one.
   With an ordinary heavy in that slot De Gasten would win 70%, 52% and 57% with a mix. Starting numbers,
   not fitted: 230, 288 hit points, 130 ram damage, 500 to the base. Raising the ram damage helps De
-  Gasten most; the base damage hardly matters, because bots seldom get one through.
+  Gasten most; the base damage hardly matters, because bots seldom get one through. Later that day the
+  owner made it 300 with 345 hit points; see the next point for what that and the faster walking did.
+- **Faster walking**, 23 November 2026. The owner: "all units need a speed increase of around 20%.
+  currently they walk too slowly and there is not enough action". Every unit now walks 20% faster and
+  the fatbike rides 20% faster (`PACE_PERCENT` in `src/defs/balance.ts`; speeds are whole steps per
+  tick, so it comes out between 18% and 22%). With both sides buying a mix the share of matches that
+  run into overtime fell from 67% to 44%, the typical match from about 11 to 8 or 9 minutes, and the
+  share that reaches 2050 from 92% to 81%. It moved the factions too, and that was left as it is:
+
+  | Both buying a mix, both seats | Before | After |
+  |---|---|---|
+  | Amsterdam against the Achterhoek | 31% | 57% |
+  | Amsterdam against De Zuidas | 71% | 77% |
+  | Amsterdam against De Gasten | 52% | 78% |
+  | The Achterhoek against De Zuidas | 60% | 52% |
+  | The Achterhoek against De Gasten | 50% | 70% |
+  | De Gasten against De Zuidas | 76% | 72% |
+
+  De Gasten's fall comes from the faster walking, not from the dearer fatbike: with faster walking and
+  the fatbike's old numbers (230, 288 hit points) they win 22% against Amsterdam and 29% against the
+  farmers, about the same as with the new ones. Why faster walking hurts them, and helps Amsterdam, was
+  not looked into.
 
 ## The factions
 
@@ -1310,10 +1332,11 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
   target by the same rule on both sides. A test plays it with the seats swapped and expects the same
   outcome.
 
-**Numbers to start from**, to be fitted with `npm run balance -- --mix` and changed freely: price 230 (half
-the heavy of 2025, which costs 460; its bounty is then 92), trained in 4 seconds, 288 hit points (the light
-unit of 2025), 330 pixels a second (the junior walks 60, so it crosses the 1280-pixel lane in about four
-seconds), 130 ram damage to every unit it rides through (the heavy's blow is 132), and 500 to the base,
+**Numbers**, changed freely: price 300 (the owner's, later on 23 November; the heavy of 2025 costs 460, and
+the fatbike's bounty is 120), trained in 4 seconds, 345 hit points (a fifth more than the light unit of 2025,
+the owner's too; it started at 230 and 288), 396 pixels a second (the junior walks 72, so it crosses the
+1280-pixel lane in a little over three seconds; both are 20% faster since the owner asked for more pace,
+see Balance), 130 ram damage to every unit it rides through (the heavy's blow is 132), and 500 to the base,
 which has 5500 in 2025. What wears it down: a light hits back for 43, a ranged unit for 31, a heavy for
 132, so two heavies and a few lights stop it. Two new turrets land about 100 on it before it reaches the
 gate; two fully upgraded ones land about 380, more than its hit points, so they stop it on their own.

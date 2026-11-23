@@ -13,6 +13,18 @@ export const px = (n: number): number => Math.round(n * SUB);
 export const sec = (n: number): number => Math.round(n * TPS);
 export const pxPerSec = (n: number): number => Math.round((n * SUB) / TPS);
 
+/**
+ * How fast every unit walks, and the fatbike rides, in percent of the speeds
+ * written in the tables below. The owner asked for 20% more on 23 November
+ * 2026: the armies met too late and there was too little going on.
+ */
+export const PACE_PERCENT = 120;
+/**
+ * A walking or riding speed: pixels a second as written in the tables, times
+ * the pace. Rounded up, so the slowest unit is not left behind by the rounding.
+ */
+const walk = (n: number): number => Math.ceil((n * PACE_PERCENT * SUB) / 100 / TPS);
+
 // ---- World (logical pixels; the screen is a 1920x1080 stage) ----------------
 
 export const WORLD_W = 1920;
@@ -206,7 +218,7 @@ const FIRST = {
     cost: 50,
     buildTicks: sec(1.6),
     hp: 120,
-    speed: pxPerSec(60),
+    speed: walk(60),
     len: px(54),
     range: px(18),
     dmg: 18,
@@ -217,7 +229,7 @@ const FIRST = {
     cost: 80,
     buildTicks: sec(2.4),
     hp: 65,
-    speed: pxPerSec(45),
+    speed: walk(45),
     len: px(48),
     range: px(220),
     dmg: 13,
@@ -229,7 +241,7 @@ const FIRST = {
     cost: 230,
     buildTicks: sec(5.5),
     hp: 800,
-    speed: pxPerSec(32),
+    speed: walk(32),
     len: px(190),
     range: px(26),
     dmg: 55,
@@ -263,7 +275,7 @@ const SHIELD: Omit<RoleStats, 'bounty'> = {
   cost: 120,
   buildTicks: sec(3),
   hp: 260,
-  speed: pxPerSec(50),
+  speed: walk(50),
   len: px(80),
   range: px(18),
   dmg: 10,
@@ -288,7 +300,7 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
   cost: 3000,
   buildTicks: sec(12),
   hp: 12000,
-  speed: pxPerSec(26),
+  speed: walk(26),
   len: px(150),
   range: px(30),
   dmg: 460,
@@ -309,15 +321,15 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
  * touch it. One per side on the lane at a time, outside the unit cap.
  * The owner's rule of 23 November 2026, in docs/factions.md, section 8.
  *
- * Starting numbers, to be fitted with `npm run balance -- --mix`: half the
- * price of a heavy of its era, the hit points of a light unit, and fast enough
- * to cross the lane in about four seconds.
+ * Price and hit points are the owner's of 23 November 2026: 300, about two
+ * thirds of a heavy of its era, and a fifth more hit points than a light unit.
+ * Fast enough to cross the lane in a little over three seconds.
  */
 export const RIDER = {
-  cost: 230,
+  cost: 300,
   buildTicks: sec(4),
-  hp: 288,
-  speed: pxPerSec(330),
+  hp: 345,
+  speed: walk(330),
   len: px(160),
   /** What every enemy unit it rides through takes, and a super unit it crashes into. */
   ram: 130,

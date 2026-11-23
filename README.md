@@ -22,7 +22,7 @@ If you cloned the repository, the file is in its root: open it from there.
 | Part | State |
 |---|---|
 | Rules: units, three rows, turrets with levels, specials, subsidie, modernizing, overtime | Done, covered by tests |
-| Three factions, picked on the title screen: any pair, the same one twice too | Done |
+| Four factions, picked on the title screen: any pair, the same one twice too | Done |
 | Three eras per faction: Jaren '70, Jaren '20, the future | Done: each has its own three units, turret, special and base |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
@@ -128,7 +128,7 @@ Every action is also a button on screen.
   an expensive unit of your own goes down: its bounty comes back to you. What the enemy already has stays
   theirs, and so does the vooruitgang they earn.
 - **De Fatbike**, the heavy unit of De Gasten in the Jaren '20, is not a unit in the ranks but a rider.
-  It costs half a heavy and has the hit points of a light unit. It leaves the gate on its own, one at a
+  It costs 300, about two thirds of a heavy, and has a fifth more hit points than a light unit. It leaves the gate on its own, one at a
   time and outside the ten-unit limit, and rides straight through the enemy ranks: every unit it passes
   takes a blow and hits it back once, and what it beats earns you the bounty. A schild stops it and both
   go down; a super unit stops it and walks on. Turrets fire at it before anything else, and enemy specials
