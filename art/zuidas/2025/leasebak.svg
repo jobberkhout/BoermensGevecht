@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-132 -126 252 132" data-rig="vehicle">
+  <title>De Leasebak</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The dark inside the wheel arches. -->
+  <g id="wells" data-parent="body" transform="translate(0 -23)">
+    <g transform="translate(0 23)">
+      <circle class="n" fill="#161821" cx="-56" cy="-23" r="27.5"/>
+      <circle class="n" fill="#161821" cx="58" cy="-23" r="27.5"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-56 -23)">
+    <path class="o" fill="#2a2b33" fill-rule="evenodd" d="M23 0 A23 23 0 1 0 -23 0 A23 23 0 1 0 23 0 Z M16 0 A16 16 0 1 1 -16 0 A16 16 0 1 1 16 0 Z"/>
+    <circle class="o" fill="#c9ced6" cx="0" cy="0" r="16"/>
+    <path fill="none" stroke="#5a6272" stroke-width="3.4" stroke-linecap="round" d="M0 -7.4 L0 -12 M7 -2.3 L11.4 -3.7 M4.4 6 L7 9.7 M-4.4 6 L-7 9.7 M-7 -2.3 L-11.4 -3.7"/>
+    <circle class="o" style="stroke-width:1.8" fill="#8d95a3" cx="0" cy="0" r="3.8"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(58 -23)">
+    <path class="o" fill="#2a2b33" fill-rule="evenodd" d="M23 0 A23 23 0 1 0 -23 0 A23 23 0 1 0 23 0 Z M16 0 A16 16 0 1 1 -16 0 A16 16 0 1 1 16 0 Z"/>
+    <circle class="o" fill="#c9ced6" cx="0" cy="0" r="16"/>
+    <path fill="none" stroke="#5a6272" stroke-width="3.4" stroke-linecap="round" d="M0 -7.4 L0 -12 M7 -2.3 L11.4 -3.7 M4.4 6 L7 9.7 M-4.4 6 L-7 9.7 M-7 -2.3 L-11.4 -3.7"/>
+    <circle class="o" style="stroke-width:1.8" fill="#8d95a3" cx="0" cy="0" r="3.8"/>
+  </g>
+
+  <!-- A lot of car: a high nose, high sides, small windows, plastic round the arches, no exhaust. No badge anywhere. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -23)">
+    <g transform="translate(0 23)">
+      <path class="o" fill="#2f4f8a" d="M-93 -16 L-95 -44 Q-96 -58 -90 -66 L-78 -90 Q-75 -95 -67 -95 L22 -95 Q32 -95 38 -89 L57 -67 L86 -63 Q96 -61 96 -50 L96 -22 Q96 -14 89 -14 L84 -14 A27.5 27.5 0 1 0 32 -14 L-30 -14 A27.5 27.5 0 1 0 -82 -14 L-89 -14 Q-93 -14 -93 -16 Z"/>
+      <!-- the light along the shoulder -->
+      <path class="n" fill="#4468ab" d="M-89 -63.4 L56 -63.4 L86 -59.4 Q89 -58.8 89.6 -56.4 L56 -60 L-90.6 -60 Z"/>
+      <!-- plastic: sills, bumpers, arches -->
+      <path class="n" fill="#1d2c4d" d="M-28.6 -23.5 L30.6 -23.5 L32 -14 L-30 -14 Z"/>
+      <path class="n" fill="#1d2c4d" d="M85.4 -26 L95 -26 L95 -21 Q95 -15 89 -15 L84 -15 Q85.2 -20 85.4 -26 Z"/>
+      <path class="n" fill="#1d2c4d" d="M-83.4 -26 L-93.6 -26 L-92.4 -16.6 Q-92 -15 -89 -15 L-82 -15 Q-83.2 -20 -83.4 -26 Z"/>
+      <path fill="none" stroke="#1d2c4d" stroke-width="5" d="M87.5 -21 A29.6 29.6 0 1 0 28.5 -21 M-26.5 -21 A29.6 29.6 0 1 0 -85.5 -21"/>
+      <path class="t" d="M90.1 -21.5 A32.1 32.1 0 1 0 25.9 -21.5 M-23.9 -21.5 A32.1 32.1 0 1 0 -88.1 -21.5 M-23.9 -23.5 L25.9 -23.5 M90.1 -26 L96 -26 M-88.1 -26 L-94 -26"/>
+      <path class="t" style="stroke-width:2.5" d="M84 -14 A27.5 27.5 0 1 0 32 -14 L-30 -14 A27.5 27.5 0 1 0 -82 -14 M84 -14 L89 -14 Q96 -14 96 -22 M-82 -14 L-89 -14 Q-93 -14 -93 -16"/>
+      <!-- glass -->
+      <path class="o" fill="#8fd0d8" d="M-72 -89 L21 -89 Q28 -89 32.5 -84.5 L49 -66 L-84 -66 L-75.5 -86 Q-74.5 -89 -72 -89 Z"/>
+      <path class="n" fill="#b9e6ea" d="M-68 -88 L-60 -88 L-70 -67 L-78 -67 L-74.5 -75.4 Z M5 -88 L10 -88 L4.6 -75 L3.4 -75 Z"/>
+      <!-- the jacket on its hanger in the back, where a jacket travels -->
+      <path class="t" style="stroke-width:1.4" d="M-27 -89 L-27 -85.6"/>
+      <path class="o" style="stroke-width:1.8" fill="#3c62a8" d="M-38 -81.6 L-27 -85.8 L-16 -81.6 L-15.4 -66 L-38.6 -66 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M-30.5 -84.4 L-27 -76 L-23.5 -84.4 M-27 -76 L-27 -66"/>
+      <!-- his seat, and the steering wheel he is not holding -->
+      <path class="o" style="stroke-width:1.8" fill="#3a3f4a" d="M4 -66 L4 -79 Q4 -85 7.5 -85 Q11 -85 11 -79 L11 -66 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.4" stroke-linecap="round" d="M40 -66 Q38 -71 41.6 -74"/>
+      <!-- pillars -->
+      <path class="o" fill="#2f4f8a" d="M-5 -89 L1.5 -89 L1.5 -66 L-5 -66 Z M-55 -89 L-48.6 -89 L-49.4 -66 L-57 -66 Z"/>
+      <!-- seams and handles -->
+      <path class="t" d="M-1.8 -66 L-1.8 -24 M-52.6 -66 L-51 -50.6 M49 -66 L46 -48.6"/>
+      <path fill="none" stroke="#9db3dc" stroke-width="2.2" stroke-linecap="round" d="M3.5 -55 L11 -55 M-47 -55 L-39.5 -55"/>
+      <!-- mirror -->
+      <path class="o" fill="#2f4f8a" d="M49.5 -71 Q58 -74 59.6 -68 Q59 -63.4 51 -64 Z"/>
+      <!-- lights: a white blade in front, a red one behind, an indicator at each corner -->
+      <path class="o" style="stroke-width:1.8" fill="#eef8ff" d="M80 -59.6 L93.4 -57.4 Q95.6 -55 95.4 -52.6 L82 -55.4 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#e5283f" d="M-94.8 -55 Q-94 -62.4 -90.6 -66 L-86.6 -63.4 Q-89.8 -59.4 -90.4 -54 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#e0791a" x="89.6" y="-51.4" width="6.4" height="4.6" rx="1.6"/>
+      <rect class="o" style="stroke-width:1.6" fill="#e0791a" x="-95.4" y="-52.6" width="5" height="4.6" rx="1.6"/>
+      <!-- where a grille would be: a smooth panel and a slot -->
+      <path class="t" style="stroke:#223a68" d="M90.6 -44 L90.6 -40"/>
+      <path class="o" style="stroke-width:1.8" fill="#161821" d="M88 -38 L96 -38 L96 -31.6 L88 -31.6 Q86.4 -34.8 88 -38 Z"/>
+      <!-- the charging flap, open -->
+      <circle class="o" style="stroke-width:1.8" fill="#161821" cx="-88" cy="-44" r="4.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f4f8a" d="M-83.8 -48.4 Q-78.8 -47.4 -79.4 -42.4 Q-81.4 -43.6 -83.4 -43.6 Z"/>
+      <!-- roof bars -->
+      <path class="o" fill="#3a3f4a" d="M-48 -102 L-41 -102 L-40 -95 L-49 -95 Z M2 -102 L9 -102 L10 -95 L1 -95 Z"/>
+    </g>
+  </g>
+
+  <!-- The partner. Tanned up to where the ski goggles sat, and on the phone. Joint where his collar meets the door. -->
+  <g id="partner" data-parent="body" transform="translate(21 -66)">
+    <g transform="translate(-23 62)">
+      <path class="o" fill="#27406b" d="M8 -56 Q9 -66 18 -66.6 L29 -66.6 Q37 -65.6 38 -56 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M19.6 -67 L27.6 -67 L24.4 -61.4 Z"/>
+      <ellipse class="o" fill="#e0aa82" cx="24" cy="-74" rx="10" ry="10.2"/>
+      <path class="n" fill="#f6d6bd" d="M25.4 -79.6 Q33.6 -79.8 33.8 -75.6 Q33.4 -72.6 26.4 -72.8 Q24.2 -76 25.4 -79.6 Z"/>
+      <path class="o" fill="#d9dce2" d="M14.2 -75 Q13 -85 23 -84.8 Q29.4 -84.6 31.6 -81 Q25 -81.6 21 -78.6 Q18.6 -76.4 18.6 -72 Q16 -72 14.2 -75 Z"/>
+      <circle class="n" fill="#2b1b16" cx="29.4" cy="-75.8" r="1.5"/>
+      <path class="t" style="stroke-width:1.4" d="M26.6 -78.8 L31.8 -78.2"/>
+      <path class="o" style="stroke-width:1.8" fill="#e0aa82" d="M33.4 -76.4 Q37.4 -72.8 33.6 -71.2"/>
+      <!-- phone, hand, cuff -->
+      <rect class="o" style="stroke-width:1.8" fill="#23242e" x="15" y="-80" width="5.4" height="13.4" rx="1.6" transform="rotate(-10 17.7 -73.3)"/>
+      <path class="o" style="stroke-width:1.8" fill="#e0aa82" d="M13.4 -70 Q13.4 -74.6 17.4 -74.6 Q21.6 -74.6 21.6 -70 L21.2 -65 L14 -65 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M13.4 -66 L21.8 -66 L22.2 -61.6 L13 -61.6 Z"/>
+    </g>
+  </g>
+
+  <g id="mouth" data-parent="partner" transform="translate(29.2 -71.4)">
+    <ellipse class="o" style="stroke-width:1.4" fill="#5a1f1f" cx="0" cy="0" rx="2.6" ry="2.2"/>
+  </g>
+
+  <!-- The top of the door, over his shoulders. -->
+  <g id="sill" data-parent="body" transform="translate(26 -63)">
+    <g transform="translate(-26 63)">
+      <path class="n" fill="#2f4f8a" d="M2.6 -66 L48.6 -66 L48 -63.4 L2.6 -63.4 Z"/>
+      <path class="n" fill="#4468ab" d="M2.6 -63.4 L48 -63.4 L47.4 -60 L2.6 -60 Z"/>
+      <path class="t" style="stroke-width:2.5" d="M1.6 -66 L49 -66"/>
+    </g>
+  </g>
+
+  <!-- The ski box. It is July. Joint on the roof, between the bars. -->
+  <g id="skibox" data-parent="body" transform="translate(-18 -102)">
+    <g transform="translate(18 102)">
+      <path class="o" fill="#3a3f4a" d="M-68 -105 Q-68 -115 -56 -116.6 L6 -118 Q24 -117.6 33 -109 Q36 -104.4 29 -102 L-60 -102 Q-68 -102 -68 -105 Z"/>
+      <path class="n" fill="#5d6577" d="M-56 -114.4 L5 -115.6 Q13 -115.4 19 -112.8 L-58 -111.6 Q-60 -113.4 -56 -114.4 Z"/>
+      <path class="t" d="M-67.4 -107.6 L33.6 -107"/>
+      <circle class="o" style="stroke-width:1.4" fill="#c9ced6" cx="-16" cy="-104.6" r="1.7"/>
+    </g>
+  </g>
+
+  <!-- Hazard lights, lit. He is only stopping for a minute. -->
+  <g id="blink" data-parent="body" transform="translate(0 -50)">
+    <g transform="translate(0 50)">
+      <rect class="o" style="stroke-width:1.6" fill="#ffd23a" x="88.6" y="-52.4" width="8.4" height="6.6" rx="2.2"/>
+      <rect class="o" style="stroke-width:1.6" fill="#ffd23a" x="-96.4" y="-53.6" width="7" height="6.6" rx="2.2"/>
+      <circle class="o" style="stroke-width:1.4" fill="#ffd23a" cx="55.8" cy="-68.4" r="2.2"/>
+    </g>
+  </g>
+
+  <!-- Main beam: he flashes whoever is in front. Joint at the headlight. -->
+  <g id="flash" data-parent="body" transform="translate(95 -55.6)">
+    <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" d="M5 -3.4 L15 -8.6 M6.4 0.4 L19 0.4 M5 4.2 L15 9.4"/>
+    <path fill="none" stroke="#fff3a8" stroke-width="2.4" stroke-linecap="round" d="M5 -3.4 L15 -8.6 M6.4 0.4 L19 0.4 M5 4.2 L15 9.4"/>
+  </g>
+
+  <!-- He drove off with the cable still in. Joint at the socket. -->
+  <g id="cable" data-parent="body" transform="translate(-88 -44)">
+    <path fill="none" stroke="#2b1b16" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M0 0 Q-3 18 -8 29 Q-12 38 -20 40.4 L-26 40.4"/>
+    <path fill="none" stroke="#45c486" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" d="M0 0 Q-3 18 -8 29 Q-12 38 -20 40.4 L-26 40.4"/>
+    <rect class="o" style="stroke-width:1.8" fill="#3a3f4a" x="-3.8" y="-3.8" width="7.6" height="7.6" rx="2.6"/>
+    <circle class="n" fill="#45c486" cx="0" cy="0" r="1.5"/>
+    <!-- the other end, with a piece of the charging post -->
+    <path class="o" style="stroke-width:1.8" fill="#3a3f4a" d="M-26 36.4 L-34 36.4 Q-37 36.4 -37 39.4 L-37 41.4 Q-37 43.8 -34 43.8 L-26 43.8 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-37 38.4 L-40.4 38.4 M-37 41.8 L-40.4 41.8"/>
+  </g>
+</svg>

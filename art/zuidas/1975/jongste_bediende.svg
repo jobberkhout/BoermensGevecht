@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -146 112 152" data-rig="humanoid">
+  <title>De jongste bediende: zestien, een pak op de groei en een gloednieuw vloerpasje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .p { stroke: #7f96c8; stroke-width: 1; stroke-linecap: round; fill: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far sleeve. It ends where her fingers do. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" style="stroke-width:2" fill="#e9b796" d="M-3.2 36 Q-3.2 41.5 0 41.5 Q3.2 41.5 3.2 36 Z"/>
+    <path class="o" fill="#22335a" d="M-5.5 -3 L5.5 -3 L7 37.5 L-7 37.5 Z"/>
+    <path class="p" style="stroke:#5f78b0" d="M0 1 L0.3 32"/>
+    <path class="t" style="stroke-width:1.3" d="M-6.7 33.5 L6.7 33.5"/>
+  </g>
+
+  <!-- Trousers on the same principle: they pool on her shoes. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#1d1a1c" d="M-5 38 L-5 34 L8 33.5 Q12.5 34 12.5 38 Z"/>
+    <path class="o" fill="#22335a" d="M-5.5 -3 L5.5 -3 L6.3 23 Q9.4 25.5 7.4 28.5 Q10.6 32 8.4 36 L-7.2 36 Q-9.6 32 -6.8 28.5 Q-8.8 25.5 -6.3 23 Z"/>
+    <path class="t" style="stroke:#141f3a;stroke-width:1.4" d="M-6.6 28.5 Q0 31 7.2 28.5 M-4.6 24.4 Q0 26.2 4.8 24.4"/>
+  </g>
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#2b2326" d="M-5 38 L-5 34 L8 33.5 Q12.5 34 12.5 38 Z"/>
+    <path class="o" fill="#2b3f6b" d="M-5.5 -3 L5.5 -3 L6.3 23 Q9.4 25.5 7.4 28.5 Q10.6 32 8.4 36 L-7.2 36 Q-9.6 32 -6.8 28.5 Q-8.8 25.5 -6.3 23 Z"/>
+    <path class="p" d="M-2 0 L-2 25 M2.6 0 L2.8 25"/>
+    <path class="t" style="stroke:#1a2747;stroke-width:1.4" d="M-6.6 28.5 Q0 31 7.2 28.5 M-4.6 24.4 Q0 26.2 4.8 24.4"/>
+  </g>
+
+  <!-- The jacket: shoulders out past her own, the hem half-way down her legs. Wide lapels, a square clerk's button. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2b3f6b" d="M-19.5 11 L-20.5 -27 Q-20 -36.5 -9 -38 L10 -38 Q20.5 -36.5 21.5 -27 L21 11 Z"/>
+    <path class="p" d="M-16 -29 L-15.4 9 M-11 -22 L-10.6 9 M-6 -1 L-5.8 9 M-1 -16 L-0.8 9 M4.4 -4 L4.4 9 M9.6 -10 L9.6 9 M14.6 -24 L14.6 9 M18.4 -29 L18.2 9"/>
+    <path class="t" style="stroke-width:1.3" d="M-17 -17 L-7 -17 M-16.5 2 L-7.5 2 M9 2 L18 2"/>
+    <path class="o" style="stroke-width:1.8" fill="#3d568f" d="M-4.5 -38 L-12 -29.5 L4.5 -13.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#3d568f" d="M11.5 -38 L18.5 -29.5 L4.5 -13.5 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#fffdf5" d="M-4 -38 L11 -38 L4.5 -16.5 Z"/>
+    <path class="o" style="stroke-width:1.5" fill="#2f9e9a" d="M1.4 -37 L6.4 -37 L7 -32.5 L5.2 -19 L2.8 -19 L1 -32.5 Z"/>
+    <path class="t" style="stroke-width:1.2" d="M1.6 -33 L6.6 -33"/>
+    <circle class="o" style="stroke-width:1.4" fill="#f0c53a" cx="4.5" cy="-7.5" r="2.1"/>
+    <rect class="o" style="stroke-width:1.5" fill="#f0c53a" x="-8.6" y="-33" width="5.2" height="5.2" rx="0.9"/>
+    <path class="n" fill="#fff6c8" d="M-7.6 -32 L-5.6 -32 L-7.6 -30 Z"/>
+  </g>
+
+  <!-- The floor pass on her breast pocket: a stripe, a photo that is still an empty oval. Joint at the clip. -->
+  <g id="pass" data-parent="torso" transform="translate(-12 -57)">
+    <rect class="o" style="stroke-width:1.5" fill="#fffaf0" x="-5.5" y="1.5" width="11" height="14.5" rx="1.6"/>
+    <rect class="n" fill="#3fb8a8" x="-4.6" y="2.4" width="9.2" height="3.4" rx="0.8"/>
+    <ellipse class="n" fill="#d6cab2" cx="-1.4" cy="10.6" rx="2.1" ry="2.7"/>
+    <path fill="none" stroke="#8a8272" stroke-width="1" stroke-linecap="round" d="M2 9 L3.6 9 M2 11.6 L3.6 11.6"/>
+    <rect class="o" style="stroke-width:1.3" fill="#c9c9d2" x="-2.2" y="-2.2" width="4.4" height="5" rx="1"/>
+  </g>
+
+  <!-- How new it is. -->
+  <g id="twinkle" data-parent="pass" transform="translate(-6.5 -54.5)">
+    <path stroke="#e6b422" stroke-width="0.9" stroke-linejoin="round" fill="#fffbe0" d="M0 -5.5 L1.3 -1.3 L5.5 0 L1.3 1.3 L0 5.5 L-1.3 1.3 L-5.5 0 L-1.3 -1.3 Z"/>
+  </g>
+
+  <!-- A high ponytail in a teal band. Joint where it leaves her head. -->
+  <g id="ponytail" data-parent="head" transform="translate(-14 -106)">
+    <path class="o" fill="#a05a2c" d="M2 -2 Q-6 -8 -12 -3 Q-18 4 -15 15 Q-13 22 -8 25 Q-9 16 -6 9 Q-3 4 3 3 Z"/>
+    <path class="t" style="stroke:#c98445;stroke-width:1.4" d="M-10 0 Q-13.5 7 -11.5 15"/>
+    <ellipse class="o" style="stroke-width:1.5" fill="#3fb8a8" cx="-1.5" cy="-0.5" rx="2.8" ry="5" transform="rotate(-38 -1.5 -0.5)"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e9b796" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-21" rx="17" ry="16.5"/>
+    <path class="o" fill="#a05a2c" d="M-11 -6.5 Q-19 -12 -17.5 -24 Q-16.5 -39 0 -41 Q13 -42 19 -32 Q20 -29 18.5 -27.5 Q10 -30.5 2 -27 Q-4 -24 -5.5 -16 Q-6.5 -9.5 -11 -6.5 Z"/>
+    <path class="t" style="stroke:#c98445;stroke-width:1.5" d="M-11 -32 Q-3 -38.5 8 -36.5 M-13.5 -20 Q-13 -14 -10.5 -10.5"/>
+    <!-- an ear, and the pencil behind it -->
+    <ellipse class="o" style="stroke-width:1.8" fill="#f3c9a5" cx="-6.5" cy="-16" rx="3" ry="3.7"/>
+    <path class="t" style="stroke-width:1.1" d="M-7.4 -17.4 Q-5.4 -16.4 -6.8 -14.4"/>
+    <path class="t" style="stroke-width:4.6" d="M-15.5 -18.4 L0.5 -24"/>
+    <path fill="none" stroke="#f0c53a" stroke-width="2.3" stroke-linecap="round" d="M-15.5 -18.4 L0.5 -24"/>
+    <path fill="none" stroke="#ff8f9a" stroke-width="2.3" stroke-linecap="round" d="M-15.5 -18.4 L-14.3 -18.8"/>
+    <path class="o" style="stroke-width:1.1" fill="#e9dcc3" d="M0.1 -25.3 L5.2 -25.7 L1 -22.7 Z"/>
+    <path class="n" fill="#2b1b16" d="M3.4 -25.6 L5.5 -25.8 L3.9 -24.5 Z"/>
+    <!-- wide awake -->
+    <path class="t" style="stroke-width:1.5" d="M6.4 -24 Q9 -26 11.6 -24.2 M14.6 -24.2 Q16.6 -25.8 18.4 -24.2"/>
+    <circle class="n" fill="#2b1b16" cx="9.2" cy="-19" r="2.2"/>
+    <circle class="n" fill="#2b1b16" cx="16.6" cy="-19" r="2"/>
+    <circle class="n" fill="#ffffff" cx="9.9" cy="-19.8" r="0.75"/>
+    <circle class="n" fill="#ffffff" cx="17.2" cy="-19.8" r="0.7"/>
+    <path class="o" fill="#f3c9a5" d="M18.4 -16.8 Q22.4 -14.4 18.4 -12.6"/>
+    <ellipse class="n" fill="#f29b8e" fill-opacity="0.55" cx="5.4" cy="-12.6" rx="3" ry="1.8"/>
+    <circle class="n" fill="#c98a6a" cx="9" cy="-14.6" r="0.6"/>
+    <circle class="n" fill="#c98a6a" cx="11.4" cy="-13.6" r="0.6"/>
+    <circle class="n" fill="#c98a6a" cx="13.8" cy="-14.8" r="0.6"/>
+    <path class="t" style="stroke-width:1.8" d="M9.6 -9.8 Q13.2 -6.8 16.6 -10"/>
+  </g>
+
+  <!-- The near arm: the upper sleeve. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#2b3f6b" d="M-6.5 -3 Q0 -7.5 6.5 -3 L6.5 16 Q0 20 -6.5 16 Z"/>
+    <path class="p" d="M-2 -3.5 L-2 15 M2.6 -3.5 L2.6 15"/>
+  </g>
+
+  <!-- Her beursboekje, in which she pencils every deal. Joint in her hand. -->
+  <g id="boekje" data-parent="forearm" transform="translate(29 -55)">
+    <g transform="rotate(10)">
+      <rect class="o" style="stroke-width:1.5" fill="#fffaf0" x="-3.6" y="-16.4" width="12.6" height="17.6" rx="1"/>
+      <rect class="o" style="stroke-width:1.8" fill="#2f9e9a" x="-5.6" y="-17.6" width="12.6" height="18.6" rx="1.5"/>
+      <path class="n" fill="#1f7a78" d="M-4.7 -16.7 L-2.4 -16.7 L-2.4 0.1 L-4.7 0.1 Z"/>
+      <rect class="n" fill="#f0c53a" x="-0.4" y="-13.8" width="5.2" height="3.4" rx="0.7"/>
+    </g>
+  </g>
+
+  <!-- The forearm in a sleeve that reaches her knuckles. Joint at the elbow. -->
+  <g id="forearm" data-parent="arm_front" transform="translate(10 -57)">
+    <g transform="rotate(-85)">
+      <circle class="o" fill="#f3c9a5" cx="0" cy="19" r="4.3"/>
+      <path class="o" fill="#2b3f6b" d="M-6 -4 Q0 -7 6 -4 L7.5 17.5 L-7.5 17.5 Z"/>
+      <path class="p" d="M-2 -3 L-2.4 13 M2.6 -3 L3 13"/>
+      <path class="t" style="stroke-width:1.3" d="M-7.2 14.2 L7.2 14.2"/>
+      <circle class="n" fill="#f0c53a" cx="4.6" cy="11" r="1.1"/>
+    </g>
+  </g>
+</svg>

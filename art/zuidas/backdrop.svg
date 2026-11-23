@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>De Zuidas: glazen torens, een metroviaduct en strak asfalt</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    Mirrored, the stretch from x = 662 to 818 lies under the sun of the shared sky, so nothing there
+    reaches above y = 250. The paving joints and the road markings are placed so that they meet their own
+    mirror image, for a match of the Zuidas against itself.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- Behind the base: two plain slabs further off, mostly hidden. -->
+    <path fill="#c3d6e0" d="M22 598 L22 412 L128 412 L128 598 Z"/>
+    <path fill="#d2e1e9" d="M22 440 h106 v4 h-106 Z M22 472 h106 v4 h-106 Z M22 504 h106 v4 h-106 Z"/>
+    <path fill="#c1d4e2" d="M150 598 L150 334 L296 334 L296 598 Z"/>
+    <path fill="#d1e0ea" d="M150 368 h146 v4 h-146 Z M150 406 h146 v4 h-146 Z M150 444 h146 v4 h-146 Z M150 482 h146 v4 h-146 Z M150 520 h146 v4 h-146 Z"/>
+    <g fill="#ffffff" fill-opacity="0.3"><ellipse cx="222" cy="392" rx="26" ry="8.5"/><ellipse cx="211" cy="385" rx="13" ry="8.5"/><ellipse cx="231" cy="383" rx="15" ry="10"/></g>
+
+    <!-- A slim slab with a plant room on its roof, and a cloud in its glass. -->
+    <path fill="#a9c4d4" d="M340 598 L340 262 L412 262 L412 598 Z"/>
+    <path fill="#9dbbcc" d="M354 262 L354 248 L398 248 L398 262 Z"/>
+    <path fill="none" stroke="#bfd5e1" stroke-width="2" d="M358 262 L358 598 M376 262 L376 598 M394 262 L394 598"/>
+    <path fill="#ffffff" fill-opacity="0.2" d="M340 438 L412 366 L412 404 L340 476 Z"/>
+    <g fill="#ffffff" fill-opacity="0.34"><ellipse cx="376" cy="318" rx="24" ry="8"/><ellipse cx="366" cy="311" rx="12" ry="8"/><ellipse cx="384" cy="308" rx="14" ry="10"/></g>
+
+    <!-- The tallest: a tower with one shoulder rounded off. -->
+    <path fill="#a8cccf" d="M420 598 L420 196 Q486 196 488 258 L488 598 Z"/>
+    <path fill="none" stroke="#c2dcdd" stroke-width="2" d="M420 212 L466 212 M420 236 L482 236 M420 262 L488 262 M420 288 L488 288 M420 314 L488 314 M420 340 L488 340 M420 366 L488 366 M420 392 L488 392 M420 418 L488 418 M420 444 L488 444 M420 470 L488 470 M420 496 L488 496 M420 522 L488 522"/>
+    <path fill="#ffffff" fill-opacity="0.2" d="M428 196 L442 196 L442 598 L428 598 Z"/>
+
+    <!-- Never finished: a concrete core, bare floors with the sky showing through, and a crane on top. -->
+    <path fill="#aecbd8" d="M506 498 L574 498 L574 598 L506 598 Z"/>
+    <path fill="#c9d1d5" d="M530 598 L530 344 L552 344 L552 598 Z"/>
+    <path fill="#c2ccd2" d="M500 598 L500 372 L506 372 L506 598 Z M574 598 L574 372 L580 372 L580 598 Z"/>
+    <path fill="#b8c3ca" d="M498 372 h84 v6 h-84 Z M498 402 h84 v6 h-84 Z M498 432 h84 v6 h-84 Z M498 462 h84 v6 h-84 Z M498 492 h84 v6 h-84 Z M498 522 h84 v6 h-84 Z"/>
+    <g fill="none" stroke="#dad7c0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M541 344 L541 172 M504 190 L648 190 M541 172 L596 190 M541 172 L512 190"/>
+    </g>
+    <path fill="#dad7c0" d="M500 190 h16 v14 h-16 Z M542 192 h14 v12 h-14 Z"/>
+    <!-- The crane is lowering one more tree onto the green tower next door. -->
+    <path fill="none" stroke="#dad7c0" stroke-width="2.4" stroke-linecap="round" d="M632 190 L632 296"/>
+    <rect fill="#d6cab8" x="626" y="308" width="12" height="7" rx="1.5"/>
+    <circle fill="#a3cd96" cx="632" cy="302" r="7"/><circle fill="#8fbd84" cx="635" cy="304" r="3.6"/>
+
+    <!-- A stepped tower with planting on every terrace. -->
+    <path fill="#c5d1d0" d="M592 598 L592 486 L610 486 L610 410 L622 410 L622 340 L646 340 L646 286 L674 286 L674 340 L684 340 L684 410 L692 410 L692 598 Z"/>
+    <path fill="#dde8ea" d="M618 424 h66 v10 h-66 Z M618 450 h66 v10 h-66 Z M630 354 h46 v10 h-46 Z M630 380 h46 v10 h-46 Z M652 300 h16 v10 h-16 Z M652 320 h16 v8 h-16 Z"/>
+    <path fill="none" stroke="#9dc98f" stroke-width="3" stroke-linecap="round" d="M596 488 v11 M604 487 v7 M614 412 v10 M620 411 v6 M626 342 v9 M680 342 v8 M688 412 v7"/>
+    <g fill="#a3cd96"><circle cx="597" cy="484" r="7"/><circle cx="605" cy="481" r="6"/><circle cx="614" cy="408" r="6.5"/><circle cx="620" cy="405" r="5.5"/><circle cx="626" cy="338" r="6.5"/><circle cx="633" cy="335" r="5.5"/><circle cx="679" cy="338" r="6"/><circle cx="688" cy="408" r="5.5"/><circle cx="653" cy="284" r="6"/><circle cx="661" cy="280" r="7"/><circle cx="669" cy="284" r="5.5"/></g>
+    <g fill="#8fbd84"><circle cx="601" cy="486" r="4"/><circle cx="617" cy="410" r="3.6"/><circle cx="630" cy="339" r="3.4"/><circle cx="665" cy="285" r="3.6"/></g>
+
+    <!-- A tower with its roof cut at a slant. -->
+    <path fill="#adc8da" d="M706 598 L706 306 L782 262 L782 598 Z"/>
+    <path fill="none" stroke="#c4d9e6" stroke-width="2" d="M725 295 L725 598 M744 284 L744 598 M763 273 L763 598"/>
+    <path fill="#ffffff" fill-opacity="0.2" d="M706 444 L782 368 L782 406 L706 482 Z"/>
+    <g fill="#ffffff" fill-opacity="0.34"><ellipse cx="744" cy="336" rx="22" ry="7.5"/><ellipse cx="735" cy="329" rx="11" ry="7.5"/><ellipse cx="751" cy="327" rx="13" ry="9"/></g>
+
+    <!-- A shorter one that tapers, with a mast. This is where the skyline runs out. -->
+    <path fill="none" stroke="#adcdd0" stroke-width="3" stroke-linecap="round" d="M818 396 L818 370"/>
+    <path fill="#adcdd0" d="M790 598 L797 396 L839 396 L846 598 Z"/>
+    <path fill="none" stroke="#c6dedf" stroke-width="2" d="M798 424 L838 424 M798 452 L838 452 M798 480 L838 480 M798 508 L838 508 M798 536 L838 536"/>
+
+    <!-- The metro, stopped under its canopy on the viaduct. The viaduct itself is not finished either. -->
+    <path fill="#c4cdd3" d="M51 562 h10 v36 h-10 Z M151 562 h10 v36 h-10 Z M251 562 h10 v36 h-10 Z M351 562 h10 v36 h-10 Z M451 562 h10 v36 h-10 Z M551 562 h10 v36 h-10 Z M651 562 h10 v36 h-10 Z M751 562 h10 v36 h-10 Z M851 562 h10 v36 h-10 Z"/>
+    <path fill="none" stroke="#ccd5db" stroke-width="2.4" stroke-linecap="round" d="M608 522 L608 546 M764 522 L764 546"/>
+    <path fill="#dfe5e9" d="M603 522 Q686 498 769 522 L769 526 Q686 503 603 526 Z"/>
+    <rect fill="#b9c3ca" x="682" y="529" width="8" height="15"/>
+    <rect fill="#e4e9ec" x="614" y="526" width="70" height="20" rx="5"/>
+    <rect fill="#e4e9ec" x="688" y="526" width="70" height="20" rx="5"/>
+    <path fill="#a9c0ce" d="M620 530 h14 v7 h-14 Z M638 530 h22 v7 h-22 Z M664 530 h14 v7 h-14 Z M694 530 h14 v7 h-14 Z M712 530 h22 v7 h-22 Z M738 530 h14 v7 h-14 Z"/>
+    <path fill="#9fcdc8" d="M614 540 h70 v2.5 h-70 Z M688 540 h70 v2.5 h-70 Z"/>
+    <path fill="#ced6db" d="M0 546 L880 546 L880 558 L0 558 Z"/>
+    <path fill="#bac4cb" d="M0 558 L880 558 L880 562 L0 562 Z"/>
+    <path fill="none" stroke="#dfe5e9" stroke-width="2" d="M0 541 L603 541 M769 541 L860 541"/>
+    <path fill="none" stroke="#c3ced5" stroke-width="2" d="M866 540 v6 M878 540 v6"/>
+    <path fill="#e8bdb1" d="M862 533 h6 v7 h-6 Z M874 533 h6 v7 h-6 Z"/>
+    <path fill="#f4f1ee" d="M868 533 h6 v7 h-6 Z M880 533 h4 v7 h-4 Z"/>
+    <path fill="none" stroke="#c9ad9e" stroke-width="2" stroke-linecap="round" d="M880 549 L893 547 M880 553 L897 553 M880 557 L891 559"/>
+
+    <!-- The builder's fence at the foot of the site. -->
+    <path fill="#dbe0e4" d="M490 598 L490 574 L590 574 L590 598 Z"/>
+    <path fill="none" stroke="#bdc7ce" stroke-width="2" d="M490 574 v24 M510 574 v24 M530 574 v24 M550 574 v24 M570 574 v24 M590 574 v24 M490 586 L590 586"/>
+    <path fill="#e8bdb1" d="M490 568 h10 v6 h-10 Z M510 568 h10 v6 h-10 Z M530 568 h10 v6 h-10 Z M550 568 h10 v6 h-10 Z M570 568 h10 v6 h-10 Z"/>
+    <path fill="#f4f1ee" d="M500 568 h10 v6 h-10 Z M520 568 h10 v6 h-10 Z M540 568 h10 v6 h-10 Z M560 568 h10 v6 h-10 Z M580 568 h10 v6 h-10 Z"/>
+
+    <!-- Young trees in planters. -->
+    <rect fill="#b7bec2" x="393" y="587" width="22" height="11" rx="2"/><path fill="#9a8b7b" d="M402.5 587 L403 574 L405 574 L405.5 587 Z"/><circle fill="#a5cf9a" cx="404" cy="566" r="13"/><circle fill="#97c48d" cx="410" cy="571" r="8.5"/>
+    <rect fill="#b7bec2" x="617" y="587" width="22" height="11" rx="2"/><path fill="#9a8b7b" d="M626.5 587 L627 574 L629 574 L629.5 587 Z"/><circle fill="#a5cf9a" cx="628" cy="566" r="13"/><circle fill="#97c48d" cx="634" cy="571" r="8.5"/>
+    <rect fill="#b7bec2" x="711" y="587" width="22" height="11" rx="2"/><path fill="#9a8b7b" d="M720.5 587 L721 574 L723 574 L723.5 587 Z"/><circle fill="#a5cf9a" cx="722" cy="566" r="13"/><circle fill="#97c48d" cx="728" cy="571" r="8.5"/>
+    <rect fill="#b7bec2" x="917" y="587" width="22" height="11" rx="2"/><path fill="#9a8b7b" d="M926.5 587 L927 575 L929 575 L929.5 587 Z"/><circle fill="#a5cf9a" cx="928" cy="568" r="12"/><circle fill="#97c48d" cx="933" cy="573" r="8"/>
+
+    <!-- A row of shared bikes in their rack: all the same. -->
+    <path fill="#aab6bd" d="M812 598 v-13 h3 v13 Z M844 598 v-13 h3 v13 Z M876 598 v-13 h3 v13 Z"/>
+    <path fill="#9cc7c4" d="M823 571 h8 v6 h-8 Z M855 571 h8 v6 h-8 Z M887 571 h8 v6 h-8 Z"/>
+    <g fill="none" stroke="#5c8794" stroke-width="2.4" stroke-linecap="round"><circle cx="800" cy="589" r="9"/><circle cx="826" cy="589" r="9"/><path d="M800 589 L810 576 L822 576 L826 589 M810 576 L814 589 L800 589 M822 576 L820 570 L825 569 M808 573 L813 573"/></g>
+    <g fill="none" stroke="#5c8794" stroke-width="2.4" stroke-linecap="round"><circle cx="832" cy="589" r="9"/><circle cx="858" cy="589" r="9"/><path d="M832 589 L842 576 L854 576 L858 589 M842 576 L846 589 L832 589 M854 576 L852 570 L857 569 M840 573 L845 573"/></g>
+    <g fill="none" stroke="#5c8794" stroke-width="2.4" stroke-linecap="round"><circle cx="864" cy="589" r="9"/><circle cx="890" cy="589" r="9"/><path d="M864 589 L874 576 L886 576 L890 589 M874 576 L878 589 L864 589 M886 576 L884 570 L889 569 M872 573 L877 573"/></g>
+
+    <!-- The strip behind the road: neat grey paving with planters. -->
+    <rect fill="#cfd2d3" y="598" width="1100" height="42"/>
+    <path fill="none" stroke="#b9bec1" stroke-width="2" d="M0 619 L1100 619 M80 598 v42 M190 598 v42 M300 598 v42 M410 598 v42 M520 598 v42 M630 598 v42 M740 598 v42 M850 598 v42 M960 598 v42 M1070 598 v42"/>
+    <rect fill="#b4babd" x="323" y="611" width="64" height="17" rx="3"/><rect fill="#a2cc96" x="326" y="603" width="58" height="12" rx="6"/>
+    <rect fill="#b4babd" x="543" y="611" width="64" height="17" rx="3"/><rect fill="#a2cc96" x="546" y="603" width="58" height="12" rx="6"/>
+    <rect fill="#b4babd" x="763" y="611" width="64" height="17" rx="3"/><rect fill="#a2cc96" x="766" y="603" width="58" height="12" rx="6"/>
+
+    <!-- The road: smooth dark asphalt with a bike lane. -->
+    <rect fill="#868c91" y="638" width="1100" height="104"/>
+    <path fill="#c97a68" d="M0 638 L1100 638 L1100 656 L0 656 Z"/>
+    <path fill="none" stroke="#eef0ee" stroke-width="3" d="M0 660 L1100 660"/>
+    <path fill="none" stroke="#eef0ee" stroke-width="3" stroke-dasharray="44 36" d="M18 702 L1100 702"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+
+    <!-- In front of the road, where the buttons sit: large pale paving stones. -->
+    <rect fill="#d5d8d8" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#c1c6c7" stroke-width="2" d="M0 826 L1100 826 M0 910 L1100 910 M0 994 L1100 994 M85 742 L46 1080 M335 742 L307 1080 M585 742 L568 1080 M835 742 L829 1080 M1085 742 L1091 1080"/>
+  </g>
+</svg>

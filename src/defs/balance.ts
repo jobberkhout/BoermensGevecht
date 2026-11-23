@@ -52,27 +52,36 @@ export const TURRET_SLOTS = 2;
 /**
  * Overtime: nobody gets to sit a match out.
  *
- * From `at` two things change. The subsidiekraan closes: the regular income
- * stops, so both sides live off their savings and the bounties they earn. And
- * every `every` ticks all units hit `stepPercent` of their normal damage harder
- * than before, on top of the last step. Turrets and specials do not, so
- * defences fall behind, fights are over in a blow or two, and one side breaks
- * through.
+ * From `at`, every `every` ticks all units hit `stepPercent` of their normal
+ * damage harder than before, on top of the last step, and turrets lose
+ * `turretStepPercent` of theirs until they fall silent. So defences fall
+ * behind, fights are over in a blow or two, and one side breaks through.
  *
  * If even that does not finish it, from `crumbleAt` both bases also lose
  * `crumblePercent` of their full strength every `crumbleEvery` ticks. That ends
  * any match within about a minute; the less damaged base outlasts the other.
  *
- * Measured over 324 bot matches, a quarter reach overtime. With bases that
- * simply crumbled from the start, none of those were decided by play; with
- * harder hits alone about a third are, with the closed kraan as well more than half.
+ * The subsidiekraan stays open. For a while it closed in overtime (`income`
+ * false), which made bots break through more often. Between people it did the
+ * opposite: both purses ran dry, fully upgraded turrets shot down what little
+ * was left, and nobody could do anything until the bases crumbled. Now the
+ * money keeps coming, and every era has a unit that takes the turrets' fire.
+ *
+ * Measured from exactly that spot (both sides in the last era, two fully
+ * upgraded turrets each, empty purses, 216 bot matches): with the kraan closed
+ * the lane stood empty for three minutes in every match. With it open there is
+ * always something to buy, but nobody got past the turrets before the bases
+ * crumbled. With turrets wearing out by 10% a step, 38% of those matches are
+ * decided by play first, and with 20% a step 46%.
  */
 export const OVERTIME = {
   at: sec(10 * 60),
   every: sec(10),
   stepPercent: 20,
+  /** With every step turrets lose this much of their normal damage, until they fall silent. 0 leaves them alone. */
+  turretStepPercent: 10 as number,
   /** Whether the regular income keeps coming in during overtime. Bounties always do. */
-  income: false,
+  income: true as boolean,
   crumbleAt: sec(13 * 60),
   crumbleEvery: sec(1),
   crumblePercent: 1.5,
@@ -108,18 +117,23 @@ interface EraScale {
   baseHp: number;
   /** Vooruitgang needed to modernize to the next era; null for the last one. */
   progressNeeded: number | null;
+  /** Subsidie that modernizing to the next era costs on top of that; null for the last one. */
+  eraUpCost: number | null;
 }
 
 const SCALE: Record<EraKey, EraScale> = {
-  '1975': { power: 1, price: 1, baseHp: 2500, progressNeeded: 1500 },
-  '2025': { power: 2.4, price: 2, baseHp: 5500, progressNeeded: 4200 },
-  '2050': { power: 5.6, price: 4, baseHp: 12000, progressNeeded: null },
+  '1975': { power: 1, price: 1, baseHp: 2500, progressNeeded: 1500, eraUpCost: 500 },
+  '2025': { power: 2.4, price: 2, baseHp: 5500, progressNeeded: 4200, eraUpCost: 1000 },
+  '2050': { power: 5.6, price: 4, baseHp: 12000, progressNeeded: null, eraUpCost: null },
 };
 
 /**
- * Vooruitgang: what a side needs to modernize. It cannot be bought. It comes
- * with time and with fighting, for the winner of a fight and, less, for the
- * loser, so both sides move through the eras and neither is left in the past.
+ * Vooruitgang: what a side needs before it may modernize. It cannot be bought.
+ * It comes with time and with fighting, for the winner of a fight and, less,
+ * for the loser, so both sides get the chance to move on and neither is left
+ * in the past. Once there is enough of it, modernizing still costs subsidie
+ * (eraUpCost), which makes it a choice: save up for the next era, or spend on
+ * the army of this one.
  */
 export const PROGRESS = {
   /** Gained every INCOME_EVERY ticks, whatever happens. */
@@ -157,6 +171,10 @@ export interface RoleStats {
   shotSpeed?: number;
   /** Enemy specials have no effect on it. */
   immune?: boolean;
+  /** The share of a turret's shot it takes, in percent. Left out: all of it. */
+  turretPercent?: number;
+  /** Enemy turrets that can reach it fire at it, wherever it stands, instead of at the foremost unit. */
+  drawsFire?: boolean;
 }
 
 export interface TurretStats {
@@ -170,10 +188,13 @@ export interface TurretStats {
 export interface EraStats {
   baseHp: number;
   progressNeeded: number | null;
+  eraUpCost: number | null;
   light: RoleStats;
   ranged: RoleStats;
   heavy: RoleStats;
-  /** The fourth unit. Only the last era has one. */
+  /** The fourth unit of the eras before the last: the answer to turrets. */
+  shield?: RoleStats;
+  /** The fourth unit of the last era. */
   super?: RoleStats;
   turret: TurretStats;
 }
@@ -228,10 +249,35 @@ const FIRST = {
 const BOUNTY_PERCENT = 40;
 
 /**
- * The last era has a fourth unit: one machine that is an army by itself. It
+ * Every era has a fourth unit, and it is the answer to turrets.
+ *
+ * In the first two eras that is the schild: someone behind something big.
+ * Every enemy turret that can reach it fires at it, wherever it stands in the
+ * ranks, and their shots do it very little. For as long as it stands, the army
+ * around it is safe from turrets: two fully upgraded ones need about a quarter
+ * of a minute to wear one down. Against units it is a pushover, and that is
+ * how to stop it: turrets alone no longer hold a base.
+ */
+const SHIELD: Omit<RoleStats, 'bounty'> = {
+  cost: 120,
+  buildTicks: sec(3),
+  hp: 260,
+  speed: pxPerSec(50),
+  len: px(80),
+  range: px(18),
+  dmg: 10,
+  windup: sec(0.4),
+  recover: sec(0.6),
+  turretPercent: 20,
+  drawsFire: true,
+};
+
+/**
+ * In the last era the fourth unit is one machine that is an army by itself. It
  * costs a fortune and takes a long time to build, it hits everything within
  * reach, and enemy specials have no effect on it: it cannot be cancelled,
- * glued down, run over or picked out by drones. Units and turrets still hurt it.
+ * glued down, run over, bought or picked out by drones. It draws the fire of
+ * turrets and shrugs it off, as the schild does. Only units really hurt it.
  *
  * Tuned so that one of them beats its own price in any mix of units and a full
  * ten-unit army only just, but loses to six heavies: the best buy late in the
@@ -249,6 +295,8 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
   windup: sec(0.6),
   recover: sec(0.9),
   immune: true,
+  turretPercent: 20,
+  drawsFire: true,
 };
 
 function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
@@ -267,6 +315,7 @@ function scaleEra(key: EraKey): EraStats {
   return {
     baseHp: s.baseHp,
     progressNeeded: s.progressNeeded,
+    eraUpCost: s.eraUpCost,
     light: scaleRole(FIRST.light, s),
     ranged: scaleRole(FIRST.ranged, s),
     heavy: scaleRole(FIRST.heavy, s),
@@ -275,8 +324,8 @@ function scaleEra(key: EraKey): EraStats {
 }
 
 export const STATS: Record<EraKey, EraStats> = {
-  '1975': scaleEra('1975'),
-  '2025': scaleEra('2025'),
+  '1975': { ...scaleEra('1975'), shield: scaleRole(SHIELD, SCALE['1975']) },
+  '2025': { ...scaleEra('2025'), shield: scaleRole(SHIELD, SCALE['2025']) },
   '2050': { ...scaleEra('2050'), super: { ...SUPER, bounty: Math.round((SUPER.cost * BOUNTY_PERCENT) / 100) } },
 };
 
@@ -317,6 +366,10 @@ export const SPECIAL = {
   blokkade: { ticks: sec(5) },
   /** 2050, Achterhoek: drones dive on the foremost enemy, one after another. */
   zwerm: { strikes: 10, every: sec(0.4), dmg: 300 },
+  /** 1975, De Zuidas: the gong opens trading. The same kind of trick as Høken, with the same numbers. */
+  gong: { ticks: sec(7), dmgPercent: 135, speedPercent: 140 },
+  /** 2050, De Zuidas: a flash crash sweeps the lane. The convoy of 2025, scaled to the last era. */
+  flitskrach: { speed: pxPerSec(520), dmg: 112 },
   /**
    * 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane,
    * and whatever outrage is left over goes to the next toughest, and so on.

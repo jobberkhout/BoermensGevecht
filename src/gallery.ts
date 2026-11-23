@@ -220,8 +220,10 @@ async function showOne(id: string): Promise<void> {
   );
   const difference = restDifference(rig, whole);
   document.body.dataset.restDiff = difference.toFixed(5);
-  // The control: the same comparison on a puppet that is deliberately wrong.
-  document.body.dataset.restDiffControl = restDifference(rig, whole, 8).toFixed(5);
+  // The control: the same comparison on a puppet that is deliberately wrong. The shove grows with the
+  // drawing, or a whole-screen scene with few edges, such as the sky, would hardly show it.
+  const shove = Math.max(8, Math.round(Math.max(src.viewBox.w, src.viewBox.h) * 0.04));
+  document.body.dataset.restDiffControl = restDifference(rig, whole, shove).toFixed(5);
   app.append(
     el('div', { className: 'row' }, [
       el('figure', {}, [raw, el('figcaption', { textContent: `the SVG file as the browser shows it (the puppet differs in ${(difference * 100).toFixed(2)}% of pixels)` })]),
@@ -242,10 +244,13 @@ async function showOne(id: string): Promise<void> {
 }
 
 async function showAll(): Promise<void> {
-  app.append(el('h1', { textContent: 'Galerij' }), el('p', { className: 'muted', textContent: `${rigIds().length} rigs. Click one for its animations.` }));
+  // ?only=zuidas/2025 shows just the drawings with that in their id: one faction, one era.
+  const only = params.get('only') ?? '';
+  const ids = rigIds().filter((id) => id.includes(only));
+  app.append(el('h1', { textContent: only ? `Galerij: ${only}` : 'Galerij' }), el('p', { className: 'muted', textContent: `${ids.length} rigs. Click one for its animations.` }));
   const grid = el('div', { className: 'grid' });
   app.append(grid);
-  for (const id of rigIds()) {
+  for (const id of ids) {
     const src = rigSource(id);
     const card = el('a', { className: 'card', href: `gallery.html?rig=${encodeURIComponent(id)}&zoom=3` });
     if (src.problems.length > 0) {

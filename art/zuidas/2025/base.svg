@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het Spiegelpaleis</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    Head office of Krijtstreep & Zn.: mirror glass from the pavement up, two terraces cut into the front,
+    a roof terrace, and a revolving door. Origin = the gate on the road; the building stands to the left of it.
+  -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" stroke-linecap="round" d="M-288 -448 L-288 -552"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2.6" stroke-linecap="round" d="M-288 -448 L-288 -552"/>
+    <circle class="o" fill="#e6b422" cx="-288" cy="-556" r="4.6"/>
+
+    <!-- the boardroom floor: glass that shows the sky, and the crane across the road -->
+    <rect class="o" fill="#5fb8c2" x="-150" y="-540" width="146" height="98"/>
+    <path class="n" fill="#86cfd6" d="M-150 -540 L-113.5 -540 L-113.5 -507.3 L-150 -507.3 Z M-77 -507.3 L-40.5 -507.3 L-40.5 -474.7 L-77 -474.7 Z M-40.5 -540 L-4 -540 L-4 -507.3 L-40.5 -507.3 Z M-113.5 -474.7 L-77 -474.7 L-77 -442 L-113.5 -442 Z"/>
+    <path class="n" fill="#4aa5b0" d="M-113.5 -507.3 L-77 -507.3 L-77 -474.7 L-113.5 -474.7 Z M-40.5 -474.7 L-4 -474.7 L-4 -442 L-40.5 -442 Z"/>
+    <path fill="none" stroke="#b4e6ea" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M-56 -444 L-56 -524 M-104 -514 L-26 -514 M-56 -524 L-84 -514 M-56 -524 L-34 -514 M-92 -514 L-92 -492"/>
+    <rect class="n" fill="#b4e6ea" x="-97" y="-493" width="10" height="7"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.6" d="M-140 -486 Q-143 -497 -131 -497 Q-128 -509 -114 -505 Q-103 -512 -95 -501 Q-84 -501 -85 -490 Q-86 -484 -94 -484 L-132 -484 Q-140 -484 -140 -486 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.22" d="M-60 -540 L-30 -540 L-76 -442 L-106 -442 Z"/>
+    <path fill="none" stroke="#2f7d8a" stroke-width="2.4" d="M-113.5 -540 L-113.5 -442 M-77 -540 L-77 -442 M-40.5 -540 L-40.5 -442 M-150 -507.3 L-4 -507.3 M-150 -474.7 L-4 -474.7"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="3" x="-150" y="-540" width="146" height="98"/>
+    <rect class="o" fill="#d5d8de" x="-155" y="-549" width="156" height="10" rx="2"/>
+    <!-- plant room, mast, and the red light for the planes -->
+    <rect class="o" fill="#8d95a3" x="-72" y="-565" width="46" height="16"/>
+    <path class="t" style="stroke:#5c6370" d="M-66 -560 L-32 -560 M-66 -555 L-32 -555"/>
+    <path class="t" style="stroke-width:3" d="M-38 -565 L-38 -584"/>
+    <circle class="o" style="stroke-width:2" fill="#e5283f" cx="-38" cy="-587" r="3.6"/>
+
+    <!-- the roof terrace: a planter, a parasol that is down, a glass balustrade -->
+    <path class="t" style="stroke-width:3" d="M-161 -450 L-161 -522"/>
+    <path class="o" style="stroke-width:2.4" fill="#f1e4c8" d="M-161 -524 Q-168 -508 -165.4 -486 L-156.6 -486 Q-154 -508 -161 -524 Z"/>
+    <path class="t" style="stroke:#2f9aa8;stroke-width:2.4" d="M-165 -494 L-157 -494"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M-262 -468 L-268 -490 M-254 -468 L-254 -496 M-246 -468 L-240 -492 M-236 -468 L-228 -486 M-228 -468 L-222 -480"/>
+    <path fill="none" stroke="#7bbf6a" stroke-width="2.2" stroke-linecap="round" d="M-262 -468 L-268 -490 M-254 -468 L-254 -496 M-246 -468 L-240 -492 M-236 -468 L-228 -486 M-228 -468 L-222 -480"/>
+    <rect class="o" fill="#8d95a3" x="-272" y="-468" width="60" height="18"/>
+    <rect class="n" fill="#ffffff" fill-opacity="0.34" x="-294" y="-474" width="142" height="24"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.4" d="M-206 -474 L-196 -474 L-208 -450 L-218 -450 Z"/>
+    <path class="o" style="stroke-width:2" fill="#8d95a3" d="M-226 -476 L-222 -476 L-222 -450 L-226 -450 Z"/>
+    <rect class="o" fill="#d5d8de" x="-299" y="-480" width="150" height="6" rx="2.5"/>
+
+    <!-- the tower itself -->
+    <rect class="o" fill="#2b5f6b" x="-296" y="-442" width="292" height="442"/>
+
+    <!-- upper terrace -->
+    <rect class="o" fill="#3f97a4" x="-290" y="-432" width="280" height="140"/>
+    <path class="n" fill="#56aab5" d="M-290 -432 L-220 -432 L-220 -362 L-290 -362 Z M-150 -362 L-80 -362 L-80 -292 L-150 -292 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.16" d="M-200 -432 L-160 -432 L-226 -292 L-266 -292 Z M-70 -432 L-54 -432 L-120 -292 L-136 -292 Z"/>
+    <path fill="none" stroke="#2f7d8a" stroke-width="2.4" d="M-220 -432 L-220 -292 M-150 -432 L-150 -292 M-80 -432 L-80 -292 M-290 -362 L-10 -362"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="3" x="-290" y="-432" width="280" height="140"/>
+    <!-- a box ball, a balustrade -->
+    <rect class="o" style="stroke-width:2.4" fill="#8d95a3" x="-56" y="-312" width="26" height="20"/>
+    <circle class="o" style="stroke-width:2.4" fill="#6fb35f" cx="-43" cy="-324" r="14"/>
+    <path class="n" fill="#8fcf80" d="M-52 -328 Q-49 -335.6 -41 -335.6 Q-46.4 -332 -47.6 -325.6 Z"/>
+    <rect class="n" fill="#ffffff" fill-opacity="0.24" x="-288" y="-322" width="276" height="30"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-250 -322 L-236 -322 L-252 -292 L-266 -292 Z M-120 -322 L-112 -322 L-128 -292 L-136 -292 Z"/>
+    <path class="o" style="stroke-width:2" fill="#8d95a3" d="M-198 -324 L-194 -324 L-194 -292 L-198 -292 Z M-106 -324 L-102 -324 L-102 -292 L-106 -292 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#d5d8de" x="-290" y="-328" width="280" height="6" rx="2.5"/>
+
+    <!-- lower terrace -->
+    <rect class="o" fill="#3f97a4" x="-290" y="-282" width="280" height="140"/>
+    <path class="n" fill="#56aab5" d="M-220 -282 L-150 -282 L-150 -212 L-220 -212 Z M-80 -212 L-10 -212 L-10 -142 L-80 -142 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.16" d="M-130 -282 L-90 -282 L-156 -142 L-196 -142 Z M-262 -282 L-246 -282 L-290 -188 L-290 -222 Z"/>
+    <path fill="none" stroke="#2f7d8a" stroke-width="2.4" d="M-220 -282 L-220 -142 M-150 -282 L-150 -142 M-80 -282 L-80 -142 M-290 -212 L-10 -212"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="3" x="-290" y="-282" width="280" height="140"/>
+    <rect class="o" style="stroke-width:2.4" fill="#8d95a3" x="-270" y="-162" width="26" height="20"/>
+    <circle class="o" style="stroke-width:2.4" fill="#6fb35f" cx="-257" cy="-174" r="14"/>
+    <path class="n" fill="#8fcf80" d="M-266 -178 Q-263 -185.6 -255 -185.6 Q-260.4 -182 -261.6 -175.6 Z"/>
+    <rect class="n" fill="#ffffff" fill-opacity="0.24" x="-288" y="-172" width="276" height="30"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-180 -172 L-166 -172 L-182 -142 L-196 -142 Z M-60 -172 L-52 -172 L-68 -142 L-76 -142 Z"/>
+    <path class="o" style="stroke-width:2" fill="#8d95a3" d="M-198 -174 L-194 -174 L-194 -142 L-198 -142 Z M-106 -174 L-102 -174 L-102 -142 L-106 -142 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#d5d8de" x="-290" y="-178" width="280" height="6" rx="2.5"/>
+
+    <!-- floor slabs and the roof edge -->
+    <rect class="o" fill="#d5d8de" x="-300" y="-292" width="300" height="10"/>
+    <rect class="o" fill="#d5d8de" x="-300" y="-142" width="300" height="10"/>
+    <rect class="o" fill="#d5d8de" x="-302" y="-450" width="304" height="12"/>
+    <path class="n" fill="#e6b422" d="M-300.5 -444.6 L0.5 -444.6 L0.5 -442.4 L-300.5 -442.4 Z"/>
+
+    <!-- the lobby: a desk nobody sits at, a plant that is rented, lamps -->
+    <rect class="o" fill="#a9dde2" x="-290" y="-124" width="186" height="116"/>
+    <path class="n" fill="#c6eaee" d="M-290 -124 L-228 -124 L-228 -8 L-290 -8 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M-262 -124 L-262 -108 M-200 -124 L-200 -104 M-146 -124 L-146 -108"/>
+    <path class="o" style="stroke-width:2" fill="#e6b422" d="M-268 -108 L-256 -108 L-258 -100 L-266 -100 Z M-207 -104 L-193 -104 L-195.4 -95 L-204.6 -95 Z M-152 -108 L-140 -108 L-142 -100 L-150 -100 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#fdfdfd" x="-256" y="-46" width="70" height="38" rx="3"/>
+    <rect class="n" fill="#e6b422" x="-254.6" y="-38" width="67.2" height="4"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-180 -124 L-160 -124 L-212 -8 L-232 -8 Z"/>
+    <path fill="none" stroke="#2f7d8a" stroke-width="2.4" d="M-228 -124 L-228 -8 M-166 -124 L-166 -8"/>
+    <rect fill="none" stroke="#2b1b16" stroke-width="3" x="-290" y="-124" width="186" height="116"/>
+    <rect class="o" fill="#d5d8de" x="-298" y="-10" width="198" height="10"/>
+    <!-- the brass plate by the door -->
+    <rect class="o" style="stroke-width:2" fill="#e6b422" x="-124" y="-116" width="15" height="19" rx="1.5"/>
+    <path class="t" style="stroke:#8a6a10;stroke-width:1.3" d="M-121 -111 L-112 -111 M-121 -107 L-112 -107 M-121 -103 L-116 -103"/>
+
+    <!-- the revolving door: a dark drum with glass round it -->
+    <rect class="o" fill="#8d95a3" x="-100" y="-124" width="96" height="124"/>
+    <rect class="o" fill="#14262e" x="-94" y="-118" width="84" height="118"/>
+    <path class="n" fill="#1f3d48" d="M-94 -118 L-10 -118 L-10 -108 L-94 -108 Z"/>
+    <path class="o" style="stroke-width:2" fill="#5fb8c2" fill-opacity="0.55" d="M-94 -108 L-80 -108 L-80 0 L-94 0 Z M-24 -108 L-10 -108 L-10 0 L-24 0 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.3" d="M-92 -104 L-86 -104 L-92 -76 Z M-22 -104 L-16 -104 L-22 -76 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The two leaves of the door. They are drawn flat; the clip turns them by squeezing them. Joint on the post. -->
+  <g id="door_b" transform="translate(-52 -54)">
+    <rect fill="#7fc9d1" fill-opacity="0.1" stroke="#4f9aa6" stroke-width="2" x="-28" y="-54" width="56" height="106"/>
+    <path fill="none" stroke="#6f7785" stroke-width="3" stroke-linecap="round" d="M-23 4 L-7 4 M7 4 L23 4"/>
+  </g>
+  <g id="door_a" transform="translate(-52 -54)">
+    <rect fill="#a9e0e5" fill-opacity="0.16" stroke="#8fd0d8" stroke-width="2" x="-28" y="-54" width="56" height="106"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.22" d="M-24 -50 L-14 -50 L-24 -12 Z M8 -50 L14 -50 L4 -12 L-2 -12 Z"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="3" stroke-linecap="round" d="M-23 4 L-7 4 M7 4 L23 4"/>
+  </g>
+
+  <!-- In front of everything: the canopy, the post of the door, and the building site that was going to be finished last year. -->
+  <g id="front" transform="translate(0 0)">
+    <rect class="o" style="stroke-width:2" fill="#8d95a3" x="-54" y="-108" width="4" height="108"/>
+    <rect class="o" fill="#d5d8de" x="-108" y="-136" width="112" height="13" rx="2.5"/>
+    <path class="n" fill="#e6b422" d="M-106 -127.6 L2 -127.6 L2 -125.2 L-106 -125.2 Z"/>
+
+    <!-- sand, with the shovel still in it -->
+    <path class="o" fill="#e3c98a" d="M-294 -10 Q-264 -56 -228 -10 Z"/>
+    <path class="n" fill="#f0dcae" d="M-276 -22 Q-266 -40 -254 -34 Q-264 -32 -270 -20 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" d="M-252 -30 L-240 -68"/>
+    <path fill="none" stroke="#c98a45" stroke-width="2.4" stroke-linecap="round" d="M-252 -30 L-240 -68"/>
+    <path class="o" style="stroke-width:2.4" fill="none" d="M-245 -70 L-235 -66.6"/>
+
+    <!-- the site toilet -->
+    <rect class="o" style="stroke-width:2.4" fill="#8d95a3" x="-143" y="-110" width="5" height="16"/>
+    <rect class="o" fill="#3fb3c2" x="-178" y="-94" width="42" height="84" rx="3"/>
+    <path class="o" fill="#eef1f4" d="M-182 -93 Q-157 -108 -132 -93 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#2f9aa8" x="-172" y="-86" width="30" height="72" rx="2"/>
+    <path class="t" style="stroke:#1f6b77" d="M-166 -79 L-148 -79 M-166 -74.6 L-148 -74.6 M-166 -70.2 L-148 -70.2"/>
+    <circle class="o" style="stroke-width:1.8" fill="#ffffff" cx="-147.6" cy="-50" r="3.6"/>
+    <path class="n" fill="#e5283f" d="M-150.6 -50 A3 3 0 0 1 -144.6 -50 Z"/>
+
+    <!-- the fence -->
+    <g>
+        <path fill="none" stroke="#9aa3ab" stroke-width="1.1" d="M-287 -84 L-287 -12 M-279.9 -84 L-279.9 -12 M-272.8 -84 L-272.8 -12 M-265.7 -84 L-265.7 -12 M-258.6 -84 L-258.6 -12 M-251.5 -84 L-251.5 -12 M-244.4 -84 L-244.4 -12 M-237.3 -84 L-237.3 -12 M-230.2 -84 L-230.2 -12 M-223.1 -84 L-223.1 -12 M-216 -84 L-216 -12 M-208.9 -84 L-208.9 -12"/>
+        <path fill="none" stroke="#8d95a3" stroke-width="1.8" d="M-292 -64 L-204 -64 M-292 -32 L-204 -32"/>
+        <rect fill="none" stroke="#2b1b16" stroke-width="5.6" x="-294" y="-86" width="92" height="76" rx="3"/>
+        <rect fill="none" stroke="#b9bec6" stroke-width="2.4" x="-294" y="-86" width="92" height="76" rx="3"/>
+    </g>
+    <g transform="rotate(2.6 -202 -10)">
+        <path fill="none" stroke="#9aa3ab" stroke-width="1.1" d="M-193 -84 L-193 -12 M-185.9 -84 L-185.9 -12 M-178.8 -84 L-178.8 -12 M-171.7 -84 L-171.7 -12 M-164.6 -84 L-164.6 -12 M-157.5 -84 L-157.5 -12 M-150.4 -84 L-150.4 -12 M-143.3 -84 L-143.3 -12 M-136.2 -84 L-136.2 -12 M-129.1 -84 L-129.1 -12 M-122 -84 L-122 -12 M-114.9 -84 L-114.9 -12"/>
+        <path fill="none" stroke="#8d95a3" stroke-width="1.8" d="M-198 -64 L-114 -64 M-198 -32 L-114 -32"/>
+        <rect fill="none" stroke="#2b1b16" stroke-width="5.6" x="-200" y="-86" width="88" height="76" rx="3"/>
+        <rect fill="none" stroke="#b9bec6" stroke-width="2.4" x="-200" y="-86" width="88" height="76" rx="3"/>
+        <!-- a board in red and white, cable-tied on -->
+        <rect class="o" style="stroke-width:2.4" fill="#ffffff" x="-190" y="-60" width="68" height="12" rx="1.5"/>
+        <path class="n" fill="#e5283f" d="M-188.6 -58.6 L-180 -58.6 L-186 -49.4 L-188.6 -49.4 Z M-170 -58.6 L-158 -58.6 L-164 -49.4 L-176 -49.4 Z M-148 -58.6 L-136 -58.6 L-142 -49.4 L-154 -49.4 Z M-126 -58.6 L-123.4 -58.6 L-123.4 -49.4 L-132 -49.4 Z"/>
+    </g>
+    <!-- a sign: mind your head -->
+    <rect class="o" style="stroke-width:2.4" fill="#ffd23a" x="-276" y="-76" width="24" height="24" rx="3"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="3.4" stroke-linecap="round" d="M-264 -70.6 L-264 -62.6 M-264 -57.2 L-264 -57"/>
+    <!-- concrete feet -->
+    <path class="o" style="stroke-width:2.4" fill="#b9bec6" d="M-306 -11 L-282 -11 L-280 0 L-308 0 Z M-214 -11 L-190 -11 L-188 0 L-216 0 Z M-124 -11 L-104 -11 L-102 0 L-126 0 Z"/>
+    <!-- and a cone -->
+    <path class="o" style="stroke-width:2.4" fill="#f0791c" d="M-100 -5 L-96.6 -34 L-91.4 -34 L-88 -5 Z"/>
+    <path class="n" fill="#ffffff" d="M-98 -17 L-90 -17 L-90.8 -24 L-97.2 -24 Z"/>
+    <rect class="o" style="stroke-width:2.4" fill="#f0791c" x="-105" y="-5" width="22" height="5" rx="1.5"/>
+  </g>
+</svg>

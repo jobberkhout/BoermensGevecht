@@ -2,7 +2,7 @@ import type { SoundMode } from '../audio/sound.ts';
 import { SUBSIDY, TPS, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
-import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { canDo, eraUpCost, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
 import { kraanDicht } from '../sim/overtime.ts';
 import { SIDES, type Side, type SimState } from '../sim/types.ts';
 import { ACTIONS, KEY_LABEL, commandOf, type Action } from './input.ts';
@@ -57,8 +57,8 @@ interface SideParts {
   buttons: Record<Action, ButtonParts>;
   why: HTMLElement;
   whyTimer: number;
-  /** Which era the labels were last written for. */
-  era: number;
+  /** The id of the era ('ah.2025') the labels were last written for; it names the faction too. */
+  shown: string;
 }
 
 export class Hud {
@@ -162,7 +162,7 @@ export class Hud {
 
     const why = el('div', 'why');
     panel.append(why, status, grid);
-    const parts: SideParts = { flag, name, eraName, hp, hpFill, hpText, gold, money, pips, buttons, why, whyTimer: 0, era: -1 };
+    const parts: SideParts = { flag, name, eraName, hp, hpFill, hpText, gold, money, pips, buttons, why, whyTimer: 0, shown: '' };
     return { team, panel, parts };
   }
 
@@ -172,17 +172,17 @@ export class Hud {
     node.textContent = text;
   }
 
-  /** Names, pictures and prices of the units: these only change when a side modernizes. */
+  /** Names, pictures and prices of the units: these only change when a side modernizes, or when another faction takes the seat. */
   private label(s: SimState, side: Side): void {
     const parts = this.sides[side];
     const state = s.sides[side];
     const faction = FACTIONS[state.faction];
     const era = eraOf(state.faction, state.era);
-    parts.era = state.era;
+    parts.shown = era.id;
 
     setPicture(parts.flag, faction.flagRig, '');
     this.write(parts.name, NL.faction[state.faction].name);
-    this.write(parts.eraName, NL.era[era.id] ?? String(era.year));
+    this.write(parts.eraName, NL.era[era.key] ?? String(era.year));
 
     // Three unit buttons, and a fourth in the era that has a super unit.
     for (let slot = 0; slot < 4; slot++) {
@@ -192,20 +192,21 @@ export class Hud {
       if (!unit) continue;
       if (b.pic) setPicture(b.pic, unit.rig, unit.role[0]!.toUpperCase());
       this.write(b.label, nameOf(unit.id));
+      // Four buttons share the row, so a name gets two lines; one long word gets smaller letters instead.
+      b.label.classList.toggle('long', nameOf(unit.id).split(/[ -]/).some((word) => word.length > 14));
       this.write(b.cost, String(unit.cost));
     }
     parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);
     this.write(parts.buttons.special.label, nameOf(era.special.id));
     parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
     this.write(parts.buttons.subsidy.label, NL.hud.subsidy);
-    this.write(parts.buttons.eraUp.label, NL.hud.eraUp);
 
     // In the last era there is nothing left to modernize to: the button makes
     // way and the other three share the row.
     const next = faction.eras[state.era + 1];
     parts.buttons.eraUp.root.style.display = next ? '' : 'none';
     parts.buttons.eraUp.root.parentElement!.classList.toggle('three', !next);
-    this.write(parts.buttons.eraUp.sub!, next ? `→ ${NL.era[next.id] ?? next.year}` : '');
+    this.write(parts.buttons.eraUp.label, NL.hud.eraUp);
   }
 
   update(s: SimState): void {
@@ -215,8 +216,8 @@ export class Hud {
     for (const side of SIDES) {
       const parts = this.sides[side];
       const state = s.sides[side];
-      if (parts.era !== state.era) this.label(s, side);
       const era = eraOf(state.faction, state.era);
+      if (parts.shown !== era.id) this.label(s, side);
 
       const share = Math.max(0, state.baseHp / state.baseMaxHp);
       parts.hpFill.style.width = `${(share * 100).toFixed(1)}%`;
@@ -264,20 +265,26 @@ export class Hud {
       this.write(special.sub!, wait > 0 ? `${Math.ceil(wait / TPS)} s` : NL.hud.special);
 
       const subsidy = parts.buttons.subsidy;
-      const price = subsidyCost(s, side);
-      this.write(subsidy.cost, price === null ? '' : String(price));
+      const grant = subsidyCost(s, side);
+      this.write(subsidy.cost, grant === null ? '' : String(grant));
       this.write(
         subsidy.sub!,
-        dry ? NL.hud.dry : price === null ? NL.hud.subsidyMax : `+${income} → +${SUBSIDY.income[state.subsidy + 1]}${NL.hud.perSecond}`,
+        dry ? NL.hud.dry : grant === null ? NL.hud.subsidyMax : `+${income} → +${SUBSIDY.income[state.subsidy + 1]}${NL.hud.perSecond}`,
       );
 
+      // Modernizing takes two things: the bar must be full, and then it costs subsidie.
       const eraUp = parts.buttons.eraUp;
       const needed = progressNeeded(s, side);
-      if (needed !== null) {
+      const price = eraUpCost(s, side);
+      if (needed !== null && price !== null) {
         const done = Math.min(1, state.progress / needed);
         eraUp.fill!.style.width = `${(done * 100).toFixed(1)}%`;
-        this.write(eraUp.cost, `${Math.floor(done * 100)}%`);
-        eraUp.root.classList.toggle('ready', done >= 1);
+        this.write(eraUp.cost, String(price));
+        // While the bar fills it says how far along it is; once it is full, where the button leads.
+        const next = FACTIONS[state.faction].eras[state.era + 1];
+        this.write(eraUp.sub!, done >= 1 && next ? `→ ${NL.era[next.key] ?? next.year}` : `${NL.hud.eraProgress} ${Math.floor(done * 100)}%`);
+        eraUp.root.classList.toggle('full', done >= 1);
+        eraUp.root.classList.toggle('ready', done >= 1 && state.gold >= price);
       }
     }
   }

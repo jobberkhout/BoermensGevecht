@@ -1,10 +1,12 @@
 /**
  * Takes screenshots so the art can be checked without opening a browser by hand.
  *
- *   node scripts/shot.ts gallery                 every rig, rest pose
+ *   node scripts/shot.ts gallery [part of id]    every rig in rest pose, or only those with this in their
+ *                                                id, such as zuidas/2025
  *   node scripts/shot.ts rig <id> [zoom]         one rig with all its clips
  *   node scripts/shot.ts page <path> [name]      any page of the dev server
- *   node scripts/shot.ts battle                  the title screen and a staged battle at set moments
+ *   node scripts/shot.ts battle [left right]     the title screen and a staged battle at set moments,
+ *                                                between two factions (default: havermelk achterhoek)
  *   add --engine=firefox|webkit|all              default is chromium
  *   add --size=1920x1080                         viewport, default 1600x1000
  *
@@ -53,7 +55,7 @@ interface Stage {
   panels?: boolean;
 }
 
-const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy1'], [1, 'buy1']];
+const ARMY: Press[] = [[0, 'buy2'], [0, 'buy1'], [0, 'buy0'], [0, 'buy3'], [0, 'buy1'], [1, 'buy2'], [1, 'buy0'], [1, 'buy3'], [1, 'buy1'], [1, 'buy1']];
 const MORE: Press[] = [[0, 'buy1'], [1, 'buy1'], [0, 'buy0'], [1, 'buy2'], [0, 'buy2'], [1, 'buy0']];
 const TURRETS: Press[] = [[0, 'turret'], [1, 'turret']];
 const MODERNIZE: Press[] = [[0, 'eraUp'], [1, 'eraUp']];
@@ -64,23 +66,25 @@ const BATTLE: Stage[] = [
   { run: 0, fund: 900, press: ARMY },
   { run: 240, press: [...TURRETS, [0, 'subsidy'], [1, 'subsidy'], [0, 'buy0'], [1, 'buy0']], shot: '1975-march' },
   { run: 330, fund: 900, press: MORE, shot: '1975-clash' },
-  { run: 45, charge: true, press: [[1, 'special']], shot: '1975-hoken' },
-  { run: 22, press: [[0, 'special']], shot: '1975-lovein' },
-  // 2025: the old turrets stay until they are bought again, then get upgraded
-  { run: 2, progress: 1500, shot: '1975-ready', panels: true },
+  { run: 45, charge: true, press: [[1, 'special']], shot: '1975-special-right' },
+  { run: 22, press: [[0, 'special']], shot: '1975-special-left' },
+  // 2025: the bar is full first, then there is the money; the old turrets stay until they are bought again
+  { run: 2, progress: 1500, fund: 120, shot: '1975-full', panels: true },
+  { run: 2, fund: 900, shot: '1975-ready', panels: true },
   { run: 8, press: MODERNIZE, shot: '2025-modernized' },
   { run: 150, fund: 6000, press: [...TURRETS, ...ARMY], shot: '2025-old-and-new' },
   { run: 240, fund: 6000, press: [...TURRETS, ...TURRETS, ...MORE], shot: '2025-clash' },
-  { run: 14, charge: true, press: [[1, 'special']], shot: '2025-kolonne' },
+  { run: 14, charge: true, press: [[1, 'special']], shot: '2025-special-right' },
   { run: 90, press: [[0, 'buy1'], [0, 'buy0']] },
-  { run: 20, press: [[0, 'special']], shot: '2025-wegblokkade' },
+  { run: 20, press: [[0, 'special']], shot: '2025-special-left' },
+  { run: 50, shot: '2025-after' },
   // 2050
-  { run: 8, progress: 4200, press: MODERNIZE, shot: '2050-modernized' },
-  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, [0, 'buy3'], [1, 'buy3'], ...ARMY] },
+  { run: 8, progress: 4200, fund: 6000, press: MODERNIZE, shot: '2050-modernized' },
+  { run: 200, fund: 20000, press: [...TURRETS, ...TURRETS, ...ARMY] },
   { run: 260, fund: 20000, press: [...TURRETS, ...TURRETS, ...TURRETS, ...MORE], shot: '2050-clash', panels: true },
-  { run: 30, charge: true, press: [[1, 'special']], shot: '2050-zwerm' },
+  { run: 30, charge: true, press: [[1, 'special']], shot: '2050-special-right' },
   { run: 60, fund: 20000, press: [[1, 'buy2'], [1, 'buy0']] },
-  { run: 6, press: [[0, 'special']], shot: '2050-algoritme' },
+  { run: 6, press: [[0, 'special']], shot: '2050-special-left' },
   { run: 300, shot: '2050-late' },
   // From here only the right player keeps buying, so the left base falls and the end screen shows.
   ...Array.from({ length: 10 }, (): Stage => ({
@@ -96,7 +100,9 @@ function jobs(): Job[] {
   const [mode, a, b] = args;
   switch (mode) {
     case 'gallery':
-      return [{ path: 'gallery.html?zoom=2', name: 'gallery', fullPage: true }];
+      return a
+        ? [{ path: `gallery.html?zoom=2&only=${encodeURIComponent(a)}`, name: `gallery-${a.replace(/\//g, '-')}`, fullPage: true }]
+        : [{ path: 'gallery.html?zoom=2', name: 'gallery', fullPage: true }];
     case 'rig': {
       if (!a) throw new Error('usage: shot.ts rig <id> [zoom]');
       return [{ path: `gallery.html?rig=${encodeURIComponent(a)}&zoom=${b ?? 3}`, name: `rig-${a.replace(/\//g, '-')}`, fullPage: true }];
@@ -108,11 +114,12 @@ function jobs(): Job[] {
     case 'battle':
       return [];
     default:
-      throw new Error('usage: shot.ts gallery | rig <id> [zoom] | page <path> [name] | battle');
+      throw new Error('usage: shot.ts gallery [part of id] | rig <id> [zoom] | page <path> [name] | battle [left right]');
   }
 }
 
-const server = await createServer({ logLevel: 'error', server: { port: 5199, strictPort: false } });
+// No file watching: a picture run must not reload halfway because someone saves a drawing meanwhile.
+const server = await createServer({ logLevel: 'error', server: { port: 5199, strictPort: false, hmr: false, watch: null } });
 await server.listen();
 const origin = server.resolvedUrls?.local[0];
 if (!origin) throw new Error('the dev server did not report an address');
@@ -135,8 +142,18 @@ try {
     if (args[0] === 'battle') {
       await page.goto(origin + '?test=1');
       await page.waitForSelector('body[data-ready="1"]', { timeout: 20000 });
-      await page.screenshot({ path: `screens/${engineName}/title.png` });
-      console.log(`screens/${engineName}/title.png`);
+      // With two faction names the players pick those first; the pictures then carry both names.
+      const pair = args.length >= 3 ? [args[1]!, args[2]!] : null;
+      const tag = pair ? `${pair[0]}-${pair[1]}-` : '';
+      if (pair) {
+        await page.evaluate(async ([left, right]) => {
+          const g = (window as any).__game;
+          await g.pick(0, left);
+          await g.pick(1, right);
+        }, pair);
+      }
+      await page.screenshot({ path: `screens/${engineName}/${tag}title.png` });
+      console.log(`screens/${engineName}/${tag}title.png`);
       await page.evaluate(() => (window as any).__game.start());
       for (const stage of BATTLE) {
         await page.evaluate((st) => {
@@ -151,12 +168,12 @@ try {
           g.advance(st.run);
         }, stage);
         if (stage.shot) {
-          const file = `screens/${engineName}/battle-${stage.shot}.png`;
+          const file = `screens/${engineName}/${tag}battle-${stage.shot}.png`;
           await page.screenshot({ path: file });
           console.log(file, JSON.stringify(await page.evaluate(() => (window as any).__game.summary())));
           if (stage.panels) {
             for (const where of ['left', 'right']) {
-              await page.locator(`.panel.${where}`).screenshot({ path: `screens/${engineName}/panel-${stage.shot}-${where}.png` });
+              await page.locator(`.panel.${where}`).screenshot({ path: `screens/${engineName}/${tag}panel-${stage.shot}-${where}.png` });
             }
           }
         }

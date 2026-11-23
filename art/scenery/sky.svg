@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>De lucht boven iedereen</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fd0f5"/>
+      <stop offset="1" stop-color="#def3fb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky, sun and clouds. Every match is played under this; the two factions bring the land below it. -->
+  <g id="sky" transform="translate(0 0)">
+    <rect fill="url(#sky)" width="1920" height="600"/>
+    <circle fill="#fff6c9" fill-opacity="0.6" cx="1180" cy="150" r="78"/>
+    <circle fill="#ffe98a" cx="1180" cy="150" r="52"/>
+    <g fill="#ffffff" fill-opacity="0.9"><ellipse cx="250" cy="150" rx="70" ry="24"/><ellipse cx="216" cy="136" rx="34" ry="22"/><ellipse cx="268" cy="128" rx="42" ry="28"/></g>
+    <g fill="#ffffff" fill-opacity="0.9"><ellipse cx="640" cy="96" rx="56" ry="19"/><ellipse cx="613" cy="85" rx="27" ry="18"/><ellipse cx="654" cy="78" rx="34" ry="22"/></g>
+    <g fill="#ffffff" fill-opacity="0.9"><ellipse cx="960" cy="214" rx="63" ry="22"/><ellipse cx="929" cy="201" rx="31" ry="20"/><ellipse cx="976" cy="194" rx="38" ry="25"/></g>
+    <g fill="#ffffff" fill-opacity="0.9"><ellipse cx="1450" cy="118" rx="77" ry="26"/><ellipse cx="1413" cy="103" rx="37" ry="24"/><ellipse cx="1470" cy="94" rx="46" ry="31"/></g>
+    <g fill="#ffffff" fill-opacity="0.9"><ellipse cx="1750" cy="232" rx="52" ry="18"/><ellipse cx="1724" cy="222" rx="26" ry="16"/><ellipse cx="1764" cy="216" rx="32" ry="21"/></g>
+  </g>
+</svg>

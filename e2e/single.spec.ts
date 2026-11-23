@@ -20,6 +20,7 @@ interface Summary {
 
 interface Hooks {
   advance(n: number): void;
+  fund(side: number, gold: number): void;
   progress(side: number, amount: number): void;
   press(side: number, action: string): void;
   summary(): Summary;
@@ -48,8 +49,8 @@ test('the single file plays when it is opened straight from disk', async ({ page
   await page.keyboard.press('KeyQ');
   await page.keyboard.press('KeyU');
   // The drawings came along: the buttons show pictures, not the letters that stand in for missing art.
-  // (Three units a side for now; the fourth button stays hidden until the last era.)
-  await expect(page.locator('.btn .pic:visible')).toHaveCount(6);
+  // (Four units a side.)
+  await expect(page.locator('.btn .pic:visible')).toHaveCount(8);
   await expect(page.locator('.btn .pic.letter')).toHaveCount(0);
 
   // Both sides walk out, and modernizing swaps in the next era's drawings without a hitch.
@@ -58,6 +59,7 @@ test('the single file plays when it is opened straight from disk', async ({ page
     g.advance(150);
     for (const side of [0, 1]) {
       g.progress(side, 100000);
+      g.fund(side, 1000);
       g.press(side, 'eraUp');
     }
     g.advance(30);

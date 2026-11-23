@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120" data-rig="static">
+  <title>Vijandige overname: het stempel</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A rubber stamp the size of a desk, on its way down. Round its handle hangs the keycord you get on your first day. Origin = its middle. -->
+  <g id="stamp" transform="translate(0 0)">
+    <!-- how fast it is coming -->
+    <path class="t" d="M-31 -30 L-31 -50 M-21 -43 L-21 -57 M19 -47 L19 -57"/>
+    <!-- the keycord, flying up behind, and the pass on the end of it -->
+    <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round" d="M5 -17 Q20 -19 28 -26 Q33 -30 38 -31 M5 -12 Q22 -10 31 -20 Q35 -26 39 -29"/>
+    <path fill="none" stroke="#e6b422" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 -17 Q20 -19 28 -26 Q33 -30 38 -31 M5 -12 Q22 -10 31 -20 Q35 -26 39 -29"/>
+    <g transform="rotate(28 46 -40)">
+      <rect class="o" style="stroke-width:2.2" fill="#c9ced6" x="43.4" y="-52" width="5.2" height="5" rx="1.2"/>
+      <rect class="o" style="stroke-width:2.4" fill="#ffffff" x="38" y="-49" width="16" height="20" rx="2.4"/>
+      <rect class="n" fill="#27406b" x="41" y="-45.4" width="6" height="7"/>
+      <path fill="none" stroke="#9aa7bb" stroke-width="1.5" stroke-linecap="round" d="M49 -44 L51.4 -44 M49 -40.4 L51.4 -40.4 M41 -34.4 L51.4 -34.4"/>
+    </g>
+    <!-- handle -->
+    <path class="o" fill="#c98a45" d="M-7 -24 Q-4.6 -14 -11 -6 L11 -6 Q4.6 -14 7 -24 Z"/>
+    <circle class="o" fill="#c98a45" cx="0" cy="-36" r="14"/>
+    <path class="n" fill="#e3ae6e" d="M-9.4 -40.6 Q-6.4 -47.6 1 -48 Q-4 -44 -5.6 -37.6 Z"/>
+    <path class="n" fill="#a66d30" d="M9 -29 Q5 -24.6 -1 -24 Q5 -23 10.6 -27.6 Z"/>
+    <!-- where the cord goes round -->
+    <path fill="none" stroke="#2b1b16" stroke-width="6.4" stroke-linecap="round" d="M-6 -15.6 Q0 -13 6 -15"/>
+    <path fill="none" stroke="#e6b422" stroke-width="3.4" stroke-linecap="round" d="M-6 -15.6 Q0 -13 6 -15"/>
+    <rect class="o" fill="#e6b422" x="-13" y="-8" width="26" height="6" rx="2"/>
+    <!-- mount -->
+    <path class="o" fill="#27406b" d="M-34 -2 L34 -2 Q40 -2 40 4 L40 20 L-40 20 L-40 4 Q-40 -2 -34 -2 Z"/>
+    <path class="n" fill="#3c62a8" d="M-36 1.4 L36 1.4 Q37.4 3 37.4 5 L-37.4 5 Q-37.4 3 -36 1.4 Z"/>
+    <rect class="n" fill="#e6b422" x="-38.4" y="11" width="76.8" height="3.2"/>
+    <!-- rubber, wet with ink -->
+    <rect class="o" fill="#3a3f4a" x="-43" y="20" width="86" height="12" rx="2.5"/>
+    <path class="o" fill="#e5283f" d="M-43 29 L43 29 L43 32 Q43 35 40 35 L-40 35 Q-43 35 -43 32 Z"/>
+    <path class="o" style="stroke-width:2" fill="#e5283f" d="M-23 35 Q-25 41.4 -21.6 43.4 Q-18.4 41.4 -20.4 35 Z M16.6 35 Q15 39.6 17.4 41 Q19.8 39.6 18.4 35 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -140 106 146" data-rig="humanoid">
+  <title>De Cryptobro: hoodie onder een colbert, spiegelglazen op, de koers in zijn andere hand</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far sleeve. Its hand, with the phone, is a part of its own in front of the body. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="t" style="stroke-width:13" d="M0 0 L3 25 L27 32"/>
+    <path fill="none" stroke="#1a2850" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L3 25 L27 32"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <rect class="o" style="stroke-width:2" fill="#d19a72" x="-3.4" y="24" width="7" height="8" rx="1.5"/>
+    <path class="o" fill="#b3a58a" d="M-7.5 -3 L7.5 -3 L6 25.6 L-6 25.6 Z"/>
+    <path class="o" fill="#dcd8cf" d="M-7 33.5 Q-7 30.5 -4 30.5 L4 30.5 Q11 31.5 13 35 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#c9971c" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <!-- no socks: the ankle is bare, whatever the weather -->
+    <rect class="o" style="stroke-width:2" fill="#eab98f" x="-3.4" y="24" width="7" height="8" rx="1.5"/>
+    <path class="o" fill="#cdbfa3" d="M-7.5 -3 L7.5 -3 L6 25.6 L-6 25.6 Z"/>
+    <path class="n" fill="#ddd1b8" d="M1 -1 L5.6 -1 L4.6 22 L1.4 22 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#ddd1b8" x="-6.8" y="21.6" width="13.6" height="4.6" rx="1.6"/>
+    <path class="o" fill="#fafafa" d="M-7 33.5 Q-7 30.5 -4 30.5 L4 30.5 Q11 31.5 13 35 L13 38 L-7 38 Z"/>
+    <path class="n" fill="#f2c230" d="M-6 36 L12.5 36 L12.5 37.6 L-6 37.6 Z"/>
+    <path fill="none" stroke="#2fc9b5" stroke-width="1.7" stroke-linecap="round" d="M2 32.6 L6 34.6"/>
+  </g>
+
+  <!-- A hoodie under a jacket. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#22a897" d="M-15 -27 Q-24 -40 -9 -44 Q0 -45 3 -37 Z"/>
+    <path class="o" fill="#2fc9b5" d="M-16 7 Q-19 -14 -16 -30 Q-12 -38 0 -38 Q13 -38 17 -30 Q20 -14 16 7 Z"/>
+    <path class="n" fill="#22a897" d="M-15.4 3.4 L16 3.4 L15.6 6.4 L-15.6 6.4 Z"/>
+    <path class="t" style="stroke:#1e8f86" d="M9.6 -9 Q13 -5.6 17 -6"/>
+    <!-- the cords of the hood -->
+    <path class="t" style="stroke-width:3.6" d="M10.4 -33 L10 -22 M14.4 -31 L15 -23"/>
+    <path fill="none" stroke="#fffdf5" stroke-width="1.6" stroke-linecap="round" d="M10.4 -33 L10 -22 M14.4 -31 L15 -23"/>
+    <!-- the jacket -->
+    <path class="o" fill="#24376b" d="M-16.6 9.4 Q-20 -14 -16.6 -30 Q-13 -38 -4 -38.6 L5 -37.4 L8.6 -20 L6.6 9.4 Z"/>
+    <path class="n" fill="#1a2850" d="M-15.4 8.2 Q-18.4 -14 -15.4 -29 Q-11.6 -20 -10.6 8.2 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#3d5a9e" d="M1.6 -38 L8.6 -20 L4.4 -12.6 L0 -30 Z"/>
+    <circle class="n" fill="#f2c230" cx="4.6" cy="-5" r="1.7"/>
+    <path class="o" style="stroke-width:1.4" fill="#f2c230" d="M-9.4 -21 L-5.6 -27.4 L-2 -21 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-11 -21 L-0.4 -21"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#d19a72" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#eab98f" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#eab98f" cx="-8.5" cy="-17" rx="3.4" ry="4.8"/>
+    <rect class="o" style="stroke-width:1.3" fill="#ffffff" x="-10" y="-17.6" width="3" height="8.4" rx="1.5"/>
+    <!-- short at the sides, a quiff in front -->
+    <path class="o" fill="#4a3327" d="M-13.6 -11.6 Q-19 -14 -17.4 -26 Q-16 -41.6 2 -41 Q8 -48 20 -46 Q26 -42.4 21.4 -36.4 Q17.6 -33 12 -33 Q2 -32.4 -6 -29 Q-9.6 -22 -10 -14.6 Q-11.6 -11 -13.6 -11.6 Z"/>
+    <path class="n" fill="#6b4c3a" d="M4 -39.6 Q9.6 -45 18.6 -44 Q11 -42.4 6.4 -37.6 Z"/>
+    <!-- what is behind the glasses when they slip -->
+    <circle class="n" fill="#2b1b16" cx="9.4" cy="-23.4" r="1.7"/>
+    <circle class="n" fill="#2b1b16" cx="16.6" cy="-23.4" r="1.6"/>
+    <path class="t" style="stroke-width:1.5" d="M6.8 -26.4 L11 -28.2 M14.6 -28.2 L18.8 -26.4"/>
+    <path class="o" fill="#eab98f" d="M20 -19.6 Q25 -16.4 20.4 -13.4"/>
+    <!-- the grin of a man who is up this week -->
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M8.6 -10.6 Q14.6 -3.4 20.4 -11 Q14.5 -9.2 8.6 -10.6 Z"/>
+  </g>
+
+  <!-- Mirror glasses. Joint in the middle of the lens. -->
+  <g id="shades" data-parent="head" transform="translate(13 -100)">
+    <path class="t" style="stroke-width:2.2" d="M-9 -1 L-21.4 1.4"/>
+    <path class="o" style="stroke-width:2" fill="#2fc9b5" d="M-9.6 -4.4 Q-9.6 -6 -8 -6 L8.6 -6 Q10.2 -6 10.2 -4.2 Q10 5.8 3 5.8 L-4 5.8 Q-9.6 5.6 -9.6 -1 Z"/>
+    <path class="n" fill="#1e8f86" d="M-8.4 0.6 Q0 4 9 -1.6 Q8.4 4.6 3 4.6 L-4 4.6 Q-7.6 4.4 -8.4 0.6 Z"/>
+    <path class="n" fill="#ffffff" d="M-6.6 -4 L-1.6 -4 L-5 0.2 L-8 0.2 Z"/>
+  </g>
+
+  <!-- The far hand and the phone it never lets go of. Joint at the wrist. -->
+  <g id="phone" data-parent="arm_back" transform="translate(21 -40)">
+    <path class="o" style="stroke-width:2" fill="#2fc9b5" d="M-6 -4.6 L-1.4 -4.2 L-1.4 4.8 L-6 4.4 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#16243a" x="-1.6" y="-14.6" width="12.6" height="22" rx="2.8"/>
+    <rect class="n" fill="#e6fbf7" x="0.4" y="-12.2" width="8.6" height="15.4" rx="1.3"/>
+    <path class="o" style="stroke-width:1.8" fill="#d19a72" d="M-3 -1.6 Q-4.6 5.4 0.6 6.6 L6.6 6.6 Q8.6 5.2 7.4 3.2 L2 2.6 Q0.4 -1 -3 -1.6 Z"/>
+  </g>
+
+  <!-- The price on the screen. Up. Turn it over and it is down. Joint in the middle of the screen. -->
+  <g id="chart" data-parent="phone" transform="translate(25.7 -44.5)">
+    <path fill="none" stroke="#1e8f86" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M-3.2 3.8 L-1.2 1 L0.4 2.4 L2.8 -2.6"/>
+    <path class="n" fill="#1e8f86" d="M3.6 -4.8 L4.2 -1.2 L1 -2.6 Z"/>
+  </g>
+
+  <!-- The coin is already coming apart: these are the pieces. Joint in the middle of the coin. -->
+  <g id="bits" data-parent="arm_front" transform="translate(33.4 -80)">
+    <rect class="n" fill="#f2c230" x="6.6" y="-10.6" width="3.2" height="3.2"/>
+    <rect class="n" fill="#ffe58a" x="9.8" y="-5.4" width="2.6" height="2.6"/>
+    <rect class="n" fill="#7fe9ff" x="3.4" y="-13.4" width="2.4" height="2.4"/>
+  </g>
+
+  <!-- A coin of his own making. -->
+  <g id="coin" data-parent="arm_front" transform="translate(33.4 -80)">
+    <circle class="n" fill="#7fe9ff" fill-opacity="0.45" cx="0" cy="0" r="9.4"/>
+    <circle class="o" style="stroke-width:2" fill="#f2c230" cx="0" cy="0" r="6.6"/>
+    <circle class="t" style="stroke:#c9971c;stroke-width:1.2" cx="0" cy="0" r="4.3"/>
+    <path class="n" fill="#ffe58a" d="M-4.4 -2.4 Q-2.6 -5.2 0.8 -5.4 Q-1.8 -4 -3 -1.2 Z"/>
+    <path class="o" style="stroke-width:1.3" fill="#fffbe6" d="M0 -3 L2.4 0 L0 3 L-2.4 0 Z"/>
+  </g>
+
+  <!-- The near arm, coin between finger and thumb. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="t" style="stroke-width:13.4" d="M0 0 L6 12 L18 3.4"/>
+    <path fill="none" stroke="#2f4580" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L6 12 L18 3.4"/>
+    <path class="o" style="stroke-width:1.8" fill="#2fc9b5" d="M16.4 -3.4 L20.4 -0.6 L16.6 6.6 L12.6 3.8 Z"/>
+    <path class="o" style="stroke-width:2" fill="#eab98f" d="M19.4 -4.2 Q20.6 -9.4 23.2 -8.4 Q24.6 -7.4 24.2 -3 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#eab98f" cx="21.6" cy="1" r="4.8"/>
+    <path class="o" style="stroke-width:1.8" fill="#eab98f" d="M22.6 -2.4 Q25.4 -7.2 27.4 -5.4 Q28 -3.4 25.6 0.4 Z"/>
+    <circle data-mount="hand" fill="none" cx="23.4" cy="-8" r="1"/>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { INCOME_EVERY, LANE, PROGRESS, SPECIAL, STATS, SUBSIDY, TURRET, TURRET_SLOTS, px } from '../src/defs/balance.ts';
-import { TURRETS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
-import { canDo, progressNeeded, subsidyCost, turretPlan } from '../src/sim/commands.ts';
+import { FACTION_IDS, TURRETS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
+import { canDo, eraUpCost, progressNeeded, subsidyCost, turretPlan } from '../src/sim/commands.ts';
 import { turretRange } from '../src/sim/turrets.ts';
 import { BASE } from '../src/sim/types.ts';
 import { AH, ERA, HM, SUPER, act, match, place, rich, run } from './helpers.ts';
@@ -41,15 +41,30 @@ describe('subsidie aanvragen', () => {
 });
 
 describe('modernizing', () => {
-  it('cannot be bought: it takes vooruitgang', () => {
+  it('takes vooruitgang first, and then it costs subsidie', () => {
     const s = match();
+    const price = eraUpCost(s, 0)!;
+    // Money alone does not do it.
     s.sides[0].gold = 1_000_000;
     expect(canDo(s, 0, { t: 'eraUp' })).toBe(false);
-    s.sides[0].gold = 0;
+    // Neither does vooruitgang alone.
     s.sides[0].progress = progressNeeded(s, 0)!;
+    s.sides[0].gold = price - 1;
+    expect(canDo(s, 0, { t: 'eraUp' })).toBe(false);
+    // Both together: the next era, and the price is gone from the purse.
+    s.sides[0].gold = price + 30;
     const events = act(s, 0, { t: 'eraUp' });
     expect(s.sides[0].era).toBe(ERA.y2025);
+    expect(s.sides[0].gold).toBe(30);
     expect(events.some((e) => e.t === 'eraUp' && e.era === ERA.y2025)).toBe(true);
+  });
+
+  it('the second step costs more than the first, and the last era has nothing left to buy', () => {
+    expect(STATS['2025'].eraUpCost!).toBeGreaterThan(STATS['1975'].eraUpCost!);
+    expect(STATS['2050'].eraUpCost).toBeNull();
+    const s = match();
+    s.sides[0].era = ERA.y2050;
+    expect(eraUpCost(s, 0)).toBeNull();
   });
 
   it('vooruitgang comes with time, and with every unit beaten or lost', () => {
@@ -69,6 +84,7 @@ describe('modernizing', () => {
   it('what was gathered beyond the need counts towards the next era', () => {
     const s = match();
     const needed = progressNeeded(s, 0)!;
+    rich(s, 0);
     s.sides[0].progress = needed + 70;
     act(s, 0, { t: 'eraUp' });
     expect(s.sides[0].progress).toBe(70);
@@ -89,6 +105,7 @@ describe('modernizing', () => {
 
   it('strengthens the base by the difference and keeps the damage it had taken', () => {
     const s = match();
+    rich(s, 0);
     s.sides[0].progress = 1_000_000;
     s.sides[0].baseHp -= 500;
     act(s, 0, { t: 'eraUp' });
@@ -227,7 +244,7 @@ describe('specials', () => {
   });
 
   it('each era has its own special', () => {
-    for (const faction of ['havermelk', 'achterhoek'] as const) {
+    for (const faction of FACTION_IDS) {
       const kinds = [0, 1, 2].map((era) => eraOf(faction, era).special.kind);
       expect(new Set(kinds).size, `${faction}: ${kinds.join(', ')}`).toBe(3);
     }
@@ -396,12 +413,12 @@ describe('specials', () => {
 });
 
 describe('the super unit', () => {
-  it('can only be bought in the last era', () => {
+  it('is the fourth unit of the last era only; before that the fourth button sells the schild', () => {
     const s = match();
     rich(s, 0);
     for (const era of [ERA.y1975, ERA.y2025]) {
       s.sides[0].era = era;
-      expect(canDo(s, 0, { t: 'buy', slot: 3 }), `era ${era}`).toBe(false);
+      expect(eraOf('havermelk', era).units[3]!.role, `era ${era}`).toBe('shield');
     }
     s.sides[0].era = ERA.y2050;
     expect(canDo(s, 0, { t: 'buy', slot: 3 })).toBe(true);
@@ -499,10 +516,8 @@ describe('the super unit', () => {
     expect(giant.hp).toBe(unitDef(SUPER.hm).hp);
   });
 
-  it('is still hurt by ordinary units and turrets', () => {
+  it('is still hurt by ordinary units', () => {
     const s = match();
-    rich(s, 0);
-    act(s, 0, { t: 'turret' });
     const giant = place(s, 1, SUPER.ah, LANE - px(100));
     giant.stunUntil = 1e9;
     place(s, 0, HM.light, px(96));

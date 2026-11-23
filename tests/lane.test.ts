@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, px } from '../src/defs/balance.ts';
+import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, SUBSIDY, px } from '../src/defs/balance.ts';
 import { turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo } from '../src/sim/commands.ts';
-import { overtimeLevel } from '../src/sim/overtime.ts';
+import { overtimeLevel, turretDamagePercent } from '../src/sim/overtime.ts';
 import { SIDES } from '../src/sim/types.ts';
-import { AH, HM, act, match, place, run, unit } from './helpers.ts';
+import { AH, HM, act, match, place, rich, run, unit } from './helpers.ts';
 
 describe('walking', () => {
   it('a lone unit advances by its speed every tick', () => {
@@ -204,6 +204,7 @@ describe('the end of a match', () => {
         src: -1,
         row: 1,
         slot: -1,
+        aim: -1,
       });
     }
     run(s, 1);
@@ -219,6 +220,32 @@ describe('overtime', () => {
     expect(events.filter((e) => e.t === 'overtime')).toHaveLength(1);
     const steps = events.filter((e) => e.t === 'escalate').map((e) => (e.t === 'escalate' ? e.percent : 0));
     expect(steps).toEqual([OVERTIME.stepPercent, OVERTIME.stepPercent * 2, OVERTIME.stepPercent * 3]);
+  });
+
+  it('wears turrets out with each step, until they fall silent', () => {
+    const turret = turretDef('hm.1975.turret');
+    // What one shot does to a target on the doorstep, fired at the given moment of the match.
+    const shot = (tick: number): number => {
+      const s = match();
+      rich(s, 0);
+      act(s, 0, { t: 'turret' });
+      s.tick = tick;
+      const target = place(s, 1, AH.heavy, LANE - px(100), 1_000_000);
+      target.stunUntil = 1e9;
+      // Exactly one shot leaves and lands in this stretch.
+      run(s, turret.cooldown + 12);
+      return 1_000_000 - target.hp;
+    };
+    expect(turretDamagePercent(OVERTIME.at - 1)).toBe(100);
+    expect(shot(100)).toBe(turret.dmg);
+    const sixSteps = OVERTIME.at + OVERTIME.every * 5;
+    expect(shot(sixSteps)).toBe(Math.floor((turret.dmg * (100 - 6 * OVERTIME.turretStepPercent)) / 100));
+    // Well before the bases start to crumble there is nothing left of them: the first step comes at once.
+    const silentAt = OVERTIME.at + OVERTIME.every * (Math.ceil(100 / OVERTIME.turretStepPercent) - 1);
+    expect(turretDamagePercent(silentAt - 1)).toBeGreaterThan(0);
+    expect(turretDamagePercent(silentAt)).toBe(0);
+    expect(silentAt).toBeLessThan(OVERTIME.crumbleAt);
+    expect(shot(silentAt)).toBe(0);
   });
 
   it('makes every unit hit harder with each step', () => {
@@ -239,42 +266,23 @@ describe('overtime', () => {
     expect(blow(OVERTIME.at + OVERTIME.every * 4)).toBe(Math.floor((def.dmg * (100 + OVERTIME.stepPercent * 5)) / 100));
   });
 
-  it('leaves turrets as they were, so defences fall behind', () => {
-    const turret = turretDef('hm.1975.turret');
-    const shot = (tick: number): number => {
-      const s = match();
-      s.sides[0].gold = 100000;
-      act(s, 0, { t: 'turret' });
-      s.tick = tick;
-      const target = place(s, 1, AH.heavy, LANE - px(100), 1_000_000);
-      target.stunUntil = 1e9;
-      // Exactly one shot leaves and lands in this stretch.
-      run(s, turret.cooldown + 12);
-      return 1_000_000 - target.hp;
-    };
-    expect(shot(100)).toBe(turret.dmg);
-    expect(shot(OVERTIME.at + OVERTIME.every * 6)).toBe(turret.dmg);
-  });
-
-  it('closes the subsidiekraan: the regular income stops, bounties still pay', () => {
+  it('leaves the subsidiekraan open: the income keeps coming, and so do bounties', () => {
     const s = match();
     s.tick = OVERTIME.at - INCOME_EVERY * 2;
     const before = s.sides[0].gold;
-    run(s, INCOME_EVERY * 2);
-    const earned = s.sides[0].gold - before;
-    expect(earned).toBeGreaterThan(0);
-    run(s, INCOME_EVERY * 10);
-    expect(s.sides[0].gold).toBe(before + earned);
+    run(s, INCOME_EVERY * 12);
+    expect(s.sides[0].gold).toBe(before + 12 * SUBSIDY.income[0]);
 
-    // Beating a unit still pays.
+    // Beating a unit pays as always.
+    const purse = s.sides[0].gold;
     place(s, 0, HM.light, LANE / 2 - px(4), 1_000_000);
     place(s, 1, AH.light, LANE / 2, 1);
     run(s, 1 + unitDef(HM.light).windup);
-    expect(s.sides[0].gold).toBe(before + earned + unitDef(AH.light).bounty);
+    expect(s.sides[0].gold).toBeGreaterThanOrEqual(purse + unitDef(AH.light).bounty);
 
-    // And applying for more subsidie is pointless now, so it is refused.
+    // And more subsidie can still be applied for.
     s.sides[0].gold = 100000;
-    expect(canDo(s, 0, { t: 'subsidy' })).toBe(false);
+    expect(canDo(s, 0, { t: 'subsidy' })).toBe(true);
   });
 
   it('does not touch the bases until the long stop', () => {

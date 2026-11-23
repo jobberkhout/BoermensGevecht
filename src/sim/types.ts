@@ -42,6 +42,8 @@ export interface Unit {
   actTick: number;
   /** Can neither walk nor fight before this tick. */
   stunUntil: number;
+  /** Bought over: it fights for the side it is listed under, not for the side that trained it. */
+  turncoat: boolean;
 }
 
 export interface QueueItem {
@@ -102,8 +104,14 @@ export interface Shot {
   src: number;
   /** Row it flies along. Looks only. */
   row: number;
-  /** Turret slot it came from, or -1 for a unit's shot. Looks only. */
+  /** Turret slot it came from, or -1 for a unit's shot. */
   slot: number;
+  /**
+   * Id of the unit a turret aimed it at because that unit draws fire; it flies
+   * on until it reaches that unit. -1 for every other shot, which hits the
+   * first body it meets.
+   */
+  aim: number;
 }
 
 export interface Wave {
@@ -146,13 +154,20 @@ export interface SimState {
 /** `unit` value that means "the base". */
 export const BASE = -1;
 
-/** Damage waiting to be applied at the end of the tick, so that simultaneous blows all land. */
+/**
+ * What waits for the end of the tick, so that everything that happens at the
+ * same moment lands together: a blow, or a unit that is bought over.
+ */
 export interface Damage {
   /** The side that takes it. */
   side: Side;
   /** Unit id, or BASE. */
   unit: number;
   amount: number;
+  /** Not a blow: this unit of `side` was bought and changes sides, if it is still standing. */
+  bought?: boolean;
+  /** It comes from a turret, so a unit that shrugs turrets off takes only its share of it. */
+  turret?: boolean;
 }
 
 /** What happened during one tick, for effects and sound. `pos` is in the frame of `side`. */
@@ -172,6 +187,10 @@ export type SimEvent =
   | { t: 'stunned'; side: Side; ids: number[]; ticks: number }
   | { t: 'buffed'; side: Side; ticks: number }
   | { t: 'healed'; side: Side; ids: number[] }
+  /** A turret's shot bounced off unit `id` of `side`, which shrugs turrets off; `amount` is what little got through. */
+  | { t: 'glance'; side: Side; id: number; amount: number; pos: number }
+  /** Unit `id` was bought over and now fights for `side`, standing at `pos` in that side's frame. */
+  | { t: 'converted'; side: Side; id: number; def: string; pos: number }
   /** An enemy special had no effect on these units of `side`. */
   | { t: 'shrugged'; side: Side; ids: number[] }
   /** The algorithm came down on unit `id` of `side`. */
@@ -180,7 +199,8 @@ export type SimEvent =
   | { t: 'barrageHit'; side: Side; id: number; pos: number }
   | { t: 'overtime' }
   /** Overtime turned the screw: units now hit `percent` of their normal damage harder. */
-  | { t: 'escalate'; level: number; percent: number }
+  /** Overtime turns the screw: units now hit `percent` harder than normal, and turrets have `turrets` percent of their damage left. */
+  | { t: 'escalate'; level: number; percent: number; turrets: number }
   /** Overtime has gone on so long that both bases start to crumble. */
   | { t: 'crumble' }
   | { t: 'win'; winner: Side | 'draw' };

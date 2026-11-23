@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -13 31 26" data-rig="static">
+  <title>Een munt van de Cryptobro: hij lost al op voordat hij iets waard is</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="coin" transform="translate(0 0)">
+    <!-- the glow, and the corner that is already falling apart into little blocks -->
+    <circle class="n" fill="#7fe9ff" fill-opacity="0.45" cx="2" cy="0" r="11.5"/>
+    <rect class="n" fill="#f2c230" x="-14.5" y="-6.4" width="3.6" height="3.6"/>
+    <rect class="n" fill="#ffe58a" x="-11.6" y="2.6" width="3.2" height="3.2"/>
+    <rect class="n" fill="#f2c230" x="-9.6" y="-1.6" width="3" height="3"/>
+    <rect class="n" fill="#7fe9ff" x="-15.4" y="0.4" width="2.4" height="2.4"/>
+    <circle class="o" fill="#f2c230" cx="2" cy="0" r="8.4"/>
+    <circle class="t" style="stroke:#c9971c" cx="2" cy="0" r="5.6"/>
+    <path class="n" fill="#ffe58a" d="M-3.6 -3 Q-1.4 -6.6 3 -6.8 Q-0.4 -5 -1.8 -1.6 Z"/>
+    <!-- a made-up coin: its mark is a diamond -->
+    <path class="o" style="stroke-width:1.5" fill="#fffbe6" d="M2 -3.8 L5 0 L2 3.8 L-1 0 Z"/>
+  </g>
+</svg>

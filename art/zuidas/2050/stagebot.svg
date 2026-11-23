@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -134 96 140" data-rig="free">
+  <title>De Stagebot: een stagiair op een wiel, met keycord en koffie. Onbetaald, zie de sticker op zijn rug</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .glow { stroke: #5fe6d3; stroke-width: 1.8; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shove the whole robot along. -->
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The far arm: its hand hovers under the cup, in case of drips. Joint at the shoulder. -->
+  <g id="arm_back" data-parent="body" transform="translate(-1 -68)">
+    <path class="t" style="stroke-width:6.2" d="M0 0 L9 19 L22 23"/>
+    <path fill="none" stroke="#b4bdc9" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L9 19 L22 23"/>
+    <path class="o" style="stroke-width:2" fill="#5d6675" d="M19.5 19.5 L30 19.8 Q33 20.4 32.6 23.4 L31.6 26.4 L20 26.6 Z"/>
+  </g>
+
+  <!-- The one wheel it balances on. Joint at the axle. -->
+  <g id="wheel" data-parent="chassis" transform="translate(0 -13)">
+    <circle class="o" fill="#2b2b33" cx="0" cy="0" r="12.5"/>
+    <circle class="n" fill="#f2c230" cx="0" cy="0" r="7.4"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -7.4 L0 7.4 M-7.4 0 L7.4 0"/>
+    <circle class="n" fill="#c9971c" cx="0" cy="0" r="2.6"/>
+  </g>
+
+  <!-- Mudguard, strut and the body in its bodywarmer. Joint at the axle: it tips over the wheel to drive. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -13)">
+    <rect class="o" fill="#9aa4b2" x="-4.5" y="-28" width="9" height="15" rx="2"/>
+    <path class="o" fill="#24376b" d="M-16.5 1 Q-16.5 -18.5 0 -18.5 Q16.5 -18.5 16.5 1 L11.5 1 Q11.5 -12.5 0 -12.5 Q-11.5 -12.5 -11.5 1 Z"/>
+    <path class="n" fill="#3d5a9e" d="M-12.4 -9 Q-9.4 -16 0 -16.4 Q-7 -14.4 -9.6 -8 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#24376b" x="-2.4" y="-13" width="4.8" height="14" rx="1.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#eef1f5" cx="0" cy="0" r="2.6"/>
+
+    <path class="o" fill="#eef1f5" d="M-13 -23 Q-17 -44 -13.5 -58 Q-11.5 -65 0 -65 Q11.5 -65 13.5 -58 Q17 -44 13 -23 Q0 -19.5 -13 -23 Z"/>
+    <path class="n" fill="#cfd6df" d="M9.4 -26 Q12.6 -43 10.6 -57 Q14 -44 11.6 -23.6 Z"/>
+    <!-- the bodywarmer: quilted, navy, a size too big -->
+    <path class="o" fill="#24376b" d="M-13.4 -23.4 Q-18.5 -44 -14.6 -58.5 Q-12.5 -66 -3 -66.4 L4.4 -66 L8 -50 L6.4 -21.6 Q-3 -19.6 -13.4 -23.4 Z"/>
+    <path class="t" style="stroke:#3d5a9e;stroke-width:1.5" d="M-15.4 -33 L6.6 -33 M-16.4 -44 L7.4 -44 M-14.8 -55 L6.8 -55"/>
+    <path class="o" style="stroke-width:2" fill="#1a2850" d="M-9.6 -64 Q-10.6 -70.6 -3.6 -70.6 L5 -70 L5.6 -64.4 Z"/>
+    <!-- the keycord -->
+    <path fill="none" stroke="#2fc9b5" stroke-width="2.4" stroke-linecap="round" d="M-4.6 -66 Q-2.6 -48 3.6 -35.6 M7.4 -65 Q8 -48 3.6 -35.6"/>
+    <!-- the sticker somebody stuck on its back: no pay -->
+    <g transform="rotate(-9 -8.6 -39)">
+      <rect class="o" style="stroke-width:1.5" fill="#fffdf5" x="-15.4" y="-45.8" width="13.6" height="13.6" rx="2.6"/>
+      <circle class="n" fill="#f2c230" cx="-8.6" cy="-39" r="3.3"/>
+      <circle class="n" fill="#c9971c" cx="-8.6" cy="-39" r="1.5"/>
+      <circle fill="none" stroke="#e5283f" stroke-width="1.7" cx="-8.6" cy="-39" r="4.7"/>
+      <path fill="none" stroke="#e5283f" stroke-width="1.7" stroke-linecap="round" d="M-11.9 -42.3 L-5.3 -35.7"/>
+    </g>
+  </g>
+
+  <!-- The pass on the keycord. Joint where it hangs. -->
+  <g id="badge" data-parent="body" transform="translate(3.6 -48.6)">
+    <rect class="o" style="stroke-width:1.6" fill="#fffdf5" x="-4.6" y="0" width="9.2" height="11.6" rx="1.6"/>
+    <rect class="n" fill="#f2c230" x="-3.5" y="1.2" width="7" height="2.3"/>
+    <ellipse class="n" fill="#24376b" cx="0" cy="7.2" rx="1.9" ry="2.3"/>
+  </g>
+
+  <!-- A screen for a face. Joint at the neck. -->
+  <g id="head" data-parent="body" transform="translate(1 -78)">
+    <rect class="o" fill="#9aa4b2" x="-3.5" y="-5" width="7" height="8.5" rx="2"/>
+    <rect class="o" fill="#eef1f5" x="-16" y="-37" width="35" height="32" rx="10"/>
+    <path class="n" fill="#cfd6df" d="M-14.4 -13 Q-14 -6.6 -6 -6.6 L9 -6.6 Q16 -6.6 17.4 -12.4 Q10 -9.8 -2 -9.8 Q-10 -9.8 -14.4 -13 Z"/>
+    <path class="n" fill="#ffffff" d="M-11 -30 Q-9 -35 -3 -35.2 L3 -35.2 Q-4.6 -33.6 -8 -28.4 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#16243a" x="-4.6" y="-32.4" width="21.6" height="21.6" rx="6.5"/>
+    <circle class="o" style="stroke-width:1.8" fill="#24376b" cx="-9.8" cy="-21" r="4.4"/>
+    <circle class="n" fill="#f2c230" cx="-9.8" cy="-21" r="1.7"/>
+  </g>
+
+  <!-- Eyes that blink and a smile that can turn over. -->
+  <g id="eyes" data-parent="head" transform="translate(9.4 -101.6)">
+    <ellipse class="n" fill="#5fe6d3" cx="-3.7" cy="0" rx="2.5" ry="3.7"/>
+    <ellipse class="n" fill="#5fe6d3" cx="3.9" cy="0" rx="2.5" ry="3.7"/>
+  </g>
+  <g id="mouth" data-parent="head" transform="translate(9.5 -93.6)">
+    <path class="glow" d="M-3.4 -0.8 Q0 2.4 3.4 -0.8"/>
+  </g>
+
+  <g id="antenna" data-parent="head" transform="translate(-5 -115)">
+    <path class="t" style="stroke-width:2.2" d="M0 1 L-1 -8"/>
+    <circle class="o" style="stroke-width:1.8" fill="#5fe6d3" cx="-1.2" cy="-10.6" r="3.2"/>
+  </g>
+
+  <!-- The coffee: the one thing it is trusted with. Joint where the hand grips it. -->
+  <g id="cup" data-parent="arm_front" transform="translate(27 -61)">
+    <path class="o" style="stroke-width:2" fill="#fffdf5" d="M-6 -8 L6 -8 L4.6 9 L-4.6 9 Z"/>
+    <path class="n" fill="#b98a5a" d="M-5.5 -2.6 L5.5 -2.6 L5 4.6 L-5 4.6 Z"/>
+    <path class="t" style="stroke-width:1.2" d="M-5.5 -2.6 L5.5 -2.6 M-5 4.6 L5 4.6"/>
+  </g>
+  <g id="lid" data-parent="cup" transform="translate(27 -69)">
+    <path class="o" style="stroke-width:2" fill="#f4ecdc" d="M-7.4 0.4 L-6.2 -3.6 L6.2 -3.6 L7.4 0.4 Z"/>
+  </g>
+  <g id="steam" data-parent="cup" transform="translate(27 -74)">
+    <path class="t" style="stroke-width:1.5" d="M-2.4 0 q-3 -3 0 -6 t0 -5.6 M3 -1 q-2.6 -2.6 0 -5.2"/>
+  </g>
+
+  <!-- The near arm, carrying. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="body" transform="translate(3 -69)">
+    <path class="t" style="stroke-width:6.6" d="M0 0 L6 15 L20 9.6"/>
+    <path fill="none" stroke="#eef1f5" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L6 15 L20 9.6"/>
+    <circle class="o" style="stroke-width:1.8" fill="#cfd6df" cx="0" cy="0" r="4.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#9aa4b2" cx="6" cy="15" r="3"/>
+    <path class="o" style="stroke-width:2" fill="#5d6675" d="M18 4.6 L27.6 5.4 Q30 6 29.6 8.4 L29 11.6 L18.4 12.6 Z"/>
+    <path class="t" style="stroke-width:1.2" d="M22 5.6 L21.8 12 M25.6 5.8 L25.4 11.8"/>
+  </g>
+</svg>

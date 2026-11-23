@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -132 224 136" data-rig="static">
+  <title>De vrijmibo</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The terrace: mirror glass behind, a deck underfoot, party lights overhead. In the glass: a cloud, and the crane that never leaves. Origin = the middle of the deck. -->
+  <g id="terrace" transform="translate(0 0)">
+    <rect class="o" fill="#2f6f7c" x="-100" y="-104" width="200" height="104" rx="3"/>
+    <rect class="n" fill="#b5e1e5" x="-95.5" y="-99.5" width="191" height="89"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.6" d="M-90 -70 Q-92 -78 -83 -78 Q-80 -86 -70 -83 Q-62 -88 -56 -80 Q-48 -80 -49 -72 Q-50 -68 -56 -68 L-84 -68 Q-90 -68 -90 -70 Z"/>
+    <path fill="none" stroke="#8fcdd5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M24 -11 L24 -84 M6 -76 L44 -76 M24 -84 L10 -76 M24 -84 L40 -76 M38 -76 L38 -62"/>
+    <rect class="n" fill="#8fcdd5" x="34.5" y="-63" width="7" height="5"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.32" d="M-24 -99.5 L-4 -99.5 L-44 -10.5 L-64 -10.5 Z M70 -99.5 L78 -99.5 L38 -10.5 L30 -10.5 Z"/>
+    <path fill="none" stroke="#74b7c2" stroke-width="2.5" d="M-48 -99.5 L-48 -10.5 M0 -99.5 L0 -10.5 M48 -99.5 L48 -10.5 M-95.5 -52 L95.5 -52"/>
+    <!-- deck -->
+    <rect class="n" fill="#c9a877" x="-95.5" y="-11" width="191" height="8"/>
+    <path class="t" style="stroke:#a3845a;stroke-width:1.2" d="M-66 -11 L-66 -3 M-22 -11 L-22 -3 M18 -11 L18 -3 M62 -11 L62 -3 M-95 -7 L95 -7"/>
+    <path class="t" d="M-95.5 -11 L95.5 -11"/>
+    <!-- party lights -->
+    <path class="t" style="stroke-width:1.4" d="M-95.5 -98.5 Q-48 -88 0 -96.5 Q48 -88 95.5 -98.5"/>
+    <g class="o" style="stroke-width:1.4">
+      <circle fill="#ffd23a" cx="-76.4" cy="-93.4" r="2.8"/>
+      <circle fill="#fff6cf" cx="-57.4" cy="-91.6" r="2.8"/>
+      <circle fill="#ffd23a" cx="-38.2" cy="-91.4" r="2.8"/>
+      <circle fill="#fff6cf" cx="-19.2" cy="-92.6" r="2.8"/>
+      <circle fill="#ffd23a" cx="19.2" cy="-92.6" r="2.8"/>
+      <circle fill="#fff6cf" cx="38.2" cy="-91.4" r="2.8"/>
+      <circle fill="#ffd23a" cx="57.4" cy="-91.6" r="2.8"/>
+      <circle fill="#fff6cf" cx="76.4" cy="-93.4" r="2.8"/>
+    </g>
+  </g>
+
+  <!-- Everybody's legs. They stay where they are. -->
+  <g id="legs" transform="translate(0 -11)">
+    <g transform="translate(0 11)">
+      <path class="o" fill="#2a2b36" d="M-1 -38 L15 -38 L14 -14 L8 -14 L7 -30 L6 -14 L0 -14 Z"/>
+      <path class="o" fill="#2f4f8a" d="M-68 -38 L-48 -38 L-49 -14 L-56.5 -14 L-58 -30 L-59.5 -14 L-67 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#6b4a2f" d="M-68 -15 L-61 -15 Q-56 -14 -55.4 -11 L-68 -11 Z M-57.4 -15 L-50 -15 Q-45 -14 -44.4 -11 L-57.4 -11 Z"/>
+      <path class="o" fill="#27406b" d="M46 -38 L66 -38 L65 -14 L57.5 -14 L56 -30 L54.5 -14 L47 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#fafafa" d="M46 -15 L53 -15 Q58 -14 58.6 -11 L46 -11 Z M56.6 -15 L64 -15 Q69 -14 69.6 -11 L56.6 -11 Z"/>
+    </g>
+  </g>
+
+  <!-- B, behind the table: cream blazer, a glass, and no intention of touching the bitterballen yet. -->
+  <g id="b_body" transform="translate(6 -36)">
+    <g transform="translate(4 36)">
+      <path class="o" fill="#f1e4c8" d="M-18 -30 Q-19.5 -52 -15 -58 Q-11 -63 -4 -63 Q4 -63 7 -57 Q11 -50 10 -30 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2a2b36" d="M0.6 -62.4 L6.4 -56 L7.4 -42 L3 -50 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.6" stroke-linecap="round" d="M-3 -62 L1.4 -46"/>
+      <path fill="none" stroke="#e6b422" stroke-width="1.7" stroke-linecap="round" d="M-3 -62 L1.4 -46"/>
+      <rect class="o" style="stroke-width:1.6" fill="#ffffff" x="-2.4" y="-47" width="7" height="8" rx="1.2"/>
+    </g>
+  </g>
+  <g id="b_head" data-parent="b_body" transform="translate(7 -61)">
+    <g transform="translate(3 61)">
+      <rect class="o" fill="#dea888" x="-6.6" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f3c9a5" cx="-1.5" cy="-76.5" rx="14" ry="13.8"/>
+      <!-- a bob -->
+      <path class="o" fill="#2b2430" d="M-15.6 -68 Q-20 -91 -2 -91.6 Q13 -92 13.4 -80 Q7 -84.6 0 -84 Q-6.4 -83.4 -8 -76 L-8.4 -65.6 Q-13 -63.6 -15.6 -68 Z"/>
+      <path class="n" fill="#4a3f52" d="M-10 -85 Q-3 -89.6 6 -87.6 Q-2 -87 -7 -81 Z"/>
+      <circle class="n" fill="#2b1b16" cx="5" cy="-77" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="10.8" cy="-77" r="1.5"/>
+      <path class="t" d="M2.4 -81 Q5 -82.6 7.6 -81.2 M9.4 -81.4 Q11 -82.2 12.6 -81"/>
+      <path class="o" fill="#f3c9a5" d="M12.4 -75.4 Q16 -73 12.8 -71"/>
+    </g>
+  </g>
+  <g id="b_mouth" data-parent="b_head" transform="translate(17.4 -68.4)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="3" ry="2.6"/>
+  </g>
+  <g id="b_arm" data-parent="b_body" transform="translate(11 -56)">
+    <g transform="translate(-1 56)">
+      <path class="o" fill="#e6d5b0" d="M-4.6 -59 Q-6 -50 -4 -43 Q-1.6 -38.6 3 -40 L16.6 -45.4 L14.4 -52 L5.4 -48.6 Q5.6 -54 5.4 -59 Z"/>
+      <!-- a small beer, with a head on it -->
+      <path class="o" style="stroke-width:1.8" fill="#f0a81c" d="M13.4 -61 L21 -61 L20 -47.4 L14.4 -47.4 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#ffffff" x="12.6" y="-64.6" width="9.2" height="4.6" rx="2.2"/>
+      <circle class="o" fill="#f3c9a5" cx="16.2" cy="-49.4" r="3.8"/>
+    </g>
+  </g>
+
+  <!-- The standing table in its stretch cover, tied with a ribbon. On it: the plate, the mustard, somebody's glass. -->
+  <g id="table" transform="translate(0 -11)">
+    <g transform="translate(0 11)">
+      <path class="o" fill="#fdfdfd" d="M-19 -44 L19 -44 Q12 -32 5 -27 L5 -17 Q9 -13 15 -11 L-15 -11 Q-9 -13 -5 -17 L-5 -27 Q-12 -32 -19 -44 Z"/>
+      <path fill="none" stroke="#c9ced6" stroke-width="1.4" stroke-linecap="round" d="M-10 -41 Q-5 -34 -3.4 -28 M10 -41 Q5 -34 3.4 -28 M-2 -20 L-4 -13 M2 -20 L4 -13"/>
+      <rect class="o" style="stroke-width:1.8" fill="#2f9aa8" x="-6.6" y="-28.6" width="13.2" height="5" rx="1.6"/>
+      <rect class="o" fill="#fdfdfd" x="-21" y="-48" width="42" height="5" rx="2.5"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#ffffff" cx="-6" cy="-49" rx="12" ry="2.6"/>
+      <circle class="o" style="stroke-width:2" fill="#b06a2c" cx="-11" cy="-53.4" r="4.6"/>
+      <circle class="o" style="stroke-width:2" fill="#b06a2c" cx="-2" cy="-53.4" r="4.6"/>
+      <circle class="o" style="stroke-width:2" fill="#b06a2c" cx="-6.6" cy="-60" r="4.6"/>
+      <path class="n" fill="#d2924a" d="M-9.6 -61.4 Q-8.6 -63.6 -6 -63.6 Q-7.6 -62.4 -8 -60.4 Z M-14 -54.6 Q-13 -56.8 -10.6 -57 Q-12 -55.8 -12.4 -53.8 Z M-5 -54.6 Q-4 -56.8 -1.6 -57 Q-3 -55.8 -3.4 -53.8 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M5.4 -55 L12.6 -55 L11.8 -49 L6.2 -49 Z"/>
+      <ellipse class="n" fill="#f2c400" cx="9" cy="-54.6" rx="2.8" ry="1"/>
+      <!-- still steaming -->
+      <path fill="none" stroke="#2b1b16" stroke-width="3" stroke-linecap="round" d="M-10 -66 Q-12.6 -68.8 -10 -71.6 Q-7.4 -74.4 -10 -77 M-17 -60.6 Q-19 -62.8 -17 -65.2"/>
+      <path fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" d="M-10 -66 Q-12.6 -68.8 -10 -71.6 Q-7.4 -74.4 -10 -77 M-17 -60.6 Q-19 -62.8 -17 -65.2"/>
+    </g>
+  </g>
+
+  <!-- A: blue suit, no tie, no patience. -->
+  <g id="a_body" transform="translate(-58 -36)">
+    <g transform="translate(58 36)">
+      <path class="o" fill="#3c62a8" d="M-72 -30 Q-74 -52 -70 -58 Q-66 -63 -58 -63 Q-50 -63 -47 -57 Q-43 -50 -44 -30 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-52.4 -62.4 Q-46.4 -56 -45.4 -45 L-48.6 -42 Q-48 -54 -54.4 -61.4 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.6" stroke-linecap="round" d="M-57.4 -62 L-53 -47"/>
+      <path fill="none" stroke="#e6b422" stroke-width="1.7" stroke-linecap="round" d="M-57.4 -62 L-53 -47"/>
+      <rect class="o" style="stroke-width:1.6" fill="#ffffff" x="-56.6" y="-48" width="7" height="8" rx="1.2"/>
+    </g>
+  </g>
+  <g id="a_head" data-parent="a_body" transform="translate(-57 -61)">
+    <g transform="translate(57 61)">
+      <rect class="o" fill="#dea888" x="-60.6" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f3c9a5" cx="-55.5" cy="-76.5" rx="14.5" ry="14"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#f3c9a5" cx="-64.6" cy="-75.4" rx="2.8" ry="4"/>
+      <path class="o" fill="#6b4a2f" d="M-69.6 -77.6 Q-72 -92.6 -57 -93 Q-46 -93 -42 -84.6 Q-50 -86.6 -57 -83.6 Q-64 -81.6 -66 -74.6 Q-68 -73.6 -69.6 -77.6 Z"/>
+      <path class="n" fill="#8a6442" d="M-64 -87 Q-57 -91.4 -48 -89.4 Q-56 -88.6 -61.4 -83.4 Z"/>
+      <circle class="n" fill="#2b1b16" cx="-48.6" cy="-77.4" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-42.8" cy="-77.4" r="1.5"/>
+      <path class="t" d="M-51.6 -81.4 L-46.4 -82.8 M-44.6 -82.6 L-41.6 -81.8"/>
+      <path class="o" fill="#f3c9a5" d="M-41.3 -76 Q-37.4 -73.4 -41 -71.4"/>
+    </g>
+  </g>
+  <g id="a_mouth" data-parent="a_head" transform="translate(-46 -68.4)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="3.4" ry="3"/>
+  </g>
+  <!-- what comes out when the inside of a bitterbal meets the inside of a mouth -->
+  <g id="a_puff" data-parent="a_head" transform="translate(-40 -70)">
+    <g class="o" style="stroke-width:1.8" fill="#ffffff">
+      <circle cx="4" cy="-1" r="3.4"/>
+      <circle cx="13.6" cy="-0.4" r="3.2"/>
+      <circle cx="9" cy="-3.6" r="4.4"/>
+    </g>
+    <path class="n" fill="#ffffff" d="M3 -1.6 L14 -1.6 L14 1.2 L3 1.2 Z"/>
+  </g>
+  <g id="a_arm" data-parent="a_body" transform="translate(-53 -56)">
+    <g transform="translate(53 56)">
+      <path class="o" fill="#4a72bc" d="M-58.6 -59 Q-60 -50 -58 -42 Q-55 -36.6 -50 -38.6 L-36.6 -41 L-37.6 -48 L-48.6 -46.6 Q-47.6 -53 -48 -59 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M-39.4 -48.4 L-36 -48.8 L-35 -40.8 L-38.4 -40.4 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.2" stroke-linecap="round" d="M-32.6 -45 L-31.4 -55"/>
+      <path fill="none" stroke="#f0dcae" stroke-width="1.4" stroke-linecap="round" d="M-32.6 -45 L-31.4 -55"/>
+      <circle class="o" style="stroke-width:2" fill="#b06a2c" cx="-31" cy="-58" r="5.6"/>
+      <path class="n" fill="#d2924a" d="M-35 -59.4 Q-34 -62.4 -30.6 -62.6 Q-32.8 -61 -33.2 -58.4 Z"/>
+      <circle class="o" fill="#f3c9a5" cx="-33" cy="-44.4" r="4"/>
+    </g>
+  </g>
+
+  <!-- C: the youngest, in a bodywarmer. He blows on his. Then he throws it. -->
+  <g id="c_body" transform="translate(56 -36)">
+    <g transform="translate(-56 36)">
+      <path class="o" fill="#cfdff5" d="M42 -30 Q40 -52 44 -58 Q48 -63 56 -63 Q64 -63 67 -57 Q71 -50 70 -30 Z"/>
+      <path class="o" fill="#27406b" d="M41 -31 Q39 -52 43 -58.6 Q46 -62.6 51 -63.6 L56.4 -52 L62.6 -63.6 Q66 -62 68 -57.6 Q72 -50 71 -31 Z"/>
+      <path fill="none" stroke="#3b5a91" stroke-width="1.6" stroke-linecap="round" d="M40.6 -52 L53.6 -52 M59.4 -52 L70.4 -52 M40 -44.6 L71.6 -44.6 M40.4 -37.4 L71.4 -37.4"/>
+      <path class="t" d="M56.4 -52 L56.8 -31"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M52.6 -63.4 L56.4 -57 L61 -63.4 Q56.6 -65.6 52.6 -63.4 Z"/>
+    </g>
+  </g>
+  <g id="c_head" data-parent="c_body" transform="translate(57 -61)">
+    <g transform="translate(-57 61)">
+      <rect class="o" fill="#dea888" x="53.4" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f3c9a5" cx="58.5" cy="-76.5" rx="14.5" ry="14"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#f3c9a5" cx="49.4" cy="-75.4" rx="2.8" ry="4"/>
+      <path class="o" fill="#d9a441" d="M44.4 -77.6 Q42 -93 57 -93.6 Q64 -97.6 73.4 -88 Q66 -88.6 59 -84.6 Q51 -82 48.6 -74.6 Q46 -73.6 44.4 -77.6 Z"/>
+      <path class="n" fill="#edc56c" d="M50 -87 Q57 -92.4 67 -90.6 Q58 -89.6 52.6 -83.4 Z"/>
+      <circle class="n" fill="#2b1b16" cx="65.4" cy="-77.4" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="71.2" cy="-77.4" r="1.5"/>
+      <path class="t" d="M62.6 -82 Q65.4 -83.4 68 -82 M69.6 -82.2 Q71.4 -83 73 -81.8"/>
+      <path class="o" fill="#f3c9a5" d="M72.7 -76 Q76.6 -73.4 73 -71.4"/>
+    </g>
+  </g>
+  <g id="c_mouth" data-parent="c_head" transform="translate(68 -68.4)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="3.2" ry="2.8"/>
+  </g>
+  <g id="c_puff" data-parent="c_head" transform="translate(74 -69)">
+    <g class="o" style="stroke-width:1.6" fill="#ffffff">
+      <circle cx="2" cy="0" r="2"/>
+      <circle cx="5.6" cy="-0.4" r="2.6"/>
+    </g>
+    <path class="n" fill="#ffffff" d="M2 -0.8 L5.4 -0.8 L5.4 0.8 L2 0.8 Z"/>
+  </g>
+  <g id="c_arm" data-parent="c_body" transform="translate(61 -56)">
+    <g transform="translate(-61 56)">
+      <path class="o" fill="#cfdff5" d="M57.6 -60.6 Q55.6 -54 60 -50.6 Q63 -48.8 66 -50.6 L82.6 -56 L80.6 -63 L65 -59.6 Q63 -62.6 57.6 -60.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M78.4 -62.8 L81.6 -63.6 L83.8 -56.4 L80.6 -55.4 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.2" stroke-linecap="round" d="M83.6 -61 L85 -69"/>
+      <path fill="none" stroke="#f0dcae" stroke-width="1.4" stroke-linecap="round" d="M83.6 -61 L85 -69"/>
+      <circle class="o" fill="#f3c9a5" cx="83.4" cy="-59.6" r="4"/>
+    </g>
+  </g>
+  <g id="c_ball" data-parent="c_arm" transform="translate(85.6 -73.6)">
+    <circle class="o" style="stroke-width:2" fill="#b06a2c" cx="0" cy="0" r="5.6"/>
+    <path class="n" fill="#d2924a" d="M-4 -1.4 Q-3 -4.4 0.4 -4.6 Q-1.8 -3 -2.2 -0.4 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="3" stroke-linecap="round" d="M-1 -7.6 Q-3.4 -10 -1 -12.4 M4 -7 Q2.2 -8.8 4 -10.8"/>
+    <path fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" d="M-1 -7.6 Q-3.4 -10 -1 -12.4 M4 -7 Q2.2 -8.8 4 -10.8"/>
+  </g>
+
+  <!-- The glass balustrade. Everything flies over it. -->
+  <g id="rail" transform="translate(0 0)">
+    <rect class="n" fill="#ffffff" fill-opacity="0.26" x="-95.5" y="-36" width="191" height="33"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.42" d="M-82 -36 L-70 -36 L-88 -3 L-95.5 -3 L-95.5 -11 Z M30 -36 L38 -36 L20 -3 L12 -3 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#8d95a3" d="M-36.6 -37 L-32.6 -37 L-32.6 -3 L-36.6 -3 Z M32.6 -37 L36.6 -37 L36.6 -3 L32.6 -3 Z"/>
+    <rect class="o" fill="#d5d8de" x="-101" y="-41" width="202" height="5.6" rx="2.6"/>
+    <circle data-mount="muzzle" fill="none" cx="88" cy="-76" r="1"/>
+  </g>
+</svg>

@@ -1,7 +1,9 @@
 import type { EraKey } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek';
-export type Role = 'light' | 'ranged' | 'heavy' | 'super';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas';
+export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
+/** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
+export type Voice = 'town' | 'country' | 'office';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -12,6 +14,8 @@ export interface ShotDef {
   arc: number;
   /** Turns per second while it flies. 0 for things that should stay upright. Looks only. */
   spin: number;
+  /** Colour of the puff it leaves where it lands. Looks only. */
+  splash: string;
 }
 
 /** All distances in lane sub-units, all times in ticks. See defs/balance.ts. */
@@ -34,6 +38,10 @@ export interface UnitDef {
   cleave: boolean;
   /** Enemy specials have no effect on it. */
   immune: boolean;
+  /** The share of a turret's shot it takes, in percent: 100 for most units. */
+  turretPercent: number;
+  /** Enemy turrets that can reach it fire at it, wherever it stands, instead of at the foremost unit. */
+  drawsFire: boolean;
   /** Present on ranged units: they launch this instead of hitting directly. */
   shot?: ShotDef;
 }
@@ -65,6 +73,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
     | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
+    | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
   );
 
 export interface EraDef {
@@ -76,7 +85,9 @@ export interface EraDef {
   baseHp: number;
   /** Vooruitgang needed to modernize to the next era; null for the last one. */
   progressNeeded: number | null;
-  /** Light, ranged, heavy; the last era adds a fourth, the super unit. The index is the buy button. */
+  /** What modernizing to the next era costs on top of that; null for the last one. */
+  eraUpCost: number | null;
+  /** Light, ranged, heavy, and a fourth: the schild, or in the last era the super unit. The index is the buy button. */
   units: UnitDef[];
   turret: TurretDef;
   special: SpecialDef;
@@ -85,5 +96,10 @@ export interface EraDef {
 export interface FactionDef {
   id: FactionId;
   flagRig: string;
+  /** Its half of the backdrop, drawn for the left side of the screen. */
+  backdropRig: string;
+  voice: Voice;
+  /** For the stand-in boxes where art is missing, the reach marker of its turrets, and the plain ground under a missing backdrop. */
+  colors: { main: string; dark: string; light: string };
   eras: EraDef[];
 }

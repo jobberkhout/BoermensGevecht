@@ -381,6 +381,13 @@ body {
 .buttons.four .btn:not(.small) .label {
   font-size: 0.82cqw;
   letter-spacing: -0.02cqw;
+  /* Four in a row leaves room for some fifteen letters: longer names take two lines. */
+  white-space: normal;
+  line-height: 1.02;
+}
+
+.buttons.four .btn:not(.small) .label.long {
+  font-size: 0.74cqw;
 }
 
 /* In the last era the modernize button is gone and the other three share the row. */
@@ -410,6 +417,11 @@ body {
   width: 0;
   background: rgba(47, 145, 64, 0.32);
   pointer-events: none;
+}
+
+/* The bar is full but the money is not there yet: the fill stays, solid, and waits. */
+.btn.full .fill {
+  background: rgba(47, 145, 64, 0.45);
 }
 
 .btn.ready {
@@ -474,10 +486,12 @@ body {
   letter-spacing: -0.01cqw;
 }
 
-/* Names that would not fit otherwise, such as Trekkerkolonne. */
+/* Names that would not fit otherwise, such as Trekkerkolonne; two words, such as Vijandige overname, take two lines. */
 .btn.small .label.long {
   font-size: 0.8cqw;
   letter-spacing: -0.02cqw;
+  white-space: normal;
+  line-height: 1;
 }
 
 /* On a patch of its own, so a wide drawing behind it cannot swallow the digits. */
@@ -591,7 +605,7 @@ body {
 
 .card {
   max-width: 84cqw;
-  padding: 1.8cqw 2.6cqw 2cqw;
+  padding: 1.3cqw 2.6cqw 1.5cqw;
   border: 0.32cqw solid var(--ink);
   border-radius: 1.8cqw;
   background: var(--paper);
@@ -601,21 +615,21 @@ body {
 
 .card h1 {
   margin: 0;
-  font-size: 5.2cqw;
+  font-size: 4.2cqw;
   line-height: 1;
   letter-spacing: -0.05cqw;
 }
 
 .card h2 {
-  margin: 0.4cqw 0 0;
-  font-size: 1.7cqw;
+  margin: 0.2cqw 0 0;
+  font-size: 1.5cqw;
   font-weight: 700;
   color: #6f5a4c;
 }
 
 .card p {
-  margin: 0.9cqw 0 0;
-  font-size: 1.25cqw;
+  margin: 0.7cqw 0 0;
+  font-size: 1.15cqw;
 }
 
 .versus {
@@ -623,7 +637,7 @@ body {
   grid-template-columns: 1fr auto 1fr;
   gap: 1.6cqw;
   align-items: start;
-  margin-top: 1.4cqw;
+  margin-top: 0.9cqw;
   text-align: left;
 }
 
@@ -663,7 +677,7 @@ body {
 
 .keys .pic {
   width: 4.4cqw;
-  height: 3.5cqw;
+  height: 3.3cqw;
   background: center / contain no-repeat;
 }
 
@@ -693,7 +707,7 @@ body {
 }
 
 .go {
-  margin-top: 1.5cqw;
+  margin-top: 1cqw;
   padding: 0.7cqw 2.2cqw;
   border: 0.28cqw solid var(--ink);
   border-radius: 1.2cqw;
@@ -704,6 +718,49 @@ body {
   font-weight: 800;
   font-size: 1.6cqw;
   cursor: pointer;
+}
+
+/* A second, quieter button under the main one. */
+.go.quiet {
+  display: block;
+  margin: 0.8cqw auto 0;
+  padding: 0.4cqw 1.4cqw;
+  background: var(--paper);
+  font-size: 1.1cqw;
+}
+
+/* The arrows with which a player steps through the factions on the title card. */
+.side h3 .who {
+  flex: 1;
+  min-width: 0;
+}
+
+.side h3 .arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3cqw;
+  padding: 0.3cqw 0.5cqw;
+  border: 0.22cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: var(--gold);
+  box-shadow: 0 0.25cqw 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.2cqw;
+  cursor: pointer;
+}
+
+.side h3 .arrow kbd {
+  min-width: 1.5cqw;
+  padding: 0.05cqw 0.3cqw;
+  border: 0.16cqw solid var(--ink);
+  border-radius: 0.4cqw;
+  background: #fff;
+  font: inherit;
+  font-size: 0.95cqw;
+  text-align: center;
 }
 
 .go:active {

@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -112 222 116" data-rig="static">
+  <title>De Kwartaalcijfers: drie analisten rond een zwevend dashboard. De taartpunten gaan de deur uit</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .holo { stroke: #1e8f86; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <!-- The floor, the projector and the cake stand with the next slices. Origin = middle of the floor. -->
+  <g id="set" transform="translate(0 0)">
+    <rect class="o" fill="#e9f8f5" x="-104" y="-7" width="208" height="7" rx="3"/>
+    <path class="n" fill="#2fc9b5" d="M-101 -3 L101 -3 L101 -1.4 L-101 -1.4 Z"/>
+    <rect class="o" fill="#24376b" x="-5" y="-13.6" width="24" height="7.6" rx="3"/>
+    <circle class="n" fill="#5fe6d3" cx="7" cy="-10" r="2"/>
+    <path class="t" style="stroke-width:3" d="M96 -7 L96 -24"/>
+    <path class="o" fill="#cfd6df" d="M89 -7 Q89 -11 96 -11 Q103 -11 103 -7 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#c9971c" d="M88.6 -27 L103 -29.6 L102.6 -26 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M88.6 -29.6 L103 -32.2 L103 -28.6 Z"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ffffff" cx="96" cy="-25" rx="10.6" ry="2.6"/>
+  </g>
+
+  <!-- The beam that holds the dashboard up. Joint at the projector. -->
+  <g id="beam" transform="translate(7 -13)">
+    <path class="n" fill="#7fe3d6" fill-opacity="0.3" d="M-6 0 L6 0 L37 -27 L-39 -27 Z"/>
+  </g>
+
+  <!-- The analyst who got a slice, on her chair. Joint at the seat. -->
+  <g id="l_body" transform="translate(-85 -26)">
+    <g transform="translate(85 26)">
+      <path class="t" style="stroke-width:3" d="M-86 -8 L-86 -21 M-96 -8 L-86 -12.6 L-76 -8"/>
+      <rect class="o" fill="#1e8f86" x="-101.6" y="-58" width="7.6" height="35" rx="3.4"/>
+      <rect class="o" fill="#1e8f86" x="-98" y="-26" width="25" height="6.4" rx="3.2"/>
+      <path class="o" fill="#2b2b33" d="M-76.4 -7 L-76.4 -11.6 L-68 -11.6 Q-64.4 -11 -63.6 -7 Z"/>
+      <path class="o" fill="#24376b" d="M-94.6 -25.6 L-94.6 -35 L-72 -35 Q-67 -35 -67 -30 L-67.6 -11 L-75.6 -11 L-76 -25.6 Z"/>
+      <path class="o" fill="#2fc9b5" d="M-95.6 -32.6 Q-98 -45 -93.6 -53 L-78 -53 Q-74 -45 -76.4 -32.6 Z"/>
+      <path class="n" fill="#22a897" d="M-94.4 -33.6 Q-96.6 -45 -93 -52 Q-90 -44 -90 -33.6 Z"/>
+      <!-- the plate on her knee, and what is left of her slice -->
+      <path class="o" fill="#22a897" d="M-86 -50 L-75 -44 L-78 -38.4 L-89.6 -44.6 Z"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#ffffff" cx="-69" cy="-38.4" rx="9.6" ry="2.6"/>
+      <path class="o" style="stroke-width:1.8" fill="#c9971c" d="M-74.4 -40 L-62.6 -42.4 L-62.8 -39.6 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M-74.4 -42.4 L-62.6 -44.8 L-62.6 -41.6 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#8d5a3c" cx="-77.4" cy="-38.4" r="3.4"/>
+    </g>
+  </g>
+  <g id="l_head" data-parent="l_body" transform="translate(-84 -53)">
+    <g transform="translate(84 53)">
+      <rect class="o" fill="#7a4b30" x="-87.6" y="-57.6" width="7" height="6.6" rx="2"/>
+      <circle class="o" fill="#3a241b" cx="-91" cy="-77" r="7.4"/>
+      <circle class="o" fill="#8d5a3c" cx="-83" cy="-64.6" r="11.4"/>
+      <path class="o" fill="#3a241b" d="M-93.4 -60 Q-97.4 -76 -84.6 -76.6 Q-74.6 -77 -72.2 -69.4 Q-78.6 -71.4 -83.6 -69 Q-87.6 -66 -88.4 -59 Q-91.4 -58 -93.4 -60 Z"/>
+      <path class="n" fill="#5a3a2c" d="M-89 -72 Q-84 -75 -78 -73.6 Q-84 -73 -88 -69.6 Z"/>
+      <circle class="n" fill="#f2c230" cx="-88.6" cy="-58.4" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-76.2" cy="-65.4" r="1.6"/>
+      <path class="t" d="M-79 -69.6 Q-76.4 -71 -73.6 -69.6"/>
+      <path class="o" style="stroke-width:2" fill="#8d5a3c" d="M-72 -65 Q-68.2 -62.6 -71.8 -60.4"/>
+    </g>
+  </g>
+  <g id="l_mouth" data-parent="l_head" transform="translate(-76 -57.6)">
+    <ellipse class="o" style="stroke-width:1.4" fill="#5a1f2a" cx="0" cy="0" rx="2.5" ry="1.1"/>
+  </g>
+  <!-- Her fork arm. Joint at the shoulder. -->
+  <g id="l_arm" data-parent="l_body" transform="translate(-82 -48)">
+    <g transform="translate(82 48)">
+      <path class="t" style="stroke-width:1.8" d="M-67.6 -47 L-72.6 -52.6 M-74 -51 L-72.6 -52.6 L-71 -54"/>
+      <path class="n" fill="#f2c230" d="M-75 -54.6 L-71.4 -55.6 L-72 -52 Z"/>
+      <path class="t" style="stroke-width:8.4" d="M-82 -48 L-78 -38.6 L-68 -45"/>
+      <path fill="none" stroke="#2fc9b5" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" d="M-82 -48 L-78 -38.6 L-68 -45"/>
+      <circle class="o" style="stroke-width:1.8" fill="#8d5a3c" cx="-66.6" cy="-46" r="3.4"/>
+    </g>
+  </g>
+
+  <!-- The analyst who is helping the last quarter up a little. Legs and bodywarmer; joint at his feet. -->
+  <g id="m_body" transform="translate(-46 -7)">
+    <g transform="translate(50 7)">
+      <path class="o" fill="#2b2b33" d="M-59 -7 L-59 -11.6 L-52 -11.6 Q-49 -11 -48.4 -7 Z M-49.6 -7 L-49.6 -11.6 L-42.6 -11.6 Q-39.6 -11 -39 -7 Z"/>
+      <path class="o" fill="#24376b" d="M-59 -11 L-57.4 -41 L-41.6 -41 L-39.6 -11 L-48.6 -11 L-49.8 -31 L-51.6 -11 Z"/>
+      <path class="o" fill="#ffffff" d="M-58.4 -39 Q-60.6 -53 -57.6 -63 L-41 -63 Q-38 -53 -40.4 -39 Z"/>
+      <path class="o" fill="#3d5a9e" d="M-59 -38.4 Q-61.4 -53 -58.4 -64 L-49.6 -64 L-46.6 -52 L-48.4 -38.4 Z"/>
+      <path class="t" style="stroke:#24376b;stroke-width:1.4" d="M-59.4 -46 L-47.6 -46 M-59.6 -54 L-47.2 -54"/>
+      <path fill="none" stroke="#2fc9b5" stroke-width="2.2" stroke-linecap="round" d="M-52 -63 Q-48 -54 -44.6 -50 M-43.6 -62 Q-43.4 -55 -44.6 -50"/>
+      <rect class="o" style="stroke-width:1.5" fill="#fffdf5" x="-48" y="-50.6" width="7" height="8.6" rx="1.4"/>
+      <rect class="n" fill="#f2c230" x="-46.9" y="-49.4" width="4.8" height="1.8"/>
+    </g>
+  </g>
+  <g id="m_head" data-parent="m_body" transform="translate(-45 -63)">
+    <g transform="translate(49 63)">
+      <rect class="o" fill="#e9b796" x="-52.6" y="-67.6" width="7" height="7" rx="2"/>
+      <circle class="o" fill="#f3c9a5" cx="-48.6" cy="-75" r="11.6"/>
+      <path class="o" fill="#8a5a3a" d="M-59.8 -70.6 Q-62.4 -81 -55 -83.6 Q-56.6 -77 -53.6 -72 Q-54 -67.6 -57.2 -67 Q-59.4 -68 -59.8 -70.6 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M-53 -83.6 Q-47.6 -86 -42.6 -83.2 Q-48 -83.8 -52 -81.6 Z"/>
+      <path class="t" d="M-45.4 -76.2 L-53.6 -77"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ffffff" fill-opacity="0.65" cx="-41.4" cy="-75.6" r="3.9"/>
+      <circle class="n" fill="#2b1b16" cx="-41" cy="-75.4" r="1.4"/>
+      <path class="o" style="stroke-width:2" fill="#f3c9a5" d="M-37.2 -75 Q-33.4 -72.6 -37 -70.4"/>
+    </g>
+  </g>
+  <!-- His mouth: pleased while the bar is up. Turned over, it is not. -->
+  <g id="m_mouth" data-parent="m_head" transform="translate(-37.6 -67.2)">
+    <path class="t" style="stroke-width:1.7" d="M-3.2 -0.8 Q0 2.2 3.2 -0.8"/>
+  </g>
+
+  <!-- The analyst who throws. Legs and shirt; joint at his feet. -->
+  <g id="r_body" transform="translate(65 -7)">
+    <g transform="translate(-63 7)">
+      <path class="o" fill="#2b2b33" d="M51 -7 L51 -11.6 L58 -11.6 Q61 -11 61.6 -7 Z M65.4 -7 L65.4 -11.6 L72.4 -11.6 Q75.4 -11 76 -7 Z"/>
+      <path class="o" fill="#24376b" d="M51.4 -11 L55.4 -41 L71 -41 L75 -11 L66 -11 L63.4 -31 L60.4 -11 Z"/>
+      <path class="o" fill="#a9c0e4" d="M57 -59 L50.4 -47.6 L55.6 -41 L60.6 -45 L57.6 -48.6 L62 -56 Z"/>
+      <path class="o" fill="#bcd0ee" d="M54.4 -39 Q52 -53 55.4 -63 L71 -63 Q74.6 -53 72 -39 Z"/>
+      <path class="n" fill="#a9c0e4" d="M55.6 -40 Q53.4 -53 56.4 -62 Q59.4 -53 59.4 -40 Z"/>
+      <path fill="none" stroke="#2fc9b5" stroke-width="2.2" stroke-linecap="round" d="M59.6 -62.6 Q63 -54 66.6 -50 M68.6 -62 Q68.4 -55 66.6 -50"/>
+      <rect class="o" style="stroke-width:1.5" fill="#fffdf5" x="63.2" y="-50.6" width="7" height="8.6" rx="1.4"/>
+      <rect class="n" fill="#f2c230" x="64.3" y="-49.4" width="4.8" height="1.8"/>
+    </g>
+  </g>
+  <g id="r_head" data-parent="r_body" transform="translate(65.6 -63)">
+    <g transform="translate(-63.6 63)">
+      <rect class="o" fill="#c48a5c" x="60" y="-67.6" width="7" height="7" rx="2"/>
+      <circle class="o" fill="#d9a070" cx="64" cy="-75" r="11.6"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#d9a070" cx="59.6" cy="-73.6" rx="2.6" ry="3.6"/>
+      <path class="o" fill="#2f2a3a" d="M52.6 -74 Q50.4 -88.6 64 -88.6 Q75 -88.6 77 -80.6 Q70 -83.4 63.4 -81.6 Q57.8 -79.6 56.8 -72 Q53.8 -71 52.6 -74 Z"/>
+      <path class="n" fill="#4a4560" d="M57 -84 Q63 -87.6 71 -85.4 Q64 -85 59 -81.4 Z"/>
+      <circle class="n" fill="#2b1b16" cx="70.8" cy="-75.6" r="1.6"/>
+      <path class="t" style="stroke-width:1.8" d="M67.6 -80 L73.6 -78.4"/>
+      <path class="o" style="stroke-width:2" fill="#d9a070" d="M75.4 -75 Q79.2 -72.6 75.6 -70.4"/>
+      <path class="t" style="stroke-width:1.7" d="M68.6 -67.4 L73.4 -68"/>
+    </g>
+  </g>
+
+  <!-- The dashboard: the last quarter, a pie with a piece out of it. It floats. Joint in its middle. -->
+  <g id="dash" transform="translate(6 -67)">
+    <g transform="translate(-2 67)">
+      <rect class="o" style="stroke:#1e8f86;stroke-width:2.4" fill="#c8f3ee" fill-opacity="0.72" x="-36" y="-95" width="76" height="55" rx="8"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-31 -92 L-21 -92 L-29 -78 L-33.4 -78 L-33.4 -86 Z"/>
+      <path class="holo" style="stroke-width:1.8" fill="none" d="M-17 -88.6 L-7 -88.6 M-17 -84 L-11 -84"/>
+      <path class="holo" fill="none" d="M-33 -50.6 L-5 -50.6"/>
+      <rect class="holo" fill="#24376b" x="-21.6" y="-73" width="5.6" height="22.4"/>
+      <rect class="holo" fill="#2fc9b5" x="-13.2" y="-67" width="5.6" height="16.4"/>
+      <!-- the pie: a sixth is missing, top right -->
+      <path class="holo" fill="#f2c230" d="M17 -66 L34 -66 A17 17 0 0 1 11.19 -50.03 Z"/>
+      <path class="holo" fill="#24376b" d="M17 -66 L11.19 -50.03 A17 17 0 0 1 0 -66 Z"/>
+      <path class="holo" fill="#2fc9b5" d="M17 -66 L0 -66 A17 17 0 0 1 25.5 -80.72 Z"/>
+      <path class="holo" style="stroke-dasharray:2.4 2.6" fill="none" d="M25.5 -80.72 A17 17 0 0 1 34 -66"/>
+    </g>
+  </g>
+  <!-- The bar of the last quarter. It does not stay where it is put. Joint at its foot. -->
+  <g id="bar" data-parent="dash" transform="translate(-23.2 -50.6)">
+    <rect class="holo" fill="#ff6a55" x="-2.8" y="-8" width="5.6" height="8"/>
+  </g>
+
+  <!-- His arm, with a hand on top of the bar. Joint at the shoulder. -->
+  <g id="m_arm" data-parent="m_body" transform="translate(-43 -58.6)">
+    <g transform="translate(47 58.6)">
+      <path class="o" fill="#f3c9a5" d="M-37.6 -64.6 L-28.6 -62.6 L-29.4 -56.6 L-37 -57.4 Z"/>
+      <path class="o" fill="#ffffff" d="M-51.4 -61.6 L-37 -65.6 L-35.4 -57 L-49.6 -53.6 Z"/>
+      <path class="t" d="M-38.6 -65 L-37 -57.6"/>
+      <ellipse class="o" style="stroke-width:2" fill="#f3c9a5" cx="-27.6" cy="-59.4" rx="4.2" ry="3.2"/>
+    </g>
+  </g>
+
+  <!-- The slice in his hand: next out of the door. Joint in its middle. -->
+  <g id="wedge" data-parent="r_arm" transform="translate(91 -67.6)">
+    <g transform="scale(0.74)">
+      <path class="o" style="stroke-width:2.6" fill="#c9971c" d="M-11 5 L11 -6.6 Q13.6 0.4 11.4 8 Z"/>
+      <path class="o" style="stroke-width:2.6" fill="#f2c230" d="M-11 2 L11 -9.6 Q13.6 -2.6 11.4 5 Z"/>
+      <path class="n" fill="#ffe58a" d="M-5 -0.4 L9.6 -7.6 Q10.6 -5.6 10.8 -3.6 Z"/>
+    </g>
+  </g>
+
+  <!-- His throwing arm, palm up. Joint at the shoulder. -->
+  <g id="r_arm" data-parent="r_body" transform="translate(69 -58.6)">
+    <g transform="translate(-67 58.6)">
+      <path class="o" fill="#d9a070" d="M77 -64.6 L86.6 -63.6 L86.6 -57.6 L77.6 -57 Z"/>
+      <path class="o" fill="#bcd0ee" d="M63.6 -62.6 L77.4 -65.6 L78.6 -57 L65.4 -53.6 Z"/>
+      <path class="t" d="M76 -65.2 L77.2 -57.2"/>
+      <path class="o" style="stroke-width:2" fill="#d9a070" d="M84.6 -63.6 Q93.4 -64.6 94 -61.4 Q93.6 -58 85 -57.6 Z"/>
+    </g>
+    <circle data-mount="muzzle" fill="none" cx="22" cy="-9" r="1"/>
+  </g>
+</svg>

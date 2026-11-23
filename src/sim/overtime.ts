@@ -10,6 +10,11 @@ export function unitDamagePercent(tick: number): number {
   return 100 + overtimeLevel(tick) * OVERTIME.stepPercent;
 }
 
+/** How hard turrets hit at this tick, as a percentage of their normal damage. In overtime they wear out. */
+export function turretDamagePercent(tick: number): number {
+  return Math.max(0, 100 - overtimeLevel(tick) * OVERTIME.turretStepPercent);
+}
+
 /** True once the subsidiekraan is closed: no more regular income, and no point in applying for more. */
 export function kraanDicht(tick: number): boolean {
   return !OVERTIME.income && tick >= OVERTIME.at;

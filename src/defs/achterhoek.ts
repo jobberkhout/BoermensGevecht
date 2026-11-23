@@ -6,6 +6,9 @@ import type { FactionDef } from './types.ts';
 export const achterhoek: FactionDef = {
   id: 'achterhoek',
   flagRig: 'flags/achterhoek',
+  backdropRig: 'achterhoek/backdrop',
+  voice: 'country',
+  colors: { main: '#2f9140', dark: '#1f5a2a', light: '#a8d98f' },
   eras: [
     // Pitchforks, fodder beets and carbide.
     makeEra('ah', 'achterhoek', {
@@ -13,10 +16,11 @@ export const achterhoek: FactionDef = {
       year: 1975,
       light: 'klein_mepperink',
       ranged: 'smijtink',
-      rangedShot: { rig: 'shot_voederbiet', arc: 80, spin: 1.4 },
+      rangedShot: { rig: 'shot_voederbiet', arc: 80, spin: 1.4, splash: '#e9a63a' },
       heavy: 'groot_ploegink',
+      shield: 'deurink',
       turret: 'turret_carbid',
-      turretShot: { rig: 'shot_deksel', arc: 60, spin: 3 },
+      turretShot: { rig: 'shot_deksel', arc: 60, spin: 3, splash: '#c9ced6' },
       special: {
         kind: 'buff',
         ticks: SPECIAL.hoken.ticks,
@@ -31,10 +35,11 @@ export const achterhoek: FactionDef = {
       year: 2025,
       light: 'quadink',
       ranged: 'dronink',
-      rangedShot: { rig: 'shot_spray', arc: 26, spin: 0 },
+      rangedShot: { rig: 'shot_spray', arc: 26, spin: 0, splash: '#b6d24a' },
       heavy: 'giertink',
+      shield: 'balink',
       turret: 'turret_heitinks',
-      turretShot: { rig: 'shot_ei', arc: 110, spin: 2.2 },
+      turretShot: { rig: 'shot_ei', arc: 110, spin: 2.2, splash: '#ffd94a' },
       special: { kind: 'wave', rig: 'special_kolonne', speed: SPECIAL.kolonne.speed, dmg: SPECIAL.kolonne.dmg },
     }),
     // Exoskeletons, laser scarecrows and a combine that drives itself.
@@ -43,11 +48,11 @@ export const achterhoek: FactionDef = {
       year: 2050,
       light: 'exo_mepperink',
       ranged: 'verschrikkerink',
-      rangedShot: { rig: 'shot_laser', arc: 0, spin: 0 },
+      rangedShot: { rig: 'shot_laser', arc: 0, spin: 0, splash: '#ff6a55' },
       heavy: 'de_vreter',
       super: 'kolossink',
       turret: 'turret_melkrobot',
-      turretShot: { rig: 'shot_melk', arc: 70, spin: 0 },
+      turretShot: { rig: 'shot_melk', arc: 70, spin: 0, splash: '#ffffff' },
       special: {
         kind: 'barrage',
         strikes: SPECIAL.zwerm.strikes,

@@ -8,8 +8,13 @@ import type { Command, Side, SimEvent, SimState, Stamped, Unit } from '../src/si
 export const HM = { light: 'hm.1975.light', ranged: 'hm.1975.ranged', heavy: 'hm.1975.heavy' } as const;
 export const AH = { light: 'ah.1975.light', ranged: 'ah.1975.ranged', heavy: 'ah.1975.heavy' } as const;
 
+export const ZA = { light: 'za.1975.light', ranged: 'za.1975.ranged', heavy: 'za.1975.heavy' } as const;
+
+/** The schild of the first era: the unit that takes the turrets' fire. */
+export const SHIELD = { hm: 'hm.1975.shield', ah: 'ah.1975.shield', za: 'za.1975.shield' } as const;
+
 /** The super units, which only the last era has. */
-export const SUPER = { hm: 'hm.2050.super', ah: 'ah.2050.super' } as const;
+export const SUPER = { hm: 'hm.2050.super', ah: 'ah.2050.super', za: 'za.2050.super' } as const;
 
 /** Era indices, for tests that need a side to be further along. */
 export const ERA = { y1975: 0, y2025: 1, y2050: 2 } as const;
@@ -31,6 +36,7 @@ export function place(s: SimState, side: Side, def: string, pos: number, hp?: nu
     act: 'walk',
     actTick: 0,
     stunUntil: 0,
+    turncoat: false,
   };
   const units = s.sides[side].units;
   units.push(unit);

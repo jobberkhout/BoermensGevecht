@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -150 232 156" data-rig="static">
+  <title>De gong: de handel is open</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .k { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; }
+    .p { stroke: #6f86ba; stroke-width: 0.9; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- A strip of carpet on a low dais, and the oak frame the gong hangs in. Origin = the ground under the middle. -->
+  <g id="stand" transform="translate(0 0)">
+    <rect class="o" fill="#7a5234" x="-106" y="-8" width="212" height="8" rx="2"/>
+    <path class="t" style="stroke:#5c3d27;stroke-width:1.3" d="M-70 -7.4 L-70 -0.8 M-20 -7.4 L-20 -0.8 M30 -7.4 L30 -0.8 M80 -7.4 L80 -0.8"/>
+    <rect class="o" style="stroke-width:2" fill="#8a2f38" x="-102" y="-12" width="204" height="5" rx="1.5"/>
+    <path fill="none" stroke="#e6b422" stroke-width="1" stroke-dasharray="3 3" d="M-99 -9.5 L99 -9.5"/>
+    <rect class="o" fill="#5c3d27" x="-56" y="-17" width="30" height="5.5" rx="1.5"/>
+    <rect class="o" fill="#5c3d27" x="26" y="-17" width="30" height="5.5" rx="1.5"/>
+    <path class="o" style="stroke-width:2" fill="#6b4a35" d="M-52 -17 L-44.5 -34 L-40 -34 L-40 -17 Z M52 -17 L44.5 -34 L40 -34 L40 -17 Z"/>
+    <rect class="o" fill="#6b4a35" x="-44.5" y="-124" width="7.5" height="107.5"/>
+    <rect class="o" fill="#6b4a35" x="37" y="-124" width="7.5" height="107.5"/>
+    <path class="t" style="stroke:#8a6a4a;stroke-width:1.2" d="M-42 -118 L-42 -24 M39.6 -118 L39.6 -24"/>
+    <rect class="o" fill="#5c3d27" x="-52" y="-130" width="104" height="9" rx="2.5"/>
+    <path class="t" style="stroke:#8a6a4a;stroke-width:1.2" d="M-46 -127.4 L46 -127.4"/>
+    <circle class="o" style="stroke-width:1.8" fill="#f0c53a" cx="-52" cy="-125.5" r="4"/>
+    <circle class="o" style="stroke-width:1.8" fill="#f0c53a" cx="52" cy="-125.5" r="4"/>
+  </g>
+
+  <!-- The gong on its two cords. Joint up at the beam, so it swings. -->
+  <g id="gong" data-parent="stand" transform="translate(0 -121)">
+    <g transform="translate(0 121)">
+      <path class="t" style="stroke-width:4" d="M-14 -121 L-12 -103 M14 -121 L12 -103"/>
+      <path class="t" style="stroke:#c9a35a;stroke-width:1.8" d="M-14 -121 L-12 -103 M14 -121 L12 -103"/>
+      <circle class="o" fill="#b98a1c" cx="0" cy="-76" r="30"/>
+      <circle class="o" style="stroke-width:1.6" fill="#d9a826" cx="0" cy="-76" r="24.5"/>
+      <circle class="n" fill="#e6b422" cx="0" cy="-76" r="17"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f0c53a" cx="0" cy="-76" r="8"/>
+      <path fill="none" stroke="#fff6c8" stroke-width="2" stroke-linecap="round" d="M-19.6 -86 Q-16 -95.6 -6 -98.6"/>
+      <path fill="none" stroke="#fffbe0" stroke-width="1.6" stroke-linecap="round" d="M-4.4 -79.4 Q-2.6 -82.4 1 -82.6"/>
+      <circle class="n" fill="#2b1b16" cx="-12" cy="-102" r="1.5"/>
+      <circle class="n" fill="#2b1b16" cx="12" cy="-102" r="1.5"/>
+    </g>
+  </g>
+
+  <!-- The sound of it. Joints in the middle of the gong. -->
+  <g id="ring_a" transform="translate(0 -76)">
+    <path class="t" style="stroke-width:4.4" d="M-36 -14 Q-42 0 -36 14 M-44 -19 Q-52 0 -44 19"/>
+    <path fill="none" stroke="#ffd21f" stroke-width="2.2" stroke-linecap="round" d="M-36 -14 Q-42 0 -36 14 M-44 -19 Q-52 0 -44 19"/>
+  </g>
+  <g id="ring_b" transform="translate(0 -76)">
+    <path class="t" style="stroke-width:4.4" d="M36 -14 Q42 0 36 14 M44 -19 Q52 0 44 19"/>
+    <path fill="none" stroke="#ffd21f" stroke-width="2.2" stroke-linecap="round" d="M36 -14 Q42 0 36 14 M44 -19 Q52 0 44 19"/>
+  </g>
+
+  <!-- A colleague who has stood next to this thing every working day for thirty years. Joint at his feet. -->
+  <g id="wincer" transform="translate(76 -12)">
+    <g transform="translate(-76 12)">
+      <path class="o" style="stroke-width:2" fill="#1d1a1c" d="M66 -16 L74.6 -16 L74.6 -12 L62 -12 Q62 -15.6 66 -16 Z M77.6 -16 L86 -16 Q90 -15.6 90 -12 L77.6 -12 Z"/>
+      <path class="o" fill="#4a5568" d="M68 -50 L84.6 -50 L86 -16 L77.6 -16 L76.4 -40 L75 -16 L66.6 -16 Z"/>
+      <path class="o" fill="#5d6b80" d="M66 -47 Q64 -66 67 -76 Q69.6 -81 76 -81 Q82.6 -81 85.2 -76 Q88.4 -66 86.4 -47 Z"/>
+      <path fill="none" stroke="#8496b0" stroke-width="0.9" stroke-linecap="round" d="M69.6 -74 L69 -49 M73.4 -62 L73.2 -49 M79 -62 L79.2 -49 M83 -74 L83.6 -49"/>
+      <path class="k" fill="#fffdf5" d="M72.6 -80.6 L79.6 -80.6 L76 -68 Z"/>
+      <path class="k" fill="#2f9e9a" d="M75 -79.6 L77.2 -79.6 L77.6 -71.6 L76 -69.6 L74.6 -71.6 Z"/>
+      <circle class="k" fill="#f0c53a" cx="81.6" cy="-72" r="1.9"/>
+      <rect class="o" style="stroke-width:1.8" fill="#dba27f" x="73.2" y="-85.6" width="5.8" height="6" rx="1.5"/>
+      <ellipse class="o" style="stroke-width:2.2" fill="#efc09a" cx="76" cy="-94.6" rx="9.8" ry="10.6"/>
+      <path class="o" style="stroke-width:1.8" fill="#6b4a35" d="M66.4 -95 Q65.2 -106.6 76 -106.4 Q86.8 -106.6 85.6 -95 Q82 -101 76 -101 Q70 -101 66.4 -95 Z"/>
+      <!-- eyes screwed shut, teeth together -->
+      <path class="t" style="stroke-width:1.5" d="M69.6 -96.4 L73.4 -94.8 L69.8 -93.4 M82.4 -96.4 L78.6 -94.8 L82.2 -93.4"/>
+      <path class="k" style="stroke-width:1.1" fill="#fffdf5" d="M71.6 -89.6 Q76 -91.6 80.4 -89.6 L80 -86.8 Q76 -85.6 72 -86.8 Z"/>
+      <path class="t" style="stroke-width:0.9" d="M73.8 -90.2 L74 -86.4 M76 -90.6 L76 -86.2 M78.2 -90.2 L78 -86.4"/>
+      <!-- a finger in each ear -->
+      <path class="o" style="stroke-width:2" fill="#5d6b80" d="M66.6 -78 Q60 -78.6 58 -84 L60 -93 L65.6 -92.4 L64.6 -86 Q66 -84.4 69 -84.6 Z"/>
+      <path class="o" style="stroke-width:2" fill="#5d6b80" d="M85.4 -78 Q92 -78.6 94 -84 L92 -93 L86.4 -92.4 L87.4 -86 Q86 -84.4 83 -84.6 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="63.4" cy="-94.6" r="3.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="88.6" cy="-94.6" r="3.6"/>
+    </g>
+  </g>
+
+  <!-- The beursbode who gets to do it: uniform coat, brass buttons. Joint at his feet. -->
+  <g id="striker" transform="translate(-76 -12)">
+    <g transform="translate(76 12)">
+      <path class="o" style="stroke-width:2" fill="#1d1a1c" d="M-84 -16 L-75 -16 Q-69.6 -15.6 -69 -12.8 L-69 -12 L-84 -12 Z M-74 -16 L-66 -16 Q-60.6 -15.6 -60 -12.8 L-60 -12 L-74 -12 Z"/>
+      <path class="o" fill="#1c2947" d="M-84 -42 L-66 -42 L-65.4 -16 L-73.6 -16 L-75 -34 L-76.4 -16 L-84.6 -16 Z"/>
+      <path class="o" fill="#26365c" d="M-87 -34 Q-89.6 -62 -86 -76 Q-83.4 -82 -76 -82 Q-68.6 -82 -66 -76 Q-62.6 -60 -63.6 -34 Z"/>
+      <path class="t" style="stroke:#141f3a;stroke-width:1.3" d="M-70.6 -80 Q-68 -58 -68.6 -35"/>
+      <circle class="k" fill="#f0c53a" cx="-73.6" cy="-72" r="1.7"/>
+      <circle class="k" fill="#f0c53a" cx="-73" cy="-62" r="1.7"/>
+      <circle class="k" fill="#f0c53a" cx="-73" cy="-52" r="1.7"/>
+      <circle class="k" fill="#f0c53a" cx="-73.2" cy="-42" r="1.7"/>
+      <path class="k" fill="#e6b422" d="M-82 -81.4 L-70.4 -81.4 L-70.4 -78.4 L-82 -78.4 Z"/>
+    </g>
+  </g>
+
+  <!-- Both arms and the mallet. As drawn, it has just landed. Joint at his shoulder. Drawn before his head, so the swing passes behind his face. -->
+  <g id="mallet" data-parent="striker" transform="translate(-72 -76)">
+    <g transform="translate(72 76)">
+      <path class="t" style="stroke-width:5.6" d="M-56 -72.4 L-18 -76.4"/>
+      <path fill="none" stroke="#a8743f" stroke-width="3" stroke-linecap="round" d="M-56 -72.4 L-18 -76.4"/>
+      <circle class="o" fill="#d9342b" cx="-11" cy="-77" r="9"/>
+      <path class="n" fill="#ff7a70" d="M-16.6 -80.6 Q-14.6 -84.6 -10 -84.4 Q-13.6 -82.6 -14.6 -78.4 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M-18.6 -73 Q-11 -68.4 -3.4 -73"/>
+      <path class="o" style="stroke-width:2" fill="#26365c" d="M-77 -79.6 Q-72 -83 -68 -79 L-50.6 -77.6 L-50 -70 L-70 -68.6 Q-76.6 -70 -77 -79.6 Z"/>
+      <path class="k" fill="#e6b422" d="M-53.6 -77.9 L-50.6 -77.7 L-50 -69.9 L-53 -69.7 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="-47" cy="-73.6" r="4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#efc09a" cx="-40.6" cy="-74.2" r="3.8"/>
+    </g>
+  </g>
+
+  <g id="striker_head" data-parent="striker" transform="translate(-75 -82)">
+    <g transform="translate(75 82)">
+      <rect class="o" style="stroke-width:1.8" fill="#dba27f" x="-78.4" y="-86.6" width="6" height="6" rx="1.5"/>
+      <ellipse class="o" style="stroke-width:2.2" fill="#efc09a" cx="-74" cy="-95" rx="10" ry="10.6"/>
+      <path class="o" style="stroke-width:1.6" fill="#f4f1ea" d="M-83.6 -93 Q-85 -86 -79.4 -85.6 Q-78.6 -90 -80.6 -94 Z"/>
+      <path class="o" style="stroke-width:1.5" fill="#efc09a" d="M-64.6 -97 Q-59.6 -94.4 -64.4 -91.6"/>
+      <circle class="n" fill="#2b1b16" cx="-68.4" cy="-97" r="1.25"/>
+      <path class="t" style="stroke-width:1.3" d="M-71.4 -100.6 L-66.4 -100"/>
+      <path class="o" style="stroke-width:1.5" fill="#f4f1ea" d="M-72.6 -91.6 Q-67 -94.4 -62.4 -90.6 Q-62.6 -87.4 -66.6 -88 Q-70.6 -86.6 -72.6 -91.6 Z"/>
+    </g>
+  </g>
+
+  <!-- His cap. It leaves his head for a moment at every stroke. Joint where it sits. -->
+  <g id="cap" data-parent="striker_head" transform="translate(-75 -103)">
+    <g transform="translate(75 103)">
+      <path class="o" style="stroke-width:2" fill="#26365c" d="M-84.6 -102 Q-86.6 -111.6 -75 -112 Q-63 -112.4 -63.6 -103.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#e6b422" d="M-84.6 -102.4 L-63.6 -104 L-63.4 -101 L-84.2 -99.2 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#1d1a1c" d="M-65 -103.4 Q-57.6 -103 -56.4 -100.2 Q-61 -99.4 -64.8 -100.6 Z"/>
+    </g>
+  </g>
+
+  <!-- Price slips, thrown in the air because that is what you do. -->
+  <g id="slip_a" transform="translate(-34 -134)">
+    <path class="k" fill="#ff9ec4" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(-18)"/>
+    <path fill="none" stroke="#c9588a" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(-18)"/>
+  </g>
+  <g id="slip_b" transform="translate(30 -140)">
+    <path class="k" fill="#ffe066" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(14)"/>
+    <path fill="none" stroke="#b98a1c" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(14)"/>
+  </g>
+  <g id="slip_c" transform="translate(60 -122)">
+    <path class="k" fill="#9fd3f2" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(-30)"/>
+    <path fill="none" stroke="#4a8ab8" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(-30)"/>
+  </g>
+  <g id="slip_d" transform="translate(-8 -142)">
+    <path class="k" fill="#a8e6b0" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(34)"/>
+    <path fill="none" stroke="#3f9b57" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(34)"/>
+  </g>
+  <g id="slip_e" transform="translate(-62 -124)">
+    <path class="k" fill="#ffe066" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(8)"/>
+    <path fill="none" stroke="#b98a1c" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(8)"/>
+  </g>
+  <g id="slip_f" transform="translate(88 -132)">
+    <path class="k" fill="#ff9ec4" d="M-5 -3.6 L5 -3.6 L5 3.6 L-5 3.6 Z" transform="rotate(-10)"/>
+    <path fill="none" stroke="#c9588a" stroke-width="0.9" stroke-linecap="round" d="M-3 -1 L2.6 -1 M-3 1.2 L1 1.2" transform="rotate(-10)"/>
+  </g>
+</svg>

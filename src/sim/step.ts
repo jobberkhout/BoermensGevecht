@@ -17,8 +17,8 @@ import { turretDef, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit } from './lane.ts';
-import { kraanDicht, overtimeLevel, unitDamagePercent } from './overtime.ts';
-import { advanceBarrages, advanceWaves } from './specials.ts';
+import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
+import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
   BASE,
@@ -115,6 +115,7 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
     act: 'walk',
     actTick: 0,
     stunUntil: 0,
+    turncoat: false,
   };
   me.units.push(unit);
   events.push({ t: 'spawn', side, id: unit.id, def: def.id });
@@ -205,6 +206,7 @@ function strike(
       src: u.id,
       row: u.row,
       slot: -1,
+      aim: -1,
     });
     return;
   }
@@ -223,14 +225,20 @@ function strike(
 
 function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events: SimEvent[]): void {
   const turrets = s.sides[side].turrets;
+  // A unit that draws fire is what every turret in reach aims at, wherever it
+  // stands in the enemy's ranks. With several of them, the foremost.
+  const rod = frontUnit(s.sides[other(side)].units.filter((u) => unitDef(u.def).drawsFire));
+  // Deep into overtime turrets are worn out and stay silent.
+  const worn = turretDamagePercent(s.tick);
   for (let slot = 0; slot < turrets.length; slot++) {
     const t = turrets[slot];
     if (!t) continue;
     if (t.cd > 0) t.cd--;
-    if (t.cd > 0 || !foeFront) continue;
+    if (t.cd > 0 || !foeFront || worn <= 0) continue;
     const def = turretDef(t.def);
     const range = turretRange(def, t.level);
-    const dist = LANE - foeFront.pos;
+    const target = rod && LANE - rod.pos <= range ? rod : foeFront;
+    const dist = LANE - target.pos;
     if (dist > range) continue;
     t.cd = def.cooldown;
     s.shots.push({
@@ -242,13 +250,14 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
       dist0: Math.max(dist, 1),
       limit: range + SHOT_SLACK,
       speed: def.shot.speed,
-      dmg: turretDamage(def, t.level),
+      dmg: Math.floor((turretDamage(def, t.level) * worn) / 100),
       rig: def.shot.rig,
       arc: def.shot.arc,
       spin: def.shot.spin,
       src: -1,
-      row: foeFront.row,
+      row: target.row,
       slot,
+      aim: target === rod ? target.id : -1,
     });
     events.push({ t: 'turretFire', side, slot });
   }
@@ -299,12 +308,15 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
     shot.prevPos = shot.pos;
     shot.pos += shot.speed;
     const foe = other(shot.side);
-    const front = frontUnit(s.sides[foe].units);
+    const units = s.sides[foe].units;
+    // The first body a shot meets is the enemy's foremost unit. Only a turret's
+    // shot that was drawn to a unit flies on to that unit, for as long as it is there.
+    const drawn = shot.aim >= 0 ? units.find((u) => u.id === shot.aim) : undefined;
+    const front = drawn ?? frontUnit(units);
     const reach = Math.min(shot.pos, shot.limit);
     if (front) {
-      // The first body a shot meets is always the enemy's foremost unit.
       if (LANE - reach - front.pos <= 0) {
-        dmg.push({ side: foe, unit: front.id, amount: shot.dmg });
+        dmg.push({ side: foe, unit: front.id, amount: shot.dmg, turret: shot.slot >= 0 });
         continue;
       }
     } else if (reach >= LANE) {
@@ -321,9 +333,9 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
 function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   if (s.tick < OVERTIME.at) return;
   if (s.tick === OVERTIME.at) events.push({ t: 'overtime' });
-  // The harder hitting itself happens where units strike; this only announces each step.
+  // The harder hitting happens where units strike and the wearing out where turrets fire; this only announces each step.
   if ((s.tick - OVERTIME.at) % OVERTIME.every === 0) {
-    events.push({ t: 'escalate', level: overtimeLevel(s.tick), percent: unitDamagePercent(s.tick) - 100 });
+    events.push({ t: 'escalate', level: overtimeLevel(s.tick), percent: unitDamagePercent(s.tick) - 100, turrets: turretDamagePercent(s.tick) });
   }
   if (s.tick < OVERTIME.crumbleAt) return;
   if (s.tick === OVERTIME.crumbleAt) events.push({ t: 'crumble' });
@@ -335,8 +347,14 @@ function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
 }
 
 function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
+  /** Per side, the units it loses to a takeover this tick. */
+  const sold: [number[], number[]] = [[], []];
   for (const d of dmg) {
     const target = s.sides[d.side];
+    if (d.bought) {
+      sold[d.side].push(d.unit);
+      continue;
+    }
     if (d.unit === BASE) {
       target.baseHp -= d.amount; // may dip below zero for a moment; settled below
       events.push({ t: 'baseHit', side: d.side, amount: d.amount });
@@ -344,6 +362,14 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     }
     const u = target.units.find((x) => x.id === d.unit);
     if (!u) continue;
+    const share = d.turret ? unitDef(u.def).turretPercent : 100;
+    if (share < 100) {
+      // A turret's shot on a unit that shrugs turrets off: most of it bounces away.
+      const amount = Math.floor((d.amount * share) / 100);
+      u.hp -= amount;
+      events.push({ t: 'glance', side: d.side, id: u.id, amount, pos: u.pos });
+      continue;
+    }
     u.hp -= d.amount;
     events.push({ t: 'hit', side: d.side, id: u.id, amount: d.amount, pos: u.pos });
   }
@@ -368,6 +394,8 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     }
     me.units = alive;
   }
+  // Whoever was bought and is still standing changes sides now.
+  if (sold[0].length > 0 || sold[1].length > 0) applyTakeovers(s, sold, events);
 
   // If both bases fall on the same tick, the one that was hit harder loses.
   const hp = [s.sides[0].baseHp, s.sides[1].baseHp] as const;

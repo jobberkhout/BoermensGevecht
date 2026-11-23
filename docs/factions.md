@@ -1,17 +1,22 @@
 # Faction blueprint
 
 Seven new factions for Boermens Gevecht, written out far enough that drawing can start the day one is
-approved. **Nothing in this document is built yet.** It is a plan to pick from and to change.
+approved. The groundwork for more factions is built and the first of the seven, De Zuidas, nearly so; the
+other six are a plan to pick from and to change. How to build one, step by step, is in
+[`new-faction.md`](new-faction.md).
 
 | Faction | In one line | State |
 |---|---|---|
-| [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | Concept, waiting for approval |
+| [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Nearly built**: rules, texts and 27 of 29 drawings. Missing: De brandkast (1975) and the animations of De Gouden Handdruk |
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates | Concept, waiting for approval |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
+
+Parked for later, outside these seven: **the voetbalvader** and the amateur football club on a Saturday
+morning, as a faction of its own.
 
 ## How to use this
 
@@ -32,12 +37,19 @@ A faction is the same size as the two that exist, so that any two can play each 
 | Light unit: fast, cheap, melee | 1, with five animations |
 | Ranged unit and what it throws | 2 |
 | Heavy unit: slow, tough, hits everything in reach | 1 |
+| Fourth unit, the answer to turrets: the schild in 1975 and 2025, the super unit in 2050 | 1 |
 | Turret: a scene of two or three people, and what it throws | 2 |
 | Special: its drawing on the field | 1 |
 | Base | 1 |
 
-That is eight drawings per era, twenty-four in all. On top of that come the **super unit** of 2050, the
-**flag** and the faction's half of the **backdrop**: **27 drawings per faction**.
+That is nine drawings per era, twenty-seven in all. On top of that come the **flag** and the faction's
+half of the **backdrop**: **29 drawings per faction**.
+
+**The schild** was added on 22 November 2026, after turrets turned out to decide matches by themselves:
+someone behind something big. Every enemy turret that can reach it fires at it, wherever it stands in the
+ranks, and their shots do it very little, so for as long as it stands the army around it is safe from
+turrets. Against units it is a pushover. In 2050 the super unit does the same job. The drawing has to say
+"nothing gets through here" at a glance, and its hit animation is a "ting", not pain.
 
 Besides the drawings a faction needs words: a name and a one-line description for everything that can be
 bought, a handful of lines to shout when walking out and to mutter when beaten (per era), a name for its
@@ -46,6 +58,9 @@ money, a line for when it wins, and the line its super unit says when an enemy s
 **Numbers.** A faction brings no numbers of its own. Price, hit points, damage, speed and build time come
 from the role and the era, the same for everyone (`src/defs/balance.ts`). Factions differ in looks, in
 what they throw, and in their three specials.
+
+**Tone.** It is satire, in small jokes: a detail in a drawing, a line a unit mutters, a name. Nobody is
+lectured and nothing is rubbed in.
 
 **Rules for what goes in**, the same as so far:
 
@@ -56,52 +71,71 @@ what they throw, and in their three specials.
 - Nothing about real tragedies or scandals in which people were hurt.
 - No lettering unless it is drawn as shapes and survives being mirrored. Symbols beat words.
 
-## What the game needs first
+## The groundwork (done)
 
-These are one-off jobs. They come before the third faction and are not repeated for the fourth.
+These were one-off jobs before a third faction could exist. They are built, and not repeated for the next.
 
-1. **Choosing sides.** Today the match is always Amsterdam against the Achterhoek, fixed in code. The title
-   screen needs a step in which each player picks a faction with their own keys. Any pair can meet,
-   including a faction against itself.
-2. **Either side of the screen.** Every drawing faces right and is mirrored for the right-hand player. That
-   already works, and parts with lettering already flip back. What is new is that Amsterdam can now stand
-   on the right and the Achterhoek on the left, so the existing drawings need one check in mirror image.
-3. **A backdrop per faction.** Today there is one painted backdrop: canal houses on the left that fade into
-   fields on the right. Each faction will bring its own half, and the two halves in play are joined in the
-   middle under one sky. The existing backdrop gets cut into an Amsterdam half and an Achterhoek half.
-4. **One sheet per faction.** Colours, flag, the name of the money and all the lines now sit in three
-   different files, with the two factions written out by hand. They move into one entry per faction.
-5. **New kinds of special.** Six kinds exist. The seven factions below need five more; see the next section.
-6. **Tests and bots for any pair.** The fairness tests and the bot tournament assume the one fixed match-up.
-   They need to run over every pair. The drawing checks already pick up new art by themselves.
+1. **Choosing sides.** On the title card each player steps through the factions with two of their own
+   keys (A and D on the left, J and L on the right) or with the arrows on screen. Any pair can meet,
+   including a faction against itself. Escape goes back to the title card after a match or from pause.
+2. **Either side of the screen.** Every drawing faces right and is mirrored for the right-hand player;
+   parts with lettering flip back. Amsterdam on the right and the Achterhoek on the left were checked in
+   staged battles through all three eras.
+3. **A backdrop per faction.** `art/scenery/sky.svg` is the sky every match shares. Each faction brings
+   its own half of the land, `art/<faction>/backdrop.svg`, drawn for the left side. The game mirrors the
+   right-hand one and fades the two into each other across the middle.
+4. **One sheet per faction.** `src/defs/<faction>.ts` holds its drawings, colours, flag, backdrop, how it
+   sounds and its three specials. `src/ui/factions/<faction>.ts` holds every word it says and is called.
+5. **New kinds of special.** Convert is built, for De Zuidas. The other four come with the factions that
+   use them; see the next section.
+6. **Tests and bots for any pair.** The fairness tests run over every faction, `npm run balance` takes any
+   two factions or `--pairs` for all of them, and `npm run shots -- battle <left> <right>` stages a battle
+   between any two.
 
-The single file `BoermensGevecht.html` grows by roughly 240 kB per faction (it is 475 kB with two). With
-all nine factions it would be a little over 2 MB, which is still fine to send around.
+**What adding a faction takes now**
+
+1. The drawings: 27 for the three eras, the flag in `art/flags/`, and the backdrop.
+2. `src/defs/<faction>.ts`: which drawing is which unit, per era, and the three specials.
+3. `src/ui/factions/<faction>.ts`: names, one-line descriptions, lines, the name of its money, its win line.
+4. One line each in `src/defs/types.ts` (the id), `src/defs/index.ts` (the list the players step through)
+   and `src/ui/nl.ts` (the table of texts).
+
+The tests then say what is still missing: a drawing, an animation, a name, a line.
+
+The single file `BoermensGevecht.html` grows by roughly 240 kB per faction. With all nine factions it
+would be a little over 2 MB, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Six kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Seven kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
-| Wave | Sweeps the lane and hits every enemy unit once | Trekkerkolonne |
+| Wave | Sweeps the lane and hits every enemy unit once | Trekkerkolonne, Flitskrach |
 | Stun | Enemy units can neither walk nor fight for a few seconds | Wegblokkade |
-| Buff | Own units hit harder and move faster for a few seconds | Høken! |
+| Buff | Own units hit harder and move faster for a few seconds | Høken!, De gong |
 | Heal | Own units on the lane are patched up | Love-in |
 | Barrage | Repeated blows on the foremost enemy unit, or the base | Dronezwerm |
 | Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
+| Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
 
-New kinds this plan asks for:
+**Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
+side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
+the row with the most room there. It costs nothing but the special and pays no bounty. A super unit
+cannot be bought. If the unit is beaten on the very tick it is bought, the deal is off. Two takeovers on
+the same tick make the two units swap sides, whoever pressed first.
+
+New kinds the rest of this plan asks for:
 
 | Kind | What it does | First used by |
 |---|---|---|
-| Convert | The toughest enemy unit changes sides where it stands, with the hit points it has left | De Zuidas: Vijandige overname |
 | Summon | A crowd of weak units pours out of your gate at once, outside the queue, and goes home after a while | De Toeristen: Cruiseschip legt aan |
 | Slow | Enemy units crawl for a few seconds; they can still fight | De Camping: Zwarte Zaterdag |
 | Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
 
-As with the existing specials, the super units of 2050 shrug all of these off.
+As with the existing specials, the super units of 2050 shrug all of these off. The schild does not: it
+can be cancelled, glued down, run over and bought like any other unit.
 
 The twenty-one specials at a glance:
 
@@ -174,6 +208,7 @@ the canals, and ends up in the cloud.
 | Ranged | `de_hoekman` | De hoekman | Stands in his corner and makes the price. Throws needle-sharp pencils | humanoid |
 | His projectile | `shot_potlood` | | A pencil with a coloured price slip stuck on it | static |
 | Heavy | `directiewagen` | De directiewagen | A long black saloon with a chauffeur in a cap. The director sits in the back behind a cloud of cigar smoke | vehicle |
+| Schild | `de_brandkast` | De brandkast | A cashier in a dustcoat pushing a safe on a sack truck. Turrets aim at it and hear only "tink". When he wheels it home the door hangs open and it is empty | humanoid |
 | Turret | `turret_societeit` | De Sociëteit | Two members in leather armchairs playing toepen, and a waiter in tails. They flick cards | static |
 | Its projectile | `shot_speelkaart` | | A playing card, spinning | static |
 | Special | `special_gong` | De gong | The gong that opens trading, and a rain of price slips. See below | static |
@@ -190,13 +225,15 @@ seconds.
 | Ranged | `mr_declarabel` | Mr. Declarabel | A lawyer in gown and bands. Every six minutes are billable, and every invoice leaves as a paper plane | humanoid |
 | His projectile | `shot_factuur` | | An invoice folded into a plane | static |
 | Heavy | `leasebak` | De Leasebak | A fat electric car with a ski box on the roof. The partner inside is on a call | vehicle |
+| Schild | `de_disclaimer` | De Disclaimer | A compliance officer behind a wall of fine print, with an asterisk. No rights can be derived from turrets | humanoid |
 | Turret | `turret_vrijmibo` | De Vrijmibo | Three colleagues on the roof terrace on a Friday afternoon. They lob bitterballen that are still far too hot | static |
 | Its projectile | `shot_bitterbal` | | A steaming bitterbal on a cocktail stick | static |
 | Special | `special_overname` | Vijandige overname | A giant rubber stamp, a lanyard and a blue jacket. See below | static |
 | Base | `base` | | Het Spiegelpaleis: a glass tower with a revolving door and a roof terrace, behind a builder's fence that never goes away | static |
 
-Special, **Vijandige overname** (convert): the toughest enemy unit on the lane is bought. It gets a lanyard
-and a blue jacket, turns round where it stands and fights for you with the hit points it has left.
+Special, **Vijandige overname** (convert): the toughest enemy unit on the lane is bought. A stamp comes
+down on it, it turns round where it stands and fights for you with the hit points it has left. From then
+on it wears a keycord in your colours over its head. It still mutters in its own dialect when it is beaten.
 
 **2050: in the cloud**
 
@@ -272,7 +309,10 @@ that is pure party.
 - "Houdoe" is the everyday Brabant goodbye, not a carnival cry. It is now what a beaten unit says.
 - The polonaise is not done everywhere: Bergen op Zoom and Venlo refuse it. One purist in the faction
   mutters "Doen we hier niet."
-- Brabant and Limburg celebrate differently and people there mind the difference (see the open question).
+- Brabant and Limburg celebrate differently and people there mind the difference. **Decided: the faction
+  mixes them anyway.** To the rest of the country it is all the same carnival, and that they mind is the
+  joke. It stays a small joke: a kiel next to Limburg colours, a worstenbroodje next to a nonnevot, and now
+  and then a unit that mutters about it.
 
 **1975: karnaval, with a K**
 
@@ -282,6 +322,7 @@ that is pure party.
 | Ranged | `sousafonist` | De Sousafonist | Blows oompah and confetti out of the bell | humanoid |
 | His projectile | `shot_hoempa` | | A fat note trailing confetti | static |
 | Heavy | `praalwagen` | De Praalwagen | A farm tractor pulling a papier-mâché float with a giant nodding jester's head | vehicle |
+| Schild | `de_grote_trom` | De Grote Trom | The bass drummer of the hofkapel, drum first. Every shot is one more boom, in time | humanoid |
 | Turret | `turret_pronkzitting` | De Pronkzitting | A tonprater in his barrel between two council members in feathered hats, behind a table of beer mugs | static |
 | Its projectile | `shot_bierviltje` | | A beer mat, spinning | static |
 | Special | `special_polonaise` | De Polonaise | A conga line of revellers, hands on shoulders. See below | free |
@@ -297,6 +338,7 @@ Special, **De Polonaise** (wave): the line sweeps the whole lane and bumps every
 | Ranged | `confettischutter` | De Confettischutter | Emblem jacket, ski goggles, a confetti cannon under the arm | humanoid |
 | Their projectile | `shot_confetti` | | A burst of confetti and one serpentine | static |
 | Heavy | `zuipwagen` | De Zuipwagen | A closed box of loudspeakers behind an enormous tractor, with the compulsory fence around it | vehicle |
+| Schild | `verkeersregelaar` | De Verkeersregelaar | A volunteer in an orange vest carrying a crowd barrier. He did the online course and takes it very seriously | humanoid |
 | Turret | `turret_vipdeck` | Het VIP-deck | Two guests with wristbands and a bouncer, on the raised deck of the tent. They throw drink tokens | static |
 | Its projectile | `shot_munt` | | A consumptiemunt | static |
 | Special | `special_kanonschoten` | Elf Kanonschoten | A row of confetti cannons. See below | static |
@@ -324,8 +366,8 @@ Special, **De Kater** (slow): the morning after. Enemy units crawl for eight sec
 
 | Era | Walking out | Beaten |
 |---|---|---|
-| 1975 | "Alaaf!" · "D'n Elfde van d'n Elfde!" · "Vastelaovend!" · "Wa trekte aon?" | "Houdoe!" · "Zund!" · "Zoepe is zoepe." · "Doen we hier niet." |
-| 2025 | "Alaaf!" · "Salaai!" · "Koekwaus!" · "Bovensloter!" | "Houdoe!" · "Zund!" · "De tent is vol." · "Hieringe biete." |
+| 1975 | "Alaaf!" · "D'n Elfde van d'n Elfde!" · "Vastelaovend!" · "Wa trekte aon?" | "Houdoe!" · "Zund!" · "Dat is Limburgs!" · "Doen we hier niet." |
+| 2025 | "Alaaf!" · "Salaai!" · "Koekwaus!" · "Bovensloter!" | "Houdoe!" · "Zund!" · "De tent is vol." · "Dat is Brabants!" |
 | 2050 | "Alaaf!" · "Sjoenkelen!" · "Agge mar leut et!" · "Tijdslot elf uur elf!" | "Houdoe!" · "Accu leeg. Zund!" · "Hieringe biete." · "Zoepe is zoepe." |
 
 **Stay away from**
@@ -341,9 +383,6 @@ Special, **De Kater** (slow): the morning after. Enemy units crawl for eight sec
 
 **Open questions**
 
-- **One south or two?** Mixing Brabant and Limburg in one town is exactly what people there will tell you
-  is wrong. Two ways out: make Hossegat proudly Brabants (kiel, worstenbroodje, the pub) and keep Limburg
-  for a later skin, or mix on purpose and let the units bicker about it. Which do you want?
 - The banana suit mocks visitors from the north, which is to say most of the people who will play this.
   I think that is the joke. Agreed?
 
@@ -391,6 +430,7 @@ Fryslân: proud, stubborn, and still waiting for ice. The teasing here is the ki
 | Ranged | `opslagger` | De Opslagger | A kaatser in whites who serves small hard balls | humanoid |
 | His projectile | `shot_keatsbal` | | A kaatsbal | static |
 | Heavy | `melkrijder` | De Melkrijder | A flat cart piled with milk churns that roll off like bowling balls | vehicle |
+| Schild | `baanveger_bauke` | Baanveger Bauke | Pushes a wide wooden snow scraper ahead of him, sweeping a track that is not frozen yet | humanoid |
 | Turret | `turret_leugenbank` | De Leugenbank | Three old men in caps on the liars' bench, each one sure he finished in '63. They flick dúmkes from a biscuit tin | static |
 | Its projectile | `shot_dumke` | | A thumb-sized biscuit | static |
 | Special | `special_winter63` | De winter van '63 | Pake starts telling, and the blizzard of the last tocht comes back. See below | static |
@@ -407,6 +447,7 @@ seconds; they can still fight.
 | Ranged | `bakker_tjitske` | Bakker Tjitske | Lobs loaves of sûkerbôle, sticky with sugar | humanoid |
 | Her projectile | `shot_sukerbole` | | A sugar loaf | static |
 | Heavy | `skutsje` | It Skûtsje | A racing barge on a boat trailer. The crew hangs over the high side and the leeboard slams down | vehicle |
+| Schild | `koek_en_zopie` | Beppe's Koek-en-zopie | Beppe behind her stall on runners, striped awning and all. What is thrown at her lands in the pea soup | humanoid |
 | Turret | `turret_brugwachter` | De Brugwachter | A bridge keeper on a raised drawbridge who swings the toll clog on its rod, with two anglers beside him | static |
 | Its projectile | `shot_klompje` | | The little clog that collects the bridge toll | static |
 | Special | `special_it_giet_oan` | It giet oan! | A man in a fur hat says the words, and a crowd of tour skaters comes through. See below | free |
@@ -454,9 +495,9 @@ five seconds.
 
 **Open questions**
 
-- **The Frisian needs a Frisian.** The spellings were checked against Frisian and Dutch sources, but four
-  lines ("Fryslân boppe!", "It giet net oan.", "Blinder!", "It Sweefskûtsje") are my own or unverified.
-  Before this faction ships, someone who speaks the language should read every line.
+- The spellings were checked against Frisian and Dutch sources, but four lines ("Fryslân boppe!", "It
+  giet net oan.", "Blinder!", "It Sweefskûtsje") are my own or unverified. **Decided: no proofreading by a
+  native speaker.** The faction ships with the lines as they are.
 - **The super unit.** De Grutte nods at the legend without naming anyone. The alternative from the
   research is Mega-Mem, a colossal robot cow on her own hovering roundabout, which is funnier but close
   to the Achterhoek's robot cow. Which one?
@@ -499,6 +540,7 @@ verdiend, in Amsterdam wordt het uitgegeven."
 | Ranged | `sjaak_de_sjouwer` | Sjaak de Sjouwer | Carries a sack on each shoulder and hurls them one at a time | humanoid |
 | His projectile | `shot_baal` | | A jute sack | static |
 | Heavy | `straddle_carrier` | De Straddle Carrier | One of the first, tall on its legs with a single container underneath, dripping oil | vehicle |
+| Schild | `lasser_leen` | Lasser Leen | A shipyard welder, mask down, carrying the steel plate he was about to weld. Shots only make sparks | humanoid |
 | Turret | `turret_schaft` | De Schaft | Three dock workers on a stack of crates during their break. They throw their lunch tins | static |
 | Its projectile | `shot_broodtrommel` | | A dented lunch tin | static |
 | Special | `special_mouwen` | Mouwen opstropen! | A giant pair of rolled-up sleeves over the quay. See below | static |
@@ -514,6 +556,7 @@ Special, **Mouwen opstropen!** (buff): own units hit harder and move faster for 
 | Ranged | `kapsalonkoerier` | De Kapsalonkoerier | A delivery rider with an insulated bag who flings aluminium trays | humanoid |
 | Their projectile | `shot_kapsalon` | | A tray trailing garlic sauce | static |
 | Heavy | `agv` | De AGV | A driverless container carrier. Its "driver" rides along on top, at a desk with a joystick and a coffee | vehicle |
+| Schild | `bouwvakker_ben` | Bouwvakker Ben | Yellow helmet, a formwork panel on his shoulder, a permit stapled to it. The city is never finished, so he is always on his way somewhere | humanoid |
 | Turret | `turret_kubuswoning` | De Kubuswoning | A tilted cube house. Everything in it slides, so the people who live there throw the furniture out | static |
 | Its projectile | `shot_stoel` | | A kitchen chair | static |
 | Special | `special_container` | De container | A sea container on a crane hook. See below | static |
@@ -611,6 +654,7 @@ visitor, never nationalities: no flags, no accents, no football shirts.
 | Ranged | `flitsblokje_fien` | Flitsblokje-Fien | Sun hat, camera on a neck strap. Blinds you with the flash and then throws the spent cube | humanoid |
 | Her projectile | `shot_flitsblokje` | | A flash cube | static |
 | Heavy | `touringcar` | De Touringcar | Nine countries in seven days. A guide with a pennant leans out of the door | vehicle |
+| Schild | `plattegrond_paula` | Plattegrond-Paula | Lost behind a fold-out city map the size of a tablecloth. Shots tear holes in it, which she does not notice | humanoid |
 | Turret | `turret_parkslapers` | De Parkslapers | Three in sleeping bags under a no-sleeping sign. They throw their sandals without getting up | static |
 | Its projectile | `shot_sandaal` | | A sandal | static |
 | Special | `special_dia_avond` | De Dia-avond | A slide projector the size of a house and a screen full of holiday pictures. See below | static |
@@ -626,6 +670,7 @@ Special, **De Dia-avond** (stun): everyone on the enemy side nods off for five s
 | Ranged | `selfiestick_steve` | Selfiestick-Steve | Looks at his phone on a stick, never at you, and throws stroopwafels like frisbees | humanoid |
 | His projectile | `shot_stroopwafel` | | A stroopwafel, spinning | static |
 | Heavy | `bierfiets` | De Bierfiets | A party in matching outfits pedalling a bar. It carries its own no-entry sign | vehicle |
+| Schild | `paraplu_pam` | Paraplu-Pam | The guide of the free walking tour, bright umbrella held out in front so the group can follow. Everything bounces off it | humanoid |
 | Turret | `turret_hyperij` | De Hype-rij | Three people behind a rope and a queue manager. They throw fries and never leave the queue | static |
 | Its projectile | `shot_friet` | | A paper cone of fries | static |
 | Special | `special_cruiseschip` | Cruiseschip legt aan | A ship taller than the base slides in behind it. See below | static |
@@ -711,6 +756,7 @@ bureaucracy, not about politics. There is no minister, no party and no policy in
 | Ranged | `commies_cor` | Commies Cor | A clerk of the rank that really existed until the eighties. Sends every form off three at a time | humanoid |
 | His projectile | `shot_drievoud` | | Three sheets fanned out, the carbon copies trailing | static |
 | Heavy | `het_kastje` | Het Kastje | A steel filing cabinet on castors, pushed by two caretakers in dust coats. Its drawers shoot out to punch | vehicle |
+| Schild | `de_portier` | De Portier | The doorman, who has brought his glass lodge along. When something comes his way he slides the hatch shut | humanoid |
 | Turret | `turret_loket7` | Loket 7 | Three behind one counter: one eats a sandwich under a lunch sign, one stamps, one smokes. The shutter keeps dropping | static |
 | Its projectile | `shot_stempel` | | A rubber stamp, spinning, leaving a red ring | static |
 | Special | `special_inspraak` | Inspraakavond | Folding chairs, a squealing microphone, a slide projector. See below | static |
@@ -727,6 +773,7 @@ units on the lane wait three seconds while everybody has their say.
 | Ranged | `beleidsmedewerker_bert` | Beleidsmedewerker Bert | Laptop under one arm. "Schiet een vergadering in je agenda" | humanoid |
 | His projectile | `shot_uitnodiging` | | A calendar block with a little bell | static |
 | Heavy | `ict_project` | Het ICT-project | A half-built machine in scaffolding with hired consultants on top. It smokes, blinks red and arrives late | vehicle |
+| Schild | `de_zwartlakker` | De Zwartlakker | Carries a released document the size of a door, blacked out almost completely, and a fat marker for whatever is still legible | humanoid |
 | Turret | `turret_flexplek` | De Flexplek | Two colleagues fight over the one free desk; a third joins in on a screen. They throw headsets | static |
 | Its projectile | `shot_headset` | | A headset, cord flapping | static |
 | Special | `special_overleg` | Het Overleg | A meeting table with a flip-over that drops onto the lane. See below | static |
@@ -808,8 +855,8 @@ The Netherlands on holiday: the caravan, the awning, and the neighbour who knows
 **Corrections the research made to my first sketch**
 
 - **The voetbalvader is not a camping cliché.** Every source places him on the Saturday sideline of the
-  amateur football club. He stays, as the dad who takes the camp-site tournament far too seriously, but
-  he is no longer the face of the faction (see the open question).
+  amateur football club. **Decided: he is out of this faction** and kept as an idea of his own, for a
+  football-club faction one day. His place is taken by Oma Pieper.
 - The skottelbraai only turns up in Dutch camping vocabulary around 2000. It is the turret of 2025, not of 1975.
 - The word "sleurhut" dates from the early nineties. It is fine as the name of a unit, but nobody says it
   in a 1975 speech balloon.
@@ -824,6 +871,7 @@ The Netherlands on holiday: the caravan, the awning, and the neighbour who knows
 | Ranged | `boulesopa` | De Jeu-de-boulesopa | Measures first, with a folding rule, then throws a ball from the plastic set | humanoid |
 | His projectile | `shot_boule` | | A boule | static |
 | Heavy | `sleurhut` | De Sleurhut | A small round car, bulging, with suitcases on a sagging roof rack, an egg-shaped caravan behind it and a steaming radiator | vehicle |
+| Schild | `windschermzetter` | De Windschermzetter | Walks behind a striped windbreak on wooden poles, looking for the one spot out of the wind | humanoid |
 | Turret | `turret_bermtoeristen` | De Bermtoeristen | A family at a folding table in the verge of the motorway. They throw the eggs they were frying | static |
 | Its projectile | `shot_spiegelei` | | A fried egg | static |
 | Special | `special_zwarte_zaterdag` | Zwarte Zaterdag | Heat shimmer and a wall of caravans that barely moves. See below | vehicle |
@@ -837,9 +885,10 @@ they can still fight.
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
 | Light | `wc_rolsprinter` | De Wc-rolsprinter | Campingsmoking, bath slippers, the roll under one arm and the phone held up for a signal. Swats with a wet towel | humanoid |
-| Ranged | `voetbalvader` | De Voetbalvader | On the sideline of the camp-site tournament. Shouts at the referee and kicks every ball back in | humanoid |
-| His projectile | `shot_voetbal` | | A football | static |
+| Ranged | `oma_pieper` | Oma Pieper | Brought ten kilos of potatoes from home, because you never know what they eat there. Lobs them underhand | humanoid |
+| Her projectile | `shot_pieper` | | A potato | static |
 | Heavy | `witte_muur` | De Witte Muur | A motorhome the size of a bus with a satellite dish and two e-bikes on the back. It blocks everyone's view | vehicle |
+| Schild | `luchtbedsjouwer` | De Luchtbedsjouwer | An air bed held upright, the foot pump under one arm. Every shot goes "pfff"; beaten, he carries it home deflated | humanoid |
 | Turret | `turret_skottelbraai` | De Skottelbraai | Dad with the tongs, mum with the hot-air fryer, and the campingburgemeester giving advice. They throw speklapjes | static |
 | Its projectile | `shot_speklap` | | A sizzling slice of pork belly | static |
 | Special | `special_stil` | Na tienen is het stil! | The campingburgemeester in his dressing gown with a torch. See below | static |
@@ -869,8 +918,8 @@ Special, **De Minidisco** (buff): everybody joins in. Own units hit harder and m
 | Era | Walking out | Beaten |
 |---|---|---|
 | 1975 | "Staat ie een beetje waterpas?" · "Die scheerlijn moet strakker, buurman!" · "Kom maar, kom maar… HO!" · "Ligt je tentluier wel goed, buurman?" | "Kamperen is creperen." · "Nooit nat inpakken!" · "Wachten tot het ophoudt." · "Als de binnentent maar droog blijft." |
-| 2025 | "Schiet 'm erin!" · "Scheids, kijk eens uit je doppen!" · "Na tienen is het hier stil!" · "Heeft iemand wifi?" | "Tot volgend jaar, buurman!" · "Zijn we er al?" · "De stoppen zijn eruit." · "Kamperen is creperen." |
-| 2050 | "Kom maar, kom maar… HO!" · "Hij parkeert zichzelf!" · "Staat ie waterpas?" · "Schiet 'm erin!" | "Lek." · "Accu leeg." · "Tot volgend jaar, buurman!" · "Zijn we er al?" |
+| 2025 | "Na tienen is het hier stil!" · "Heeft iemand wifi?" · "Die scheerlijn moet strakker, buurman!" · "Staat ie een beetje waterpas?" | "Tot volgend jaar, buurman!" · "Zijn we er al?" · "De stoppen zijn eruit." · "Kamperen is creperen." |
+| 2050 | "Kom maar, kom maar… HO!" · "Hij parkeert zichzelf!" · "Staat ie waterpas?" · "Na tienen is het hier stil!" | "Lek." · "Accu leeg." · "Tot volgend jaar, buurman!" · "Zijn we er al?" |
 
 **Stay away from**
 
@@ -879,15 +928,11 @@ Special, **De Minidisco** (buff): everybody joins in. Own units hit harder and m
 - "Airfryer", which is a brand name: it is a heteluchtfriteuse.
 - Television programmes about camping and their presenters, a word for a certain kind of family that
   comes from a real one, and a well-known cabaret joke about lying crooked.
-- Accidents. The voetbalvader only shouts, boules never explode, and there are no crashes, gas bottles
-  or wildfires.
+- Accidents. Boules never explode, and there are no crashes, gas bottles or wildfires.
 - Jokes about caravan dwellers, and the joke about what other countries make of the NL sticker.
 
 **Open questions**
 
-- **Where does the voetbalvader belong?** He is in as the ranged unit of 2025. If you would rather keep
-  him for a faction of his own one day (the amateur football club on a Saturday morning is a world in
-  itself), the 2025 ranged unit becomes Oma Pieper, who lobs the potatoes she brought from home.
 - "Skottelbraai" began as a product name. The word is in general use on Dutch camp sites, but if you want
   to be safe the turret can be called De Braaischotel.
 
@@ -897,17 +942,17 @@ A faction is built the way the two new eras were: three drawing jobs side by sid
 the super unit, the flag and the backdrop; then the wiring, my own check of every drawing and of a staged
 battle, and one pull request per faction.
 
-1. **The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.
+1. ~~**The groundwork**, once: choosing sides, the backdrop halves, the faction sheet, tests for any pair.~~ Done.
 2. **De Zuidas.** Your own idea, and the sharpest contrast with both factions that exist. It brings the
-   first new kind of special, the convert.
+   first new kind of special, the convert. Nearly done: two drawings to go.
 3. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
 4. **Rotterdam.** Amsterdam's rival, with the container as the block.
 5. **De Toeristen.** The summon and the lockout.
 6. **De Camping.**
 7. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
-8. **De Friezen**, once someone who speaks Frisian has read the lines.
+8. **De Friezen.**
 
-Any other order works. Only the groundwork has to come first.
+Any other order works.
 
 ## Sources
 
