@@ -19,6 +19,12 @@ are a plan to pick from and to change. How to build one, step by step, is in
 Parked for later, outside these eight: **the voetbalvader** and the amateur football club on a Saturday
 morning, as a faction of its own.
 
+Also parked: **De Dynastie**, the owner's idea of 23 November 2026 for the Chinese-Dutch community: three
+generations of one family that has run its business in a Dutch town since 1975, a big word for something
+everyday, as Havermelk Elite is. The owner chose the name and turned down names that boil the community
+down to a takeaway menu (Babi Pangang, De Afhaalchinees, Extra Kroepoek, Nummer 37) as racist and not
+funny. One community, not "Asian" as a whole. It needs the research De Gasten had before it gets a brief.
+
 ## How to use this
 
 - **Approving** a faction means: its section below becomes the brief. The names, the jokes and the list of
