@@ -1104,7 +1104,7 @@ running joke is exactly that: the plan to go back.
 | Money | spaargeld |
 | Colours | Tea amber, mint green, the blue of a tiled wall, and the white of a wedding ribbon |
 | Flag | A tile-blue field with a golden tea glass on a saucer and a white wedding ribbon across the corner: the flag of the street, of no country. No crescent, no star, no national red |
-| Names | What they are in the family and on the street: De Nachtploeg, De Tolk, De Gastvrouw, De Blijver |
+| Names | What they are in the family and on the street: De Nachtploeg, De Tolk, De Gastvrouw, De Dönerbaas |
 | When it wins | "De Gasten winnen! Blijf je eten?" |
 | Super unit shrugs off a special with | "Volgend jaar." |
 
@@ -1153,7 +1153,8 @@ back." His grandson: "I feel Dutch."
 | Het Pension | Too many men to a room, and the night-shift alarm | The boarding houses in the workers' own accounts (NOS); the alarm clock is mine | both |
 | Eerst thee, Het Theeterras | Tea for everyone | Drawn as what it is; hospitality from El Ahmadi and Yildirim | both, each its own tea |
 | De Gastvrouw, "Eet eerst wat!", "Blijf je eten?" | You get food, whether you came for it or not | Soundos El Ahmadi | Moroccan-Dutch |
-| De Blijver, "Ik ga zo, nog één ding." | Goodbye takes an hour at the door | The community list | Moroccan-Dutch |
+| De Gastvrouw's slipper | Her weapon | **The owner's decision** (23 November 2026). My research found it only in an anonymous forum list; here she swats enemy units with it, never a child | Moroccan-Dutch |
+| De Dönerbaas, "Met alles?" | The man at the spit | **The owner's decision** (23 November 2026). Döner is Turkish; when it reached Dutch streets is not sourced | Turkish-Dutch |
 | De Feestzaal, De Toeterstoet, De Trouwfilmer | 650 guests; honk so everyone knows; the family watches the film | VPRO; Yerden; Laroussi | Turkish-Dutch, and the convoy both |
 | De Kapperszaak, De Kapbot | Come for the talk | Barbers in the Brussels Times; Omroep Brabant | Turkish-Dutch |
 | Nee is nee | The mother's no | Mothers as their children play them: Nasrdin Dchar, *Meskina*. The look itself is mine | both |
@@ -1165,8 +1166,9 @@ back." His grandson: "I feel Dutch."
 
 - **Shoarma is not theirs.** The first shoarma shops in the Netherlands were opened by Israelis, and most
   were taken over by Egyptians within ten years (Onze Taal, 1988). The Dutch kind is mostly pork. "Shoarma
-  Sadim" is out. Döner is Turkish, but no source says when it reached Dutch streets, so it is left out
-  too. The kapsalon (Rotterdam, 2003) is in the Rotterdam brief and belongs to neither community.
+  Sadim" is out. Döner is Turkish, but no source says when it reached Dutch streets, so I left it out;
+  the owner put it back (23 November 2026) as De Dönerbaas, the ranged unit of 2025. The kapsalon
+  (Rotterdam, 2003) is in the Rotterdam brief and belongs to neither community.
 - **The word "gastarbeider"** was made up around 1965 by a press-agency journalist who translated the
   German *Gastarbeiter* because it fitted a headline. The workers themselves objected even then: they did
   not feel like guests (Onze Taal, 1971). Hence the name question.
@@ -1183,7 +1185,8 @@ back." His grandson: "I feel Dutch."
   Hague. Parents choose it after the Prophet, so the joke rests on a religious name, and no inside source
   jokes about it. The owner chose Mo-Tron. See question 3.
 - **Left out because only outsiders tell it**, or nobody does: the mother's flying slipper (found only in
-  an anonymous forum list, and it is a parent hitting a child), the cousin who can fix anything, sunflower
+  an anonymous forum list, and it is a parent hitting a child; the owner later gave De Gastvrouw a slipper
+  to swat enemy units with), the cousin who can fix anything, sunflower
   seeds, the bakery, backgammon in the coffee house (the one 1976 drawing of a Turkish coffee house in The
   Hague is framed as the workers' hopelessness), the aunts' WhatsApp group (found only in Germany), and the
   wedding gold, the henna night and the bride's palanquin (found only in wedding-industry sources).
@@ -1209,9 +1212,9 @@ the lane is patched up.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `de_blijver` | De Blijver | A guest at the front door with one arm in his coat, an hour into saying goodbye: "Ik ga zo, nog één ding." Swats with the other sleeve | humanoid |
-| Ranged | `de_gastvrouw` | De Gastvrouw | Apron, sleeves rolled up, a stack of msemen on one arm. Nobody leaves her house hungry, whether they came to eat or not. Throws them flat, spinning | humanoid |
-| Her projectile | `shot_msemen` | | A square folded pancake, spinning | static |
+| Light | `de_gastvrouw` | De Gastvrouw | Apron, sleeves rolled up, a stack of msemen on one arm. Nobody leaves her house hungry, whether they came to eat or not. Swats with a house slipper | humanoid |
+| Ranged | `donerbaas` | De Dönerbaas | White shirt and apron, the long döner knife held upright. Cuts from the spit all day: "Met alles?" Throws pita breads | humanoid |
+| His projectile | `shot_pita` | | A round pita bread, flat and spinning | static |
 | Heavy | `fatbike` | De Fatbike | **A rider: cheap and fast, it rides through the enemy ranks and hits everything it passes. See below.** Fifteen, tyres as fat as a sofa cushion, a phone in one hand, a crossbody bag, a helmet hanging from his elbow | vehicle |
 | Schild | `de_trouwfilmer` | De Trouwfilmer | The wedding cameraman behind a light panel the size of a door. Turrets bounce off the panel; he keeps filming, because the family will watch every minute of it | humanoid |
 | Turret | `turret_kapperszaak` | De Kapperszaak | The barber and two men on the waiting bench, who came for the talk more than for the cut. They throw hot towels | static |
@@ -1220,7 +1223,7 @@ the lane is patched up.
 | Base | `base` | | De Feestzaal: a wedding hall for 650 with fairy lights along the gutter, a red carpet at the door and a row of decorated cars waiting outside | static |
 
 Special, **De Toeterstoet** (stun): a wedding convoy comes past, honking so that everyone knows. Enemy units
-stop and watch it go by: for four seconds they can neither walk nor fight. The cars carry ribbons and
+stop and watch it go by: for five seconds they can neither walk nor fight. The cars carry ribbons and
 balloons in the faction's colours, never a national flag.
 
 **2050: de achterkleinkinderen.** Mine, extrapolated from the jokes above; none of it is sourced.
@@ -1264,7 +1267,7 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
 - **Riding through.** It passes its own units without touching them. Every enemy unit on its way that does
   not draw turret fire (light, ranged, heavy, of any era) it rides straight through, and the two trade one
   blow: the unit takes the rider's ram damage, and the rider takes one blow of the unit's own damage, ready
-  or not. It does not slow down. A unit the rider beats earns the rider's side its bounty and vooruitgang,
+  or not (a stunned unit cannot). It does not slow down. A unit the rider beats earns the rider's side its bounty and vooruitgang,
   as any kill does. So a crowd wears it down, and with only a few enemies on the lane it gets through.
 - **What else can hit it on the way.** Enemy turrets. A turret that can reach a rider fires at it before
   anything else, because it is the thing going for the base, and its shots hit it at full strength.
@@ -1334,7 +1337,7 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 | Era | Walking out | Beaten |
 |---|---|---|
 | 1975 | "Twee jaar, dan terug!" · "Nachtdienst!" · "Eerst thee." · "Ik schrijf het op." | "Volgend jaar terug." · "De koffer staat klaar." · "Mijn rug." · "Even naar huis bellen." |
-| 2025 | "Eet eerst wat!" · "Ik ga zo, nog één ding." · "Iedereen moet het zien!" · "Ik rij maar vijfentwintig, echt!" · "Wat kijk je?" | "Neem wat mee voor onderweg." · "Mijn band is lek." · "Wie filmt dit?" · "Volgend jaar terug." |
+| 2025 | "Eet eerst wat!" · "Met alles?" · "Iedereen moet het zien!" · "Volgend jaar terug!"; the fatbike kid only: "Ik rij maar vijfentwintig, echt!" · "Wat kijk je?" | "Neem wat mee voor onderweg." · "Wie filmt dit?" · "Volgend jaar terug." · "Knoflooksaus op."; the fatbike kid only: "Mijn band is lek." |
 | 2050 | "Veertig minuten naar het zuiden!" · "Eerst de prijzen vergelijken." · "Blijf je eten?" · "Volgend jaar terug!" | "Volgend jaar." · "Accu leeg." · "Mijn notitieboekje!" · "Eerst thee." |
 
 **Flag and backdrop**
@@ -1359,8 +1362,8 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 - Real shops, wedding halls, barbershops and ferry lines, and every car brand: no badge, no three-pointed
   star, no blue oval.
 - Real national flags, crescents and stars, as the faction's flag or on the cars.
-- The mother's slipper, and smacks of any kind.
-- Shoarma and the kapsalon, which are not theirs. The 1972 riots in the Rotterdam Afrikaanderwijk, which
+- Smacks of any kind, apart from De Gastvrouw's slipper on enemy units, which the owner decided on.
+- Shoarma and the kapsalon, which are not theirs (döner is in, as the owner decided). The 1972 riots in the Rotterdam Afrikaanderwijk, which
   the history of the boarding houses leads to. Bribes at borders, which turn up in the stories of the drive.
 - The angry street kid in general. "Wat kijk je?" is in, as the owner decided, but only from the fatbike
   kid and only as cheek: never with a threat behind it, never from anyone else.
@@ -1391,6 +1394,11 @@ name, the fatbike's rule, its line and the super unit's name. Five of the six qu
 6. **A reader from the inside.** Still open, and the owner's to decide: before the build, let someone with
    a Turkish-Dutch or Moroccan-Dutch family read this section, the lines and the stay-away list. With
    "Wat kijk je?" and Mo-Tron in, this is where such a reading counts most.
+7. **The light and ranged units of 2025.** Changed by the owner during the build (23 November 2026):
+   De Blijver, the guest who takes an hour to say goodbye, is out ("de blijver seems a bit racist"),
+   since the word can be read as the immigrant who stayed. De Gastvrouw becomes the light unit and swats
+   with a slipper; the new ranged unit is De Dönerbaas, who throws pita breads. The barbershop stays the
+   turret.
 
 ## Suggested order
 

@@ -57,6 +57,8 @@ describe('temperament', () => {
 
         expect(era.units.map((u) => u.role), era.id).toEqual(['light', 'ranged', 'heavy', shared.super ? 'super' : 'shield']);
         for (const unit of era.units) {
+          // A rider has numbers of its own (RIDER), tested in tests/rider.test.ts.
+          if (unit.rider) continue;
           const base = shared[unit.role]!;
           const twist = faction.temper[unit.role] ?? {};
           for (const stat of TWISTABLE) {

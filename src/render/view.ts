@@ -7,6 +7,7 @@ import type { UnitDef } from '../defs/types.ts';
 import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
 import { frontUnit } from '../sim/lane.ts';
+import { RIDER_ROW } from '../sim/riders.ts';
 import { BASE, SIDES, other, type Side, type SimEvent, type SimState, type Unit } from '../sim/types.ts';
 import { NL, linesFor, nameOf } from '../ui/nl.ts';
 import { BAND_SPOT, dirOf, laneX, purseSpot, rowScale, rowY, TURRET_SCALE, TURRET_SPOTS } from './layout.ts';
@@ -356,6 +357,29 @@ export class BattleView {
           this.baseFlash[e.side] = 1;
           this.shake = Math.min(6, this.shake + 1.2);
           break;
+        case 'rammed': {
+          // The fatbike goes straight through someone: a puff where they stood.
+          const x = laneX(e.side, e.pos);
+          this.puffs.push({ x, y: rowY(RIDER_ROW) - 50, age: 0, life: 0.25, color: '#fff7d6', size: 22 });
+          this.shake = Math.min(6, this.shake + 0.8);
+          break;
+        }
+        case 'crashed': {
+          // Into a door: a big bang, and that is the end of the ride.
+          const x = laneX(e.side, e.pos);
+          this.puffs.push({ x, y: rowY(RIDER_ROW) - 60, age: 0, life: 0.4, color: '#ffffff', size: 44 });
+          this.puffs.push({ x, y: rowY(RIDER_ROW) - 40, age: -0.05, life: 0.35, color: '#c9822b', size: 26 });
+          this.shake = Math.min(8, this.shake + 3);
+          break;
+        }
+        case 'arrived': {
+          // Straight into the enemy base.
+          const x = GATE_X[other(e.side)];
+          this.puffs.push({ x, y: rowY(RIDER_ROW) - 70, age: 0, life: 0.45, color: '#ffffff', size: 56 });
+          this.puffs.push({ x, y: rowY(RIDER_ROW) - 50, age: -0.06, life: 0.4, color: '#ffd21f', size: 30 });
+          this.shake = Math.min(9, this.shake + 4);
+          break;
+        }
         case 'turretFire': {
           const t = this.turrets[e.side][e.slot];
           if (t) t.fired = 0;
@@ -615,7 +639,9 @@ export class BattleView {
   private updateUnits(s: SimState, alpha: number, dt: number): void {
     const seen = new Set<number>();
     for (const side of SIDES) {
-      for (const u of s.sides[side].units) {
+      // A rider is drawn like a unit that is always on the move.
+      const riders = s.sides[side].riders.map((r): Unit => ({ ...r, act: 'walk', actTick: 0, stunUntil: 0, turncoat: false }));
+      for (const u of [...s.sides[side].units, ...riders]) {
         seen.add(u.id);
         const def = unitDef(u.def);
         const px = (u.prevPos + (u.pos - u.prevPos) * alpha) / SUB;

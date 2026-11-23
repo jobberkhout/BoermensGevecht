@@ -300,6 +300,45 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
   drawsFire: true,
 };
 
+/**
+ * A rider: the fatbike of De Gasten, which takes the heavy slot of 2025. It is
+ * not a unit in the ranks. It rides through every enemy unit on its way,
+ * hitting each once and taking one blow back from each, and goes for the
+ * enemy base. A schild stops it and both go down; a super unit stops it and
+ * walks on. Turrets fire at it before anything else. Enemy specials do not
+ * touch it. One per side on the lane at a time, outside the unit cap.
+ * The owner's rule of 23 November 2026, in docs/factions.md, section 8.
+ *
+ * Starting numbers, to be fitted with `npm run balance -- --mix`: half the
+ * price of a heavy of its era, the hit points of a light unit, and fast enough
+ * to cross the lane in about four seconds.
+ */
+export const RIDER = {
+  cost: 230,
+  buildTicks: sec(4),
+  hp: 288,
+  speed: pxPerSec(330),
+  len: px(160),
+  /** What every enemy unit it rides through takes, and a super unit it crashes into. */
+  ram: 130,
+  /** What the enemy base takes when it gets there. */
+  baseDmg: 500,
+} as const;
+
+/** A rider as a unit definition's numbers. Reach and blow timing are a light unit's, unused: it never stops to fight. */
+export const RIDER_STATS: RoleStats = {
+  cost: RIDER.cost,
+  buildTicks: RIDER.buildTicks,
+  hp: RIDER.hp,
+  speed: RIDER.speed,
+  len: RIDER.len,
+  range: FIRST.light.range,
+  dmg: RIDER.ram,
+  windup: FIRST.light.windup,
+  recover: FIRST.light.recover,
+  bounty: Math.round((RIDER.cost * BOUNTY_PERCENT) / 100),
+};
+
 function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
   const cost = Math.round(base.cost * s.price);
   return {
@@ -431,4 +470,10 @@ export const SPECIAL = {
    * and whatever outrage is left over goes to the next toughest, and so on.
    */
   algoritme: { dmg: 4500 },
+  /** 1975, De Gasten: eerst thee. Every own unit on the lane is patched up. The same kind of trick as the love-in, with the same numbers. */
+  thee: { healPercent: 100 },
+  /** 2025, De Gasten: a wedding convoy honks past and the enemy stops to watch. The same kind of trick as the blokkade, with the same numbers. */
+  toeterstoet: { ticks: sec(5) },
+  /** 2050, De Gasten: one look and one "no", from the toughest enemy unit on. The same kind of trick as the algorithm, with the same numbers. */
+  neeIsNee: { dmg: 4500 },
 } as const;

@@ -251,6 +251,7 @@ export class Game {
         this.sound.hit();
         break;
       case 'glance':
+      case 'crashed':
         this.sound.clang();
         break;
       case 'defeat':

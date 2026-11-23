@@ -22,6 +22,12 @@ const BUY: Record<Role, Command> = {
   shield: FOURTH,
   super: FOURTH,
 };
+/**
+ * A bot sends a rider only when the enemy has at most this many units on the lane. Sent
+ * into every crowd and every schild, as at first, they fed the enemy so much bounty and
+ * vooruitgang that De Gasten won one match in five against Amsterdam and the farmers.
+ */
+const RIDER_GAP = 5;
 const TURRET: Command = { t: 'turret' };
 const SPECIAL: Command = { t: 'special' };
 const ERA_UP: Command = { t: 'eraUp' };
@@ -146,13 +152,27 @@ export function brain(style: Style): Bot {
     }
 
     // Turrets on the other side: one schild goes along with the army to take their fire.
+    // A schild is also the door that stops a rider, so against a side that can send one it keeps one out too.
     const schild = eraOf(me.faction, me.era).units[3];
-    if (style.shields && schild?.role === 'shield' && foe.turrets.some((t) => t !== null) && mine >= 2) {
+    const riders = foe.riders.length > 0 || eraOf(foe.faction, foe.era).units.some((u) => u.rider);
+    if (style.shields && schild?.role === 'shield' && (foe.turrets.some((t) => t !== null) || riders) && mine >= 2) {
       const out = me.units.some((u) => u.def === schild.id) || me.queue.some((q) => q.def === schild.id);
       if (!out && canDo(s, side, BUY.shield)) return BUY.shield;
     }
 
-    const cmd = tryCmd(s, side, BUY[style.units[bought % style.units.length]!]);
+    const role = style.units[bought % style.units.length]!;
+    // A rider is sent when it can get through: no door on the lane to crash into, and only a few
+    // enemies to ride past. Otherwise it is skipped this round, as a person would. One at a time.
+    const def = eraOf(me.faction, me.era).units.find((u) => u.role === role);
+    if (def?.rider) {
+      const waiting = me.riders.length > 0 || me.queue.some((q) => unitDef(q.def).rider);
+      const door = foe.units.some((u) => unitDef(u.def).drawsFire);
+      if (waiting || door || foe.units.length > RIDER_GAP) {
+        bought++;
+        return null;
+      }
+    }
+    const cmd = tryCmd(s, side, BUY[role]);
     if (cmd) bought++;
     return cmd;
   };

@@ -14,6 +14,7 @@ function createSide(faction: FactionId): SideState {
     baseHp: era.baseHp,
     baseMaxHp: era.baseHp,
     units: [],
+    riders: [],
     queue: [],
     turrets: new Array<null>(TURRET_SLOTS).fill(null),
     specialReadyAt: era.special.firstReady,
