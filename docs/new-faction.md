@@ -56,7 +56,8 @@ These were agreed with the owner and are not up for reinterpretation.
 - **No jokes about where someone comes from.** The regions may be teased the way they tease
   themselves. A faction about people's background carries only the jokes that community makes about
   itself, told with affection; its brief names the inside source of each one, and nothing goes in that
-  the brief does not source. That goes for the lines and the details in the drawings as well.
+  the brief does not source or mark as the owner's decision. That goes for the lines and the details in
+  the drawings as well.
 - **Nothing about real tragedies or scandals** in which people were hurt.
 - **No lettering in drawings.** The right-hand player's drawings are mirrored, so words would read
   backwards. Use symbols. If a word cannot be avoided, draw the letters as paths inside a part with

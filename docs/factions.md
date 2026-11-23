@@ -14,7 +14,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
-| [De Gastheren](#8-de-gastheren) | Three generations, from the factory floor to the wedding hall | Brief, waiting for the owner's reading |
+| [De Gastheren](#8-de-gastheren) | Three generations, from the factory floor to the wedding hall | Brief, read and changed by the owner; waiting to be merged |
 
 Parked for later, outside these eight: **the voetbalvader** and the amateur football club on a Saturday
 morning, as a faction of its own.
@@ -73,7 +73,8 @@ lectured and nothing is rubbed in.
   themselves. A faction about people's background, such as section 8, carries only the jokes that
   community makes about itself, in its own comedy, books, films and family stories, told with affection,
   and its brief names the inside source of each one. A joke that can only be sourced from outsiders does
-  not go in. The tourists are types of visitor, never nationalities.
+  not go in, unless the owner decides to keep it after reading why; the brief then marks it as the
+  owner's decision. The tourists are types of visitor, never nationalities.
 - Nothing about real tragedies or scandals in which people were hurt.
 - No lettering unless it is drawn as shapes and survives being mirrored. Symbols beat words.
 
@@ -227,8 +228,9 @@ without becoming a different game, as a starting point for whoever writes the ne
 | cannot be hit by ranged units, only in melee | a low, quick unit | a flag the shots respect |
 | earns money while it lives | a unit that brings in a little every second | income per unit, on top of the subsidie |
 
-The first one asked for is the owner's own: the fatbike of section 8, a rider that passes the ranks, goes
-for the base and is stopped only by a door. Its rule is written out there.
+The first one asked for is the owner's own: the fatbike of section 8, a cheap rider that rides through
+the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a door. Its rule is
+written out there.
 
 Two things to hold on to when one of these is built: it must keep working mirrored (both players press on
 the same tick, seats swapped, same outcome), and a unit's blurb on the title card must say in plain words
@@ -1073,12 +1075,13 @@ fathers work night shifts in the metal works and the textile mills, "for two or 
 their children and grandchildren, born here, run the barbershop, throw a wedding for 650 and ride a
 fatbike. In 2050 the great-grandchildren still say that next year they are going back.
 
-The owner's idea, of 23 November 2026, and their working title was **De Gastarbeiders**; the name is the
-first open question below. This is the first faction about where people's families come from rather than
-a region, a trade or a way of life, so the bar is higher. The rule "no jokes about where someone comes
+The owner's idea, of 23 November 2026, and their working title was **De Gastarbeiders**; the name became
+De Gastheren (question 1 below). This is the first faction about where people's families come from rather
+than a region, a trade or a way of life, so the bar is higher. The rule "no jokes about where someone comes
 from" is kept and applied: **only jokes the two communities make about themselves**, in their own films,
 theatre, books and community talk, told with affection. The table further down names the inside source
-of every joke. What could only be sourced from outsiders was left out, and is listed as such.
+of every joke. What could only be sourced from outsiders was left out, and is listed as such, with one
+exception the owner decided on: the fatbike kid's "Wat kijk je?", marked as such in the table.
 
 **Two communities, not one.** Turkish-Dutch and Moroccan-Dutch families have their own languages, food,
 music and weddings, and would mind being drawn as one. The faction keeps them apart unit by unit: each
@@ -1149,7 +1152,8 @@ back." His grandson: "I feel Dutch."
 | De Kapperszaak, De Kapbot | Come for the talk | Barbers in the Brussels Times; Omroep Brabant | Turkish-Dutch |
 | Nee is nee | The mother's no | Mothers as their children play them: Nasrdin Dchar, *Meskina*. The look itself is mine | both |
 | De Fatbike | Not a background joke at all | Every Dutch teenager; see the rule | the grandson |
-| Mega-Opa | The worker of 1975 never stopped | Mine, built on the plan to go back | Turkish-Dutch |
+| "Wat kijk je?" | The fatbike kid's cheek | **The owner's decision**, as a well-known line. My research found no inside source for it, only the outsiders' angry street kid. Here the fatbike kid says it, who belongs to no background: cheek, never a threat | the grandson |
+| Mo-Tron | The worker of 1975 never stopped | The owner's name, softened from MohammedTron; the robot is mine, built on the plan to go back | both: "Mo" is what the street calls him |
 
 **Corrections the research made to the owner's sketch**
 
@@ -1164,13 +1168,14 @@ back." His grandson: "I feel Dutch."
   Velsen to Enschede, and the debate is about speed, tuning, helmets and age. In this faction that is the
   joke: the grandson of the man with the suitcase rides what every Dutch fifteen-year-old rides.
 - **"Wat kijk je?"** could not be found anywhere as a joke the community makes about itself. It turns up
-  as the outsiders' picture of the angry street kid, which this section stays away from. See open question 2.
+  as the outsiders' picture of the angry street kid, which this section stays away from. The owner kept
+  it, as a well-known line, for the fatbike kid only. See question 2.
 - **Honking after football** has no inside source, and the reporting on it is mostly about unrest. The
-  convoy is a wedding convoy. See open question 4.
+  convoy is a wedding convoy. See question 4.
 - **"MohammedTron".** Mohammed is the commonest boys' name only when all its spellings are counted
   together (NOS); the popular-name lists put Noah first nationally and Adam first in Amsterdam and The
   Hague. Parents choose it after the Prophet, so the joke rests on a religious name, and no inside source
-  jokes about it. See open question 3.
+  jokes about it. The owner chose Mo-Tron. See question 3.
 - **Left out because only outsiders tell it**, or nobody does: the mother's flying slipper (found only in
   an anonymous forum list, and it is a parent hitting a child), the cousin who can fix anything, sunflower
   seeds, the bakery, backgammon in the coffee house (the one 1976 drawing of a Turkish coffee house in The
@@ -1201,7 +1206,7 @@ the lane is patched up.
 | Light | `de_blijver` | De Blijver | A guest at the front door with one arm in his coat, an hour into saying goodbye: "Ik ga zo, nog één ding." Swats with the other sleeve | humanoid |
 | Ranged | `de_gastvrouw` | De Gastvrouw | Apron, sleeves rolled up, a stack of msemen on one arm. Nobody leaves her house hungry, whether they came to eat or not. Throws them flat, spinning | humanoid |
 | Her projectile | `shot_msemen` | | A square folded pancake, spinning | static |
-| Heavy | `fatbike` | De Fatbike | **A rider: the first unit that does something of its own. See below.** Fifteen, tyres as fat as a sofa cushion, a phone in one hand, a crossbody bag, a helmet hanging from his elbow | vehicle |
+| Heavy | `fatbike` | De Fatbike | **A rider: cheap and fast, it rides through the enemy ranks and hits everything it passes. See below.** Fifteen, tyres as fat as a sofa cushion, a phone in one hand, a crossbody bag, a helmet hanging from his elbow | vehicle |
 | Schild | `de_trouwfilmer` | De Trouwfilmer | The wedding cameraman behind a light panel the size of a door. Turrets bounce off the panel; he keeps filming, because the family will watch every minute of it | humanoid |
 | Turret | `turret_kapperszaak` | De Kapperszaak | The barber and two men on the waiting bench, who came for the talk more than for the cut. They throw hot towels | static |
 | Its projectile | `shot_handdoek` | | A rolled hot towel, steaming | static |
@@ -1224,7 +1229,7 @@ balloons in the faction's colours, never a national flag.
 | Its projectile | `shot_suikerklontje` | | A sugar cube | static |
 | Special | `special_nee_is_nee` | Nee is nee | A mother's face fills the sky, with one raised eyebrow. See below | static |
 | Base | `base` | | Het Familiehuis: a tall narrow house with a floor for every generation and a packed car parked on the roof, ready for next year | static |
-| **Super unit** | `mega_opa` | Mega-Opa (name: open question 3) | The night-shift worker of 1975, now a great-grandfather in a colossal walking robot. A roof rack on his shoulders, the calendar on his chest, still crossing off the days | free |
+| **Super unit** | `mo_tron` | Mo-Tron | Mo, the night-shift worker of 1975, now a great-grandfather in a colossal walking robot. A roof rack on his shoulders, the calendar on his chest, still crossing off the days | free |
 
 Special, **Nee is nee** (snipe): one look and one "no", and the toughest enemy unit on the lane shrinks
 back; whatever is left of the look goes to the next toughest. The mother is never seen hitting anyone.
@@ -1233,9 +1238,14 @@ back; whatever is left of the look goes to the next toughest. The mother is neve
 
 The owner's idea, in their words: "dure zeer snelle unit die overal doorheen raast ... en tegen de base
 aanrijdt (soort base attack unit, wel duur) deuren houden deze tegen ook, daar kan die niet doorheen
-fietsen." It takes the **heavy slot of 2025**: the dearest ordinary unit, which is what "duurste unit"
-reads as, and the slot where a different kind of unit changes the most. In 1975 and 2050 the heavy unit
-is an ordinary one.
+fietsen." After reading the first version of this rule, the owner changed it (23 November 2026): "I would
+let the fatbike damage the units it rides through (so same lane). It can be stopped with shields, both
+killing the fatbike and the shielder. It still should gain rewards. It should be cheaper than the other
+fatties, like half ... but low hp and it can be attacked and killed before it reaches the base. It should
+have the HP of a light unit or something, so that it can be killed, it does damage when failed and when
+there are little number of enemies it can blast the base. It cannot go through the super unit." It takes
+the **heavy slot of 2025**, at about half a heavy's price. In 1975 and 2050 the heavy unit is an ordinary
+one.
 
 Why it cannot simply be a fast unit: nothing in the ranks may pass the enemy's front line, so a unit that
 rides through the enemy army is not a unit in the ranks. It is a **rider**: a traveller of its own on the
@@ -1245,50 +1255,60 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
   is trained it does not join the ranks: it leaves the gate as a rider. Only one rider per side is on the
   lane at a time; a second one waits at the gate, trained, until the first is gone. It does not count
   towards the ten units a side may have on the lane.
-- **What it rides past.** Everything except a door: its own units, and every enemy unit that does not draw
-  turret fire (light, ranged, heavy). They do not stop it and do not hit it; it is past before anyone can
-  swing. Enemy ranged units keep aiming at the front line, as they do now. A rider coming the other way is
-  passed as well.
-- **What can hit it on the way.** Enemy turrets. A turret that can reach a rider fires at it before
+- **Riding through.** It passes its own units without touching them. Every enemy unit on its way that does
+  not draw turret fire (light, ranged, heavy, of any era) it rides straight through, and the two trade one
+  blow: the unit takes the rider's ram damage, and the rider takes one blow of the unit's own damage, ready
+  or not. It does not slow down. A unit the rider beats earns the rider's side its bounty and vooruitgang,
+  as any kill does. So a crowd wears it down, and with only a few enemies on the lane it gets through.
+- **What else can hit it on the way.** Enemy turrets. A turret that can reach a rider fires at it before
   anything else, because it is the thing going for the base, and its shots hit it at full strength.
-  Turrets are the only thing that can wear it down.
-- **What stops it: a door.** The first enemy unit on its way that draws turret fire, which is the schild in
-  1975 and 2025 and the super unit in 2050. The rider crashes into it: the door takes the crash damage (in
-  full, not a fifth), the rider is gone, and the enemy earns its bounty and vooruitgang as if they had
-  beaten it. "Deuren houden deze tegen" is meant literally: the Achterhoek's first schild is Deurink, a man
-  carrying a barn door.
+- **A schild stops it, and both go down.** The first enemy unit on its way that draws turret fire, which is
+  the schild of 1975 and 2025, is a door. The rider crashes into it and both are gone, whatever hit points
+  the schild had left. Each side earns the other's bounty and vooruitgang: the rider's side for the schild,
+  the schild's side for the rider. "Deuren houden deze tegen" is meant literally: the Achterhoek's first
+  schild is Deurink, a man carrying a barn door.
+- **A super unit stops it, and stays.** It cannot ride through a super unit either, which it meets when the
+  other side reached 2050 first. The rider crashes and is gone; the super unit takes the ram damage and walks
+  on, and its side earns the rider's bounty and vooruitgang.
+- **Beaten on the way, it has still done its damage.** Every unit it rode through took its blow, and stays
+  hurt or beaten, whatever happens to the rider after.
 - **What it does to the base.** If it reaches the enemy gate, it rides into the base: the base loses the
   rider's base damage at once, and the rider is wrecked and gone. The enemy earns nothing for it.
 - **What else touches it.** Enemy specials do not: it is not a unit in the ranks and is gone in a few
   seconds, so waves, stuns, takeovers, snipes and barrages pass it by, as they pass a super unit. Its own
-  side's buffs do not speed it up either. Overtime makes its crash and base damage grow, as it does every
+  side's buffs do not speed it up either. Overtime makes its ram and base damage grow, as it does every
   unit's blows, and turrets that have fallen silent in overtime no longer fire at it.
-- **Bounty and vooruitgang.** As for any unit of its price, whenever it is stopped by turrets or a door.
+- **Riders pass each other.** Two riders coming from both sides do not touch.
 - **Mirrored.** Its position is its distance from its own gate, as for everything on the lane, so both
-  sides run the same arithmetic. It meets a door when the lane length minus its position minus the door's
-  position reaches zero, which reads the same from either side. Its damage, and the damage done to it,
-  land at the end of the tick with all other damage, so two riders, or a rider and a door, never depend on
-  which side is handled first. Turrets choose their target by the same rule on both sides. A test plays it
-  with the seats swapped and expects the same outcome.
+  sides run the same arithmetic. It meets an enemy unit when the lane length minus its position minus the
+  unit's position reaches zero, which reads the same from either side. Within one tick it meets the enemy
+  units nearest first, and its own hit points count down as it goes, so it stops at the unit that beats
+  it. What it does to the units lands at the end of the tick with all other damage, so two riders, or a
+  rider and the other side's blows, never depend on which side is handled first. Turrets choose their
+  target by the same rule on both sides. A test plays it with the seats swapped and expects the same
+  outcome.
 
-**Numbers to start from**, to be fitted with `npm run balance -- --mix` and changed freely: price 600 (the
-heavy costs 460), trained in 4 seconds, 500 hit points, 330 pixels a second (the junior walks 60), 700
-damage to a door, 900 to the base, which has 5500 in 2025. Worked out from the turret numbers: a rider
-crosses the reach of a fully upgraded turret (660 pixels) in two seconds, in which two such turrets land
-about 480 damage, so they stop about one rider in two on their own, and new turrets hardly touch it. The
-doors of 2025 have 560 to 720 hit points, so a door stops a rider and usually breaks doing it, which is a
-good trade for the defender: a door costs 240. If bots show the rider never or always getting through,
-change its hit points first.
+**Numbers to start from**, to be fitted with `npm run balance -- --mix` and changed freely: price 230 (half
+the heavy of 2025, which costs 460; its bounty is then 92), trained in 4 seconds, 288 hit points (the light
+unit of 2025), 330 pixels a second (the junior walks 60, so it crosses the 1280-pixel lane in about four
+seconds), 130 ram damage to every unit it rides through (the heavy's blow is 132), and 500 to the base,
+which has 5500 in 2025. What wears it down: a light hits back for 43, a ranged unit for 31, a heavy for
+132, so two heavies and a few lights stop it. Two new turrets land about 100 on it before it reaches the
+gate; two fully upgraded ones land about 380, more than its hit points, so they stop it on their own.
+That, and a schild kept out, is the defender's answer. If bots show the rider never or always getting
+through, change its hit points first.
 
 **What the rules need** (no code here; the building agent writes it): a list of riders in the match state,
-next to the waves; a mark on the unit definition that it is a rider, with its door damage and base damage;
-the queue sending out a rider instead of a unit; turrets preferring a rider in reach; shots that can hit a
-rider; the meeting with a door; the blow to the base; events for the renderer (out, hit, into a door, into
-the base, beaten); the renderer drawing a rider; the bots buying it, and answering it by keeping a schild
-out when the other side has riders; and a test file of its own, like `tests/shield.test.ts`, with the
-mirrored case in it. The places are the ones `docs/new-faction.md` lists for a new kind of special, plus
+next to the waves; a mark on the unit definition that it is a rider, with its ram damage and base damage;
+the queue sending out a rider instead of a unit; the ride through enemy units, with the blow each way and
+the bounty for what it beats; turrets preferring a rider in reach; shots that can hit a rider; the crash
+into a schild (both gone, both bounties) and into a super unit (the rider gone, the super hurt); the blow
+to the base; events for the renderer (out, through a unit, hit, into a schild, into a super unit, into the
+base, beaten); the renderer drawing a rider; the bots buying it, and answering it by keeping a schild out
+when the other side has riders; and a test file of its own, like `tests/shield.test.ts`, with the mirrored
+case in it. The places are the ones `docs/new-faction.md` lists for a new kind of special, plus
 `src/sim/step.ts` and `src/sim/turrets.ts`. The unit's blurb on the title card says in plain words what it
-does: "Rijdt overal langs, recht op de basis af. Alleen een deur houdt hem tegen."
+does: "Raast overal doorheen, recht op de basis af. Alleen een deur houdt hem tegen."
 
 **Temperament: "met de hele familie"**
 
@@ -1308,7 +1328,7 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 | Era | Walking out | Beaten |
 |---|---|---|
 | 1975 | "Twee jaar, dan terug!" · "Nachtdienst!" · "Eerst thee." · "Ik schrijf het op." | "Volgend jaar terug." · "De koffer staat klaar." · "Mijn rug." · "Even naar huis bellen." |
-| 2025 | "Eet eerst wat!" · "Ik ga zo, nog één ding." · "Iedereen moet het zien!" · "Ik rij maar vijfentwintig, echt!" | "Neem wat mee voor onderweg." · "Mijn band is lek." · "Wie filmt dit?" · "Volgend jaar terug." |
+| 2025 | "Eet eerst wat!" · "Ik ga zo, nog één ding." · "Iedereen moet het zien!" · "Ik rij maar vijfentwintig, echt!" · "Wat kijk je?" | "Neem wat mee voor onderweg." · "Mijn band is lek." · "Wie filmt dit?" · "Volgend jaar terug." |
 | 2050 | "Veertig minuten naar het zuiden!" · "Eerst de prijzen vergelijken." · "Blijf je eten?" · "Volgend jaar terug!" | "Volgend jaar." · "Accu leeg." · "Mijn notitieboekje!" · "Eerst thee." |
 
 **Flag and backdrop**
@@ -1336,40 +1356,32 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 - The mother's slipper, and smacks of any kind.
 - Shoarma and the kapsalon, which are not theirs. The 1972 riots in the Rotterdam Afrikaanderwijk, which
   the history of the boarding houses leads to. Bribes at borders, which turn up in the stories of the drive.
-- "Wat kijk je?" and the angry street kid in general.
+- The angry street kid in general. "Wat kijk je?" is in, as the owner decided, but only from the fatbike
+  kid and only as cheek: never with a threat behind it, never from anyone else.
 
-**Open questions**
+**Questions, and what the owner decided**
 
-1. **The name.** *De Gastarbeiders* is the owner's working title. It fits 1975, but it calls the
-   grandchildren guests too, and the workers themselves objected to the word in 1971. Three options:
-   - **De Gastheren** (my recommendation): the guests became the hosts. It keeps the owner's "gast",
-     turns it round, and fits what the sources say they are proudest of: the open door, the table, the
-     wedding for 650.
-   - **De Gastarbeiders**: as the owner had it. Honest about 1975, wrong for 2025 and 2050.
-   - **Volgend Jaar Terug**: the running joke as the name. Warm, and a little sad, which may be right.
-2. **The fatbike.** Its slot (the heavy of 2025) and its rule are written out above; the numbers are a
-   start. Its line: the owner's "Wat kijk je?" was not found anywhere as a joke told from the inside, only
-   as the outsiders' angry street kid. I suggest **"Ik rij maar vijfentwintig, echt!"**, which every
-   fatbike kid in the country says and which is what the debate is about. If you keep "Wat kijk je?",
-   it needs a reader from the community first (question 6).
-3. **The super unit's name.** The owner's **MohammedTron** is a joke about the commonest first name on a
-   giant robot. But the name is the Prophet's, parents choose it for that reason, and a fighting robot
-   carrying it is the one thing in this faction that could really hurt. It is also only the commonest
-   name when all its spellings are counted together. I found no inside source that jokes about it.
-   - **Mega-Opa** (my recommendation, and what the table above uses): the night-shift worker of 1975 as a
-     giant. It carries the running joke, needs no source of its own, and cannot be read as religious.
-   - **Mo-Tron**: the same joke as the owner's, softened. "Mo" is a nickname for many names, but many
-     people will still hear Mohammed in it, so it carries the same risk, only less of it.
-   - **MohammedTron**: as the owner had it. I would not use it without a reader from the community
-     saying it is fine.
-4. **The honking convoy.** A wedding (my recommendation, and what the table above uses), a football win, or
-   both? The wedding convoy is told warmly from the inside; the football one has no inside source and comes
-   with unrest in every report. And with or without real flags? I recommend without: ribbons and balloons in
-   the faction's colours.
-5. **One faction for two communities**, as the owner proposed, kept apart unit by unit as above. Or, one
-   day, two factions?
-6. **A reader from the inside.** The cheapest test of "funny, not hurtful": before the build, let someone
-   with a Turkish-Dutch or Moroccan-Dutch family read this section, the lines and the stay-away list.
+The owner read the brief on 23 November 2026 ("Yes the brief looks good") and changed three things: the
+fatbike's rule, its line and the super unit's name. Five of the six questions are settled.
+
+1. **The name.** Settled: **De Gastheren**, as recommended (the guests became the hosts). The owner's working
+   title *De Gastarbeiders* fits 1975 but calls the grandchildren guests too, and the workers themselves
+   objected to the word in 1971. The third option was *Volgend Jaar Terug*.
+2. **The fatbike.** Settled: the heavy of 2025, cheap and fragile, riding through the ranks and hitting
+   everything it passes, stopped by a schild (both go down) or a super unit, with the numbers above as a
+   start. Its lines: "Ik rij maar vijfentwintig, echt!", which every fatbike kid in the country says, and
+   the owner's **"Wat kijk je?"**, which the owner calls a well-known thing. My research found no inside
+   source for the second, only the outsiders' angry street kid, so it is the one line in this faction that
+   rests on the owner's word rather than a source. It is said as cheek, by the fatbike kid only.
+3. **The super unit's name.** Settled: **Mo-Tron**, the owner's choice, softened from their MohammedTron.
+   "Mo" is a nickname for many names, Mohammed among them; the robot is Mo, the night-shift worker of 1975,
+   grown into a giant. My recommendation had been Mega-Opa.
+4. **The honking convoy.** Settled: a wedding convoy, without real flags; ribbons and balloons in the
+   faction's colours.
+5. **One faction for two communities**, as the owner proposed, kept apart unit by unit. Settled.
+6. **A reader from the inside.** Still open, and the owner's to decide: before the build, let someone with
+   a Turkish-Dutch or Moroccan-Dutch family read this section, the lines and the stay-away list. With
+   "Wat kijk je?" and Mo-Tron in, this is where such a reading counts most.
 
 ## Suggested order
 
