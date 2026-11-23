@@ -406,9 +406,9 @@ are on the list below.
 
 | Era | Walking out | Beaten |
 |---|---|---|
-| 1975 | "Bieden!" · "Laten!" · "Aan jou!" · "Liever te duur dan niet te koop!" | "Gedaan… en laten." · "Hoogachtend," · "De beurs is gesloten." · "Ik ga toepen." |
-| 2025 | "Even sparren?" · "Laaghangend fruit!" · "Alle neuzen dezelfde kant op!" · "We gaan je onboarden." | "Ik koppel het nog terug." · "Onder voorbehoud van alle rechten." · "Dat was niet declarabel." · "Vrijmibo?" |
-| 2050 | "Deep dive!" · "Stip op de horizon!" · "Dit schaalt." · "To the moon!" | "Koers gekelderd." · "Verbinding verbroken." · "Wachtwoord kwijt." · "Ik koppel het nog terug." |
+| 1975 | "Bieden!" · "Laten!" · "Aan jou!" · "Liever te duur dan niet te koop!" · "Per omgaande!" · "Conform afspraak!" | "Gedaan… en laten." · "Hoogachtend," · "De beurs is gesloten." · "Ik ga toepen." · "Ter kennisname." · "In afwachting van uw antwoord." |
+| 2025 | "Even sparren?" · "Laaghangend fruit!" · "Alle neuzen dezelfde kant op!" · "We gaan je onboarden." · "Even schakelen!" · "Quick win!" · "Ownership pakken!" · "Ik schiet even een invite in." · "Even out of the box!" | "Ik koppel het nog terug." · "Onder voorbehoud van alle rechten." · "Dat was niet declarabel." · "Vrijmibo?" · "Laten we dit offline nemen." · "Ik heb een harde stop." · "Dat parkeren we even." · "Dat moet even landen." · "Niet in scope." |
+| 2050 | "Deep dive!" · "Stip op de horizon!" · "Dit schaalt." · "To the moon!" · "Disruptie!" · "Synergie!" · "We gaan opschalen!" · "Even agile pivoten!" | "Koers gekelderd." · "Verbinding verbroken." · "Wachtwoord kwijt." · "Ik koppel het nog terug." · "Terug naar de tekentafel." · "Dat was een learning." · "Strategische heroriëntatie." · "Ik neem een sabbatical." |
 
 **Stay away from**
 
