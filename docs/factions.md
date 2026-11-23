@@ -173,23 +173,29 @@ on the title card.
 |---|---|---|---|---|---|
 | Achterhoek | taai en traag | +15% hit points, 10% slower, 20% longer between blows | +15% damage, 20% longer between throws | as the light unit | +15% hit points, 10% slower |
 | Havermelkelite | snel en licht | 15% faster, 15% fewer hit points, 10% cheaper | throws 10% further, 10% softer | 15% faster, 10% fewer hit points | 10% faster, 10% fewer hit points |
-| De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows | the same, and 10% dearer for 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
+| De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows, 10% dearer | the same, and 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
+
+De Zuidas' super unit, De Gouden Handdruk, also costs 10% more (3300 instead of 3000). It is the only
+super unit with a twist, and the twist is only its price.
 
 The rules a temperament keeps (`tests/temper.test.ts` holds them):
 
 - No number strays more than 30% from the shared one.
 - It twists price, time in training, hit points, speed, damage, the pause between blows, and for units
-  that throw their reach. Nothing else: bases, turrets, income, the price of modernizing and the super
-  units are the same for everyone, and so is what makes a role the role it is (the heavy unit hits
-  everything in reach, the schild draws the turrets' fire).
-- Every plus is paid for with a minus, and the three are fitted to each other with bot matches, not to a
-  faction without a twist. The farmers' and Amsterdam's twists each win about 57% of bot matches against
-  a faction on the bare shared numbers, so De Zuidas' was made to be worth about as much. With the three
-  as they are, no faction wins more than 56% against another, in either seat.
-- A price premium is the dangerous twist. With 10% on every unit and 10% more damage for it, De Zuidas
-  lost seven bot matches in ten: fewer units on the lane is not made up for by each hitting a little
-  harder. That is why its cheapest unit costs what everybody's does, and why its dearer units strike
-  both harder and more often.
+  that throw their reach. Nothing else: bases, turrets, income and the price of modernizing are the same
+  for everyone, and so is what makes a role the role it is (the heavy unit hits everything in reach, the
+  schild draws the turrets' fire). A super unit may differ in price only.
+- Every plus is paid for with a minus. The three temperaments were first fitted so that no faction won
+  more than 56% of bot matches over all strategies against another.
+- A price premium is a strong lever. De Zuidas first shipped with its junior and its Gouden Handdruk at
+  everybody's price. Playing it, the owner found it too strong: "in a unit vs unit the zuid-as seems to
+  always have the stronger unit", and "as people buy a mix always". They were right. Unit against unit
+  in the same slot De Zuidas won every time, and with both players buying a mix it won about two matches
+  in three. On 23 November 2026 the owner decided that every Zuidas unit costs 10% more, the Handdruk
+  included. With both buying a mix it now wins 52 to 63% (`npm run balance -- --mix`). Over every bot
+  strategy it wins about 40%, because it does badly in styles people do not play, such as a firing line
+  behind turrets. Raising its prices further (10% on top of the earlier ones) dropped it to 28% against
+  the farmers with both buying a mix.
 
 **What is asked for next: units that do different things.** The owner, on 23 November 2026: "later
 factions should have some more variation in what the units do. Now they are all quite the same which is
@@ -220,8 +226,8 @@ what is different about it, because nobody reads numbers during a match.
 
 Decided on 22 November 2026: balance between factions is looked at **once all factions are in**, not per
 faction. Until then a new faction ships on the shared numbers with its own temperament on top, fitted
-with bot matches so that it wins between 44% and 56% against each of the others, and with specials set
-by feel. That is a guard against a faction that is plainly too strong or too weak, not a balance pass:
+with bot matches so that it wins between 44% and 56% against each of the others with both sides buying a
+mix (`npm run balance -- --mix`), and with specials set by feel. That is a guard against a faction that is plainly too strong or too weak, not a balance pass:
 bots do not play like people.
 
 **Different strategies should pay off.** Over a whole bot tournament the factions come out even, but when
@@ -233,6 +239,21 @@ Different strategies should pay off. Like only rushing cheap units is something 
 a faction that is better at one way of playing than at another is wanted, and matches in which both
 sides do one and the same thing are not a yardstick. What the balance pass looks at, once all factions
 are in, is whether every faction has a way to win against every other.
+
+**Except a mix: that is how people play.** Later that day the owner added, about De Zuidas: "as people
+buy a mix always". So the one same-style match that does count is both sides buying a bit of everything,
+which `npm run balance -- --mix` plays (the `mixed` bot on both sides, 100 seeds, both seats). Measured
+on 23 November 2026, after De Zuidas' prices went up:
+
+| Both buying a mix | Result |
+|---|---|
+| De Zuidas against Amsterdam | De Zuidas wins 63% from the left, 52% from the right |
+| De Zuidas against the Achterhoek | De Zuidas wins 63% from the left, 53% from the right |
+| Amsterdam against the Achterhoek | the Achterhoek wins 88% from the left, 86% from the right |
+
+Two things to know before the balance pass. Amsterdam loses almost every mixed match against the
+farmers; nobody has looked into why yet. And nearly all mixed matches reach 2050 and run into overtime,
+so the specials of the future and the overtime rules decide many of them.
 
 ## The factions
 
