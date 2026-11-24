@@ -368,7 +368,8 @@ What to know before the balance pass:
   Bierfiets does as well as or better than the old one. Not fitted: the owner's view is that such a unit
   may win tactically in real matches, which the bots cannot play. With the Huurverhoging at twenty
   seconds as well (same section): 27%, 24%, 20% and 33% with a mix, and over every bot strategy 42%, 50%,
-  66% and 56%, about as before. No stalls.
+  66% and 56%, about as before. No stalls. With the beer at half again a throw's damage, which the owner
+  asked for next: 31%, 32%, 25% and 37% with a mix.
 
 ## The factions
 
@@ -1078,8 +1079,9 @@ more expensive compared to the normal heavy unit price", dumb lines "to make the
   (`TOSS` in `src/defs/balance.ts`). Hovering is gone from the rules; the Zweefbierfiets still floats in
   the drawing.
 - One of the party aboard tosses a beer every second and a half, whether the bike is riding up or
-  fighting: a throw of the faction's ranged unit of that era, from 80% of its reach, at the foremost enemy
-  (or the base). Posing, buffs and overtime work on it as on any throw. In the Bierfiets it is the one with
+  fighting: half again as much as a throw of the faction's ranged unit of that era (a throw's damage at
+  first; the owner then found the bike "quite weak for the price"), from 80% of its reach, at the
+  foremost enemy (or the base). Posing, buffs and overtime work on it as on any throw. In the Bierfiets it is the one with
   the stein, in the Zweefbierfiets the guest at the front; each drawing got its thrower as parts of their
   own and a `toss` clip laid over whatever else plays. Two more drawings, `shot_bier` and
   `shot_zweefbier`: 33 in all.
