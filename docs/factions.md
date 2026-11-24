@@ -149,7 +149,8 @@ unit of yours goes down, its bounty comes back to you. Nothing is taken from wha
 they keep the vooruitgang they earn, and it is not aimed at units, so a super unit has nothing to shrug
 off. Two sides that do it to each other on the same tick simply swap what they earn.
 
-**Price hike, as built** (24 November 2026, for De Toeristen). For ten seconds everything the enemy buys
+**Price hike, as built** (24 November 2026, for De Toeristen). For twenty seconds (ten at first, see
+section 5, "Changed after building") everything the enemy buys
 costs double: units, turrets, subsidie and modernizing. It starts on the tick after it is pressed, so what
 the enemy buys at the very moment it is pressed costs the old price whichever seat presses, and two sides
 that do it to each other both pay double. What is already in their queue was paid for. Their prices turn
@@ -356,6 +357,18 @@ What to know before the balance pass:
   this was not fitted further. Influencer-Ivy does no damage and a second one in reach adds nothing, so
   every bot, the computer opponent included, now keeps one out and buys a light unit instead of a second.
   How much posing is worth between people is not measured.
+
+  Later the same day the owner replaced the Zweefbierfiets' hovering (see "Changed after building" in
+  section 5). With the two beer bikes as asked, both seats together with a mix: 17% against Amsterdam,
+  22% against the farmers, 12% against De Zuidas and 30% against De Gasten. Every one of those losses is
+  in 2050: with both sides starting there De Toeristen win none of 160 matches, and they win none with a
+  plain heavy in that slot either, nor with three times the beer's damage (0 to 25%). With hovering they
+  had won 0% against Amsterdam, 73% against the farmers, 100% against De Zuidas and 98% against De Gasten
+  from a 2050 start; the rest of their army of 2050 is weak, and hovering hid it. In 2025 the new
+  Bierfiets does as well as or better than the old one. Not fitted: the owner's view is that such a unit
+  may win tactically in real matches, which the bots cannot play. With the Huurverhoging at twenty
+  seconds as well (same section): 27%, 24%, 20% and 33% with a mix, and over every bot strategy 42%, 50%,
+  66% and 56%, about as before. No stalls.
 
 ## The factions
 
@@ -906,7 +919,8 @@ five seconds. The same kind and numbers as the Wegblokkade.
 | Light | `rolkoffer_rita` | Rolkoffer-Rita | Drags the suitcase over the cobbles and swings it round when someone is in the way | humanoid |
 | Ranged | `influencer_ivy` | Influencer-Ivy | Ring light in one hand, phone on a gimbal in the other, standing in the middle of the bike path. **Throws nothing**: enemy units in her shot pose for her story. See "Three units with rules of their own" | humanoid |
 | Her mark | `pose_frame` | | Instead of a projectile: the frame of a phone camera with a red record dot, hovering over every enemy unit that is posing | static |
-| Heavy | `bierfiets` | De Bierfiets | A party in matching outfits pedalling a bar. It carries its own no-entry sign | vehicle |
+| Heavy | `bierfiets` | De Bierfiets | A party in matching outfits pedalling a bar. It carries its own no-entry sign. **Fast, dear, and one of them throws his stein**: see "Changed after building" | vehicle |
+| What he throws | `shot_bier` | | A stein of beer, the foam leaving first. Added after building | static |
 | Schild | `paraplu_pam` | Paraplu-Pam | The guide of the free walking tour, bright umbrella held out in front, her group of four in matching caps shuffling behind her. Everything bounces off the umbrella. **Slow, dear, and when she falls her group scatters.** See below | humanoid |
 | Her lost group | `verdwaalde_toerist` | De verdwaalde toerist | One of Pam's group without the umbrella to follow: map upside down, phone at 2% | humanoid |
 | Turret | `turret_hyperij` | De Hype-rij | Three people behind a rope and a queue manager. They throw fries and never leave the queue | static |
@@ -929,7 +943,8 @@ taller than the base, sliding in behind it, horn and all.
 | Light | `robokoffer` | De Robokoffer | A self-driving suitcase that has lost its owner, doing 30 km/h on the pavement. It rams shins | vehicle |
 | Ranged | `eenster_eli` | Eénster-Eli | Smart glasses, livestreams everything, rates every local one star, and throws one-star reviews as throwing stars | humanoid |
 | Their projectile | `shot_ster` | | A single star | static |
-| Heavy | `zweefbierfiets` | De Zweefbierfiets | Hovers above the street it was banned from, with a DJ booth on the back. **Out of reach**: see below | vehicle |
+| Heavy | `zweefbierfiets` | De Zweefbierfiets | Hovers above the street it was banned from, with a DJ booth on the back. Was **out of reach** (see below); now **fast, dear, and the guest at the front throws beers**: see "Changed after building" | vehicle |
+| What is thrown | `shot_zweefbier` | | A self-cooling can of beer on a little fan of its own, glowing pink. Added after building | static |
 | Turret | `turret_sleutelkluizen` | De Sleutelkluizentoren | A tower of key boxes where the neighbours used to live. The guests on its balconies throw the keys they lost | static |
 | Its projectile | `shot_sleutel` | | A key on a big plastic fob | static |
 | Special | `special_huurverhoging` | Huurverhoging voor de locals | An estate agent's sign that drops onto the enemy base: "Nu €4000 p/m". See below | static |
@@ -937,7 +952,7 @@ taller than the base, sliding in behind it, horn and all.
 | **Super unit** | `ms_kolossaal` | MS Kolossaal | A cruise ship on caterpillar tracks with a buffet cannon | free |
 
 Special, **Huurverhoging voor de locals** (price hike, a new kind; the owner's idea, in place of the lockout
-"Tijdslot verlopen"): for ten seconds everything the enemy buys costs double: units, turrets, subsidie and
+"Tijdslot verlopen"): for ten seconds (twenty since the change below) everything the enemy buys costs double: units, turrets, subsidie and
 modernizing. Whatever is already in their queue is paid for. Their buttons show the new prices in red while it
 lasts. It is not aimed at units, so a super unit has nothing to shrug off. Two sides that do it to each other
 both pay double.
@@ -962,7 +977,8 @@ is: positions are measured from each side's own gate, and damage lands at the en
   cap. If De Zuidas bought her before she fell, the group scatters on De Zuidas' side: they follow whoever
   holds the umbrella. Her lines: "Follow the umbrella!" · "Stay together, group!"; the lost ones: "Where is
   the group?" · "Wo ist die Gruppe?" · "Is this Amsterdam?"
-- **De Zweefbierfiets** (2050, heavy): **out of reach.** It hovers, so enemy melee blows pass under it: light
+- **De Zweefbierfiets** (2050, heavy), as briefed and built, and replaced the same day (see "Changed after
+  building"): **out of reach.** It hovers, so enemy melee blows pass under it: light
   and heavy units cannot hurt it. Throws, turrets and specials can, and super units are tall enough to swat
   it. Enemy units still stop in front of it, as in front of any unit, so an army without throwers stands
   under it swinging at nothing; the answer is ranged units and turrets. It fights as a heavy of 2050, hitting
@@ -1012,7 +1028,7 @@ lost tourist.
    at its spot, for whichever side it was on. Her own price and speed, like the fatbike's numbers.
 4. **Hovering** (Zweefbierfiets): a mark on the unit definition, and in the melee blow: a hovering target
    is skipped unless the attacker is a super unit. Throws, turrets, specials and waves still reach it. Its
-   own hit points.
+   own hit points. (Built, then replaced by tossing: see "Changed after building".)
 5. **Summon with a time limit** (the cruise ship): the summon kind gets an optional number of ticks, the
    summoned units a time they leave at, and their own speed and strength. Leaving pays nobody.
 6. **Price hike**: a new member of the special union, a per-side "prices doubled until" tick read wherever a
@@ -1046,6 +1062,47 @@ bots were used for because with them De Toeristen won one match in ten with both
   speed, her four lost tourists have a quarter of a light unit's hit points and half its damage
   (`SCATTER`), the eight day trippers half a light unit's hit points and damage at 1.6 times its speed for
   twenty seconds, and the rent doubles for ten seconds (`SPECIAL` in `src/defs/balance.ts`).
+
+**Changed after building** (24 November 2026, the same day). The owner asked whether the Zweefbierfiets
+was too strong and whether hovering worked: "if only turrets and ranged can hit it, they should be the
+focus. If it is too strong just make a normal unit out of it (heavy) with a higher speed that also has a
+ranged option but is more expensive as well", for the Bierfiets too ("bierfiets go fast", "around 30%
+more expensive compared to the normal heavy unit price", dumb lines "to make the unit impactful"), with
+"a melee attack, but have 1 person tossing beers".
+
+- What was measured first: hovering worked as written, and that was the trouble. One Zweefbierfiets
+  against any enemy army without throwers took no damage at all and won, even against a heavy that cost
+  more; only throws, turrets, specials and super units could touch it.
+- Both beer bikes are now heavies of their era with a heavy's hit points, reach and blows (with the
+  temperament's damage), at 130% of a heavy's price and 175% of its speed in place of the temperament's
+  (`TOSS` in `src/defs/balance.ts`). Hovering is gone from the rules; the Zweefbierfiets still floats in
+  the drawing.
+- One of the party aboard tosses a beer every second and a half, whether the bike is riding up or
+  fighting: a throw of the faction's ranged unit of that era, from 80% of its reach, at the foremost enemy
+  (or the base). Posing, buffs and overtime work on it as on any throw. In the Bierfiets it is the one with
+  the stein, in the Zweefbierfiets the guest at the front; each drawing got its thrower as parts of their
+  own and a `toss` clip laid over whatever else plays. Two more drawings, `shot_bier` and
+  `shot_zweefbier`: 33 in all.
+- Lines of their own, always said when a bike comes out, and shouted at the first throw and now and then
+  after: the Bierfiets "PARTY BIKE! PARTY BIKE!" · "We pedal, so it's sport!" · "Eins, zwei, drei,
+  g'suffa!" · "Last night as a free man!" · "On pédale, donc on peut boire !" · "Is this the beer lane?";
+  throwing "CATCH!" · "Prost!" · "It's on us!" · "Santé !" · "Don't waste it!" · "Cheers, locals!";
+  beaten "We're not even drunk!" · "WHO WAS PEDALLING?" · "Ich bin nicht betrunken!" · "MY DEPOSIT!" ·
+  "Same time tomorrow!". The Zweefbierfiets keeps its three and adds "BRIDE COMING THROUGH!" ·
+  "Technically we're not ON the street!" · "We booked the sky!"; throwing "CATCH!" · "Free refill!" ·
+  "It's on the bride!" · "Zum Wohl!" · "À la vôtre !" · "Five stars for this beer!"; beaten "BATTERY
+  LOW!" · "Who's driving this thing?!" · "The bride is down!" · "Wir kommen wieder!" · "Refund the party!".
+- What the bots make of it is under "Balance" above: De Toeristen now lose most matches, all of it in
+  2050. Left as it is, on the owner's word that such a unit may win tactically in real matches.
+- The Huurverhoging lasts twenty seconds instead of ten. The owner: "The special may be quite weak",
+  "if you have stuff in que and 10s is quite short then", and of the lengths measured, "20s 100% increase
+  sounds good". The bots
+  agreed it was weak: in a 2050 start the specials decide nearly everything for them (the Achterhoek with
+  Amsterdam's Algoritme beat Amsterdam 93% instead of 5%; Amsterdam without a special won 0% instead of
+  95%), and either of them with the ten-second Huurverhoging won as often as with no special at all.
+  With twenty seconds, together with the beer bikes, De Toeristen win 27% against Amsterdam, 24% against
+  the farmers, 20% against De Zuidas and 33% against De Gasten with a mix (100 matches a pairing, both
+  seats); over every bot strategy 42%, 50%, 66% and 56%, about what they were before the change.
 
 ### 6. De Ambtenarij
 
