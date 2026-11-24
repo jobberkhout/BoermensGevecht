@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-98 -238 196 244" data-rig="free">
+  <title>MS Kolossaal: een cruiseschip op rupsbanden, met een glijbaan achterop en een buffetkanon op de boeg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .win { fill: #2f6fb3; stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; }
+    .rail { stroke: #2b1b16; stroke-width: 1.2; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so the whole ship can be moved at once. -->
+  <g id="ship" transform="translate(0 0)"/>
+
+  <!-- The caterpillar track it drives on, over the pavement. Joint in its middle. -->
+  <g id="track" data-parent="ship" transform="translate(0 -16)">
+    <g transform="translate(0 16)">
+      <rect class="o" fill="#3a3d4a" x="-86" y="-33" width="172" height="33" rx="16.5"/>
+      <rect class="n" fill="#2b2e38" x="-80" y="-27" width="160" height="21" rx="10.5"/>
+    </g>
+  </g>
+
+  <!-- The lugs along the top and the bottom of the track: the top run goes forward, the bottom run back. -->
+  <g id="tread_top" data-parent="ship" transform="translate(0 -31)">
+    <g transform="translate(0 31)">
+      <path class="n" fill="#8a919c" d="M-69 -33.4 h6 v3.4 h-6 Z M-57 -33.4 h6 v3.4 h-6 Z M-45 -33.4 h6 v3.4 h-6 Z M-33 -33.4 h6 v3.4 h-6 Z M-21 -33.4 h6 v3.4 h-6 Z M-9 -33.4 h6 v3.4 h-6 Z M3 -33.4 h6 v3.4 h-6 Z M15 -33.4 h6 v3.4 h-6 Z M27 -33.4 h6 v3.4 h-6 Z M39 -33.4 h6 v3.4 h-6 Z M51 -33.4 h6 v3.4 h-6 Z M63 -33.4 h6 v3.4 h-6 Z"/>
+    </g>
+  </g>
+  <g id="tread_bottom" data-parent="ship" transform="translate(0 -1)">
+    <g transform="translate(0 1)">
+      <path class="n" fill="#8a919c" d="M-69 -3.4 h6 v3.4 h-6 Z M-57 -3.4 h6 v3.4 h-6 Z M-45 -3.4 h6 v3.4 h-6 Z M-33 -3.4 h6 v3.4 h-6 Z M-21 -3.4 h6 v3.4 h-6 Z M-9 -3.4 h6 v3.4 h-6 Z M3 -3.4 h6 v3.4 h-6 Z M15 -3.4 h6 v3.4 h-6 Z M27 -3.4 h6 v3.4 h-6 Z M39 -3.4 h6 v3.4 h-6 Z M51 -3.4 h6 v3.4 h-6 Z M63 -3.4 h6 v3.4 h-6 Z"/>
+    </g>
+  </g>
+
+  <!-- The sprockets at either end. Joints at their hubs. -->
+  <g id="sprocket_back" data-parent="ship" transform="translate(-69 -16.5)">
+    <circle class="o" fill="#5d6675" cx="0" cy="0" r="13.4"/>
+    <path class="t" style="stroke:#2b2e38;stroke-width:3" d="M-10 0 L10 0 M-5 -8.7 L5 8.7 M-5 8.7 L5 -8.7"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="0" cy="0" r="4"/>
+  </g>
+  <g id="sprocket_front" data-parent="ship" transform="translate(69 -16.5)">
+    <circle class="o" fill="#5d6675" cx="0" cy="0" r="13.4"/>
+    <path class="t" style="stroke:#2b2e38;stroke-width:3" d="M-10 0 L10 0 M-5 -8.7 L5 8.7 M-5 8.7 L5 -8.7"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="0" cy="0" r="4"/>
+  </g>
+
+  <!-- The ship itself: hull, five decks, the funnel and the water slide. Joint where the hull sits on its tracks. -->
+  <g id="hull" data-parent="ship" transform="translate(0 -34)">
+    <g transform="translate(0 34)">
+      <!-- the skirt over the track, with portholes, because it is a ship all the way down -->
+      <rect class="o" fill="#fbf8f0" x="-52" y="-30" width="104" height="22" rx="6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#bfe6f5" cx="-30" cy="-19" r="5"/>
+      <circle class="o" style="stroke-width:1.8" fill="#bfe6f5" cx="0" cy="-19" r="5"/>
+      <circle class="o" style="stroke-width:1.8" fill="#bfe6f5" cx="30" cy="-19" r="5"/>
+
+      <!-- the water slide, looping off the back of the top deck -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M-62 -196 Q-94 -198 -92 -178 Q-90 -164 -74 -168 Q-62 -172 -70 -160 Q-78 -150 -92 -150 Q-96 -140 -84 -132"/>
+      <path fill="none" stroke="#ff7ac0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M-62 -196 Q-94 -198 -92 -178 Q-90 -164 -74 -168 Q-62 -172 -70 -160 Q-78 -150 -92 -150 Q-96 -140 -84 -132"/>
+      <path fill="none" stroke="#ffc2e0" stroke-width="1.6" stroke-linecap="round" d="M-70 -197 Q-88 -196 -89 -182"/>
+
+      <!-- the funnel, sky blue with a yellow band: no line's colours, only ours -->
+      <path class="o" fill="#5fb7e8" d="M-48 -196 L-45 -224 L-19 -224 L-16 -196 Z"/>
+      <path class="n" fill="#ffd21f" d="M-46.4 -218 L-17.6 -218 L-17 -211 L-47 -211 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-46.4 -218 L-17.6 -218 M-47 -211 L-17 -211"/>
+      <path class="o" fill="#2b2e38" d="M-46 -224 L-18 -224 L-18 -227 L-46 -227 Z"/>
+
+      <!-- the mast on the bridge, with bunting all the way down to the bow -->
+      <path class="t" style="stroke-width:3" d="M20 -194 L20 -214"/>
+      <circle class="o" style="stroke-width:1.8" fill="#ff5a4e" cx="20" cy="-216" r="2.6"/>
+      <path class="t" style="stroke-width:1" d="M20 -212 Q58 -170 92 -104"/>
+      <path class="n" fill="#ffd21f" d="M27 -204 l5 1 l-3 5 Z M42 -186 l5 1.6 l-3.4 4.6 Z M57 -164 l5 2 l-3.6 4.4 Z M71 -142 l5 2.2 l-4 4 Z M83 -120 l5 2.6 l-4.4 3.6 Z"/>
+      <path class="n" fill="#ff5fa2" d="M35 -195 l5 1.4 l-3.2 4.8 Z M50 -175 l5 1.8 l-3.4 4.6 Z M64 -153 l5 2 l-3.8 4.2 Z M77 -131 l5 2.4 l-4.2 3.8 Z"/>
+
+      <!-- the bridge: a band of dark glass. Nobody is steering; it knows the way to the cheese shop -->
+      <path class="o" fill="#fbf8f0" d="M-64 -176 L-64 -192 Q-64 -196 -60 -196 L26 -196 Q32 -196 36 -186 L40 -176 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2b3a4a" d="M-58 -190 L28 -190 Q31 -190 33 -184 L35 -180 L-58 -180 Z"/>
+      <path class="n" fill="#7ff0f0" fill-opacity="0.5" d="M10 -189 L16 -189 L10 -181 L4 -181 Z M24 -189 L28 -189 L24 -181 L20 -181 Z"/>
+      <!-- the sun deck rail on top, with a sunbed -->
+      <path class="rail" d="M-60 -196 L-60 -202 L24 -202 L24 -196 M-48 -202 L-48 -196 M-30 -202 L-30 -196 M-12 -202 L-12 -196 M6 -202 L6 -196"/>
+      <path class="o" style="stroke-width:1.6" fill="#ff8c2a" d="M-6 -199 L10 -199 L14 -205 L12 -206 L8 -201 L-6 -201 Z"/>
+
+      <!-- deck three -->
+      <rect class="o" fill="#fbf8f0" x="-74" y="-176" width="122" height="24"/>
+      <path class="win" d="M-70 -172 h12 v12 h-12 Z M-54 -172 h12 v12 h-12 Z M-38 -172 h12 v12 h-12 Z M-22 -172 h12 v12 h-12 Z M-6 -172 h12 v12 h-12 Z M10 -172 h12 v12 h-12 Z M26 -172 h12 v12 h-12 Z"/>
+      <path class="rail" d="M-74 -156 L48 -156 M-62 -160 L-62 -152 M-46 -160 L-46 -152 M-30 -160 L-30 -152 M-14 -160 L-14 -152 M2 -160 L2 -152 M18 -160 L18 -152 M34 -160 L34 -152"/>
+      <!-- deck two -->
+      <rect class="o" fill="#fbf8f0" x="-80" y="-152" width="138" height="24"/>
+      <path class="win" d="M-76 -148 h12 v12 h-12 Z M-60 -148 h12 v12 h-12 Z M-44 -148 h12 v12 h-12 Z M-28 -148 h12 v12 h-12 Z M-12 -148 h12 v12 h-12 Z M4 -148 h12 v12 h-12 Z M20 -148 h12 v12 h-12 Z M36 -148 h12 v12 h-12 Z"/>
+      <path class="rail" d="M-80 -132 L58 -132 M-68 -136 L-68 -128 M-52 -136 L-52 -128 M-36 -136 L-36 -128 M-20 -136 L-20 -128 M-4 -136 L-4 -128 M12 -136 L12 -128 M28 -136 L28 -128 M44 -136 L44 -128"/>
+      <!-- deck one -->
+      <rect class="o" fill="#fbf8f0" x="-86" y="-128" width="152" height="26"/>
+      <path class="win" d="M-82 -124 h12 v13 h-12 Z M-66 -124 h12 v13 h-12 Z M-50 -124 h12 v13 h-12 Z M-34 -124 h12 v13 h-12 Z M-18 -124 h12 v13 h-12 Z M-2 -124 h12 v13 h-12 Z M14 -124 h12 v13 h-12 Z M30 -124 h12 v13 h-12 Z M46 -124 h12 v13 h-12 Z"/>
+      <path class="rail" d="M-86 -107 L66 -107 M-74 -111 L-74 -102 M-58 -111 L-58 -102 M-42 -111 L-42 -102 M-26 -111 L-26 -102 M-10 -111 L-10 -102 M6 -111 L6 -102 M22 -111 L22 -102 M38 -111 L38 -102 M54 -111 L54 -102"/>
+      <!-- towels drying on the rails, one on every balcony that has reserved a sunbed -->
+      <path class="o" style="stroke-width:1.4" fill="#ff8c2a" d="M-52 -107 h7 v9 h-7 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#5fb7e8" d="M12 -107 h7 v9 h-7 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#ffd21f" d="M-40 -132 h7 v8 h-7 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#ff5fa2" d="M26 -156 h7 v8 h-7 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#5fb7e8" d="M-58 -156 h7 v8 h-7 Z"/>
+
+      <!-- the hull: white, a navy stripe, red below, portholes, and a bow that has never seen water -->
+      <path class="o" fill="#fbf8f0" d="M-86 -34 L66 -34 Q82 -38 90 -62 L95 -103 L-90 -103 L-90 -40 Q-90 -34 -86 -34 Z"/>
+      <path class="n" fill="#c0392b" d="M-88.6 -46 L82.4 -46 Q78 -38.6 66 -35.4 L-86 -35.4 Q-88.6 -35.4 -88.6 -40 Z"/>
+      <path class="n" fill="#27406b" d="M-88.6 -64 L90.4 -64 L91 -58 L-88.6 -58 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M-88.6 -46 L82.4 -46 M-88.6 -64 L90.4 -64 M-88.6 -58 L91 -58"/>
+      <path class="n" fill="#2b3a4a" d="M-80 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M-66 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M-52 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M-38 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M-24 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M-10 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M4 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M18 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M32 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M46 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M60 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z M74 -80 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 Z"/>
+      <path class="o" fill="none" d="M-86 -34 L66 -34 Q82 -38 90 -62 L95 -103 L-90 -103 L-90 -40 Q-90 -34 -86 -34 Z"/>
+      <!-- the anchor, never used -->
+      <path class="t" style="stroke-width:2.2" d="M80 -94 L80 -84 M76 -86 Q80 -80 84 -86 M77 -92 L83 -92"/>
+      <!-- the gunwale rail around the foredeck -->
+      <path class="rail" style="stroke-width:1.6" d="M66 -109 L94 -109 M74 -109 L74 -103 M84 -109 L84 -103 M93 -109 L93 -103"/>
+    </g>
+  </g>
+
+  <!-- Smoke from the funnel. Joint at the funnel top. -->
+  <g id="smoke" data-parent="hull" transform="translate(-32 -228)">
+    <g transform="translate(32 228)">
+      <circle class="n" fill="#e6ecee" cx="-34" cy="-230" r="4.6"/>
+      <circle class="n" fill="#e6ecee" cx="-42" cy="-233" r="3.4"/>
+      <circle class="n" fill="#d6dce2" cx="-27" cy="-232" r="3"/>
+    </g>
+  </g>
+
+  <!-- Passengers on the balconies, waving at everybody they are running over. Joints in the middle of their rows. -->
+  <g id="passengers_a" data-parent="hull" transform="translate(0 -118)">
+    <g transform="translate(0 118)">
+      <circle class="o" style="stroke-width:1.4" fill="#f2a98a" cx="-60" cy="-116" r="3.8"/>
+      <path class="t" style="stroke-width:1.8" d="M-57 -116 L-53 -122"/>
+      <circle class="o" style="stroke-width:1.4" fill="#e0a283" cx="-28" cy="-116" r="3.8"/>
+      <path class="o" style="stroke-width:1.2" fill="#ffd21f" d="M-32 -118 Q-28 -124 -24 -118 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2b896" cx="4" cy="-116" r="3.8"/>
+      <path class="t" style="stroke-width:1.8" d="M7 -116 L11 -122"/>
+      <circle class="o" style="stroke-width:1.4" fill="#c98e62" cx="36" cy="-116" r="3.8"/>
+      <path class="t" style="stroke-width:1.8" d="M39 -116 L43 -122"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2a98a" cx="-6" cy="-166" r="3.6"/>
+      <path class="t" style="stroke-width:1.8" d="M-3 -166 L1 -172"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2b896" cx="-50" cy="-166" r="3.6"/>
+      <path class="o" style="stroke-width:1.2" fill="#5fb7e8" d="M-54 -168 Q-50 -174 -46 -168 Z"/>
+    </g>
+  </g>
+  <g id="passengers_b" data-parent="hull" transform="translate(0 -142)">
+    <g transform="translate(0 142)">
+      <circle class="o" style="stroke-width:1.4" fill="#f2b896" cx="-70" cy="-141" r="3.6"/>
+      <path class="t" style="stroke-width:1.8" d="M-67 -141 L-63 -147"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2a98a" cx="-22" cy="-141" r="3.6"/>
+      <path class="t" style="stroke-width:1.8" d="M-19 -141 L-15 -147"/>
+      <circle class="o" style="stroke-width:1.4" fill="#e0a283" cx="10" cy="-141" r="3.6"/>
+      <path class="o" style="stroke-width:1.2" fill="#ff5fa2" d="M6 -143 Q10 -149 14 -143 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f2a98a" cx="42" cy="-141" r="3.6"/>
+      <path class="t" style="stroke-width:1.8" d="M45 -141 L49 -147"/>
+      <circle class="o" style="stroke-width:1.4" fill="#c98e62" cx="26" cy="-166" r="3.6"/>
+      <path class="t" style="stroke-width:1.8" d="M29 -166 L33 -172"/>
+    </g>
+  </g>
+
+  <!-- The chef who loads the buffet cannon. Joint at his feet, on the foredeck. -->
+  <g id="chef" data-parent="hull" transform="translate(70 -103)">
+    <g transform="translate(-70 103)">
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M65 -103 L65 -116 Q65 -121 70 -121 Q75 -121 75 -116 L75 -103 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f2b896" cx="70" cy="-125.6" r="4.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#fbf8f0" d="M65.6 -129 Q63 -134 66.6 -136 Q68 -140 71.6 -138 Q76 -138.6 75.6 -134 Q77.6 -131 74.6 -129 Z"/>
+      <path class="t" style="stroke-width:2" d="M74 -115 L80 -112"/>
+    </g>
+  </g>
+
+  <!-- The buffet cannon: a silver cloche on a swivel, loaded with plates. Joint at its swivel. -->
+  <g id="cannon" data-parent="hull" transform="translate(80 -110)">
+    <g transform="translate(-80 110)">
+      <path class="o" style="stroke-width:2" fill="#8a919c" d="M74 -103 L76 -110 L84 -110 L86 -103 Z"/>
+      <g transform="rotate(-18 80 -112)">
+        <path class="o" fill="#c9d1dc" d="M71 -106 L71 -118 Q71 -121 75 -121 L91 -122.6 L91 -103.4 L75 -105 Q71 -105 71 -106 Z"/>
+        <path class="n" fill="#ffffff" fill-opacity="0.6" d="M75 -119 L88 -120.2 L88 -118.2 L75 -117 Z"/>
+        <ellipse class="o" style="stroke-width:2" fill="#5d6675" cx="91" cy="-113" rx="2.8" ry="9.4"/>
+      </g>
+      <circle class="o" style="stroke-width:2" fill="#e6ecee" cx="80" cy="-112" r="4"/>
+    </g>
+  </g>
+
+  <!-- The plate in the barrel, piled with buffet. It flies when the cannon fires. Joint at the muzzle. -->
+  <g id="plate" data-parent="cannon" transform="translate(90 -116)">
+    <g transform="translate(-90 116)">
+      <ellipse class="o" style="stroke-width:1.8" fill="#fbf8f0" cx="91" cy="-116.6" rx="2.4" ry="8.4" transform="rotate(-18 91 -116.6)"/>
+      <circle class="n" fill="#c0392b" cx="90.2" cy="-120.4" r="2.2"/>
+      <circle class="n" fill="#7fbf5a" cx="92.4" cy="-116.2" r="1.9"/>
+      <path class="n" fill="#c98b4a" d="M88.4 -114.6 Q92 -113.6 92 -110.8 L89.2 -111.8 Z"/>
+    </g>
+  </g>
+
+  <!-- A glint on the bow: what is thrown at it goes ting. Joint at the glint. -->
+  <g id="glint" data-parent="hull" transform="translate(84 -76)">
+    <path class="n" fill="#ffffff" d="M0 -8 L1.6 -1.6 L8 0 L1.6 1.6 L0 8 L-1.6 1.6 L-8 0 L-1.6 -1.6 Z"/>
+  </g>
+</svg>
