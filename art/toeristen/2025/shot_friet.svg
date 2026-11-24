@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -17 30 34" data-rig="static">
+  <title>Een puntzak friet, met mayo en een vorkje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A paper cone of the fries that went viral: a fork stuck in, mayo on top. Origin = the middle of the cone's mouth. -->
+  <g id="cone" transform="translate(0 0)">
+    <!-- the fries -->
+    <g class="o" style="stroke-width:1.2" fill="#ffd84a">
+      <path d="M-8.6 -1 L-9.6 -11 L-6.6 -11.4 L-5.6 -1 Z"/>
+      <path d="M-4.6 -1 L-4.4 -14.6 L-1.4 -14.6 L-1.6 -1 Z"/>
+      <path d="M0.6 -1 L2.4 -13 L5.4 -12.6 L3.6 -1 Z"/>
+      <path d="M4.8 -1 L8.4 -9.6 L11 -8.4 L7.6 -1 Z"/>
+    </g>
+    <path class="n" fill="#e8a92a" d="M-8.4 -4 L-6 -4 L-5.8 -2 L-8.2 -2 Z M-4.4 -5 L-1.6 -5 L-1.6 -2 L-4.4 -2 Z"/>
+    <!-- the wooden fork -->
+    <path fill="none" stroke="#2b1b16" stroke-width="3" stroke-linecap="round" d="M-2 0 L-11 -12"/>
+    <path fill="none" stroke="#e9c98f" stroke-width="1.4" stroke-linecap="round" d="M-2 0 L-11 -12"/>
+    <!-- the mayo -->
+    <path class="o" style="stroke-width:1.4" fill="#fffbe8" d="M-4 -4 Q-5 -9 -1 -9.6 Q1 -13 4 -10 Q8 -9 6.4 -5 Q2 -3 -4 -4 Z"/>
+    <!-- the cone -->
+    <path class="o" fill="#ffffff" d="M-11 -2 L11 -2 L0.6 15 L-0.6 15 Z"/>
+    <path class="t" style="stroke:#e0457b;stroke-width:1.8" d="M-9.6 1 L9.6 1"/>
+    <path class="t" style="stroke:#d9d2c0;stroke-width:1" d="M-4 4 L-0.6 12 M4 4 L1.4 9"/>
+  </g>
+</svg>

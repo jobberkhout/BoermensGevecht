@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -136 106 142" data-rig="humanoid">
+  <title>Influencer-Ivy</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm reaches forward, past her chest, to the pole of the ring light. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <g transform="rotate(-100)">
+      <path class="o" fill="#b28ef0" d="M-6.5 -3 Q-8.5 10 -6.5 22 L6.5 22 Q8 10 6.5 -3 Z"/>
+      <path class="o" fill="#c58f6e" d="M-4.5 21 L-4 28 L4 28 L4.5 21 Z"/>
+      <circle class="o" fill="#c58f6e" cx="0" cy="31" r="4.4"/>
+    </g>
+  </g>
+
+  <!-- The ring light on its pole. Joint at her far hand. -->
+  <g id="ringlight" data-parent="arm_back" transform="translate(22.5 -77.6)">
+    <ellipse class="n" fill="#fff6b3" fill-opacity="0.55" cx="8.5" cy="-38" rx="17" ry="22"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="5.6" stroke-linecap="round" d="M0 2 L7 -24"/>
+    <path fill="none" stroke="#9aa3b2" stroke-width="2.6" stroke-linecap="round" d="M0 2 L7 -24"/>
+    <ellipse fill="none" stroke="#2b1b16" stroke-width="11" cx="8.5" cy="-38" rx="9.5" ry="14.5"/>
+    <ellipse fill="none" stroke="#ffffff" stroke-width="6.4" cx="8.5" cy="-38" rx="9.5" ry="14.5"/>
+    <ellipse fill="none" stroke="#ffe55c" stroke-width="1.4" cx="8.5" cy="-38" rx="9.5" ry="14.5"/>
+    <circle class="o" style="stroke-width:1.8" fill="#3a3f4a" cx="7" cy="-23" r="2.6"/>
+  </g>
+
+  <!-- The rays of the light. -->
+  <g id="flare" data-parent="ringlight" transform="translate(31 -115.6)">
+    <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M20 0 L26 0 M17 -13 L22 -17 M17 13 L22 17"/>
+    <path fill="none" stroke="#ffe55c" stroke-width="2.4" stroke-linecap="round" d="M20 0 L26 0 M17 -13 L22 -17 M17 13 L22 17"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#9f7ad9" d="M-8 -3 L8 -3 L9.5 29 L-8.5 29 Z"/>
+    <path class="o" fill="#e9e9e9" d="M-8 32 Q-8 29 -4 29 L5 29 Q12 29.5 14.5 33 L14.5 38 L-8 38 Z"/>
+    <path class="n" fill="#c9c9c9" d="M-7 35 L13.6 35 L13.6 37.4 L-7 37.4 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#b28ef0" d="M-8 -3 L8 -3 L9.5 29 L-8.5 29 Z"/>
+    <path class="t" style="stroke:#9f7ad9" d="M1 0 L2 27"/>
+    <path class="o" fill="#ffffff" d="M-8 32 Q-8 29 -4 29 L5 29 Q12 29.5 14.5 33 L14.5 38 L-8 38 Z"/>
+    <path class="n" fill="#dcdcdc" d="M-7 35 L13.6 35 L13.6 37.4 L-7 37.4 Z"/>
+    <path class="t" style="stroke:#ff7eb6" d="M0 31.6 L7 31.6"/>
+  </g>
+
+  <!-- An oversized hoodie in the same lilac as the trousers: the set. A heart on the chest. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#c7a6ff" d="M-17 8 Q-20 -14 -16 -30 Q-12 -38 0 -38 Q13 -38 17 -30 Q21 -14 17 8 Z"/>
+    <path class="n" fill="#b28ef0" d="M-15.5 7 Q-18 -14 -14.5 -29 Q-10 -20 -9.5 7 Z"/>
+    <path class="o" fill="#b28ef0" d="M-14 3 L16 3 L16.4 8.4 L-14.6 8.4 Z"/>
+    <path class="t" style="stroke:#8f6ad0" d="M-6 -36 Q2 -31 9 -36"/>
+    <path class="t" style="stroke:#ffffff;stroke-width:1.2" d="M1 -31 L0 -23 M5 -31 L6 -24"/>
+    <path class="n" fill="#ff5fa2" d="M3 -16 Q3 -19.4 6 -19.4 Q8 -19.4 8.6 -17.4 Q9.2 -19.4 11.2 -19.4 Q14.2 -19.4 14.2 -16 Q14.2 -12.4 8.6 -8.6 Q3 -12.4 3 -16 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#c58f6e" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <!-- platinum, long, pink at the ends, down her back -->
+    <path class="o" fill="#f3e6c4" d="M-14 -32 Q-26 -24 -25 -2 Q-24 16 -17 24 Q-10 22 -8 12 Q-6 0 -6 -10 Z"/>
+    <path class="n" fill="#ff8fc4" d="M-24.6 6 Q-23 16 -17 22.6 Q-11 21 -8.8 12.6 Q-16 14 -24.6 6 Z"/>
+    <ellipse class="o" fill="#d9a27c" cx="2" cy="-21" rx="19" ry="18"/>
+    <ellipse class="o" fill="#d9a27c" cx="-8.5" cy="-18.5" rx="3.4" ry="4.8"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffd23f" cx="-8.5" cy="-13" r="1.8"/>
+    <path class="o" fill="#f3e6c4" d="M-17 -15 Q-24 -42 3 -42.5 Q23 -42 21.5 -27 Q18 -33 9 -34 Q2 -34.5 -4 -31 Q-10 -27 -11 -18 Q-12 -10 -14 -6 Q-19 -8 -17 -15 Z"/>
+    <path class="n" fill="#fffaf0" d="M-8 -37.6 Q2 -41 12 -38.6 Q3 -37.6 -6 -34 Z"/>
+    <!-- the bow, matching -->
+    <path class="o" fill="#ff5fa2" d="M-12 -40 L-20 -46 Q-22 -38 -16 -35 Z M-12 -40 L-4 -46 Q-2 -38 -8 -35 Z"/>
+    <circle class="o" fill="#ff7eb6" cx="-12" cy="-40" r="3"/>
+    <!-- big lashes, half-closed lids: she knows -->
+    <circle class="n" fill="#2b1b16" cx="10" cy="-20.4" r="2.2"/>
+    <circle class="n" fill="#2b1b16" cx="18" cy="-20.4" r="2"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="2.6" stroke-linecap="round" d="M6.6 -21.6 Q10 -24.4 13.4 -21.8 M15.4 -21.8 Q18.2 -24 20.6 -21.6"/>
+    <path class="t" style="stroke-width:1.3" d="M6.6 -22 L4.8 -24.2 M8 -23.4 L7 -26 M15.6 -22.6 L14.6 -25"/>
+    <path class="t" style="stroke-width:1.8" d="M6 -28.6 Q10 -31 14 -29"/>
+    <path class="o" fill="#d9a27c" d="M20.5 -18.5 Q24.5 -15.5 20.5 -13.5"/>
+    <ellipse class="n" fill="#ff7eb6" fill-opacity="0.55" cx="8" cy="-13" rx="4.6" ry="2.8"/>
+    <circle class="n" fill="#5b3a28" cx="11.5" cy="-6.6" r="0.9"/>
+  </g>
+
+  <!-- The pout. Joint at the corner of her mouth. -->
+  <g id="lips" data-parent="head" transform="translate(17 -86)">
+    <path class="o" style="stroke-width:2" fill="#ff5fa2" d="M-1.6 -3 Q2 -5 5.4 -3.4 Q7.6 -1.6 5.6 0.2 Q7.4 2.4 4.6 3.8 Q1 5 -1.6 2.6 Q-3 0 -1.6 -3 Z"/>
+    <path class="t" style="stroke-width:1.2" d="M-0.6 0 Q2.6 -0.6 5.6 0.2"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.7" d="M1.4 -3.2 L3.6 -3.4 L2.6 -2.2 Z"/>
+  </g>
+
+  <!-- The near arm, forward, with the gimbal low in front of her. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <g transform="rotate(-58)">
+      <path class="o" fill="#c7a6ff" d="M-6.5 -3 Q-8.5 10 -6.5 22 L6.5 22 Q8 10 6.5 -3 Z"/>
+      <path class="o" fill="#b28ef0" d="M-7 18 L7 18 L7 23.5 L-7 23.5 Z"/>
+      <path class="o" fill="#d9a27c" d="M-4.5 23 L-4 28 L4 28 L4.5 23 Z"/>
+    </g>
+  </g>
+
+  <!-- The phone on its gimbal: handle, motor, arm, and the phone, with her story on it. Joint at her near hand. -->
+  <g id="gimbal" data-parent="arm_front" transform="translate(36.4 -55.4)">
+    <rect class="o" fill="#3a3f4a" x="-2.8" y="-16" width="5.6" height="20" rx="2.4"/>
+    <circle class="o" style="stroke-width:1.8" fill="#5a6272" cx="0" cy="-17.4" r="3.2"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M0 -18 L0 -24 L6 -24"/>
+    <path fill="none" stroke="#5a6272" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M0 -18 L0 -24 L6 -24"/>
+    <rect class="o" style="stroke-width:2" fill="#ff7eb6" x="4" y="-34" width="10" height="17" rx="2"/>
+    <rect class="n" fill="#bfe9ff" x="5.8" y="-32" width="6.4" height="13"/>
+    <circle class="n" fill="#e5283f" cx="7.6" cy="-30" r="1.3"/>
+    <circle data-mount="hand" fill="none" cx="14" cy="-26" r="1"/>
+    <circle class="o" fill="#d9a27c" cx="0" cy="0" r="4.6"/>
+  </g>
+
+  <!-- A like, floating up off the screen. -->
+  <g id="heart" data-parent="gimbal" transform="translate(52 -98)">
+    <path class="o" style="stroke-width:1.8" fill="#e5283f" d="M-4.4 -1.4 Q-4.4 -4.6 -1.8 -4.6 Q-0.4 -4.6 0 -3 Q0.4 -4.6 1.8 -4.6 Q4.4 -4.6 4.4 -1.4 Q4.4 1.6 0 4.6 Q-4.4 1.6 -4.4 -1.4 Z"/>
+  </g>
+</svg>

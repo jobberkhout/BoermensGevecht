@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -128 240 134" data-rig="vehicle">
+  <title>De Bierfiets</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The deck, the keg at the back and the handlebar at the front. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -30)">
+    <g transform="translate(0 30)">
+      <!-- the keg -->
+      <rect class="o" fill="#c9ced6" x="-100" y="-64" width="26" height="32" rx="4"/>
+      <path class="n" fill="#e6e9ee" d="M-96 -61 L-92 -61 L-92 -35 L-96 -35 Z"/>
+      <path class="t" style="stroke:#8d95a3" d="M-100 -55 L-74 -55 M-100 -41 L-74 -41"/>
+      <path class="t" style="stroke-width:3" d="M-80 -64 Q-80 -72 -70 -72"/>
+      <!-- the handlebar of the one who steers, and his bell -->
+      <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" d="M92 -34 L100 -64 L108 -64"/>
+      <path fill="none" stroke="#5a6272" stroke-width="2.6" stroke-linecap="round" d="M92 -34 L100 -64 L108 -64"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2d14b" cx="103" cy="-69" r="3.6"/>
+      <!-- the deck -->
+      <rect class="o" fill="#7a4a24" x="-110" y="-35" width="220" height="11" rx="2.5"/>
+      <path class="t" style="stroke:#5a3418" d="M-80 -33 L-80 -26 M-40 -33 L-40 -26 M0 -33 L0 -26 M40 -33 L40 -26 M80 -33 L80 -26"/>
+    </g>
+  </g>
+
+  <!-- Half the party: they push down while the other half comes up. Behind the bar. -->
+  <g id="party_a" data-parent="body" transform="translate(-16 -64)">
+    <g transform="translate(16 64)">
+      <!-- first: arms up, both hands -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" d="M-53 -84 L-58 -100 M-39 -84 L-34 -100"/>
+      <path fill="none" stroke="#ff4f9a" stroke-width="5" stroke-linecap="round" d="M-53 -84 L-58 -100 M-39 -84 L-34 -100"/>
+      <circle class="o" fill="#f2b096" cx="-58.5" cy="-102" r="3.6"/>
+      <circle class="o" fill="#f2b096" cx="-33.5" cy="-102" r="3.6"/>
+      <rect class="o" fill="#ff4f9a" x="-56" y="-90" width="20" height="30" rx="6"/>
+      <circle class="o" fill="#f2b096" cx="-46" cy="-100" r="10.5"/>
+      <circle class="n" fill="#2b1b16" cx="-42" cy="-102" r="1.6"/>
+      <circle class="n" fill="#2b1b16" cx="-37" cy="-102" r="1.5"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a1f1f" d="M-44 -96 Q-39 -95 -36 -97 Q-37 -91 -40.6 -91.4 Q-43.6 -92 -44 -96 Z"/>
+      <ellipse class="n" fill="#e5583f" fill-opacity="0.45" cx="-46" cy="-96" rx="3" ry="2"/>
+      <path class="o" style="stroke-width:2" fill="#ffe14d" d="M-53 -108 L-39 -108 L-45 -124 Z"/>
+      <path class="t" style="stroke:#3fa9e0;stroke-width:1.6" d="M-50.6 -112 L-41 -112 M-48.6 -117 L-43 -117"/>
+      <circle class="o" style="stroke-width:1.6" fill="#3fa9e0" cx="-45" cy="-124.4" r="2.4"/>
+      <!-- third: a glass in each hand, already half empty -->
+      <rect class="o" fill="#ff4f9a" x="4" y="-90" width="20" height="30" rx="6"/>
+      <circle class="o" fill="#c58f6e" cx="14" cy="-100" r="10.5"/>
+      <circle class="n" fill="#2b1b16" cx="18" cy="-102" r="1.6"/>
+      <circle class="n" fill="#2b1b16" cx="23" cy="-102" r="1.5"/>
+      <path class="t" style="stroke-width:2" d="M16.6 -95.4 Q20 -92.6 23.6 -95.6"/>
+      <path class="o" style="stroke-width:2" fill="#ffe14d" d="M7 -108 L21 -108 L15 -124 Z"/>
+      <path class="t" style="stroke:#3fa9e0;stroke-width:1.6" d="M9.4 -112 L19 -112 M11.4 -117 L17 -117"/>
+      <circle class="o" style="stroke-width:1.6" fill="#3fa9e0" cx="15" cy="-124.4" r="2.4"/>
+    </g>
+  </g>
+
+  <!-- The other half, and the one with the stein held high. -->
+  <g id="party_b" data-parent="body" transform="translate(14 -64)">
+    <g transform="translate(-14 64)">
+      <!-- second -->
+      <rect class="o" fill="#ff4f9a" x="-26" y="-90" width="20" height="30" rx="6"/>
+      <circle class="o" fill="#8a5a3c" cx="-16" cy="-100" r="10.5"/>
+      <circle class="n" fill="#2b1b16" cx="-12" cy="-102" r="1.6"/>
+      <circle class="n" fill="#2b1b16" cx="-7" cy="-102" r="1.5"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a1f1f" d="M-14 -96 Q-9 -95 -6 -97 Q-7 -91 -10.6 -91.4 Q-13.6 -92 -14 -96 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffe14d" d="M-23 -108 L-9 -108 L-15 -124 Z"/>
+      <path class="t" style="stroke:#3fa9e0;stroke-width:1.6" d="M-20.6 -112 L-11 -112 M-18.6 -117 L-13 -117"/>
+      <circle class="o" style="stroke-width:1.6" fill="#3fa9e0" cx="-15" cy="-124.4" r="2.4"/>
+      <!-- fourth: the stein -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" d="M50 -84 L56 -106"/>
+      <path fill="none" stroke="#ff4f9a" stroke-width="5" stroke-linecap="round" d="M50 -84 L56 -106"/>
+      <rect class="o" fill="#ff4f9a" x="34" y="-90" width="20" height="30" rx="6"/>
+      <circle class="o" fill="#f2c4a0" cx="44" cy="-100" r="10.5"/>
+      <path class="o" style="stroke-width:1.8" fill="#e0b52a" d="M35 -104 Q38 -112 46 -111 Q53 -110 54 -104 Q48 -108 35 -104 Z"/>
+      <circle class="n" fill="#2b1b16" cx="48" cy="-101" r="1.6"/>
+      <circle class="n" fill="#2b1b16" cx="53" cy="-101" r="1.5"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a1f1f" d="M46 -95 Q51 -94 54 -96 Q53 -90 49.4 -90.4 Q46.4 -91 46 -95 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffe14d" d="M37 -109 L51 -109 L45 -125 Z"/>
+      <path class="t" style="stroke:#3fa9e0;stroke-width:1.6" d="M39.4 -113 L49 -113 M41.4 -118 L47 -118"/>
+      <rect class="o" fill="#f7c948" x="55" y="-120" width="11" height="14" rx="1.6"/>
+      <path class="t" style="stroke-width:2" d="M66 -117 Q70 -113 66 -109"/>
+      <circle class="o" fill="#f2c4a0" cx="57" cy="-108" r="3.6"/>
+    </g>
+  </g>
+
+  <!-- The foam on the stein, which will not stay there. -->
+  <g id="foam" data-parent="party_b" transform="translate(60.5 -121)">
+    <path class="o" style="stroke-width:1.8" fill="#fffaf0" d="M-6.5 1 Q-8 -3 -4 -3.6 Q-2.6 -6.6 0.6 -5 Q4 -6.6 5.4 -3 Q8.4 -2 6.4 1.4 Z"/>
+  </g>
+
+  <!-- The bar, with the tap in the middle. In front of the party. -->
+  <g id="bar" data-parent="body" transform="translate(0 -50)">
+    <g transform="translate(0 50)">
+      <rect class="o" fill="#b5763a" x="-66" y="-64" width="142" height="30"/>
+      <rect class="n" fill="#9c6230" x="-60" y="-58" width="130" height="19" rx="2"/>
+      <path class="t" style="stroke:#7a4a24" d="M-30 -58 L-30 -39 M4 -58 L4 -39 M38 -58 L38 -39"/>
+      <rect class="o" fill="#d9a05b" x="-72" y="-69" width="154" height="7" rx="2"/>
+      <!-- the tap -->
+      <path class="o" fill="#c9ced6" d="M-6 -69 L-6 -80 Q-6 -84 0 -84 L6 -84 L6 -78 L1 -78 L1 -69 Z"/>
+      <path class="t" style="stroke-width:2.4" d="M6 -78 L6 -74"/>
+      <rect class="o" style="stroke-width:2" fill="#e5283f" x="-4" y="-95" width="5" height="11" rx="2"/>
+      <!-- empties along the bar -->
+      <rect class="o" style="stroke-width:1.8" fill="#f7c948" fill-opacity="0.7" x="-58" y="-77" width="7" height="8" rx="1"/>
+      <rect class="o" style="stroke-width:1.8" fill="#f7c948" x="26" y="-78" width="7" height="9" rx="1"/>
+      <path class="n" fill="#fffaf0" d="M25.6 -78 L33.4 -78 L33.4 -75.4 L25.6 -75.4 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#f7c948" fill-opacity="0.5" x="62" y="-76" width="7" height="7" rx="1"/>
+    </g>
+  </g>
+
+  <!-- Its own no-entry sign, carried along on a pole: it is banned from the centre, so it brought the ban. -->
+  <g id="sign" data-parent="body" transform="translate(-106 -35)">
+    <g transform="translate(106 35)">
+      <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" d="M-106 -35 L-106 -98"/>
+      <path fill="none" stroke="#9aa3b2" stroke-width="2.4" stroke-linecap="round" d="M-106 -35 L-106 -98"/>
+      <circle class="o" fill="#e5283f" cx="-106" cy="-107" r="11.5"/>
+      <rect class="n" fill="#ffffff" x="-113" y="-109.4" width="14" height="4.8" rx="1"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-80 -15)">
+    <circle class="o" fill="#2a2b33" cx="0" cy="0" r="15"/>
+    <circle class="o" style="stroke-width:1.8" fill="#d9a05b" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2" d="M0 -9 L0 9 M-9 0 L9 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#7a4a24" cx="0" cy="0" r="3"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(80 -15)">
+    <circle class="o" fill="#2a2b33" cx="0" cy="0" r="15"/>
+    <circle class="o" style="stroke-width:1.8" fill="#d9a05b" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2" d="M0 -9 L0 9 M-9 0 L9 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#7a4a24" cx="0" cy="0" r="3"/>
+  </g>
+</svg>

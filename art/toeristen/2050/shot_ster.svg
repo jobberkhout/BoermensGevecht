@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -17 34 34" data-rig="static">
+  <title>Eén ster: de recensie, als werpster</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <g id="star" transform="translate(0 0)">
+    <path class="o" fill="#ffd21f" d="M0 -15 L4.4 -5.4 L14.6 -4.6 L6.8 2.2 L9.2 12.4 L0 7 L-9.2 12.4 L-6.8 2.2 L-14.6 -4.6 L-4.4 -5.4 Z"/>
+    <path class="n" fill="#fff1a1" d="M0 -11 L2.6 -5 L0 -3 Z M-11 -3.6 L-4.6 -4 L-3.6 -1.4 Z"/>
+    <path class="n" fill="#e0a800" d="M1 5.4 L7.6 9.4 L6 2.6 Z"/>
+    <!-- the hole of a throwing star -->
+    <circle class="o" style="stroke-width:1.8" fill="#8a6a10" cx="0" cy="0.6" r="2.6"/>
+  </g>
+</svg>

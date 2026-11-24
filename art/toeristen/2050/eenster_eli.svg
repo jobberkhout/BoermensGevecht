@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-52 -140 120 146" data-rig="humanoid">
+  <title>Eénster-Eli: slimme bril, streamt alles live, geeft elke bewoner één ster, en gooit die ster ook</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .holo { fill: #7ff0f0; fill-opacity: 0.25; stroke: #3fc9d6; stroke-width: 1.6; stroke-linejoin: round; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The rating, floating over its shoulder for everyone to see: one star out of five. Joint in its middle. -->
+  <g id="rating" transform="translate(-26 -122)">
+    <g transform="translate(26 122)">
+      <rect class="holo" x="-50" y="-131" width="48" height="16" rx="4"/>
+      <path class="n" fill="#ffd21f" d="M-43 -128 L-41.6 -124.6 L-38 -124.4 L-40.8 -122 L-39.8 -118.6 L-43 -120.6 L-46.2 -118.6 L-45.2 -122 L-48 -124.4 L-44.4 -124.6 Z"/>
+      <path fill="none" stroke="#3fc9d6" stroke-width="1.2" stroke-linejoin="round" d="M-34 -128 L-32.6 -124.6 L-29 -124.4 L-31.8 -122 L-30.8 -118.6 L-34 -120.6 L-37.2 -118.6 L-36.2 -122 L-39 -124.4 L-35.4 -124.6 Z M-25 -128 L-23.6 -124.6 L-20 -124.4 L-22.8 -122 L-21.8 -118.6 L-25 -120.6 L-28.2 -118.6 L-27.2 -122 L-30 -124.4 L-26.4 -124.6 Z M-16 -128 L-14.6 -124.6 L-11 -124.4 L-13.8 -122 L-12.8 -118.6 L-16 -120.6 L-19.2 -118.6 L-18.2 -122 L-21 -124.4 L-17.4 -124.6 Z M-7 -128 L-5.6 -124.6 L-2 -124.4 L-4.8 -122 L-3.8 -118.6 L-7 -120.6 L-10.2 -118.6 L-9.2 -122 L-12 -124.4 L-8.4 -124.6 Z"/>
+    </g>
+  </g>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-8 -72)">
+    <g transform="translate(8 72)">
+      <path class="o" fill="#6a3fc0" d="M-14 -75 Q-17 -62 -14 -50 L-5 -50 Q-3 -64 -3 -75 Z"/>
+      <path class="o" fill="#6a3fc0" d="M-14.6 -54 L-6 -54 L-6.6 -40 L-14 -40 Z"/>
+      <circle class="o" fill="#e0a283" cx="-10.4" cy="-37" r="4.6"/>
+    </g>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <g transform="translate(5 38)">
+      <path class="o" fill="#e0a283" d="M-10.5 -26 L0.5 -26 L0 -12 L-10 -12 Z"/>
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-10.4 -14 L0.2 -14 L0.4 -5 L-10.4 -5 Z"/>
+      <path class="o" fill="#5d6675" d="M-12 -2.5 Q-12 -6.5 -7 -6.5 L2 -6.5 Q8.5 -6 9 -2.5 L9 0 L-12 0 Z"/>
+      <path class="o" fill="#b5a173" d="M-12.5 -41 L2.5 -41 L2 -23 L-12 -23 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <g transform="translate(-5 38)">
+      <path class="o" fill="#f2a98a" d="M-0.5 -26 L10.5 -26 L10 -12 L0 -12 Z"/>
+      <!-- white socks, pulled up, in sandals -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-0.4 -14 L10.2 -14 L10.6 -5 L-0.4 -5 Z"/>
+      <path class="o" fill="#6f7a88" d="M-2 -2.5 Q-2 -6.5 3 -6.5 L12 -6.5 Q18.5 -6 19 -2.5 L19 0 L-2 0 Z"/>
+      <path class="t" style="stroke-width:2.2" d="M3 -6.5 L7 -11 L12 -6.5"/>
+      <!-- cargo shorts, many pockets, all empty -->
+      <path class="o" fill="#c8b48a" d="M-2.5 -41 L12.5 -41 L12 -23 L-2 -23 Z"/>
+      <rect class="o" style="stroke-width:1.6" fill="#b5a173" x="2" y="-34" width="9" height="8" rx="1.4"/>
+    </g>
+  </g>
+
+  <!-- A loud windbreaker, a chest cam on a harness, a bum bag across the front. Joint at the waist. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <path class="o" fill="#7b4fd6" d="M-16 -36 Q-19 -56 -16 -72 Q-11.5 -80.5 1 -80.5 Q12.5 -80.5 16.5 -72 Q19.5 -56 15.5 -36 Z"/>
+      <path class="n" fill="#ffd21f" d="M-17.4 -58 L17.8 -58 L18 -52 L-17.6 -52 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-17.4 -58 L17.8 -58 M-17.6 -52 L18 -52"/>
+      <path class="n" fill="#6a3fc0" d="M-15 -38 Q-17.5 -56 -15 -70 Q-11 -60 -10 -38 Z"/>
+      <!-- the lanyard with the pass for everything -->
+      <path class="t" style="stroke:#e5283f;stroke-width:2" d="M-4 -80 L4 -64 L12 -79"/>
+      <!-- the chest cam: always on -->
+      <rect class="o" style="stroke-width:2" fill="#2f3340" x="0" y="-70" width="12" height="9" rx="2"/>
+      <circle class="o" style="stroke-width:1.6" fill="#5ad1e6" cx="9" cy="-65.4" r="2.6"/>
+      <circle class="n" fill="#ff3b3b" cx="2.6" cy="-67.6" r="1.3"/>
+      <!-- the bum bag, worn across the front -->
+      <path class="o" fill="#ff8c2a" d="M-8 -48 Q-8 -42 -2 -42 L12 -42 Q17 -42 17 -48 L17 -50 L-8 -50 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-8 -47 L17 -47"/>
+      <rect class="o" style="stroke-width:2" fill="#3a2d28" x="-16" y="-41" width="31.5" height="5" rx="1.8"/>
+    </g>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -78)">
+    <g transform="translate(-1 78)">
+      <rect class="o" fill="#e0a283" x="-3.5" y="-84" width="9" height="8" rx="2"/>
+      <ellipse class="o" fill="#f2a98a" cx="3" cy="-97.5" rx="16.5" ry="17.5"/>
+      <!-- sunburnt nose -->
+      <path class="o" fill="#f07c6a" d="M18.6 -98 Q24.6 -94 19.4 -90.4"/>
+      <ellipse class="o" fill="#f2a98a" cx="-7" cy="-95" rx="3.4" ry="4.6"/>
+      <!-- the earpiece and the boom mic: narrating to eleven followers -->
+      <circle class="o" style="stroke-width:1.6" fill="#2f3340" cx="-7" cy="-95" r="2.2"/>
+      <path class="t" style="stroke-width:1.8" d="M-6 -92 Q0 -84 10 -86"/>
+      <circle class="o" style="stroke-width:1.4" fill="#2f3340" cx="11" cy="-86" r="1.8"/>
+      <!-- an open mouth: talking, always -->
+      <path class="o" style="stroke-width:1.8" fill="#7a2a2a" d="M11.6 -89.6 Q16.6 -88.6 18.4 -89.8 Q17.6 -84 13.6 -84.6 Q11.4 -85.6 11.6 -89.6 Z"/>
+      <!-- the smart glasses: a mirrored visor, recording -->
+      <path class="o" fill="#2f3340" d="M-4 -104 L20.4 -104.6 Q21.6 -98 19 -96 L4 -96 Q-2 -96 -4 -100 Z"/>
+      <path class="n" fill="#5ad1e6" d="M4 -102.6 L18.6 -103 Q19.4 -99.4 18 -97.6 L8 -97.6 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M9 -102.6 L12 -102.6 L9 -97.6 L6.6 -97.6 Z"/>
+      <circle class="n" fill="#ff3b3b" cx="-1" cy="-100.6" r="1.6"/>
+      <!-- the bucket hat -->
+      <path class="o" fill="#5fb7e8" d="M-15 -104 Q-14 -118 3 -118 Q19 -118 19.6 -104 Z"/>
+      <path class="o" fill="#4a9fd4" d="M-20 -104 Q3 -110 24.6 -104 Q26 -100 22 -100.6 Q3 -105 -17 -100.6 Q-21.4 -100.4 -20 -104 Z"/>
+      <path class="t" style="stroke:#3a86bc;stroke-width:1.4" d="M-12 -108 Q3 -111 17 -108"/>
+    </g>
+  </g>
+
+  <!-- The camera drone, flying backwards in front of Eli, lens turned on the face. Joint at its middle. -->
+  <g id="drone" transform="translate(36 -124)">
+    <g transform="translate(-36 124)">
+      <path class="t" style="stroke-width:2.4" d="M27 -125 L22 -130 M45 -125 L50 -130"/>
+      <rect class="o" style="stroke-width:2.2" fill="#e6ecee" x="25" y="-129" width="22" height="10" rx="4"/>
+      <path class="n" fill="#c9d1dc" d="M27 -122 L45 -122 L45 -121 Q45 -120.6 44 -120.6 L28 -120.6 Q27 -120.6 27 -121 Z"/>
+      <circle class="n" fill="#ff3b3b" cx="43" cy="-125.6" r="1.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f3340" d="M27 -119 L33 -119 L33 -113 Q30 -112 27 -114 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#5ad1e6" cx="27.6" cy="-115.6" r="2.4"/>
+    </g>
+  </g>
+  <g id="rotor_l" data-parent="drone" transform="translate(22 -131)">
+    <ellipse class="n" fill="#8a919c" fill-opacity="0.8" cx="0" cy="0" rx="8" ry="1.6"/>
+  </g>
+  <g id="rotor_r" data-parent="drone" transform="translate(50 -131)">
+    <ellipse class="n" fill="#8a919c" fill-opacity="0.8" cx="0" cy="0" rx="8" ry="1.6"/>
+  </g>
+
+  <!-- The throwing arm, with a one-star review between two fingers. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <g transform="translate(-10 72)">
+      <path class="o" fill="#7b4fd6" d="M4 -77 Q2 -64 6 -54 L15 -55 Q17 -66 16 -77 Z"/>
+      <path class="o" fill="#7b4fd6" d="M7 -58 L21 -70 L27 -64 L13 -51 Z"/>
+      <path class="n" fill="#9370e3" d="M9 -74 L13 -74 L13 -60 L10 -58 Z"/>
+      <!-- the star -->
+      <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M30 -84 L32.3 -78.6 L38 -78.2 L33.6 -74.4 L35 -68.8 L30 -71.8 L25 -68.8 L26.4 -74.4 L22 -78.2 L27.7 -78.6 Z"/>
+      <circle class="o" fill="#f2a98a" cx="25" cy="-69" r="4.8"/>
+      <circle data-mount="hand" fill="none" cx="30" cy="-76" r="1"/>
+    </g>
+  </g>
+</svg>

@@ -56,6 +56,8 @@ export interface UnitView {
   turncoat: boolean;
   /** Pixels it still has to slide to where it stands now, after it was moved by a takeover. Fades to 0. */
   slide: number;
+  /** In the shot of an enemy poser: the drawing of the camera frame over its head, or ''. */
+  pose: string;
 }
 
 export interface Ghost {
@@ -129,11 +131,25 @@ export interface Blockade {
  * long as it does: the band of a Høken!, the gong, the fee of De Zuidas on her cloud.
  */
 export interface Band {
+  /** The side whose base it stands by, and which way it faces. */
   side: Side;
   rig: string;
   age: number;
   life: number;
+  /**
+   * How it comes and goes. 'pop': it grows on the verge beside the base.
+   * 'drop': it falls out of the sky onto that spot, as the estate agent's sign
+   * of the Huurverhoging does on the enemy's base. 'dock': it slides in from
+   * the edge of the screen behind the base and slides out again at the end, as
+   * the cruise ship does; it is drawn behind the base.
+   */
+  mode: 'pop' | 'drop' | 'dock';
 }
+
+/** Seconds the cruise ship takes to slide in behind the base, and out again when its time is up. */
+export const DOCK_SECONDS = 1.4;
+/** Seconds a dropped sign takes to fall onto its spot. */
+export const DROP_SECONDS = 0.35;
 
 /** A drawing that flies from one spot to another and is gone: a heart, a diving drone, the algorithm's verdict. */
 export interface Sprite {
@@ -362,8 +378,46 @@ export class BattleView {
           const to = other(e.side);
           const owner = s.sides[to];
           const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
-          this.bands = this.bands.filter((b) => b.side !== to);
-          this.bands.push({ side: to, rig, age: 0, life: e.ticks / TPS });
+          this.bands = this.bands.filter((b) => b.side !== to || b.mode !== 'pop');
+          this.bands.push({ side: to, rig, age: 0, life: e.ticks / TPS, mode: 'pop' });
+          break;
+        }
+        case 'hiked': {
+          // The estate agent's sign comes down on the base of the side that pays more, and stays while the rent is up.
+          const owner = s.sides[other(e.side)];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.rig !== rig || b.side !== e.side);
+          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS, mode: 'drop' });
+          // It lands with a thud.
+          const x = GATE_X[e.side] + dirOf(e.side) * BAND_SPOT.dx;
+          this.puffs.push({ x, y: GROUND_Y + BAND_SPOT.dy, age: -DROP_SECONDS, life: 0.4, color: '#fffdf5', size: 50 });
+          this.say(x, GROUND_Y + BAND_SPOT.dy - 230, NL.shout.hiked, '#ff7a66', 1.8, 30, DROP_SECONDS);
+          break;
+        }
+        case 'scattered': {
+          // The umbrella is down: a puff where she stood, and her group asks where everyone went.
+          const x = laneX(e.side, e.pos);
+          this.puffs.push({ x, y: rowY(1) - 70, age: 0, life: 0.35, color: '#fffdf5', size: 40 });
+          const first = s.sides[e.side].units.find((u) => u.id === e.ids[0]);
+          const lines = first ? linesFor('battleCry', first.def) : [];
+          if (lines.length > 0) this.say(x, rowY(1) - 160, this.pick(lines), '#fffdf5', 1.6, 21, 0.3);
+          break;
+        }
+        case 'recalled': {
+          // The ship's horn: everyone who is still ashore runs back to the gate, and one of them says why.
+          let said = false;
+          for (const id of e.ids) {
+            const v = this.units.get(id);
+            if (!v) continue;
+            this.units.delete(id);
+            this.ghosts.push({ side: v.side, def: v.def, row: v.row, x: v.x, puppet: v.puppet, travelled: 0, age: 0 });
+            if (v.puppet) v.puppet.blend = 1;
+            const lines = linesFor('slinkOff', v.def.id);
+            if (!said && lines.length > 0) {
+              said = true;
+              this.say(v.x, rowY(v.row) - 140, this.pick(lines), '#ffd21f', 1.6, 26);
+            }
+          }
           break;
         }
         case 'skimmed':
@@ -455,16 +509,22 @@ export class BattleView {
           // The group chat lights up beside the base while the family comes out.
           const state = s.sides[e.side];
           const rig = eraOf(state.faction, state.era).special.rig ?? '';
-          this.bands = this.bands.filter((b) => b.side !== e.side);
-          this.bands.push({ side: e.side, rig, age: 0, life: 2.5 });
+          if (e.ticks > 0) {
+            // A cruise ship slides in behind the base and stays until the horn, then leaves.
+            this.bands = this.bands.filter((b) => b.side !== e.side || b.mode !== 'dock');
+            this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS + DOCK_SECONDS, mode: 'dock' });
+          } else {
+            this.bands = this.bands.filter((b) => b.side !== e.side || b.mode !== 'pop');
+            this.bands.push({ side: e.side, rig, age: 0, life: 2.5, mode: 'pop' });
+          }
           this.familyLine[e.side] = true;
           break;
         }
         case 'buffed': {
           const state = s.sides[e.side];
           const rig = eraOf(state.faction, state.era).special.rig ?? '';
-          this.bands = this.bands.filter((b) => b.side !== e.side);
-          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS });
+          this.bands = this.bands.filter((b) => b.side !== e.side || b.mode !== 'pop');
+          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS, mode: 'pop' });
           this.noteIn[e.side] = 0;
           break;
         }
@@ -583,7 +643,8 @@ export class BattleView {
 
   /** Floats a line of text up from a spot. With `delay` it appears that many seconds later. */
   private say(x: number, y: number, text: string, color: string, life: number, size: number, delay = 0): void {
-    this.floaters.push({ x, y, text, color, age: -delay, life, size });
+    // A name may carry a soft hyphen, where its button may break it; on the field it is said in one go.
+    this.floaters.push({ x, y, text: text.replaceAll('\u00ad', ''), color, age: -delay, life, size });
   }
 
   /** Call every frame. `alpha` is how far we are between the last tick and the next (0..1). */
@@ -673,8 +734,10 @@ export class BattleView {
   private updateUnits(s: SimState, alpha: number, dt: number): void {
     const seen = new Set<number>();
     for (const side of SIDES) {
+      // Whoever poses this side's units, and the frame drawn over them while they do.
+      const poser = s.sides[other(side)].units.map((u) => unitDef(u.def).poser).find((p) => p !== undefined);
       // A rider is drawn like a unit that is always on the move.
-      const riders = s.sides[side].riders.map((r): Unit => ({ ...r, act: 'walk', actTick: 0, stunUntil: 0, turncoat: false }));
+      const riders = s.sides[side].riders.map((r): Unit => ({ ...r, act: 'walk', actTick: 0, stunUntil: 0, turncoat: false, posing: false, leaveAt: 0 }));
       for (const u of [...s.sides[side].units, ...riders]) {
         seen.add(u.id);
         const def = unitDef(u.def);
@@ -699,6 +762,7 @@ export class BattleView {
             stunned: false,
             turncoat: u.turncoat,
             slide: 0,
+            pose: '',
           };
           this.units.set(u.id, v);
         }
@@ -719,6 +783,7 @@ export class BattleView {
         v.x = x;
         v.hp = u.hp;
         v.stunned = u.stunUntil > s.tick;
+        v.pose = u.posing && poser ? poser.rig : '';
         v.flash = Math.max(0, v.flash - dt * 5);
         v.hitTime += dt;
         v.idleTime += dt;

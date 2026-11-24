@@ -109,6 +109,15 @@ After this step the game knows the faction and the tests tell you everything tha
    - `heavyRides: true` only if the brief makes the heavy unit a rider, as De Gasten's fatbike is: a unit
      that leaves the gate outside the ranks and rides through them to the enemy base. Its numbers are
      `RIDER` in `src/defs/balance.ts` and its rule is `src/sim/riders.ts`; nothing else needs building.
+   - Three more rules of their own came with De Toeristen and are switched on the same way, only if the
+     brief asks for them (`src/defs/toeristen.ts` shows all three; the rules are in `src/sim/tourists.ts`
+     and the melee blow in `src/sim/step.ts`, the numbers under `POSE`, `SCATTER` and `HOVER`):
+     `rangedPoses: '<drawing>'` makes the ranged unit throw nothing and pose the enemy instead, so it needs
+     no `rangedShot`, and the drawing is the mark over a posing unit; `heavyHovers: true` puts the heavy
+     unit out of reach of melee, with fewer hit points; `shieldScatters: '<drawing>'` makes the schild
+     dearer and slower and leave a group behind when it falls, who come as `<era id>.scattered` (one more
+     drawing). `summonedStats` gives whoever a summon calls in numbers of their own instead of the
+     temperament.
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
@@ -164,7 +173,8 @@ Every era has its own special, and the three must be of different kinds. These k
 | `snipe` | Damage that starts with the toughest enemy unit and carries on to the next | A `static` drawing around (0,0), about 120 by 120. It drops out of the sky onto each victim. Example: `havermelk/2050/special_algoritme` |
 | `convert` | The toughest enemy unit changes sides | A `static` drawing around (0,0), about 120 by 120. It drops onto the bought unit. Example: `zuidas/2025/special_overname` |
 | `divert` | For a few seconds everything the enemy earns is paid to you instead: their income and their bounties | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, like the one of a `buff`: it stands beside your own base for as long as it lasts. It needs a marker `slot` where the money goes in; the game makes coins fly there from the enemy's purse and from every unit they beat. Example: `zuidas/2050/special_succesfee` |
-| `summon` | A number of free units of your own come out at your gate, whatever the unit cap, ahead of anyone in training. They pay no bounty when beaten | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `buff`. **And one more drawing**: the unit it calls in, a `humanoid` like a light unit, named in the era's `summoned` field; it comes as `<era id>.summoned` with the numbers of the era's light unit and the faction's temperament. So a faction with a summon has 30 drawings. Example: `gasten/2050/special_familie_app` with `gasten/2050/holoneef` |
+| `summon` | A number of free units of your own come out at your gate, whatever the unit cap, ahead of anyone in training. They pay no bounty when beaten. With `ticks`, they all leave again after that long, paying nobody | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `buff`. With `ticks` it is a ship instead: drawn behind your base at full size with (0,0) at the gate, it slides in from the edge of the screen and stays until they leave; viewBox about `-300 -660 640 668`, hull bottom at y = -52. **And one more drawing**: the unit it calls in, a `humanoid` like a light unit, named in the era's `summoned` field; it comes as `<era id>.summoned` with the numbers of the era's light unit and the faction's temperament, or `summonedStats`. So a faction with a summon has 30 drawings. Examples: `gasten/2050/special_familie_app` with `gasten/2050/holoneef`; `toeristen/2025/special_cruiseschip` with `toeristen/2025/dagjesmens` |
+| `hike` | For a few seconds everything the enemy buys costs more: units, turrets, subsidie and modernizing. Their buttons show the prices in red. It starts on the tick after it is pressed | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post. It falls out of the sky onto the verge beside the enemy's base and stands there for as long as it lasts. Example: `toeristen/2050/special_huurverhoging` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
@@ -178,8 +188,9 @@ is looked at once all factions are in, and that is the owner's decision.
 ### A special of a kind that does not exist yet
 
 `docs/factions.md` plans three more kinds: slow, block and lockout. If your faction needs one, you
-build the kind. `convert`, `divert` and `summon` were added that way; search the code for `convert` and
-`converted`, `divert` and `diverted`, or `summon` and `summoned`, and you have a complete example of each. The places, in order:
+build the kind. `convert`, `divert`, `summon` and `hike` were added that way; search the code for `convert`
+and `converted`, `divert` and `diverted`, `summon` and `summoned`, or `hike` and `hiked`, and you have a
+complete example of each. The places, in order:
 
 1. `src/defs/types.ts`: a new member of the `SpecialDef` union, with the fields it needs.
 2. `src/defs/balance.ts`: its numbers, under `SPECIAL`.
@@ -212,7 +223,9 @@ Then add the kind to the table above and to the table in `docs/factions.md`.
 
 ## Step 3: the drawings
 
-A faction needs 29 drawings. Nine per era, the flag and the backdrop:
+A faction needs 29 drawings. Nine per era, the flag and the backdrop. A summon adds the unit it calls in,
+a schild that scatters adds its group, and a ranged unit that poses has its mark instead of a projectile
+(De Toeristen have 31):
 
 | Drawing | File | Rig | Canvas and origin | Markers | Animations |
 |---|---|---|---|---|---|

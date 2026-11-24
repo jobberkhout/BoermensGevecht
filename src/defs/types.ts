@@ -1,9 +1,9 @@
 import type { EraKey, Temper } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
-export type Voice = 'town' | 'country' | 'office';
+export type Voice = 'town' | 'country' | 'office' | 'tourist';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -51,11 +51,30 @@ export interface UnitDef {
    */
   rider?: { baseDmg: number };
   /**
-   * Called in by a special, not trained: it is not for sale, costs nothing and
-   * pays no bounty, and beating it teaches nobody anything. The hologram
-   * cousins of De Familie-app. See sim/specials.ts.
+   * Not trained but called in by a special, or scattered from a unit that fell:
+   * it is not for sale, costs nothing and pays no bounty, and beating it teaches
+   * nobody anything. The hologram cousins of De Familie-app, the day trippers of
+   * the cruise ship, Paraplu-Pam's lost group. See sim/specials.ts and sim/step.ts.
    */
   summoned?: true;
+  /**
+   * Present on a unit that throws nothing and poses the enemy instead:
+   * Influencer-Ivy. Every enemy unit within its reach is in its shot, and its
+   * blows and throws do POSE.dmgPercent of their damage while it is. `rig` is
+   * the mark drawn over a posing unit. See sim/tourists.ts.
+   */
+  poser?: { rig: string };
+  /**
+   * When it is beaten, by any cause, `count` units of `unit` come onto the lane
+   * where it stood, for the side it is on: Paraplu-Pam's group. See sim/tourists.ts.
+   */
+  scatter?: { unit: string; count: number };
+  /**
+   * It hovers: enemy melee blows pass under it, unless they come from a super
+   * unit, and a rider rides under it. Throws, turrets and specials reach it.
+   * De Zweefbierfiets. See sim/step.ts.
+   */
+  hovers?: true;
 }
 
 export interface TurretDef {
@@ -87,7 +106,8 @@ export type SpecialDef = SpecialBase &
     | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
     | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
     | { kind: 'divert'; ticks: number } // for a while everything the enemy earns is paid to you instead
-    | { kind: 'summon'; unit: string; count: number } // free units of your own come out at your gate, unit cap or not
+    | { kind: 'summon'; unit: string; count: number; ticks?: number } // free units of your own come out at your gate, unit cap or not; with `ticks`, they leave again after that long
+    | { kind: 'hike'; ticks: number; pricePercent: number } // for a while everything the enemy buys costs more
   );
 
 export interface EraDef {

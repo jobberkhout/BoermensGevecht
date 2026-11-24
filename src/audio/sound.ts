@@ -319,7 +319,7 @@ export class Sound {
     this.tone({ type: 'triangle', freq: 170, to: 110, dur: 0.16, gain: 0.4 });
   }
 
-  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country, a desk phone at the office. */
+  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country, a desk phone at the office, a suitcase on the cobbles for the tourists. */
   spawn(voice: Voice): void {
     if (!this.due(`spawn.${voice}`, 0.1)) return;
     if (voice === 'town') {
@@ -328,6 +328,9 @@ export class Sound {
     } else if (voice === 'country') {
       this.hiss({ from: 420, to: 180, dur: 0.07, gain: 0.5, q: 2 });
       this.hiss({ from: 380, to: 160, dur: 0.07, gain: 0.4, q: 2, at: 0.11 });
+    } else if (voice === 'tourist') {
+      // Little wheels rattling over the stones, one after another.
+      for (let i = 0; i < 5; i++) this.hiss({ from: 1100 - i * 60, to: 600, dur: 0.03, gain: 0.3, q: 3, at: i * 0.05 });
     } else {
       // Two short rings, each a quick trill between two tones.
       for (const at of [0, 0.16]) {
@@ -356,7 +359,7 @@ export class Sound {
     this.hiss({ from: 500, to: 2000, dur: 0.16, gain: 0.18, q: 1.4 });
   }
 
-  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn, glasses clinking at the office. */
+  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn, glasses clinking at the office, an "ooh!" from the tourists. */
   turret(voice: Voice): void {
     if (!this.due(`turret.${voice}`, 0.2)) return;
     if (voice === 'town') {
@@ -364,6 +367,9 @@ export class Sound {
       this.tone({ type: 'triangle', freq: 360, to: 270, dur: 0.09, gain: 0.22, at: 0.08 });
     } else if (voice === 'country') {
       this.tone({ type: 'sawtooth', freq: 180, to: 105, dur: 0.2, gain: 0.2, attack: 0.02 });
+    } else if (voice === 'tourist') {
+      this.tone({ type: 'triangle', freq: 330, to: 470, dur: 0.1, gain: 0.2, attack: 0.02 });
+      this.tone({ type: 'triangle', freq: 470, to: 300, dur: 0.16, gain: 0.18, at: 0.1 });
     } else {
       this.tone({ type: 'sine', freq: 2093, dur: 0.18, gain: 0.12 });
       this.tone({ type: 'sine', freq: 2637, dur: 0.22, gain: 0.1, at: 0.05 });
@@ -413,6 +419,28 @@ export class Sound {
     }
     this.hiss({ from: 90, to: 140, dur: 1.5, gain: 0.5, filter: 'lowpass' });
     this.tone({ type: 'sawtooth', freq: 55, to: 70, dur: 1.5, gain: 0.3, attack: 0.1 });
+  }
+
+  /** A cruise ship's horn: two long, low blasts. When it moors, and when its day trippers have to be back on board. */
+  shipHorn(): void {
+    for (const at of [0, 0.7]) {
+      this.tone({ type: 'sawtooth', freq: 98, dur: 0.55, gain: 0.16, at, attack: 0.05 });
+      this.tone({ type: 'square', freq: 147, dur: 0.55, gain: 0.07, at, attack: 0.05 });
+    }
+  }
+
+  /** The rent goes up: a sign thuds down, then the price climbs. */
+  hike(): void {
+    this.hiss({ from: 260, to: 90, dur: 0.12, gain: 0.5, filter: 'lowpass' });
+    [523, 659, 784, 1047].forEach((freq, i) => this.tone({ type: 'triangle', freq, dur: 0.1, gain: 0.18, at: 0.12 + i * 0.07 }));
+    this.tone({ type: 'sine', freq: 1760, dur: 0.35, gain: 0.12, at: 0.42 });
+  }
+
+  /** An influencer films: the click of a phone camera. */
+  shutter(): void {
+    if (!this.due('shutter', 0.25)) return;
+    this.hiss({ from: 3200, to: 1800, dur: 0.02, gain: 0.25, q: 2 });
+    this.hiss({ from: 2600, to: 1400, dur: 0.025, gain: 0.2, q: 2, at: 0.06 });
   }
 
   /** A whistle, then voices chanting. */
@@ -602,8 +630,9 @@ export class Sound {
    */
   demo(): number {
     const effects: (() => void)[] = [
-      () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'),
-      () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'),
+      () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'), () => this.spawn('tourist'),
+      () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'), () => this.turret('tourist'),
+      () => this.shipHorn(), () => this.hike(), () => this.shutter(),
       () => this.defeat(), () => this.coin(), () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(),
       () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(), () => this.drain(),
       () => this.giant(), () => this.alarm(), () => this.surge(), () => this.fanfare(),

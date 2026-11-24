@@ -38,11 +38,11 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 
 ## The factions
 
-| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten |
-|---|---|---|---|---|
-| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) |
-| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight) |
+| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten | De Toeristen |
+|---|---|---|---|---|---|
+| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) | Rugzak-Robin, Flitsblokje-Fien, De Touringcar, and the schild: Plattegrond-Paula. Turret: De Kaartenmolen. Special: De Dia-avond (enemy units stand still) |
+| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) | Rolkoffer-Rita, Influencer-Ivy (poses the enemy, see below), De Bierfiets, and the schild: Paraplu-Pam (scatters, see below). Turret: De Hype-rij. Special: Cruiseschip legt aan (eight day trippers for twenty seconds) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight) | De Robokoffer, Eénster-Eli, De Zweefbierfiets (hovers, see below), and the super unit: MS Kolossaal. Turret: De Sleutelkluizentoren. Special: Huurverhoging voor de locals (for ten seconds everything the enemy buys costs double) |
 
 All factions start from the same numbers for the same role in the same era. On top of those each has its
 own temperament, a small twist that is the same in every era and is shown next to its name on the title
@@ -53,6 +53,7 @@ card:
 | Achterhoek | taai en traag: tough and slow | 15% more hit points, 10% slower on the road, a 20% longer pause between blows. What they throw lands 15% harder |
 | Havermelkelite | snel en licht: quick and frail | 15% faster and 10 to 15% fewer hit points. Every unit but the Havermelkreus costs 10% less. They throw from 10% further away, 10% softer |
 | De Gasten | met de hele familie: many hands, quickly there | Light units cost 15% less, are trained in 80% of the time and have 15% fewer hit points. Ranged units have 10% more hit points and a 10% longer pause between throws; heavies and the schild have 10% more hit points and are 5 to 10% slower. The fatbike has numbers of its own |
+| De Toeristen | snel en overal: fast and everywhere | 25% faster, 15% softer blows, and every unit but MS Kolossaal costs 10% less. Paraplu-Pam and De Zweefbierfiets have numbers of their own |
 | De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 
 Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
@@ -142,6 +143,22 @@ Every action is also a button on screen.
 - **De Familie-app**, the De Gasten special of the future: one message in the family group chat and four
   hologram cousins come out at your gate. They fight as light units of the era, cost nothing, and earn the
   enemy nothing when beaten. They come even when your ranks are full.
+- **De Toeristen** get more annoying with every era, and three of their units do something no other unit
+  does:
+  - **Influencer-Ivy** (ranged, Jaren '20) throws nothing. Every enemy unit within her reach is in her
+    shot and poses: it hits half as hard for as long as it stands there. Two Ivys do not make it a
+    quarter, turrets do not pose, and super units shrug her off.
+  - **Paraplu-Pam** (the schild, Jaren '20) costs 360 instead of 240 and is slower than any other schild.
+    When she falls, her group of four scatters where she stood: weak lost tourists who walk on, free,
+    whatever the ten-unit limit. If De Zuidas bought her, they follow the umbrella to De Zuidas.
+  - **De Zweefbierfiets** (heavy, the future) hovers: light and heavy units cannot reach it and stand
+    under it swinging at nothing. Throws, turrets, specials and super units do reach it, and the fatbike
+    rides under it. It has 85% of a heavy's hit points.
+  - **Cruiseschip legt aan**, their special of the Jaren '20: a cruise ship moors behind the base and eight
+    day trippers run out of the gate, fast and weak. After twenty seconds the horn sounds and whoever is
+    still ashore goes back on board, earning nobody anything.
+  - **Huurverhoging voor de locals**, their special of the future: for ten seconds everything the enemy
+    buys costs double, from the next moment on. Whatever is already in their queue was paid for.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
@@ -225,4 +242,5 @@ Adding `?test=1` to the game's address stops the clock; `window.__game` then ste
 - The flag of Amsterdam is the city's historic flag, redrawn.
 - The flag of De Zuidas is made up: the house flag of Krijtstreep & Zn., a firm that does not exist.
 - The flag of De Gasten is made up: the flag of the street, a tea glass and a wedding ribbon on a tiled wall.
+- The flag of De Toeristen is made up: a tour guide's pennant, yellow with a red umbrella.
 - Everything else is original to this project.

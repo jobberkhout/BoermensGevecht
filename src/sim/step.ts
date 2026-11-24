@@ -20,6 +20,7 @@ import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
 import { advanceRiders, riderInReach, sendRider } from './riders.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
+import { markPosing, posed, recall, scatterGroup } from './tourists.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
   BASE,
@@ -65,6 +66,7 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   for (const side of SIDES) economy(s, side, events);
 
   // 3. Everyone decides what to do, looking at the lane as it is right now.
+  markPosing(s);
   const fronts = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)] as const;
   for (const side of SIDES) decide(s, side, fronts[other(side)], dmg, events);
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
@@ -90,6 +92,8 @@ function buffed(side: SideState, tick: number): boolean {
 
 function economy(s: SimState, side: Side, events: SimEvent[]): void {
   const me = s.sides[side];
+  // Whoever's time is up goes first: the ship's horn.
+  recall(s, side, events);
   if (s.tick > 0 && s.tick % INCOME_EVERY === 0) {
     if (!kraanDicht(s.tick)) {
       // Paid to this side, or to the other one for as long as its earnings are diverted.
@@ -103,7 +107,8 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
 
   // Whoever a special called in comes out first, unit cap or not, as long as a row has room at the gate.
   for (let row = freeRow(me.units); me.arrivals.length > 0 && row >= 0; row = freeRow(me.units)) {
-    walkOut(s, side, me.arrivals.shift()!, row, events);
+    const arrival = me.arrivals.shift()!;
+    walkOut(s, side, arrival.def, row, events, arrival.leaveAt);
   }
 
   const head = me.queue[0];
@@ -127,8 +132,8 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
   walkOut(s, side, def.id, row, events);
 }
 
-/** A unit leaves its own gate in `row` and joins the ranks. */
-function walkOut(s: SimState, side: Side, defId: string, row: number, events: SimEvent[]): void {
+/** A unit leaves its own gate in `row` and joins the ranks. `leaveAt` is when it goes again of its own accord, or 0. */
+function walkOut(s: SimState, side: Side, defId: string, row: number, events: SimEvent[], leaveAt = 0): void {
   const def = unitDef(defId);
   const unit: Unit = {
     id: s.nextId++,
@@ -141,6 +146,8 @@ function walkOut(s: SimState, side: Side, defId: string, row: number, events: Si
     actTick: 0,
     stunUntil: 0,
     turncoat: false,
+    posing: false,
+    leaveAt,
   };
   s.sides[side].units.push(unit);
   events.push({ t: 'spawn', side, id: unit.id, def: def.id });
@@ -209,11 +216,16 @@ function strike(
   dmg: Damage[],
   events: SimEvent[],
 ): void {
+  if (def.poser) {
+    // Influencer-Ivy throws nothing: she films, and whoever is in her shot poses (sim/tourists.ts).
+    events.push({ t: 'strike', side, id: u.id, ranged: false, filming: true });
+    return;
+  }
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
   const me = s.sides[side];
-  // A buff and overtime both make a unit hit harder; one on top of the other.
+  // A buff and overtime both make a unit hit harder; one on top of the other. Posing makes it hit softer.
   const fired = buffed(me, s.tick) ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
-  const amount = Math.floor((fired * unitDamagePercent(s.tick)) / 100);
+  const amount = posed(u, Math.floor((fired * unitDamagePercent(s.tick)) / 100));
   if (def.shot) {
     s.shots.push({
       id: s.nextId++,
@@ -237,13 +249,15 @@ function strike(
   }
   if (dist > def.range) return; // the target is gone; the blow hits air
   const foe = other(side);
+  // A melee blow passes under a unit that hovers, unless a super unit swats it.
+  const reaches = (f: Unit): boolean => def.role === 'super' || !unitDef(f.def).hovers;
   if (!foeFront) {
     dmg.push({ side: foe, unit: BASE, amount });
   } else if (def.cleave) {
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.range) dmg.push({ side: foe, unit: f.id, amount });
+      if (LANE - u.pos - f.pos <= def.range && reaches(f)) dmg.push({ side: foe, unit: f.id, amount });
     }
-  } else {
+  } else if (reaches(foeFront)) {
     dmg.push({ side: foe, unit: foeFront.id, amount });
   }
 }
@@ -430,11 +444,17 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       if (to === side) events.push({ t: 'gold', side, amount: bounty, pos: who.pos, diverted: true });
       else events.push({ t: 'gold', side: to, amount: bounty, pos: LANE - who.pos });
     };
+    const fallen: Unit[] = [];
     for (const u of me.units) {
       if (u.hp > 0) alive.push(u);
-      else beaten(u);
+      else {
+        beaten(u);
+        fallen.push(u);
+      }
     }
     me.units = alive;
+    // A schild that scatters leaves its group behind where it stood (sim/tourists.ts).
+    for (const u of fallen) scatterGroup(s, side, u, events);
     // A rider that reached the base is simply gone; one that was stopped on the way is paid for like a unit.
     const riding: Rider[] = [];
     for (const r of me.riders) {

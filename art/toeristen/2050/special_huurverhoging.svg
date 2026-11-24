@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -194 156 200" data-rig="static">
+  <title>Huurverhoging voor de locals: het bord van de makelaar ploft voor de deur. Nu 4000 euro per maand</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .big { fill: none; stroke: #e5283f; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    .small { fill: none; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <!-- The post, rammed into the ground in front of somebody's door. (0,0) is its foot. -->
+  <g id="post" transform="translate(0 0)">
+    <path class="o" fill="#8a6a4a" d="M-12 2 Q-8 -6 0 -6 Q8 -6 12 2 Z"/>
+    <path class="o" fill="#fbf8f0" d="M-5 -2 L-5 -184 Q-5 -188 0 -188 L132 -188 Q136 -188 136 -184 L136 -180 Q136 -177 132 -177 L5 -177 L5 -2 Z"/>
+    <path class="n" fill="#e6ecee" d="M1 -4 L4 -4 L4 -176 L1 -176 Z"/>
+    <path class="t" style="stroke-width:2.4" d="M5 -164 L18 -177"/>
+    <circle class="o" style="stroke-width:2" fill="#ff8c2a" cx="0" cy="-188" r="4"/>
+  </g>
+
+  <!-- The board, hanging from two hooks. Joint in the middle of the arm, so it swings. -->
+  <g id="board" data-parent="post" transform="translate(72 -177)">
+    <g transform="translate(-72 177)">
+      <path class="t" style="stroke:#8a919c;stroke-width:2.2" d="M24 -177 L24 -164 M120 -177 L120 -164"/>
+      <rect class="o" fill="#fbf8f0" x="12" y="-164" width="120" height="96" rx="5"/>
+      <!-- the orange band along the top -->
+      <path class="n" fill="#ff8c2a" d="M15 -161 L129 -161 L129 -140 L15 -140 Z"/>
+      <rect class="t" style="stroke-width:3" x="12" y="-164" width="120" height="96" rx="5"/>
+      <path class="t" style="stroke:#ff8c2a;stroke-width:3" d="M18 -74 L126 -74"/>
+    </g>
+  </g>
+
+  <!-- Everything on the face of the board: the price in letters drawn as lines, the house, the arrow.
+       It reads the right way round on either side. Joint in the middle of the board. -->
+  <g id="price" data-parent="board" data-mirror="no" transform="translate(72 -116)">
+    <g transform="translate(-72 116)">
+      <!-- a little house in the band: the one this used to be -->
+      <path class="n" fill="#fbf8f0" d="M108 -144 L108 -152 L115 -158 L122 -152 L122 -144 Z"/>
+      <path class="n" fill="#ff8c2a" d="M113 -144 L113 -149 L117 -149 L117 -144 Z"/>
+
+      <!-- NU, white on the band -->
+      <path class="small" style="stroke:#fbf8f0" d="M24 -144 L24 -156 L32 -144 L32 -156 M38 -156 L38 -148.4 Q38 -144 42 -144 Q46 -144 46 -148.4 L46 -156"/>
+      <!-- the euro sign -->
+      <path class="big" d="M39 -130 Q36 -134 31 -134 Q23 -134 23 -119 Q23 -104 31 -104 Q36 -104 39 -108 M20 -123 L32 -123 M20 -115 L31 -115"/>
+      <!-- 4000 -->
+      <path class="big" d="M56 -104 L56 -134 L44 -113 L61 -113"/>
+      <ellipse class="big" cx="73" cy="-119" rx="7" ry="14"/>
+      <ellipse class="big" cx="94" cy="-119" rx="7" ry="14"/>
+      <ellipse class="big" cx="115" cy="-119" rx="7" ry="14"/>
+      <!-- P/M -->
+      <path class="small" style="stroke:#2b1b16;stroke-width:2.8" d="M88 -82 L88 -94 L93 -94 Q97 -94 97 -90.6 Q97 -87.2 93 -87.2 L88 -87.2 M100 -82 L105 -94 M108 -82 L108 -94 L112.4 -87 L116.8 -94 L116.8 -82"/>
+    </g>
+  </g>
+
+  <!-- The arrow, pointing up, where rents go. Joint at its foot. -->
+  <g id="arrow" data-parent="price" transform="translate(38 -78)">
+    <g transform="translate(-38 78)">
+      <path class="o" style="stroke-width:2.4" fill="#e5283f" d="M38 -98 L50 -86 L43 -86 L43 -78 L33 -78 L33 -86 L26 -86 Z"/>
+    </g>
+  </g>
+</svg>

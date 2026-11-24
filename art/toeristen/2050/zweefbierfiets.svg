@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-122 -128 244 134" data-rig="vehicle">
+  <title>De Zweefbierfiets: zweeft boven de straat waar hij verboden is, met een dj achterop en een vrijgezellenfeest in dezelfde shirts</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .limb { stroke: #2b1b16; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shove the whole thing. -->
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- Its shadow on the street, far below: nobody on the ground can reach it. Joint on the road. -->
+  <g id="shadow" data-parent="chassis" transform="translate(0 0)">
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.22" cx="0" cy="-1" rx="96" ry="5"/>
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.15" cx="0" cy="-1" rx="70" ry="3"/>
+  </g>
+
+  <!-- The glow the fans blow downwards. It fades before it reaches the road. Joint at the fans. -->
+  <g id="jets" data-parent="chassis" transform="translate(0 -24)">
+    <g transform="translate(0 24)">
+      <path class="n" fill="#ff7ac0" fill-opacity="0.45" d="M-80 -24 L-60 -24 L-54 -12 L-86 -12 Z M60 -24 L80 -24 L86 -12 L54 -12 Z"/>
+      <path class="n" fill="#ff7ac0" fill-opacity="0.2" d="M-86 -12 L-54 -12 L-51 -7 L-89 -7 Z M54 -12 L86 -12 L89 -7 L51 -7 Z"/>
+    </g>
+  </g>
+
+  <!-- Hover fans instead of wheels. Joints at their hubs. -->
+  <g id="wheel_back" data-parent="chassis" transform="translate(-70 -32)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="10"/>
+    <circle class="n" fill="#ff7ac0" fill-opacity="0.65" cx="0" cy="0" r="7.4"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -7.4 Q3.4 -2.6 0 0 Q-3.4 2.6 0 7.4 M-7.4 0 Q-2.6 -3.4 0 0 Q2.6 3.4 7.4 0"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.4"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(70 -32)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="10"/>
+    <circle class="n" fill="#ff7ac0" fill-opacity="0.65" cx="0" cy="0" r="7.4"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -7.4 Q3.4 -2.6 0 0 Q-3.4 2.6 0 7.4 M-7.4 0 Q-2.6 -3.4 0 0 Q2.6 3.4 7.4 0"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.4"/>
+  </g>
+
+  <!-- The bar on its hover deck, the canopy, the stools and the legs that pedal. Joint in the middle of the deck. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <!-- the fan housings -->
+      <path class="o" fill="#5d6675" d="M-84 -34 Q-84 -44 -70 -44 Q-56 -44 -56 -34 Z M56 -34 Q56 -44 70 -44 Q84 -44 84 -34 Z"/>
+      <!-- the canopy posts -->
+      <path class="t" style="stroke-width:5" d="M-58 -46 L-58 -116 M66 -46 L66 -116"/>
+      <path fill="none" stroke="#c9d1dc" stroke-width="2.4" stroke-linecap="round" d="M-58 -46 L-58 -116 M66 -46 L66 -116"/>
+      <!-- the bar, behind them, with the taps -->
+      <rect class="o" fill="#8a5c40" x="-54" y="-76" width="116" height="30" rx="3"/>
+      <path class="t" style="stroke:#6b4630;stroke-width:1.4" d="M-54 -66 L62 -66 M-54 -56 L62 -56"/>
+      <rect class="o" fill="#c98b4a" x="-58" y="-80" width="124" height="6" rx="3"/>
+      <path class="o" style="stroke-width:2" fill="#e0b84a" d="M-1 -80 L-1 -94 Q-1 -97 3 -97 L9 -97 Q13 -97 13 -94 L13 -80 Z"/>
+      <path class="t" style="stroke-width:2.4" d="M1 -97 L1 -102 M6 -97 L6 -103 M11 -97 L11 -102"/>
+      <!-- the deck, with its underglow -->
+      <path class="o" fill="#2f3340" d="M-114 -46 L96 -46 Q106 -46 108 -40 L110 -34 L-112 -34 Q-116 -34 -116 -38 L-116 -42 Q-116 -46 -114 -46 Z"/>
+      <path class="n" fill="#ff7ac0" d="M-108 -33 L104 -33 L102 -30 L-106 -30 Z"/>
+      <path class="t" style="stroke:#5d6675;stroke-width:1.2" d="M-110 -40 L104 -40"/>
+      <!-- the nose: no driver, the autopilot does it, with a pink headlight -->
+      <path class="o" fill="#3a3d4a" d="M84 -46 L84 -56 Q84 -60 90 -60 L104 -58 Q114 -56 116 -46 L118 -38 Q118 -34 112 -34 L108 -34 L106 -46 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#ff7ac0" d="M108 -52 Q114 -51 115 -46 L108 -46 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#7ff0f0" cx="94" cy="-53" r="3"/>
+      <!-- the DJ booth at the back, with the speaker that is far too big -->
+      <path class="o" fill="#3a3d4a" d="M-112 -46 L-112 -74 Q-112 -78 -108 -78 L-66 -78 Q-62 -78 -62 -74 L-62 -46 Z"/>
+      <circle class="o" fill="#2f3340" cx="-90" cy="-60" r="11"/>
+      <circle class="o" style="stroke-width:2" fill="#5d6675" cx="-90" cy="-60" r="5.4"/>
+      <circle class="n" fill="#c9d1dc" cx="-91.6" cy="-61.6" r="1.6"/>
+      <path class="n" fill="#ff7ac0" d="M-110 -76 L-64 -76 L-64 -74 L-110 -74 Z"/>
+      <ellipse class="o" style="stroke-width:2" fill="#2f3340" cx="-80" cy="-80" rx="10" ry="2.6"/>
+      <circle class="n" fill="#ff7ac0" cx="-80" cy="-80.2" r="1.4"/>
+      <!-- stools -->
+      <path class="t" style="stroke-width:3" d="M-40 -58 L-40 -46 M-14 -58 L-14 -46 M12 -58 L12 -46 M38 -58 L38 -46"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="-47" y="-62" width="14" height="4" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="-21" y="-62" width="14" height="4" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="5" y="-62" width="14" height="4" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#5d6675" x="31" y="-62" width="14" height="4" rx="2"/>
+      <!-- legs, all in the same white shorts, down to the pedals -->
+      <path class="limb" d="M-40 -63 L-28 -62 L-28 -51 M-14 -63 L-2 -62 L-2 -51 M12 -63 L24 -62 L24 -51 M38 -63 L50 -62 L50 -51"/>
+      <path fill="none" stroke="#fbf8f0" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-40 -63 L-32 -62.4 M-14 -63 L-6 -62.4 M12 -63 L20 -62.4 M38 -63 L46 -62.4"/>
+      <path fill="none" stroke="#f2b896" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-31 -62.2 L-28 -62 L-28 -51 M-5 -62.2 L-2 -62 L-2 -51 M21 -62.2 L24 -62 L24 -51 M47 -62.2 L50 -62 L50 -51"/>
+      <!-- the canopy, striped, with a scalloped edge -->
+      <path class="o" fill="#ffd21f" d="M-66 -124 L74 -124 L76 -114 Q69 -109 62 -114 Q55 -109 48 -114 Q41 -109 34 -114 Q27 -109 20 -114 Q13 -109 6 -114 Q-1 -109 -8 -114 Q-15 -109 -22 -114 Q-29 -109 -36 -114 Q-43 -109 -50 -114 Q-57 -109 -64 -114 Q-68 -112 -68 -114 Z"/>
+      <path class="n" fill="#5fb7e8" d="M-52 -123 L-38 -123 L-37 -113 Q-43 -110 -49 -113 Z M-24 -123 L-10 -123 L-9 -113 Q-15 -110 -21 -113 Z M4 -123 L18 -123 L19 -113 Q13 -110 7 -113 Z M32 -123 L46 -123 L47 -113 Q41 -110 35 -113 Z M60 -123 L72 -123 L74.6 -114 Q69 -110 63 -113 Z"/>
+      <path class="o" fill="none" d="M-66 -124 L74 -124 L76 -114 Q69 -109 62 -114 Q55 -109 48 -114 Q41 -109 34 -114 Q27 -109 20 -114 Q13 -109 6 -114 Q-1 -109 -8 -114 Q-15 -109 -22 -114 Q-29 -109 -36 -114 Q-43 -109 -50 -114 Q-57 -109 -64 -114 Q-68 -112 -68 -114 Z"/>
+    </g>
+  </g>
+
+  <!-- The sign that banned it, hanging underneath as a trophy. Joint where its chain hangs from the deck. -->
+  <g id="sign" data-parent="body" transform="translate(0 -30)">
+    <g transform="translate(0 30)">
+      <path class="t" style="stroke:#8a919c;stroke-width:1.8" d="M0 -30 L0 -22"/>
+      <circle class="o" style="stroke-width:2" fill="#e5283f" cx="0" cy="-15" r="7.4"/>
+      <rect class="n" fill="#fbf8f0" x="-4.8" y="-16.6" width="9.6" height="3.2" rx="0.8"/>
+    </g>
+  </g>
+
+  <!-- The pedals, one crank each. Joints at their axles. -->
+  <g id="crank_a" data-parent="body" transform="translate(-28 -50)">
+    <path class="t" style="stroke-width:2.4" d="M0 -4 L0 4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.6"/>
+    <rect class="o" style="stroke-width:1.6" fill="#ff5fa2" x="-3.4" y="2.6" width="8" height="3" rx="1.4"/>
+  </g>
+  <g id="crank_b" data-parent="body" transform="translate(-2 -50)">
+    <path class="t" style="stroke-width:2.4" d="M0 -4 L0 4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.6"/>
+    <rect class="o" style="stroke-width:1.6" fill="#ff5fa2" x="-3.4" y="2.6" width="8" height="3" rx="1.4"/>
+  </g>
+  <g id="crank_c" data-parent="body" transform="translate(24 -50)">
+    <path class="t" style="stroke-width:2.4" d="M0 -4 L0 4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.6"/>
+    <rect class="o" style="stroke-width:1.6" fill="#ff5fa2" x="-3.4" y="2.6" width="8" height="3" rx="1.4"/>
+  </g>
+  <g id="crank_d" data-parent="body" transform="translate(50 -50)">
+    <path class="t" style="stroke-width:2.4" d="M0 -4 L0 4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.6"/>
+    <rect class="o" style="stroke-width:1.6" fill="#ff5fa2" x="-3.4" y="2.6" width="8" height="3" rx="1.4"/>
+  </g>
+
+  <!-- The DJ: headphones, one hand on the deck, the other in the air. Joint at the waist, behind the booth. -->
+  <g id="dj" data-parent="body" transform="translate(-86 -78)">
+    <g transform="translate(86 78)">
+      <path class="o" fill="#2f3340" d="M-96 -78 Q-97 -92 -92 -98 L-80 -98 Q-75 -92 -76 -78 Z"/>
+      <path class="limb" d="M-79 -92 L-72 -84 L-76 -80"/>
+      <path fill="none" stroke="#f2b896" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-74 -86 L-72 -84 L-76 -80"/>
+      <circle class="o" fill="#f2b896" cx="-85" cy="-106" r="8"/>
+      <path class="o" style="stroke-width:2" fill="#ff7ac0" d="M-93.6 -108 Q-92 -117 -85 -117 Q-77 -117 -76.4 -108 Q-80 -112 -85 -112 Q-90 -112 -93.6 -108 Z"/>
+      <path class="t" style="stroke-width:2.4" d="M-93 -108 Q-92 -118 -85 -118 Q-78 -118 -77 -108"/>
+      <rect class="o" style="stroke-width:1.8" fill="#2f3340" x="-96" y="-110" width="5" height="8" rx="2"/>
+      <path class="n" fill="#2b1b16" d="M-81 -107.6 L-77 -107.6 L-77 -105.4 L-81 -105.4 Z"/>
+      <path class="t" style="stroke-width:1.6" d="M-82 -101.6 Q-79.4 -100 -77.6 -102"/>
+    </g>
+  </g>
+  <g id="dj_arm" data-parent="dj" transform="translate(-88 -94)">
+    <g transform="translate(88 94)">
+      <path class="limb" d="M-88 -94 L-92 -106 L-90 -118"/>
+      <path fill="none" stroke="#2f3340" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-88 -94 L-91 -103"/>
+      <path fill="none" stroke="#f2b896" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-91.6 -105 L-92 -106 L-90 -118"/>
+      <circle class="o" style="stroke-width:2" fill="#f2b896" cx="-90" cy="-120" r="3.4"/>
+    </g>
+  </g>
+
+  <!-- The bass, coming out of the speaker in rings. Joint at the middle of the speaker. -->
+  <g id="bass" data-parent="body" transform="translate(-90 -60)">
+    <g transform="translate(90 60)">
+      <circle fill="none" stroke="#ff7ac0" stroke-opacity="0.8" stroke-width="2.4" cx="-90" cy="-60" r="16"/>
+      <circle fill="none" stroke="#ff7ac0" stroke-opacity="0.45" stroke-width="2" cx="-90" cy="-60" r="22"/>
+    </g>
+  </g>
+
+  <!-- The party, in matching pink: three with party hats, and the bride-to-be with the veil. Joints at their seats. -->
+  <g id="guest_a" data-parent="body" transform="translate(-40 -62)">
+    <g transform="translate(40 62)">
+      <path class="o" fill="#ff5fa2" d="M-47 -62 Q-48 -80 -44 -86 L-36 -86 Q-32 -80 -33 -62 Z"/>
+      <circle class="o" fill="#f2b896" cx="-39" cy="-94" r="8"/>
+      <path class="n" fill="#2b1b16" d="M-36 -97 L-31 -97 L-31 -94.6 L-36 -94.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7a2a2a" d="M-35 -90 Q-32 -89.4 -31.4 -90.4 Q-31.6 -86.6 -33.6 -87 Q-35 -87.6 -35 -90 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffd21f" d="M-45 -100 L-34 -100 L-40 -113 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ff5fa2" cx="-40" cy="-114" r="2.2"/>
+      <path class="limb" d="M-37 -80 L-30 -88 L-28 -98"/>
+      <path fill="none" stroke="#f2b896" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-37 -80 L-30 -88 L-28 -98"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M-32 -108 L-23 -108 L-23.6 -98 L-31.4 -98 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M-33 -108 Q-33 -112 -28 -111 Q-23 -112 -22 -108 Z"/>
+    </g>
+  </g>
+  <g id="guest_b" data-parent="body" transform="translate(-14 -62)">
+    <g transform="translate(14 62)">
+      <path class="o" fill="#ff5fa2" d="M-21 -62 Q-22 -80 -18 -86 L-10 -86 Q-6 -80 -7 -62 Z"/>
+      <circle class="o" fill="#e0a283" cx="-13" cy="-94" r="8"/>
+      <path class="n" fill="#2b1b16" d="M-10 -97 L-5 -97 L-5 -94.6 L-10 -94.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7a2a2a" d="M-9 -90 Q-6 -89.4 -5.4 -90.4 Q-5.6 -86.6 -7.6 -87 Q-9 -87.6 -9 -90 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffd21f" d="M-19 -100 L-8 -100 L-14 -113 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ff5fa2" cx="-14" cy="-114" r="2.2"/>
+      <path class="limb" d="M-11 -80 L-4 -88 L-2 -98"/>
+      <path fill="none" stroke="#e0a283" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M-11 -80 L-4 -88 L-2 -98"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M-6 -108 L3 -108 L2.4 -98 L-5.4 -98 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M-7 -108 Q-7 -112 -2 -111 Q3 -112 4 -108 Z"/>
+    </g>
+  </g>
+  <g id="guest_c" data-parent="body" transform="translate(12 -62)">
+    <g transform="translate(-12 62)">
+      <!-- the bride-to-be: the veil blows out behind -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M8 -103 Q-4 -101 -8 -86 Q-6 -76 1 -72 Q2 -84 8 -92 Z"/>
+      <path class="o" fill="#ff5fa2" d="M5 -62 Q4 -80 8 -86 L16 -86 Q20 -80 19 -62 Z"/>
+      <path class="n" fill="#fbf8f0" d="M7 -84 L10 -84 L19 -66 L19 -62 L16 -62 Z"/>
+      <circle class="o" fill="#f2b896" cx="13" cy="-94" r="8"/>
+      <path class="o" style="stroke-width:1.8" fill="#fbf8f0" d="M5.4 -97 Q6 -103.6 13 -103.6 Q19 -103.4 20.4 -99 Q14 -101 8 -95.6 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ff5fa2" cx="15" cy="-103" r="2.4"/>
+      <path class="n" fill="#2b1b16" d="M16 -97 L21 -97 L21 -94.6 L16 -94.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7a2a2a" d="M17 -90 Q20 -89.4 20.6 -90.4 Q20.4 -86.6 18.4 -87 Q17 -87.6 17 -90 Z"/>
+      <path class="limb" d="M15 -80 L22 -88 L24 -98"/>
+      <path fill="none" stroke="#f2b896" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M15 -80 L22 -88 L24 -98"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M20 -108 L29 -108 L28.4 -98 L20.6 -98 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M19 -108 Q19 -112 24 -111 Q29 -112 30 -108 Z"/>
+    </g>
+  </g>
+  <g id="guest_d" data-parent="body" transform="translate(38 -62)">
+    <g transform="translate(-38 62)">
+      <path class="o" fill="#ff5fa2" d="M31 -62 Q30 -80 34 -86 L42 -86 Q46 -80 45 -62 Z"/>
+      <circle class="o" fill="#c98e62" cx="39" cy="-94" r="8"/>
+      <path class="n" fill="#2b1b16" d="M42 -97 L47 -97 L47 -94.6 L42 -94.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7a2a2a" d="M43 -90 Q46 -89.4 46.6 -90.4 Q46.4 -86.6 44.4 -87 Q43 -87.6 43 -90 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffd21f" d="M33 -100 L44 -100 L38 -113 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ff5fa2" cx="38" cy="-114" r="2.2"/>
+      <path class="limb" d="M41 -80 L48 -88 L50 -98"/>
+      <path fill="none" stroke="#c98e62" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M41 -80 L48 -88 L50 -98"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M46 -108 L55 -108 L54.4 -98 L46.6 -98 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#fbf8f0" d="M45 -108 Q45 -112 50 -111 Q55 -112 56 -108 Z"/>
+    </g>
+  </g>
+</svg>

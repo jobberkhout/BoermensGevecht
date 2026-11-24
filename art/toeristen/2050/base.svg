@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De Stadspoort: de hele oude stad achter een kaartjespoort met tourniquets, vier uur wachttijd, en voor de bewoners een bordje: ingang achterom</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .amber { fill: none; stroke: #ffb02e; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <!-- The roller coaster that goes round over the old town now. Joint at the middle of its loop. -->
+  <g id="ride" transform="translate(-110 -542)">
+    <g transform="translate(110 542)">
+      <path class="t" style="stroke:#8a919c;stroke-width:3" d="M-138 -470 L-124 -522 M-82 -470 L-96 -522 M-124 -522 L-96 -522"/>
+      <circle fill="none" stroke="#2b1b16" stroke-width="8" cx="-110" cy="-542" r="27"/>
+      <circle fill="none" stroke="#ff5a4e" stroke-width="4" cx="-110" cy="-542" r="27"/>
+      <path class="t" style="stroke:#b8411f;stroke-width:1.2;stroke-dasharray:2 4" d="M-110 -569 A27 27 0 1 1 -109.9 -569"/>
+    </g>
+  </g>
+  <!-- The car on the loop, hands in the air. Joint at the middle of the loop, so it can go round. -->
+  <g id="car" data-parent="ride" transform="translate(-110 -542)">
+    <g transform="translate(110 542)">
+      <path class="t" style="stroke-width:2" d="M-119 -583 L-121 -588 M-102 -583 L-100 -588"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2a98a" cx="-117" cy="-578" r="3.6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2b896" cx="-104" cy="-578" r="3.6"/>
+      <path class="o" style="stroke-width:2.4" fill="#ffd21f" d="M-123 -569 L-97 -569 Q-95 -569 -95 -573 L-95 -577 L-125 -577 L-125 -573 Q-125 -569 -123 -569 Z"/>
+    </g>
+  </g>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The gate stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole on the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -476 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the old town, peeking over the wall: three canal-house gables, rented out to the last attic -->
+    <path class="o" fill="#e8b48a" d="M-178 -474 L-178 -516 L-170 -516 L-170 -528 L-162 -528 L-162 -540 L-140 -540 L-140 -528 L-132 -528 L-132 -516 L-124 -516 L-124 -474 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#2b3a4a" x="-158" y="-532" width="14" height="14" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#ffe9a8" x="-170" y="-506" width="12" height="16" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#ffe9a8" x="-144" y="-506" width="12" height="16" rx="2"/>
+    <path class="o" fill="#9fc4d8" d="M-120 -474 L-120 -508 Q-120 -514 -114 -514 Q-114 -530 -94 -534 Q-74 -530 -74 -514 Q-68 -514 -68 -508 L-68 -474 Z"/>
+    <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-100 -520 Q-100 -526 -94 -526 Q-88 -526 -88 -520 L-88 -512 L-100 -512 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#ffe9a8" x="-112" y="-504" width="12" height="16" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#2b3a4a" x="-88" y="-504" width="12" height="16" rx="2"/>
+    <path class="o" fill="#e6d27a" d="M-64 -474 L-64 -504 L-50 -504 L-50 -526 L-24 -526 L-24 -504 L-10 -504 L-10 -474 Z"/>
+    <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-50 -526 L-37 -538 L-24 -526 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#ffe9a8" x="-44" y="-518" width="14" height="12" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#ffe9a8" x="-58" y="-496" width="12" height="14" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#2b3a4a" x="-28" y="-496" width="12" height="14" rx="2"/>
+    <!-- key boxes on the gables, of course -->
+    <rect class="o" style="stroke-width:1.6" fill="#8a919c" x="-131" y="-488" width="6" height="8" rx="1"/>
+    <rect class="o" style="stroke-width:1.6" fill="#8a919c" x="-75" y="-488" width="6" height="8" rx="1"/>
+    <rect class="o" style="stroke-width:1.6" fill="#8a919c" x="-17" y="-488" width="6" height="8" rx="1"/>
+
+    <!-- the gate: pale stone, battlements on the right, a cornice under the flag -->
+    <rect class="o" fill="#e2cfa6" x="-296" y="-474" width="292" height="474"/>
+    <path fill="none" stroke="#cbb68a" stroke-width="1.4" d="M-296 -24 H-4 M-296 -48 H-4 M-296 -72 H-4 M-296 -96 H-4 M-296 -120 H-4 M-296 -170 H-4 M-296 -194 H-4 M-296 -218 H-4 M-296 -242 H-4 M-296 -266 H-4 M-296 -320 H-4 M-296 -344 H-4 M-296 -368 H-4 M-296 -392 H-4 M-296 -416 H-4 M-296 -440 H-4 M-296 -464 H-4"/>
+    <path class="n" fill="#efe0bf" fill-opacity="0.7" d="M-296 -474 L-282 -474 L-282 0 L-296 0 Z"/>
+    <rect class="o" fill="none" x="-296" y="-474" width="292" height="474"/>
+    <path class="o" fill="#d1bc8e" d="M-184 -474 L-184 -494 L-168 -494 L-168 -482 L-152 -482 L-152 -494 L-136 -494 L-136 -482 L-120 -482 L-120 -494 L-104 -494 L-104 -482 L-88 -482 L-88 -494 L-72 -494 L-72 -482 L-56 -482 L-56 -494 L-40 -494 L-40 -482 L-24 -482 L-24 -494 L-8 -494 L-8 -482 L2 -482 L2 -474 Z"/>
+    <rect class="o" fill="#d1bc8e" x="-304" y="-482" width="122" height="10" rx="4"/>
+    <!-- bunting along the top, because it is a party every day now -->
+    <path fill="none" stroke="#2b1b16" stroke-width="1.2" d="M-294 -466 Q-258 -456 -222 -466 Q-186 -456 -150 -466 Q-114 -456 -78 -466 Q-42 -456 -6 -466"/>
+    <path class="n" fill="#ffd21f" d="M-284 -463 l8 2 l-5 7 Z M-248 -461 l8 0 l-4 8 Z M-212 -463 l8 2 l-5 7 Z M-176 -461 l8 0 l-4 8 Z M-140 -463 l8 2 l-5 7 Z M-104 -461 l8 0 l-4 8 Z M-68 -463 l8 2 l-5 7 Z M-32 -461 l8 0 l-4 8 Z"/>
+    <path class="n" fill="#5fb7e8" d="M-266 -459 l8 -1 l-3 8 Z M-230 -459 l8 -1 l-3 8 Z M-194 -459 l8 -1 l-3 8 Z M-158 -459 l8 -1 l-3 8 Z M-122 -459 l8 -1 l-3 8 Z M-86 -459 l8 -1 l-3 8 Z M-50 -459 l8 -1 l-3 8 Z M-14 -460 l7 -1 l-2 7 Z"/>
+
+    <!-- two open floors, for the turret scenes -->
+    <rect class="o" fill="#2b3a4a" x="-290" y="-446" width="280" height="154" rx="16"/>
+    <path class="n" fill="#33465a" d="M-284 -306 L-16 -306 L-16 -300 Q-16 -294.5 -22 -294.5 L-278 -294.5 Q-284 -294.5 -284 -300 Z"/>
+    <path class="t" style="stroke:#40556b" d="M-150 -444 L-150 -424"/>
+    <path class="o" fill="#ffd21f" d="M-162 -412 Q-162 -424 -150 -424 Q-138 -424 -138 -412 Z"/>
+    <path class="n" fill="#ffe9a8" fill-opacity="0.2" d="M-162 -412 L-138 -412 L-118 -330 L-182 -330 Z"/>
+    <rect class="o" fill="#2b3a4a" x="-290" y="-282" width="280" height="140" rx="16"/>
+    <path class="n" fill="#33465a" d="M-284 -156 L-16 -156 L-16 -150 Q-16 -144.5 -22 -144.5 L-278 -144.5 Q-284 -144.5 -284 -150 Z"/>
+    <path class="t" style="stroke:#40556b" d="M-150 -280 L-150 -260"/>
+    <path class="o" fill="#ffd21f" d="M-162 -248 Q-162 -260 -150 -260 Q-138 -260 -138 -248 Z"/>
+    <path class="n" fill="#ffe9a8" fill-opacity="0.2" d="M-162 -248 L-138 -248 L-118 -180 L-182 -180 Z"/>
+    <!-- the floors, with a queue rope along each, because even up there you wait -->
+    <rect class="o" fill="#fbf8f0" x="-300" y="-292" width="300" height="10" rx="5"/>
+    <rect class="o" fill="#fbf8f0" x="-300" y="-142" width="300" height="10" rx="5"/>
+
+    <!-- the ticket window, and the cashier with a visor -->
+    <rect class="o" fill="#c0392b" x="-272" y="-124" width="84" height="78" rx="6"/>
+    <path class="o" fill="#bfe6f5" d="M-262 -60 L-262 -96 Q-262 -112 -230 -112 Q-198 -112 -198 -96 L-198 -60 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#f2b896" cx="-230" cy="-80" r="9"/>
+    <path class="o" style="stroke-width:2" fill="#ffd21f" d="M-240 -86 Q-230 -92 -218 -86 L-214 -84 L-240 -84 Z"/>
+    <path class="t" style="stroke-width:1.6" d="M-226 -76 Q-224 -74 -222 -76"/>
+    <path class="o" fill="#fbf8f0" d="M-268 -60 L-192 -60 L-192 -52 L-268 -52 Z"/>
+    <path class="t" style="stroke:#ffffff;stroke-width:2.4" d="M-254 -98 L-246 -106"/>
+    <!-- the queue posts in front of it -->
+    <path class="t" style="stroke-width:4" d="M-262 0 L-262 -30 M-226 0 L-226 -30 M-190 0 L-190 -30"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="-262" cy="-31" r="3.4"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="-226" cy="-31" r="3.4"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="-190" cy="-31" r="3.4"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" d="M-262 -28 Q-244 -16 -226 -28 Q-208 -16 -190 -28"/>
+    <path fill="none" stroke="#e5283f" stroke-width="2.6" stroke-linecap="round" d="M-262 -28 Q-244 -16 -226 -28 Q-208 -16 -190 -28"/>
+    <rect class="o" style="stroke-width:2" fill="#3a3d4a" x="-268" y="-3" width="84" height="3"/>
+
+    <!-- the gate itself: a stone arch, bulbs round it, a ticket over it -->
+    <path class="o" fill="#d1bc8e" d="M-104 0 L-104 -96 Q-104 -130 -58 -130 Q-12 -130 -12 -96 L-12 0 Z"/>
+    <path class="o" fill="#1b1a1e" d="M-92 0 L-92 -92 Q-92 -118 -58 -118 Q-24 -118 -24 -92 L-24 0 Z"/>
+    <path class="n" fill="#ffd21f" d="M-100 -60 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-100 -84 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-94 -106 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-78 -121 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-60.6 -125 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-43.2 -121 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-27.2 -106 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-21.2 -84 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z M-21.2 -60 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0 Z"/>
+    <!-- the ticket over the arch -->
+    <path class="o" style="stroke-width:2.4" fill="#ff8c2a" d="M-76 -142 L-40 -142 Q-40 -137 -36 -137 L-36 -131 Q-40 -131 -40 -126 L-76 -126 Q-76 -131 -80 -131 L-80 -137 Q-76 -137 -76 -142 Z"/>
+    <path class="t" style="stroke:#fbf8f0;stroke-width:1.6;stroke-dasharray:2 2" d="M-50 -140 L-50 -128"/>
+    <!-- the glass barrier of the turnstiles, inside the doorway -->
+    <path class="n" fill="#7ff0f0" fill-opacity="0.22" d="M-88 -58 L-72 -58 L-72 -6 L-88 -6 Z"/>
+    <path class="t" style="stroke:#7ff0f0;stroke-width:1.4" d="M-88 -58 L-72 -58 L-72 -6"/>
+    <rect class="o" style="stroke-width:2.4" fill="#c9d1dc" x="-66" y="-62" width="10" height="62" rx="3"/>
+    <circle class="n" fill="#5fe08a" cx="-61" cy="-56" r="2"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-146" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-296" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The turnstile's three arms. Joint at its hub. -->
+  <g id="turnstile" data-parent="building" transform="translate(-61 -44)">
+    <path fill="none" stroke="#2b1b16" stroke-width="6" stroke-linecap="round" d="M0 0 L22 0 M0 0 L-11 -19 M0 0 L-11 19"/>
+    <path fill="none" stroke="#e6ecee" stroke-width="3" stroke-linecap="round" d="M0 0 L22 0 M0 0 L-11 -19 M0 0 L-11 19"/>
+    <circle class="o" style="stroke-width:2" fill="#8a919c" cx="0" cy="0" r="4.4"/>
+  </g>
+
+  <!-- The waiting-time board, lettering that reads the right way round on either side. Joint at its middle. -->
+  <g id="wait" data-parent="building" data-mirror="no" transform="translate(-140 -100)">
+    <g transform="translate(140 100)">
+      <rect class="o" fill="#1d2230" x="-176" y="-120" width="72" height="40" rx="5"/>
+      <circle fill="none" stroke="#ffb02e" stroke-width="3" cx="-158" cy="-100" r="11"/>
+      <!-- 4h -->
+      <path class="amber" d="M-136 -88 L-136 -112 L-145 -96 L-132 -96 M-126 -112 L-126 -88 M-126 -98 Q-126 -102 -121 -102 Q-116 -102 -116 -97 L-116 -88"/>
+    </g>
+  </g>
+  <g id="hand" data-parent="wait" transform="translate(-158 -100)">
+    <path fill="none" stroke="#ffb02e" stroke-width="2.6" stroke-linecap="round" d="M0 0 L0 -8 M0 0 L5 3"/>
+  </g>
+
+  <!-- For residents: a small blue sign. A house, and an arrow that goes round behind it. Joint at its middle. -->
+  <g id="residents" data-parent="building" transform="translate(-286 -66)">
+    <g transform="translate(286 66)">
+      <rect class="o" style="stroke-width:2.4" fill="#2f6fb3" x="-294" y="-86" width="30" height="40" rx="3"/>
+      <path class="n" fill="#fbf8f0" d="M-286 -54 L-286 -64 L-279 -71 L-272 -64 L-272 -54 Z"/>
+      <path fill="none" stroke="#fbf8f0" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="3 2.6" d="M-268 -58 Q-266 -78 -279 -80 Q-292 -78 -290 -60"/>
+      <path class="n" fill="#fbf8f0" d="M-293.4 -63 L-286.6 -63 L-290 -56 Z"/>
+    </g>
+  </g>
+</svg>

@@ -23,6 +23,9 @@ function createSide(faction: FactionId): SideState {
     buffDmgPercent: 100,
     buffSpeedPercent: 100,
     divertedUntil: 0,
+    hikeFrom: 0,
+    hikeUntil: 0,
+    hikePercent: 100,
   };
 }
 

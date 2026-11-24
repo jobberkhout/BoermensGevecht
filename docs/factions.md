@@ -11,7 +11,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates | Concept, waiting for approval |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
-| [De Toeristen](#5-de-toeristen) | Everyone's shared enemy | Concept, waiting for approval |
+| [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Built** |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
 | [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | **Built** |
@@ -120,7 +120,7 @@ would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Eight kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Nine kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
@@ -132,6 +132,8 @@ Every faction has three specials, one per era, each of a different kind. Eight k
 | Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
 | Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
 | Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
+| Summon | Units of your own pour out of your gate at once, outside the queue and whatever the unit cap; with a time limit, they go home together when it is up | De Familie-app; Cruiseschip legt aan, with the time limit |
+| Price hike | For a few seconds everything the enemy buys costs double: units, turrets, subsidie and modernizing | Huurverhoging voor de locals |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
@@ -147,11 +149,23 @@ unit of yours goes down, its bounty comes back to you. Nothing is taken from wha
 they keep the vooruitgang they earn, and it is not aimed at units, so a super unit has nothing to shrug
 off. Two sides that do it to each other on the same tick simply swap what they earn.
 
+**Price hike, as built** (24 November 2026, for De Toeristen). For ten seconds everything the enemy buys
+costs double: units, turrets, subsidie and modernizing. It starts on the tick after it is pressed, so what
+the enemy buys at the very moment it is pressed costs the old price whichever seat presses, and two sides
+that do it to each other both pay double. What is already in their queue was paid for. Their prices turn
+red on the buttons and the purse says "huur ×2" with the seconds left. It is not aimed at units, so a
+super unit has nothing to shrug off. Bots use it when the enemy could modernize or sits on the price of a
+heavy unit, or after waiting fifteen seconds.
+
+**Summon with a time limit, as built** (the same day). The day trippers of the cruise ship each carry the
+tick at which they leave. At the horn, whoever is still ashore leaves the lane at once and whoever had not
+come out of the gate yet stays on board; nobody is paid anything and nobody learns from it. The ship is
+drawn behind the base for as long as they are ashore.
+
 New kinds the rest of this plan asks for:
 
 | Kind | What it does | First used by |
 |---|---|---|
-| Summon | A crowd of weak units pours out of your gate at once, outside the queue, and goes home after a while | De Toeristen: Cruiseschip legt aan |
 | Slow | Enemy units crawl for a few seconds; they can still fight | De Camping: Zwarte Zaterdag |
 | Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
@@ -167,7 +181,7 @@ The twenty-four specials at a glance:
 | Carnaval | De Polonaise (wave) | Elf Kanonschoten (barrage) | De Kater (slow) |
 | De Friezen | De winter van '63 (slow) | It giet oan! (wave) | Kunstijs (stun) |
 | Rotterdam | Mouwen opstropen! (buff) | De container (block) | De kering sluit (wave) |
-| De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Tijdslot verlopen (lockout) |
+| De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Huurverhoging voor de locals (price hike) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
 | De Camping | Zwarte Zaterdag (slow) | Na tienen is het stil! (stun) | De Minidisco (buff) |
 | De Gasten | Eerst thee (heal) | De Toeterstoet (wave) | De Familie-app (summon) |
@@ -186,6 +200,8 @@ on the title card.
 | Achterhoek | taai en traag | +15% hit points, 10% slower, 20% longer between blows | +15% damage, 20% longer between throws | as the light unit | +15% hit points, 10% slower |
 | Havermelkelite | snel en licht | 15% faster, 15% fewer hit points, 10% cheaper | throws 10% further, 10% softer, 10% cheaper | 15% faster, 10% fewer hit points, 10% cheaper | 10% faster, 10% fewer hit points, 10% cheaper |
 | De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows, 10% dearer | the same, and 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
+| De Gasten | met de hele familie | 15% cheaper, trained in 80% of the time, 15% fewer hit points | +10% hit points, 10% longer between throws | +10% hit points, 10% slower (the fatbike has numbers of its own) | +10% hit points, 5% slower |
+| De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -327,6 +343,19 @@ What to know before the balance pass:
   the fatbike's old numbers (230, 288 hit points) they win 22% against Amsterdam and 29% against the
   farmers, about the same as with the new ones. Why faster walking hurts them, and helps Amsterdam, was
   not looked into.
+
+- **De Toeristen**, measured on 24 November 2026. As the brief had them (speed 125, damage 85, De
+  Zweefbierfiets at 60% of a heavy's hit points) they won 2% against Amsterdam, 7% against the farmers,
+  19% against De Zuidas and 15% against De Gasten with both sides buying a mix. Taken apart: they won
+  most matches when both sides stayed in 1975 and lost in the two later eras; the one rule that cost most
+  was the Zweefbierfiets' low hit points (hovering itself is worth a lot: without it they lost every
+  match held in 2050). As shipped, with every unit 10% cheaper and the Zweefbierfiets at 85%, both seats
+  together: 39% against Amsterdam, 47% against the farmers, 61% against De Zuidas and 41% against De
+  Gasten with a mix; over every bot strategy 41%, 52%, 67% and 54%. No stalls. The bots reacted
+  chaotically to small steps (8% cheaper instead of 10% dropped three pairings by 15 to 20 points), so
+  this was not fitted further. Influencer-Ivy does no damage and a second one in reach adds nothing, so
+  every bot, the computer opponent included, now keeps one out and buys a light unit instead of a second.
+  How much posing is worth between people is not measured.
 
 ## The factions
 
@@ -787,8 +816,23 @@ enemy unit once.
 
 ### 5. De Toeristen
 
-Everyone's shared enemy: on the bike path, in the tulip field, behind an umbrella. They are types of
-visitor, never nationalities: no flags, no accents, no football shirts.
+Everyone's shared enemy: on the bike path, in the tulip field, behind an umbrella, in the house next door.
+**Approved by the owner on 24 November 2026, with changes, and built the same day** (see "As built" at the
+end of this section for what the numbers came to). The owner's direction:
+
+> "I like the concept, but they should be even more annoying. add annoying influencers, Air BNBs, hike the
+> price for the enemy. The cruise ship special is funny, especially with a funny art. The units should move
+> quite fast though, otherwise they are useless. Maybe the future should be a big price hike instead of
+> unable to train? 'Rent increase for the locals'. Make them speak french and german as well. or Cap english
+> for americans. Everyone hate tourists, so you can go all in on them and make them look as stupid and
+> annoying as possible with the dumbest quotes. Also like 'Is this Amsterdam?' ... Make tourists more and
+> more obnoxious when era's pass. Like in 1975 it was fine. In 2025 it is very annoying so go nuts in 2050.
+> The worst way possible." And: "make them have one or two weird units with rules not made before (like the
+> fatbike)", with Paraplu-Pam added to those: "make the unit cost more and the scattered units weak and make
+> Pam move quite a bit slower then other shield units."
+
+So they get worse with every era. In **1975** they are charming and lost. In **2025** they are everywhere.
+In **2050** they have rented the whole city and the locals are priced out.
 
 | | |
 |---|---|
@@ -797,16 +841,27 @@ visitor, never nationalities: no flags, no accents, no football shirts.
 | Money | wisselgeld |
 | Colours | Guidebook yellow, postcard-sky blue, souvenir orange |
 | Flag | The guide's pennant: yellow with a red umbrella |
-| Names | A thing and a first name: Rolkoffer-Rita, Selfiestick-Steve, Rugzak-Robin |
-| When it wins | "De Toeristen winnen! Five stars, would visit again." |
+| Names | A thing and a first name: Rolkoffer-Rita, Influencer-Ivy, Paraplu-Pam |
+| Temperament | **snel en overal**: see below |
+| When it wins | "De Toeristen winnen! Uw stad is volgeboekt." |
 | Super unit shrugs off a special with | "Sorry, no Dutch!" |
+
+**Temperament: snel en overal.** The owner: "The units should move quite fast though, otherwise they are
+useless." Every unit walks 25% faster and hits 15% softer: they get everywhere first and are more in the way
+than dangerous. Numbers to start from, in the faction's sheet: `speed: 125, dmg: 85` for the light, ranged,
+heavy and schild roles. Paraplu-Pam, the day trippers and the lost tourists have numbers of their own (below).
+Fitted with bots only against lopsidedness; the owner thinks the bots play poorly.
 
 **What makes them recognizable**
 
-- The wheeled suitcase rattling over the cobbles.
+- The wheeled suitcase rattling over the cobbles, at six in the morning.
 - Standing on the bike path, or wobbling along it on a rented bike.
 - The beer bike with a party in matching outfits. Amsterdam banned it from the centre on 1 November 2017.
 - The phone on a stick, and climbing the giant city letters until they were taken away in December 2018.
+- Influencers: a ring light in the middle of the bike path, the same shot forty times, "can you move?".
+  The owner's addition.
+- Holiday lets: key boxes on every railing, a different party on every floor, the neighbours priced out.
+  The owner's addition; never a platform's name or logo.
 - Walking into a tulip field for the photo. Growers put up banners and fences from 2019.
 - An hour in a queue for fries that went viral.
 - Shops for waffles, cheese, rubber ducks and clogs, and tulip bulbs that never come up.
@@ -820,7 +875,11 @@ visitor, never nationalities: no flags, no accents, no football shirts.
   1975, and the beer bike dates from 1997.
 - Shared electric scooters are not a Dutch street sight; rental bikes are.
 
-**1975: the backpack summer**
+**Languages.** The owner's decision: they speak English, French and German, and the loud American type
+shouts in capitals ("IS THIS AMSTERDAM?"). The joke is how tourists behave, in whatever language: no flags,
+no national costumes, no jokes about a country itself.
+
+**1975: the backpack summer.** Still fine: polite, lost, a bit sunburnt.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
@@ -829,72 +888,164 @@ visitor, never nationalities: no flags, no accents, no football shirts.
 | Her projectile | `shot_flitsblokje` | | A flash cube | static |
 | Heavy | `touringcar` | De Touringcar | Nine countries in seven days. A guide with a pennant leans out of the door | vehicle |
 | Schild | `plattegrond_paula` | Plattegrond-Paula | Lost behind a fold-out city map the size of a tablecloth. Shots tear holes in it, which she does not notice | humanoid |
-| Turret | `turret_parkslapers` | De Parkslapers | Three in sleeping bags under a no-sleeping sign. They throw their sandals without getting up | static |
-| Its projectile | `shot_sandaal` | | A sandal | static |
+| Turret | `turret_ansichtkaarten` | De Ansichtkaartenmolen | A spinning postcard stand and the man who sells from it. He flicks postcards ("Groeten uit Holland") | static |
+| Its projectile | `shot_ansichtkaart` | | A postcard, spinning | static |
 | Special | `special_dia_avond` | De Dia-avond | A slide projector the size of a house and a screen full of holiday pictures. See below | static |
 | Base | `base` | | A sleep-in hostel with a camp of tents in front | static |
 
-Special, **De Dia-avond** (stun): everyone on the enemy side nods off for five seconds.
+The postcard stand replaces De Parkslapers (hippies asleep in the park), which the owner found weird next to
+Amsterdam's own hippies of 1975.
 
-**2025: overtoerisme**
+Special, **De Dia-avond** (stun): four hundred holiday slides, and everyone on the enemy side nods off for
+five seconds. The same kind and numbers as the Wegblokkade.
+
+**2025: overtoerisme.** Very annoying.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `rolkoffer_rita` | Rolkoffer-Rita | Drags the suitcase behind her and swings it round when someone is in the way | humanoid |
-| Ranged | `selfiestick_steve` | Selfiestick-Steve | Looks at his phone on a stick, never at you, and throws stroopwafels like frisbees | humanoid |
-| His projectile | `shot_stroopwafel` | | A stroopwafel, spinning | static |
+| Light | `rolkoffer_rita` | Rolkoffer-Rita | Drags the suitcase over the cobbles and swings it round when someone is in the way | humanoid |
+| Ranged | `influencer_ivy` | Influencer-Ivy | Ring light in one hand, phone on a gimbal in the other, standing in the middle of the bike path. **Throws nothing**: enemy units in her shot pose for her story. See "Three units with rules of their own" | humanoid |
+| Her mark | `pose_frame` | | Instead of a projectile: the frame of a phone camera with a red record dot, hovering over every enemy unit that is posing | static |
 | Heavy | `bierfiets` | De Bierfiets | A party in matching outfits pedalling a bar. It carries its own no-entry sign | vehicle |
-| Schild | `paraplu_pam` | Paraplu-Pam | The guide of the free walking tour, bright umbrella held out in front so the group can follow. Everything bounces off it | humanoid |
+| Schild | `paraplu_pam` | Paraplu-Pam | The guide of the free walking tour, bright umbrella held out in front, her group of four in matching caps shuffling behind her. Everything bounces off the umbrella. **Slow, dear, and when she falls her group scatters.** See below | humanoid |
+| Her lost group | `verdwaalde_toerist` | De verdwaalde toerist | One of Pam's group without the umbrella to follow: map upside down, phone at 2% | humanoid |
 | Turret | `turret_hyperij` | De Hype-rij | Three people behind a rope and a queue manager. They throw fries and never leave the queue | static |
 | Its projectile | `shot_friet` | | A paper cone of fries | static |
-| Special | `special_cruiseschip` | Cruiseschip legt aan | A ship taller than the base slides in behind it. See below | static |
-| Base | `base` | | A leaning canal house: a duck-and-waffle shop below, a holiday let above with suitcases piled at the door and a key box on the railing | static |
+| Special | `special_cruiseschip` | Cruiseschip legt aan | A ship taller than the base slides in behind it, horn blasting, passengers waving from every deck. See below | static |
+| Its passengers | `dagjesmens` | De dagjesmens | A day tripper in the ship's matching cap and lanyard, bum bag, sprinting | humanoid |
+| Base | `base` | | Het Vakantiehuis: a leaning canal house, every floor a holiday let with a different party in it, key boxes on the railing, suitcases piled at the door, and a "no suitcases after 22:00" sign covered in stickers | static |
 
-Special, **Cruiseschip legt aan** (summon): eight day trippers pour out of the gate at once, outside the
-queue. They are weak, and after twenty seconds the ship's horn calls them back.
+Special, **Cruiseschip legt aan** (summon, the kind De Familie-app brought in, with a time limit added):
+eight day trippers run down the gangway and out of the gate at once, whatever the unit cap. They are weak
+(half a light unit's hit points and damage) but fast (about 1.6 times a light unit's speed: the owner wants
+them useful), free, and pay no bounty. After twenty seconds the ship's horn sounds and every day tripper
+still on the lane is gone at once, back on board, paying nobody anything. The ship is the funny drawing here:
+taller than the base, sliding in behind it, horn and all.
 
-**2050: the time slot**
+**2050: the city is a theme park.** As bad as it gets.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `robokoffer` | De Robokoffer | A self-driving suitcase that has lost its owner. It rams shins | vehicle |
-| Ranged | `eenster_eli` | Eénster-Eli | Smart glasses, rates everything, and throws one-star reviews as throwing stars | humanoid |
+| Light | `robokoffer` | De Robokoffer | A self-driving suitcase that has lost its owner, doing 30 km/h on the pavement. It rams shins | vehicle |
+| Ranged | `eenster_eli` | Eénster-Eli | Smart glasses, livestreams everything, rates every local one star, and throws one-star reviews as throwing stars | humanoid |
 | Their projectile | `shot_ster` | | A single star | static |
-| Heavy | `zweefbierfiets` | De Zweefbierfiets | Hovers just above the street it is banned from | vehicle |
-| Turret | `turret_tijdslotpoortje` | Het Tijdslotpoortje | Three tourists stuck in the turnstiles. They throw their rejected tickets | static |
-| Its projectile | `shot_ticket` | | A crumpled ticket | static |
-| Special | `special_tijdslot` | Tijdslot verlopen | Barriers and a red light across the lane. See below | static |
-| Base | `base` | | De Stadspoort: a ticket office with turnstiles and a board that shows the waiting time | static |
+| Heavy | `zweefbierfiets` | De Zweefbierfiets | Hovers above the street it was banned from, with a DJ booth on the back. **Out of reach**: see below | vehicle |
+| Turret | `turret_sleutelkluizen` | De Sleutelkluizentoren | A tower of key boxes where the neighbours used to live. The guests on its balconies throw the keys they lost | static |
+| Its projectile | `shot_sleutel` | | A key on a big plastic fob | static |
+| Special | `special_huurverhoging` | Huurverhoging voor de locals | An estate agent's sign that drops onto the enemy base: "Nu €4000 p/m". See below | static |
+| Base | `base` | | De Stadspoort: the whole old town behind a ticket gate with turnstiles, a board showing the waiting time (4 hours), and a sign: "Bewoners: ingang achterom" | static |
 | **Super unit** | `ms_kolossaal` | MS Kolossaal | A cruise ship on caterpillar tracks with a buffet cannon | free |
 
-Special, **Tijdslot verlopen** (lockout): the enemy's time slot has run out. For eight seconds they can buy
-and train nothing, and their units stand at the barrier for three.
+Special, **Huurverhoging voor de locals** (price hike, a new kind; the owner's idea, in place of the lockout
+"Tijdslot verlopen"): for ten seconds everything the enemy buys costs double: units, turrets, subsidie and
+modernizing. Whatever is already in their queue is paid for. Their buttons show the new prices in red while it
+lasts. It is not aimed at units, so a super unit has nothing to shrug off. Two sides that do it to each other
+both pay double.
+
+**Three units with rules of their own**
+
+Like the fatbike, these do something no unit did before. All three are mirrored as everything on the lane
+is: positions are measured from each side's own gate, and damage lands at the end of the tick.
+
+- **Influencer-Ivy** (2025, ranged slot): **she poses the enemy.** She walks and stops like a thrower, at
+  her reach, and deals no damage at all. Every enemy unit within her reach is in her shot and poses for
+  it: its blows and throws do half damage for as long as it stays there. Two Ivys do not make it a quarter;
+  a unit is in a shot or not. A posing unit shows the `pose_frame` over its head. Turrets do not pose, and
+  neither do super units, which shrug her off as they shrug off specials. She costs and lasts as a ranged
+  unit of 2025. Her lines: "Can you move? You're in my shot." · "Link in bio!" · "Smash that like!"
+- **Paraplu-Pam** (2025, the schild): **she is slow, dear, and her group scatters.** She draws turret fire
+  and takes a fifth of it like any schild. She costs half again as much as a schild of 2025 (360 instead of
+  240) and walks at about 60% of a schild's speed, so she is the slowest unit De Toeristen have. When she goes
+  down, by any cause (the fatbike's crash included), her group of four scatters where she stood: four lost
+  tourists (`verdwaalde_toerist`) who walk on towards the enemy. They are weak: a quarter of a light unit's
+  hit points, half its damage, a light unit's speed. They are free, pay no bounty, and come whatever the unit
+  cap. If De Zuidas bought her before she fell, the group scatters on De Zuidas' side: they follow whoever
+  holds the umbrella. Her lines: "Follow the umbrella!" · "Stay together, group!"; the lost ones: "Where is
+  the group?" · "Wo ist die Gruppe?" · "Is this Amsterdam?"
+- **De Zweefbierfiets** (2050, heavy): **out of reach.** It hovers, so enemy melee blows pass under it: light
+  and heavy units cannot hurt it. Throws, turrets and specials can, and super units are tall enough to swat
+  it. Enemy units still stop in front of it, as in front of any unit, so an army without throwers stands
+  under it swinging at nothing; the answer is ranged units and turrets. It fights as a heavy of 2050, hitting
+  everything within reach, but has fewer hit points to make up for it: about 60% of a heavy of 2050. A
+  fatbike rides under it without touching it. Its lines: "WOOOO!" · "Noch ein Bier!" · "Is this the party
+  street?"
 
 **Lines**
 
+They get dumber with every era, and then more entitled.
+
 | Era | Walking out | Beaten |
 |---|---|---|
-| 1975 | "Twelve minutes, then back on the bus!" · "Where are the tulips?" · "Can you take our picture?" · "Donkey well!" | "My film is full!" · "We thought it was a park!" · "The bus is leaving!" · "Which way is the hostel?" |
-| 2025 | "Is this the bike lane?" · "Do people actually live here?" · "Five stars!" · "Is this Holland or the Netherlands?" | "My suitcase! My suitcase!" · "What time does the village close?" · "One star, would not visit again." · "The ship leaves at five!" |
-| 2050 | "Follow the umbrella!" · "Scanning…" · "Five stars!" · "Is this the bike lane?" | "Your time slot has expired." · "Battery low." · "One star." · "No signal." |
+| 1975 | "Excuse me, where are the tulips?" · "Wie schön!" · "C'est charmant !" · "Could you take our picture, please?" · "Twelve minutes, then back on the bus!" | "My film is full!" · "Danke schön!" · "Merci, au revoir !" · "The bus is leaving!" · "We thought it was a park!" |
+| 2025 | "IS THIS AMSTERDAM?" · "Is this the bike lane?" · "Wo ist hier der Strand?" · "C'est gratuit ?" · "Do people actually LIVE here?" · "Is this Holland or the Netherlands?" | "MY SUITCASE!" · "What time does the village close?" · "Ma valise !" · "One star!" · "The ship leaves at five!" |
+| 2050 | "IS THIS STILL AMSTERDAM?" · "We booked your living room." · "Wir haben Ihr Haus gebucht!" · "On a loué votre rue !" · "Move, you're in my livestream." | "I WANT TO SPEAK TO THE MAYOR!" · "REFUND!" · "Kein Empfang!" · "Une étoile !" · "Your city is overrated." |
+
+Unit lines of their own (by unit id, as the fatbike kid has): Ivy, Pam, the lost tourists and the
+Zweefbierfiets as above; the day trippers: "We have two hours!" · "Where is the cheese shop?" and, at the
+horn, "THE SHIP!".
 
 **Stay away from**
 
-- Nationalities, in any form. The campaigns and newspaper stories single out particular countries; this
-  faction does not.
+- Flags, national costumes and jokes about a country itself. They may speak their language, as the owner
+  decided; the joke is what they do, not where they are from.
 - The city-slogan letters, which are a trademark. Ours are parody letters.
-- The look of the sightseeing buses, the fleet colours of rental bikes, cruise-line liveries, booking and
-  review platforms, the chocolate spread, the viral snack shops by name.
-- The Dam, where the sleepers of 1970 camped at the war memorial: ours sleep in the park. The famous
-  museum queue: ours is for fries. Comparisons between big ships and one that sank. Floods.
-- The red-light district. The party on the beer bike is about beer and costumes.
+- Real brands: rental and review platforms, the sightseeing buses, the fleet colours of rental bikes,
+  cruise-line liveries, the chocolate spread, the viral snack shops by name. A holiday let is a key box and a
+  party, never a logo.
+- Real influencers. Ivy is a type.
+- The red-light district and coffeeshops. The party on the beer bike is about beer and costumes.
+- The Dam, where the sleepers of 1970 camped at the war memorial. Comparisons between big ships and one
+  that sank. Floods.
 
-**Open questions**
+**Drawings: 31.** The usual 29 (nine per era, the flag and the backdrop; Ivy's `pose_frame` takes the place
+of a projectile), plus the two units that come onto the lane without being bought: the day tripper and the
+lost tourist.
 
-- The tourists speak English. Every other faction speaks Dutch or dialect. I think that is right for
-  them; say so if you want mock Dutch instead ("Donkey well!" throughout).
-- De Parkslapers are hippies, and so is half of Amsterdam's 1975 roster. They are different jokes (the
-  visitor against the local), but if it feels like twice the same, the turret can become a postcard stand.
+**What the rules need** (the building agent writes it; the patterns are in the code already):
+
+1. The temperament in `src/defs/toeristen.ts`, as for every faction.
+2. **Posing** (Ivy): a mark on the unit definition that it poses instead of throwing, and a check where a
+   blow's or a throw's damage is worked out: is the attacker within reach of an enemy poser? Then half. A
+   ranged unit without a shot; `pose_frame` drawn over posing units in the view.
+3. **Scattering** (Pam): a mark on the unit definition naming the unit and the count it scatters into, and
+   in `resolve` in `src/sim/step.ts`: when such a unit is beaten, that many free units come onto the lane
+   at its spot, for whichever side it was on. Her own price and speed, like the fatbike's numbers.
+4. **Hovering** (Zweefbierfiets): a mark on the unit definition, and in the melee blow: a hovering target
+   is skipped unless the attacker is a super unit. Throws, turrets, specials and waves still reach it. Its
+   own hit points.
+5. **Summon with a time limit** (the cruise ship): the summon kind gets an optional number of ticks, the
+   summoned units a time they leave at, and their own speed and strength. Leaving pays nobody.
+6. **Price hike**: a new member of the special union, a per-side "prices doubled until" tick read wherever a
+   price is checked and paid (`src/sim/commands.ts`), red prices in the HUD, and a rule for the bots.
+7. Tests for each, with the seats swapped, as `tests/rider.test.ts` and `tests/summon.test.ts` do.
+
+**Questions, and what the owner decided** (24 November 2026)
+
+1. The concept: approved, "even more annoying", worse with every era.
+2. The language: English, French and German; the loud American shouts in capitals.
+3. De Parkslapers: replaced by a postcard stand.
+4. The special of 2050: a price hike, "Rent increase for the locals", instead of the lockout.
+5. The cruise ship: kept, with funny art and fast day trippers.
+6. Units with rules of their own: Influencer-Ivy, Paraplu-Pam (dearer, slower, weak scattered group) and
+   De Zweefbierfiets.
+7. Still mine to fit while building: the exact numbers. Bots are used only against plain lopsidedness.
+
+**As built** (24 November 2026). Everything above went in as written, except these numbers, which the
+bots were used for because with them De Toeristen won one match in ten with both sides buying a mix:
+
+- The temperament got a third part: every unit costs 10% less (speed 125, damage 85, price 90). The
+  trait stays "snel en overal": there are a lot of them.
+- De Zweefbierfiets has 85% of a heavy's hit points, not about 60%. At 60% throws, turrets and specials
+  brought it down too fast; hovering itself turned out to be worth a lot.
+- Paraplu-Pam is the slowest unit De Toeristen have apart from MS Kolossaal, which walks at the super
+  units' shared speed: a hair slower still.
+- Two names were made to fit their buttons: the turret of 1975 is called De Kaartenmolen, because
+  "Ansichtkaartenmolen" is too long for any line of its button, and "Cruiseschip legt aan" may break as
+  "Cruise-schip" there.
+- The numbers that stayed: Ivy's posing halves (`POSE`), Pam costs 360 and walks at 60% of a schild's
+  speed, her four lost tourists have a quarter of a light unit's hit points and half its damage
+  (`SCATTER`), the eight day trippers half a light unit's hit points and damage at 1.6 times its speed for
+  twenty seconds, and the rent doubles for ten seconds (`SPECIAL` in `src/defs/balance.ts`).
 
 ### 6. De Ambtenarij
 
@@ -1287,7 +1438,7 @@ cap, ahead of anyone in training, as fast as the rows make room. The first speci
 fits better than Nee is nee and is "also not in the game yet", and picked this one of three (the others: a
 hologram nazar that keeps the army from harm for five seconds, and wedding gold for every unit on the
 lane). Nee is nee, a mother's look that worked like Het Algoritme, is gone with its drawing. De Toeristen's
-Cruiseschip, further up, was also planned as a summon; it can share the kind or take another.
+Cruiseschip, further up, uses the same kind, with a time limit added.
 
 **The fatbike: the first unit that does something of its own**
 
@@ -1464,9 +1615,10 @@ battle, and one pull request per faction.
    first new kind of special, the convert.~~ Done.
 3. ~~**De Gasten.** The owner's own idea, and the first faction with a unit that does something of its
    own: the fatbike, a rider.~~ Done.
-4. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
-5. **Rotterdam.** Amsterdam's rival, with the container as the block.
-6. **De Toeristen.** The summon and the lockout.
+4. ~~**De Toeristen.** At the owner's choice (24 November 2026): three units with rules of their own,
+   the summon with a time limit, and the price hike.~~ Done.
+5. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
+6. **Rotterdam.** Amsterdam's rival, with the container as the block.
 7. **De Camping.**
 8. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
 9. **De Friezen.**

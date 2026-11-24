@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-78 -116 158 122" data-rig="static">
+  <title>De Dia-avond: een projector zo groot als een huis, vierhonderd vakantiedia's, en iedereen dommelt in</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .f { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; }
+  </style>
+
+  <!-- The screen on its tripod. Origin of the scene = the middle of the road under it all. Joint at the tripod's foot. -->
+  <g id="screen" transform="translate(-48 0)">
+    <path class="t" style="stroke-width:3.4" d="M0 -50 L-18 0 M0 -50 L18 0 M0 -50 L0 -2"/>
+    <path class="t" style="stroke:#9aa3a8;stroke-width:1.4" d="M0 -50 L-18 0 M0 -50 L18 0 M0 -50 L0 -2"/>
+    <rect class="o" fill="#c9ccd2" x="-30" y="-110" width="60" height="6" rx="3"/>
+    <rect class="o" fill="#fbfaf4" x="-28" y="-106" width="56" height="56" rx="1.5"/>
+  </g>
+
+  <!-- Slide 1 of 400: the windmill. -->
+  <g id="slide_a" data-parent="screen" transform="translate(-48 -78)">
+    <rect class="n" fill="#a8d8f0" x="-25" y="-25" width="50" height="50"/>
+    <rect class="n" fill="#6fc06a" x="-25" y="10" width="50" height="15"/>
+    <path class="n" fill="#7a5236" d="M-4 12 L-2 -4 L4 -4 L6 12 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="2.6" stroke-linecap="round" d="M1 -6 L-12 -19 M1 -6 L14 7 M1 -6 L14 -19 M1 -6 L-12 7"/>
+    <circle class="n" fill="#2b1b16" cx="1" cy="-6" r="2"/>
+  </g>
+
+  <!-- Slide 2: someone squinting into the sun, thumb up. -->
+  <g id="slide_b" data-parent="screen" transform="translate(-48 -78)">
+    <rect class="n" fill="#ffe7a0" x="-25" y="-25" width="50" height="50"/>
+    <rect class="n" fill="#e8c873" x="-25" y="14" width="50" height="11"/>
+    <circle class="f" fill="#f3c9a5" cx="0" cy="-4" r="13"/>
+    <path class="n" fill="#c48a44" d="M-13 -6 Q-13 -18 0 -18 Q13 -18 13 -8 Q6 -12 0 -11 Q-6 -12 -13 -6 Z"/>
+    <path class="t" style="stroke-width:2" d="M-7 -4 L-2 -4 M3 -4 L8 -4"/>
+    <path class="t" style="stroke-width:1.8" d="M-5 4 Q0 7 5 4"/>
+    <path class="n" fill="#e8705a" d="M-2 -1 Q0 2 2 -1 Q0 -2 -2 -1 Z"/>
+    <path class="f" fill="#f3c9a5" d="M14 6 L14 -2 Q14 -5 16.4 -5 Q18.6 -5 18.4 -2 L18 1 L22 1 Q24 1 24 4 L23 12 Q22 14 19 14 L14 14 Z"/>
+  </g>
+
+  <!-- Slide 3: the sunset. On top, so it is what the button shows. -->
+  <g id="slide_c" data-parent="screen" transform="translate(-48 -78)">
+    <rect class="n" fill="#f08a24" x="-25" y="-25" width="50" height="50"/>
+    <rect class="n" fill="#ffb52e" x="-25" y="-8" width="50" height="18"/>
+    <circle class="n" fill="#ffe14a" cx="0" cy="6" r="12"/>
+    <rect class="n" fill="#3e6fc9" x="-25" y="8" width="50" height="17"/>
+    <path fill="none" stroke="#ffe14a" stroke-width="2" stroke-linecap="round" d="M-8 12 L8 12 M-5 16 L5 16 M-2 20 L2 20"/>
+    <path class="n" fill="#2b1b16" d="M-25 8 L-16 2 L-12 4 L-8 8 Z"/>
+  </g>
+
+  <!-- The light from the lens onto the screen. Joint at the lens. -->
+  <g id="beam" transform="translate(10 -54)">
+    <path class="n" fill="#fff6a8" fill-opacity="0.55" d="M0 -5 L-32 -52 L-32 4 L0 5 Z"/>
+  </g>
+
+  <!-- The projector: far too big for the room, beige, humming, hot. Joint at the foot of its stand. -->
+  <g id="projector" transform="translate(42 0)">
+    <path class="t" style="stroke-width:3.4" d="M-24 -30 L-28 0 M24 -30 L28 0"/>
+    <path class="t" style="stroke:#8a8f93;stroke-width:1.4" d="M-24 -30 L-28 0 M24 -30 L28 0"/>
+    <rect class="o" fill="#7a5236" x="-30" y="-34" width="60" height="6" rx="2"/>
+    <path class="o" fill="#d8ccb0" d="M-28 -36 L-28 -70 Q-28 -74 -24 -74 L32 -74 Q36 -74 36 -70 L36 -36 Z"/>
+    <path class="n" fill="#c4b696" d="M-27 -37 L35 -37 L35 -44 L-27 -44 Z"/>
+    <path class="t" style="stroke:#8a7a5a;stroke-width:2" d="M14 -66 L30 -66 M14 -61 L30 -61 M14 -56 L30 -56 M14 -51 L30 -51"/>
+    <circle class="o" style="stroke-width:1.8" fill="#d9342b" cx="-18" cy="-44" r="2.6"/>
+    <rect class="o" style="stroke-width:1.8" fill="#3a3a3a" x="-6" y="-46" width="10" height="5" rx="1.6"/>
+    <!-- the lens barrel, pointing at the screen -->
+    <rect class="o" fill="#3a3a3a" x="-40" y="-62" width="14" height="16" rx="3"/>
+    <ellipse class="o" style="stroke-width:2" fill="#fff6a8" cx="-40" cy="-54" rx="3.4" ry="7"/>
+  </g>
+
+  <!-- The round tray of slides on top: 400 to go. Joint in its middle. -->
+  <g id="carousel" data-parent="projector" transform="translate(46 -80)">
+    <ellipse class="o" fill="#5a6470" cx="0" cy="0" rx="24" ry="8"/>
+    <ellipse class="n" fill="#3a434d" cx="0" cy="-1.4" rx="17" ry="4.6"/>
+    <path class="t" style="stroke:#c9ccd2;stroke-width:1.4" d="M-20 2 L-20 -2 M-12 5 L-12 1 M-4 6 L-4 2 M4 6 L4 2 M12 5 L12 1 M20 2 L20 -2"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#8a8f93" cx="0" cy="-2" rx="4" ry="2"/>
+  </g>
+
+  <!-- Zzz: what it does to whoever watches. -->
+  <g id="zzz" transform="translate(66 -100)">
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-6 -6 L4 -6 L4 -3 L-1 2 L4 2 L4 5 L-7 5 L-7 2 L-2 -3 L-6 -3 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M6 -14 L13 -14 L13 -12 L9.6 -8.6 L13 -8.6 L13 -6.4 L5.4 -6.4 L5.4 -8.6 L8.8 -12 L6 -12 Z"/>
+  </g>
+</svg>

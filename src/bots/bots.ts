@@ -1,7 +1,7 @@
 import { LANE, SUBSIDY, sec } from '../defs/balance.ts';
 import { eraOf, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
-import { canDo, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { canDo, progressNeeded, subsidyCost, turretPlan, unitPrice } from '../sim/commands.ts';
 import { frontUnit } from '../sim/lane.ts';
 import { kraanDicht } from '../sim/overtime.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
@@ -84,6 +84,17 @@ function special(s: SimState, side: Side): Command | null {
       // The family comes for a fight worth joining, or when the gate is nearly bare.
       worth = foe.units.length >= 3 || (foe.units.length >= 1 && me.units.length <= 1);
       break;
+    case 'hike': {
+      // Best just before the enemy has to spend a lot: when it could modernize,
+      // or sits on enough for a heavy unit. Once it has waited a while for that,
+      // it does it anyway: ten seconds of double prices always slow them down.
+      const needed = progressNeeded(s, other(side));
+      const modernizing = needed !== null && foe.progress >= needed;
+      const heavy = eraOf(foe.faction, foe.era).units[2]!;
+      const waited = s.tick - me.specialReadyAt >= sec(15);
+      worth = modernizing || foe.gold >= heavy.cost || waited;
+      break;
+    }
     case 'heal': {
       let missing = 0;
       let full = 0;
@@ -153,7 +164,7 @@ export function brain(style: Style): Bot {
       const fourth = eraOf(me.faction, me.era).units[3];
       const big = style.supers && fourth?.role === 'super' ? fourth : undefined;
       const has = big !== undefined && (me.units.some((u) => u.def === big.id) || me.queue.some((q) => q.def === big.id));
-      if (big && !has) return me.gold >= big.cost ? BUY.super : null;
+      if (big && !has) return me.gold >= unitPrice(s, side, big) ? BUY.super : null;
       const plan = style.turrets ? turretPlan(s, side) : null;
       if (plan && me.gold >= plan.cost) return TURRET;
     }
@@ -167,7 +178,11 @@ export function brain(style: Style): Bot {
       if (!out && canDo(s, side, BUY.shield)) return BUY.shield;
     }
 
-    const role = style.units[bought % style.units.length]!;
+    let role = style.units[bought % style.units.length]!;
+    // A ranged unit that poses the enemy (Influencer-Ivy) does no damage, and a second one in
+    // reach adds nothing: with one out or in training, a light unit goes instead.
+    const thrower = eraOf(me.faction, me.era).units[1];
+    if (role === 'ranged' && thrower?.poser && [...me.units, ...me.queue].some((u) => u.def === thrower.id)) role = 'light';
     // A rider is sent when it can get through: no door on the lane to crash into, and only a few
     // enemies to ride past. Otherwise it is skipped this round, as a person would. One at a time.
     const def = eraOf(me.faction, me.era).units.find((u) => u.role === role);

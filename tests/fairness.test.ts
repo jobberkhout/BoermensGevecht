@@ -17,6 +17,8 @@ function shape(side: SideState): unknown {
     progress: side.progress,
     buffUntil: side.buffUntil,
     divertedUntil: side.divertedUntil,
+    hike: [side.hikeFrom, side.hikeUntil, side.hikePercent],
+    arrivals: side.arrivals,
     specialReadyAt: side.specialReadyAt,
     units: side.units.map((u) => ({ ...u, id: 0 })),
     riders: side.riders.map((r) => ({ ...r, id: 0, passed: r.passed.length })),

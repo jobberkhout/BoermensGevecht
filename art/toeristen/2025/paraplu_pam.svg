@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-78 -134 140 140" data-rig="humanoid">
+  <title>Paraplu-Pam</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-10 -38)"/>
+
+  <!-- Her group of four, in the same orange caps, shuffling after the umbrella. Behind her, so she overlaps them. -->
+  <g id="group" data-parent="hips" transform="translate(-50 -40)">
+    <g transform="translate(50 40)">
+      <!-- at the back, tall, filming over everyone's heads -->
+      <path fill="none" stroke="#2b1b16" stroke-width="8" stroke-linecap="round" d="M-44 -100 L-38 -120"/>
+      <path fill="none" stroke="#7cc6ec" stroke-width="4" stroke-linecap="round" d="M-44 -100 L-38 -120"/>
+      <rect class="o" style="stroke-width:1.8" fill="#1d1d24" x="-40" y="-131" width="6" height="10" rx="1.4"/>
+      <circle class="o" fill="#e9a183" cx="-51" cy="-112" r="10.5"/>
+      <circle class="n" fill="#2b1b16" cx="-46" cy="-112" r="1.4"/>
+      <path class="o" fill="#f08a24" d="M-62 -115 Q-61.5 -126 -51 -125.5 Q-40.5 -125.5 -41 -117 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c96a12" d="M-43.5 -117.5 L-30.5 -115.5 Q-29.5 -113.5 -31.5 -113.2 L-43.5 -114.5 Z"/>
+      <circle class="n" fill="#ffffff" cx="-48" cy="-121.5" r="2.2"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f08a24" cx="-51" cy="-125.9" r="1.6"/>
+      <!-- at the back, left: still looking at the last thing -->
+      <circle class="o" fill="#8a5a3c" cx="-64" cy="-99" r="10"/>
+      <circle class="n" fill="#2b1b16" cx="-59.6" cy="-99.4" r="1.4"/>
+      <path class="o" fill="#f08a24" d="M-74.5 -102 Q-74 -112.5 -64 -112 Q-54 -112 -54.5 -104 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c96a12" d="M-57 -104.5 L-44 -102.5 Q-43 -100.5 -45 -100.2 L-57 -101.5 Z"/>
+      <circle class="n" fill="#ffffff" cx="-61" cy="-108" r="2.2"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f08a24" cx="-64" cy="-112.4" r="1.6"/>
+      <!-- in front, left: socks in sandals, a bum bag, out of breath -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" d="M-62 -42 L-64 -4 M-52 -42 L-50 -4"/>
+      <path fill="none" stroke="#c9b07a" stroke-width="5" stroke-linecap="round" d="M-62 -42 L-63.4 -22 M-52 -42 L-50.6 -22"/>
+      <path fill="none" stroke="#f2b096" stroke-width="5" stroke-linecap="round" d="M-63.4 -20 L-64 -6 M-50.6 -20 L-50 -6"/>
+      <path class="o" style="stroke-width:2" fill="#ffffff" d="M-68 -6 L-60 -6 L-59 -1 L-69 -1 Z M-54 -6 L-46 -6 L-45 -1 L-55 -1 Z"/>
+      <path class="o" fill="#3fa9e0" d="M-67 -74 Q-69 -58 -66 -40 L-48 -40 Q-45 -58 -47 -74 Q-52 -78 -57 -78 Q-63 -78 -67 -74 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#3a3f4a" x="-60" y="-50" width="14" height="8" rx="3"/>
+      <circle class="o" fill="#f2b096" cx="-56" cy="-87" r="11"/>
+      <circle class="n" fill="#2b1b16" cx="-51" cy="-88" r="1.5"/>
+      <path class="t" style="stroke-width:1.8" d="M-50 -81 Q-48 -79 -46 -81.4"/>
+      <ellipse class="n" fill="#e5583f" fill-opacity="0.45" cx="-50" cy="-83" rx="2.6" ry="1.8"/>
+      <path class="o" fill="#f08a24" d="M-67.5 -90 Q-67 -101.5 -56 -101 Q-45 -101 -45.5 -92 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c96a12" d="M-48 -92.5 L-35 -90.5 Q-34 -88.5 -36 -88.2 L-48 -89.5 Z"/>
+      <circle class="n" fill="#ffffff" cx="-53" cy="-97" r="2.2"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f08a24" cx="-56" cy="-101.4" r="1.6"/>
+      <!-- in front, right: right behind her, map in hand -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" d="M-40 -42 L-40 -4"/>
+      <path fill="none" stroke="#5c6370" stroke-width="5" stroke-linecap="round" d="M-40 -42 L-40 -6"/>
+      <path class="o" style="stroke-width:2" fill="#3a3f4a" d="M-45 -6 L-36 -6 L-34 -1 L-45 -1 Z"/>
+      <path class="o" fill="#7bc8a4" d="M-48 -78 Q-50 -60 -47 -40 L-32 -40 Q-30 -60 -32 -78 Q-36 -82 -40 -82 Q-45 -82 -48 -78 Z"/>
+      <circle class="o" fill="#c58f6e" cx="-39" cy="-92" r="11"/>
+      <circle class="n" fill="#2b1b16" cx="-34" cy="-93" r="1.5"/>
+      <path class="t" style="stroke-width:1.8" d="M-36 -86.4 L-31.6 -86.4"/>
+      <path class="o" fill="#f08a24" d="M-50.5 -95 Q-50 -106.5 -39 -106 Q-28 -106 -28.5 -97 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c96a12" d="M-31 -97.5 L-18 -95.5 Q-17 -93.5 -19 -93.2 L-31 -94.5 Z"/>
+      <circle class="n" fill="#ffffff" cx="-36" cy="-102" r="2.2"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f08a24" cx="-39" cy="-106.4" r="1.6"/>
+    </g>
+  </g>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-19 -72)">
+    <path class="o" fill="#2f6bb3" d="M-6 -3 Q-8 12 -5 22 L5 22 Q7 10 6 -3 Z"/>
+    <circle class="o" fill="#e6b391" cx="0" cy="26" r="4.4"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-15 -38)">
+    <path class="o" fill="#4d5566" d="M-7 -3 L7 -3 L6 31 L-6 31 Z"/>
+    <path class="o" fill="#5a3a22" d="M-7 33 Q-7 30.5 -4 30.5 L4 30.5 Q11 31 13.5 34.5 L13.5 38 L-7 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#5c6578" d="M-7 -3 L7 -3 L6 31 L-6 31 Z"/>
+    <path class="t" style="stroke:#4d5566" d="M0.5 0 L0.5 29"/>
+    <path class="o" fill="#6e4a2e" d="M-7 33 Q-7 30.5 -4 30.5 L4 30.5 Q11 31 13.5 34.5 L13.5 38 L-7 38 Z"/>
+    <path class="n" fill="#8a6244" d="M-6 36 L12.6 36 L12.6 37.6 L-6 37.6 Z"/>
+  </g>
+
+  <!-- A blue fleece, a lanyard with her badge (a star), and the walkie-talkie nobody ever hears. -->
+  <g id="torso" data-parent="hips" transform="translate(-10 -40)">
+    <path class="o" fill="#3f86d6" d="M-16 7 Q-19 -14 -15.5 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19.5 -14 16 7 Z"/>
+    <path class="n" fill="#2f6bb3" d="M-14.6 6 Q-17.4 -14 -14 -29 Q-10 -20 -9.6 6 Z"/>
+    <path class="t" style="stroke:#2f6bb3" d="M2 -36 L1 5"/>
+    <path fill="none" stroke="#f2c94c" stroke-width="2.2" stroke-linecap="round" d="M-6 -36 Q1 -24 8 -36"/>
+    <rect class="o" style="stroke-width:1.8" fill="#ffffff" x="-2.5" y="-24" width="10" height="13" rx="1.6"/>
+    <path class="n" fill="#f2c94c" d="M2.5 -21.4 L3.6 -18.8 L6.4 -18.6 L4.2 -16.8 L5 -14 L2.5 -15.6 L0 -14 L0.8 -16.8 L-1.4 -18.6 L1.4 -18.8 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#3a3f4a" x="-17" y="-8" width="6" height="11" rx="1.4"/>
+    <path class="t" style="stroke-width:1.4" d="M-15 -8 L-15 -13"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-9 -76)">
+    <rect class="o" fill="#e6b391" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f0c4a2" cx="2" cy="-21" rx="18.5" ry="18"/>
+    <ellipse class="o" fill="#f0c4a2" cx="-8.5" cy="-18.5" rx="3.4" ry="4.8"/>
+    <!-- a sensible grey bob -->
+    <path class="o" fill="#b9b2a8" d="M-16.5 -10 Q-23 -38 2 -42 Q22 -42.5 21 -28 Q14 -33 6 -33 Q0 -32.5 -4 -28 Q-6 -22 -9 -18 Q-10 -10 -12 -4 Q-17 -4 -16.5 -10 Z"/>
+    <path class="n" fill="#d4cec6" d="M-8 -37 Q2 -40.4 12 -38 Q2 -37 -6 -33.4 Z"/>
+    <circle class="n" fill="#2b1b16" cx="10" cy="-20.6" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="18" cy="-20.6" r="1.8"/>
+    <path class="t" style="stroke-width:1.8" d="M6 -27 Q10 -29 14 -27.4"/>
+    <path class="o" fill="#f0c4a2" d="M20.5 -18.5 Q24.5 -15.5 20.5 -13.5"/>
+    <!-- mid-sentence, as always -->
+    <path class="o" style="stroke-width:1.8" fill="#7a1f1f" d="M10 -10 Q14 -9 18 -10.6 Q17 -5.4 13.6 -5.8 Q10.6 -6.4 10 -10 Z"/>
+    <!-- the headset -->
+    <path fill="none" stroke="#2b1b16" stroke-width="2" stroke-linecap="round" d="M-8.5 -13 Q-2 -6 10 -7"/>
+    <circle class="o" style="stroke-width:1.6" fill="#3a3f4a" cx="11" cy="-7" r="2.2"/>
+    <circle class="o" style="stroke-width:1.8" fill="#3a3f4a" cx="-8.5" cy="-18.5" r="3.6"/>
+  </g>
+
+  <!-- The near arm, bent, holding the umbrella out in front of her. -->
+  <g id="arm_front" data-parent="torso" transform="translate(0 -72)">
+    <path fill="none" stroke="#2b1b16" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L-1 15 L11 8"/>
+    <path fill="none" stroke="#3f86d6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M0 0 L-1 15 L11 8"/>
+  </g>
+
+  <!-- Closed and tied, for the walk home. Until then it hides behind the open one. Joint at her hand. -->
+  <g id="closed" data-parent="arm_front" transform="translate(12 -64)">
+    <path class="o" fill="#f2c94c" d="M2 -2.6 L36 -1 L42 0 L36 1 L2 2.6 Z"/>
+    <path class="t" style="stroke:#f08a24" d="M10 -2.2 L10 2.2 M20 -1.8 L20 1.8 M30 -1.4 L30 1.4"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="2" stroke-linecap="round" d="M42 0 L46 0"/>
+  </g>
+
+  <!-- The umbrella, open, held out like a shield. A rubber duck rides on top. Joint at her hand. -->
+  <g id="umbrella" data-parent="arm_front" transform="translate(12 -64)">
+    <g transform="translate(-12 64)">
+      <!-- the handle, a hook -->
+      <path fill="none" stroke="#2b1b16" stroke-width="6" stroke-linecap="round" d="M14 -64 L7 -64 Q2 -64 2 -59 Q2 -55 6 -55"/>
+      <path fill="none" stroke="#7a4a24" stroke-width="3" stroke-linecap="round" d="M14 -64 L7 -64 Q2 -64 2 -59 Q2 -55 6 -55"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M12 -64 L26 -65"/>
+      <path fill="none" stroke="#9aa3b2" stroke-width="2" stroke-linecap="round" d="M12 -64 L26 -65"/>
+      <!-- the canopy, seen from the side: a dome in three colours -->
+      <path class="n" fill="#f2c94c" d="M24 -114 A30 48 0 0 1 24 -18 Z"/>
+      <path class="n" fill="#f08a24" d="M24 -114 A30 48 0 0 1 54 -66 Q45 -88 24 -92 Z"/>
+      <path class="n" fill="#3fa9e0" d="M24 -18 A30 48 0 0 0 54 -66 Q45 -44 24 -40 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.35" d="M30 -106 Q40 -100 44 -88 Q38 -96 30 -100 Z"/>
+      <path class="t" d="M54 -66 Q45 -88 24 -92 M54 -66 Q45 -44 24 -40 M54 -66 L24 -66"/>
+      <path class="o" fill="none" d="M24 -114 A30 48 0 0 1 24 -18 Z"/>
+      <path class="t" style="stroke-width:2" d="M24 -114 Q21 -108 24 -103 M24 -40 Q21 -34 24 -29 M24 -29 Q21 -23 24 -18"/>
+      <!-- the tip -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4.4" stroke-linecap="round" d="M53 -66 L60 -66"/>
+      <path fill="none" stroke="#c9ced6" stroke-width="2" stroke-linecap="round" d="M53 -66 L60 -66"/>
+      <!-- the duck -->
+      <path class="o" style="stroke-width:1.8" fill="#ffe14d" d="M31 -112 Q30 -118 36 -118 Q37 -123 41 -123 Q45 -123 45 -119 L49 -118 L45 -116.4 Q47 -112 41 -110.6 Q34 -109.6 31 -112 Z"/>
+      <circle class="n" fill="#2b1b16" cx="42.6" cy="-120.6" r="0.9"/>
+    </g>
+  </g>
+
+  <!-- The hand round the handle, over it. -->
+  <g id="grip" data-parent="arm_front" transform="translate(12 -64)">
+    <circle class="o" fill="#f0c4a2" cx="0" cy="0" r="4.6"/>
+  </g>
+</svg>

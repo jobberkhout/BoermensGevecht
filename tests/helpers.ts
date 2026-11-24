@@ -37,6 +37,8 @@ export function place(s: SimState, side: Side, def: string, pos: number, hp?: nu
     actTick: 0,
     stunUntil: 0,
     turncoat: false,
+    posing: false,
+    leaveAt: 0,
   };
   const units = s.sides[side].units;
   units.push(unit);

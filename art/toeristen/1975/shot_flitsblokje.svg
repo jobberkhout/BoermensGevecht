@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -19 30 34" data-rig="static">
+  <title>Een opgebrand flitsblokje, onderweg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A flash cube seen a little from above: four little reflectors, one of them burnt out and smoking. -->
+  <g id="cube" transform="translate(0 0)">
+    <path class="o" fill="#e9eef2" d="M-10 -6 L0 -11 L10 -6 L10 7 L0 12 L-10 7 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M-10 -6 L0 -11 L10 -6 L0 -1 Z"/>
+    <path class="t" d="M0 -1 L0 12"/>
+    <path class="n" fill="#9fd0f0" d="M-8.4 -3.4 L-1.4 0 L-1.4 9.4 L-8.4 6 Z"/>
+    <path class="n" fill="#5a5048" d="M1.4 0 L8.4 -3.4 L8.4 6 L1.4 9.4 Z"/>
+    <path class="n" fill="#ffffff" d="M-7.4 -1.6 L-4.4 -0.2 L-7.4 3 Z"/>
+    <circle class="n" fill="#2b2420" cx="5" cy="3" r="1.8"/>
+    <path class="t" style="stroke:#b9b2a6;stroke-width:1.6" d="M4 -10 q-2 -2 0 -4 q2 -2 0 -3.5"/>
+    <path class="o" style="stroke-width:1.4" fill="#c9ccd2" d="M-2.6 -1.6 L0 -3 L2.6 -1.6 L0 -0.2 Z"/>
+  </g>
+</svg>

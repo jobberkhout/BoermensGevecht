@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -132 224 136" data-rig="static">
+  <title>De Hype-rij: een uur in de rij voor friet die viraal ging</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    De Hype-rij: the fries that went viral. A shop front with a hatch, a velvet rope, three people who have
+    been queueing for an hour and a queue manager with a sign that says it will be another hour (a clock).
+    They throw fries and never leave the queue. Origin = the middle of the floor.
+  -->
+  <g id="shop" transform="translate(0 0)">
+    <!-- the shop front: white tiles, a striped awning over the hatch -->
+    <rect class="o" fill="#f3efe4" x="-100" y="-104" width="200" height="104" rx="3"/>
+    <path class="t" style="stroke:#d9d2c0;stroke-width:1.2" d="M-95 -92 L95 -92 M-95 -80 L95 -80 M-95 -68 L95 -68 M-95 -56 L95 -56 M-95 -44 L95 -44 M-95 -32 L95 -32 M-95 -20 L95 -20 M-80 -104 L-80 -11 M-60 -104 L-60 -11 M-40 -104 L-40 -11 M-20 -104 L-20 -11 M0 -104 L0 -11 M20 -104 L20 -11 M40 -104 L40 -11"/>
+    <!-- a neon heart on the wall: the post that started it all -->
+    <path fill="none" stroke="#2b1b16" stroke-width="4.4" stroke-linejoin="round" d="M4 -86 Q-4 -92 -1 -98 Q2 -102 6 -98 Q10 -102 13 -98 Q16 -92 8 -86 Z"/>
+    <path fill="none" stroke="#ff4f8a" stroke-width="2.2" stroke-linejoin="round" d="M4 -86 Q-4 -92 -1 -98 Q2 -102 6 -98 Q10 -102 13 -98 Q16 -92 8 -86 Z"/>
+    <!-- the hatch -->
+    <rect class="o" fill="#f2c230" x="50" y="-96" width="50" height="42" rx="2"/>
+    <rect class="o" style="stroke-width:2" fill="#3a2a22" x="55" y="-90" width="40" height="30"/>
+    <!-- the fryer glowing at the back, and the cones waiting on the counter -->
+    <rect class="n" fill="#c77a2a" x="60" y="-70" width="30" height="8"/>
+    <path class="n" fill="#ffcf5a" fill-opacity="0.6" d="M62 -72 Q66 -78 70 -72 Q74 -78 78 -72 Q82 -78 86 -72 Z"/>
+    <rect class="o" fill="#d9d2c0" x="46" y="-60" width="58" height="6" rx="2"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M80 -60 L86 -60 L83 -54 Z M88 -60 L94 -60 L91 -54 Z"/>
+    <path class="n" fill="#f2c230" d="M80.5 -62 L85.5 -62 L85 -60 L81 -60 Z M88.5 -62 L93.5 -62 L93 -60 L89 -60 Z"/>
+    <path class="o" style="stroke-width:0.8" fill="#ffd84a" d="M81 -60 L81 -64 L82.5 -64 L82.5 -60 M84 -60 L84 -65 L85.5 -65 L85.5 -60 M89 -60 L89 -65 L90.5 -65 L90.5 -60 M92 -60 L92 -63.5 L93.5 -63.5 L93.5 -60"/>
+    <!-- the awning -->
+    <path class="o" fill="#ffffff" d="M44 -104 L104 -104 L108 -94 L40 -94 Z"/>
+    <path class="n" fill="#f07c2a" d="M50 -103 L58 -103 L58.5 -95 L49 -95 Z M66 -103 L74 -103 L74.5 -95 L65.5 -95 Z M82 -103 L90 -103 L91 -95 L82 -95 Z M98 -103 L103 -103 L106 -95 L98.5 -95 Z"/>
+    <path class="t" d="M40 -94 Q44 -90 48 -94 Q52 -90 56 -94 Q60 -90 64 -94 Q68 -90 72 -94 Q76 -90 80 -94 Q84 -90 88 -94 Q92 -90 96 -94 Q100 -90 104 -94 Q106 -91 108 -94"/>
+    <!-- the floor: pavement -->
+    <rect class="n" fill="#c9c2b6" x="-95.5" y="-11" width="191" height="8"/>
+    <path class="t" style="stroke:#a39b8d;stroke-width:1.2" d="M-62 -11 L-62 -3 M-20 -11 L-20 -3 M22 -11 L22 -3 M64 -11 L64 -3"/>
+    <path class="t" d="M-95.5 -11 L95.5 -11"/>
+  </g>
+
+  <!-- Everybody's legs. They shuffle on the spot and never leave it. -->
+  <g id="m_legs" transform="translate(-78 -11)">
+    <g transform="translate(78 11)">
+      <path class="o" fill="#2a2b36" d="M-88 -38 L-68 -38 L-69 -14 L-76 -14 L-78 -30 L-80 -14 L-87 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2a2b36" d="M-88 -15 L-80 -15 Q-75 -14 -74.4 -11 L-88 -11 Z M-78 -15 L-70 -15 Q-65 -14 -64.4 -11 L-78 -11 Z"/>
+    </g>
+  </g>
+  <g id="c_legs" transform="translate(-42 -11)">
+    <g transform="translate(42 11)">
+      <path class="o" fill="#3a6b4a" d="M-52 -38 L-32 -38 L-33 -14 L-40 -14 L-42 -30 L-44 -14 L-51 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M-52 -15 L-44 -15 Q-39 -14 -38.4 -11 L-52 -11 Z M-42 -15 L-34 -15 Q-29 -14 -28.4 -11 L-42 -11 Z"/>
+    </g>
+  </g>
+  <g id="b_legs" transform="translate(-8 -11)">
+    <g transform="translate(8 11)">
+      <path class="o" fill="#c9b48a" d="M-18 -38 L2 -38 L1 -24 L-6 -24 L-8 -30 L-10 -24 L-17 -24 Z"/>
+      <path class="o" fill="#f3c9a5" d="M-16 -24 L-11 -24 L-11 -14 L-16 -14 Z M-5 -24 L0 -24 L0 -14 L-5 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#e0457b" d="M-18 -15 L-10 -15 Q-5 -14 -4.4 -11 L-18 -11 Z M-7 -15 L1 -15 Q6 -14 6.6 -11 L-7 -11 Z"/>
+    </g>
+  </g>
+  <g id="a_legs" transform="translate(26 -11)">
+    <g transform="translate(-26 11)">
+      <path class="o" fill="#4a5f8a" d="M16 -38 L36 -38 L35 -14 L28 -14 L26 -30 L24 -14 L17 -14 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#fafafa" d="M16 -15 L24 -15 Q29 -14 29.6 -11 L16 -11 Z M26 -15 L34 -15 Q39 -14 39.6 -11 L26 -11 Z"/>
+    </g>
+  </g>
+
+  <!-- The queue manager: hi-vis vest, an earpiece, and the sign with the clock on it. -->
+  <g id="m_body" data-parent="m_legs" transform="translate(-78 -36)">
+    <g transform="translate(78 36)">
+      <path class="o" fill="#2a2b36" d="M-92 -30 Q-93.5 -52 -89 -58 Q-85 -63 -78 -63 Q-70 -63 -67 -57 Q-63 -50 -64 -30 Z"/>
+      <path class="o" style="stroke-width:2" fill="#d8f03a" d="M-91 -31 Q-92 -50 -88 -57 Q-85 -61 -82 -62 L-79 -48 L-75 -62 Q-70 -61 -68 -56 Q-64 -49 -65 -31 Z"/>
+      <path fill="none" stroke="#e8eef2" stroke-width="2.6" d="M-91 -40 L-65.4 -40 M-91.6 -46 L-65 -46"/>
+      <path fill="none" stroke="#9aa4ad" stroke-width="0.8" d="M-91 -40 L-65.4 -40 M-91.6 -46 L-65 -46"/>
+    </g>
+  </g>
+  <g id="m_head" data-parent="m_body" transform="translate(-77 -61)">
+    <g transform="translate(77 61)">
+      <rect class="o" fill="#b98a68" x="-80.6" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#c99a75" cx="-75.5" cy="-76.5" rx="14" ry="13.8"/>
+      <path class="o" fill="#2b2430" d="M-89 -76 Q-91 -92 -75 -92 Q-63 -92 -61.6 -82 Q-68 -86 -76 -84.6 Q-84 -84 -85 -74 Q-87 -72 -89 -76 Z"/>
+      <!-- earpiece and its curly wire -->
+      <circle class="o" style="stroke-width:1.6" fill="#2b2430" cx="-83" cy="-74" r="3"/>
+      <path class="t" style="stroke-width:1.2" d="M-84 -71 Q-88 -68 -85 -66 Q-82 -64 -86 -62"/>
+      <circle class="n" fill="#2b1b16" cx="-68" cy="-77" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-62.4" cy="-77" r="1.5"/>
+      <path class="t" d="M-71 -82.4 L-65.4 -81 M-63.6 -81.2 L-60.6 -82.2"/>
+      <path class="o" fill="#c99a75" d="M-61.4 -75.4 Q-57.6 -73 -61 -71"/>
+    </g>
+  </g>
+  <g id="m_mouth" data-parent="m_head" transform="translate(-66 -68.4)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="3" ry="2.6"/>
+  </g>
+  <g id="m_arm" data-parent="m_body" transform="translate(-72 -56)">
+    <g transform="translate(72 56)">
+      <!-- the pole, and on it the clock: it is an hour from here -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M-58 -36 L-58 -94"/>
+      <path fill="none" stroke="#c9ced6" stroke-width="2" stroke-linecap="round" d="M-58 -36 L-58 -94"/>
+      <circle class="o" fill="#ffffff" cx="-58" cy="-102" r="11"/>
+      <path class="n" fill="#ffd0c8" d="M-58 -102 L-58 -111 A9 9 0 1 1 -58.1 -111 Z"/>
+      <path fill="none" stroke="#d8342c" stroke-width="2.2" d="M-58 -111 A9 9 0 1 1 -60 -110.8"/>
+      <path class="o" style="stroke-width:1.2" fill="#d8342c" d="M-62.6 -112.4 L-59 -110.8 L-62.4 -108.6 Z"/>
+      <path class="t" style="stroke-width:2" d="M-58 -102 L-58 -108 M-58 -102 L-53.6 -100"/>
+      <circle class="n" fill="#2b1b16" cx="-58" cy="-102" r="1.4"/>
+      <path class="o" fill="#2a2b36" d="M-76 -59 Q-78 -50 -75 -44 Q-72 -40 -67 -41 L-58 -44 L-59 -51 L-66 -49 Q-66 -54 -66 -59 Z"/>
+      <circle class="o" fill="#c99a75" cx="-58" cy="-47" r="4"/>
+    </g>
+  </g>
+
+  <!-- C: yellow rain poncho, and the selfie stick. The queue is content. -->
+  <g id="c_body" data-parent="c_legs" transform="translate(-42 -36)">
+    <g transform="translate(42 36)">
+      <path class="o" fill="#f2c230" d="M-59 -28 Q-58 -48 -53 -57 Q-49 -63 -42 -63 Q-34 -63 -31 -57 Q-26 -48 -25 -28 Z"/>
+      <path class="t" style="stroke:#c99a18" d="M-50 -55 L-53 -30 M-36 -55 L-32 -30"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M-52 -62 Q-49 -56 -42 -56 Q-36 -56 -33 -61"/>
+    </g>
+  </g>
+  <g id="c_head" data-parent="c_body" transform="translate(-41 -61)">
+    <g transform="translate(41 61)">
+      <rect class="o" fill="#dea888" x="-44.6" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f3c9a5" cx="-39.5" cy="-76.5" rx="14" ry="13.8"/>
+      <path class="o" fill="#c9703a" d="M-53.6 -70 Q-57 -93 -38 -92.6 Q-27 -92 -25.6 -82 Q-31 -86 -38 -85 Q-46 -84 -47 -76 L-47.4 -64 Q-52 -64 -53.6 -70 Z"/>
+      <!-- the selfie face: duck lips come with the mouth -->
+      <circle class="n" fill="#2b1b16" cx="-33" cy="-78" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="-27.2" cy="-78" r="1.5"/>
+      <path class="t" d="M-35.6 -82.6 Q-33 -84.4 -30.4 -82.8 M-28.6 -82.8 Q-27 -83.8 -25.4 -82.6"/>
+      <path class="o" fill="#f3c9a5" d="M-26 -76 Q-22.2 -73.6 -25.6 -71.6"/>
+      <ellipse class="n" fill="#f4a6a0" fill-opacity="0.6" cx="-35" cy="-71" rx="3" ry="1.8"/>
+    </g>
+  </g>
+  <g id="c_mouth" data-parent="c_head" transform="translate(-30 -68.4)">
+    <path class="o" style="stroke-width:1.6" fill="#e0457b" d="M-2.6 -1.6 Q0 -3 2.8 -1 Q4 0 2.8 1 Q0 3 -2.6 1.6 Q-3.4 0 -2.6 -1.6 Z"/>
+  </g>
+  <g id="c_arm" data-parent="c_body" transform="translate(-36 -56)">
+    <g transform="translate(36 56)">
+      <!-- the stick, held high, the phone on the end looking back at the whole queue -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4" stroke-linecap="round" d="M-22 -60 L-6 -104"/>
+      <path fill="none" stroke="#9aa4ad" stroke-width="1.8" stroke-linecap="round" d="M-22 -60 L-6 -104"/>
+      <rect class="o" style="stroke-width:2" fill="#2a2b36" x="-11" y="-118" width="12" height="18" rx="2.4" transform="rotate(20 -5 -109)"/>
+      <path class="o" fill="#f2c230" d="M-40 -59 Q-42 -52 -38 -48 Q-34 -46 -30 -50 L-20 -62 L-25 -66 L-31 -58 Q-33 -62 -40 -59 Z"/>
+      <circle class="o" fill="#f3c9a5" cx="-22" cy="-62" r="4"/>
+    </g>
+  </g>
+  <!-- the flash of the selfie -->
+  <g id="c_flash" data-parent="c_arm" transform="translate(-5 -111)">
+    <path class="o" style="stroke-width:1.6" fill="#fff6a8" d="M0 -9 L2.4 -3 L9 -3 L3.6 1 L6 7.6 L0 3.4 L-6 7.6 L-3.6 1 L-9 -3 L-2.4 -3 Z"/>
+  </g>
+
+  <!-- B: hoodie, cap on backwards, scrolling. Has not looked up since the queue started. -->
+  <g id="b_body" data-parent="b_legs" transform="translate(-8 -36)">
+    <g transform="translate(8 36)">
+      <path class="o" fill="#8ec5e8" d="M-22 -30 Q-23.5 -52 -19 -58 Q-15 -63 -8 -63 Q0 -63 3 -57 Q7 -50 6 -30 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#7ab3d8" d="M-14 -44 L2 -44 L2 -36 L-14 -36 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M-9 -62 L-10 -52 M-5 -62 L-4 -52"/>
+    </g>
+  </g>
+  <g id="b_head" data-parent="b_body" transform="translate(-7 -61)">
+    <g transform="translate(7 61)">
+      <rect class="o" fill="#dea888" x="-10.6" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f3c9a5" cx="-5.5" cy="-76.5" rx="14" ry="13.8"/>
+      <!-- the cap, peak at the back -->
+      <path class="o" fill="#e0457b" d="M-19 -80 Q-19 -92 -5 -92.6 Q8 -92.6 8.4 -82 Z"/>
+      <path class="o" fill="#e0457b" d="M-17 -86 L-24 -89 Q-26.4 -86.4 -23.4 -84.4 L-16 -83 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#e0457b" cx="-5" cy="-93" r="2"/>
+      <!-- eyes down at the phone -->
+      <circle class="n" fill="#2b1b16" cx="1.6" cy="-75" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="7.2" cy="-75" r="1.5"/>
+      <path class="t" d="M-1 -78.4 L4 -78 M6 -78 L9 -78.4"/>
+      <path class="o" fill="#f3c9a5" d="M8.4 -74 Q12.2 -71.6 8.8 -69.6"/>
+    </g>
+  </g>
+  <g id="b_mouth" data-parent="b_head" transform="translate(4 -68)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="2.6" ry="2.2"/>
+  </g>
+  <g id="b_arm" data-parent="b_body" transform="translate(-2 -56)">
+    <g transform="translate(2 56)">
+      <path class="o" fill="#8ec5e8" d="M-6 -59 Q-8 -50 -5 -45 Q-2 -42 2 -44 L12 -48 L10 -54 L3 -51 Q3 -55 3 -59 Z"/>
+      <!-- the phone, glowing -->
+      <rect class="o" style="stroke-width:1.8" fill="#2a2b36" x="10" y="-60" width="8" height="13" rx="1.6" transform="rotate(-20 14 -53)"/>
+      <rect class="n" fill="#9fe8ff" x="11.6" y="-58" width="4.8" height="9" rx="0.8" transform="rotate(-20 14 -53)"/>
+      <circle class="o" fill="#f3c9a5" cx="11" cy="-49" r="3.8"/>
+    </g>
+  </g>
+
+  <!-- A: first in line, after an hour. Bucket hat, orange tee, and the cone held up to the camera before it is thrown. -->
+  <g id="a_body" data-parent="a_legs" transform="translate(26 -36)">
+    <g transform="translate(-26 36)">
+      <path class="o" fill="#f07c2a" d="M12 -30 Q10.5 -52 15 -58 Q19 -63 26 -63 Q34 -63 37 -57 Q41 -50 40 -30 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M22 -50 Q26 -56 30 -50 Q26 -44 22 -50 Z"/>
+      <!-- the phone on a strap round his neck: the stream never stops -->
+      <path class="t" style="stroke-width:1.2" d="M20 -62 L24 -46 M32 -62 L28 -46"/>
+      <rect class="o" style="stroke-width:1.6" fill="#2a2b36" x="22" y="-48" width="8" height="11" rx="1.4"/>
+      <circle class="n" fill="#ff3b3b" cx="26" cy="-44" r="1.4"/>
+    </g>
+  </g>
+  <g id="a_head" data-parent="a_body" transform="translate(27 -61)">
+    <g transform="translate(-27 61)">
+      <rect class="o" fill="#dea888" x="23.4" y="-66" width="7.4" height="7" rx="2"/>
+      <ellipse class="o" fill="#f6b9a0" cx="28.5" cy="-76.5" rx="14" ry="13.8"/>
+      <!-- sunburnt nose, bucket hat -->
+      <path class="o" fill="#e6d6a8" d="M12 -80 L45 -80 L41 -84 Q40 -96 28 -96 Q16 -96 16 -84 Z"/>
+      <path class="t" style="stroke:#b8a57a;stroke-width:1.2" d="M16.4 -84 L40.6 -84"/>
+      <circle class="n" fill="#2b1b16" cx="35.4" cy="-75.6" r="1.7"/>
+      <circle class="n" fill="#2b1b16" cx="41.2" cy="-75.6" r="1.5"/>
+      <path class="o" fill="#f07c6a" d="M42.6 -74.4 Q46.6 -71.6 42.8 -69.6"/>
+    </g>
+  </g>
+  <g id="a_mouth" data-parent="a_head" transform="translate(38 -68)">
+    <ellipse class="o" style="stroke-width:1.6" fill="#5a1f1f" cx="0" cy="0" rx="3" ry="2.6"/>
+  </g>
+  <g id="a_arm" data-parent="a_body" transform="translate(33 -56)">
+    <g transform="translate(-33 56)">
+      <path class="o" fill="#f07c2a" d="M28 -60 Q26 -53 30 -50 Q33 -48 36 -50 L50 -56 L47 -63 L35 -58 Q33 -62 28 -60 Z"/>
+      <circle class="o" fill="#f6b9a0" cx="50" cy="-60" r="4"/>
+      <circle data-mount="muzzle" fill="none" cx="52" cy="-78" r="1"/>
+    </g>
+  </g>
+  <!-- The cone in his hand. When it has gone, the next comes out of the hatch. -->
+  <g id="a_cone" data-parent="a_arm" transform="translate(51 -64)">
+    <path class="o" style="stroke-width:0.9" fill="#ffd84a" d="M-5 -2 L-5 -12 L-2.6 -12 L-2.6 -2 Z M-1.2 -2 L-1.2 -14 L1.2 -14 L1.2 -2 Z M2.6 -2 L2.6 -11 L5 -11 L5 -2 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#ffffff" d="M-3 -9 Q0 -14 3 -10 Q4 -7 0 -7 Q-3 -7 -3 -9 Z"/>
+    <path class="o" style="stroke-width:2" fill="#ffffff" d="M-7 -3 L7 -3 L0 10 Z"/>
+    <path class="t" style="stroke:#d8342c;stroke-width:1.4" d="M-5 0 L5 0"/>
+  </g>
+
+  <!-- The velvet rope on its chrome posts, in front of them all. -->
+  <g id="rope" transform="translate(0 0)">
+    <path fill="none" stroke="#2b1b16" stroke-width="4.6" stroke-linecap="round" d="M-97 -36 Q-79 -26 -61 -36 Q-43 -26 -25 -36 Q-7 -26 11 -36 Q29 -26 47 -36"/>
+    <path fill="none" stroke="#c4302b" stroke-width="2.4" stroke-linecap="round" d="M-97 -36 Q-79 -26 -61 -36 Q-43 -26 -25 -36 Q-7 -26 11 -36 Q29 -26 47 -36"/>
+    <g class="o" style="stroke-width:1.8" fill="#d5d8de">
+      <rect x="-99" y="-38" width="4" height="27"/>
+      <rect x="-63" y="-38" width="4" height="27"/>
+      <rect x="-27" y="-38" width="4" height="27"/>
+      <rect x="9" y="-38" width="4" height="27"/>
+      <rect x="45" y="-38" width="4" height="27"/>
+      <circle cx="-97" cy="-39" r="3"/>
+      <circle cx="-61" cy="-39" r="3"/>
+      <circle cx="-25" cy="-39" r="3"/>
+      <circle cx="11" cy="-39" r="3"/>
+      <circle cx="47" cy="-39" r="3"/>
+      <ellipse cx="-97" cy="-11" rx="6" ry="2"/>
+      <ellipse cx="-61" cy="-11" rx="6" ry="2"/>
+      <ellipse cx="-25" cy="-11" rx="6" ry="2"/>
+      <ellipse cx="11" cy="-11" rx="6" ry="2"/>
+      <ellipse cx="47" cy="-11" rx="6" ry="2"/>
+    </g>
+  </g>
+</svg>

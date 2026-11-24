@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>De Toeristen: het Holland van de ansichtkaart, met iedereen erin</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    Mirrored, the stretch from x = 662 to 818 lies under the sun of the shared sky, so nothing there
+    reaches above y = 250. The windmill stands well clear of it.
+
+    What is in it: the postcard. A windmill, a tulip field with a fence and a banner (a crossed-out foot)
+    that nobody reads, the city letters as souvenir shapes with people climbing on them, a row of canal
+    houses, and a coach unloading. Behind the road a red bike path; the road itself is cobbles, for the
+    suitcases to rattle over.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- Behind the base: canal houses further off, mostly hidden. -->
+    <path fill="#e2cfc1" d="M20 598 L20 430 L34 430 L34 414 L48 414 L48 398 L76 398 L76 414 L90 414 L90 430 L104 430 L104 598 Z"/>
+    <path fill="#d9c3b3" d="M118 598 L118 404 Q118 384 136 380 Q140 362 160 360 Q180 362 184 380 Q202 384 202 404 L202 598 Z"/>
+    <path fill="#e4d6ca" d="M216 598 L216 420 L258 380 L300 420 L300 598 Z"/>
+    <path fill="#efe6dd" d="M38 450 h16 v24 h-16 Z M70 450 h16 v24 h-16 Z M38 500 h16 v24 h-16 Z M70 500 h16 v24 h-16 Z M134 420 h16 v26 h-16 Z M170 420 h16 v26 h-16 Z M134 470 h16 v26 h-16 Z M170 470 h16 v26 h-16 Z M232 440 h16 v24 h-16 Z M268 440 h16 v24 h-16 Z M232 490 h16 v24 h-16 Z M268 490 h16 v24 h-16 Z"/>
+    <!-- A row of canal houses, every one a holiday let: key boxes are too small to see from here, the suitcases are not. -->
+    <path fill="#dfcabb" d="M470 540 L470 426 Q470 416 480 414 L482 386 L512 386 L514 414 Q524 416 524 426 L524 540 Z"/>
+    <path fill="#f1e8df" d="M478 432 h15 v18 h-15 Z M501.0 432 h15 v18 h-15 Z M478 466 h15 v18 h-15 Z M501.0 466 h15 v18 h-15 Z M478 500 h15 v18 h-15 Z M501.0 500 h15 v18 h-15 Z"/>
+    <path fill="none" stroke="#c2ab98" stroke-width="2.4" d="M497.0 394 L497.0 404"/>
+    <path fill="#e6d4c5" d="M524 540 L524 436 L531.6666666666666 436 L531.6666666666666 424 L539.3333333333334 424 L539.3333333333334 412 L554.6666666666666 412 L554.6666666666666 424 L562.3333333333334 424 L562.3333333333334 436 L570 436 L570 540 Z"/>
+    <path fill="#f1e8df" d="M532 446 h11 v18 h-11 Z M551.0 446 h11 v18 h-11 Z M532 480 h11 v18 h-11 Z M551.0 480 h11 v18 h-11 Z M532 514 h11 v18 h-11 Z M551.0 514 h11 v18 h-11 Z"/>
+    <path fill="none" stroke="#c2ab98" stroke-width="2.4" d="M547.0 408 L547.0 418"/>
+    <path fill="#d9c2b1" d="M570 540 L570 420 Q570 398 585.0 392 Q595.0 380 605.0 392 Q620 398 620 420 L620 540 Z"/>
+    <path fill="#f1e8df" d="M578 426 h13 v18 h-13 Z M599.0 426 h13 v18 h-13 Z M578 460 h13 v18 h-13 Z M599.0 460 h13 v18 h-13 Z M578 494 h13 v18 h-13 Z M599.0 494 h13 v18 h-13 Z"/>
+    <path fill="none" stroke="#c2ab98" stroke-width="2.4" d="M595.0 388 L595.0 398"/>
+    <path fill="#e3cfbf" d="M620 540 L620 434 L641.0 404 L662 434 L662 540 Z"/>
+    <path fill="#f1e8df" d="M628 450 h9 v18 h-9 Z M645.0 450 h9 v18 h-9 Z M628 484 h9 v18 h-9 Z M645.0 484 h9 v18 h-9 Z M628 518 h9 v18 h-9 Z M645.0 518 h9 v18 h-9 Z"/>
+    <path fill="none" stroke="#c2ab98" stroke-width="2.4" d="M641.0 416 L641.0 422"/>
+    <path fill="#dcc6b6" d="M662 540 L662 454 L670.0 454 L670.0 442 L678.0 442 L678.0 430 L694.0 430 L694.0 442 L702.0 442 L702.0 454 L710 454 L710 540 Z"/>
+    <path fill="#f1e8df" d="M670 464 h12 v18 h-12 Z M690.0 464 h12 v18 h-12 Z M670 498 h12 v18 h-12 Z M690.0 498 h12 v18 h-12 Z"/>
+    <path fill="none" stroke="#c2ab98" stroke-width="2.4" d="M686.0 426 L686.0 436"/>
+    <path fill="#d6dce3" d="M820 598 L820 490 L840.0 470 L860 490 L860 598 Z"/>
+    <path fill="#eef1f4" d="M826 500 h28 v12 h-28 Z M826 528 h28 v12 h-28 Z"/>
+    <path fill="#dde2e8" d="M862 598 L862 506 L880.0 486 L898 506 L898 598 Z"/>
+    <path fill="#eef1f4" d="M868 516 h24 v12 h-24 Z M868 544 h24 v12 h-24 Z"/>
+    <path fill="#e3e7ec" d="M900 598 L900 526 L916.0 506 L932 526 L932 598 Z"/>
+    <path fill="#eef1f4" d="M906 536 h20 v12 h-20 Z M906 564 h20 v12 h-20 Z"/>
+    <path fill="#e9ecf0" d="M934 598 L934 548 L947.0 528 L960 548 L960 598 Z"/>
+    <path fill="#eef1f4" d="M940 558 h14 v12 h-14 Z M940 586 h14 v12 h-14 Z"/>
+    <!-- The windmill. Its sails stand still: it is a museum now, with a queue. -->
+    <path fill="#d6c8b8" d="M372 598 L384 452 L436 452 L448 598 Z"/>
+    <path fill="#cbbcab" d="M378 452 L442 452 L438 440 L382 440 Z"/>
+    <path fill="#d0c1b0" d="M384 440 Q410 404 436 440 Z"/>
+    <path fill="#e8dfd3" d="M398 520 h14 v20 h-14 Z M402 470 h12 v16 h-12 Z"/>
+    <path fill="#c4b4a2" d="M400 598 L400 566 Q410 554 420 566 L420 598 Z"/>
+    <path fill="#c7b7a5" d="M362 540 L458 540 L458 546 L362 546 Z"/>
+    <path fill="none" stroke="#c9b9a7" stroke-width="5" stroke-linecap="round" d="M410 430 L326.3 346.3"/>
+    <path fill="#e9e0d4" fill-opacity="0.85" d="M394.4 414.4 L326.3 346.3 L339.0 333.6 L407.2 401.7 Z"/>
+    <path fill="none" stroke="#d3c5b4" stroke-width="1.6" d="M383.1 403.1 L395.8 390.4 M371.7 391.7 L384.5 379.0 M360.4 380.4 L373.1 367.6 M349.0 369.0 L361.7 356.3 M337.7 357.7 L350.4 344.9"/>
+    <path fill="none" stroke="#c9b9a7" stroke-width="5" stroke-linecap="round" d="M410 430 L493.7 346.3"/>
+    <path fill="#e9e0d4" fill-opacity="0.85" d="M425.6 414.4 L493.7 346.3 L506.4 359.0 L438.3 427.2 Z"/>
+    <path fill="none" stroke="#d3c5b4" stroke-width="1.6" d="M436.9 403.1 L449.6 415.8 M448.3 391.7 L461.0 404.5 M459.6 380.4 L472.4 393.1 M471.0 369.0 L483.7 381.7 M482.3 357.7 L495.1 370.4"/>
+    <path fill="none" stroke="#c9b9a7" stroke-width="5" stroke-linecap="round" d="M410 430 L493.7 513.7"/>
+    <path fill="#e9e0d4" fill-opacity="0.85" d="M425.6 445.6 L493.7 513.7 L481.0 526.4 L412.8 458.3 Z"/>
+    <path fill="none" stroke="#d3c5b4" stroke-width="1.6" d="M436.9 456.9 L424.2 469.6 M448.3 468.3 L435.5 481.0 M459.6 479.6 L446.9 492.4 M471.0 491.0 L458.3 503.7 M482.3 502.3 L469.6 515.1"/>
+    <path fill="none" stroke="#c9b9a7" stroke-width="5" stroke-linecap="round" d="M410 430 L326.3 513.7"/>
+    <path fill="#e9e0d4" fill-opacity="0.85" d="M394.4 445.6 L326.3 513.7 L313.6 501.0 L381.7 432.8 Z"/>
+    <path fill="none" stroke="#d3c5b4" stroke-width="1.6" d="M383.1 456.9 L370.4 444.2 M371.7 468.3 L359.0 455.5 M360.4 479.6 L347.6 466.9 M349.0 491.0 L336.3 478.3 M337.7 502.3 L324.9 489.6"/>
+    <circle fill="#bfae9b" cx="410" cy="430" r="7"/>
+    <!-- The tulip field. Bands of colour run back to the horizon; there is a fence, and a banner of a foot crossed out; the field is full of people having their picture taken. -->
+    <path fill="#efbcbc" d="M458 520.0 L700 520.0 L700 526.0 L458 526.0 Z"/>
+    <path fill="#c6d9b2" d="M458 524.4 L700 524.4 L700 526.0 L458 526.0 Z"/>
+    <path fill="#f4df9c" d="M458 526.0 L700 526.0 L700 535.9 L458 535.9 Z"/>
+    <path fill="#c6d9b2" d="M458 534.3 L700 534.3 L700 535.9 L458 535.9 Z"/>
+    <path fill="#ecc0d6" d="M458 535.9 L700 535.9 L700 548.0 L458 548.0 Z"/>
+    <path fill="#c6d9b2" d="M458 546.4 L700 546.4 L700 548.0 L458 548.0 Z"/>
+    <path fill="#cdbde6" d="M458 548.0 L700 548.0 L700 561.9 L458 561.9 Z"/>
+    <path fill="#c6d9b2" d="M458 560.3 L700 560.3 L700 561.9 L458 561.9 Z"/>
+    <path fill="#f2c6a4" d="M458 561.9 L700 561.9 L700 577.3 L458 577.3 Z"/>
+    <path fill="#c6d9b2" d="M458 575.7 L700 575.7 L700 577.3 L458 577.3 Z"/>
+    <path fill="#efbcbc" d="M458 577.3 L700 577.3 L700 594.0 L458 594.0 Z"/>
+    <path fill="#c6d9b2" d="M458 592.4 L700 592.4 L700 594.0 L458 594.0 Z"/>
+    <path fill="#c3d6ae" d="M458 594 L700 594 L700 598 L458 598 Z"/>
+    <path fill="#b7a6b8" d="M488 560 L488 547 Q488 543 492 543 Q496 543 496 547 L496 560 Z"/>
+    <circle fill="#b7a6b8" cx="492" cy="539" r="3.6"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M495 546 L500 536"/>
+    <rect fill="#9f8ea2" x="498" y="530" width="4" height="6"/>
+    <path fill="#b7a6b8" d="M536 548 L536 535 Q536 531 540 531 Q544 531 544 535 L544 548 Z"/>
+    <circle fill="#b7a6b8" cx="540" cy="527" r="3.6"/>
+    <path fill="#b7a6b8" d="M562 572 L562 559 Q562 555 566 555 Q570 555 570 559 L570 572 Z"/>
+    <circle fill="#b7a6b8" cx="566" cy="551" r="3.6"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M569 558 L574 548"/>
+    <rect fill="#9f8ea2" x="572" y="542" width="4" height="6"/>
+    <path fill="#b7a6b8" d="M608 556 L608 543 Q608 539 612 539 Q616 539 616 543 L616 556 Z"/>
+    <circle fill="#b7a6b8" cx="612" cy="535" r="3.6"/>
+    <path fill="#b7a6b8" d="M644 580 L644 567 Q644 563 648 563 Q652 563 652 567 L652 580 Z"/>
+    <circle fill="#b7a6b8" cx="648" cy="559" r="3.6"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M651 566 L656 556"/>
+    <rect fill="#9f8ea2" x="654" y="550" width="4" height="6"/>
+    <path fill="#b7a6b8" d="M672 544 L672 531 Q672 527 676 527 Q680 527 680 531 L680 544 Z"/>
+    <circle fill="#b7a6b8" cx="676" cy="523" r="3.6"/>
+    <path fill="none" stroke="#c9b6a0" stroke-width="2.4" d="M452 586 L706 586 M452 576 L706 576 M462 568 L462 598 M520 568 L520 598 M578 568 L578 598 M636 568 L636 598 M694 568 L694 598"/>
+    <rect fill="#f3ece2" x="524" y="562" width="52" height="24"/>
+    <path fill="#d9c8b4" d="M543 580 Q540 572 546 568 Q552 566 554 572 Q555 578 551 582 Q546 584 543 580 Z"/>
+    <g fill="#d9c8b4"><circle cx="545" cy="565" r="1.6"/><circle cx="549" cy="564" r="1.6"/><circle cx="553" cy="565" r="1.6"/></g>
+    <circle fill="none" stroke="#e5a39b" stroke-width="2.4" cx="549" cy="574" r="10"/>
+    <path fill="none" stroke="#e5a39b" stroke-width="2.4" d="M542 567 L556 581"/>
+    <path fill="#b7a6b8" d="M603 576 L603 563 Q603 559 607 559 Q611 559 611 563 L611 576 Z"/><circle fill="#b7a6b8" cx="607" cy="555" r="3.6"/>
+    <!-- Not the city letters: souvenir shapes in red and white, a clog, a heart, a tulip and a wheel of cheese, with people on top. -->
+    <path fill="#e8a7a0" d="M712 598 L712 576 Q712 562 724 562 L738 562 Q744 562 748 568 Q758 576 768 572 Q772 584 766 592 L762 598 Z"/>
+    <ellipse fill="#d48e88" cx="728" cy="564" rx="11" ry="3.4"/>
+    <path fill="#f3ebe3" d="M796 598 L774 572 Q768 556 782 552 Q792 550 796 560 Q800 550 810 552 Q824 556 818 572 Z"/>
+    <path fill="#e8a7a0" d="M842 598 L842 578 L830 578 L830 548 L838 556 L846 544 L854 556 L862 548 L862 578 L850 578 L850 598 Z"/>
+    <path fill="#f3ebe3" d="M872 598 L872 566 Q894 552 916 566 L916 598 Z"/>
+    <ellipse fill="#e8a7a0" cx="894" cy="566" rx="22" ry="6"/>
+    <path fill="#b7a6b8" d="M732 560 L732 548 Q732 544 736 544 Q740 544 740 548 L740 560 Z"/>
+    <circle fill="#b7a6b8" cx="736" cy="540" r="3.4"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M733 547 L728 538 M739 547 L744 538"/>
+    <path fill="#b7a6b8" d="M798 552 L798 540 Q798 536 802 536 Q806 536 806 540 L806 552 Z"/>
+    <circle fill="#b7a6b8" cx="802" cy="532" r="3.4"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M799 539 L794 530 M805 539 L810 530"/>
+    <path fill="#b7a6b8" d="M842 544 L842 532 Q842 528 846 528 Q850 528 850 532 L850 544 Z"/>
+    <circle fill="#b7a6b8" cx="846" cy="524" r="3.4"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M843 531 L838 522 M849 531 L854 522"/>
+    <path fill="#b7a6b8" d="M898 560 L898 548 Q898 544 902 544 Q906 544 906 548 L906 560 Z"/>
+    <circle fill="#b7a6b8" cx="902" cy="540" r="3.4"/>
+    <path fill="none" stroke="#b7a6b8" stroke-width="2" stroke-linecap="round" d="M899 547 L894 538 M905 547 L910 538"/>
+    <!-- The coach, parked where it should not be, unloading. No name on it. -->
+    <path fill="#cfdbe6" d="M330 596 L330 550 Q330 540 342 540 L452 540 Q462 540 464 550 L466 596 Z"/>
+    <path fill="#e7eef4" d="M340 548 h22 v16 h-22 Z M366 548 h22 v16 h-22 Z M392 548 h22 v16 h-22 Z M418 548 h22 v16 h-22 Z M444 548 h16 v26 h-16 Z"/>
+    <path fill="#e6c78a" d="M330 572 L464 572 L464 576 L330 576 Z"/>
+    <circle fill="#a9b2bb" cx="356" cy="596" r="9"/><circle fill="#a9b2bb" cx="440" cy="596" r="9"/>
+    <circle fill="#cfd5da" cx="356" cy="596" r="4"/><circle fill="#cfd5da" cx="440" cy="596" r="4"/>
+    <path fill="#d9b7a8" d="M470 596 h10 v-14 h-10 Z M484 596 h12 v-18 h-12 Z M500 596 h9 v-12 h-9 Z"/>
+    <!-- Behind the road: the red bike path, with a white bike painted on it every so often. Always somebody standing on it. -->
+    <rect fill="#d8aa9c" y="598" width="1100" height="42"/>
+    <path fill="none" stroke="#efe4da" stroke-width="2" stroke-dasharray="18 14" d="M0 602 L1100 602"/>
+    <g fill="none" stroke="#efe2d8" stroke-width="2" stroke-linecap="round"><circle cx="130" cy="625" r="6"/><circle cx="150" cy="625" r="6"/><path d="M130 625 L137 615 L146 615 L150 625 M137 615 L140 625 L130 625 M146 615 L144 611"/></g>
+    <g fill="none" stroke="#efe2d8" stroke-width="2" stroke-linecap="round"><circle cx="430" cy="625" r="6"/><circle cx="450" cy="625" r="6"/><path d="M430 625 L437 615 L446 615 L450 625 M437 615 L440 625 L430 625 M446 615 L444 611"/></g>
+    <g fill="none" stroke="#efe2d8" stroke-width="2" stroke-linecap="round"><circle cx="730" cy="625" r="6"/><circle cx="750" cy="625" r="6"/><path d="M730 625 L737 615 L746 615 L750 625 M737 615 L740 625 L730 625 M746 615 L744 611"/></g>
+    <g fill="none" stroke="#efe2d8" stroke-width="2" stroke-linecap="round"><circle cx="1030" cy="625" r="6"/><circle cx="1050" cy="625" r="6"/><path d="M1030 625 L1037 615 L1046 615 L1050 625 M1037 615 L1040 625 L1030 625 M1046 615 L1044 611"/></g>
+    <!-- The road: cobbles. Rows of stones, every other row half a stone along. -->
+    <rect fill="#b4ada3" y="638" width="1100" height="104"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="0" d="M0 646 L1095 646"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="10" d="M0 658 L1095 658"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="0" d="M0 670 L1095 670"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="10" d="M0 682 L1095 682"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="0" d="M0 694 L1095 694"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="10" d="M0 706 L1095 706"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="0" d="M0 718 L1095 718"/>
+    <path fill="none" stroke="#c1bab0" stroke-width="9" stroke-linecap="round" stroke-dasharray="11 9" stroke-dashoffset="10" d="M0 730 L1095 730"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+    <!-- In front of the road, where the buttons sit: pale klinkers. -->
+    <rect fill="#d6cdc2" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#c6bcb0" stroke-width="2" d="M0 802 L1100 802 M0 862 L1100 862 M0 922 L1100 922 M0 982 L1100 982 M0 1042 L1100 1042 M0 742 L-77 1080 M120 742 L53 1080 M240 742 L182 1080 M360 742 L312 1080 M480 742 L442 1080 M600 742 L571 1080 M720 742 L701 1080 M840 742 L830 1080 M960 742 L960 1080 M1080 742 L1090 1080"/>
+  </g>
+</svg>

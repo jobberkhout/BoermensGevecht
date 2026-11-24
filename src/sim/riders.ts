@@ -1,6 +1,7 @@
 import { LANE, ROWS } from '../defs/balance.ts';
 import { unitDef } from '../defs/index.ts';
 import { unitDamagePercent } from './overtime.ts';
+import { posed } from './tourists.ts';
 import { BASE, SIDES, other, type Damage, type Rider, type Side, type SimEvent, type SimState, type Unit } from './types.ts';
 
 /**
@@ -23,7 +24,10 @@ import { BASE, SIDES, other, type Damage, type Rider, type Side, type SimEvent, 
  * - Enemy turrets fire at it before anything else (see fireTurrets in step.ts).
  *   Enemy specials do not touch it, and its own side's buffs do not speed it up.
  *   Overtime makes its ram and base damage grow, as it does every unit's blows.
- * - Riders coming from both sides pass each other.
+ * - Riders coming from both sides pass each other, and a rider rides under a
+ *   unit that hovers without touching it.
+ * - A unit that is posing (sim/tourists.ts) gives a softer blow back, and
+ *   Influencer-Ivy, who throws nothing, gives none.
  *
  * Mirrored like everything on the lane: its position is its distance from its
  * own gate, it meets an enemy unit when LANE minus both positions reaches zero,
@@ -49,8 +53,9 @@ function blowBack(s: SimState, side: Side, u: Unit): number {
   if (u.stunUntil > s.tick) return 0; // standing watching something else, it does not even see it go by
   const me = s.sides[side];
   const def = unitDef(u.def);
+  if (def.poser) return 0; // she films it going by
   const fired = me.buffUntil > s.tick ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
-  return Math.floor((fired * unitDamagePercent(s.tick)) / 100);
+  return posed(u, Math.floor((fired * unitDamagePercent(s.tick)) / 100));
 }
 
 /** The foremost rider of `riders` that a turret reaching `range` from its gate can hit, if any. */
@@ -74,9 +79,9 @@ export function advanceRiders(s: SimState, dmg: Damage[], events: SimEvent[]): v
       const def = unitDef(r.def);
       const ram = Math.floor((def.dmg * percent) / 100);
       const next = Math.min(r.pos + def.speed, LANE);
-      // The enemy units it reaches on this stretch, nearest first.
+      // The enemy units it reaches on this stretch, nearest first. It rides under one that hovers.
       const met = them
-        .filter((u) => !r.passed.includes(u.id) && LANE - u.pos <= next)
+        .filter((u) => !r.passed.includes(u.id) && LANE - u.pos <= next && !unitDef(u.def).hovers)
         .sort((a, b) => b.pos - a.pos || a.id - b.id);
       let stopped = false;
       for (const u of met) {

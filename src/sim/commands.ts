@@ -1,9 +1,29 @@
 import { QUEUE_MAX, SUBSIDY, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf } from '../defs/index.ts';
-import type { TurretDef } from '../defs/types.ts';
+import type { TurretDef, UnitDef } from '../defs/types.ts';
 import { kraanDicht } from './overtime.ts';
 import { startSpecial } from './specials.ts';
 import type { Command, Damage, Side, SimEvent, SimState } from './types.ts';
+
+/**
+ * What something with this price costs `side` right now: more while the enemy
+ * has hiked its prices (the Huurverhoging). Every price that is checked or
+ * paid goes through here, so the HUD, the bots and the sim always agree.
+ */
+export function price(s: SimState, side: Side, base: number): number {
+  return hiked(s, side) ? Math.round((base * s.sides[side].hikePercent) / 100) : base;
+}
+
+/** True while `side` pays more for everything it buys. */
+export function hiked(s: SimState, side: Side): boolean {
+  const me = s.sides[side];
+  return s.tick >= me.hikeFrom && s.tick < me.hikeUntil;
+}
+
+/** What unit `def` costs `side` right now. */
+export function unitPrice(s: SimState, side: Side, def: UnitDef): number {
+  return price(s, side, def.cost);
+}
 
 /** What pressing the turret button would do right now. */
 export interface TurretPlan {
@@ -27,7 +47,7 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
   const now = eraOf(me.faction, me.era).turret;
 
   const empty = me.turrets.indexOf(null);
-  if (empty >= 0) return { how: 'build', slot: empty, cost: now.cost, def: now, level: 1 };
+  if (empty >= 0) return { how: 'build', slot: empty, cost: price(s, side, now.cost), def: now, level: 1 };
 
   let outdated = -1;
   let oldest = me.era;
@@ -38,7 +58,7 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
       outdated = slot;
     }
   });
-  if (outdated >= 0) return { how: 'replace', slot: outdated, cost: now.cost, def: now, level: 1 };
+  if (outdated >= 0) return { how: 'replace', slot: outdated, cost: price(s, side, now.cost), def: now, level: 1 };
 
   let lowest = -1;
   me.turrets.forEach((t, slot) => {
@@ -49,7 +69,7 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
   return {
     how: 'upgrade',
     slot: lowest,
-    cost: Math.round((now.cost * TURRET.upgradePercent[level - 1]!) / 100),
+    cost: price(s, side, Math.round((now.cost * TURRET.upgradePercent[level - 1]!) / 100)),
     def: now,
     level: level + 1,
   };
@@ -57,7 +77,8 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
 
 /** Price of the next "subsidie aanvragen", or null when there is nothing left to apply for. */
 export function subsidyCost(s: SimState, side: Side): number | null {
-  return SUBSIDY.cost[s.sides[side].subsidy] ?? null;
+  const cost = SUBSIDY.cost[s.sides[side].subsidy];
+  return cost === undefined ? null : price(s, side, cost);
 }
 
 /** Vooruitgang needed to modernize, or null in the last era. */
@@ -71,7 +92,8 @@ export function progressNeeded(s: SimState, side: Side): number | null {
 export function eraUpCost(s: SimState, side: Side): number | null {
   const me = s.sides[side];
   if (me.era + 1 >= FACTIONS[me.faction].eras.length) return null;
-  return eraOf(me.faction, me.era).eraUpCost;
+  const cost = eraOf(me.faction, me.era).eraUpCost;
+  return cost === null ? null : price(s, side, cost);
 }
 
 /** The one place that decides whether a command is allowed. The sim, the HUD and the bots all ask here. */
@@ -82,7 +104,7 @@ export function canDo(s: SimState, side: Side, cmd: Command): boolean {
     case 'buy': {
       // The fourth button only sells something in the era that has a super unit.
       const def = eraOf(me.faction, me.era).units[cmd.slot];
-      return def !== undefined && me.queue.length < QUEUE_MAX && me.gold >= def.cost;
+      return def !== undefined && me.queue.length < QUEUE_MAX && me.gold >= unitPrice(s, side, def);
     }
     case 'turret': {
       const plan = turretPlan(s, side);
@@ -112,7 +134,7 @@ export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimE
   switch (cmd.t) {
     case 'buy': {
       const def = era.units[cmd.slot]!;
-      me.gold -= def.cost;
+      me.gold -= unitPrice(s, side, def);
       me.queue.push({ def: def.id, left: def.buildTicks });
       return;
     }
