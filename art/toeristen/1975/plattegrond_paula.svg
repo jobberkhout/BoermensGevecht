@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -142 92 148" data-rig="humanoid">
+  <title>Plattegrond-Paula: verdwaald achter een uitvouwkaart zo groot als een tafelkleed, met gaten erin die ze niet ziet</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-12 -38)"/>
+
+  <!-- The far arm, reaching up to the map's far corner. Behind everything. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-19 -72)">
+    <path class="o" fill="#e86f9a" d="M-5 -3 Q0 -6 5 -3 L-10 -24 L-16 -20 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="-13" cy="-24" r="4.4"/>
+  </g>
+
+  <!-- Knees, knee socks, sturdy walking shoes. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-17 -38)">
+    <path class="o" fill="#d9a07c" d="M-5 -3 L5 -3 L4.5 22 L-4.5 22 Z"/>
+    <path class="o" fill="#d8ccb0" d="M-5.2 16 L5.2 16 L5 31 L-5 31 Z"/>
+    <path class="o" fill="#5a3a22" d="M-7 38 L-7 32 Q-7 29.5 -3 29.5 L5 29.5 Q12 30 15 33.5 Q16 38 12 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-7 -38)">
+    <path class="o" fill="#f0c19a" d="M-5 -3 L5 -3 L4.5 22 L-4.5 22 Z"/>
+    <path class="o" fill="#ece2c8" d="M-5.2 16 L5.2 16 L5 31 L-5 31 Z"/>
+    <path class="t" style="stroke:#cfc2a2;stroke-width:1.1" d="M-5 18.6 L5 18.6"/>
+    <path class="o" fill="#7a5236" d="M-7 38 L-7 32 Q-7 29.5 -3 29.5 L5 29.5 Q12 30 15 33.5 Q16 38 12 38 Z"/>
+    <path class="n" fill="#3a2416" d="M-6.6 36 L15.4 36 L15.2 37.6 L-6.6 37.6 Z"/>
+    <path class="t" style="stroke:#e9c9a0;stroke-width:1" d="M0 31 L6 31.6"/>
+  </g>
+
+  <!-- A pink blouse and culottes: hardly anyone will ever see them. -->
+  <g id="torso" data-parent="hips" transform="translate(-12 -40)">
+    <path class="o" fill="#e86f9a" d="M-15 2 Q-17 -14 -14 -30 Q-11 -37 0 -37 Q12 -37 15 -30 Q18 -14 16 2 Z"/>
+    <path class="o" fill="#7a8fb0" d="M-15.5 0 L16.5 0 L18 12 L-17 12 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-11 -76)">
+    <rect class="o" fill="#e8b08f" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <path class="o" fill="#a8683a" d="M-17 -20 Q-20 -34 -6 -38 Q8 -40 16 -33 L-8 -26 L-10 -12 Q-17 -12 -17 -20 Z"/>
+    <!-- her eye, reading; it is what the hole in the map shows -->
+    <circle class="n" fill="#ffffff" cx="9.8" cy="-19.8" r="4.2"/>
+    <circle class="n" fill="#2b1b16" cx="10.8" cy="-19.4" r="2.2"/>
+    <path class="t" style="stroke:#a8683a;stroke-width:2" d="M5.4 -26 Q9.6 -28.4 14.4 -26"/>
+    <!-- a big floppy sun hat in pink, with a flower, worn high -->
+    <g transform="translate(0 -5)">
+    <path class="o" fill="#f7a8c8" d="M-28 -33 Q-27 -41 2 -42 Q32 -42 34 -34 Q31 -29 2 -31 Q-26 -29 -28 -33 Z"/>
+    <path class="o" fill="#f7a8c8" d="M-14 -38 Q-15 -55 2 -56 Q19 -56 18 -38 Z"/>
+    <path class="n" fill="#e886ae" d="M-13.4 -40 Q-14 -52 -4 -54.6 Q-10 -48 -9 -40 Z"/>
+    <path class="t" style="stroke:#d9608e;stroke-width:3.2" d="M-14 -41.6 Q2 -38 18 -41.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="13" cy="-44" r="3.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="18" cy="-46" r="3.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="16" cy="-40.6" r="3.4"/>
+    <circle class="n" fill="#ffd21f" cx="15.6" cy="-43.6" r="2.2"/>
+    </g>
+  </g>
+
+  <!-- The near arm, up to the map's near corner. Behind the map. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-4 -72)">
+    <path class="o" fill="#e86f9a" d="M-5 -3 Q0 -6.5 5 -3 L24 -26 L18 -31 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="22" cy="-30" r="4.4"/>
+  </g>
+
+  <!-- The map: the size of a tablecloth, folded wrong, upside down for all she knows. Joint where she holds it, up near the top. -->
+  <g id="map" data-parent="hips" transform="translate(-4 -100)">
+    <g transform="translate(4 100)">
+      <!-- the paper, with its holes torn right through -->
+      <path class="o" fill="#f6efdc" fill-rule="evenodd" d="M-40 -111 L-22 -113 L-4 -111 L14 -113 L32 -111 L33 -81 L31 -52 L33 -28 L14 -30 L-4 -28 L-22 -30 L-40 -28 L-38 -52 L-40 -81 Z M-8 -104 L-3 -101 L1 -104 L4 -99 L7 -96 L3 -92 L-1 -88 L-5 -91 L-9 -89 L-10 -94 L-13 -99 Z M10 -52 L14 -55 L17 -51 L21 -53 L22 -47 L19 -43 L21 -39 L15 -39 L11 -41 L8 -45 Z M-31 -64 L-27 -67 L-24 -63 L-26 -59 L-30 -58 L-33 -61 Z"/>
+      <!-- fold panels, a shade apart -->
+      <path class="n" fill="#e9dfc4" d="M-22 -112 L-4 -110.6 L-4 -82 L-22 -81.6 Z M14 -112 L31.6 -110.8 L32.4 -82 L14 -81.6 Z M-39.6 -81 L-22 -81.6 L-22 -53 L-38.2 -52 Z M-4 -82 L14 -81.6 L14 -53 L-4 -53 Z M-22 -53 L-4 -53 L-4 -28.6 L-22 -29.6 Z M14 -53 L31.6 -52 L32.4 -28.6 L14 -29.6 Z"/>
+      <!-- parks, water, roads -->
+      <path class="n" fill="#a8d98a" d="M-34 -104 Q-28 -110 -24 -102 Q-22 -94 -30 -94 Q-37 -96 -34 -104 Z M18 -76 Q26 -80 28 -72 Q28 -64 20 -66 Q14 -70 18 -76 Z M-16 -44 Q-10 -48 -6 -42 Q-6 -36 -14 -36 Q-20 -38 -16 -44 Z"/>
+      <path fill="none" stroke="#6fb4e0" stroke-width="3" stroke-linecap="round" d="M-38 -70 Q-14 -60 4 -74 Q20 -86 32 -96 M-38 -46 Q-20 -40 -8 -52 Q4 -64 30 -60"/>
+      <path fill="none" stroke="#e0b44a" stroke-width="1.8" stroke-linecap="round" d="M-36 -86 L28 -90 M-12 -110 L-16 -32 M18 -110 L8 -32 M-38 -36 L30 -42"/>
+      <path class="t" style="stroke:#c9c0a8;stroke-width:1.2" d="M-22 -112.6 L-22 -29.4 M-4 -110.6 L-4 -28.6 M14 -112.6 L14 -29.4 M-40 -81 L33 -81.4 M-38 -52.6 L31 -52.4"/>
+      <!-- you are here: nowhere near where she is going -->
+      <circle class="o" style="stroke-width:1.6" fill="#d9342b" cx="24" cy="-100" r="3.6"/>
+      <path class="o" style="stroke-width:1.6" fill="#d9342b" d="M24 -94 L20.6 -87 L27.4 -87 Z" transform="rotate(180 24 -94)"/>
+      <!-- her thumbs over the top edge -->
+      <path class="o" style="stroke-width:1.8" fill="#f3c9a5" d="M-36 -114 Q-36 -118 -32.6 -118 Q-29.6 -118 -29.6 -114 L-29.6 -106 Q-32.8 -103 -36 -106 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f3c9a5" d="M22.4 -114 Q22.4 -118 25.8 -118 Q28.8 -118 28.8 -114 L28.8 -106 Q25.6 -103 22.4 -106 Z"/>
+    </g>
+  </g>
+
+  <!-- A torn corner that hangs loose and flaps. Joint on the tear. -->
+  <g id="corner" data-parent="map" transform="translate(32 -40)">
+    <path class="o" fill="#f1e8d0" d="M0 -12 L1 12 L-14 12 Q-10 2 0 -12 Z"/>
+    <path class="n" fill="#a8d98a" d="M-3 4 Q-1 0 0 6 Q-2 9 -5 8 Z"/>
+    <path fill="none" stroke="#6fb4e0" stroke-width="2.4" stroke-linecap="round" d="M-11 10 Q-6 4 0 2"/>
+  </g>
+</svg>

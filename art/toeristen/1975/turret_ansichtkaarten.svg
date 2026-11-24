@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -132 226 136" data-rig="static">
+  <title>De Ansichtkaartenmolen: een draaiende kaartenmolen, de man die eruit verkoopt, en een toerist die al een uur kiest</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .f { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; }
+  </style>
+
+  <!-- The souvenir shop: a striped awning, a shelf of clogs, windmills and cheeses. Origin = middle of the floor. -->
+  <g id="shop" transform="translate(0 0)">
+    <rect class="o" fill="#f2e2b8" x="-100" y="-104" width="200" height="104" rx="3"/>
+    <path class="n" fill="#e8d4a0" d="M-98.6 -60 L98.6 -60 L98.6 -1.4 L-98.6 -1.4 Z"/>
+    <!-- the shelf -->
+    <rect class="o" fill="#b98045" x="-96" y="-66" width="192" height="6" rx="2"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M-6 -66 L-6 -72 Q-6 -76 -1 -76 L6 -76 Q11 -75 13 -70 Q16 -69 16 -66 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M18 -66 L18 -72 Q18 -76 23 -76 L30 -76 Q35 -75 37 -70 Q40 -69 40 -66 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M44 -66 Q44 -74 56 -74 Q68 -74 68 -66 Z"/>
+    <path class="n" fill="#e0a800" d="M50 -70 L62 -70 L62 -68 L50 -68 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#c9631a" d="M74 -66 L76 -82 L84 -82 L86 -66 Z"/>
+    <path class="t" style="stroke-width:2" d="M80 -82 L72 -90 M80 -82 L88 -74 M80 -82 L88 -90 M80 -82 L72 -74"/>
+    <!-- a row of tulip bulbs in a net, in a basket -->
+    <path class="o" style="stroke-width:1.8" fill="#c9a26b" d="M-44 -66 L-40 -76 L-20 -76 L-16 -66 Z"/>
+    <circle class="f" fill="#e9c9a0" cx="-36" cy="-78" r="3.6"/>
+    <circle class="f" fill="#e9c9a0" cx="-29" cy="-79" r="3.6"/>
+    <circle class="f" fill="#e9c9a0" cx="-22" cy="-78" r="3.6"/>
+    <!-- the awning -->
+    <path class="o" fill="#ffffff" d="M-104 -112 L104 -112 L104 -98 Q99 -92 94 -98 Q89 -92 84 -98 Q79 -92 74 -98 Q69 -92 64 -98 Q59 -92 54 -98 Q49 -92 44 -98 Q39 -92 34 -98 Q29 -92 24 -98 Q19 -92 14 -98 Q9 -92 4 -98 Q-1 -92 -6 -98 Q-11 -92 -16 -98 Q-21 -92 -26 -98 Q-31 -92 -36 -98 Q-41 -92 -46 -98 Q-51 -92 -56 -98 Q-61 -92 -66 -98 Q-71 -92 -76 -98 Q-81 -92 -86 -98 Q-91 -92 -96 -98 Q-101 -92 -104 -98 Z"/>
+    <path class="n" fill="#f08a24" d="M-94 -110.6 L-84 -110.6 L-84 -96.4 L-94 -96.4 Z M-74 -110.6 L-64 -110.6 L-64 -96.4 L-74 -96.4 Z M-54 -110.6 L-44 -110.6 L-44 -96.4 L-54 -96.4 Z M-34 -110.6 L-24 -110.6 L-24 -96.4 L-34 -96.4 Z M-14 -110.6 L-4 -110.6 L-4 -96.4 L-14 -96.4 Z M6 -110.6 L16 -110.6 L16 -96.4 L6 -96.4 Z M26 -110.6 L36 -110.6 L36 -96.4 L26 -96.4 Z M46 -110.6 L56 -110.6 L56 -96.4 L46 -96.4 Z M66 -110.6 L76 -110.6 L76 -96.4 L66 -96.4 Z M86 -110.6 L96 -110.6 L96 -96.4 L86 -96.4 Z"/>
+  </g>
+
+  <!-- The seller: grey shop coat, cap, a big moustache. Joint at his waist, behind the counter. -->
+  <g id="seller" transform="translate(40 -30)">
+    <path class="o" fill="#9aa3a8" d="M-17 4 Q-19 -18 -12 -26 Q0 -31 12 -26 Q19 -18 17 4 Z"/>
+    <path class="t" style="stroke:#6f777c" d="M1 -28 L1 4"/>
+    <circle class="n" fill="#2b1b16" cx="4" cy="-18" r="1.2"/>
+    <circle class="n" fill="#2b1b16" cx="4" cy="-9" r="1.2"/>
+    <path class="o" style="stroke-width:1.6" fill="#f6efdc" d="M-13 -14 L-5 -14 L-5 -4 L-13 -4 Z"/>
+    <path class="n" fill="#8fcbf0" d="M-12 -13 L-6 -13 L-6 -9 L-12 -9 Z"/>
+  </g>
+
+  <g id="seller_head" data-parent="seller" transform="translate(40 -57)">
+    <rect class="o" fill="#e0a882" x="-3.5" y="-5" width="8" height="8" rx="2"/>
+    <ellipse class="o" fill="#f0c19a" cx="2" cy="-18" rx="16" ry="15.5"/>
+    <ellipse class="n" fill="#e58a6e" fill-opacity="0.55" cx="10" cy="-12" rx="4" ry="2.4"/>
+    <path class="o" fill="#3f4a5a" d="M-14 -22 Q-15 -36 2 -36.6 Q16 -36.6 17 -27 L26 -25 L25 -21.6 L15 -23.6 Q2 -27 -14 -22 Z"/>
+    <path class="t" style="stroke:#2a333f" d="M-8 -30 Q3 -34 13 -30"/>
+    <!-- one eye shut: a wink to the customer -->
+    <path class="t" style="stroke-width:2" d="M5.4 -17.4 Q8 -15.4 10.6 -17.4"/>
+    <circle class="n" fill="#2b1b16" cx="16.4" cy="-17.6" r="1.7"/>
+    <path class="o" fill="#e8a888" d="M17 -15.5 Q22 -13 17.4 -10.4"/>
+    <path class="o" fill="#5a4636" d="M6 -9 Q12 -13 19 -9.6 Q21 -6 19 -4 Q16 -7 12.6 -6.8 Q8.6 -6.6 5.6 -4.4 Q4 -7 6 -9 Z"/>
+  </g>
+
+  <!-- His throwing arm, a postcard between two fingers. Joint at the shoulder. -->
+  <g id="seller_arm" data-parent="seller" transform="translate(50 -50)">
+    <path class="o" fill="#9aa3a8" d="M-4 -3 Q1 -6 5 -2 L17 8 L11 15 L-4 4 Z"/>
+    <circle class="o" fill="#f0c19a" cx="16" cy="12" r="4.4"/>
+    <circle data-mount="muzzle" fill="none" cx="22" cy="6" r="1"/>
+  </g>
+
+  <!-- The card in his fingers. Joint in his hand. -->
+  <g id="card" data-parent="seller_arm" transform="translate(68 -40)">
+    <g transform="rotate(-24)">
+      <rect class="f" fill="#ffffff" x="-1" y="-13" width="16" height="11" rx="0.8"/>
+      <rect class="n" fill="#8fcbf0" x="0.6" y="-11.4" width="12.8" height="5"/>
+      <rect class="n" fill="#5fb85a" x="0.6" y="-6.4" width="12.8" height="2.8"/>
+      <path class="n" fill="#e0342b" d="M6 -6.2 q0.7 -1.8 1.4 0 q0.7 -1.8 1.4 0 l-0.3 1.6 l-2.2 0 Z"/>
+    </g>
+  </g>
+
+  <!-- The front counter. Joint at its top edge. -->
+  <g id="counter" transform="translate(30 -30)">
+    <g transform="translate(-30 30)">
+      <rect class="o" fill="#c98a4d" x="-4" y="-32" width="104" height="32" rx="2"/>
+      <path class="t" style="stroke:#a86c34" d="M2 -20 L94 -20"/>
+      <rect class="o" fill="#e0a85a" x="-6" y="-36" width="108" height="6" rx="2"/>
+      <!-- the till -->
+      <path class="o" style="stroke-width:1.8" fill="#8a8f93" d="M6 -36 L8 -48 L28 -48 L30 -36 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#c9ccd2" d="M10 -48 L12 -54 L24 -54 L26 -48 Z"/>
+      <circle class="n" fill="#2b1b16" cx="13" cy="-42" r="1.2"/>
+      <circle class="n" fill="#2b1b16" cx="18" cy="-42" r="1.2"/>
+      <circle class="n" fill="#2b1b16" cx="23" cy="-42" r="1.2"/>
+    </g>
+  </g>
+
+  <!-- The customer, choosing a card for the last forty minutes. Joint at her waist. -->
+  <g id="browser" transform="translate(-86 -30)">
+    <path class="o" fill="#8fd6bd" d="M-15 30 L-15 4 Q-17 -18 -11 -26 Q0 -31 11 -26 Q17 -18 15 4 L15 30 Z"/>
+    <circle class="n" fill="#ffffff" cx="-4" cy="-14" r="1.6"/>
+    <circle class="n" fill="#ffffff" cx="6" cy="-6" r="1.6"/>
+    <circle class="n" fill="#ffffff" cx="-6" cy="4" r="1.6"/>
+    <circle class="n" fill="#ffffff" cx="4" cy="14" r="1.6"/>
+  </g>
+
+  <g id="browser_head" data-parent="browser" transform="translate(-85 -57)">
+    <rect class="o" fill="#e8b08f" x="-3.5" y="-5" width="8" height="8" rx="2"/>
+    <ellipse class="o" fill="#f3c9a5" cx="2" cy="-18" rx="15.5" ry="15"/>
+    <path class="o" fill="#d8d0c0" d="M-13 -10 Q-19 -18 -15 -28 Q-10 -36 0 -35 Q10 -36 15 -30 Q8 -30 2 -26 L-6 -24 L-8 -10 Z"/>
+    <path class="t" style="stroke:#b8b0a0" d="M-12 -24 q3 -3 5 0 M-8 -30 q3 -3 5 0"/>
+    <!-- reading glasses on the end of her nose -->
+    <circle class="t" style="fill:#e8f4fa" cx="10" cy="-15" r="4.4"/>
+    <circle class="t" style="fill:#e8f4fa" cx="18.6" cy="-15" r="3.6"/>
+    <path class="t" d="M14.4 -15 L15 -15 M5.6 -15.4 L-6 -18"/>
+    <circle class="n" fill="#2b1b16" cx="11" cy="-14" r="1.3"/>
+    <circle class="n" fill="#2b1b16" cx="19" cy="-14" r="1.2"/>
+    <path class="o" fill="#f3c9a5" d="M18 -12 Q22.6 -10 18.4 -7.6"/>
+    <path class="t" style="stroke-width:1.8" d="M9 -6 Q12 -7.4 15 -6"/>
+  </g>
+
+  <!-- Her hand on the stand, turning it. Joint at her shoulder. -->
+  <g id="browser_arm" data-parent="browser" transform="translate(-76 -50)">
+    <path class="o" fill="#8fd6bd" d="M-4 -3 Q1 -6 5 -2 L14 8 L8 13 L-4 4 Z"/>
+    <circle class="o" fill="#f3c9a5" cx="13" cy="11" r="4.2"/>
+  </g>
+
+  <!-- The postcard stand: a wire spinner on a pole. Joint at its foot. -->
+  <g id="stand" transform="translate(-44 0)">
+    <path class="t" style="stroke-width:5" d="M0 0 L0 -96"/>
+    <path class="t" style="stroke:#c9ccd2;stroke-width:2.4" d="M0 0 L0 -96"/>
+    <path class="o" fill="#8a8f93" d="M-14 0 L-10 -5 L10 -5 L14 0 Z"/>
+    <circle class="o" style="stroke-width:1.8" fill="#d9342b" cx="0" cy="-98" r="4"/>
+  </g>
+
+  <!-- Its two tiers of cards. They turn: squeezed flat and back. Joints on the pole. -->
+  <g id="tier_top" data-parent="stand" transform="translate(-44 -76)">
+    <path class="t" style="stroke-width:1.4" d="M-16 -12 L16 -12 M-16 12 L16 12"/>
+    <rect class="f" fill="#ffffff" x="-17" y="-12" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#8fcbf0" x="-16" y="-11" width="12" height="5"/>
+    <rect class="n" fill="#5fb85a" x="-16" y="-6" width="12" height="3"/>
+    <rect class="f" fill="#ffffff" x="3" y="-12" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#ffb52e" x="4" y="-11" width="12" height="8"/>
+    <circle class="n" fill="#fff6a8" cx="10" cy="-8" r="2.4"/>
+    <rect class="f" fill="#ffffff" x="-17" y="1" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#e0342b" x="-16" y="2" width="12" height="8"/>
+    <path class="n" fill="#5fb85a" d="M-16 7 L-4 7 L-4 10 L-16 10 Z"/>
+    <rect class="f" fill="#ffffff" x="3" y="1" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#8fcbf0" x="4" y="2" width="12" height="8"/>
+    <path class="t" style="stroke-width:1.2" d="M10 6 L7 3 M10 6 L13 9 M10 6 L13 3 M10 6 L7 9"/>
+  </g>
+
+  <g id="tier_low" data-parent="stand" transform="translate(-44 -44)">
+    <path class="t" style="stroke-width:1.4" d="M-16 -12 L16 -12 M-16 12 L16 12"/>
+    <rect class="f" fill="#ffffff" x="-17" y="-12" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#ff7ac0" x="-16" y="-11" width="12" height="8"/>
+    <rect class="f" fill="#ffffff" x="3" y="-12" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#8fcbf0" x="4" y="-11" width="12" height="5"/>
+    <rect class="n" fill="#3e6fc9" x="4" y="-6" width="12" height="3"/>
+    <rect class="f" fill="#ffffff" x="-17" y="1" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#ffd21f" x="-16" y="2" width="12" height="8"/>
+    <rect class="f" fill="#ffffff" x="3" y="1" width="14" height="10" rx="0.8"/>
+    <rect class="n" fill="#5fb85a" x="4" y="2" width="12" height="8"/>
+    <path class="n" fill="#ffffff" d="M6 9 L10 4 L14 9 Z"/>
+  </g>
+</svg>

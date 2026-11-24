@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 126 92" data-rig="static">
+  <title>Het vaantje van de gids: geel, met een rode paraplu</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+  <!-- Guidebook yellow with a red umbrella held up high: follow me. Symmetric, so it reads the same mirrored. Cut into the same eight strips as the other flags. -->
+  <defs>
+    <clipPath id="strip"><rect x="0" y="-1" width="16.2" height="82"/></clipPath>
+    <g id="flag">
+      <rect width="120" height="80" fill="#ffd21f"/>
+      <path fill="#f5b70f" d="M0 0 L120 0 L120 6 L0 6 Z M0 74 L120 74 L120 80 L0 80 Z"/>
+      <path fill="none" stroke="#f08a24" stroke-width="2" stroke-dasharray="4 3" d="M4 10 L116 10 M4 70 L116 70"/>
+      <!-- the stick and the hook -->
+      <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" d="M60 24 L60 60 Q60 66 54.5 66 Q49 66 49 61"/>
+      <path fill="none" stroke="#8a5a3a" stroke-width="2.6" stroke-linecap="round" d="M60 24 L60 60 Q60 66 54.5 66 Q49 66 49 61"/>
+      <!-- the canopy, scalloped -->
+      <path fill="#d9342b" stroke="#2b1b16" stroke-width="2.4" stroke-linejoin="round" d="M28 44 Q30 17 60 15 Q90 17 92 44 Q86 39 80 44 Q74 39 68 44 Q62 39 60 41 Q58 39 52 44 Q46 39 40 44 Q34 39 28 44 Z"/>
+      <path fill="none" stroke="#a8201a" stroke-width="1.6" stroke-linecap="round" d="M60 16 L60 40 M60 16 Q46 26 40 43 M60 16 Q74 26 80 43"/>
+      <path fill="#ff8a7a" d="M38 30 Q44 20 54 18 Q46 24 42 33 Z"/>
+      <circle fill="#2b1b16" cx="60" cy="13.6" r="2.6"/>
+    </g>
+  </defs>
+
+  <g id="s0" transform="translate(0 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="0"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M0 0 L0 80"/>
+  </g>
+  <g id="s1" transform="translate(15 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-15"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s2" transform="translate(30 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-30"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s3" transform="translate(45 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-45"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s4" transform="translate(60 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-60"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s5" transform="translate(75 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-75"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s6" transform="translate(90 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-90"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s7" transform="translate(105 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-105"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M15 0 L15 80"/>
+  </g>
+</svg>
