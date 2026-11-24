@@ -177,7 +177,7 @@ is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
-`docs/factions.md` plans three more kinds: slow, block and lockout. If your faction needs one, you
+`docs/factions.md` plans four more kinds: slow, block, lockout and price hike. If your faction needs one, you
 build the kind. `convert`, `divert` and `summon` were added that way; search the code for `convert` and
 `converted`, `divert` and `diverted`, or `summon` and `summoned`, and you have a complete example of each. The places, in order:
 
