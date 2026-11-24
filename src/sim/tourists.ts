@@ -7,8 +7,8 @@ import { SIDES, other, type Side, type SimEvent, type SimState, type Unit } from
  * Rules that came with De Toeristen, the owner's of 24 November 2026 (in
  * docs/factions.md, section 5). Like everything on the lane they are mirrored:
  * positions are distances from each side's own gate, and nothing here looks at
- * which side is on the left. Hovering, the third, is a check in the melee blow
- * in sim/step.ts and in sim/riders.ts.
+ * which side is on the left. The beer bikes' tossing, the third, is in
+ * decide() in sim/step.ts.
  *
  * - Posing, Influencer-Ivy: she throws nothing. Every enemy unit within her
  *   reach is in her shot and poses for it: its blows and throws do
@@ -77,6 +77,7 @@ export function scatterGroup(s: SimState, side: Side, fallen: Unit, events: SimE
       turncoat: fallen.turncoat,
       posing: false,
       leaveAt: 0,
+      tossAt: 0,
     };
     insertInRow(mine, u);
     ids.push(u.id);

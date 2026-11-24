@@ -51,6 +51,11 @@ export interface ClipSet {
   hit: Clip;
   /** Loops while a beaten unit slinks off home. */
   die: Clip;
+  /** Laid on top of whatever else is playing when one aboard tosses something: the beer bikes (UnitDef.toss). */
+  toss?: Clip;
 }
 
+/** The clips every unit has. */
 export const CLIP_NAMES: readonly (keyof ClipSet)[] = ['idle', 'walk', 'attack', 'hit', 'die'];
+/** Clips laid on top of whatever else is playing, rather than played by themselves. */
+export const OVERLAY_CLIPS: readonly (keyof ClipSet)[] = ['hit', 'toss'];

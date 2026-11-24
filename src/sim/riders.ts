@@ -24,8 +24,7 @@ import { BASE, SIDES, other, type Damage, type Rider, type Side, type SimEvent, 
  * - Enemy turrets fire at it before anything else (see fireTurrets in step.ts).
  *   Enemy specials do not touch it, and its own side's buffs do not speed it up.
  *   Overtime makes its ram and base damage grow, as it does every unit's blows.
- * - Riders coming from both sides pass each other, and a rider rides under a
- *   unit that hovers without touching it.
+ * - Riders coming from both sides pass each other.
  * - A unit that is posing (sim/tourists.ts) gives a softer blow back, and
  *   Influencer-Ivy, who throws nothing, gives none.
  *
@@ -79,9 +78,9 @@ export function advanceRiders(s: SimState, dmg: Damage[], events: SimEvent[]): v
       const def = unitDef(r.def);
       const ram = Math.floor((def.dmg * percent) / 100);
       const next = Math.min(r.pos + def.speed, LANE);
-      // The enemy units it reaches on this stretch, nearest first. It rides under one that hovers.
+      // The enemy units it reaches on this stretch, nearest first.
       const met = them
-        .filter((u) => !r.passed.includes(u.id) && LANE - u.pos <= next && !unitDef(u.def).hovers)
+        .filter((u) => !r.passed.includes(u.id) && LANE - u.pos <= next)
         .sort((a, b) => b.pos - a.pos || a.id - b.id);
       let stopped = false;
       for (const u of met) {

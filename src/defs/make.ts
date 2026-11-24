@@ -1,4 +1,4 @@
-import { HOVER, RIDER, RIDER_STATS, SCATTER, SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats, type Twist } from './balance.ts';
+import { RIDER, RIDER_STATS, SCATTER, SPECIAL, STATS, TOSS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats, type Twist } from './balance.ts';
 import type { EraDef, Role, ShotDef, SpecialDef, TurretDef, UnitDef } from './types.ts';
 
 type Look = Omit<ShotDef, 'speed'>;
@@ -65,8 +65,11 @@ export interface EraLook {
   heavy: string;
   /** The heavy slot sells a rider instead, with its own numbers: the fatbike. */
   heavyRides?: boolean;
-  /** The heavy unit hovers out of reach of melee, with its own hit points: De Zweefbierfiets. See HOVER. */
-  heavyHovers?: boolean;
+  /**
+   * One aboard the heavy tosses this as well as the heavy's own blows, and the
+   * heavy has its own price and speed: the beer bikes. See TOSS in defs/balance.ts.
+   */
+  heavyTosses?: Look;
   /** The fourth unit: the schild in the first two eras, the super unit in the last. */
   shield?: string;
   /**
@@ -124,9 +127,21 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     ranged = makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot));
   }
   let heavy: UnitDef;
-  if (look.heavyRides) heavy = makeRider(`${id}.heavy`, art(look.heavy));
-  else if (look.heavyHovers) heavy = { ...makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, { ...temper.heavy, hp: HOVER.hpPercent })), hovers: true };
-  else heavy = makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy));
+  if (look.heavyRides) {
+    heavy = makeRider(`${id}.heavy`, art(look.heavy));
+  } else if (look.heavyTosses) {
+    const own = twisted(stats.heavy, { ...temper.heavy, cost: TOSS.costPercent, speed: TOSS.speedPercent });
+    const thrower = twisted(stats.ranged, temper.ranged);
+    const toss = {
+      dmg: Math.round((thrower.dmg * TOSS.dmgPercent) / 100),
+      range: Math.round((thrower.range * TOSS.rangePercent) / 100),
+      every: TOSS.every,
+      shot: { ...withArt(look.heavyTosses), speed: thrower.shotSpeed! },
+    };
+    heavy = { ...makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), own), toss };
+  } else {
+    heavy = makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy));
+  }
   const units = [makeUnit(`${id}.light`, 'light', art(look.light), twisted(stats.light, temper.light)), ranged, heavy];
   if (stats.shield) {
     if (!look.shield) throw new Error(`${id}: this era has a schild, so it needs a drawing for one`);

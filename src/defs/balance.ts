@@ -378,14 +378,26 @@ export const SCATTER = {
 } as const;
 
 /**
- * De Zweefbierfiets, the heavy of De Toeristen in 2050, hovers out of reach of
- * melee blows. To make up for it, it has this share of a heavy unit's hit
- * points, in place of the temperament. Everything else is the heavy's. The
- * brief started from 60%; with that, throws, turrets and the enemy's specials
- * brought it down so fast that De Toeristen won one bot match in ten with
- * both sides buying a mix. Fitted with those bot matches, 24 November 2026.
+ * The beer bikes, the heavies of De Toeristen in 2025 and 2050 (De Bierfiets,
+ * De Zweefbierfiets): a heavy that hits as one, and one of the party aboard
+ * tosses beers on top of that. The owner, 24 November 2026: dearer than a
+ * heavy by about 30% ("around 30% more expensive compared to the normal heavy
+ * unit price"), faster ("bierfiets go fast"), a melee blow and "1 person
+ * tossing beers". Before that the Zweefbierfiets hovered out of reach of melee
+ * instead; measured, no army without throwers could scratch it.
+ *
+ * `costPercent` and `speedPercent` are shares of the shared heavy's numbers,
+ * in place of the temperament's; the damage of its blows keeps the
+ * temperament. The toss is a share of the faction's own ranged unit of the
+ * era: its damage and reach, every `every` ticks.
  */
-export const HOVER = { hpPercent: 85 } as const;
+export const TOSS = {
+  costPercent: 130,
+  speedPercent: 175,
+  dmgPercent: 100,
+  rangePercent: 80,
+  every: sec(1.5),
+} as const;
 
 function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
   const cost = Math.round(base.cost * s.price);
@@ -547,6 +559,10 @@ export const SPECIAL = {
    * 2050, De Toeristen: rent increase for the locals. For this long everything
    * the enemy buys costs this share of its price: units, turrets, subsidie and
    * modernizing. The owner's idea of 24 November 2026, in place of a lockout.
+   * It lasted ten seconds at first. The owner, the same day: "if you have stuff
+   * in que and 10s is quite short", then "20s 100% increase sounds good". Bots
+   * had valued the ten seconds at about nothing in 2050: given to another
+   * faction in place of its own special it won as often as with no special at all.
    */
-  huurverhoging: { ticks: sec(10), pricePercent: 200 },
+  huurverhoging: { ticks: sec(20), pricePercent: 200 },
 } as const;

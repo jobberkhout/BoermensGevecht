@@ -14,7 +14,7 @@ import {
   UNIT_CAP,
 } from '../defs/balance.ts';
 import { turretDef, unitDef } from '../defs/index.ts';
-import type { UnitDef } from '../defs/types.ts';
+import type { ShotDef, UnitDef } from '../defs/types.ts';
 import { applyCommand, canDo } from './commands.ts';
 import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
@@ -148,6 +148,7 @@ function walkOut(s: SimState, side: Side, defId: string, row: number, events: Si
     turncoat: false,
     posing: false,
     leaveAt,
+    tossAt: 0,
   };
   s.sides[side].units.push(unit);
   events.push({ t: 'spawn', side, id: unit.id, def: def.id });
@@ -186,6 +187,13 @@ function decide(s: SimState, side: Side, foeFront: Unit | undefined, dmg: Damage
       continue;
     }
 
+    // One aboard a beer bike tosses on his own beat, whatever the bike is doing.
+    if (def.toss && s.tick >= u.tossAt && dist <= def.toss.range) {
+      u.tossAt = s.tick + def.toss.every;
+      events.push({ t: 'toss', side, id: u.id });
+      launch(s, side, u, def.toss.shot, damageOf(s, side, u, def.toss.dmg), dist, def.toss.range);
+    }
+
     if (u.act === 'attack') {
       // An attack always runs to the end, so its animation never gets cut off.
       u.actTick++;
@@ -222,44 +230,51 @@ function strike(
     return;
   }
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
-  const me = s.sides[side];
-  // A buff and overtime both make a unit hit harder; one on top of the other. Posing makes it hit softer.
-  const fired = buffed(me, s.tick) ? Math.floor((def.dmg * me.buffDmgPercent) / 100) : def.dmg;
-  const amount = posed(u, Math.floor((fired * unitDamagePercent(s.tick)) / 100));
+  const amount = damageOf(s, side, u, def.dmg);
   if (def.shot) {
-    s.shots.push({
-      id: s.nextId++,
-      side,
-      pos: u.pos,
-      prevPos: u.pos,
-      origin: u.pos,
-      dist0: Math.max(dist, 1),
-      limit: u.pos + def.range + SHOT_SLACK,
-      speed: def.shot.speed,
-      dmg: amount,
-      rig: def.shot.rig,
-      arc: def.shot.arc,
-      spin: def.shot.spin,
-      src: u.id,
-      row: u.row,
-      slot: -1,
-      aim: -1,
-    });
+    launch(s, side, u, def.shot, amount, dist, def.range);
     return;
   }
   if (dist > def.range) return; // the target is gone; the blow hits air
   const foe = other(side);
-  // A melee blow passes under a unit that hovers, unless a super unit swats it.
-  const reaches = (f: Unit): boolean => def.role === 'super' || !unitDef(f.def).hovers;
   if (!foeFront) {
     dmg.push({ side: foe, unit: BASE, amount });
   } else if (def.cleave) {
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.range && reaches(f)) dmg.push({ side: foe, unit: f.id, amount });
+      if (LANE - u.pos - f.pos <= def.range) dmg.push({ side: foe, unit: f.id, amount });
     }
-  } else if (reaches(foeFront)) {
+  } else {
     dmg.push({ side: foe, unit: foeFront.id, amount });
   }
+}
+
+/** What a blow or a throw of `base` does now: a buff and overtime both make it harder, one on top of the other; posing makes it softer. */
+function damageOf(s: SimState, side: Side, u: Unit, base: number): number {
+  const me = s.sides[side];
+  const fired = buffed(me, s.tick) ? Math.floor((base * me.buffDmgPercent) / 100) : base;
+  return posed(u, Math.floor((fired * unitDamagePercent(s.tick)) / 100));
+}
+
+/** Sends a unit's throw down the lane. It hits the first enemy body it meets (see advanceShots). */
+function launch(s: SimState, side: Side, u: Unit, shot: ShotDef, amount: number, dist: number, range: number): void {
+  s.shots.push({
+    id: s.nextId++,
+    side,
+    pos: u.pos,
+    prevPos: u.pos,
+    origin: u.pos,
+    dist0: Math.max(dist, 1),
+    limit: u.pos + range + SHOT_SLACK,
+    speed: shot.speed,
+    dmg: amount,
+    rig: shot.rig,
+    arc: shot.arc,
+    spin: shot.spin,
+    src: u.id,
+    row: u.row,
+    slot: -1,
+    aim: -1,
+  });
 }
 
 function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events: SimEvent[]): void {

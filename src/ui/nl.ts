@@ -137,6 +137,7 @@ export const NL = {
   slinkOff: perFaction((text) => text.slinkOff),
   battleCry: perFaction((text) => text.battleCry),
   riding: perFaction((text) => text.riding ?? {}),
+  tossing: perFaction((text) => text.tossing ?? {}),
 };
 
 export function nameOf(id: string): string {
@@ -144,10 +145,10 @@ export function nameOf(id: string): string {
 }
 
 /**
- * The lines of one kind (slinkOff, battleCry, riding) for a unit: those of the faction
+ * The lines of one kind (slinkOff, battleCry, riding, tossing) for a unit: those of the faction
  * that trained it, for the era in its id ('hm.1975.light').
  */
-export function linesFor(kind: 'slinkOff' | 'battleCry' | 'riding', unitId: string): readonly string[] {
+export function linesFor(kind: 'slinkOff' | 'battleCry' | 'riding' | 'tossing', unitId: string): readonly string[] {
   // A unit may have lines of its own (the fatbike kid's); everyone else shares those of their era.
   const lines = NL[kind][homeOf(unitId)];
   const era = unitId.split('.')[1] ?? '';

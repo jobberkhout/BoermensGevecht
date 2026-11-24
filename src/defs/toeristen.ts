@@ -8,11 +8,13 @@ import type { FactionDef } from './types.ts';
  * faster and hits 15% softer: they get everywhere first and are more in the
  * way than dangerous. And there are a lot of them: every unit costs 10% less.
  * That last part was not in the brief; without it they won one bot match in
- * ten with both sides buying a mix. Three units have rules of their own, with numbers of
- * their own in defs/balance.ts: Influencer-Ivy poses the enemy (POSE),
- * Paraplu-Pam is dear and slow and scatters into her group (SCATTER), and De
- * Zweefbierfiets hovers out of reach of melee (HOVER). From the brief in
- * docs/factions.md, section 5.
+ * ten with both sides buying a mix. Four units have rules of their own, with
+ * numbers of their own in defs/balance.ts: Influencer-Ivy poses the enemy
+ * (POSE), Paraplu-Pam is dear and slow and scatters into her group (SCATTER),
+ * and the two beer bikes, De Bierfiets and De Zweefbierfiets, are fast, dear
+ * heavies with one of the party tossing beers (TOSS). From the brief in
+ * docs/factions.md, section 5; the beer bikes as the owner changed them later
+ * the same day (the Zweefbierfiets used to hover out of reach of melee).
  */
 const TEMPER: Temper = {
   light: { speed: 125, dmg: 85, cost: 90 },
@@ -51,6 +53,7 @@ export const toeristen: FactionDef = {
       ranged: 'influencer_ivy',
       rangedPoses: 'pose_frame',
       heavy: 'bierfiets',
+      heavyTosses: { rig: 'shot_bier', arc: 60, spin: 1.2, splash: '#fff3b0' },
       shield: 'paraplu_pam',
       shieldScatters: 'verdwaalde_toerist',
       turret: 'turret_hyperij',
@@ -73,7 +76,7 @@ export const toeristen: FactionDef = {
       ranged: 'eenster_eli',
       rangedShot: { rig: 'shot_ster', arc: 14, spin: 4, splash: '#ffd21f' },
       heavy: 'zweefbierfiets',
-      heavyHovers: true,
+      heavyTosses: { rig: 'shot_zweefbier', arc: 40, spin: 0, splash: '#fff3b0' },
       super: 'ms_kolossaal',
       turret: 'turret_sleutelkluizen',
       turretShot: { rig: 'shot_sleutel', arc: 80, spin: 2, splash: '#d9d9d9' },

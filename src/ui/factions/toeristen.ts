@@ -47,7 +47,7 @@ export const toeristen: FactionText = {
     'tr.1975.special': 'Vierhonderd vakantiedia’s: alle vijanden op de baan dommelen vijf tellen in.',
     'tr.2025.light': 'Sleept haar rolkoffer over de keien en zwaait hem rond als je in de weg staat.',
     'tr.2025.ranged': 'Gooit niks. Wie in haar shot staat, poseert en slaat maar half zo hard.',
-    'tr.2025.heavy': 'Een feestje in dezelfde shirts trapt een bar vooruit. Met eigen inrijverbod.',
+    'tr.2025.heavy': 'Snel feestje in dezelfde shirts: ramt met de bar, en eentje gooit pullen bier.',
     'tr.2025.shield': 'Torens ketsen af op haar paraplu. Duur en traag; valt ze, dan dwaalt haar groep verder.',
     'tr.2025.turret': 'Drie mensen achter een koord en een rijmanager. Ze gooien friet en blijven in de rij.',
     'tr.2025.special': 'Acht snelle dagjesmensen rennen de baan op. Na twintig tellen toetert het schip.',
@@ -55,10 +55,10 @@ export const toeristen: FactionText = {
     'tr.2025.scattered': 'Zonder paraplu de weg kwijt: kaart op zijn kop, telefoon op 2%. Loopt toch door.',
     'tr.2050.light': 'Zelfrijdende koffer zonder baasje, 30 km per uur over de stoep. Ramt je schenen.',
     'tr.2050.ranged': 'Slimme bril, streamt alles en geeft elke local één ster. Gooit ze als werpsterren.',
-    'tr.2050.heavy': 'Zweeft: klappen gaan eronderdoor. Alleen gooien, torens en acties raken hem.',
+    'tr.2050.heavy': 'Zweeft snel door de straat waar hij verboden is. Ramt, en gooit vliegende blikjes.',
     'tr.2050.super': 'Een cruiseschip op rupsbanden met een buffetkanon. Speciale acties en torens doen het niks.',
     'tr.2050.turret': 'Een toren sleutelkluisjes waar de buren woonden. De gasten gooien met kwijte sleutels.',
-    'tr.2050.special': 'Tien tellen lang betaalt de vijand dubbel: eenheden, torens, subsidie en moderniseren.',
+    'tr.2050.special': 'Twintig tellen lang betaalt de vijand dubbel: eenheden, torens, subsidie en moderniseren.',
   },
 
   // They get dumber with every era, and then more entitled. Some units have lines of their own.
@@ -68,6 +68,8 @@ export const toeristen: FactionText = {
     '2050': ['I WANT TO SPEAK TO THE MAYOR!', 'REFUND!', 'Kein Empfang!', 'Une étoile !', 'Your city is overrated.'],
     'tr.2025.summoned': ['THE SHIP!'],
     'tr.2025.scattered': ['Where is the group?', 'Wo ist die Gruppe?'],
+    'tr.2025.heavy': ['We’re not even drunk!', 'WHO WAS PEDALLING?', 'Ich bin nicht betrunken!', 'MY DEPOSIT!', 'Same time tomorrow!'],
+    'tr.2050.heavy': ['BATTERY LOW!', 'Who’s driving this thing?!', 'The bride is down!', 'Wir kommen wieder!', 'Refund the party!'],
   },
 
   battleCry: {
@@ -78,6 +80,13 @@ export const toeristen: FactionText = {
     'tr.2025.shield': ['Follow the umbrella!', 'Stay together, group!'],
     'tr.2025.summoned': ['We have two hours!', 'Where is the cheese shop?'],
     'tr.2025.scattered': ['Where is the group?', 'Wo ist die Gruppe?', 'Is this Amsterdam?'],
-    'tr.2050.heavy': ['WOOOO!', 'Noch ein Bier!', 'Is this the party street?'],
+    // The beer bikes always have something to say when they come out, and while they throw.
+    'tr.2025.heavy': ['PARTY BIKE! PARTY BIKE!', 'We pedal, so it’s sport!', 'Eins, zwei, drei, g’suffa!', 'Last night as a free man!', 'On pédale, donc on peut boire !', 'Is this the beer lane?'],
+    'tr.2050.heavy': ['WOOOO!', 'Noch ein Bier!', 'Is this the party street?', 'BRIDE COMING THROUGH!', 'Technically we’re not ON the street!', 'We booked the sky!'],
+  },
+
+  tossing: {
+    'tr.2025.heavy': ['CATCH!', 'Prost!', 'It’s on us!', 'Santé !', 'Don’t waste it!', 'Cheers, locals!'],
+    'tr.2050.heavy': ['CATCH!', 'Free refill!', 'It’s on the bride!', 'Zum Wohl!', 'À la vôtre !', 'Five stars for this beer!'],
   },
 };

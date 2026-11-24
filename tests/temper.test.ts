@@ -60,8 +60,8 @@ describe('temperament', () => {
           // A rider has numbers of its own (RIDER), tested in tests/rider.test.ts.
           if (unit.rider) continue;
           // So do a few numbers of units with rules of their own, tested in tests/tourists.test.ts:
-          // the price and speed of a schild that scatters (SCATTER), the hit points of a unit that hovers (HOVER).
-          const own = new Set<string>([...(unit.scatter ? ['cost', 'speed'] : []), ...(unit.hovers ? ['hp'] : [])]);
+          // the price and speed of a schild that scatters (SCATTER) and of a beer bike (TOSS).
+          const own = new Set<string>(unit.scatter || unit.toss ? ['cost', 'speed'] : []);
           const base = shared[unit.role]!;
           const twist = faction.temper[unit.role] ?? {};
           for (const stat of TWISTABLE) {

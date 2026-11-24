@@ -111,12 +111,14 @@ After this step the game knows the faction and the tests tell you everything tha
      `RIDER` in `src/defs/balance.ts` and its rule is `src/sim/riders.ts`; nothing else needs building.
    - Three more rules of their own came with De Toeristen and are switched on the same way, only if the
      brief asks for them (`src/defs/toeristen.ts` shows all three; the rules are in `src/sim/tourists.ts`
-     and the melee blow in `src/sim/step.ts`, the numbers under `POSE`, `SCATTER` and `HOVER`):
+     and `decide()` in `src/sim/step.ts`, the numbers under `POSE`, `SCATTER` and `TOSS`):
      `rangedPoses: '<drawing>'` makes the ranged unit throw nothing and pose the enemy instead, so it needs
-     no `rangedShot`, and the drawing is the mark over a posing unit; `heavyHovers: true` puts the heavy
-     unit out of reach of melee, with fewer hit points; `shieldScatters: '<drawing>'` makes the schild
-     dearer and slower and leave a group behind when it falls, who come as `<era id>.scattered` (one more
-     drawing). `summonedStats` gives whoever a summon calls in numbers of their own instead of the
+     no `rangedShot`, and the drawing is the mark over a posing unit; `heavyTosses: { rig, arc, spin,
+     splash }` makes the heavy dearer and faster and puts someone aboard who throws that projectile (one
+     more drawing) on a beat of its own, on top of the heavy's blows; its drawing then needs a `toss` clip,
+     laid over whatever else plays, as `src/anim/clips/toeristen/2025/bierfiets.ts` has;
+     `shieldScatters: '<drawing>'` makes the schild dearer and slower and leave a group behind when it
+     falls, who come as `<era id>.scattered` (one more drawing). `summonedStats` gives whoever a summon calls in numbers of their own instead of the
      temperament.
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,

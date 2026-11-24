@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { HOVER, LANE, POSE, PROGRESS, SCATTER, SPECIAL, STATS, TURRET, UNIT_CAP, px, twisted } from '../src/defs/balance.ts';
+import { LANE, POSE, PROGRESS, SCATTER, SPECIAL, STATS, TOSS, UNIT_CAP, px, sec, twisted } from '../src/defs/balance.ts';
 import { FACTIONS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
 import type { FactionId } from '../src/defs/types.ts';
 import { RIDER_ROW } from '../src/sim/riders.ts';
@@ -9,7 +9,8 @@ import { ERA, act, match, place, rich, run } from './helpers.ts';
 /**
  * The rules De Toeristen brought in on 24 November 2026 (docs/factions.md,
  * section 5): Influencer-Ivy poses the enemy, Paraplu-Pam scatters into her
- * group, De Zweefbierfiets hovers out of reach of melee, the cruise ship's day
+ * group, the beer bikes toss beers as well as hit (since later that day; the
+ * Zweefbierfiets used to hover out of reach of melee), the cruise ship's day
  * trippers go back on board, and the rent goes up for the locals.
  */
 
@@ -17,6 +18,7 @@ const IVY = 'tr.2025.ranged';
 const PAM = 'tr.2025.shield';
 const LOST = 'tr.2025.scattered';
 const TRIPPER = 'tr.2025.summoned';
+const BIERFIETS = 'tr.2025.heavy';
 const ZWEEF = 'tr.2050.heavy';
 const FATBIKE = 'gs.2025.heavy';
 const STUNNED = 1e9;
@@ -266,73 +268,103 @@ describe('Paraplu-Pam scatters', () => {
   });
 });
 
-describe('De Zweefbierfiets hovers out of reach', () => {
-  it('is the heavy of 2050 with fewer hit points', () => {
-    const zweef = unitDef(ZWEEF);
-    const heavy = twisted(STATS['2050'].heavy, FACTIONS.toeristen.temper.heavy);
-    expect(zweef).toMatchObject({ role: 'heavy', hovers: true, cleave: true, dmg: heavy.dmg, speed: heavy.speed, cost: heavy.cost });
-    expect(zweef.hp).toBe(Math.round((STATS['2050'].heavy.hp * HOVER.hpPercent) / 100));
-    expect(zweef.hp).toBeLessThan(STATS['2050'].heavy.hp);
+describe('the beer bikes toss beers', () => {
+  const BIKES = [
+    { id: BIERFIETS, era: ERA.y2025, key: '2025' },
+    { id: ZWEEF, era: ERA.y2050, key: '2050' },
+  ] as const;
+
+  it('are heavies of their era, a third dearer and much faster than one, and one aboard throws as their ranged unit does', () => {
+    for (const { id, key } of BIKES) {
+      const bike = unitDef(id);
+      const heavy = STATS[key].heavy;
+      const ranged = twisted(STATS[key].ranged, FACTIONS.toeristen.temper.ranged);
+      const own = twisted(heavy, { ...FACTIONS.toeristen.temper.heavy, cost: TOSS.costPercent, speed: TOSS.speedPercent });
+      expect(bike, id).toMatchObject({ role: 'heavy', cleave: true, hp: heavy.hp, range: heavy.range, cost: own.cost, speed: own.speed });
+      expect(bike.dmg, `${id} hits with the temperament`).toBe(twisted(heavy, FACTIONS.toeristen.temper.heavy).dmg);
+      expect(bike.cost, `${id} costs more than a heavy`).toBeGreaterThan(heavy.cost);
+      expect(bike.speed, `${id} is faster than the temperament makes a heavy`).toBeGreaterThan(twisted(heavy, FACTIONS.toeristen.temper.heavy).speed);
+      expect(bike.toss, id).toMatchObject({
+        dmg: Math.round((ranged.dmg * TOSS.dmgPercent) / 100),
+        range: Math.round((ranged.range * TOSS.rangePercent) / 100),
+        every: TOSS.every,
+      });
+      expect(bike.toss!.shot.speed, id).toBe(ranged.shotSpeed);
+      expect(bike.shot, `${id} hits as a heavy; the throw comes on top`).toBeUndefined();
+    }
+    // Nobody else has anyone aboard who throws.
+    const others = Object.values(FACTIONS).flatMap((f) => f.eras.flatMap((e) => e.units)).filter((u) => u.toss);
+    expect(others.map((u) => u.id).sort()).toEqual([BIERFIETS, ZWEEF].sort());
   });
 
-  /** A stunned Zweefbierfiets with `attacker` at `gap` in front of it. Returns what it took, and the attacker. */
-  function underIt(attacker: string, gap: number, side: Side = 0) {
+  /** A beer bike of De Toeristen on `side` with a stunned enemy dummy `gap` in front of it. */
+  function facingDummy(bike: string, era: number, gap: number, side: Side = 0) {
     const foe: Side = side === 0 ? 1 : 0;
-    const s = setup(ERA.y2050, side);
-    const zweef = place(s, side, ZWEEF, px(500), 1_000_000);
-    zweef.stunUntil = STUNNED;
-    const enemy = place(s, foe, attacker, facing(px(500), gap), 1_000_000);
-    const at = enemy.pos;
-    const events = run(s, 120);
-    return { took: blows(events, side, zweef.id), enemy, at };
+    const s = setup(era, side);
+    const me = place(s, side, bike, px(400), 1_000_000);
+    const dummy = place(s, foe, era === ERA.y2025 ? 'ah.2025.light' : 'ah.2050.light', facing(px(400), gap), 1_000_000);
+    dummy.stunUntil = STUNNED;
+    return { s, me, dummy, side, foe };
   }
 
-  it('melee blows pass under it, and the units stand there swinging at nothing', () => {
-    for (const attacker of ['ah.2050.light', 'ah.2050.heavy']) {
-      const { took, enemy, at } = underIt(attacker, px(10));
-      expect(took, attacker).toEqual([]);
-      expect(enemy.pos, `${attacker} stops in front of it`).toBe(at);
-      expect(enemy.act, attacker).toBe('attack');
+  it('tosses on its own beat while it is still rolling up', () => {
+    for (const { id, era } of BIKES) {
+      const toss = unitDef(id).toss!;
+      const { s, me, dummy, foe } = facingDummy(id, era, toss.range - px(20));
+      const events: SimEvent[] = [];
+      // Long enough for a few throws, short enough that it has not rolled into melee reach yet.
+      for (let i = 0; i < toss.every * 2 + 20 && me.act === 'walk'; i++) events.push(...run(s, 1));
+      expect(events.filter((e) => e.t === 'toss' && e.id === me.id).length, id).toBeGreaterThan(0);
+      const took = blows(events, foe, dummy.id);
+      expect(took.length, id).toBeGreaterThan(0);
+      expect(new Set(took), `${id}: every blow so far is a beer`).toEqual(new Set([toss.dmg]));
     }
   });
 
-  it('throws, turrets and super units reach it', () => {
-    expect(underIt('ah.2050.ranged', px(150)).took.length).toBeGreaterThan(0);
-    expect(underIt('ah.2050.super', px(10)).took.length).toBeGreaterThan(0);
-
-    const s = setup(ERA.y2050);
-    s.sides[1].turrets[0] = { def: 'ah.2050.turret', level: TURRET.maxLevel, cd: 0 };
-    const zweef = place(s, 0, ZWEEF, LANE - px(200), 1_000_000);
-    zweef.stunUntil = STUNNED;
-    expect(blows(run(s, 60), 0, zweef.id).length).toBeGreaterThan(0);
+  it('keeps tossing while it fights, on top of its own blows, and enemy blows reach it', () => {
+    for (const { id, era } of BIKES) {
+      const def = unitDef(id);
+      const { s, me, dummy, side, foe } = facingDummy(id, era, px(10));
+      dummy.stunUntil = 0;
+      const events = run(s, def.toss!.every * 4);
+      const took = blows(events, foe, dummy.id);
+      expect(took.filter((n) => n === def.dmg).length, `${id} hits`).toBeGreaterThan(0);
+      expect(took.filter((n) => n === def.toss!.dmg).length, `${id} throws`).toBe(4);
+      expect(blows(events, side, me.id).length, `${id} is hit back`).toBeGreaterThan(0);
+    }
   });
 
-  it('a sweep reaches it', () => {
-    const s = setup(ERA.y2025, 0, 'achterhoek');
-    rich(s, 1);
-    const zweef = place(s, 0, ZWEEF, px(500), 1_000_000);
-    zweef.stunUntil = STUNNED;
-    act(s, 1, { t: 'special' }); // the Trekkerkolonne
-    run(s, 300);
-    expect(zweef.hp).toBeLessThan(1_000_000);
+  it('throws nothing when nobody is within throwing range, or while it is stunned', () => {
+    const toss = unitDef(BIERFIETS).toss!;
+    const far = facingDummy(BIERFIETS, ERA.y2025, toss.range + px(200));
+    far.me.stunUntil = STUNNED; // it would roll into range otherwise
+    expect(run(far.s, toss.every * 3).some((e) => e.t === 'toss')).toBe(false);
+
+    const near = facingDummy(BIERFIETS, ERA.y2025, px(10));
+    near.me.stunUntil = STUNNED;
+    expect(run(near.s, toss.every * 3).some((e) => e.t === 'toss')).toBe(false);
   });
 
-  it('a fatbike rides under it without touching it', () => {
+  it('a fatbike runs into it like into any unit', () => {
     const s = setup(ERA.y2050, 0, 'gasten');
     const zweef = place(s, 0, ZWEEF, px(500));
     zweef.stunUntil = STUNNED;
-    const rider = ride(s, 1);
+    ride(s, 1);
     const events: SimEvent[] = [];
     for (let i = 0; i < 200 && s.sides[1].riders.length > 0; i++) events.push(...run(s, 1));
-    expect(zweef.hp).toBe(unitDef(ZWEEF).hp);
-    expect(events.some((e) => (e.t === 'rammed' || e.t === 'crashed') && e.foe === zweef.id)).toBe(false);
-    expect(events.some((e) => e.t === 'arrived' && e.id === rider.id)).toBe(true);
+    expect(events.some((e) => (e.t === 'rammed' || e.t === 'crashed') && e.foe === zweef.id)).toBe(true);
   });
 
   it('plays out the same with the seats swapped', () => {
-    const a = underIt('ah.2050.ranged', px(150), 0);
-    const b = underIt('ah.2050.ranged', px(150), 1);
-    expect(b.took).toEqual(a.took);
+    const shape = (side: Side) => {
+      const { s, foe } = facingDummy(ZWEEF, ERA.y2050, px(10), side);
+      const events = run(s, 200);
+      return {
+        tosses: events.filter((e) => e.t === 'toss').length,
+        units: [...s.sides[side].units, ...s.sides[foe].units].map((u) => [u.def, u.pos, u.hp, u.act]),
+      };
+    };
+    expect(shape(1)).toEqual(shape(0));
   });
 });
 
@@ -407,7 +439,8 @@ describe('Cruiseschip legt aan', () => {
 describe('Huurverhoging voor de locals', () => {
   const TICKS = SPECIAL.huurverhoging.ticks;
 
-  it('is De Toeristen’s special of 2050: ten seconds of double prices', () => {
+  it('is De Toeristen’s special of 2050: twenty seconds of double prices', () => {
+    expect(TICKS).toBe(sec(20));
     expect(eraOf('toeristen', ERA.y2050).special).toMatchObject({ kind: 'hike', ticks: TICKS, pricePercent: 200 });
   });
 
@@ -450,7 +483,7 @@ describe('Huurverhoging voor de locals', () => {
     expect(s.sides[1].queue.map((q) => q.def)).toEqual(queued.map((q) => q.def));
   });
 
-  it('is over after ten seconds', () => {
+  it('is over after twenty seconds', () => {
     const s = hiked();
     run(s, TICKS);
     const before = s.sides[1].gold;
