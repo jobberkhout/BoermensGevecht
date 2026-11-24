@@ -21,7 +21,9 @@ const SWAY: Key[] = [[0, -3], [0.5, 3, 'sineInOut'], [1, -3, 'sineInOut']];
  * De Bierfiets: a bar on wheels, pedalled by a party in matching shirts and
  * the same hats. Standing still they sing and sway; on the move they pedal in
  * turns; in a fight the whole thing lurches into whoever is in the way and the
- * beer goes everywhere. It carries its own no-entry sign.
+ * beer goes everywhere. It carries its own no-entry sign. And the one with the
+ * stein throws it at whoever is in the way, whatever the bike is doing: back,
+ * over the top, gone, and a fresh one from the tap.
  */
 const bierfiets: ClipSet = {
   idle: idling(1.6, 0.5, {
@@ -63,6 +65,19 @@ const bierfiets: ClipSet = {
     party_b: { rot: rattle(-5, 3) },
     sign: { rot: rattle(6, 3) },
   }),
+
+  // Laid over whatever else plays. The stein leaves his hand at the top of the swing, when the shot flies off.
+  toss: {
+    loop: false,
+    seconds: 0.55,
+    tracks: {
+      tosser_arm: { rot: [[0, 0], [0.18, -80, 'out'], [0.36, 75, 'in'], [0.6, 40, 'out'], [1, 0, 'inOut']] },
+      stein: {
+        sx: [[0, 1], [0.34, 0, 'hold'], [0.8, 0, 'hold'], [1, 1, 'backOut']],
+        sy: [[0, 1], [0.34, 0, 'hold'], [0.8, 0, 'hold'], [1, 1, 'backOut']],
+      },
+    },
+  },
 
   die: limpHome(WHEELS, {
     // Hungover already. The foam is long gone; the sign hangs.

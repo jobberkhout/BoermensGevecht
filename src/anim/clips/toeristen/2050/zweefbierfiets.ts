@@ -35,9 +35,10 @@ const THUMP: Key[] = [[0, 0.8], [0.12, 1.25, 'out'], [0.5, 0.8, 'in'], [0.62, 1.
  * with the sign that banned it hanging underneath as a trophy. A hen party in
  * matching pink pedals at the bar under a striped canopy; the DJ on the back
  * has one hand in the air at all times, and the bass comes out of the speaker
- * in rings. It is out of reach: the shadow on the road is a long way down.
- * To attack it lurches forward and the bass goes off; beaten, it drifts home
- * on one fan, nose down, the party slumped over the bar.
+ * in rings; the shadow on the road is a long way down. To attack it lurches
+ * forward and the bass goes off; meanwhile the guest at the front throws a
+ * beer at whoever is in the way, with the next one in hand at once. Beaten,
+ * it drifts home on one fan, nose down, the party slumped over the bar.
  */
 const zweefbierfiets: ClipSet = {
   idle: {
@@ -99,6 +100,20 @@ const zweefbierfiets: ClipSet = {
     sign: { rot: rattle(16, 3) },
     jets: { sx: [[0, 1], [0.2, 0.5, 'hold'], [0.4, 1, 'hold'], [1, 1]] },
   }),
+
+  // Laid over whatever else plays. The beer leaves the hand at the top of the swing, when the shot flies off.
+  toss: {
+    loop: false,
+    seconds: 0.55,
+    tracks: {
+      guest_d: { rot: [[0, 0], [0.18, -6, 'out'], [0.36, 10, 'in'], [1, 0, 'inOut']] },
+      toss_arm: { rot: [[0, 0], [0.18, -85, 'out'], [0.36, 70, 'in'], [0.6, 35, 'out'], [1, 0, 'inOut']] },
+      toss_beer: {
+        sx: [[0, 1], [0.34, 0, 'hold'], [0.8, 0, 'hold'], [1, 1, 'backOut']],
+        sy: [[0, 1], [0.34, 0, 'hold'], [0.8, 0, 'hold'], [1, 1, 'backOut']],
+      },
+    },
+  },
 
   // Home on one fan, nose down; the party slumped over, the music off.
   die: limpHome(FANS, {

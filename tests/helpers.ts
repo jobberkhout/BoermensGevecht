@@ -39,6 +39,7 @@ export function place(s: SimState, side: Side, def: string, pos: number, hp?: nu
     turncoat: false,
     posing: false,
     leaveAt: 0,
+    tossAt: 0,
   };
   const units = s.sides[side].units;
   units.push(unit);

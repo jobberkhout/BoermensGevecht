@@ -70,11 +70,13 @@ export interface UnitDef {
    */
   scatter?: { unit: string; count: number };
   /**
-   * It hovers: enemy melee blows pass under it, unless they come from a super
-   * unit, and a rider rides under it. Throws, turrets and specials reach it.
-   * De Zweefbierfiets. See sim/step.ts.
+   * Present on a unit with someone aboard who throws while it fights: the beer
+   * bikes. Every `every` ticks, if the enemy's foremost unit (or, with none
+   * left, the base) is within `range`, a shot of `dmg` flies off, whether the
+   * unit itself is walking or hitting. Its own blows are those of its role.
+   * See TOSS in defs/balance.ts and sim/step.ts.
    */
-  hovers?: true;
+  toss?: { dmg: number; range: number; every: number; shot: ShotDef };
 }
 
 export interface TurretDef {

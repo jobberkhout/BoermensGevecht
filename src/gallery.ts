@@ -9,7 +9,7 @@
  */
 import { CLIPS } from './anim/clips/index.ts';
 import { sampleClip } from './anim/sample.ts';
-import { CLIP_NAMES, type Clip } from './anim/types.ts';
+import { CLIP_NAMES, OVERLAY_CLIPS, type Clip, type ClipSet } from './anim/types.ts';
 import { loadRig, rigIds, rigSource, rigUrl } from './render/assets.ts';
 import { applyX, applyY } from './rig/mat.ts';
 import { addPose, drawRig, makePose, solve, type Pose } from './rig/pose.ts';
@@ -58,8 +58,8 @@ function clipFigure(rig: Rig, name: string, clip: Clip, idle: Clip | undefined):
   }
   times.forEach((u, i) => {
     sampleClip(clip, u, rig.index, pose);
-    if (name === 'hit' && idle) {
-      // A hit is laid over whatever else plays; show it over the idle pose.
+    if (OVERLAY_CLIPS.includes(name as keyof ClipSet) && idle) {
+      // A hit or a toss is laid over whatever else plays; show it over the idle pose.
       sampleClip(idle, 0, rig.index, under);
       addPose(under, pose, 1);
       drawPose(ctx, rig, under, i * cellW, world);
@@ -98,7 +98,7 @@ function liveCanvas(rig: Rig, name: string, clip: Clip, idle: Clip | undefined):
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     sampleClip(clip, u, rig.index, pose);
-    if (name === 'hit' && idle) {
+    if (OVERLAY_CLIPS.includes(name as keyof ClipSet) && idle) {
       sampleClip(idle, 0, rig.index, under);
       addPose(under, pose, 1);
       drawPose(ctx, rig, under, 0, world);
@@ -236,7 +236,7 @@ async function showOne(id: string): Promise<void> {
     app.append(el('p', { className: 'muted', textContent: 'no clips registered for this rig' }));
     return;
   }
-  for (const name of CLIP_NAMES) {
+  for (const name of [...CLIP_NAMES, 'toss'] as const satisfies readonly (keyof ClipSet)[]) {
     const clip = clips[name];
     if (!clip) continue;
     app.append(el('h2', { textContent: name }), clipFigure(rig, name, clip, clips.idle));

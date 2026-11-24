@@ -277,6 +277,9 @@ export class Game {
         if (e.ranged) this.sound.whoosh();
         else if (e.filming) this.sound.shutter();
         break;
+      case 'toss':
+        this.sound.whoosh();
+        break;
       case 'hit':
         this.sound.hit();
         break;

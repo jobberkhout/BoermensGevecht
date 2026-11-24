@@ -48,6 +48,8 @@ export interface UnitView {
   idleTime: number;
   /** Seconds since the last blow, or a large number. */
   hitTime: number;
+  /** Seconds since one aboard last tossed something (the beer bikes), or a large number. */
+  tossTime: number;
   /** 1 right after a blow, fading to 0. */
   flash: number;
   hp: number;
@@ -261,6 +263,8 @@ export class BattleView {
   private noteIn: [number, number] = [0, 0];
   /** When each rider last shouted while riding through someone, by rider id, so it does not shout at every single one. */
   private riderShout = new Map<number, number>();
+  /** When each beer bike last shouted while tossing, by unit id: at the first toss, then now and then. */
+  private tossShout = new Map<number, number>();
   /** Whether the next unit a special calls in for each side says something: only the first of the family does. */
   private familyLine: [boolean, boolean] = [false, false];
   private seed = 12345;
@@ -324,8 +328,8 @@ export class BattleView {
             this.puffs.push({ x, y: y - 120, age: -0.05, life: 0.3, color: '#e6fbff', size: 30 });
           }
           const cries = linesFor('battleCry', e.def);
-          // The fatbike kid always has something to say, and so does the first cousin of the family; everyone else now and then.
-          const talks = def.rider ? true : def.summoned ? this.familyLine[e.side] : this.random() < 0.35;
+          // The fatbike kid and the beer bikes always have something to say, and so does the first cousin of the family; everyone else now and then.
+          const talks = def.rider || def.toss ? true : def.summoned ? this.familyLine[e.side] : this.random() < 0.35;
           if (def.summoned) this.familyLine[e.side] = false;
           if (cries.length > 0 && talks) {
             const row = def.rider ? RIDER_ROW : 1;
@@ -339,6 +343,19 @@ export class BattleView {
             v.hitTime = 0;
             v.flash = 1;
             this.puffs.push({ x: v.x + dirOf(v.side) * 14, y: rowY(v.row) - 55, age: 0, life: 0.25, color: '#fff7d6', size: 16 });
+          }
+          break;
+        }
+        case 'toss': {
+          // One of the party throws a beer: his arm goes, and the bike carries on with whatever it was doing.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.tossTime = 0;
+          const lines = linesFor('tossing', v.def.id);
+          const last = this.tossShout.get(e.id);
+          if (lines.length > 0 && (last === undefined || (this.time - last > 5 && this.random() < 0.4))) {
+            this.tossShout.set(e.id, this.time);
+            this.say(v.x, rowY(v.row) - 190, this.pick(lines), '#fffdf5', 1.3, 22);
           }
           break;
         }
@@ -737,7 +754,7 @@ export class BattleView {
       // Whoever poses this side's units, and the frame drawn over them while they do.
       const poser = s.sides[other(side)].units.map((u) => unitDef(u.def).poser).find((p) => p !== undefined);
       // A rider is drawn like a unit that is always on the move.
-      const riders = s.sides[side].riders.map((r): Unit => ({ ...r, act: 'walk', actTick: 0, stunUntil: 0, turncoat: false, posing: false, leaveAt: 0 }));
+      const riders = s.sides[side].riders.map((r): Unit => ({ ...r, act: 'walk', actTick: 0, stunUntil: 0, turncoat: false, posing: false, leaveAt: 0, tossAt: 0 }));
       for (const u of [...s.sides[side].units, ...riders]) {
         seen.add(u.id);
         const def = unitDef(u.def);
@@ -757,6 +774,7 @@ export class BattleView {
             lastPx: px,
             idleTime: this.random() * 3,
             hitTime: NEVER,
+            tossTime: NEVER,
             flash: 0,
             hp: u.hp,
             stunned: false,
@@ -786,6 +804,7 @@ export class BattleView {
         v.pose = u.posing && poser ? poser.rig : '';
         v.flash = Math.max(0, v.flash - dt * 5);
         v.hitTime += dt;
+        v.tossTime += dt;
         v.idleTime += dt;
 
         const p = v.puppet;
@@ -811,6 +830,12 @@ export class BattleView {
           const hitLen = p.clips.hit.seconds ?? 0.3;
           if (v.hitTime < hitLen) {
             sampleClip(p.clips.hit, v.hitTime / hitLen, p.rig.index, p.overlay);
+            addPose(p.pose, p.overlay, 1);
+          }
+          const toss = p.clips.toss;
+          const tossLen = toss?.seconds ?? 0.5;
+          if (toss && v.tossTime < tossLen) {
+            sampleClip(toss, v.tossTime / tossLen, p.rig.index, p.overlay);
             addPose(p.pose, p.overlay, 1);
           }
           solve(p.rig, p.pose, p.world);

@@ -87,7 +87,7 @@ function special(s: SimState, side: Side): Command | null {
     case 'hike': {
       // Best just before the enemy has to spend a lot: when it could modernize,
       // or sits on enough for a heavy unit. Once it has waited a while for that,
-      // it does it anyway: ten seconds of double prices always slow them down.
+      // it does it anyway: twenty seconds of double prices always slow them down.
       const needed = progressNeeded(s, other(side));
       const modernizing = needed !== null && foe.progress >= needed;
       const heavy = eraOf(foe.faction, foe.era).units[2]!;

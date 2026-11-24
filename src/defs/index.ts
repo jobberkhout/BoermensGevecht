@@ -55,6 +55,7 @@ export function artFor(factions: readonly FactionId[]): Set<string> {
         ids.add(unit.rig);
         if (unit.shot) ids.add(unit.shot.rig);
         if (unit.poser) ids.add(unit.poser.rig);
+        if (unit.toss) ids.add(unit.toss.shot.rig);
       }
     }
   }

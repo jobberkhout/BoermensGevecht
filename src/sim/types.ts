@@ -48,6 +48,8 @@ export interface Unit {
   posing: boolean;
   /** Tick at which it leaves the lane of its own accord, paying nobody: the day trippers when the ship's horn sounds. 0 for never. */
   leaveAt: number;
+  /** Tick from which the one aboard may toss again (the beer bikes, UnitDef.toss). 0 for right away. */
+  tossAt: number;
 }
 
 /**
@@ -219,6 +221,8 @@ export type SimEvent =
   | { t: 'attack'; side: Side; id: number }
   /** `filming`: it throws nothing and poses the enemy instead, Influencer-Ivy. */
   | { t: 'strike'; side: Side; id: number; ranged: boolean; filming?: true }
+  /** One aboard a beer bike tosses a beer, whatever the bike itself is doing. */
+  | { t: 'toss'; side: Side; id: number }
   | { t: 'hit'; side: Side; id: number; amount: number; pos: number }
   | { t: 'defeat'; side: Side; id: number; def: string; pos: number }
   /** `side` is paid for a unit beaten at `pos`. With `diverted` it was the other side that beat it, and the money was sent this way. */
