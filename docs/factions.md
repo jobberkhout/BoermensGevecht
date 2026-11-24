@@ -11,7 +11,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates | Concept, waiting for approval |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
-| [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Approved, next to build** |
+| [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Built** |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
 | [De Gasten](#8-de-gasten) | Three generations, from the factory floor to the wedding hall | **Built** |
@@ -120,7 +120,7 @@ would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Eight kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Nine kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
@@ -132,6 +132,8 @@ Every faction has three specials, one per era, each of a different kind. Eight k
 | Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
 | Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
 | Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
+| Summon | Units of your own pour out of your gate at once, outside the queue and whatever the unit cap; with a time limit, they go home together when it is up | De Familie-app; Cruiseschip legt aan, with the time limit |
+| Price hike | For a few seconds everything the enemy buys costs double: units, turrets, subsidie and modernizing | Huurverhoging voor de locals |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
@@ -147,12 +149,23 @@ unit of yours goes down, its bounty comes back to you. Nothing is taken from wha
 they keep the vooruitgang they earn, and it is not aimed at units, so a super unit has nothing to shrug
 off. Two sides that do it to each other on the same tick simply swap what they earn.
 
+**Price hike, as built** (24 November 2026, for De Toeristen). For ten seconds everything the enemy buys
+costs double: units, turrets, subsidie and modernizing. It starts on the tick after it is pressed, so what
+the enemy buys at the very moment it is pressed costs the old price whichever seat presses, and two sides
+that do it to each other both pay double. What is already in their queue was paid for. Their prices turn
+red on the buttons and the purse says "huur ×2" with the seconds left. It is not aimed at units, so a
+super unit has nothing to shrug off. Bots use it when the enemy could modernize or sits on the price of a
+heavy unit, or after waiting fifteen seconds.
+
+**Summon with a time limit, as built** (the same day). The day trippers of the cruise ship each carry the
+tick at which they leave. At the horn, whoever is still ashore leaves the lane at once and whoever had not
+come out of the gate yet stays on board; nobody is paid anything and nobody learns from it. The ship is
+drawn behind the base for as long as they are ashore.
+
 New kinds the rest of this plan asks for:
 
 | Kind | What it does | First used by |
 |---|---|---|
-| Summon | Units of your own pour out of your gate at once, outside the queue | **Built** for De Gasten (De Familie-app). De Toeristen's Cruiseschip legt aan adds a time limit: they go home after a while |
-| Price hike | For a few seconds everything the enemy buys costs double | De Toeristen: Huurverhoging voor de locals |
 | Slow | Enemy units crawl for a few seconds; they can still fight | De Camping: Zwarte Zaterdag |
 | Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
@@ -187,6 +200,8 @@ on the title card.
 | Achterhoek | taai en traag | +15% hit points, 10% slower, 20% longer between blows | +15% damage, 20% longer between throws | as the light unit | +15% hit points, 10% slower |
 | Havermelkelite | snel en licht | 15% faster, 15% fewer hit points, 10% cheaper | throws 10% further, 10% softer, 10% cheaper | 15% faster, 10% fewer hit points, 10% cheaper | 10% faster, 10% fewer hit points, 10% cheaper |
 | De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows, 10% dearer | the same, and 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
+| De Gasten | met de hele familie | 15% cheaper, trained in 80% of the time, 15% fewer hit points | +10% hit points, 10% longer between throws | +10% hit points, 10% slower (the fatbike has numbers of its own) | +10% hit points, 5% slower |
+| De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -328,6 +343,19 @@ What to know before the balance pass:
   the fatbike's old numbers (230, 288 hit points) they win 22% against Amsterdam and 29% against the
   farmers, about the same as with the new ones. Why faster walking hurts them, and helps Amsterdam, was
   not looked into.
+
+- **De Toeristen**, measured on 24 November 2026. As the brief had them (speed 125, damage 85, De
+  Zweefbierfiets at 60% of a heavy's hit points) they won 2% against Amsterdam, 7% against the farmers,
+  19% against De Zuidas and 15% against De Gasten with both sides buying a mix. Taken apart: they won
+  most matches when both sides stayed in 1975 and lost in the two later eras; the one rule that cost most
+  was the Zweefbierfiets' low hit points (hovering itself is worth a lot: without it they lost every
+  match held in 2050). As shipped, with every unit 10% cheaper and the Zweefbierfiets at 85%, both seats
+  together: 43% against Amsterdam, 55% against the farmers, 58% against De Zuidas and 40% against De
+  Gasten with a mix; over every bot strategy 37%, 45%, 60% and 48%. Against itself 50%, no stalls. The
+  bots reacted chaotically to small steps (8% cheaper instead of 10% dropped three pairings by 15
+  to 20 points), so this was not fitted further. Bots buy Influencer-Ivy as an ordinary ranged unit, in
+  two of every five purchases, though she does no damage; how much posing is worth between people is
+  not measured.
 
 ## The factions
 
@@ -789,7 +817,8 @@ enemy unit once.
 ### 5. De Toeristen
 
 Everyone's shared enemy: on the bike path, in the tulip field, behind an umbrella, in the house next door.
-**Approved by the owner on 24 November 2026, with changes**, and next to build. The owner's direction:
+**Approved by the owner on 24 November 2026, with changes, and built the same day** (see "As built" at the
+end of this section for what the numbers came to). The owner's direction:
 
 > "I like the concept, but they should be even more annoying. add annoying influencers, Air BNBs, hike the
 > price for the enemy. The cruise ship special is funny, especially with a funny art. The units should move
@@ -1000,6 +1029,23 @@ lost tourist.
 6. Units with rules of their own: Influencer-Ivy, Paraplu-Pam (dearer, slower, weak scattered group) and
    De Zweefbierfiets.
 7. Still mine to fit while building: the exact numbers. Bots are used only against plain lopsidedness.
+
+**As built** (24 November 2026). Everything above went in as written, except these numbers, which the
+bots were used for because with them De Toeristen won one match in ten with both sides buying a mix:
+
+- The temperament got a third part: every unit costs 10% less (speed 125, damage 85, price 90). The
+  trait stays "snel en overal": there are a lot of them.
+- De Zweefbierfiets has 85% of a heavy's hit points, not about 60%. At 60% throws, turrets and specials
+  brought it down too fast; hovering itself turned out to be worth a lot.
+- Paraplu-Pam is the slowest unit De Toeristen have apart from MS Kolossaal, which walks at the super
+  units' shared speed: a hair slower still.
+- Two names were made to fit their buttons: the turret of 1975 is called De Kaartenmolen, because
+  "Ansichtkaartenmolen" is too long for any line of its button, and "Cruiseschip legt aan" may break as
+  "Cruise-schip" there.
+- The numbers that stayed: Ivy's posing halves (`POSE`), Pam costs 360 and walks at 60% of a schild's
+  speed, her four lost tourists have a quarter of a light unit's hit points and half its damage
+  (`SCATTER`), the eight day trippers half a light unit's hit points and damage at 1.6 times its speed for
+  twenty seconds, and the rent doubles for ten seconds (`SPECIAL` in `src/defs/balance.ts`).
 
 ### 6. De Ambtenarij
 
@@ -1569,8 +1615,8 @@ battle, and one pull request per faction.
    first new kind of special, the convert.~~ Done.
 3. ~~**De Gasten.** The owner's own idea, and the first faction with a unit that does something of its
    own: the fatbike, a rider.~~ Done.
-4. **De Toeristen.** Next, at the owner's choice (24 November 2026): three units with rules of their own,
-   the summon with a time limit, and the price hike.
+4. ~~**De Toeristen.** At the owner's choice (24 November 2026): three units with rules of their own,
+   the summon with a time limit, and the price hike.~~ Done.
 5. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
 6. **Rotterdam.** Amsterdam's rival, with the container as the block.
 7. **De Camping.**
