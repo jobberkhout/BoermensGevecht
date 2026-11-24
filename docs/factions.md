@@ -350,12 +350,12 @@ What to know before the balance pass:
   most matches when both sides stayed in 1975 and lost in the two later eras; the one rule that cost most
   was the Zweefbierfiets' low hit points (hovering itself is worth a lot: without it they lost every
   match held in 2050). As shipped, with every unit 10% cheaper and the Zweefbierfiets at 85%, both seats
-  together: 43% against Amsterdam, 55% against the farmers, 58% against De Zuidas and 40% against De
-  Gasten with a mix; over every bot strategy 37%, 45%, 60% and 48%. Against itself 50%, no stalls. The
-  bots reacted chaotically to small steps (8% cheaper instead of 10% dropped three pairings by 15
-  to 20 points), so this was not fitted further. Bots buy Influencer-Ivy as an ordinary ranged unit, in
-  two of every five purchases, though she does no damage; how much posing is worth between people is
-  not measured.
+  together: 39% against Amsterdam, 47% against the farmers, 61% against De Zuidas and 41% against De
+  Gasten with a mix; over every bot strategy 41%, 52%, 67% and 54%. No stalls. The bots reacted
+  chaotically to small steps (8% cheaper instead of 10% dropped three pairings by 15 to 20 points), so
+  this was not fitted further. Influencer-Ivy does no damage and a second one in reach adds nothing, so
+  every bot, the computer opponent included, now keeps one out and buys a light unit instead of a second.
+  How much posing is worth between people is not measured.
 
 ## The factions
 

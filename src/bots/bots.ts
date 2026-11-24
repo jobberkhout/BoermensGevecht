@@ -178,7 +178,11 @@ export function brain(style: Style): Bot {
       if (!out && canDo(s, side, BUY.shield)) return BUY.shield;
     }
 
-    const role = style.units[bought % style.units.length]!;
+    let role = style.units[bought % style.units.length]!;
+    // A ranged unit that poses the enemy (Influencer-Ivy) does no damage, and a second one in
+    // reach adds nothing: with one out or in training, a light unit goes instead.
+    const thrower = eraOf(me.faction, me.era).units[1];
+    if (role === 'ranged' && thrower?.poser && [...me.units, ...me.queue].some((u) => u.def === thrower.id)) role = 'light';
     // A rider is sent when it can get through: no door on the lane to crash into, and only a few
     // enemies to ride past. Otherwise it is skipped this round, as a person would. One at a time.
     const def = eraOf(me.faction, me.era).units.find((u) => u.role === role);
