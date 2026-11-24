@@ -170,7 +170,7 @@ The twenty-four specials at a glance:
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Tijdslot verlopen (lockout) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
 | De Camping | Zwarte Zaterdag (slow) | Na tienen is het stil! (stun) | De Minidisco (buff) |
-| De Gasten | Eerst thee (heal) | De Toeterstoet (stun) | Nee is nee (snipe) |
+| De Gasten | Eerst thee (heal) | De Toeterstoet (wave) | De Familie-app (summon) |
 
 The kinds are a first assignment by theme. Which special gets which kind can still be shuffled when the
 balance is looked at; the names and the drawings stay.
@@ -1193,7 +1193,7 @@ back." His grandson: "I feel Dutch."
 | De Dönerbaas, "Met alles?" | The man at the counter | The owner's idea (23 November 2026), with an inside source the owner pointed to: Najib Amhali, a Moroccan-Dutch comedian, whose scene in the shoarmazaak is among his best-known sketches (the listing of his *30 jaar on stage*). No text source describes the scene, so nothing is taken from it but the setting. Döner rather than shoarma, because döner is Turkish | Turkish-Dutch |
 | De Feestzaal, De Toeterstoet, De Trouwfilmer | 650 guests; honk so everyone knows; the family watches the film | VPRO; Yerden; Laroussi | Turkish-Dutch, and the convoy both |
 | De Kapperszaak, De Kapbot | Come for the talk | Barbers in the Brussels Times; Omroep Brabant | Turkish-Dutch |
-| Nee is nee | The mother's no | Mothers as their children play them: Nasrdin Dchar, *Meskina*. The look itself is mine | both |
+| De Familie-app, De Hologramneef | One message in the group chat and everyone comes | Mine, from the faction's own "met de hele familie"; the owner picked it on 24 November 2026 in place of Nee is nee (a mother's look, after Nasrdin Dchar's *Meskina*) | both |
 | De Fatbike | Not a background joke at all | Every Dutch teenager; see the rule | the grandson |
 | "Wat kijk je?" | The fatbike kid's cheek | **The owner's decision**, as a well-known line. My research found no inside source for it, only the outsiders' angry street kid. Here the fatbike kid says it, who belongs to no background: cheek, never a threat | the grandson |
 | Mo-Tron | The worker of 1975 never stopped | The owner's name, softened from MohammedTron; the robot is mine, built on the plan to go back | both: "Mo" is what the street calls him |
@@ -1255,12 +1255,14 @@ the lane is patched up.
 | Schild | `de_trouwfilmer` | De Trouwfilmer | The wedding cameraman behind a light panel the size of a door. Turrets bounce off the panel; he keeps filming, because the family will watch every minute of it | humanoid |
 | Turret | `turret_kapperszaak` | De Kapperszaak | The barber and two men on the waiting bench, who came for the talk more than for the cut. They throw hot towels | static |
 | Its projectile | `shot_handdoek` | | A rolled hot towel, steaming | static |
-| Special | `special_toeterstoet` | De Toeterstoet | A line of cars with ribbons and balloons on the bonnets, honking. See below | vehicle |
+| Special | `special_toeterstoet` | De Toeterstoet | A line of cars with ribbons and balloons on the bonnets, honking. See below | static |
 | Base | `base` | | De Feestzaal: a wedding hall for 650 with fairy lights along the gutter, a red carpet at the door and a row of decorated cars waiting outside | static |
 
-Special, **De Toeterstoet** (stun): a wedding convoy comes past, honking so that everyone knows. Enemy units
-stop and watch it go by: for five seconds they can neither walk nor fight. The cars carry ribbons and
-balloons in the faction's colours, never a national flag.
+Special, **De Toeterstoet** (wave): a wedding convoy honks its way down the whole lane, and every enemy unit
+in its way takes a knock, as from the Achterhoek's Trekkerkolonne and with the same numbers. The cars carry
+ribbons and balloons in the faction's colours, never a national flag. Until 24 November 2026 it was a stun
+(the enemy stopped to watch); the owner: "toeterstoet is nicer to have a similar effect as the trekker
+cologne".
 
 **2050: de achterkleinkinderen.** Mine, extrapolated from the jokes above; none of it is sourced.
 
@@ -1272,12 +1274,20 @@ balloons in the faction's colours, never a national flag.
 | Heavy | `zweefimperiaal` | De Zweefimperiaal | The summer car of the future, hovering, with a roof rack higher than ever: suitcases, a fridge, a robot vacuum, and the blue bathtub, kept all these years | vehicle |
 | Turret | `turret_theeterras` | Het Theeterras | Three generations on a floating terrace, each with their own tea. They flick sugar cubes | static |
 | Its projectile | `shot_suikerklontje` | | A sugar cube | static |
-| Special | `special_nee_is_nee` | Nee is nee | A mother's face fills the sky, with one raised eyebrow. See below | static |
+| Special | `special_familie_app` | De Familie-app | A big hologram phone over a projector disc, the family group chat on it: messages popping in, a row of avatars, a red badge with 99+. See below | static |
+| Called in by it | `holoneef` | De Hologramneef | A cousin in a hoodie who joins by hologram: see-through cyan, scanlines, a projector disc at his feet. Swats with his phone on a selfie stick | humanoid |
 | Base | `base` | | Het Familiehuis: a tall narrow house with a floor for every generation and a packed car parked on the roof, ready for next year | static |
 | **Super unit** | `mo_tron` | Mo-Tron | Mo, the night-shift worker of 1975, now a great-grandfather in a colossal walking robot. A roof rack on his shoulders, the calendar on his chest, still crossing off the days | free |
 
-Special, **Nee is nee** (snipe): one look and one "no", and the toughest enemy unit on the lane shrinks
-back; whatever is left of the look goes to the next toughest. The mother is never seen hitting anyone.
+Special, **De Familie-app** (summon): one message in the family group chat and everyone comes. Four
+hologram cousins come out at the gate and fight as light units of 2050 with the faction's temperament.
+They cost nothing, pay no bounty and teach nobody anything when beaten, and they come whatever the unit
+cap, ahead of anyone in training, as fast as the rows make room. The first special of its kind in the game
+(`summon` in `src/sim/specials.ts`). The owner asked on 24 November 2026 for a special of the future that
+fits better than Nee is nee and is "also not in the game yet", and picked this one of three (the others: a
+hologram nazar that keeps the army from harm for five seconds, and wedding gold for every unit on the
+lane). Nee is nee, a mother's look that worked like Het Algoritme, is gone with its drawing. De Toeristen's
+Cruiseschip, further up, was also planned as a summon; it can share the kind or take another.
 
 **The fatbike: the first unit that does something of its own**
 
@@ -1375,8 +1385,8 @@ Ordinary Dutch, as these families speak it. No accent and no words from a prayer
 | Era | Walking out | Beaten |
 |---|---|---|
 | 1975 | "Twee jaar, dan terug!" · "Nachtdienst!" · "Eerst thee." · "Ik schrijf het op." | "Volgend jaar terug." · "De koffer staat klaar." · "Mijn rug." · "Even naar huis bellen." |
-| 2025 | "Eet eerst wat!" · "Met alles?" · "Iedereen moet het zien!" · "Volgend jaar terug!"; the fatbike kid only: "Ik rij maar vijfentwintig, echt!" · "Wat kijk je?" | "Neem wat mee voor onderweg." · "Wie filmt dit?" · "Volgend jaar terug." · "Knoflooksaus op."; the fatbike kid only: "Mijn band is lek." |
-| 2050 | "Veertig minuten naar het zuiden!" · "Eerst de prijzen vergelijken." · "Blijf je eten?" · "Volgend jaar terug!" | "Volgend jaar." · "Accu leeg." · "Mijn notitieboekje!" · "Eerst thee." |
+| 2025 | "Eet eerst wat!" · "Met alles?" · "Iedereen moet het zien!" · "Volgend jaar terug!"; the fatbike kid only, every time he leaves the gate: "Wat kijk je?" (two times in three) · "Ik rij maar vijfentwintig, echt!", and "Wat kijk je?" at whoever he rides through, about once a second | "Neem wat mee voor onderweg." · "Wie filmt dit?" · "Volgend jaar terug." · "Knoflooksaus op."; the fatbike kid only: "Mijn band is lek." |
+| 2050 | "Veertig minuten naar het zuiden!" · "Eerst de prijzen vergelijken." · "Blijf je eten?" · "Volgend jaar terug!"; the first hologram cousin out: "Ik ben er!" · "Wie had er gebeld?" · "Ik zag het in de app!" · "Ben ik te laat?" | "Volgend jaar." · "Accu leeg." · "Mijn notitieboekje!" · "Eerst thee."; a hologram cousin: "Verbinding verbroken." · "Ik zit in een tunnel!" · "Batterij bijna leeg." |
 
 **Flag and backdrop**
 
@@ -1437,6 +1447,11 @@ name, the fatbike's rule, its line and the super unit's name. Five of the six qu
    since the word can be read as the immigrant who stayed. De Gastvrouw becomes the light unit and swats
    with a slipper; the new ranged unit is De Dönerbaas, who throws pita breads. The barbershop stays the
    turret.
+8. **Two specials.** Changed by the owner on 24 November 2026, after playing: De Toeterstoet sweeps the lane
+   like the Trekkerkolonne instead of stopping the enemy, and Nee is nee made way for De Familie-app, the
+   owner's pick from three new ideas. In the same message the owner asked for more "Wat kijk je?" from the
+   fatbike kid: he now says something every time he leaves the gate, mostly that, and says it at whoever he
+   rides through.
 
 ## Suggested order
 

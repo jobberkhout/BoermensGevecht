@@ -804,6 +804,44 @@ body {
   text-align: center;
 }
 
+/* Who plays this side: a person, or the computer. The special key switches it. */
+.side .player {
+  display: flex;
+  align-items: center;
+  gap: 0.4cqw;
+  margin: 0 0 0.6cqw;
+  padding: 0.2cqw 0.6cqw;
+  border: 0.22cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: #fff;
+  box-shadow: 0 0.2cqw 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.1cqw;
+  cursor: pointer;
+}
+
+.side[data-player='computer'] .player {
+  background: var(--gold);
+}
+
+.side .player kbd {
+  min-width: 1.5cqw;
+  padding: 0.05cqw 0.3cqw;
+  border: 0.16cqw solid var(--ink);
+  border-radius: 0.4cqw;
+  background: #fff;
+  font: inherit;
+  font-size: 0.95cqw;
+  text-align: center;
+}
+
+.side .player:active {
+  transform: translateY(0.16cqw);
+  box-shadow: 0 0.06cqw 0 var(--ink);
+}
+
 .go:active {
   transform: translateY(0.26cqw);
   box-shadow: 0 0.14cqw 0 var(--ink);

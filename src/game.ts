@@ -1,5 +1,6 @@
 import { QUEUE_MAX, TPS } from './defs/balance.ts';
 import { Sound } from './audio/sound.ts';
+import { THINK_EVERY, computerPlayer, type Bot } from './bots/bots.ts';
 import { DEFAULT_FACTIONS, FACTIONS, FACTION_IDS, artFor, specialDef, unitDef } from './defs/index.ts';
 import type { FactionDef, FactionId } from './defs/types.ts';
 import { Renderer } from './render/renderer.ts';
@@ -9,9 +10,9 @@ import { canDo, progressNeeded, subsidyCost, turretPlan } from './sim/commands.t
 import { createMatch } from './sim/create.ts';
 import { kraanDicht } from './sim/overtime.ts';
 import { step } from './sim/step.ts';
-import type { Replay, Side, SimEvent, SimState, Stamped } from './sim/types.ts';
+import { SIDES, type Replay, type Side, type SimEvent, type SimState, type Stamped } from './sim/types.ts';
 import { Hud } from './ui/hud.ts';
-import { bindKeys, commandOf, type Action } from './ui/input.ts';
+import { actionOf, bindKeys, commandOf, type Action } from './ui/input.ts';
 import { NL } from './ui/nl.ts';
 import { Screens } from './ui/screens.ts';
 
@@ -27,6 +28,8 @@ export class Game {
   paused = false;
   /** The faction each player has picked on the title card: left, right. */
   picks: [FactionId, FactionId] = [...DEFAULT_FACTIONS];
+  /** Which sides the computer plays, as switched on the title card. Someone alone hands it one side. */
+  computer: [boolean, boolean] = [false, false];
 
   private readonly renderer: Renderer;
   private readonly sound: Sound;
@@ -35,6 +38,8 @@ export class Game {
   private view: BattleView;
   private pending: Stamped[] = [];
   private log: Stamped[] = [];
+  /** The computer's player for each side it plays in this match, fresh for every match. */
+  private bots: [Bot | null, Bot | null] = [null, null];
   private events: SimEvent[] = [];
   private seed = 1;
   private acc = 0;
@@ -63,9 +68,10 @@ export class Game {
       confirm: () => this.confirm(),
       resume: () => this.togglePause(),
       pick: (side, by) => this.pick(side, by),
+      toggle: (side) => this.toggleComputer(side),
       back: () => this.back(),
     });
-    this.screens.setFactions(this.picks);
+    this.screens.setFactions(this.picks, this.computer);
     bindKeys({
       act: (side, action) => this.press(side, action),
       pause: () => this.togglePause(),
@@ -119,11 +125,19 @@ export class Game {
   choose(side: Side, faction: FactionId): Promise<void> {
     if (this.phase !== 'title') return Promise.resolve();
     this.picks[side] = faction;
-    this.screens.setFactions(this.picks);
+    this.screens.setFactions(this.picks, this.computer);
     // Behind the title card stands the empty battlefield of the two that were picked.
     this.state = createMatch(this.seed, this.picks);
     this.view = new BattleView(this.renderer.rig);
     return this.loadArt();
+  }
+
+  /** On the title card: hands a side to the computer, or back to a person. */
+  toggleComputer(side: Side, on = !this.computer[side]): void {
+    if (this.phase !== 'title') return;
+    this.computer[side] = on;
+    this.sound.click();
+    this.screens.setFactions(this.picks, this.computer);
   }
 
   /** Enter: start from the title, or play again after a match. */
@@ -141,6 +155,8 @@ export class Game {
     this.view = new BattleView(this.renderer.rig);
     this.pending = [];
     this.log = [];
+    this.bots = [this.computer[0] ? computerPlayer() : null, this.computer[1] ? computerPlayer() : null];
+    this.hud.setComputer(this.computer);
     this.acc = 0;
     this.paused = false;
     this.phase = 'playing';
@@ -191,9 +207,12 @@ export class Game {
       // On the title card two of each player's keys step through the factions.
       if (action === 'turret') this.pick(side, -1);
       else if (action === 'subsidy') this.pick(side, 1);
+      else if (action === 'special') this.toggleComputer(side);
       return;
     }
     if (this.phase !== 'playing' || this.paused) return;
+    // The computer's side is the computer's: its keys and buttons do nothing.
+    if (this.bots[side]) return;
     const cmd = commandOf(action);
     if (canDo(this.state, side, cmd)) {
       this.pending.push({ tick: this.state.tick, side, cmd });
@@ -228,6 +247,16 @@ export class Game {
 
   /** One tick of the rules, with everything that was pressed since the last one. */
   tick(): void {
+    // The computer thinks a few times a second, the two sides on different beats, and presses what it chose.
+    for (const side of SIDES) {
+      const bot = this.bots[side];
+      if (!bot || (this.state.tick + side * (THINK_EVERY / 2)) % THINK_EVERY !== 0) continue;
+      const cmd = bot(this.state, side);
+      if (cmd && canDo(this.state, side, cmd)) {
+        this.pending.push({ tick: this.state.tick, side, cmd });
+        this.hud.pulse(side, actionOf(cmd));
+      }
+    }
     const cmds = this.pending.map((c) => ({ ...c, tick: this.state.tick }));
     this.pending = [];
     this.log.push(...cmds);

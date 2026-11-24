@@ -96,6 +96,12 @@ export interface SideState {
   units: Unit[];
   /** Riders on the lane: at most one. They are not units and do not count towards the unit cap. */
   riders: Rider[];
+  /**
+   * Units a special called in that have not come out yet, by definition id.
+   * They come out at the gate before the queue, as soon as a row has room,
+   * whatever the unit cap.
+   */
+  arrivals: string[];
   queue: QueueItem[];
   turrets: (Turret | null)[];
   /** Tick from which the special can be used. */
@@ -218,6 +224,7 @@ export type SimEvent =
   | { t: 'converted'; side: Side; id: number; def: string; pos: number }
   /** For the next `ticks` ticks whatever `side` earns is paid to the other side instead. */
   | { t: 'diverted'; side: Side; ticks: number }
+  | { t: 'summoned'; side: Side; count: number }
   /** The regular income of the other side was paid to `side` instead. */
   | { t: 'skimmed'; side: Side; amount: number }
   /** An enemy special had no effect on these units of `side`. */

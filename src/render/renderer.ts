@@ -674,9 +674,12 @@ export class Renderer {
       }
       ctx.globalAlpha = 1;
       if (rig) {
+        // A vehicle rolls by how far it came; a drawing with only an idle loop (the Toeterstoet) plays that in time.
         const walk = CLIPS[rig.id]?.walk;
-        const u = walk ? ((travelled + i * 61) / (walk.stride ?? 150)) % 1 : 0;
-        this.drawLoose(rig, cx, ground, dir, rowScale(row), walk, u);
+        const idle = CLIPS[rig.id]?.idle;
+        const clip = walk ?? idle;
+        const u = walk ? ((travelled + i * 61) / (walk.stride ?? 150)) % 1 : idle ? ((time + i * 0.37) / (idle.seconds ?? 1)) % 1 : 0;
+        this.drawLoose(rig, cx, ground, dir, rowScale(row), clip, u);
       } else {
         ctx.fillStyle = INK;
         ctx.beginPath();

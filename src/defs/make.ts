@@ -62,6 +62,12 @@ export interface EraLook {
   /** The fourth unit: the schild in the first two eras, the super unit in the last. */
   shield?: string;
   super?: string;
+  /**
+   * The drawing of whoever a summoning special calls in. It comes as
+   * `<era id>.summoned`: a light unit of the era with the faction's temperament,
+   * free, and not for sale.
+   */
+  summoned?: string;
   turret: string;
   turretShot: Look;
   special: SpecialKind;
@@ -100,6 +106,13 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     if (!look.super) throw new Error(`${id}: this era has a super unit, so it needs a drawing for one`);
     units.push(makeUnit(`${id}.super`, 'super', art(look.super), twisted(stats.super, temper.super)));
   }
+  const extras: UnitDef[] = [];
+  if (look.special.kind === 'summon') {
+    if (!look.summoned) throw new Error(`${id}: its special calls units in, so it needs a drawing for them`);
+    if (look.special.unit !== `${id}.summoned`) throw new Error(`${id}: the special must call in ${id}.summoned`);
+    const light = twisted(stats.light, temper.light);
+    extras.push({ ...makeUnit(`${id}.summoned`, 'light', art(look.summoned), { ...light, cost: 0, buildTicks: 0, bounty: 0 }), summoned: true });
+  }
   return {
     id,
     key: look.key,
@@ -109,6 +122,7 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     progressNeeded: stats.progressNeeded,
     eraUpCost: stats.eraUpCost,
     units,
+    extras,
     turret: makeTurret(`${id}.turret`, art(look.turret), stats.turret, withArt(look.turretShot)),
     special,
   };

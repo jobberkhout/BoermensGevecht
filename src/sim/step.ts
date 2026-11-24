@@ -101,6 +101,11 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
     me.progress += PROGRESS.perInterval;
   }
 
+  // Whoever a special called in comes out first, unit cap or not, as long as a row has room at the gate.
+  for (let row = freeRow(me.units); me.arrivals.length > 0 && row >= 0; row = freeRow(me.units)) {
+    walkOut(s, side, me.arrivals.shift()!, row, events);
+  }
+
   const head = me.queue[0];
   if (!head) return;
   if (head.left > 0) {
@@ -119,6 +124,12 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
   if (row < 0) return;
 
   me.queue.shift();
+  walkOut(s, side, def.id, row, events);
+}
+
+/** A unit leaves its own gate in `row` and joins the ranks. */
+function walkOut(s: SimState, side: Side, defId: string, row: number, events: SimEvent[]): void {
+  const def = unitDef(defId);
   const unit: Unit = {
     id: s.nextId++,
     def: def.id,
@@ -131,7 +142,7 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
     stunUntil: 0,
     turncoat: false,
   };
-  me.units.push(unit);
+  s.sides[side].units.push(unit);
   events.push({ t: 'spawn', side, id: unit.id, def: def.id });
 }
 
@@ -415,6 +426,7 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       foe.progress += Math.floor((def.cost * PROGRESS.killPercent) / 100);
       me.progress += Math.floor((def.cost * PROGRESS.lossPercent) / 100);
       events.push({ t: 'defeat', side, id: who.id, def: who.def, pos: who.pos });
+      if (bounty === 0) return; // a unit a special called in pays nothing
       if (to === side) events.push({ t: 'gold', side, amount: bounty, pos: who.pos, diverted: true });
       else events.push({ t: 'gold', side: to, amount: bounty, pos: LANE - who.pos });
     };

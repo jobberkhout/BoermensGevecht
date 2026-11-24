@@ -18,7 +18,7 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
   const me = s.sides[side];
   const foe = other(side);
   events.push({ t: 'special', side, id: def.id });
-  if (def.kind !== 'buff' && def.kind !== 'heal' && def.kind !== 'divert') {
+  if (def.kind !== 'buff' && def.kind !== 'heal' && def.kind !== 'divert' && def.kind !== 'summon') {
     // Aimed at the enemy's units: whoever shrugs specials off gets to say so.
     const unmoved = s.sides[foe].units.filter((u) => unitDef(u.def).immune).map((u) => u.id);
     if (unmoved.length > 0) events.push({ t: 'shrugged', side: foe, ids: unmoved });
@@ -71,6 +71,12 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       // that do it to each other on the same tick simply swap earnings.
       s.sides[foe].divertedUntil = s.tick + def.ticks;
       events.push({ t: 'diverted', side: foe, ticks: def.ticks });
+      return;
+    case 'summon':
+      // The whole family is on its way. They come out at the gate in the
+      // economy step, ahead of anyone in training, as rows make room.
+      for (let i = 0; i < def.count; i++) me.arrivals.push(def.unit);
+      events.push({ t: 'summoned', side, count: def.count });
       return;
     case 'snipe': {
       // The outrage starts with the toughest enemy unit and works its way down

@@ -156,7 +156,7 @@ Every era has its own special, and the three must be of different kinds. These k
 
 | Kind | What it does | What its drawing is, and how the game uses it |
 |---|---|---|
-| `wave` | Sweeps the lane from your gate and hits every enemy unit once | A rig with a `walk` clip (driven by `stride`), about 190 wide and 130 tall, feet at y = 0. Drawn three times behind each other, one per row. Examples: `achterhoek/2025/special_kolonne` (a `vehicle`), `zuidas/2050/special_flitskrach` (`free`) |
+| `wave` | Sweeps the lane from your gate and hits every enemy unit once | A rig with a `walk` clip (driven by `stride`), about 190 wide and 130 tall, feet at y = 0. Drawn three times behind each other, one per row. A `static` scene with only an `idle` clip works too; it plays in time as it goes. Examples: `achterhoek/2025/special_kolonne` (a `vehicle`), `gasten/2025/special_toeterstoet` (`static`, `idle`) |
 | `stun` | Enemy units can neither walk nor fight for a few seconds | A `static` scene with an `idle` clip, about 156 wide and 118 tall, standing on the road at y = 0. It appears in front of the units it stops, facing them. Example: `havermelk/2025/special_blokkade` |
 | `buff` | Your units hit harder and move faster for a few seconds | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet. It pops up beside your own base, on the verge behind the road, for as long as the buff lasts. Examples: `achterhoek/1975/special_hoken`, `zuidas/1975/special_gong` |
 | `heal` | Your units on the lane get their hit points back | A small `static` drawing around (0,0), about 50 by 48. Three of them float up from every healed unit. Example: `havermelk/1975/special_lovein` |
@@ -164,6 +164,7 @@ Every era has its own special, and the three must be of different kinds. These k
 | `snipe` | Damage that starts with the toughest enemy unit and carries on to the next | A `static` drawing around (0,0), about 120 by 120. It drops out of the sky onto each victim. Example: `havermelk/2050/special_algoritme` |
 | `convert` | The toughest enemy unit changes sides | A `static` drawing around (0,0), about 120 by 120. It drops onto the bought unit. Example: `zuidas/2025/special_overname` |
 | `divert` | For a few seconds everything the enemy earns is paid to you instead: their income and their bounties | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, like the one of a `buff`: it stands beside your own base for as long as it lasts. It needs a marker `slot` where the money goes in; the game makes coins fly there from the enemy's purse and from every unit they beat. Example: `zuidas/2050/special_succesfee` |
+| `summon` | A number of free units of your own come out at your gate, whatever the unit cap, ahead of anyone in training. They pay no bounty when beaten | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `buff`. **And one more drawing**: the unit it calls in, a `humanoid` like a light unit, named in the era's `summoned` field; it comes as `<era id>.summoned` with the numbers of the era's light unit and the faction's temperament. So a faction with a summon has 30 drawings. Example: `gasten/2050/special_familie_app` with `gasten/2050/holoneef` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
@@ -176,9 +177,9 @@ is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
-`docs/factions.md` plans four more kinds: slow, summon, block and lockout. If your faction needs one, you
-build the kind. `convert` and `divert` were added that way; search the code for `convert` and `converted`,
-or for `divert` and `diverted`, and you have a complete example of each. The places, in order:
+`docs/factions.md` plans three more kinds: slow, block and lockout. If your faction needs one, you
+build the kind. `convert`, `divert` and `summon` were added that way; search the code for `convert` and
+`converted`, `divert` and `diverted`, or `summon` and `summoned`, and you have a complete example of each. The places, in order:
 
 1. `src/defs/types.ts`: a new member of the `SpecialDef` union, with the fields it needs.
 2. `src/defs/balance.ts`: its numbers, under `SPECIAL`.

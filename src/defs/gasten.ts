@@ -38,7 +38,7 @@ export const gasten: FactionDef = {
       turretShot: { rig: 'shot_wekker', arc: 70, spin: 1.5, splash: '#f2d14b' },
       special: { kind: 'heal', healPercent: SPECIAL.thee.healPercent, rig: 'special_thee' },
     }, TEMPER),
-    // The wedding and the barber: 650 guests, a host with a slipper, the döner man, and a grandson on a fatbike.
+    // The wedding and the barber: 650 guests, a host with a slipper, the döner man, a grandson on a fatbike, and the convoy.
     makeEra('gs', 'gasten', {
       key: '2025',
       year: 2025,
@@ -50,9 +50,9 @@ export const gasten: FactionDef = {
       shield: 'de_trouwfilmer',
       turret: 'turret_kapperszaak',
       turretShot: { rig: 'shot_handdoek', arc: 60, spin: 1, splash: '#ffffff' },
-      special: { kind: 'stun', ticks: SPECIAL.toeterstoet.ticks, rig: 'special_toeterstoet' },
+      special: { kind: 'wave', rig: 'special_toeterstoet', speed: SPECIAL.toeterstoet.speed, dmg: SPECIAL.toeterstoet.dmg },
     }, TEMPER),
-    // The great-grandchildren: robots at the barber, forty minutes to the south, and still next year back.
+    // The great-grandchildren: robots at the barber, forty minutes to the south, and the whole family in one app.
     makeEra('gs', 'gasten', {
       key: '2050',
       year: 2050,
@@ -63,7 +63,8 @@ export const gasten: FactionDef = {
       super: 'mo_tron',
       turret: 'turret_theeterras',
       turretShot: { rig: 'shot_suikerklontje', arc: 80, spin: 2, splash: '#ffffff' },
-      special: { kind: 'snipe', dmg: SPECIAL.neeIsNee.dmg, rig: 'special_nee_is_nee' },
+      special: { kind: 'summon', unit: 'gs.2050.summoned', count: SPECIAL.familieApp.count, rig: 'special_familie_app' },
+      summoned: 'holoneef',
     }, TEMPER),
   ],
 };

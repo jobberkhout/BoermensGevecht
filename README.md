@@ -15,6 +15,9 @@ that is all: one file, nothing to install, no internet needed. Any current brows
 in the engines of Chrome and Edge, Firefox, and Safari. Two players share one keyboard; the keys are on the
 title screen, and so is the choice of factions: any two can play each other, the same one twice too.
 
+**Alone?** On the title screen each side has a switch, Speler or Computer: press that side's special key
+(S or K) or click it, and the computer plays that side. It buys a bit of everything, the way people do.
+
 If you cloned the repository, the file is in its root: open it from there.
 
 ## Status
@@ -25,6 +28,7 @@ If you cloned the repository, the file is in its root: open it from there.
 | Four factions, picked on the title screen: any pair, the same one twice too | Done |
 | Three eras per faction: Jaren '70, Jaren '20, the future | Done: each has its own three units, turret, special and base |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
+| Playing alone: the computer takes either side | Done. Tuned against the other bots, not against people |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
 | Sound | Done: synthesized effects and a tune, no audio files. Checked for errors and loudness by test, not judged by ear |
 | Balance between factions | Not looked at yet. That waits until all factions are in |
@@ -37,8 +41,8 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 | | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten |
 |---|---|---|---|---|
 | Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) |
-| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (enemy units stand still) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: Nee is nee (the toughest enemy, then the next) |
+| Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight) |
 
 All factions start from the same numbers for the same role in the same era. On top of those each has its
 own temperament, a small twist that is the same in every era and is shown next to its name on the title
@@ -82,6 +86,7 @@ Keys are read by position on the keyboard, so the layout does not matter.
 | Subsidie aanvragen | D | L |
 | Moderniseren | F | ; |
 | On the title screen: previous / next faction | A / D | J / L |
+| On the title screen: Speler or Computer | S | K |
 | Pause | Space | Space |
 | Sound: everything, effects only, off | M | M |
 | Start, play again | Enter | Enter |
@@ -134,6 +139,9 @@ Every action is also a button on screen.
   go down; a super unit stops it and walks on. Turrets fire at it before anything else, and enemy specials
   leave it alone. If it gets through, it rides into the enemy base. So it is for a thin lane without a
   schild on it.
+- **De Familie-app**, the De Gasten special of the future: one message in the family group chat and four
+  hologram cousins come out at your gate. They fight as light units of the era, cost nothing, and earn the
+  enemy nothing when beaten. They come even when your ranks are full.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like

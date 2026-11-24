@@ -28,6 +28,9 @@ const BUY: Record<Role, Command> = {
  * vooruitgang that De Gasten won one match in five against Amsterdam and the farmers.
  */
 const RIDER_GAP = 5;
+
+/** How often a bot gets to act, in ticks: five times a second. People don't press thirty buttons a second either. */
+export const THINK_EVERY = 6;
 const TURRET: Command = { t: 'turret' };
 const SPECIAL: Command = { t: 'special' };
 const ERA_UP: Command = { t: 'eraUp' };
@@ -76,6 +79,10 @@ function special(s: SimState, side: Side): Command | null {
     }
     case 'buff':
       worth = fighting >= 2;
+      break;
+    case 'summon':
+      // The family comes for a fight worth joining, or when the gate is nearly bare.
+      worth = foe.units.length >= 3 || (foe.units.length >= 1 && me.units.length <= 1);
       break;
     case 'heal': {
       let missing = 0;
@@ -211,3 +218,20 @@ export const BOTS: Record<string, () => Bot> = {
 
 /** A sensible all-rounder, for tests that need two identical players. */
 export const mixed = BOTS.mixed!;
+
+/**
+ * The computer, for someone who plays alone: it takes one side of the title
+ * card and plays a bit of everything, as the owner asked on 24 November 2026
+ * ("make it play mixed and as good as possible").
+ *
+ * Found by bot matches over every pair of factions, both seats: 448 mixed
+ * styles against the bots above, the best of them varied again and played
+ * against each other. What wins is subsidie early (four applications in the
+ * first era), a light guard of two before saving, a firing line of mostly
+ * ranged units behind a light one and a heavy, turrets, and the super unit.
+ * It beats the bots above in 99 matches out of 100 with every faction; the
+ * mixed bot it replaces as the opponent won 62 of 100. People are another
+ * matter: it was tuned against bots only.
+ */
+export const COMPUTER_STYLE: Style = { units: ['ranged', 'light', 'ranged', 'heavy', 'ranged'], supers: true, eco: 4, modernizes: true, turrets: true, guard: 2, shields: true };
+export const computerPlayer = (): Bot => brain(COMPUTER_STYLE);
