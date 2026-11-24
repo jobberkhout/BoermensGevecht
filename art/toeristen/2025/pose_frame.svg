@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -19 50 38" data-rig="static">
+  <title>Het kader van Ivy's camera: wie erin staat, poseert</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The four corners of the frame of a phone camera. Origin in the middle. -->
+  <g id="frame" transform="translate(0 0)">
+    <path fill="none" stroke="#2b1b16" stroke-width="6.4" stroke-linecap="round" stroke-linejoin="round" d="M-20 -5 L-20 -14 L-11 -14 M11 -14 L20 -14 L20 -5 M20 5 L20 14 L11 14 M-11 14 L-20 14 L-20 5"/>
+    <path fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M-20 -5 L-20 -14 L-11 -14 M11 -14 L20 -14 L20 -5 M20 5 L20 14 L11 14 M-11 14 L-20 14 L-20 5"/>
+  </g>
+
+  <!-- Recording. -->
+  <g id="dot" data-parent="frame" transform="translate(-9.5 -3.5)">
+    <circle class="o" style="stroke-width:2" fill="#e5283f" cx="0" cy="0" r="3.8"/>
+    <circle class="n" fill="#ff8a8a" cx="-1.2" cy="-1.2" r="1.1"/>
+  </g>
+</svg>

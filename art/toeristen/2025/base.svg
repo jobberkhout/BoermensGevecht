@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>Het Vakantiehuis: een scheve grachtenwoning, elke verdieping een ander feest</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    Het Vakantiehuis: a canal house that leans, every floor let out to a different party. A disco in the
+    gable, a hen party behind the ground-floor window, a suitcase being hoisted up on the beam because the
+    stairs are too steep, key boxes on every railing and on the drainpipe, suitcases piled at the door, and
+    the "no suitcases after 22:00" sign nobody can read any more for the stickers.
+    Origin = the gate on the road; the building stands to the left of it.
+  -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole, on the flat roof beside the gable -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" stroke-linecap="round" d="M-288 -452 L-288 -552"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2.6" stroke-linecap="round" d="M-288 -452 L-288 -552"/>
+    <circle class="o" fill="#f2c230" cx="-288" cy="-556" r="4.6"/>
+
+    <!-- the flat roof on the left: a low parapet with party bunting, below the flag -->
+    <path class="o" fill="#9c4b33" d="M-300 -452 L-298 -476 L-184 -478 L-182 -452 Z"/>
+    <path class="t" style="stroke:#86402b;stroke-width:1.4" d="M-298 -466 L-183 -467"/>
+    <path class="t" style="stroke-width:1.4" d="M-296 -475 Q-268 -466 -240 -476 Q-212 -466 -186 -477"/>
+    <path class="o" style="stroke-width:1.4" fill="#f2c230" d="M-290 -473 L-282 -473 L-286 -465 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#3d8fd6" d="M-276 -471 L-268 -470 L-272 -463 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#f07c2a" d="M-262 -470 L-254 -471 L-258 -463 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#e0457b" d="M-234 -474 L-226 -472 L-230 -465 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#f2c230" d="M-220 -470 L-212 -470 L-216 -463 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#3d8fd6" d="M-206 -471 L-198 -473 L-202 -464 Z"/>
+
+    <!-- The gable: a neck gable with curls, leaning a little further than the rest of the house. -->
+    <g transform="rotate(3 -96 -452)">
+      <path class="o" fill="#a8553b" d="M-180 -452 L-180 -474 Q-180 -490 -164 -492 Q-150 -494 -148 -506 L-146 -556 Q-146 -568 -134 -570 L-104 -586 Q-96 -590 -88 -586 L-58 -570 Q-46 -568 -46 -556 L-44 -506 Q-42 -494 -28 -492 Q-12 -490 -12 -474 L-12 -452 Z"/>
+      <!-- the white curls and the top -->
+      <path class="o" fill="#f4efe6" d="M-180 -474 Q-180 -490 -164 -492 Q-150 -494 -148 -506 L-142 -506 Q-144 -488 -162 -484 Q-172 -482 -174 -470 Z"/>
+      <path class="o" fill="#f4efe6" d="M-12 -474 Q-12 -490 -28 -492 Q-42 -494 -44 -506 L-50 -506 Q-48 -488 -30 -484 Q-20 -482 -18 -470 Z"/>
+      <path class="o" fill="#f4efe6" d="M-138 -568 L-104 -586 Q-96 -590 -88 -586 L-54 -568 Z"/>
+      <path class="t" style="stroke:#954a33;stroke-width:1.2" d="M-146 -540 L-46 -540 M-146 -522 L-45 -522 M-176 -466 L-16 -466"/>
+      <!-- the crack where the house started leaning -->
+      <path class="t" style="stroke-width:1.6" d="M-60 -556 L-66 -546 L-62 -538 L-70 -526"/>
+      <!-- the disco window, and the ball in it (the ball is its own part) -->
+      <rect class="o" fill="#f4efe6" x="-122" y="-562" width="52" height="40" rx="3"/>
+      <rect class="o" style="stroke-width:2" fill="#2d1f45" x="-117" y="-557" width="42" height="30"/>
+      <!-- the hoisting beam, with its rope -->
+      <path class="o" fill="#6b4a2f" d="M-92 -584 L-30 -580 L-30 -574 L-92 -576 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M-34 -575 L-34 -548"/>
+      <!-- the two windows below: karaoke, two silhouettes with their arms up -->
+      <rect class="o" fill="#f4efe6" x="-150" y="-514" width="44" height="44" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#ffd36e" x="-145" y="-509" width="34" height="34"/>
+      <rect class="o" fill="#f4efe6" x="-86" y="-514" width="44" height="44" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#ffd36e" x="-81" y="-509" width="34" height="34"/>
+      <path class="n" fill="#a0602e" fill-opacity="0.85" d="M-136 -475 L-136 -488 Q-136 -494 -131 -494 Q-126 -494 -126 -488 L-126 -475 Z M-68 -475 L-68 -489 Q-68 -495 -63 -495 Q-58 -495 -58 -489 L-58 -475 Z"/>
+      <circle class="n" fill="#a0602e" fill-opacity="0.85" cx="-131" cy="-499" r="4.4"/>
+      <circle class="n" fill="#a0602e" fill-opacity="0.85" cx="-63" cy="-500" r="4.4"/>
+      <path fill="none" stroke="#a0602e" stroke-opacity="0.85" stroke-width="2.6" stroke-linecap="round" d="M-136 -490 L-142 -503 M-126 -490 L-120 -502 M-68 -491 L-74 -504 M-58 -491 L-52 -503"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M-120 -502 L-117 -506"/>
+      <path class="t" style="stroke-width:1.4" d="M-150 -492 L-106 -492 M-128 -514 L-128 -470 M-86 -492 L-42 -492 M-64 -514 L-64 -470"/>
+    </g>
+
+    <!-- the front of the house: brick, leaning a few pixels towards the road -->
+    <path class="o" fill="#a8553b" d="M-298 0 L-292 -446 L2 -446 L-4 0 Z"/>
+    <path class="t" style="stroke:#954a33;stroke-width:1.2" d="M-292 -420 L-288 -420 M-12 -420 L-2 -420 M-293 -380 L-288 -380 M-12 -380 L-2 -380 M-293 -340 L-288 -340 M-12 -340 L-2 -340 M-294 -250 L-288 -250 M-12 -250 L-3 -250 M-294 -210 L-288 -210 M-12 -210 L-3 -210 M-295 -170 L-288 -170 M-12 -170 L-3 -170"/>
+    <rect class="o" fill="#f4efe6" x="-302" y="-458" width="306" height="12" rx="3"/>
+    <rect class="o" fill="#c9c2b6" x="-298" y="-14" width="296" height="14"/>
+
+    <!-- two open floors for the turrets -->
+    <rect class="o" fill="#3b2b3a" x="-288" y="-432" width="276" height="140"/>
+    <path class="n" fill="#4d3a4d" d="M-286 -306 L-14 -306 L-14 -294 L-286 -294 Z"/>
+    <rect class="o" fill="#3b2b3a" x="-288" y="-282" width="276" height="140"/>
+    <path class="n" fill="#4d3a4d" d="M-286 -156 L-14 -156 L-14 -144 L-286 -144 Z"/>
+    <!-- a bare bulb in each, the way holiday lets are lit -->
+    <path class="t" style="stroke:#8f84a6" d="M-150 -432 L-150 -416 M-150 -282 L-150 -266"/>
+    <circle class="o" style="stroke-width:2" fill="#fff2b0" cx="-150" cy="-412" r="5"/>
+    <circle class="o" style="stroke-width:2" fill="#fff2b0" cx="-150" cy="-262" r="5"/>
+    <rect class="o" fill="#f4efe6" x="-300" y="-292" width="300" height="10" rx="3"/>
+    <rect class="o" fill="#f4efe6" x="-300" y="-142" width="300" height="10" rx="3"/>
+
+    <!-- the drainpipe, with key boxes clipped to it all the way up -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" d="M-1 -444 L-6 -14"/>
+    <path fill="none" stroke="#7d8790" stroke-width="3" d="M-1 -444 L-6 -14"/>
+
+    <!-- the ground floor: the window with the hen party behind it -->
+    <rect class="o" fill="#f4efe6" x="-286" y="-124" width="92" height="96" rx="3"/>
+    <rect class="o" style="stroke-width:2" fill="#ff9fc4" x="-280" y="-118" width="80" height="84"/>
+    <path class="n" fill="#c9437a" fill-opacity="0.8" d="M-270 -34 L-270 -60 Q-270 -68 -263 -68 Q-256 -68 -256 -60 L-256 -34 Z M-246 -34 L-246 -62 Q-246 -70 -239 -70 Q-232 -70 -232 -62 L-232 -34 Z M-222 -34 L-222 -60 Q-222 -68 -215 -68 Q-208 -68 -208 -60 L-208 -34 Z"/>
+    <circle class="n" fill="#c9437a" fill-opacity="0.8" cx="-263" cy="-74" r="6"/>
+    <circle class="n" fill="#c9437a" fill-opacity="0.8" cx="-239" cy="-76" r="6"/>
+    <circle class="n" fill="#c9437a" fill-opacity="0.8" cx="-215" cy="-74" r="6"/>
+    <!-- party hats -->
+    <path class="o" style="stroke-width:1.4" fill="#f2c230" d="M-268 -79 L-258 -79 L-263 -93 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#3d8fd6" d="M-244 -81 L-234 -81 L-239 -95 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#f07c2a" d="M-220 -79 L-210 -79 L-215 -93 Z"/>
+    <!-- the one in the middle has the veil -->
+    <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-245 -80 Q-252 -66 -250 -50 L-244 -52 Q-246 -66 -241 -78 Z"/>
+    <path fill="none" stroke="#c9437a" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round" d="M-256 -58 L-250 -70 M-232 -60 L-226 -72 M-222 -58 L-228 -70"/>
+    <path class="t" style="stroke-width:1.4" d="M-280 -76 L-200 -76 M-240 -118 L-240 -34"/>
+    <!-- three balloons tied to the bars outside -->
+    <path fill="none" stroke="#2b1b16" stroke-width="1.2" d="M-276 -96 Q-282 -112 -280 -128 M-274 -96 Q-270 -116 -262 -132 M-272 -96 Q-264 -108 -250 -118"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#e0457b" cx="-280" cy="-136" rx="8" ry="9.5"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#f2c230" cx="-262" cy="-140" rx="8" ry="9.5"/>
+    <ellipse class="o" style="stroke-width:2.2" fill="#ffffff" cx="-249" cy="-126" rx="7" ry="8.5"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-283" cy="-140" r="2"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="-265" cy="-144" r="2"/>
+
+    <!-- the railing by the door, every bar of it rented out to a key box -->
+    <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" d="M-188 -50 L-142 -50 M-186 -50 L-186 -14 M-165 -50 L-165 -14 M-144 -50 L-144 -14 M-188 -30 L-142 -30"/>
+    <path fill="none" stroke="#3d4450" stroke-width="2" stroke-linecap="round" d="M-188 -50 L-142 -50 M-186 -50 L-186 -14 M-165 -50 L-165 -14 M-144 -50 L-144 -14 M-188 -30 L-142 -30"/>
+    <circle class="o" style="stroke-width:2" fill="#3d4450" cx="-186" cy="-54" r="3.4"/>
+    <circle class="o" style="stroke-width:2" fill="#3d4450" cx="-144" cy="-54" r="3.4"/>
+
+    <!-- the "no suitcases after 22:00" sign: a suitcase crossed out, a moon, and stickers over all of it -->
+    <rect class="o" style="stroke-width:2.2" fill="#ffffff" x="-140" y="-120" width="34" height="30" rx="2"/>
+    <rect class="o" style="stroke-width:1.6" fill="#7d8790" x="-131" y="-110" width="15" height="12" rx="2"/>
+    <path class="t" style="stroke-width:1.4" d="M-127 -110 L-127 -113 L-120 -113 L-120 -110"/>
+    <circle fill="none" stroke="#d8342c" stroke-width="2.6" cx="-123.5" cy="-104" r="10.5"/>
+    <path fill="none" stroke="#d8342c" stroke-width="2.6" d="M-131 -111.5 L-116 -96.5"/>
+    <path class="n" fill="#2d3e7a" d="M-110 -118 Q-115 -116 -114 -111 Q-113 -107 -108 -107 Q-111 -110 -111 -113 Q-111 -116 -110 -118 Z"/>
+    <!-- stickers -->
+    <rect class="o" style="stroke-width:1.2" fill="#f2c230" x="-143" y="-104" width="10" height="7" transform="rotate(-18 -138 -100)"/>
+    <circle class="o" style="stroke-width:1.2" fill="#3d8fd6" cx="-110" cy="-95" r="5"/>
+    <rect class="o" style="stroke-width:1.2" fill="#e0457b" x="-122" y="-96" width="12" height="7" transform="rotate(12 -116 -92)"/>
+    <rect class="o" style="stroke-width:1.2" fill="#8fd16a" x="-136" y="-124" width="11" height="7" transform="rotate(8 -130 -120)"/>
+    <path class="o" style="stroke-width:1.2" fill="#ffffff" d="M-112 -126 L-103 -121 L-107 -113 L-114 -118 Z"/>
+    <path class="n" fill="#e0457b" d="M-109 -121.5 a1.6 1.6 0 1 0 0.1 0 Z"/>
+
+    <!-- the suitcases piled at the door -->
+    <rect class="o" fill="#f07c2a" x="-138" y="-44" width="40" height="30" rx="5"/>
+    <path class="t" style="stroke:#c25a14;stroke-width:1.6" d="M-128 -42 L-128 -16 M-118 -42 L-118 -16 M-108 -42 L-108 -16"/>
+    <rect class="o" fill="#3d8fd6" x="-134" y="-66" width="32" height="22" rx="4"/>
+    <path class="t" style="stroke:#2a6aa6;stroke-width:1.6" d="M-124 -64 L-124 -46 M-112 -64 L-112 -46"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="2.4" d="M-124 -66 L-124 -76 L-112 -76 L-112 -66"/>
+    <path fill="none" stroke="#c9ced6" stroke-width="1" d="M-124 -66 L-124 -76 L-112 -76 L-112 -66"/>
+    <!-- a duffel bag on top, and a luggage tag -->
+    <path class="o" fill="#8fd16a" d="M-130 -66 Q-132 -80 -118 -80 Q-104 -80 -106 -66 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-124 -80 Q-118 -88 -112 -80"/>
+    <path class="o" style="stroke-width:1.4" fill="#ffffff" d="M-100 -36 L-94 -36 L-94 -28 L-100 -28 Z"/>
+    <path class="t" style="stroke-width:1" d="M-98 -44 L-97 -36"/>
+
+    <!-- the entrance: a white frame, a fanlight, and the doorway units come out of -->
+    <path class="o" fill="#f4efe6" d="M-96 0 L-96 -110 Q-96 -130 -52 -130 Q-8 -130 -8 -110 L-8 0 Z"/>
+    <path class="o" fill="#241b26" d="M-86 0 L-86 -96 L-18 -96 L-18 0 Z"/>
+    <path class="o" style="stroke-width:2" fill="#ffd36e" d="M-86 -100 Q-86 -122 -52 -122 Q-18 -122 -18 -100 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-52 -100 L-52 -122 M-52 -100 L-74 -118 M-52 -100 L-30 -118"/>
+
+    <!-- the doorstep: a doormat that says welcome with a suitcase -->
+    <path class="o" style="stroke-width:2" fill="#c49a5a" d="M-80 -1 L-76 -5 L-22 -5 L-20 -1 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- Key boxes: grey, a keypad, a shackle round the bar. On the railing and on the drainpipe. -->
+  <g id="keyboxes" transform="translate(0 0)">
+    <g class="o" style="stroke-width:1.8" fill="#8e979f">
+      <rect x="-184" y="-48" width="10" height="13" rx="1.6"/>
+      <rect x="-172" y="-48" width="10" height="13" rx="1.6"/>
+      <rect x="-160" y="-48" width="10" height="13" rx="1.6"/>
+      <rect x="-153" y="-28" width="10" height="13" rx="1.6"/>
+      <rect x="-179" y="-28" width="10" height="13" rx="1.6"/>
+      <rect x="-9" y="-420" width="10" height="13" rx="1.6"/>
+      <rect x="-10" y="-330" width="10" height="13" rx="1.6"/>
+      <rect x="-11" y="-250" width="10" height="13" rx="1.6"/>
+      <rect x="-11" y="-196" width="10" height="13" rx="1.6"/>
+      <rect x="-12" y="-110" width="10" height="13" rx="1.6"/>
+      <rect x="-13" y="-62" width="10" height="13" rx="1.6"/>
+      <rect x="-1" y="-82" width="10" height="13" rx="1.6"/>
+    </g>
+    <g class="n" fill="#3b434b">
+      <path d="M-182 -45 h6 v2 h-6 Z M-182 -41 h6 v2 h-6 Z M-170 -45 h6 v2 h-6 Z M-170 -41 h6 v2 h-6 Z M-158 -45 h6 v2 h-6 Z M-158 -41 h6 v2 h-6 Z M-151 -25 h6 v2 h-6 Z M-151 -21 h6 v2 h-6 Z M-177 -25 h6 v2 h-6 Z M-177 -21 h6 v2 h-6 Z"/>
+      <path d="M-7 -417 h6 v2 h-6 Z M-7 -413 h6 v2 h-6 Z M-8 -327 h6 v2 h-6 Z M-8 -323 h6 v2 h-6 Z M-9 -247 h6 v2 h-6 Z M-9 -243 h6 v2 h-6 Z M-9 -193 h6 v2 h-6 Z M-9 -189 h6 v2 h-6 Z M-10 -107 h6 v2 h-6 Z M-10 -103 h6 v2 h-6 Z M-11 -59 h6 v2 h-6 Z M-11 -55 h6 v2 h-6 Z M1 -79 h6 v2 h-6 Z M1 -75 h6 v2 h-6 Z"/>
+    </g>
+    <path class="t" style="stroke-width:1.6" d="M-181 -48 L-181 -52 L-177 -52 L-177 -48 M-169 -48 L-169 -52 L-165 -52 L-165 -48 M-157 -48 L-157 -52 L-153 -52 L-153 -48 M-150 -28 L-150 -32 L-146 -32 L-146 -28 M-176 -28 L-176 -32 L-172 -32 L-172 -28"/>
+  </g>
+
+  <!-- The disco in the gable: its light washes the window, and the ball turns. -->
+  <g id="disco_light" transform="translate(-95 -541)">
+    <g transform="rotate(3 -1 89)">
+      <path class="n" fill="#ff4fd8" fill-opacity="0.55" d="M-19 -12 L-4 -12 L-12 13 L-19 13 Z"/>
+      <path class="n" fill="#3fe0ff" fill-opacity="0.55" d="M6 -12 L19 -12 L19 13 L14 13 Z"/>
+      <path class="n" fill="#fff36b" fill-opacity="0.6" d="M-3 2 L5 2 L8 13 L-6 13 Z"/>
+    </g>
+  </g>
+  <g id="disco_ball" transform="translate(-92 -547)">
+    <path fill="none" stroke="#c9ced6" stroke-width="1" d="M0 -8 L0 -4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#d9dee6" cx="0" cy="2" r="6.4"/>
+    <path class="t" style="stroke:#8e979f;stroke-width:1" d="M-6 0 L6 0 M-5 4 L5 4 M-2.4 -4 L-2.4 8 M2.4 -4 L2.4 8"/>
+    <circle class="n" fill="#ffffff" cx="-2.6" cy="-1" r="1.4"/>
+  </g>
+
+  <!-- The suitcase going up on the hook: the stairs inside are too steep for it. It sways. -->
+  <g id="hoist" transform="translate(-29 -545)">
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M0 0 L0 10 M0 10 Q-5 12 -4 16 M0 10 Q5 12 4 16"/>
+    <path class="t" style="stroke-width:2" d="M-2 0 Q-6 4 -2 6 Q2 7 2 3"/>
+    <rect class="o" style="stroke-width:2.4" fill="#e0457b" x="-11" y="16" width="22" height="26" rx="4"/>
+    <path class="t" style="stroke:#b02d5e;stroke-width:1.4" d="M-4 18 L-4 40 M4 18 L4 40"/>
+    <path class="o" style="stroke-width:1.4" fill="#f2c230" d="M-8 22 L-2 24 L-4 30 L-9 28 Z"/>
+  </g>
+
+  <!-- The curtain of the hen party: somebody keeps looking out to see who is complaining. -->
+  <g id="curtain" transform="translate(-200 -118)">
+    <path class="o" style="stroke-width:2" fill="#f4e3a8" d="M0 0 L-14 0 Q-10 30 -14 60 Q-10 72 -12 84 L0 84 Z"/>
+    <path class="t" style="stroke:#d3bb6e;stroke-width:1.2" d="M-6 2 Q-4 40 -7 82"/>
+  </g>
+</svg>
