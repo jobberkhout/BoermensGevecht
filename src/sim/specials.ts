@@ -1,7 +1,7 @@
-import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, LANE, ROW_ORDER } from '../defs/balance.ts';
+import { BASE_GAP, CONTACT_GAP, LANE, ROW_ORDER } from '../defs/balance.ts';
 import { unitDef } from '../defs/index.ts';
 import type { SpecialDef } from '../defs/types.ts';
-import { byToughness, frontUnit } from './lane.ts';
+import { byToughness, frontUnit, insertInRow, slotIn } from './lane.ts';
 import { BASE, SIDES, other, type Barrage, type Damage, type Side, type SimEvent, type SimState, type Unit, type Wave } from './types.ts';
 
 /** The units a special can do something to: everyone except those that shrug specials off. */
@@ -18,7 +18,7 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
   const me = s.sides[side];
   const foe = other(side);
   events.push({ t: 'special', side, id: def.id });
-  if (def.kind !== 'buff' && def.kind !== 'heal' && def.kind !== 'divert' && def.kind !== 'summon') {
+  if (def.kind !== 'buff' && def.kind !== 'heal' && def.kind !== 'divert' && def.kind !== 'summon' && def.kind !== 'hike') {
     // Aimed at the enemy's units: whoever shrugs specials off gets to say so.
     const unmoved = s.sides[foe].units.filter((u) => unitDef(u.def).immune).map((u) => u.id);
     if (unmoved.length > 0) events.push({ t: 'shrugged', side: foe, ids: unmoved });
@@ -72,12 +72,27 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       s.sides[foe].divertedUntil = s.tick + def.ticks;
       events.push({ t: 'diverted', side: foe, ticks: def.ticks });
       return;
-    case 'summon':
+    case 'summon': {
       // The whole family is on its way. They come out at the gate in the
-      // economy step, ahead of anyone in training, as rows make room.
-      for (let i = 0; i < def.count; i++) me.arrivals.push(def.unit);
-      events.push({ t: 'summoned', side, count: def.count });
+      // economy step, ahead of anyone in training, as rows make room. With a
+      // time limit, all of them leave together when it is up (sim/tourists.ts).
+      const leaveAt = def.ticks ? s.tick + def.ticks : 0;
+      for (let i = 0; i < def.count; i++) me.arrivals.push({ def: def.unit, leaveAt });
+      events.push({ t: 'summoned', side, count: def.count, ticks: def.ticks ?? 0 });
       return;
+    }
+    case 'hike': {
+      // A flag on the enemy's prices, read wherever a price is checked and paid
+      // (price() in sim/commands.ts). It starts on the next tick, so what either
+      // side buys on this one does not depend on which of them is handled first,
+      // and two sides that do it to each other both pay more.
+      const them = s.sides[foe];
+      them.hikeFrom = s.tick + 1;
+      them.hikeUntil = s.tick + 1 + def.ticks;
+      them.hikePercent = def.pricePercent;
+      events.push({ t: 'hiked', side: foe, ticks: def.ticks, percent: def.pricePercent });
+      return;
+    }
     case 'snipe': {
       // The outrage starts with the toughest enemy unit and works its way down
       // the list until it is spent. With nobody on the lane it is wasted.
@@ -131,21 +146,6 @@ export function advanceBarrages(s: SimState, dmg: Damage[], events: SimEvent[]):
     if (b.left > 0) keep.push(b);
   }
   s.barrages = keep;
-}
-
-/**
- * How far forward a body of this length can stand in a row without overlapping
- * anyone: at `want`, or else queued up behind whoever is in the way.
- */
-function slotIn(units: readonly Unit[], row: number, want: number, len: number): number {
-  let front = want;
-  // Within a row the list runs front to back.
-  for (const u of units) {
-    if (u.row !== row) continue;
-    if (front - len - FOLLOW_GAP >= u.pos) break; // it fits in front of this one, so of everyone behind it too
-    front = Math.min(front, u.pos - unitDef(u.def).len - FOLLOW_GAP);
-  }
-  return front;
 }
 
 /**
@@ -204,10 +204,7 @@ export function applyTakeovers(s: SimState, sold: readonly [readonly number[], r
     u.actTick = 0;
     u.stunUntil = 0;
     u.turncoat = !u.turncoat;
-    // Into the list in front of whoever now stands behind it in its row.
-    const behind = mine.findIndex((x) => x.row === row && x.pos < pos);
-    if (behind < 0) mine.push(u);
-    else mine.splice(behind, 0, u);
+    insertInRow(mine, u);
     events.push({ t: 'converted', side: m.to, id: u.id, def: u.def, pos });
   }
 }

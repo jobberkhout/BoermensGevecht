@@ -352,6 +352,41 @@ export const RIDER_STATS: RoleStats = {
   bounty: Math.round((RIDER.cost * BOUNTY_PERCENT) / 100),
 };
 
+/**
+ * Influencer-Ivy, the ranged unit of De Toeristen in 2025, throws nothing. Every
+ * enemy unit within her reach is in her shot and poses: its blows and throws
+ * do this share of their damage for as long as it stays there. Two Ivys do not
+ * make it less: a unit is in a shot or not. Turrets and super units do not pose.
+ * The owner's rule of 24 November 2026, in docs/factions.md, section 5.
+ */
+export const POSE = { dmgPercent: 50 } as const;
+
+/**
+ * Paraplu-Pam, the schild of De Toeristen in 2025. The owner, 24 November 2026:
+ * "make the unit cost more and the scattered units weak and make Pam move quite
+ * a bit slower then other shield units". Her price and walking speed are these
+ * shares of the shared schild's, in place of the temperament: 360 instead of
+ * 240, and the slowest unit De Toeristen have. When she falls her group of
+ * `count` scatters where she stood: free lost tourists with these shares of a
+ * light unit's numbers (the shared ones, not the faction's), who walk on.
+ */
+export const SCATTER = {
+  costPercent: 150,
+  speedPercent: 60,
+  count: 4,
+  group: { hp: 25, dmg: 50, speed: 100 },
+} as const;
+
+/**
+ * De Zweefbierfiets, the heavy of De Toeristen in 2050, hovers out of reach of
+ * melee blows. To make up for it, it has this share of a heavy unit's hit
+ * points, in place of the temperament. Everything else is the heavy's. The
+ * brief started from 60%; with that, throws, turrets and the enemy's specials
+ * brought it down so fast that De Toeristen won one bot match in ten with
+ * both sides buying a mix. Fitted with those bot matches, 24 November 2026.
+ */
+export const HOVER = { hpPercent: 85 } as const;
+
 function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
   const cost = Math.round(base.cost * s.price);
   return {
@@ -498,4 +533,20 @@ export const SPECIAL = {
    * 2026, in place of Nee is nee; the only special of its kind.
    */
   familieApp: { count: 4 },
+  /** 1975, De Toeristen: four hundred holiday slides and the enemy nods off. The same kind of trick as the Wegblokkade, with the same numbers. */
+  diaAvond: { ticks: sec(5) },
+  /**
+   * 2025, De Toeristen: a cruise ship moors behind the base and this many day
+   * trippers run out of the gate, whatever the unit cap. Weak but fast, with
+   * these shares of a light unit's numbers (the shared ones). After `ticks` the
+   * horn sounds and whoever is still on the lane is back on board, paying
+   * nobody anything. The summon of De Familie-app, with the time limit added.
+   */
+  cruiseschip: { count: 8, ticks: sec(20), hp: 50, dmg: 50, speed: 160 },
+  /**
+   * 2050, De Toeristen: rent increase for the locals. For this long everything
+   * the enemy buys costs this share of its price: units, turrets, subsidie and
+   * modernizing. The owner's idea of 24 November 2026, in place of a lockout.
+   */
+  huurverhoging: { ticks: sec(10), pricePercent: 200 },
 } as const;

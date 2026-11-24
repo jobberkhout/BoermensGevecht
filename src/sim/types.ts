@@ -44,6 +44,10 @@ export interface Unit {
   stunUntil: number;
   /** Bought over: it fights for the side it is listed under, not for the side that trained it. */
   turncoat: boolean;
+  /** In the shot of an enemy that poses it (Influencer-Ivy): its blows do less. Worked out afresh every tick. See sim/tourists.ts. */
+  posing: boolean;
+  /** Tick at which it leaves the lane of its own accord, paying nobody: the day trippers when the ship's horn sounds. 0 for never. */
+  leaveAt: number;
 }
 
 /**
@@ -101,7 +105,7 @@ export interface SideState {
    * They come out at the gate before the queue, as soon as a row has room,
    * whatever the unit cap.
    */
-  arrivals: string[];
+  arrivals: { def: string; leaveAt: number }[];
   queue: QueueItem[];
   turrets: (Turret | null)[];
   /** Tick from which the special can be used. */
@@ -112,6 +116,15 @@ export interface SideState {
   buffSpeedPercent: number;
   /** Until this tick whatever this side earns is paid to the other side instead: its income and its bounties. */
   divertedUntil: number;
+  /**
+   * From `hikeFrom` until before `hikeUntil` everything this side buys costs
+   * `hikePercent` of its price: the Huurverhoging. It starts on the tick after
+   * the enemy pressed it, so what either side buys on that tick does not
+   * depend on which of them is handled first. See price() in sim/commands.ts.
+   */
+  hikeFrom: number;
+  hikeUntil: number;
+  hikePercent: number;
 }
 
 export interface Shot {
@@ -204,7 +217,8 @@ export interface Damage {
 export type SimEvent =
   | { t: 'spawn'; side: Side; id: number; def: string }
   | { t: 'attack'; side: Side; id: number }
-  | { t: 'strike'; side: Side; id: number; ranged: boolean }
+  /** `filming`: it throws nothing and poses the enemy instead, Influencer-Ivy. */
+  | { t: 'strike'; side: Side; id: number; ranged: boolean; filming?: true }
   | { t: 'hit'; side: Side; id: number; amount: number; pos: number }
   | { t: 'defeat'; side: Side; id: number; def: string; pos: number }
   /** `side` is paid for a unit beaten at `pos`. With `diverted` it was the other side that beat it, and the money was sent this way. */
@@ -224,7 +238,14 @@ export type SimEvent =
   | { t: 'converted'; side: Side; id: number; def: string; pos: number }
   /** For the next `ticks` ticks whatever `side` earns is paid to the other side instead. */
   | { t: 'diverted'; side: Side; ticks: number }
-  | { t: 'summoned'; side: Side; count: number }
+  /** `count` units are called in for `side`; with `ticks` above 0 they leave again after that long. */
+  | { t: 'summoned'; side: Side; count: number; ticks: number }
+  /** A unit of `side` that scatters fell at `pos`, and its group, `ids`, came onto the lane there. */
+  | { t: 'scattered'; side: Side; ids: number[]; pos: number }
+  /** The time of the units `ids` of `side` is up and they leave the lane: the ship's horn. */
+  | { t: 'recalled'; side: Side; ids: number[] }
+  /** For `ticks` ticks from the next one, everything `side` buys costs `percent` of its price. */
+  | { t: 'hiked'; side: Side; ticks: number; percent: number }
   /** The regular income of the other side was paid to `side` instead. */
   | { t: 'skimmed'; side: Side; amount: number }
   /** An enemy special had no effect on these units of `side`. */

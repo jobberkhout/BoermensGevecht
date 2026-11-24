@@ -12,6 +12,8 @@ import { forgetRigsExcept, hasRig, loadRig, rigSource } from './assets.ts';
 import { BAND_SPOT, dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
 import { useWorld, type Stage } from './stage.ts';
 import {
+  DOCK_SECONDS,
+  DROP_SECONDS,
   GHOST_LIFE,
   SPAWN_FADE,
   type Band,
@@ -66,6 +68,8 @@ const BUILD: Record<Role, { bar: number; barWidth: number; box: number }> = {
 };
 
 /** The grey box that stands in for a base without art. */
+/** How far off its mooring a ship starts and ends, in pixels towards the edge of the screen. */
+const DOCK_TRAVEL = 760;
 const BOX_W = 300;
 const BOX_TOP = GROUND_Y - 460;
 
@@ -152,9 +156,11 @@ export class Renderer {
     this.world();
 
     for (const side of SIDES) this.drawReach(s, side);
+    // A ship that moors comes in behind the base.
+    for (const b of view.bands) if (b.mode === 'dock') this.drawDock(b, view.time);
     for (const side of SIDES) this.drawBase(s, view, side);
     // The band stands on the verge behind the road, so everyone walks past in front of it.
-    for (const b of view.bands) this.drawBand(b, view.time);
+    for (const b of view.bands) if (b.mode !== 'dock') this.drawBand(b, view.time);
 
     // Far rows first, so nearer units overlap them.
     const ghosts = [...view.ghosts].sort((a, b) => a.row - b.row);
@@ -162,6 +168,7 @@ export class Renderer {
     const units = [...view.units.values()].sort((a, b) => a.row - b.row || a.x - b.x);
     for (const v of units) this.drawUnit(v, view.time);
     for (const v of units) if (v.turncoat) this.drawBadge(v, view.time);
+    for (const v of units) if (v.pose) this.drawPoseFrame(v, view.time);
 
     // The activists sit low, so they go on top: otherwise whoever stands next to them hides them.
     for (const b of view.blockades) this.drawBlockade(b, view.time);
@@ -590,8 +597,32 @@ export class Renderer {
     const leave = Math.min(1, (b.life - b.age) / 0.3);
     const idle = CLIPS[rig.id]?.idle;
     ctx.globalAlpha = Math.max(0, leave);
-    this.drawLoose(rig, GATE_X[b.side] + dir * BAND_SPOT.dx, GROUND_Y + BAND_SPOT.dy, dir, 0.7 + 0.3 * grow, idle, idle ? (time / (idle.seconds ?? 0.6)) % 1 : 0);
+    // A sign that is dropped falls the last stretch out of the sky, faster and faster, and lands at full size.
+    const fall = b.mode === 'drop' ? Math.min(1, b.age / DROP_SECONDS) : 1;
+    const y = GROUND_Y + BAND_SPOT.dy - (1 - fall * fall) * 520;
+    const scale = b.mode === 'drop' ? 1 : 0.7 + 0.3 * grow;
+    this.drawLoose(rig, GATE_X[b.side] + dir * BAND_SPOT.dx, y, dir, scale, idle, idle ? (time / (idle.seconds ?? 0.6)) % 1 : 0);
     ctx.globalAlpha = 1;
+  }
+
+  /** A ship that moors behind its owner's base: it slides in from the edge of the screen, and out again when its time is up. */
+  private drawDock(b: Band, time: number): void {
+    const rig = this.rigs.get(b.rig);
+    if (!rig) return;
+    const dir = dirOf(b.side);
+    const ease = (t: number): number => 1 - (1 - t) * (1 - t);
+    const there = ease(Math.min(1, b.age / DOCK_SECONDS, Math.max(0, (b.life - b.age) / DOCK_SECONDS)));
+    const idle = CLIPS[rig.id]?.idle;
+    this.drawLoose(rig, GATE_X[b.side] - dir * (1 - there) * DOCK_TRAVEL, GROUND_Y, dir, 1, idle, idle ? (time / (idle.seconds ?? 2)) % 1 : 0);
+  }
+
+  /** The frame of a phone camera over a unit that poses for an influencer, with its record dot. */
+  private drawPoseFrame(v: UnitView, time: number): void {
+    const rig = this.rigs.get(v.pose);
+    if (!rig) return;
+    const idle = CLIPS[rig.id]?.idle;
+    const y = rowY(v.row) - BUILD[v.def.role].bar * rowScale(v.row) - 24;
+    this.drawLoose(rig, v.x + v.slide, y, dirOf(v.side), 1, idle, idle ? ((time + v.id * 0.13) / (idle.seconds ?? 1)) % 1 : 0);
   }
 
   /** The drones still waiting for their turn, hovering in formation. */

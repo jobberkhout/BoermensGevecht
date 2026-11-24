@@ -275,6 +275,7 @@ export class Game {
         break;
       case 'strike':
         if (e.ranged) this.sound.whoosh();
+        else if (e.filming) this.sound.shutter();
         break;
       case 'hit':
         this.sound.hit();
@@ -331,7 +332,19 @@ export class Game {
           case 'divert':
             this.sound.drain();
             break;
+          case 'summon': {
+            // The family comes in silence; a ship that moors sounds its horn.
+            const def = specialDef(e.id);
+            if (def.kind === 'summon' && def.ticks) this.sound.shipHorn();
+            break;
+          }
+          case 'hike':
+            this.sound.hike();
+            break;
         }
+        break;
+      case 'recalled':
+        this.sound.shipHorn();
         break;
       case 'converted':
         this.sound.deal();

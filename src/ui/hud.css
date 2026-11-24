@@ -325,6 +325,16 @@ body {
   animation: drained 0.5s ease-in-out infinite;
 }
 
+/* The rent went up: the purse and every price on the buttons turn red while it lasts. */
+.purse.hiked small {
+  color: #ff8a75;
+}
+
+.btn.hiked .cost {
+  color: #c8261a;
+  background: rgba(255, 222, 214, 0.95);
+}
+
 .purse.draining small {
   color: var(--gold);
 }

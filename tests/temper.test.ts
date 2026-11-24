@@ -59,9 +59,13 @@ describe('temperament', () => {
         for (const unit of era.units) {
           // A rider has numbers of its own (RIDER), tested in tests/rider.test.ts.
           if (unit.rider) continue;
+          // So do a few numbers of units with rules of their own, tested in tests/tourists.test.ts:
+          // the price and speed of a schild that scatters (SCATTER), the hit points of a unit that hovers (HOVER).
+          const own = new Set<string>([...(unit.scatter ? ['cost', 'speed'] : []), ...(unit.hovers ? ['hp'] : [])]);
           const base = shared[unit.role]!;
           const twist = faction.temper[unit.role] ?? {};
           for (const stat of TWISTABLE) {
+            if (own.has(stat)) continue;
             if (twist[stat] === undefined) {
               expect(unit[stat], `${unit.id} ${stat}`).toBe(base[stat]);
             } else {
@@ -78,7 +82,9 @@ describe('temperament', () => {
           expect(unit.immune, unit.id).toBe(base.immune ?? false);
           expect(unit.turretPercent, unit.id).toBe(base.turretPercent ?? 100);
           expect(unit.drawsFire, unit.id).toBe(base.drawsFire ?? false);
-          expect(unit.shot?.speed, unit.id).toBe(base.shotSpeed);
+          // A unit that poses the enemy throws nothing (POSE).
+          if (unit.poser) expect(unit.shot, unit.id).toBeUndefined();
+          else expect(unit.shot?.speed, unit.id).toBe(base.shotSpeed);
           expect(unit.bounty, unit.id).toBe(Math.round((unit.cost * BOUNTY_PERCENT) / 100));
           expect(unit.cost % PRICE_STEP, `${unit.id} price`).toBe(0);
         }
@@ -132,6 +138,18 @@ describe('what each faction is like', () => {
       }
       for (const role of ['ranged', 'heavy']) {
         expect(of('za', era, role).dmg, role).toBeGreaterThan(of('hm', era, role).dmg);
+      }
+    });
+
+    it(`${era}: De Toeristen are fast and everywhere, and hit softly`, () => {
+      // Paraplu-Pam, the schild of 2025, is the exception: the slowest unit they have.
+      const roles = ['light', 'ranged', 'heavy', ...(era === '1975' ? ['shield'] : [])];
+      for (const role of roles) {
+        for (const prefix of ['hm', 'ah', 'za', 'gs']) {
+          if (of(prefix, era, role).rider) continue; // the fatbike rides, it does not walk
+          expect(of('tr', era, role).speed, `${role} against ${prefix}`).toBeGreaterThan(of(prefix, era, role).speed);
+        }
+        expect(of('tr', era, role).dmg, role).toBeLessThan(of('za', era, role).dmg);
       }
     });
   }

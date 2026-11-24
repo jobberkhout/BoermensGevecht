@@ -1,4 +1,4 @@
-import { RIDER, RIDER_STATS, SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats } from './balance.ts';
+import { HOVER, RIDER, RIDER_STATS, SCATTER, SPECIAL, STATS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats, type Twist } from './balance.ts';
 import type { EraDef, Role, ShotDef, SpecialDef, TurretDef, UnitDef } from './types.ts';
 
 type Look = Omit<ShotDef, 'speed'>;
@@ -55,12 +55,26 @@ export interface EraLook {
   /** Art file names inside art/<faction>/<era>/. */
   light: string;
   ranged: string;
-  rangedShot: Look;
+  /** What the ranged unit throws. Not needed when it poses the enemy instead. */
+  rangedShot?: Look;
+  /**
+   * The ranged unit throws nothing and poses the enemy instead: Influencer-Ivy.
+   * This is the drawing of the mark over a posing unit. See POSE in defs/balance.ts.
+   */
+  rangedPoses?: string;
   heavy: string;
   /** The heavy slot sells a rider instead, with its own numbers: the fatbike. */
   heavyRides?: boolean;
+  /** The heavy unit hovers out of reach of melee, with its own hit points: De Zweefbierfiets. See HOVER. */
+  heavyHovers?: boolean;
   /** The fourth unit: the schild in the first two eras, the super unit in the last. */
   shield?: string;
+  /**
+   * The schild scatters into a group when it falls, and has its own price and
+   * speed: Paraplu-Pam. This is the drawing of one of the group, who comes as
+   * `<era id>.scattered`. See SCATTER in defs/balance.ts.
+   */
+  shieldScatters?: string;
   super?: string;
   /**
    * The drawing of whoever a summoning special calls in. It comes as
@@ -68,6 +82,8 @@ export interface EraLook {
    * free, and not for sale.
    */
   summoned?: string;
+  /** Numbers of its own for whoever is called in, as shares of the shared light unit's, in place of the temperament. */
+  summonedStats?: Twist;
   turret: string;
   turretShot: Look;
   special: SpecialKind;
@@ -93,25 +109,45 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     cooldown: SPECIAL.cooldown,
     firstReady: SPECIAL.firstReady,
   } as SpecialDef;
-  const units = [
-    makeUnit(`${id}.light`, 'light', art(look.light), twisted(stats.light, temper.light)),
-    makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot)),
-    look.heavyRides ? makeRider(`${id}.heavy`, art(look.heavy)) : makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy)),
-  ];
+  const extras: UnitDef[] = [];
+  /** A unit that is not trained: free, not for sale, and nobody is paid for beating it. */
+  const extra = (extraId: string, name: string, numbers: RoleStats): UnitDef => ({
+    ...makeUnit(extraId, 'light', art(name), { ...numbers, cost: 0, buildTicks: 0, bounty: 0 }),
+    summoned: true,
+  });
+
+  let ranged: UnitDef;
+  if (look.rangedPoses) {
+    ranged = { ...makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged)), poser: { rig: art(look.rangedPoses) } };
+  } else {
+    if (!look.rangedShot) throw new Error(`${id}: the ranged unit needs something to throw, or to pose the enemy`);
+    ranged = makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot));
+  }
+  let heavy: UnitDef;
+  if (look.heavyRides) heavy = makeRider(`${id}.heavy`, art(look.heavy));
+  else if (look.heavyHovers) heavy = { ...makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, { ...temper.heavy, hp: HOVER.hpPercent })), hovers: true };
+  else heavy = makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy));
+  const units = [makeUnit(`${id}.light`, 'light', art(look.light), twisted(stats.light, temper.light)), ranged, heavy];
   if (stats.shield) {
     if (!look.shield) throw new Error(`${id}: this era has a schild, so it needs a drawing for one`);
-    units.push(makeUnit(`${id}.shield`, 'shield', art(look.shield), twisted(stats.shield, temper.shield)));
+    if (look.shieldScatters) {
+      const own = twisted(stats.shield, { ...temper.shield, cost: SCATTER.costPercent, speed: SCATTER.speedPercent });
+      const group = `${id}.scattered`;
+      units.push({ ...makeUnit(`${id}.shield`, 'shield', art(look.shield), own), scatter: { unit: group, count: SCATTER.count } });
+      extras.push(extra(group, look.shieldScatters, twisted(stats.light, SCATTER.group)));
+    } else {
+      units.push(makeUnit(`${id}.shield`, 'shield', art(look.shield), twisted(stats.shield, temper.shield)));
+    }
   }
   if (stats.super) {
     if (!look.super) throw new Error(`${id}: this era has a super unit, so it needs a drawing for one`);
     units.push(makeUnit(`${id}.super`, 'super', art(look.super), twisted(stats.super, temper.super)));
   }
-  const extras: UnitDef[] = [];
   if (look.special.kind === 'summon') {
     if (!look.summoned) throw new Error(`${id}: its special calls units in, so it needs a drawing for them`);
     if (look.special.unit !== `${id}.summoned`) throw new Error(`${id}: the special must call in ${id}.summoned`);
-    const light = twisted(stats.light, temper.light);
-    extras.push({ ...makeUnit(`${id}.summoned`, 'light', art(look.summoned), { ...light, cost: 0, buildTicks: 0, bounty: 0 }), summoned: true });
+    const light = look.summonedStats ? twisted(stats.light, look.summonedStats) : twisted(stats.light, temper.light);
+    extras.push(extra(`${id}.summoned`, look.summoned, light));
   }
   return {
     id,

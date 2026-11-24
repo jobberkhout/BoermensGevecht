@@ -5,13 +5,14 @@ import { havermelk } from './factions/havermelk.ts';
 import type { FactionText } from './factions/types.ts';
 import { zuidas } from './factions/zuidas.ts';
 import { gasten } from './factions/gasten.ts';
+import { toeristen } from './factions/toeristen.ts';
 
 /**
  * Every piece of text the player sees. What a faction says and is called lives
  * in ui/factions/<faction>.ts; what they all share is here. Change a name in
  * one of those files and it changes everywhere.
  */
-const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten };
+const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen };
 
 /** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
@@ -63,6 +64,8 @@ export const NL = {
     dry: 'kraan dicht',
     /** Next to the purse of a side whose earnings are being paid to the other side, followed by the seconds left. */
     diverted: 'naar de vijand',
+    /** Next to the purse of a side whose prices went up (the Huurverhoging): {n} is how many times the price, followed by the seconds left. */
+    hiked: 'huur ×{n}',
     overtimeCrumble: 'Overtijd! Nu brokkelen ook de bases af',
   },
 
@@ -74,6 +77,8 @@ export const NL = {
     healed: 'Opgeknapt!',
     modern: 'Gemoderniseerd:',
     bought: 'Overgenomen!',
+    /** Over the estate agent's sign of the Huurverhoging, on the base of the side that pays more. */
+    hiked: 'Alles het dubbele!',
     /** What a super unit says when an enemy special passes it by, per faction. */
     unmoved: perFaction((text) => text.unmoved),
   },

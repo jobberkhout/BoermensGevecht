@@ -2,7 +2,7 @@ import type { SoundMode } from '../audio/sound.ts';
 import { SUBSIDY, TPS, TURRET } from '../defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../defs/index.ts';
 import { hasRig, rigUrl } from '../render/assets.ts';
-import { canDo, eraUpCost, progressNeeded, subsidyCost, turretPlan } from '../sim/commands.ts';
+import { canDo, eraUpCost, hiked, progressNeeded, subsidyCost, turretPlan, unitPrice } from '../sim/commands.ts';
 import { kraanDicht } from '../sim/overtime.ts';
 import { SIDES, other, type Side, type SimState } from '../sim/types.ts';
 import { ACTIONS, KEY_LABEL, commandOf, type Action } from './input.ts';
@@ -175,7 +175,7 @@ export class Hud {
     node.textContent = text;
   }
 
-  /** Names, pictures and prices of the units: these only change when a side modernizes, or when another faction takes the seat. */
+  /** Names and pictures of the units: these only change when a side modernizes, or when another faction takes the seat. Prices are written every frame: the rent can go up. */
   private label(s: SimState, side: Side): void {
     const parts = this.sides[side];
     const state = s.sides[side];
@@ -197,7 +197,6 @@ export class Hud {
       this.write(b.label, nameOf(unit.id));
       // Four buttons share the row, so a name gets two lines; one long word gets smaller letters instead.
       b.label.classList.toggle('long', nameOf(unit.id).split(/[ -]/).some((word) => word.length > 14));
-      this.write(b.cost, String(unit.cost));
       b.root.title = NL.blurbs[unit.id] ?? '';
     }
     parts.buttons.buy0.root.parentElement!.classList.toggle('four', era.units.length > 3);
@@ -241,6 +240,9 @@ export class Hud {
       parts.purse.classList.toggle('drained', drained);
       parts.purse.classList.toggle('draining', draining && !drained);
       const coming = draining ? income + SUBSIDY.income[theirs.subsidy]! : income;
+      // The rent went up: every price this side pays is higher for a while, and its buttons say so in red.
+      const dear = hiked(s, side);
+      parts.purse.classList.toggle('hiked', dear && !drained);
       // Once the kraan is closed there is no income to show, and no room for both texts.
       this.write(
         parts.money,
@@ -248,8 +250,13 @@ export class Hud {
           ? NL.hud.kraanDicht
           : drained
             ? `${NL.hud.diverted} · ${Math.ceil((state.divertedUntil - s.tick) / TPS)} s`
-            : `${NL.faction[state.faction].money} +${coming}${NL.hud.perSecond}`,
+            : dear
+              ? `${NL.hud.hiked.replace('{n}', String(state.hikePercent / 100))} · ${Math.ceil((state.hikeUntil - s.tick) / TPS)} s`
+              : `${NL.faction[state.faction].money} +${coming}${NL.hud.perSecond}`,
       );
+      for (let slot = 0; slot < era.units.length; slot++) {
+        this.write(parts.buttons[`buy${slot}` as Action].cost, String(unitPrice(s, side, era.units[slot]!)));
+      }
 
       parts.pips.forEach((pip, i) => {
         const item = state.queue[i];
@@ -266,6 +273,7 @@ export class Hud {
 
       for (const action of ACTIONS) {
         parts.buttons[action].root.classList.toggle('off', !canDo(s, side, commandOf(action)));
+        parts.buttons[action].root.classList.toggle('hiked', dear);
       }
 
       // The turret button says what it will do next: build, replace an old one, or upgrade.

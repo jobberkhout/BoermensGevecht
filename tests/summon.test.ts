@@ -45,11 +45,13 @@ describe('De Toeterstoet', () => {
 });
 
 describe('De Familie-app', () => {
-  it("is De Gasten's special of 2050 and the only one that calls units in", () => {
+  it("is De Gasten's special of 2050, and calls units in for good", () => {
     const special = eraOf('gasten', ERA.y2050).special;
     expect(special).toMatchObject({ kind: 'summon', unit: COUSIN, count: SPECIAL.familieApp.count });
+    expect(special).not.toHaveProperty('ticks');
+    // The other one is De Toeristen's cruise ship, whose day trippers go back on board: tests/tourists.test.ts.
     const summons = Object.values(FACTIONS).flatMap((f) => f.eras.filter((e) => e.special.kind === 'summon').map((e) => e.id));
-    expect(summons).toEqual(['gs.2050']);
+    expect(summons).toEqual(['gs.2050', 'tr.2025']);
   });
 
   it('calls in a light unit of 2050 with the temperament of De Gasten, free and not for sale', () => {
@@ -63,7 +65,7 @@ describe('De Familie-app', () => {
     const s = setup(ERA.y2050);
     rich(s, 0);
     const events = act(s, 0, { t: 'special' });
-    expect(events).toContainEqual({ t: 'summoned', side: 0, count: SPECIAL.familieApp.count });
+    expect(events).toContainEqual({ t: 'summoned', side: 0, count: SPECIAL.familieApp.count, ticks: 0 });
     // Three rows: three at once, the fourth when a row has room again.
     expect(cousins(s, 0)).toHaveLength(3);
     run(s, 60);
