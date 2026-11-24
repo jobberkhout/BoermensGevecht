@@ -78,12 +78,14 @@ describe('the data makes sense', () => {
       expect(def.speed, `${def.id} speed`).toBeGreaterThan(0);
       expect(def.windup, `${def.id} windup`).toBeGreaterThan(0);
       expect(def.recover, `${def.id} recover`).toBeGreaterThan(0);
-      expect(def.bounty, `${def.id} bounty below cost`).toBeLessThan(def.cost);
+      // Whoever a special calls in is free and pays nothing; everyone else pays back less than it cost.
+      if (def.summoned) expect([def.cost, def.bounty], `${def.id} free`).toEqual([0, 0]);
+      else expect(def.bounty, `${def.id} bounty below cost`).toBeLessThan(def.cost);
     }
   });
 
   it('unit ids are unique', () => {
-    const ids = Object.values(FACTIONS).flatMap((f) => f.eras.flatMap((e) => e.units.map((u) => u.id)));
+    const ids = Object.values(FACTIONS).flatMap((f) => f.eras.flatMap((e) => [...e.units, ...e.extras].map((u) => u.id)));
     expect(new Set(ids).size).toBe(ids.length);
   });
 });

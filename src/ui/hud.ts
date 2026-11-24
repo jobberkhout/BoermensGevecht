@@ -64,6 +64,8 @@ interface SideParts {
 
 export class Hud {
   private sides: [SideParts, SideParts];
+  /** Which sides the computer plays, for their names. */
+  private computer: [boolean, boolean] = [false, false];
   private clock: HTMLElement;
   private banner: HTMLElement;
   /** Last text written per element, so unchanged values never touch the page. */
@@ -182,7 +184,7 @@ export class Hud {
     parts.shown = era.id;
 
     setPicture(parts.flag, faction.flagRig, '');
-    this.write(parts.name, NL.faction[state.faction].name);
+    this.write(parts.name, this.computer[side] ? `${NL.faction[state.faction].name} · ${NL.start.computer}` : NL.faction[state.faction].name);
     this.write(parts.eraName, NL.era[era.key] ?? String(era.year));
 
     // Three unit buttons, and a fourth in the era that has a super unit.
@@ -311,6 +313,12 @@ export class Hud {
   }
 
   /** Shows the overtime banner with this text, or takes it away with null. It jumps whenever the text changes. */
+  /** Which sides the computer plays this match; their names say so. */
+  setComputer(computer: readonly [boolean, boolean]): void {
+    this.computer = [computer[0], computer[1]];
+    for (const parts of this.sides) parts.shown = '';
+  }
+
   setOvertime(text: string | null): void {
     this.banner.hidden = text === null;
     if (text === null || this.banner.textContent === text) return;

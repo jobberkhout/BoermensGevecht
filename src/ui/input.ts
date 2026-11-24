@@ -29,6 +29,11 @@ export function commandOf(action: Action): Command {
   }
 }
 
+/** The button a command is pressed with: the way back from commandOf, so the computer's presses show on the HUD. */
+export function actionOf(cmd: Command): Action {
+  return cmd.t === 'buy' ? (`buy${cmd.slot}` as Action) : cmd.t;
+}
+
 /**
  * Physical key positions (KeyboardEvent.code), so QWERTY, AZERTY and QWERTZ all
  * give the left player the left cluster and the right player the right one.

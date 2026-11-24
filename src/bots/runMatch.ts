@@ -6,7 +6,7 @@ import { hashState } from '../sim/hash.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
 import { step } from '../sim/step.ts';
 import { SIDES, type Replay, type Side, type SimEvent, type SimState, type Stamped } from '../sim/types.ts';
-import type { Bot } from './bots.ts';
+import { THINK_EVERY, type Bot } from './bots.ts';
 
 export interface MatchResult {
   winner: Side | 'draw' | null;
@@ -38,7 +38,7 @@ export interface MatchOptions {
 export function runMatch(opts: MatchOptions): MatchResult {
   const factions = opts.factions ?? DEFAULT_FACTIONS;
   const maxTicks = opts.maxTicks ?? 20 * 60 * TPS;
-  const thinkEvery = opts.thinkEvery ?? 6;
+  const thinkEvery = opts.thinkEvery ?? THINK_EVERY;
   const s = createMatch(opts.seed, factions);
   const all: Stamped[] = [];
   const events: SimEvent[] = [];

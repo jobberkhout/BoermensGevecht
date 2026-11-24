@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -172 232 178" data-rig="static">
+  <title>De Familie-app: één berichtje in de groep, en iedereen komt. Een hologramtelefoon vol berichten, een badge van 99+</title>
+  <style>
+    .o { stroke: #17687e; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #17687e; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .line { stroke: #17687e; stroke-width: 2; stroke-linecap: round; fill: none; opacity: 0.6; }
+    .scan { stroke: #effdff; stroke-width: 1.2; stroke-linecap: round; fill: none; opacity: 0.5; }
+  </style>
+
+  <!-- The projector on the verge, and its light going up. -->
+  <g id="schijf" transform="translate(-26 -3)">
+    <ellipse class="n" fill="#7fe6ff" fill-opacity="0.35" cx="0" cy="0" rx="40" ry="8"/>
+    <ellipse class="o" style="stroke-width:2" fill="#2a8fae" cx="0" cy="0" rx="28" ry="5.6"/>
+    <ellipse class="n" fill="#bff4ff" cx="0" cy="-1" rx="17" ry="2.8"/>
+  </g>
+  <g id="straal" transform="translate(-26 -16)">
+    <path class="n" fill="#9feeff" fill-opacity="0.2" d="M-24 13 L24 13 L50 -14 L-50 -14 Z"/>
+  </g>
+
+  <!-- The phone, floating, as big as a door. Joint in its middle, so it can bob. -->
+  <g id="telefoon" transform="translate(-26 -92)">
+    <g transform="translate(26 92)" opacity="0.92">
+      <rect class="o" fill="#2a8fae" x="-74" y="-156" width="96" height="126" rx="15"/>
+      <rect class="n" fill="#e8fdff" x="-67" y="-145" width="82" height="106" rx="8"/>
+      <!-- the top bar of the group: five faces in a row -->
+      <rect class="n" fill="#bff4ff" x="-67" y="-145" width="82" height="20" rx="8"/>
+      <path class="n" fill="#bff4ff" d="M-67 -133 L15 -133 L15 -125 L-67 -125 Z"/>
+      <!-- grandfather: bald, a moustache -->
+      <circle class="o" style="stroke-width:1.6" fill="#a6ecfa" cx="-57" cy="-135" r="5.4"/>
+      <path class="n" fill="#17687e" d="M-60 -132.4 Q-57 -134.4 -54 -132.4 Q-57 -131.4 -60 -132.4 Z"/>
+      <!-- grandmother: hair up in a bun -->
+      <circle class="n" fill="#1f7a94" cx="-45" cy="-141.6" r="2.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#a6ecfa" cx="-45" cy="-135" r="5.4"/>
+      <path class="n" fill="#1f7a94" d="M-50.2 -136.4 Q-49 -141 -45 -141 Q-41 -141 -39.8 -136.4 Q-45 -139 -50.2 -136.4 Z"/>
+      <!-- an aunt with glasses -->
+      <circle class="o" style="stroke-width:1.6" fill="#a6ecfa" cx="-33" cy="-135" r="5.4"/>
+      <path class="n" fill="#1f7a94" d="M-38.4 -134 Q-39 -141.4 -33 -141.4 Q-27 -141.4 -27.6 -134 Q-30 -138.6 -33 -138.6 Q-36 -138.6 -38.4 -134 Z"/>
+      <path class="t" style="stroke-width:1.1" d="M-36.6 -134.6 L-34.4 -134.6 M-31.6 -134.6 L-29.4 -134.6"/>
+      <!-- the uncle, with a fresh fade -->
+      <circle class="o" style="stroke-width:1.6" fill="#a6ecfa" cx="-21" cy="-135" r="5.4"/>
+      <path class="n" fill="#1f7a94" d="M-25.6 -137.4 Q-25 -141.4 -21 -141.4 Q-17 -141.4 -16.4 -137.4 Z"/>
+      <!-- and "+43" more: three dots -->
+      <circle class="n" fill="#17687e" cx="-8.6" cy="-135" r="1.4"/>
+      <circle class="n" fill="#17687e" cx="-4" cy="-135" r="1.4"/>
+      <circle class="n" fill="#17687e" cx="0.6" cy="-135" r="1.4"/>
+      <!-- the bar to type in -->
+      <rect class="o" style="stroke-width:1.6" fill="#ffffff" x="-63" y="-50" width="64" height="8" rx="4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#7ff0c8" cx="8" cy="-46" r="5"/>
+      <path class="scan" d="M-72 -150 L20 -150 M-73 -118 L21 -118 M-73 -86 L21 -86 M-73 -54 L21 -54"/>
+    </g>
+  </g>
+
+  <!-- The messages, one after another. Incoming on the left, joint at their left end; ours on the right, joint at the right end. -->
+  <g id="bel_a" data-parent="telefoon" transform="translate(-62 -114)">
+    <g transform="translate(62 114)">
+      <rect class="o" style="stroke-width:1.8" fill="#bff4ff" x="-62" y="-120" width="40" height="12" rx="6"/>
+      <path class="line" d="M-57 -114 L-29 -114"/>
+    </g>
+  </g>
+  <g id="bel_b" data-parent="telefoon" transform="translate(10 -98)">
+    <g transform="translate(-10 98)">
+      <rect class="o" style="stroke-width:1.8" fill="#7ff0c8" x="-34" y="-104" width="44" height="12" rx="6"/>
+      <path class="line" d="M-29 -98 L5 -98"/>
+    </g>
+  </g>
+  <g id="bel_c" data-parent="telefoon" transform="translate(-62 -81)">
+    <g transform="translate(62 81)">
+      <rect class="o" style="stroke-width:1.8" fill="#bff4ff" x="-62" y="-88" width="30" height="14" rx="6"/>
+      <!-- a heart -->
+      <path class="o" style="stroke-width:1.4" fill="#ff8fb0" d="M-47 -77.4 Q-53.4 -81.6 -51.6 -84.8 Q-49.6 -87.4 -47 -84.6 Q-44.4 -87.4 -42.4 -84.8 Q-40.6 -81.6 -47 -77.4 Z"/>
+    </g>
+  </g>
+  <g id="bel_d" data-parent="telefoon" transform="translate(10 -64)">
+    <g transform="translate(-10 64)">
+      <rect class="o" style="stroke-width:1.8" fill="#7ff0c8" x="-30" y="-71" width="40" height="14" rx="6"/>
+      <!-- a pin: on my way -->
+      <path class="o" style="stroke-width:1.4" fill="#e8a23a" d="M-20 -59.4 Q-25 -65 -25 -67.4 Q-25 -71.6 -20 -71.6 Q-15 -71.6 -15 -67.4 Q-15 -65 -20 -59.4 Z"/>
+      <circle class="n" fill="#ffffff" cx="-20" cy="-67.4" r="1.6"/>
+      <path class="line" d="M-11 -64 L5 -64"/>
+    </g>
+  </g>
+
+  <!-- The badge: every message that came in while you looked. Joint in its middle; the number stays readable when mirrored. -->
+  <g id="badge" data-parent="telefoon" data-mirror="no" transform="translate(20 -152)">
+    <circle class="o" style="stroke:#7a1020;stroke-width:2.2" fill="#e5283f" cx="0" cy="0" r="11.5"/>
+    <!-- 9 9 + drawn as lines -->
+    <path fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M-4.6 -1.2 Q-8.4 -1.2 -8.4 -3.4 Q-8.4 -5.6 -6.4 -5.6 Q-4.4 -5.6 -4.4 -3.2 L-4.4 1.6 Q-4.6 5 -7.6 4.8 M3 -1.2 Q-0.8 -1.2 -0.8 -3.4 Q-0.8 -5.6 1.2 -5.6 Q3.2 -5.6 3.2 -3.2 L3.2 1.6 Q3 5 0 4.8 M6.8 -0.4 L10 -0.4 M8.4 -2 L8.4 1.2"/>
+  </g>
+
+  <!-- More pings coming in, off to the side: everyone is on their way. Joint at the left end of each. -->
+  <g id="ping_a" transform="translate(36 -124)">
+    <g transform="translate(-36 124)" opacity="0.9">
+      <rect class="o" style="stroke-width:1.8" fill="#e8fdff" x="36" y="-132" width="58" height="16" rx="8"/>
+      <circle class="o" style="stroke-width:1.4" fill="#a6ecfa" cx="45" cy="-124" r="4.6"/>
+      <path class="line" d="M53 -126.6 L86 -126.6 M53 -121.4 L74 -121.4"/>
+    </g>
+  </g>
+  <g id="ping_b" transform="translate(36 -98)">
+    <g transform="translate(-36 98)" opacity="0.9">
+      <rect class="o" style="stroke-width:1.8" fill="#e8fdff" x="36" y="-106" width="66" height="16" rx="8"/>
+      <circle class="o" style="stroke-width:1.4" fill="#a6ecfa" cx="45" cy="-98" r="4.6"/>
+      <path class="line" d="M53 -100.6 L94 -100.6 M53 -95.4 L80 -95.4"/>
+    </g>
+  </g>
+  <g id="ping_c" transform="translate(36 -72)">
+    <g transform="translate(-36 72)" opacity="0.9">
+      <rect class="o" style="stroke-width:1.8" fill="#e8fdff" x="36" y="-80" width="52" height="16" rx="8"/>
+      <circle class="o" style="stroke-width:1.4" fill="#a6ecfa" cx="45" cy="-72" r="4.6"/>
+      <path class="o" style="stroke-width:1.2" fill="#ff8fb0" d="M60 -68 Q55.4 -71 56.6 -73.4 Q58 -75.4 60 -73.4 Q62 -75.4 63.4 -73.4 Q64.6 -71 60 -68 Z"/>
+      <path class="line" d="M68 -72 L82 -72"/>
+    </g>
+  </g>
+</svg>

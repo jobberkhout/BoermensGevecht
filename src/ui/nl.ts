@@ -28,8 +28,6 @@ export const NL = {
   tagline: 'De slag om de subsidie',
 
   faction: perFaction((text) => ({ name: text.name, place: text.place, trait: text.trait, money: text.money })),
-  /** What is shouted where a faction's snipe special lands, for a faction that has its own word for it. */
-  sniped: perFaction((text) => text.sniped),
 
   /** Display names and one-line descriptions by definition id. */
   names: gathered((text) => text.names),
@@ -108,6 +106,13 @@ export const NL = {
     back: 'Esc = andere facties kiezen',
     left: 'Linker speler',
     right: 'Rechter speler',
+    /** Who plays a side, on the switch on each half of the title card. */
+    human: 'Speler',
+    computer: 'Computer',
+    /** On that switch, for whoever hovers it. */
+    whoPlays: 'Speler of computer',
+    /** Under the two halves of the title card. */
+    alone: 'Alleen? Laat de computer een kant spelen: S of K, of klik op Speler.',
     pause: 'Spatie = pauze, M = muziek of geluid uit',
     goal: 'Sloop de basis van de ander. Torens schieten op wie vooraan loopt, behalve als er een schild meeloopt: dat vangt alles op. Na tien minuten is het overtijd: eenheden slaan harder, torens raken op.',
     /** The two rows on the title card that are the same for every era. */
@@ -126,6 +131,7 @@ export const NL = {
   /** What a beaten unit mutters while it slinks off, and what a fresh one shouts, per faction and era. */
   slinkOff: perFaction((text) => text.slinkOff),
   battleCry: perFaction((text) => text.battleCry),
+  riding: perFaction((text) => text.riding ?? {}),
 };
 
 export function nameOf(id: string): string {
@@ -133,10 +139,10 @@ export function nameOf(id: string): string {
 }
 
 /**
- * The lines of one kind (slinkOff, battleCry) for a unit: those of the faction
+ * The lines of one kind (slinkOff, battleCry, riding) for a unit: those of the faction
  * that trained it, for the era in its id ('hm.1975.light').
  */
-export function linesFor(kind: 'slinkOff' | 'battleCry', unitId: string): readonly string[] {
+export function linesFor(kind: 'slinkOff' | 'battleCry' | 'riding', unitId: string): readonly string[] {
   // A unit may have lines of its own (the fatbike kid's); everyone else shares those of their era.
   const lines = NL[kind][homeOf(unitId)];
   const era = unitId.split('.')[1] ?? '';

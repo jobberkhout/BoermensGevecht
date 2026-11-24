@@ -485,8 +485,17 @@ export const SPECIAL = {
   algoritme: { dmg: 4500 },
   /** 1975, De Gasten: eerst thee. Every own unit on the lane is patched up. The same kind of trick as the love-in, with the same numbers. */
   thee: { healPercent: 100 },
-  /** 2025, De Gasten: a wedding convoy honks past and the enemy stops to watch. The same kind of trick as the blokkade, with the same numbers. */
-  toeterstoet: { ticks: sec(5) },
-  /** 2050, De Gasten: one look and one "no", from the toughest enemy unit on. The same kind of trick as the algorithm, with the same numbers. */
-  neeIsNee: { dmg: 4500 },
+  /**
+   * 2025, De Gasten: a wedding convoy honks its way down the lane and hits
+   * every enemy unit once. The same kind of trick as the Trekkerkolonne, with
+   * the same numbers; until 24 November 2026 it was a stun like the blokkade.
+   */
+  toeterstoet: { speed: pxPerSec(520), dmg: 48 },
+  /**
+   * 2050, De Gasten: one message in the family group chat and everyone comes.
+   * This many hologram cousins come out at the gate, light units of the era
+   * that are not for sale and pay no bounty. The owner's pick of 24 November
+   * 2026, in place of Nee is nee; the only special of its kind.
+   */
+  familieApp: { count: 4 },
 } as const;

@@ -50,6 +50,12 @@ export interface UnitDef {
    * through takes, `baseDmg` what the base takes when it gets there. See sim/riders.ts.
    */
   rider?: { baseDmg: number };
+  /**
+   * Called in by a special, not trained: it is not for sale, costs nothing and
+   * pays no bounty, and beating it teaches nobody anything. The hologram
+   * cousins of De Familie-app. See sim/specials.ts.
+   */
+  summoned?: true;
 }
 
 export interface TurretDef {
@@ -81,6 +87,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
     | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
     | { kind: 'divert'; ticks: number } // for a while everything the enemy earns is paid to you instead
+    | { kind: 'summon'; unit: string; count: number } // free units of your own come out at your gate, unit cap or not
   );
 
 export interface EraDef {
@@ -96,6 +103,8 @@ export interface EraDef {
   eraUpCost: number | null;
   /** Light, ranged, heavy, and a fourth: the schild, or in the last era the super unit. The index is the buy button. */
   units: UnitDef[];
+  /** Units that come onto the lane without being bought: whoever its special calls in. */
+  extras: UnitDef[];
   turret: TurretDef;
   special: SpecialDef;
 }

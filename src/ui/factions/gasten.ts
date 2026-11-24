@@ -8,7 +8,6 @@ export const gasten: FactionText = {
   money: 'spaargeld',
   win: { head: 'De Gasten winnen!', sub: 'Blijf je eten?' },
   unmoved: 'Volgend jaar.',
-  sniped: 'Nee!',
 
   names: {
     'gs.1975.light': 'De Nachtploeg',
@@ -28,7 +27,8 @@ export const gasten: FactionText = {
     'gs.2050.heavy': 'De Zweefimperiaal',
     'gs.2050.super': 'Mo-Tron',
     'gs.2050.turret': 'Het Theeterras',
-    'gs.2050.special': 'Nee is nee',
+    'gs.2050.special': 'De Familie-app',
+    'gs.2050.summoned': 'De Hologramneef',
   },
 
   blurbs: {
@@ -43,13 +43,14 @@ export const gasten: FactionText = {
     'gs.2025.heavy': 'Raast overal doorheen, recht op de basis af. Alleen een deur houdt hem tegen.',
     'gs.2025.shield': 'Filmt de bruiloft achter een lamp zo groot als een deur. Torens mikken op hem en ketsen af.',
     'gs.2025.turret': 'De kapper en twee mannen die voor het praatje komen. Ze gooien met hete handdoeken.',
-    'gs.2025.special': 'Een toeterende bruiloftsstoet: de vijand blijft vijf tellen kijken en doet niks.',
+    'gs.2025.special': 'De bruiloftsstoet toetert over de hele baan en neemt elke vijand mee die in de weg staat.',
     'gs.2050.light': 'Kapperrobot met vier armen, waarvan één om mee te praten. Zoemt en knipt.',
     'gs.2050.ranged': 'Vergelijkt nog steeds twintig reisbureaus. Gooit met de tickets die hij niet kocht.',
     'gs.2050.heavy': 'De zomerauto zweeft nu, het imperiaal is hoger dan ooit. Het blauwe bad gaat nog mee.',
     'gs.2050.super': 'Mo van de nachtploeg, nu een robot zo groot als een flat. Speciale acties en torens doen hem niks.',
     'gs.2050.turret': 'Drie generaties op een zwevend terras, elk met eigen thee. Ze schieten suikerklontjes.',
-    'gs.2050.special': 'Eén blik, één “nee”: eerst voor de sterkste vijand, en wat over is voor de volgende.',
+    'gs.2050.special': 'Eén berichtje in de groepsapp en iedereen komt: vier hologramneven verschijnen bij de poort en vechten mee.',
+    'gs.2050.summoned': 'Zit eigenlijk thuis op de bank, maar is er toch. Mept met zijn selfiestick.',
   },
 
   // By era, and for the fatbike kid his own: he is the only one who says these.
@@ -58,12 +59,20 @@ export const gasten: FactionText = {
     '2025': ['Neem wat mee voor onderweg.', 'Wie filmt dit?', 'Volgend jaar terug.', 'Knoflooksaus op.'],
     '2050': ['Volgend jaar.', 'Accu leeg.', 'Mijn notitieboekje!', 'Eerst thee.'],
     'gs.2025.heavy': ['Mijn band is lek.'],
+    'gs.2050.summoned': ['Verbinding verbroken.', 'Ik zit in een tunnel!', 'Batterij bijna leeg.'],
   },
 
   battleCry: {
     '1975': ['Twee jaar, dan terug!', 'Nachtdienst!', 'Eerst thee.', 'Ik schrijf het op.'],
     '2025': ['Eet eerst wat!', 'Met alles?', 'Iedereen moet het zien!', 'Volgend jaar terug!'],
     '2050': ['Veertig minuten naar het zuiden!', 'Eerst de prijzen vergelijken.', 'Blijf je eten?', 'Volgend jaar terug!'],
-    'gs.2025.heavy': ['Wat kijk je?', 'Ik rij maar vijfentwintig, echt!'],
+    // Twice on purpose: it is the line he is known for, so it comes two times in three.
+    'gs.2025.heavy': ['Wat kijk je?', 'Wat kijk je?', 'Ik rij maar vijfentwintig, echt!'],
+    'gs.2050.summoned': ['Ik ben er!', 'Wie had er gebeld?', 'Ik zag het in de app!', 'Ben ik te laat?'],
+  },
+
+  // The fatbike kid, every time he rides through someone.
+  riding: {
+    'gs.2025.heavy': ['Wat kijk je?'],
   },
 };

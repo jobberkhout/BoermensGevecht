@@ -27,7 +27,7 @@ export const SPLASH: Record<string, string> = {};
 
 for (const faction of Object.values(FACTIONS)) {
   for (const era of faction.eras) {
-    for (const unit of era.units) {
+    for (const unit of [...era.units, ...era.extras]) {
       UNITS[unit.id] = unit;
       HOME[unit.id] = faction.id;
       if (unit.shot) SPLASH[unit.shot.rig] = unit.shot.splash;
@@ -50,7 +50,7 @@ export function artFor(factions: readonly FactionId[]): Set<string> {
       ids.add(era.turret.rig);
       ids.add(era.turret.shot.rig);
       if (era.special.rig) ids.add(era.special.rig);
-      for (const unit of era.units) {
+      for (const unit of [...era.units, ...era.extras]) {
         ids.add(unit.rig);
         if (unit.shot) ids.add(unit.shot.rig);
       }

@@ -28,6 +28,8 @@ export interface ScreenHandlers {
   resume(): void;
   /** A player steps to the previous (-1) or next (+1) faction. */
   pick(side: Side, step: -1 | 1): void;
+  /** A side switches between a person and the computer. */
+  toggle(side: Side): void;
   /** From the end of a match back to the title card. */
   back(): void;
 }
@@ -56,6 +58,7 @@ export class Screens {
       el('h2', '', NL.tagline),
       this.versus,
       el('p', '', `${NL.start.goal} ${NL.start.eras} ${NL.start.pause}.`),
+      el('p', 'alone', NL.start.alone),
       go,
     );
     this.title.append(card);
@@ -89,16 +92,17 @@ export class Screens {
     root.append(this.title, this.pause, this.over);
   }
 
-  /** Shows which faction each player has picked, and what its first era fields. */
-  setFactions(picks: readonly [FactionId, FactionId]): void {
-    this.versus.replaceChildren(this.sideCard(0, picks[0]), el('div', 'vs', 'VS'), this.sideCard(1, picks[1]));
+  /** Shows which faction each player has picked, who plays it, and what its first era fields. */
+  setFactions(picks: readonly [FactionId, FactionId], computer: readonly [boolean, boolean] = [false, false]): void {
+    this.versus.replaceChildren(this.sideCard(0, picks[0], computer[0]), el('div', 'vs', 'VS'), this.sideCard(1, picks[1], computer[1]));
   }
 
-  private sideCard(side: Side, faction: FactionId): HTMLElement {
+  private sideCard(side: Side, faction: FactionId, computer: boolean): HTMLElement {
     const era = eraOf(faction, 0);
     const label = KEY_LABEL[side];
     const box = el('div', side === 0 ? 'side' : 'side right');
     box.dataset.faction = faction;
+    box.dataset.player = computer ? 'computer' : 'human';
 
     // Whose side this is, and the two arrows with which that player steps through the factions.
     const head = el('h3');
@@ -107,7 +111,8 @@ export class Screens {
     const title = el('div', 'who', NL.faction[faction].name);
     // What its units are like, so the choice is about more than the pictures.
     title.append(el('em', 'trait', NL.faction[faction].trait));
-    title.append(el('small', '', `${side === 0 ? NL.start.left : NL.start.right} · ${NL.faction[faction].place}`));
+    const who = computer ? NL.start.computer : side === 0 ? NL.start.left : NL.start.right;
+    title.append(el('small', '', `${who} · ${NL.faction[faction].place}`));
     const arrow = (step: -1 | 1, key: string, hint: string): HTMLButtonElement => {
       const button = el('button', 'arrow');
       button.type = 'button';
@@ -122,6 +127,14 @@ export class Screens {
     // On the title card the turret key steps back and the subsidie key steps on.
     head.append(arrow(-1, label.turret, NL.start.previous), flag, title, arrow(1, label.subsidy, NL.start.next));
 
+    // Playing alone: the special key, or a click, hands this side to the computer and back.
+    const player = el('button', 'player');
+    player.type = 'button';
+    player.title = NL.start.whoPlays;
+    player.setAttribute('aria-label', NL.start.whoPlays);
+    player.append(el('kbd', '', label.special), el('span', '', computer ? NL.start.computer : NL.start.human));
+    player.addEventListener('click', () => this.handlers.toggle(side));
+
     const keys = el('div', 'keys');
     era.units.forEach((unit, slot) => {
       keyRow(keys, label[`buy${slot}` as Action], unit.rig, nameOf(unit.id), NL.blurbs[unit.id] ?? '');
@@ -132,7 +145,7 @@ export class Screens {
     const future = FACTIONS[faction].eras.at(-1)!;
     keyRow(keys, label.subsidy, '', NL.start.subsidy.name, NL.start.subsidy.blurb);
     keyRow(keys, label.eraUp, future.units.at(-1)!.rig, NL.start.eraUp.name, NL.start.eraUp.blurb);
-    box.append(head, keys);
+    box.append(head, player, keys);
     return box;
   }
 

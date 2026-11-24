@@ -243,6 +243,10 @@ export class BattleView {
   private paid = 0;
   /** Seconds until the next note floats up from a side that is høken. */
   private noteIn: [number, number] = [0, 0];
+  /** When each rider last shouted while riding through someone, by rider id, so it does not shout at every single one. */
+  private riderShout = new Map<number, number>();
+  /** Whether the next unit a special calls in for each side says something: only the first of the family does. */
+  private familyLine: [boolean, boolean] = [false, false];
   private seed = 12345;
 
   constructor(rigOf: (id: string) => Rig | undefined) {
@@ -294,9 +298,22 @@ export class BattleView {
             this.say(GATE_X[e.side] + dirOf(e.side) * 300, rowY(0) - 290, `${nameOf(e.def)}!`, '#ffd21f', 2.2, 46);
             break;
           }
+          const def = unitDef(e.def);
+          const unit = s.sides[e.side].units.find((u) => u.id === e.id);
+          if (def.summoned) {
+            // Beamed in: a flash of hologram light at the gate where the cousin appears.
+            const x = GATE_X[e.side] + dirOf(e.side) * 30;
+            const y = rowY(unit ? unit.row : 1);
+            this.puffs.push({ x, y: y - 60, age: 0, life: 0.35, color: '#9fe8ff', size: 46 });
+            this.puffs.push({ x, y: y - 120, age: -0.05, life: 0.3, color: '#e6fbff', size: 30 });
+          }
           const cries = linesFor('battleCry', e.def);
-          if (cries.length > 0 && this.random() < 0.35) {
-            this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(1) - 150, this.pick(cries), '#fffdf5', 1.4, 20);
+          // The fatbike kid always has something to say, and so does the first cousin of the family; everyone else now and then.
+          const talks = def.rider ? true : def.summoned ? this.familyLine[e.side] : this.random() < 0.35;
+          if (def.summoned) this.familyLine[e.side] = false;
+          if (cries.length > 0 && talks) {
+            const row = def.rider ? RIDER_ROW : 1;
+            this.say(GATE_X[e.side] + dirOf(e.side) * 30, rowY(row) - 150, this.pick(cries), '#fffdf5', 1.4, 20);
           }
           break;
         }
@@ -362,6 +379,14 @@ export class BattleView {
           const x = laneX(e.side, e.pos);
           this.puffs.push({ x, y: rowY(RIDER_ROW) - 50, age: 0, life: 0.25, color: '#fff7d6', size: 22 });
           this.shake = Math.min(6, this.shake + 0.8);
+          // And he lets them know, at the first one and then once a second or so.
+          const rider = s.sides[e.side].riders.find((r) => r.id === e.id);
+          const lines = rider ? linesFor('riding', rider.def) : [];
+          const last = this.riderShout.get(e.id);
+          if (lines.length > 0 && (last === undefined || this.time - last > 1.1)) {
+            this.riderShout.set(e.id, this.time);
+            this.say(x, rowY(RIDER_ROW) - 150, this.pick(lines), '#fffdf5', 1.2, 22);
+          }
           break;
         }
         case 'crashed': {
@@ -426,6 +451,15 @@ export class BattleView {
           }
           break;
         }
+        case 'summoned': {
+          // The group chat lights up beside the base while the family comes out.
+          const state = s.sides[e.side];
+          const rig = eraOf(state.faction, state.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== e.side);
+          this.bands.push({ side: e.side, rig, age: 0, life: 2.5 });
+          this.familyLine[e.side] = true;
+          break;
+        }
         case 'buffed': {
           const state = s.sides[e.side];
           const rig = eraOf(state.faction, state.era).special.rig ?? '';
@@ -483,7 +517,7 @@ export class BattleView {
           // When the outrage spills over to more units, the verdicts come down one after another.
           const delay = cancelled * 0.09;
           this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: cancelled === 0 ? 1.25 : 0.9, age: -delay, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
-          if (cancelled === 0) this.say(x, y - 70, NL.sniped[owner.faction] ?? NL.shout.cancelled, '#ff7a66', 1.6, 34);
+          if (cancelled === 0) this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);
           cancelled++;
           break;
         }
