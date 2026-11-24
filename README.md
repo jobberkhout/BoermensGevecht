@@ -154,8 +154,8 @@ Every action is also a button on screen.
   - **De Bierfiets** (heavy, Jaren '20) and **De Zweefbierfiets** (heavy, the future) are fast and dear:
     30% dearer than a heavy and 75% faster, with a heavy's hit points and blows. On top of that one of the
     party tosses a beer every second and a half at the foremost enemy within 80% of a thrower's reach,
-    whether the bike is still riding up or already fighting. A beer does what a throw of their ranged unit
-    does.
+    whether the bike is still riding up or already fighting. A beer does half again as much as a throw of
+    their ranged unit.
   - **Cruiseschip legt aan**, their special of the Jaren '20: a cruise ship moors behind the base and eight
     day trippers run out of the gate, fast and weak. After twenty seconds the horn sounds and whoever is
     still ashore goes back on board, earning nobody anything.

@@ -389,12 +389,16 @@ export const SCATTER = {
  * `costPercent` and `speedPercent` are shares of the shared heavy's numbers,
  * in place of the temperament's; the damage of its blows keeps the
  * temperament. The toss is a share of the faction's own ranged unit of the
- * era: its damage and reach, every `every` ticks.
+ * era: its damage and reach, every `every` ticks. A beer did a throw's damage
+ * at first; the owner found the bike "quite weak for the price", so half again
+ * as much: the 185 a Bierfiets costs over De Toeristen's plain heavy is more
+ * than one of their ranged units, and now the beer throws a little more than
+ * one does in the same time.
  */
 export const TOSS = {
   costPercent: 130,
   speedPercent: 175,
-  dmgPercent: 100,
+  dmgPercent: 150,
   rangePercent: 80,
   every: sec(1.5),
 } as const;
