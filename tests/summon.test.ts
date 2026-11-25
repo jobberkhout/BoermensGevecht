@@ -76,7 +76,7 @@ describe('De Familie-app', () => {
   it('brings them also when the ranks are full, and before anyone in training', () => {
     const s = setup(ERA.y2050);
     rich(s, 0);
-    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'gs.2050.light', px(400) + px(60) * i, 1_000_000, i % 3);
+    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'gs.2050.light', px(400) + px(60) * Math.floor(i / 3), 1_000_000, i % 3);
     s.sides[0].queue.push({ def: 'gs.2050.ranged', left: 0 });
     act(s, 0, { t: 'special' });
     const spawned: string[] = [];

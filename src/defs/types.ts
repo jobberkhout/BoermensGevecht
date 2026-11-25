@@ -36,6 +36,8 @@ export interface UnitDef {
   bounty: number;
   /** A melee blow hits every enemy unit within reach instead of only the foremost. */
   cleave: boolean;
+  /** How far a cleaving blow reaches from the front edge: `range`, or further for a super unit. */
+  sweep: number;
   /** Enemy specials have no effect on it. */
   immune: boolean;
   /** The share of a turret's shot it takes, in percent: 100 for most units. */
@@ -105,7 +107,7 @@ export type SpecialDef = SpecialBase &
     | { kind: 'buff'; ticks: number; dmgPercent: number; speedPercent: number } // own units hit harder and move faster
     | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
-    | { kind: 'snipe'; dmg: number } // damage that starts with the toughest enemy unit and carries on to the next
+    | { kind: 'snipe'; count: number } // the toughest enemy units are cancelled outright, this many of them
     | { kind: 'convert' } // the toughest enemy unit changes sides where it stands
     | { kind: 'divert'; ticks: number } // for a while everything the enemy earns is paid to you instead
     | { kind: 'summon'; unit: string; count: number; ticks?: number } // free units of your own come out at your gate, unit cap or not; with `ticks`, they leave again after that long

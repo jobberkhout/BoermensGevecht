@@ -197,7 +197,8 @@ describe('Paraplu-Pam scatters', () => {
   function fall(side: Side, extra = 0): { s: SimState; events: SimEvent[]; pamId: number } {
     const foe: Side = side === 0 ? 1 : 0;
     const s = setup(ERA.y2025, side);
-    for (let i = 0; i < extra; i++) place(s, side, 'tr.2025.light', px(100) + px(70) * Math.floor(i / 3), 1_000_000, i % 3).stunUntil = STUNNED;
+    // Three abreast behind her, so that a full lane still leaves her in front.
+    for (let i = 0; i < extra; i++) place(s, side, 'tr.2025.light', px(20) + px(60) * Math.floor(i / 3), 1_000_000, i % 3).stunUntil = STUNNED;
     const pam = place(s, side, PAM, px(500), 1, 1);
     place(s, foe, 'ah.2025.light', facing(px(500), px(10)), 1_000_000, 1).stunUntil = 0;
     const events = run(s, 40);
@@ -385,7 +386,7 @@ describe('Cruiseschip legt aan', () => {
   it('they all come out, whatever the unit cap, and all go back on board when the horn sounds', () => {
     const s = setup(ERA.y2025);
     rich(s, 0);
-    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'tr.2025.light', px(500) + px(60) * i, 1_000_000, i % 3).stunUntil = STUNNED;
+    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'tr.2025.light', px(500) + px(60) * Math.floor(i / 3), 1_000_000, i % 3).stunUntil = STUNNED;
     const start = s.tick;
     const first = act(s, 0, { t: 'special' });
     expect(first).toContainEqual({ t: 'summoned', side: 0, count: 8, ticks: SPECIAL.cruiseschip.ticks });

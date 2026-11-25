@@ -240,8 +240,10 @@ function strike(
   if (!foeFront) {
     dmg.push({ side: foe, unit: BASE, amount });
   } else if (def.cleave) {
+    // Everyone within the sweep: the front unit of each row, and with a long
+    // sweep (a super unit's) the ranks behind them as well.
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.range) dmg.push({ side: foe, unit: f.id, amount });
+      if (LANE - u.pos - f.pos <= def.sweep) dmg.push({ side: foe, unit: f.id, amount });
     }
   } else {
     dmg.push({ side: foe, unit: foeFront.id, amount });
@@ -427,6 +429,13 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
         r.hp -= d.amount;
         events.push({ t: 'hit', side: d.side, id: r.id, amount: d.amount, pos: r.pos });
       }
+      continue;
+    }
+    if (d.cancelled) {
+      // Whatever it has left, healed on this very tick or not: it is gone.
+      const amount = Math.max(0, u.hp);
+      u.hp -= amount;
+      events.push({ t: 'hit', side: d.side, id: u.id, amount, pos: u.pos });
       continue;
     }
     const share = d.turret ? unitDef(u.def).turretPercent : 100;

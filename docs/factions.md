@@ -129,7 +129,7 @@ Every faction has three specials, one per era, each of a different kind. Nine ki
 | Buff | Own units hit harder and move faster for a few seconds | Høken!, De gong |
 | Heal | Own units on the lane are patched up | Love-in |
 | Barrage | Repeated blows on the foremost enemy unit, or the base | Dronezwerm |
-| Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
+| Snipe | The toughest enemy units are cancelled outright, a fixed number of them, whatever their hit points | Het Algoritme |
 | Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
 | Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
 | Summon | Units of your own pour out of your gate at once, outside the queue and whatever the unit cap; with a time limit, they go home together when it is up | De Familie-app; Cruiseschip legt aan, with the time limit |
@@ -1519,7 +1519,7 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
 - **Buying and training.** The heavy button sells it, and it is trained in the queue like any unit. When it
   is trained it does not join the ranks: it leaves the gate as a rider. Only one rider per side is on the
   lane at a time; a second one waits at the gate, trained, until the first is gone. It does not count
-  towards the ten units a side may have on the lane.
+  towards the units a side may have on the lane (ten then, twenty since 25 November 2026).
 - **Riding through.** It passes its own units without touching them. Every enemy unit on its way that does
   not draw turret fire (light, ranged, heavy, of any era) it rides straight through, and the two trade one
   blow: the unit takes the rider's ram damage, and the rider takes one blow of the unit's own damage, ready

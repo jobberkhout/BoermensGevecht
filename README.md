@@ -42,7 +42,7 @@ blueprint: who they are, every unit and special per era, and the list of drawing
 |---|---|---|---|---|---|
 | Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink, Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) | Rugzak-Robin, Flitsblokje-Fien, De Touringcar, and the schild: Plattegrond-Paula. Turret: De Kaartenmolen. Special: De Dia-avond (enemy units stand still) |
 | Jaren '20 | Padel-Pepijn, Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) | Rolkoffer-Rita, Influencer-Ivy (poses the enemy, see below), De Bierfiets (tosses beers, see below), and the schild: Paraplu-Pam (scatters, see below). Turret: De Hype-rij. Special: Cruiseschip legt aan (eight day trippers for twenty seconds) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the toughest enemy, then the next) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight) | De Robokoffer, Eénster-Eli, De Zweefbierfiets (tosses beers, see below), and the super unit: MS Kolossaal. Turret: De Sleutelkluizentoren. Special: Huurverhoging voor de locals (for twenty seconds everything the enemy buys costs double) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the two toughest enemies outright) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight) | De Robokoffer, Eénster-Eli, De Zweefbierfiets (tosses beers, see below), and the super unit: MS Kolossaal. Turret: De Sleutelkluizentoren. Special: Huurverhoging voor de locals (for twenty seconds everything the enemy buys costs double) |
 
 All factions start from the same numbers for the same role in the same era. On top of those each has its
 own temperament, a small twist that is the same in every era and is shown next to its name on the title
@@ -100,8 +100,8 @@ Every action is also a button on screen.
 - Subsidie trickles in every second; beating an enemy unit pays a bounty.
 - **Subsidie aanvragen** costs money now and raises the income for the rest of the match, in five steps
   from 12 to 62 a second.
-- Units march in three rows. Nobody passes an ally in their own row or the enemy's foremost unit, so up to
-  three fight side by side while ranged units shoot from behind.
+- Units march in three rows, up to twenty a side. Nobody passes an ally in their own row or the enemy's
+  foremost unit, so up to three fight side by side while ranged units shoot from behind.
 - Light units are fast and cheap. Ranged units throw from a distance. Heavies are slow, tough, and hit
   everything within reach at once.
 - **Turrets.** Each base has two slots, and one button does it all: it fills an empty slot, then upgrades
@@ -135,7 +135,7 @@ Every action is also a button on screen.
   theirs, and so does the vooruitgang they earn.
 - **De Fatbike**, the heavy unit of De Gasten in the Jaren '20, is not a unit in the ranks but a rider.
   It costs 300, about two thirds of a heavy, and has 400 hit points, about 40% more than a light unit. It leaves the gate on its own, one at a
-  time and outside the ten-unit limit, and rides straight through the enemy ranks: every unit it passes
+  time and outside the twenty-unit limit, and rides straight through the enemy ranks: every unit it passes
   takes a blow and hits it back once, and what it beats earns you the bounty. A schild stops it and both
   go down; a super unit stops it and walks on. Turrets fire at it before anything else, and enemy specials
   leave it alone. If it gets through, it rides into the enemy base. So it is for a thin lane without a
@@ -150,7 +150,7 @@ Every action is also a button on screen.
     quarter, turrets do not pose, and super units shrug her off.
   - **Paraplu-Pam** (the schild, Jaren '20) costs 360 instead of 240 and is slower than any other schild.
     When she falls, her group of four scatters where she stood: weak lost tourists who walk on, free,
-    whatever the ten-unit limit. If De Zuidas bought her, they follow the umbrella to De Zuidas.
+    whatever the twenty-unit limit. If De Zuidas bought her, they follow the umbrella to De Zuidas.
   - **De Bierfiets** (heavy, Jaren '20) and **De Zweefbierfiets** (heavy, the future) are fast and dear:
     30% dearer than a heavy and 75% faster, with a heavy's hit points and blows. On top of that one of the
     party tosses a beer every second and a half at the foremost enemy within 80% of a thrower's reach,
@@ -164,8 +164,9 @@ Every action is also a button on screen.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
-  the schild it draws the fire of turrets and takes only a fifth of it. Six heavies or a steady supply of
-  units still bring it down.
+  the schild it draws the fire of turrets and takes only a fifth of it. Its blow sweeps further than a
+  heavy's: 150 pixels, so two or three small units deep in every row, and a stream of cheap units no longer
+  holds it up. Six heavies still bring it down.
 - **Overtime.** After ten minutes units hit 20% harder, and another 20% every ten seconds. Turrets go the
   other way: they lose 10% of their damage every ten seconds, starting at once, and fall silent at 11:30. The money keeps
   coming in, so there is always something to send. Should a match still be going at thirteen minutes, both

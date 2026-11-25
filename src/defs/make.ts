@@ -20,6 +20,7 @@ function makeUnit(id: string, role: Role, rig: string, stats: RoleStats, shot?: 
     recover: stats.recover,
     bounty: stats.bounty,
     cleave: stats.cleave ?? false,
+    sweep: stats.sweep ?? stats.range,
     immune: stats.immune ?? false,
     turretPercent: stats.turretPercent ?? 100,
     drawsFire: stats.drawsFire ?? false,

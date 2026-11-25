@@ -48,7 +48,7 @@ export const havermelk: FactionText = {
       'hm.2050.heavy': 'Ontsnapt uit het lab. Honderd procent diervrij, nul procent te stoppen.',
       'hm.2050.super': 'Een wandelend pak havermelk van drie verdiepingen. Heeft iedereen gemute: speciale acties en torens doen hem niks.',
       'hm.2050.turret': 'Een influencer gaat live. Duimpjes omlaag voor iedereen.',
-      'hm.2050.special': 'Cancelt de sterkste vijand op de baan. Is er nog verontwaardiging over, dan is de volgende aan de beurt.',
+      'hm.2050.special': 'Cancelt de twee sterkste vijanden op de baan. Weg zijn ze, hoe sterk ook.',
   },
 
   slinkOff: {

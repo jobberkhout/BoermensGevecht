@@ -591,7 +591,7 @@ export class BattleView {
           const v = this.units.get(e.id);
           const x = v ? v.x : laneX(e.side, e.pos);
           const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
-          // When the outrage spills over to more units, the verdicts come down one after another.
+          // With more than one cancelled, the verdicts come down one after another.
           const delay = cancelled * 0.09;
           this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: cancelled === 0 ? 1.25 : 0.9, age: -delay, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
           if (cancelled === 0) this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);

@@ -57,7 +57,14 @@ export const ROWS = 3;
 /** Which row a new unit prefers when several are equally empty: middle, far, near. */
 export const ROW_ORDER: readonly number[] = [1, 0, 2];
 
-export const UNIT_CAP = 10;
+/**
+ * Units a side may have on the lane at once. It was ten until 25 November
+ * 2026. The owner then found that in the future nobody could break through:
+ * "I am sitting at 10 units with money piling and unit construction stalls",
+ * while one cheap unit at a time from the other side held the whole army up.
+ * So twenty: whoever has the money can now overwhelm the other side.
+ */
+export const UNIT_CAP = 20;
 export const QUEUE_MAX = 5;
 export const TURRET_SLOTS = 2;
 
@@ -180,6 +187,11 @@ export interface RoleStats {
   bounty: number;
   /** A melee blow hits every enemy unit within reach instead of only the foremost. */
   cleave?: boolean;
+  /**
+   * How far a cleaving blow reaches from the unit's front edge. Left out, as far
+   * as `range`: the front unit of each row. Further, and it hits the ranks behind them too.
+   */
+  sweep?: number;
   /** Ranged units only: projectile speed in sub-units per tick. */
   shotSpeed?: number;
   /** Enemy specials have no effect on it. */
@@ -292,9 +304,16 @@ const SHIELD: Omit<RoleStats, 'bounty'> = {
  * glued down, run over, bought or picked out by drones. It draws the fire of
  * turrets and shrugs it off, as the schild does. Only units really hurt it.
  *
- * Tuned so that one of them beats its own price in any mix of units and a full
- * ten-unit army only just, but loses to six heavies: the best buy late in the
- * match, and still stoppable by an opponent who keeps heavies and turrets coming.
+ * Its blow sweeps further than a heavy's: 150 pixels from its front, so two or
+ * three small units deep in every row, where a heavy reaches only the front one.
+ * The owner, 25 November 2026: "the Big Super unit should do splash damage like
+ * the fat units. Otherwise you can just spam the smaller units all the time
+ * because it walks slow". A heavy unit is longer than the sweep, so against
+ * heavies it still hits only the front rank.
+ *
+ * Tuned so that one of them beats its own price in any mix of units, but loses
+ * to six heavies: the best buy late in the match, and still stoppable by an
+ * opponent who keeps heavies and turrets coming.
  */
 const SUPER: Omit<RoleStats, 'bounty'> = {
   cost: 3000,
@@ -305,6 +324,7 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
   range: px(30),
   dmg: 460,
   cleave: true,
+  sweep: px(150),
   windup: sec(0.6),
   recover: sec(0.9),
   immune: true,
@@ -530,10 +550,17 @@ export const SPECIAL = {
    */
   succesfee: { ticks: sec(5) },
   /**
-   * 2050, Amsterdam: the algorithm cancels the toughest enemy unit on the lane,
-   * and whatever outrage is left over goes to the next toughest, and so on.
+   * 2050, Amsterdam: the algorithm cancels the `count` toughest enemy units on
+   * the lane, gone at once, whatever their hit points.
+   *
+   * Until 25 November 2026 it was 4500 damage that started with the toughest
+   * and carried what was left over to the next. That was hit or miss: a fresh
+   * De Vreter has more hit points than that and soaked up all of it, so in bot
+   * matches against the Achterhoek half of the uses beat nobody, while against
+   * small units it cleared the lane. The owner picked this instead, "so it is
+   * also more consistent". Bots won about as often with it as with the old one.
    */
-  algoritme: { dmg: 4500 },
+  algoritme: { count: 2 },
   /** 1975, De Gasten: eerst thee. Every own unit on the lane is patched up. The same kind of trick as the love-in, with the same numbers. */
   thee: { healPercent: 100 },
   /**
