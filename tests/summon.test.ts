@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PROGRESS, SPECIAL, STATS, UNIT_CAP, px, twisted } from '../src/defs/balance.ts';
+import { LANE, PROGRESS, SPECIAL, STATS, UNIT_CAP, px, sec, twisted } from '../src/defs/balance.ts';
 import { FACTIONS, eraOf, unitDef } from '../src/defs/index.ts';
 import type { FactionId } from '../src/defs/types.ts';
 import type { Side, SimEvent, SimState } from '../src/sim/types.ts';
@@ -54,11 +54,46 @@ describe('De Familie-app', () => {
     expect(summons).toEqual(['gs.2050', 'tr.2025']);
   });
 
-  it('calls in a light unit of 2050 with the temperament of De Gasten, free and not for sale', () => {
+  it('calls in a light unit of 2050 with 30% more hit points than the shared one, free and not for sale', () => {
     const cousin = unitDef(COUSIN);
-    const light = twisted(STATS['2050'].light, FACTIONS.gasten.temper.light);
+    const light = twisted(STATS['2050'].light, { hp: SPECIAL.familieApp.hp });
+    expect(SPECIAL.familieApp.hp).toBe(130);
     expect(cousin).toMatchObject({ role: 'light', summoned: true, cost: 0, bounty: 0, hp: light.hp, dmg: light.dmg, speed: light.speed });
+    // More of him than of De Gasten's own light unit, which has 85%.
+    expect(cousin.hp).toBeGreaterThan(unitDef('gs.2050.light').hp);
     expect(eraOf('gasten', ERA.y2050).units.map((u) => u.id)).not.toContain(COUSIN);
+  });
+
+  it('sends voice messages: a Prijzenvader throw from 80% of its reach, every second and a half', () => {
+    const thrower = unitDef('gs.2050.ranged');
+    expect(unitDef(COUSIN).toss).toMatchObject({
+      dmg: thrower.dmg,
+      range: Math.round((thrower.range * 80) / 100),
+      every: SPECIAL.familieApp.toss.every,
+      shot: { rig: 'gasten/2050/shot_spraakbericht', speed: thrower.shot!.speed },
+    });
+    expect(SPECIAL.familieApp.toss.every).toBe(sec(1.5));
+  });
+
+  it('a cousin sends them on the way in and keeps sending them while he swats', () => {
+    const s = setup(ERA.y2050);
+    const toss = unitDef(COUSIN).toss!;
+    const me = place(s, 0, COUSIN, px(400));
+    const dummy = place(s, 1, 'ah.2050.light', LANE - px(400) - toss.range + px(20), 1_000_000);
+    dummy.stunUntil = 1e9;
+    const took: number[] = [];
+    let walkingTosses = 0;
+    for (let i = 0; i < toss.every * 6; i++) {
+      for (const e of run(s, 1)) {
+        if (e.t === 'toss' && e.id === me.id && me.act === 'walk') walkingTosses++;
+        if (e.t === 'hit' && e.id === dummy.id) took.push(e.amount);
+      }
+    }
+    expect(walkingTosses).toBeGreaterThan(0);
+    expect(me.act).toBe('attack');
+    // Both kinds landed: voice messages and swats of the selfie stick.
+    expect(took).toContain(toss.dmg);
+    expect(took).toContain(unitDef(COUSIN).dmg);
   });
 
   it('brings four cousins out at the gate, as fast as the rows make room', () => {
@@ -76,7 +111,7 @@ describe('De Familie-app', () => {
   it('brings them also when the ranks are full, and before anyone in training', () => {
     const s = setup(ERA.y2050);
     rich(s, 0);
-    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'gs.2050.light', px(400) + px(60) * i, 1_000_000, i % 3);
+    for (let i = 0; i < UNIT_CAP; i++) place(s, 0, 'gs.2050.light', px(400) + px(60) * Math.floor(i / 3), 1_000_000, i % 3);
     s.sides[0].queue.push({ def: 'gs.2050.ranged', left: 0 });
     act(s, 0, { t: 'special' });
     const spawned: string[] = [];

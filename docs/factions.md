@@ -129,7 +129,7 @@ Every faction has three specials, one per era, each of a different kind. Nine ki
 | Buff | Own units hit harder and move faster for a few seconds | Høken!, De gong |
 | Heal | Own units on the lane are patched up | Love-in |
 | Barrage | Repeated blows on the foremost enemy unit, or the base | Dronezwerm |
-| Snipe | Damage that starts with the toughest enemy unit and carries on to the next | Het Algoritme |
+| Snipe | The toughest enemy units are cancelled outright, a fixed number of them, whatever their hit points | Het Algoritme |
 | Convert | The toughest enemy unit changes sides, with the hit points it has left | Vijandige overname |
 | Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
 | Summon | Units of your own pour out of your gate at once, outside the queue and whatever the unit cap; with a time limit, they go home together when it is up | De Familie-app; Cruiseschip legt aan, with the time limit |
@@ -1499,6 +1499,14 @@ hologram nazar that keeps the army from harm for five seconds, and wedding gold 
 lane). Nee is nee, a mother's look that worked like Het Algoritme, is gone with its drawing. De Toeristen's
 Cruiseschip, further up, uses the same kind, with a time limit added.
 
+On 25 November 2026 the owner found it weak, "only 4 light units for a super power", and of two ways to
+make it stronger (a random mix of cousins, at most one heavy, or cousins that fight from up close and from
+afar with a bit more hit points) took the second. A cousin now has 130% of the shared light unit's hit
+points in place of the temperament (874 instead of 571), and between swats of the selfie stick he sends a
+voice message on his own beat, the beer bikes' toss: a Prijzenvader's damage, from 80% of its reach, every
+second and a half. The voice message is a drawing of its own, `shot_spraakbericht`: a glowing speech
+bubble with a play button and a sound wave.
+
 **The fatbike: the first unit that does something of its own**
 
 The owner's idea, in their words: "dure zeer snelle unit die overal doorheen raast ... en tegen de base
@@ -1519,7 +1527,7 @@ lane, as the convoy of a wave is, but with hit points. The rule, written out:
 - **Buying and training.** The heavy button sells it, and it is trained in the queue like any unit. When it
   is trained it does not join the ranks: it leaves the gate as a rider. Only one rider per side is on the
   lane at a time; a second one waits at the gate, trained, until the first is gone. It does not count
-  towards the ten units a side may have on the lane.
+  towards the units a side may have on the lane (ten then, twenty since 25 November 2026).
 - **Riding through.** It passes its own units without touching them. Every enemy unit on its way that does
   not draw turret fire (light, ranged, heavy, of any era) it rides straight through, and the two trade one
   blow: the unit takes the rider's ram damage, and the rider takes one blow of the unit's own damage, ready

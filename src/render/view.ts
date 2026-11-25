@@ -35,6 +35,11 @@ export interface UnitView {
   id: number;
   side: Side;
   def: UnitDef;
+  /**
+   * The row it is drawn in. Not always a whole number: it glides over when the
+   * unit steps into another row, and stands half a row nearer while it walks
+   * past one of its own throwers, so it goes round them instead of through.
+   */
   row: number;
   /** Stage x of the middle of the body. */
   x: number;
@@ -60,6 +65,16 @@ export interface UnitView {
   slide: number;
   /** In the shot of an enemy poser: the drawing of the camera frame over its head, or ''. */
   pose: string;
+}
+
+/** A close fighter whose body overlaps one of its own throwers in its row: it is walking, or was caught, past them. */
+function passing(u: Unit, def: UnitDef, mine: readonly Unit[]): boolean {
+  if (def.role === 'ranged' || def.rider) return false;
+  for (const x of mine) {
+    if (x === u || x.row !== u.row || unitDef(x.def).role !== 'ranged') continue;
+    if (x.pos > u.pos - def.len && x.pos - unitDef(x.def).len < u.pos) return true;
+  }
+  return false;
 }
 
 export interface Ghost {
@@ -329,7 +344,7 @@ export class BattleView {
           }
           const cries = linesFor('battleCry', e.def);
           // The fatbike kid and the beer bikes always have something to say, and so does the first cousin of the family; everyone else now and then.
-          const talks = def.rider || def.toss ? true : def.summoned ? this.familyLine[e.side] : this.random() < 0.35;
+          const talks = def.summoned ? this.familyLine[e.side] : def.rider || def.toss ? true : this.random() < 0.35;
           if (def.summoned) this.familyLine[e.side] = false;
           if (cries.length > 0 && talks) {
             const row = def.rider ? RIDER_ROW : 1;
@@ -347,7 +362,7 @@ export class BattleView {
           break;
         }
         case 'toss': {
-          // One of the party throws a beer: his arm goes, and the bike carries on with whatever it was doing.
+          // One of the party throws a beer, or a cousin sends a voice message: an arm goes, and the unit carries on with whatever it was doing.
           const v = this.units.get(e.id);
           if (!v) break;
           v.tossTime = 0;
@@ -591,7 +606,7 @@ export class BattleView {
           const v = this.units.get(e.id);
           const x = v ? v.x : laneX(e.side, e.pos);
           const y = rowY(v ? v.row : 1) + STRIKE_Y - 15;
-          // When the outrage spills over to more units, the verdicts come down one after another.
+          // With more than one cancelled, the verdicts come down one after another.
           const delay = cancelled * 0.09;
           this.sprites.push({ rig, side: other(e.side), x0: x, y0: y - 420, x1: x, y1: y, scale: cancelled === 0 ? 1.25 : 0.9, age: -delay, life: 0.2, hold: 0.9, ease: 'drop', puff: '#ff7a66', landed: false });
           if (cancelled === 0) this.say(x, y - 70, NL.shout.cancelled, '#ff7a66', 1.6, 34);
@@ -789,12 +804,15 @@ export class BattleView {
           // Bought over: it turns round and, if it was moved, slides to its new spot instead of jumping there.
           v.slide = v.x + v.slide - x;
           v.side = side;
-          v.row = u.row;
           v.lastPx = px;
           v.turncoat = u.turncoat;
         }
         v.slide *= Math.exp(-dt * 9);
         if (Math.abs(v.slide) < 0.5) v.slide = 0;
+        // Off to its row, and half a row nearer while it overlaps a thrower of its own in that row.
+        const wanted = u.row + (passing(u, def, s.sides[side].units) ? 0.5 : 0);
+        v.row = wanted + (v.row - wanted) * Math.exp(-dt * 8);
+        if (Math.abs(v.row - wanted) < 0.01) v.row = wanted;
         v.age += dt;
         v.travelled += Math.max(0, px - v.lastPx);
         v.lastPx = px;

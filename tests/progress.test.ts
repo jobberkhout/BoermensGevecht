@@ -359,33 +359,30 @@ describe('specials', () => {
     expect(empty.sides[0].baseHp).toBe(empty.sides[0].baseMaxHp - SPECIAL.zwerm.dmg * 2);
   });
 
-  it('the Algoritme takes it out on the toughest enemy unit', () => {
+  it('the Algoritme cancels the two toughest enemy units outright, whatever their hit points', () => {
+    expect(SPECIAL.algoritme.count).toBe(2);
     const s = match();
     s.sides[0].era = ERA.y2050;
     rich(s, 0);
     const weak = place(s, 1, AH.light, px(400));
     const tough = place(s, 1, AH.heavy, px(100), 1_000_000);
+    const next = place(s, 1, 'ah.2050.heavy', px(700));
+    for (const u of [weak, tough, next]) u.stunUntil = 1e9;
     const events = act(s, 0, { t: 'special' });
+    expect(s.sides[1].units.map((u) => u.id)).toEqual([weak.id]);
     expect(weak.hp).toBe(unitDef(AH.light).hp);
-    expect(tough.hp).toBe(1_000_000 - SPECIAL.algoritme.dmg);
-    expect(events.some((e) => e.t === 'sniped' && e.id === tough.id)).toBe(true);
+    expect(events.filter((e) => e.t === 'sniped').map((e) => e.t === 'sniped' && e.id)).toEqual([tough.id, next.id]);
+    expect(events.filter((e) => e.t === 'defeat')).toHaveLength(2);
   });
 
-  it('what the Algoritme has left over goes to the next toughest, and so on', () => {
+  it('with one enemy unit on the lane the Algoritme cancels that one', () => {
     const s = match();
     s.sides[0].era = ERA.y2050;
     rich(s, 0);
-    const pool = SPECIAL.algoritme.dmg;
-    const first = place(s, 1, AH.heavy, px(100), pool - 1500);
-    const second = place(s, 1, AH.heavy, px(400), 1000);
-    const third = place(s, 1, AH.heavy, px(700), 900);
-    for (const u of [first, second, third]) u.stunUntil = 1e9;
+    place(s, 1, 'ah.2050.heavy', px(100));
     const events = act(s, 0, { t: 'special' });
-    // 1500 is left after the first, the second takes 1000 of it, the third the last 500.
-    expect(s.sides[1].units.map((u) => u.id)).toEqual([third.id]);
-    expect(third.hp).toBe(400);
-    expect(events.filter((e) => e.t === 'sniped')).toHaveLength(3);
-    expect(events.filter((e) => e.t === 'defeat')).toHaveLength(2);
+    expect(s.sides[1].units).toHaveLength(0);
+    expect(events.filter((e) => e.t === 'sniped')).toHaveLength(1);
   });
 
   it('two specials used on the same tick both count, whoever is on the left', () => {
@@ -403,12 +400,18 @@ describe('specials', () => {
     // Achterhoek's 2050 special is the swarm, not the algorithm, so use the mirrored set-up as well.
     expect(target.hp).toBe(unitHp);
 
-    const m = match(['achterhoek', 'havermelk']);
+    // Eerst thee patches the unit up at once; the algorithm still cancels it at the end of the tick.
+    const m = match(['gasten', 'havermelk']);
     m.sides[1].era = ERA.y2050;
+    rich(m, 0);
     rich(m, 1);
-    const victim = place(m, 0, AH.heavy, px(100), 1_000_000);
-    act(m, 1, { t: 'special' });
-    expect(victim.hp).toBe(1_000_000 - SPECIAL.algoritme.dmg);
+    const victim = place(m, 0, 'gs.1975.heavy', px(100), 10);
+    victim.stunUntil = 1e9;
+    run(m, 1, [
+      { tick: m.tick, side: 0, cmd: { t: 'special' } },
+      { tick: m.tick, side: 1, cmd: { t: 'special' } },
+    ]);
+    expect(m.sides[0].units.some((u) => u.id === victim.id)).toBe(false);
   });
 });
 
@@ -446,6 +449,26 @@ describe('the super unit', () => {
     expect(six.pack).toBeGreaterThan(0);
   });
 
+  it('sweeps two small units deep in every row, where a heavy reaches only the front one', () => {
+    const hitOnFirstBlow = (attacker: string): number => {
+      const s = match();
+      s.sides[0].baseHp = s.sides[1].baseHp = 1e9;
+      const me = place(s, 0, attacker, px(500));
+      // A column of light units in each row, as when someone keeps buying them: 4, 68, 132 and 196 pixels away.
+      for (let row = 0; row < 3; row++) {
+        for (let k = 0; k < 4; k++) place(s, 1, 'ah.2050.light', LANE - px(500) - px(4) - px(64) * k, undefined, row).stunUntil = 1e9;
+      }
+      for (let i = 0; i < 90; i++) {
+        const events = run(s, 1);
+        if (events.some((e) => e.t === 'strike' && e.side === 0 && e.id === me.id)) break;
+      }
+      return s.sides[1].units.filter((u) => u.hp < unitDef(u.def).hp).length;
+    };
+    expect(unitDef(SUPER.hm).sweep).toBe(px(120));
+    expect(hitOnFirstBlow(SUPER.hm)).toBe(6);
+    expect(hitOnFirstBlow('hm.2050.heavy')).toBe(3);
+  });
+
   it('cannot be cancelled: the Algoritme goes for the next toughest instead', () => {
     const s = match();
     s.sides[0].era = ERA.y2050;
@@ -454,7 +477,8 @@ describe('the super unit', () => {
     const heavy = place(s, 1, 'ah.2050.heavy', px(100));
     const events = act(s, 0, { t: 'special' });
     expect(giant.hp).toBe(unitDef(SUPER.ah).hp);
-    expect(heavy.hp).toBe(unitDef('ah.2050.heavy').hp - Math.min(unitDef('ah.2050.heavy').hp, SPECIAL.algoritme.dmg));
+    expect(s.sides[1].units.map((u) => u.id)).toEqual([giant.id]);
+    expect(events.some((e) => e.t === 'sniped' && e.id === heavy.id)).toBe(true);
     const shrugged = events.find((e) => e.t === 'shrugged');
     expect(shrugged && shrugged.t === 'shrugged' ? shrugged.ids : []).toEqual([giant.id]);
   });

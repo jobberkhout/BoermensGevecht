@@ -12,7 +12,8 @@ const HUM: Key[] = [[0, 1], [0.5, 1.08, 'sineInOut'], [1, 1, 'sineInOut']];
 /**
  * De Hologramneef. Somebody posted in the family app and he came, as a
  * hologram, from his own sofa. Standing, he holds the phone up and checks how
- * he looks; the picture glitches now and then. He swats with the selfie stick.
+ * he looks; the picture glitches now and then. He swats with the selfie stick,
+ * and in between he sends a voice message off with a flick of his free hand.
  * Beaten, he walks off with the phone held high, looking for a better signal.
  */
 const holoneef: ClipSet = {
@@ -68,6 +69,19 @@ const holoneef: ClipSet = {
     torso: { rot: [[0, 0], [0.25, -14, 'out'], [1, 0, 'inOut']], sx: [[0, 1], [0.15, 0.9, 'hold'], [0.35, 1.05, 'hold'], [0.55, 1, 'hold'], [1, 1]] },
     stick: { rot: [[0, 0], [0.3, 20, 'out'], [1, 0, 'inOut']] },
   }),
+
+  // Laid on top of whatever else plays: the free hand winds up behind him and throws the voice message
+  // overhand at the enemy, with a little lean into it. The phone and the stick stay where the swat or the
+  // walk has them.
+  toss: {
+    loop: false,
+    seconds: 0.55,
+    tracks: {
+      arm_back: { rot: [[0, 0], [0.3, 110, 'out'], [0.55, -100, 'in'], [0.75, -70, 'out'], [1, 0, 'inOut']] },
+      torso: { rot: [[0, 0], [0.3, -5, 'out'], [0.55, 7, 'in'], [1, 0, 'inOut']] },
+      head: { rot: [[0, 0], [0.3, -4, 'out'], [0.55, 5, 'in'], [1, 0, 'inOut']] },
+    },
+  },
 
   die: slinkOff(
     { legLen: 38, stride: 70 },

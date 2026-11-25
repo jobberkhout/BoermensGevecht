@@ -94,14 +94,12 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       return;
     }
     case 'snipe': {
-      // The outrage starts with the toughest enemy unit and works its way down
-      // the list until it is spent. With nobody on the lane it is wasted.
-      let left = def.dmg;
-      for (const u of byToughness(touchable(s.sides[foe].units))) {
-        if (left <= 0) break;
-        const amount = Math.min(u.hp, left);
-        left -= amount;
-        dmg.push({ side: foe, unit: u.id, amount });
+      // The toughest enemy units are cancelled, gone whatever their hit points.
+      // They fall at the end of the tick, with the damage, so a heal on the same
+      // tick does not save them. With fewer on the lane it cancels whoever is
+      // there; with nobody it is wasted.
+      for (const u of byToughness(touchable(s.sides[foe].units)).slice(0, def.count)) {
+        dmg.push({ side: foe, unit: u.id, amount: 0, cancelled: true });
         events.push({ t: 'sniped', side: foe, id: u.id, pos: u.pos });
       }
       return;

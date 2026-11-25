@@ -211,6 +211,8 @@ export interface Damage {
   amount: number;
   /** Not a blow: this unit of `side` was bought and changes sides, if it is still standing. */
   bought?: boolean;
+  /** Not a blow: this unit of `side` is cancelled and falls, whatever hit points it has left. `amount` is ignored. */
+  cancelled?: boolean;
   /** It comes from a turret, so a unit that shrugs turrets off takes only its share of it. */
   turret?: boolean;
 }

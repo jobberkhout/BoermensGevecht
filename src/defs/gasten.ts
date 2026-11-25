@@ -65,6 +65,9 @@ export const gasten: FactionDef = {
       turretShot: { rig: 'shot_suikerklontje', arc: 80, spin: 2, splash: '#ffffff' },
       special: { kind: 'summon', unit: 'gs.2050.summoned', count: SPECIAL.familieApp.count, rig: 'special_familie_app' },
       summoned: 'holoneef',
+      // A bit more of him than of a Kapbot, and between two swats a voice message.
+      summonedStats: { hp: SPECIAL.familieApp.hp },
+      summonedTosses: { shot: { rig: 'shot_spraakbericht', arc: 30, spin: 0, splash: '#9fe8ff' }, ...SPECIAL.familieApp.toss },
     }, TEMPER),
   ],
 };
