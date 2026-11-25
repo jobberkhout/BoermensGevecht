@@ -9,6 +9,7 @@ import {
   ROW_ORDER,
   ROWS,
   SHOT_SLACK,
+  SIDESTEP,
   SIEGE_REACH,
   SUBSIDY,
   UNIT_CAP,
@@ -46,7 +47,11 @@ import {
  *
  * Units march in ROWS rows. A unit cannot pass an ally in its own row or the
  * enemy's foremost unit, but it can pass allies in other rows, so a few units
- * fight side by side at the front and a bigger army really is stronger.
+ * fight side by side at the front and a bigger army really is stronger. Two
+ * exceptions keep the rows from jamming: a unit that fights up close walks past
+ * its own throwers once they stand still, when it fits in front of them, and a
+ * unit that is stuck in its row steps into another one that has room for it
+ * (see move()).
  */
 export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]): void {
   if (s.winner !== null) return;
@@ -324,6 +329,71 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
   }
 }
 
+/**
+ * What a unit walking in one row runs into, built up front to back as the
+ * units of a side move: `all` is how far forward the next one may come this
+ * tick behind everyone ahead, `solid` the same behind everyone but the
+ * throwers that stand still, `room` how far forward it could ever stand behind
+ * those, whatever the front line does this tick, and `thrower` the front of
+ * the foremost of those standing throwers since the last unit that is not one,
+ * or -1.
+ */
+interface RowRoom {
+  all: number;
+  solid: number;
+  room: number;
+  thrower: number;
+}
+
+/**
+ * Where a walking unit gets to this tick in a row. A thrower stays behind
+ * everyone ahead of it. A unit that fights up close (light, heavy, schild,
+ * super) may walk past throwers of its own that stand still, firing or
+ * waiting, but only when its whole body fits between them and the next unit
+ * up or the enemy, or once it is already past their backs. Otherwise it queues
+ * behind them as anyone does.
+ */
+function advance(u: Unit, def: UnitDef, row: RowRoom, speed: number, foePos: number): number {
+  let limit = row.all;
+  if (def.role !== 'ranged' && row.thrower >= 0) {
+    // Where it would stop: within reach of the enemy's front, or behind the next unit up that is not a thrower.
+    const stand = Math.min(row.room, LANE - foePos - def.range);
+    if (stand - def.len - FOLLOW_GAP >= row.thrower || u.pos > row.all) limit = row.solid;
+  }
+  return Math.max(u.pos, Math.min(u.pos + speed, limit));
+}
+
+/** True when a body of `len` fronting at `pos` keeps its distance from everyone in `row`. */
+function clearIn(units: readonly Unit[], row: number, self: Unit, pos: number, len: number): boolean {
+  for (const x of units) {
+    if (x === self || x.row !== row) continue;
+    if (x.pos > pos - len - FOLLOW_GAP && x.pos - unitDef(x.def).len < pos + FOLLOW_GAP) return false;
+  }
+  return true;
+}
+
+/**
+ * A unit stuck in its row steps into another row when there is room for it
+ * right where it stands, and that row lets it get at least SIDESTEP further
+ * forward. Of several, the one that lets it furthest, the nearest on a tie.
+ * Returns the row, or -1.
+ */
+function sidestep(units: readonly Unit[], u: Unit, def: UnitDef, rows: readonly RowRoom[], speed: number, foePos: number): number {
+  let best = -1;
+  let bestTo = u.pos + SIDESTEP;
+  for (const r of ROW_ORDER) {
+    if (r === u.row || !clearIn(units, r, u, u.pos, def.len)) continue;
+    // How far it could get there, were it as fast as it likes.
+    const to = advance(u, def, rows[r]!, LANE, foePos);
+    const nearer = best >= 0 && Math.abs(r - u.row) < Math.abs(best - u.row);
+    if (to > bestTo || (to === bestTo && nearer)) {
+      best = r;
+      bestTo = to;
+    }
+  }
+  return best >= 0 && advance(u, def, rows[best]!, speed, foePos) > u.pos ? best : -1;
+}
+
 function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]): void {
   // How far each side's front line may advance this tick. When the two lines
   // are about to meet they share the remaining gap in proportion to their
@@ -345,20 +415,41 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
       : [fastest[0], fastest[1]];
 
   for (const side of SIDES) {
+    const units = s.sides[side].units;
+    const foePos = fronts[other(side)]?.pos ?? 0;
     // Nobody passes the front line, and nobody walks into the enemy base.
     const frontLimit = Math.min(line[side] + reach[side], LANE - BASE_GAP);
-    const rowLimit = new Array<number>(ROWS).fill(frontLimit);
-    // Within a row, units are stored front to back: new units join at the back.
-    for (const u of s.sides[side].units) {
+    const rows: RowRoom[] = Array.from({ length: ROWS }, () => ({ all: frontLimit, solid: frontLimit, room: LANE - BASE_GAP, thrower: -1 }));
+    // Front to back, whatever the row, so whoever stands further forward has
+    // moved before anyone behind looks. Within a row the list then runs front
+    // to back, as the rest of the game expects. The sort keeps ties in order.
+    units.sort((a, b) => b.pos - a.pos);
+    for (const u of units) {
       const def = unitDef(u.def);
       u.prevPos = u.pos;
       if (u.act === 'walk') {
         const speed = Math.floor((def.speed * pace[side]) / 100);
-        const next = Math.max(u.pos, Math.min(u.pos + speed, rowLimit[u.row]!));
+        let next = advance(u, def, rows[u.row]!, speed, foePos);
+        if (next === u.pos) {
+          const r = sidestep(units, u, def, rows, speed, foePos);
+          if (r >= 0) {
+            u.row = r;
+            next = advance(u, def, rows[r]!, speed, foePos);
+          }
+        }
         if (next === u.pos) u.act = 'idle';
         u.pos = next;
       }
-      rowLimit[u.row] = Math.min(rowLimit[u.row]!, u.pos - def.len - FOLLOW_GAP);
+      const row = rows[u.row]!;
+      const back = u.pos - def.len - FOLLOW_GAP;
+      row.all = Math.min(row.all, back);
+      if (def.role === 'ranged' && u.act !== 'walk') {
+        if (row.thrower < 0) row.thrower = u.pos;
+      } else {
+        row.solid = Math.min(row.solid, back);
+        row.room = Math.min(row.room, back);
+        row.thrower = -1;
+      }
     }
   }
 }

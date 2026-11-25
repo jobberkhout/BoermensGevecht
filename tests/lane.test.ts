@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, SUBSIDY, px } from '../src/defs/balance.ts';
+import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, SIDESTEP, STATS, SUBSIDY, px } from '../src/defs/balance.ts';
 import { turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo } from '../src/sim/commands.ts';
 import { overtimeLevel, turretDamagePercent } from '../src/sim/overtime.ts';
-import { SIDES } from '../src/sim/types.ts';
+import { SIDES, type Side, type SimState, type Unit } from '../src/sim/types.ts';
 import { AH, HM, act, match, place, rich, run, unit } from './helpers.ts';
 
 describe('walking', () => {
@@ -81,6 +81,105 @@ describe('walking', () => {
     expect(u.pos).toBeLessThanOrEqual(LANE - BASE_GAP);
     expect(LANE - u.pos).toBeLessThanOrEqual(unitDef(HM.light).range);
     expect(s.sides[1].baseHp).toBeLessThan(s.sides[1].baseMaxHp);
+  });
+});
+
+describe('queuing up', () => {
+  /** True when the bodies of two units overlap. */
+  const overlap = (a: Unit, b: Unit): boolean =>
+    a.pos > b.pos - unitDef(b.def).len && a.pos - unitDef(a.def).len < b.pos;
+  /** A thrower of `side` at 300 px, firing at a stunned enemy 200 px off, in the middle row. */
+  const firingLine = (side: Side): { s: SimState; thrower: Unit; foe: Unit } => {
+    const s = match();
+    const foeSide: Side = side === 0 ? 1 : 0;
+    const thrower = place(s, side, HM.ranged, px(300), 1_000_000, 1);
+    const foe = place(s, foeSide, AH.light, LANE - px(300) - px(200), 1_000_000, 1);
+    foe.stunUntil = 1e9;
+    return { s, thrower, foe };
+  };
+  /** Allies standing still in the two outer rows from `from` to `to`, so nobody can step aside there. */
+  const wallOff = (s: SimState, side: Side, from: number, to: number): void => {
+    for (const row of [0, 2]) {
+      for (let pos = to; pos >= from; pos -= unitDef(HM.light).len + FOLLOW_GAP) place(s, side, HM.light, pos, 1_000_000, row).stunUntil = 1e9;
+    }
+  };
+
+  it('ranged units reach 250 pixels', () => {
+    expect(STATS['1975'].ranged.range).toBe(px(250));
+  });
+
+  for (const side of SIDES) {
+    it(`a close fighter walks past its own thrower once it stands still to throw, and fights in front of it (side ${side})`, () => {
+      const { s, thrower, foe } = firingLine(side);
+      const light = place(s, side, HM.light, px(150), 1_000_000, 1);
+      for (let i = 0; i < 300 && light.act !== 'attack'; i++) run(s, 1);
+      expect(thrower.act).toBe('attack');
+      expect(light.act).toBe('attack');
+      expect(light.row).toBe(1);
+      expect(light.pos - unitDef(HM.light).len).toBeGreaterThanOrEqual(thrower.pos);
+      expect(LANE - light.pos - foe.pos).toBeLessThanOrEqual(unitDef(HM.light).range);
+    });
+  }
+
+  it('a thrower never walks past anyone in its row', () => {
+    const s = match();
+    const wall = place(s, 0, HM.light, px(400), 1_000_000, 1);
+    wall.stunUntil = 1e9;
+    wallOff(s, 0, 0, px(400));
+    const thrower = place(s, 0, HM.ranged, px(100), 1_000_000, 1);
+    run(s, 300);
+    expect(thrower.row).toBe(1);
+    expect(thrower.pos).toBe(wall.pos - unitDef(HM.light).len - FOLLOW_GAP);
+  });
+
+  it('a close fighter that does not fit in front of the thrower waits behind it', () => {
+    const s = match();
+    const thrower = place(s, 0, HM.ranged, px(500), 1_000_000, 1);
+    // The enemy stands 120 px off: no room for a heavy's 190 px body in between.
+    const foe = place(s, 1, AH.light, LANE - px(500) - px(120), 1_000_000, 1);
+    foe.stunUntil = 1e9;
+    wallOff(s, 0, 0, px(500));
+    const heavy = place(s, 0, HM.heavy, px(200), 1_000_000, 1);
+    for (let i = 0; i < 300; i++) {
+      run(s, 1);
+      expect(overlap(heavy, thrower)).toBe(false);
+    }
+    expect(heavy.row).toBe(1);
+    expect(heavy.pos).toBe(thrower.pos - unitDef(HM.ranged).len - FOLLOW_GAP);
+  });
+
+  it('a unit stuck in its row steps into a row that has room, and walks on there', () => {
+    const s = match();
+    const stuck = place(s, 0, HM.light, px(500), 1_000_000, 1);
+    stuck.stunUntil = 1e9;
+    const walker = place(s, 0, HM.light, px(300), 1_000_000, 1);
+    run(s, 200);
+    expect(walker.row).not.toBe(1);
+    expect(walker.pos).toBeGreaterThan(stuck.pos);
+  });
+
+  it('it stays in its row when the other rows have no room where it stands', () => {
+    const s = match();
+    const stuck = place(s, 0, HM.light, px(500), 1_000_000, 1);
+    stuck.stunUntil = 1e9;
+    wallOff(s, 0, px(200), px(450));
+    const walker = place(s, 0, HM.light, px(300), 1_000_000, 1);
+    run(s, 200);
+    expect(walker.row).toBe(1);
+    expect(walker.pos).toBe(stuck.pos - unitDef(HM.light).len - FOLLOW_GAP);
+    expect(walker.act).toBe('idle');
+  });
+
+  it('it stays in its row when another row would take it less than a step further', () => {
+    const s = match();
+    const stuck = place(s, 0, HM.light, px(500), 1_000_000, 1);
+    stuck.stunUntil = 1e9;
+    const walker = place(s, 0, HM.light, px(300), 1_000_000, 1);
+    walker.pos = walker.prevPos = stuck.pos - unitDef(HM.light).len - FOLLOW_GAP;
+    // In the other rows someone stands just ahead, so they would take it only a little further.
+    for (const row of [0, 2]) place(s, 0, HM.light, walker.pos + SIDESTEP - px(1) + unitDef(HM.light).len + FOLLOW_GAP, 1_000_000, row).stunUntil = 1e9;
+    run(s, 60);
+    expect(walker.row).toBe(1);
   });
 });
 

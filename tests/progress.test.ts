@@ -449,7 +449,7 @@ describe('the super unit', () => {
     expect(six.pack).toBeGreaterThan(0);
   });
 
-  it('sweeps two or three small units deep in every row, where a heavy reaches only the front one', () => {
+  it('sweeps two small units deep in every row, where a heavy reaches only the front one', () => {
     const hitOnFirstBlow = (attacker: string): number => {
       const s = match();
       s.sides[0].baseHp = s.sides[1].baseHp = 1e9;
@@ -464,8 +464,8 @@ describe('the super unit', () => {
       }
       return s.sides[1].units.filter((u) => u.hp < unitDef(u.def).hp).length;
     };
-    expect(unitDef(SUPER.hm).sweep).toBe(px(150));
-    expect(hitOnFirstBlow(SUPER.hm)).toBe(9);
+    expect(unitDef(SUPER.hm).sweep).toBe(px(120));
+    expect(hitOnFirstBlow(SUPER.hm)).toBe(6);
     expect(hitOnFirstBlow('hm.2050.heavy')).toBe(3);
   });
 

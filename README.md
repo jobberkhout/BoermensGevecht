@@ -100,8 +100,11 @@ Every action is also a button on screen.
 - Subsidie trickles in every second; beating an enemy unit pays a bounty.
 - **Subsidie aanvragen** costs money now and raises the income for the rest of the match, in five steps
   from 12 to 62 a second.
-- Units march in three rows, up to twenty a side. Nobody passes an ally in their own row or the enemy's
-  foremost unit, so up to three fight side by side while ranged units shoot from behind.
+- Units march in three rows, up to twenty a side. Nobody passes the enemy's foremost unit, so up to three
+  fight side by side while ranged units shoot from behind. Within a row units queue up behind each other,
+  with two exceptions: a unit that fights up close walks past its own ranged units once they stand still to
+  throw, if it fits in front of them, and a unit stuck in its row steps into another row that has room for
+  it. Ranged units throw from 250 pixels.
 - Light units are fast and cheap. Ranged units throw from a distance. Heavies are slow, tough, and hit
   everything within reach at once.
 - **Turrets.** Each base has two slots, and one button does it all: it fills an empty slot, then upgrades
@@ -167,8 +170,8 @@ Every action is also a button on screen.
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
   the schild it draws the fire of turrets and takes only a fifth of it. Its blow sweeps further than a
-  heavy's: 150 pixels, so two or three small units deep in every row, and a stream of cheap units no longer
-  holds it up. Six heavies still bring it down.
+  heavy's: 120 pixels, so two small units deep in every row, and a stream of cheap units no longer holds it
+  up. Six heavies still bring it down.
 - **Overtime.** After ten minutes units hit 20% harder, and another 20% every ten seconds. Turrets go the
   other way: they lose 10% of their damage every ten seconds, starting at once, and fall silent at 11:30. The money keeps
   coming in, so there is always something to send. Should a match still be going at thirteen minutes, both

@@ -35,6 +35,11 @@ export interface UnitView {
   id: number;
   side: Side;
   def: UnitDef;
+  /**
+   * The row it is drawn in. Not always a whole number: it glides over when the
+   * unit steps into another row, and stands half a row nearer while it walks
+   * past one of its own throwers, so it goes round them instead of through.
+   */
   row: number;
   /** Stage x of the middle of the body. */
   x: number;
@@ -60,6 +65,16 @@ export interface UnitView {
   slide: number;
   /** In the shot of an enemy poser: the drawing of the camera frame over its head, or ''. */
   pose: string;
+}
+
+/** A close fighter whose body overlaps one of its own throwers in its row: it is walking, or was caught, past them. */
+function passing(u: Unit, def: UnitDef, mine: readonly Unit[]): boolean {
+  if (def.role === 'ranged' || def.rider) return false;
+  for (const x of mine) {
+    if (x === u || x.row !== u.row || unitDef(x.def).role !== 'ranged') continue;
+    if (x.pos > u.pos - def.len && x.pos - unitDef(x.def).len < u.pos) return true;
+  }
+  return false;
 }
 
 export interface Ghost {
@@ -789,12 +804,15 @@ export class BattleView {
           // Bought over: it turns round and, if it was moved, slides to its new spot instead of jumping there.
           v.slide = v.x + v.slide - x;
           v.side = side;
-          v.row = u.row;
           v.lastPx = px;
           v.turncoat = u.turncoat;
         }
         v.slide *= Math.exp(-dt * 9);
         if (Math.abs(v.slide) < 0.5) v.slide = 0;
+        // Off to its row, and half a row nearer while it overlaps a thrower of its own in that row.
+        const wanted = u.row + (passing(u, def, s.sides[side].units) ? 0.5 : 0);
+        v.row = wanted + (v.row - wanted) * Math.exp(-dt * 8);
+        if (Math.abs(v.row - wanted) < 0.01) v.row = wanted;
         v.age += dt;
         v.travelled += Math.max(0, px - v.lastPx);
         v.lastPx = px;

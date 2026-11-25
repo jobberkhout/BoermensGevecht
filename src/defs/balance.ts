@@ -45,6 +45,19 @@ export const BASE_GAP = px(6);
 /** Space a unit keeps behind the ally in front of it. */
 export const FOLLOW_GAP = px(10);
 /**
+ * A unit stuck in its row steps into another row that has room for it where
+ * it stands, if it can get at least this much further forward there. Less, and
+ * units would hop to and fro between rows for a step or two.
+ *
+ * That, and close fighters walking past their own throwers once these stand
+ * still, are the owner's of 25 November 2026: "melee units are allowed to
+ * stand in front of the ranged units to attack if there is space and that
+ * units properly cue up in the lanes". Until then a thrower that stopped to
+ * fire held up its whole row: in bot matches a close fighter spent 35% of its
+ * time on the lane standing behind one, and 16% fighting.
+ */
+export const SIDESTEP = px(40);
+/**
  * With no enemy unit left to shoot at, ranged units walk up this close to the
  * enemy base before they open fire, so the ranks behind them come into range too.
  */
@@ -243,7 +256,9 @@ const FIRST = {
     hp: 65,
     speed: walk(45),
     len: px(48),
-    range: px(220),
+    // 220 until 25 November 2026, when the owner asked for "slightly longer range":
+    // with close fighters now in front of them, two throwers queued behind a heavy both reach.
+    range: px(250),
     dmg: 13,
     windup: sec(0.4),
     recover: sec(0.7),
@@ -304,12 +319,13 @@ const SHIELD: Omit<RoleStats, 'bounty'> = {
  * glued down, run over, bought or picked out by drones. It draws the fire of
  * turrets and shrugs it off, as the schild does. Only units really hurt it.
  *
- * Its blow sweeps further than a heavy's: 150 pixels from its front, so two or
- * three small units deep in every row, where a heavy reaches only the front one.
- * The owner, 25 November 2026: "the Big Super unit should do splash damage like
- * the fat units. Otherwise you can just spam the smaller units all the time
- * because it walks slow". A heavy unit is longer than the sweep, so against
- * heavies it still hits only the front rank.
+ * Its blow sweeps further than a heavy's: 120 pixels from its front, so two
+ * small units deep in every row, where a heavy reaches only the front one (30
+ * pixels, as the super unit did too). The owner, 25 November 2026: "the Big
+ * Super unit should do splash damage like the fat units. Otherwise you can just
+ * spam the smaller units all the time because it walks slow". 150 pixels,
+ * three deep, at first; the same day "slightly lower". A heavy unit is longer
+ * than the sweep, so against heavies it still hits only the front rank.
  *
  * Tuned so that one of them beats its own price in any mix of units, but loses
  * to six heavies: the best buy late in the match, and still stoppable by an
@@ -324,7 +340,7 @@ const SUPER: Omit<RoleStats, 'bounty'> = {
   range: px(30),
   dmg: 460,
   cleave: true,
-  sweep: px(150),
+  sweep: px(120),
   windup: sec(0.6),
   recover: sec(0.9),
   immune: true,
