@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, SIDESTEP, STATS, SUBSIDY, px } from '../src/defs/balance.ts';
+import { BASE_GAP, CONTACT_GAP, FOLLOW_GAP, INCOME_EVERY, LANE, OVERTIME, SIDESTEP, SUBSIDY, px } from '../src/defs/balance.ts';
 import { turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo } from '../src/sim/commands.ts';
 import { overtimeLevel, turretDamagePercent } from '../src/sim/overtime.ts';
@@ -103,10 +103,6 @@ describe('queuing up', () => {
       for (let pos = to; pos >= from; pos -= unitDef(HM.light).len + FOLLOW_GAP) place(s, side, HM.light, pos, 1_000_000, row).stunUntil = 1e9;
     }
   };
-
-  it('ranged units reach 250 pixels', () => {
-    expect(STATS['1975'].ranged.range).toBe(px(250));
-  });
 
   for (const side of SIDES) {
     it(`a close fighter walks past its own thrower once it stands still to throw, and fights in front of it (side ${side})`, () => {

@@ -104,7 +104,7 @@ Every action is also a button on screen.
   fight side by side while ranged units shoot from behind. Within a row units queue up behind each other,
   with two exceptions: a unit that fights up close walks past its own ranged units once they stand still to
   throw, if it fits in front of them, and a unit stuck in its row steps into another row that has room for
-  it. Ranged units throw from 250 pixels.
+  it.
 - Light units are fast and cheap. Ranged units throw from a distance. Heavies are slow, tough, and hit
   everything within reach at once.
 - **Turrets.** Each base has two slots, and one button does it all: it fills an empty slot, then upgrades

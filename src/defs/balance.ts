@@ -256,9 +256,10 @@ const FIRST = {
     hp: 65,
     speed: walk(45),
     len: px(48),
-    // 220 until 25 November 2026, when the owner asked for "slightly longer range":
-    // with close fighters now in front of them, two throwers queued behind a heavy both reach.
-    range: px(250),
+    // The owner asked for 250 on 25 November 2026 and went back to 220 the same day: with close
+    // fighters now walking past their throwers, the longer throws made bot matches a minute
+    // longer still (median 10:53 against 9:50), and the point is bases that fall sooner.
+    range: px(220),
     dmg: 13,
     windup: sec(0.4),
     recover: sec(0.7),
