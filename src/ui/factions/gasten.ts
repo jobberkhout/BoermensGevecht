@@ -49,8 +49,8 @@ export const gasten: FactionText = {
     'gs.2050.heavy': 'De zomerauto zweeft nu, het imperiaal is hoger dan ooit. Het blauwe bad gaat nog mee.',
     'gs.2050.super': 'Mo van de nachtploeg, nu een robot zo groot als een flat. Speciale acties en torens doen hem niks.',
     'gs.2050.turret': 'Drie generaties op een zwevend terras, elk met eigen thee. Ze schieten suikerklontjes.',
-    'gs.2050.special': 'Eén berichtje in de groepsapp en iedereen komt: vier hologramneven verschijnen bij de poort en vechten mee.',
-    'gs.2050.summoned': 'Zit eigenlijk thuis op de bank, maar is er toch. Mept met zijn selfiestick.',
+    'gs.2050.special': 'Eén berichtje in de groepsapp en iedereen komt: vier hologramneven verschijnen bij de poort, meppen en sturen spraakberichten.',
+    'gs.2050.summoned': 'Zit eigenlijk thuis op de bank, maar is er toch. Mept met zijn selfiestick en stuurt tussendoor spraakberichten.',
   },
 
   // By era, and for the fatbike kid his own: he is the only one who says these.

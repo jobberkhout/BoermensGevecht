@@ -574,8 +574,16 @@ export const SPECIAL = {
    * This many hologram cousins come out at the gate, light units of the era
    * that are not for sale and pay no bounty. The owner's pick of 24 November
    * 2026, in place of Nee is nee; the only special of its kind.
+   *
+   * The owner, 25 November 2026: "only 4 light units for a super power", and
+   * asked for cousins that fight up close and from afar, with a bit more hit
+   * points. So they have `hp` percent of the shared light unit's hit points
+   * (874 in place of the 571 of De Gasten's own), and as well as swatting with
+   * the selfie stick each sends a voice message on its own beat, the way the
+   * beer bikes toss beers: a share of a Prijzenvader's throw, its damage and
+   * reach, every `every` ticks.
    */
-  familieApp: { count: 4 },
+  familieApp: { count: 4, hp: 130, toss: { dmgPercent: 100, rangePercent: 80, every: sec(1.5) } },
   /** 1975, De Toeristen: four hundred holiday slides and the enemy nods off. The same kind of trick as the Wegblokkade, with the same numbers. */
   diaAvond: { ticks: sec(5) },
   /**

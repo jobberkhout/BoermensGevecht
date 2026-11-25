@@ -329,7 +329,7 @@ export class BattleView {
           }
           const cries = linesFor('battleCry', e.def);
           // The fatbike kid and the beer bikes always have something to say, and so does the first cousin of the family; everyone else now and then.
-          const talks = def.rider || def.toss ? true : def.summoned ? this.familyLine[e.side] : this.random() < 0.35;
+          const talks = def.summoned ? this.familyLine[e.side] : def.rider || def.toss ? true : this.random() < 0.35;
           if (def.summoned) this.familyLine[e.side] = false;
           if (cries.length > 0 && talks) {
             const row = def.rider ? RIDER_ROW : 1;
@@ -347,7 +347,7 @@ export class BattleView {
           break;
         }
         case 'toss': {
-          // One of the party throws a beer: his arm goes, and the bike carries on with whatever it was doing.
+          // One of the party throws a beer, or a cousin sends a voice message: an arm goes, and the unit carries on with whatever it was doing.
           const v = this.units.get(e.id);
           if (!v) break;
           v.tossTime = 0;

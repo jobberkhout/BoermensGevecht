@@ -88,9 +88,32 @@ export interface EraLook {
   summoned?: string;
   /** Numbers of its own for whoever is called in, as shares of the shared light unit's, in place of the temperament. */
   summonedStats?: Twist;
+  /**
+   * Whoever is called in also throws this on its own beat, as well as its blows,
+   * the way the beer bikes toss beers: shares of the era's ranged unit's damage
+   * and reach, every `every` ticks. De Hologramneef's voice messages.
+   */
+  summonedTosses?: { shot: Look } & TossShare;
   turret: string;
   turretShot: Look;
   special: SpecialKind;
+}
+
+/** A throw on top of a unit's own blows, as shares of the era's ranged unit's damage and reach. */
+export interface TossShare {
+  dmgPercent: number;
+  rangePercent: number;
+  every: number;
+}
+
+/** What a unit throws on its own beat, from the faction's ranged unit of the era: the beer bikes, De Hologramneef. */
+function tossFrom(thrower: RoleStats, shot: Look, share: TossShare): NonNullable<UnitDef['toss']> {
+  return {
+    dmg: Math.round((thrower.dmg * share.dmgPercent) / 100),
+    range: Math.round((thrower.range * share.rangePercent) / 100),
+    every: share.every,
+    shot: { ...shot, speed: thrower.shotSpeed! },
+  };
 }
 
 /** A special without the bookkeeping fields, which makeEra fills in. */
@@ -127,19 +150,14 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     if (!look.rangedShot) throw new Error(`${id}: the ranged unit needs something to throw, or to pose the enemy`);
     ranged = makeUnit(`${id}.ranged`, 'ranged', art(look.ranged), twisted(stats.ranged, temper.ranged), withArt(look.rangedShot));
   }
+  // Whoever tosses something on top of its blows throws a share of what the ranged unit throws.
+  const thrower = twisted(stats.ranged, temper.ranged);
   let heavy: UnitDef;
   if (look.heavyRides) {
     heavy = makeRider(`${id}.heavy`, art(look.heavy));
   } else if (look.heavyTosses) {
     const own = twisted(stats.heavy, { ...temper.heavy, cost: TOSS.costPercent, speed: TOSS.speedPercent });
-    const thrower = twisted(stats.ranged, temper.ranged);
-    const toss = {
-      dmg: Math.round((thrower.dmg * TOSS.dmgPercent) / 100),
-      range: Math.round((thrower.range * TOSS.rangePercent) / 100),
-      every: TOSS.every,
-      shot: { ...withArt(look.heavyTosses), speed: thrower.shotSpeed! },
-    };
-    heavy = { ...makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), own), toss };
+    heavy = { ...makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), own), toss: tossFrom(thrower, withArt(look.heavyTosses), TOSS) };
   } else {
     heavy = makeUnit(`${id}.heavy`, 'heavy', art(look.heavy), twisted(stats.heavy, temper.heavy));
   }
@@ -163,7 +181,9 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     if (!look.summoned) throw new Error(`${id}: its special calls units in, so it needs a drawing for them`);
     if (look.special.unit !== `${id}.summoned`) throw new Error(`${id}: the special must call in ${id}.summoned`);
     const light = look.summonedStats ? twisted(stats.light, look.summonedStats) : twisted(stats.light, temper.light);
-    extras.push(extra(`${id}.summoned`, look.summoned, light));
+    const called = extra(`${id}.summoned`, look.summoned, light);
+    const tosses = look.summonedTosses;
+    extras.push(tosses ? { ...called, toss: tossFrom(thrower, withArt(tosses.shot), tosses) } : called);
   }
   return {
     id,

@@ -1499,6 +1499,14 @@ hologram nazar that keeps the army from harm for five seconds, and wedding gold 
 lane). Nee is nee, a mother's look that worked like Het Algoritme, is gone with its drawing. De Toeristen's
 Cruiseschip, further up, uses the same kind, with a time limit added.
 
+On 25 November 2026 the owner found it weak, "only 4 light units for a super power", and of two ways to
+make it stronger (a random mix of cousins, at most one heavy, or cousins that fight from up close and from
+afar with a bit more hit points) took the second. A cousin now has 130% of the shared light unit's hit
+points in place of the temperament (874 instead of 571), and between swats of the selfie stick he sends a
+voice message on his own beat, the beer bikes' toss: a Prijzenvader's damage, from 80% of its reach, every
+second and a half. The voice message is a drawing of its own, `shot_spraakbericht`: a glowing speech
+bubble with a play button and a sound wave.
+
 **The fatbike: the first unit that does something of its own**
 
 The owner's idea, in their words: "dure zeer snelle unit die overal doorheen raast ... en tegen de base

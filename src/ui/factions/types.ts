@@ -23,6 +23,6 @@ export interface FactionText {
   battleCry: Record<string, readonly string[]>;
   /** What a rider shouts as it rides through an enemy unit, by unit id. Only riders have these. */
   riding?: Record<string, readonly string[]>;
-  /** What one aboard shouts as he tosses something, at the first throw and then now and then, by unit id. Only the beer bikes have these. */
+  /** What one aboard shouts as he tosses something, at the first throw and then now and then, by unit id. The beer bikes have these; De Hologramneef's voice messages speak for themselves. */
   tossing?: Record<string, readonly string[]>;
 }
