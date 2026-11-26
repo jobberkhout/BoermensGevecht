@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>Rotterdam: de haven, de kranen, de containers en de Maas</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    The port: quay cranes and stacks of containers on the far quay, a container ship being loaded, a tug,
+    a cable-stayed bridge in the distance and a few towers, the Maas in front of it all. Mirrored, the
+    stretch from x = 662 to 818 lies under the sun of the shared sky, so nothing there reaches above y = 260.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- Far off, the city: a few plain towers, paler than everything in front of them. -->
+    <path fill="#cdd8e3" d="M418 546 L418 318 L452 318 L452 546 Z"/>
+    <path fill="#c6d2df" d="M424 318 L424 306 L446 306 L446 318 Z"/>
+    <path fill="none" stroke="#dae3eb" stroke-width="2" d="M418 340 h34 M418 362 h34 M418 384 h34 M418 406 h34 M418 428 h34 M418 450 h34 M418 472 h34"/>
+    <path fill="#c7d3e0" d="M456 546 L456 370 L490 350 L490 546 Z"/>
+    <path fill="none" stroke="#d6e0e9" stroke-width="2" d="M467 364 V546 M479 357 V546"/>
+    <path fill="#ced9e3" d="M870 546 L870 372 L906 372 L906 546 Z"/>
+    <path fill="none" stroke="#ced9e3" stroke-width="3" stroke-linecap="round" d="M888 372 V340"/>
+    <path fill="none" stroke="#dce4ec" stroke-width="2" d="M870 394 h36 M870 416 h36 M870 438 h36 M870 460 h36 M870 482 h36"/>
+    <path fill="#c9d4e0" d="M910 546 L910 426 L936 426 L936 546 Z"/>
+    <path fill="#d1dbe5" d="M940 546 L940 472 L962 462 L962 546 Z"/>
+    <!-- Further off still, a cable-stayed bridge: two straight pylons, a fan of stays on either side. -->
+    <path fill="#c4d0dc" d="M556 468 L872 468 L872 474 L556 474 Z"/>
+    <path fill="#c4d0dc" d="M635 546 L638 382 L645 382 L648 546 Z M785 546 L788 382 L795 382 L798 546 Z"/>
+    <path fill="none" stroke="#cbd6e1" stroke-width="1.6" d="M641 388 L561 468 M641 388 L581 468 M641 388 L601 468 M641 388 L681 468 M641 388 L701 468 M641 388 L721 468 M791 388 L711 468 M791 388 L731 468 M791 388 L751 468 M791 388 L831 468 M791 388 L851 468 M791 388 L871 468"/>
+    <!-- The quay cranes. Two have their booms up, out of the way; the one in the middle is loading the ship. -->
+    <path fill="#a5b5c5" d="M340.7 546 L340.7 349.9 L408 349.9 L408 546 L400 546 L400 357.9 L348.7 357.9 L348.7 546 Z"/>
+    <rect fill="#a5b5c5" x="344.7" y="473" width="59.3" height="5.7"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="2.7" d="M344.7 473 L404 357.9 M404 473 L344.7 357.9 M344.7 541.4 L404 478.7"/>
+    <rect fill="#a5b5c5" x="276.3" y="340.8" width="152.8" height="10.3"/>
+    <rect fill="#c2cdd8" x="278.6" y="318" width="45.6" height="22.8"/>
+    <path fill="#b6c4d1" d="M285.4 324.8 h9.1 v5.7 h-9.1 Z M301.4 324.8 h9.1 v5.7 h-9.1 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="5.7" stroke-linejoin="round" d="M344.7 340.8 L376.6 265.6 L404 340.8"/>
+    <path fill="#a5b5c5" d="M424.1 344.1 L473.8 154.4 L479.3 155.8 L434.1 346.6 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="2.1" d="M426.9 322.4 L441.8 326.1 M432.4 301.3 L446.9 304.9 M437.9 280.2 L451.9 283.7 M443.4 259.1 L456.9 262.5 M448.9 238 L461.9 241.3 M454.4 217 L467 220.1 M460 195.9 L472 198.9 M465.5 174.8 L477 177.7"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="2.3" stroke-linecap="round" d="M376.6 265.6 L476.5 155.1 M376.6 265.6 L452.8 250.2 M376.6 265.6 L278.6 340.8"/>
+    <path fill="#a5b5c5" d="M520.7 546 L520.7 349.9 L588 349.9 L588 546 L580 546 L580 357.9 L528.7 357.9 L528.7 546 Z"/>
+    <rect fill="#a5b5c5" x="524.7" y="473" width="59.3" height="5.7"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="2.7" d="M524.7 473 L584 357.9 M584 473 L524.7 357.9 M524.7 541.4 L584 478.7"/>
+    <rect fill="#a5b5c5" x="456.3" y="340.8" width="152.8" height="10.3"/>
+    <rect fill="#c2cdd8" x="458.6" y="318" width="45.6" height="22.8"/>
+    <path fill="#b6c4d1" d="M465.4 324.8 h9.1 v5.7 h-9.1 Z M481.4 324.8 h9.1 v5.7 h-9.1 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="5.7" stroke-linejoin="round" d="M524.7 340.8 L556.6 265.6 L584 340.8"/>
+    <path fill="#a5b5c5" d="M609.1 340.2 L805.2 342.5 L805.2 348.2 L609.1 350.5 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="2.1" d="M630.9 337.6 L630.9 353.1 M652.7 337.9 L652.7 352.8 M674.4 338.1 L674.4 352.6 M696.2 338.4 L696.2 352.3 M718 338.6 L718 352.1 M739.8 338.9 L739.8 351.8 M761.6 339.2 L761.6 351.6 M783.4 339.4 L783.4 351.3"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="2.3" stroke-linecap="round" d="M556.6 265.6 L805.2 345.4 M556.6 265.6 L707.1 345.4 M556.6 265.6 L458.6 340.8"/>
+    <rect fill="#c2cdd8" x="716.2" y="350.5" width="22.8" height="6.8"/>
+    <rect fill="#c2cdd8" x="725.4" y="357.3" width="13.7" height="12.5"/>
+    <rect fill="#dbe5ec" x="731.1" y="359.6" width="6.8" height="6.8"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="1.4" d="M719.7 357.3 L715.6 430 M724.2 357.3 L739.6 430"/>
+    <rect fill="#a5b5c5" x="710.6" y="430" width="34" height="3"/>
+    <path fill="#a5b5c5" d="M818.1 546 L818.1 391.2 L871.1 391.2 L871.1 546 L864.9 546 L864.9 397.5 L824.4 397.5 L824.4 546 Z"/>
+    <rect fill="#a5b5c5" x="821.2" y="488.4" width="46.8" height="4.5"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="2.2" d="M821.2 488.4 L868 397.5 M868 488.4 L821.2 397.5 M821.2 542.4 L868 492.9"/>
+    <rect fill="#a5b5c5" x="767.2" y="384" width="120.6" height="8.1"/>
+    <rect fill="#c2cdd8" x="769" y="366" width="36" height="18"/>
+    <path fill="#b6c4d1" d="M774.4 371.4 h7.2 v4.5 h-7.2 Z M787 371.4 h7.2 v4.5 h-7.2 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="4.5" stroke-linejoin="round" d="M821.2 384 L846.4 324.6 L868 384"/>
+    <path fill="#a5b5c5" d="M883.9 386.6 L923.1 236.9 L927.4 237.9 L891.7 388.6 Z"/>
+    <path fill="none" stroke="#a5b5c5" stroke-width="1.6" d="M886 369.4 L897.9 372.4 M890.4 352.8 L901.8 355.6 M894.8 336.2 L905.8 338.9 M899.1 319.5 L909.8 322.2 M903.5 302.9 L913.7 305.4 M907.8 286.2 L917.7 288.7 M912.2 269.6 L921.7 272 M916.5 253 L925.6 255.2"/>
+    <path fill="none" stroke="#b6c4d1" stroke-width="1.8" stroke-linecap="round" d="M846.4 324.6 L925.2 237.4 M846.4 324.6 L906.5 312.5 M846.4 324.6 L769 384"/>
+    <!-- The far quay, with containers stacked on it. -->
+    <rect fill="#c9c6bf" y="546" width="1100" height="8"/>
+    <rect fill="#efbb95" x="338" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M344 536.5 v8 M350 536.5 v8 M356 536.5 v8 M362 536.5 v8"/>
+    <rect fill="#e3a982" x="338" y="544.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="338" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M344 525.5 v8 M350 525.5 v8 M356 525.5 v8 M362 525.5 v8"/>
+    <rect fill="#97c2a4" x="338" y="533.4" width="30" height="1.6"/>
+    <rect fill="#eef1f1" x="338" y="513" width="30" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M344 514.5 v8 M350 514.5 v8 M356 514.5 v8 M362 514.5 v8"/>
+    <rect fill="#dde3e5" x="338" y="522.4" width="30" height="1.6"/>
+    <rect fill="#aec2d9" x="370" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M376 536.5 v8 M382 536.5 v8 M388 536.5 v8 M394 536.5 v8"/>
+    <rect fill="#9cb3cd" x="370" y="544.4" width="30" height="1.6"/>
+    <rect fill="#efbb95" x="370" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M376 525.5 v8 M382 525.5 v8 M388 525.5 v8 M394 525.5 v8"/>
+    <rect fill="#e3a982" x="370" y="533.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="370" y="513" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M376 514.5 v8 M382 514.5 v8 M388 514.5 v8 M394 514.5 v8"/>
+    <rect fill="#97c2a4" x="370" y="522.4" width="30" height="1.6"/>
+    <rect fill="#eef1f1" x="370" y="502" width="30" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M376 503.5 v8 M382 503.5 v8 M388 503.5 v8 M394 503.5 v8"/>
+    <rect fill="#dde3e5" x="370" y="511.4" width="30" height="1.6"/>
+    <rect fill="#eef1f1" x="402" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M408 536.5 v8 M414 536.5 v8 M420 536.5 v8 M426 536.5 v8"/>
+    <rect fill="#dde3e5" x="402" y="544.4" width="30" height="1.6"/>
+    <rect fill="#aec2d9" x="402" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M408 525.5 v8 M414 525.5 v8 M420 525.5 v8 M426 525.5 v8"/>
+    <rect fill="#9cb3cd" x="402" y="533.4" width="30" height="1.6"/>
+    <rect fill="#aec2d9" x="806" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M812 536.5 v8 M818 536.5 v8 M824 536.5 v8 M830 536.5 v8"/>
+    <rect fill="#9cb3cd" x="806" y="544.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="806" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M812 525.5 v8 M818 525.5 v8 M824 525.5 v8 M830 525.5 v8"/>
+    <rect fill="#97c2a4" x="806" y="533.4" width="30" height="1.6"/>
+    <rect fill="#efbb95" x="806" y="513" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M812 514.5 v8 M818 514.5 v8 M824 514.5 v8 M830 514.5 v8"/>
+    <rect fill="#e3a982" x="806" y="522.4" width="30" height="1.6"/>
+    <rect fill="#eef1f1" x="838" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M844 536.5 v8 M850 536.5 v8 M856 536.5 v8 M862 536.5 v8"/>
+    <rect fill="#dde3e5" x="838" y="544.4" width="30" height="1.6"/>
+    <rect fill="#eef1f1" x="838" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M844 525.5 v8 M850 525.5 v8 M856 525.5 v8 M862 525.5 v8"/>
+    <rect fill="#dde3e5" x="838" y="533.4" width="30" height="1.6"/>
+    <rect fill="#aec2d9" x="838" y="513" width="30" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M844 514.5 v8 M850 514.5 v8 M856 514.5 v8 M862 514.5 v8"/>
+    <rect fill="#9cb3cd" x="838" y="522.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="838" y="502" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M844 503.5 v8 M850 503.5 v8 M856 503.5 v8 M862 503.5 v8"/>
+    <rect fill="#97c2a4" x="838" y="511.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="870" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M876 536.5 v8 M882 536.5 v8 M888 536.5 v8 M894 536.5 v8"/>
+    <rect fill="#97c2a4" x="870" y="544.4" width="30" height="1.6"/>
+    <rect fill="#efbb95" x="870" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M876 525.5 v8 M882 525.5 v8 M888 525.5 v8 M894 525.5 v8"/>
+    <rect fill="#e3a982" x="870" y="533.4" width="30" height="1.6"/>
+    <rect fill="#efbb95" x="902" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M908 536.5 v8 M914 536.5 v8 M920 536.5 v8 M926 536.5 v8"/>
+    <rect fill="#e3a982" x="902" y="544.4" width="30" height="1.6"/>
+    <rect fill="#a9cfb4" x="902" y="524" width="30" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M908 525.5 v8 M914 525.5 v8 M920 525.5 v8 M926 525.5 v8"/>
+    <rect fill="#97c2a4" x="902" y="533.4" width="30" height="1.6"/>
+    <rect fill="#efbb95" x="934" y="535" width="30" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M940 536.5 v8 M946 536.5 v8 M952 536.5 v8 M958 536.5 v8"/>
+    <rect fill="#e3a982" x="934" y="544.4" width="30" height="1.6"/>
+    <path fill="#cfcac1" d="M968 546 L968 528 L1052 528 L1052 546 Z"/>
+    <path fill="#c3bdb3" d="M964 530 L1010 518 L1056 530 Z"/>
+    <!-- The Maas. -->
+    <rect fill="#b5cbd6" y="554" width="1100" height="44"/>
+    <!-- A container ship of the made-up Nultien Lines, its emblem (a wave with an anchor) on the funnel. -->
+    <path fill="#a5b4c7" fill-opacity="0.5" d="M440 590 L790 590 L786 595 L446 595 Z"/>
+    <rect fill="#efbb95" x="496" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M501.8 536.5 v8 M507.6 536.5 v8 M513.4 536.5 v8 M519.2 536.5 v8"/>
+    <rect fill="#e3a982" x="496" y="544.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="496" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M501.8 525.5 v8 M507.6 525.5 v8 M513.4 525.5 v8 M519.2 525.5 v8"/>
+    <rect fill="#9cb3cd" x="496" y="533.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="496" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M501.8 514.5 v8 M507.6 514.5 v8 M513.4 514.5 v8 M519.2 514.5 v8"/>
+    <rect fill="#97c2a4" x="496" y="522.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="496" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M501.8 503.5 v8 M507.6 503.5 v8 M513.4 503.5 v8 M519.2 503.5 v8"/>
+    <rect fill="#dde3e5" x="496" y="511.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="496" y="491" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M501.8 492.5 v8 M507.6 492.5 v8 M513.4 492.5 v8 M519.2 492.5 v8"/>
+    <rect fill="#97c2a4" x="496" y="500.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="527" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M532.8 536.5 v8 M538.6 536.5 v8 M544.4 536.5 v8 M550.2 536.5 v8"/>
+    <rect fill="#dde3e5" x="527" y="544.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="527" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M532.8 525.5 v8 M538.6 525.5 v8 M544.4 525.5 v8 M550.2 525.5 v8"/>
+    <rect fill="#97c2a4" x="527" y="533.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="527" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M532.8 514.5 v8 M538.6 514.5 v8 M544.4 514.5 v8 M550.2 514.5 v8"/>
+    <rect fill="#e3a982" x="527" y="522.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="527" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M532.8 503.5 v8 M538.6 503.5 v8 M544.4 503.5 v8 M550.2 503.5 v8"/>
+    <rect fill="#9cb3cd" x="527" y="511.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="527" y="491" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M532.8 492.5 v8 M538.6 492.5 v8 M544.4 492.5 v8 M550.2 492.5 v8"/>
+    <rect fill="#e3a982" x="527" y="500.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="558" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M563.8 536.5 v8 M569.6 536.5 v8 M575.4 536.5 v8 M581.2 536.5 v8"/>
+    <rect fill="#9cb3cd" x="558" y="544.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="558" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M563.8 525.5 v8 M569.6 525.5 v8 M575.4 525.5 v8 M581.2 525.5 v8"/>
+    <rect fill="#e3a982" x="558" y="533.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="558" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M563.8 514.5 v8 M569.6 514.5 v8 M575.4 514.5 v8 M581.2 514.5 v8"/>
+    <rect fill="#e3a982" x="558" y="522.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="558" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M563.8 503.5 v8 M569.6 503.5 v8 M575.4 503.5 v8 M581.2 503.5 v8"/>
+    <rect fill="#dde3e5" x="558" y="511.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="589" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M594.8 536.5 v8 M600.6 536.5 v8 M606.4 536.5 v8 M612.2 536.5 v8"/>
+    <rect fill="#dde3e5" x="589" y="544.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="589" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M594.8 525.5 v8 M600.6 525.5 v8 M606.4 525.5 v8 M612.2 525.5 v8"/>
+    <rect fill="#97c2a4" x="589" y="533.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="589" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M594.8 514.5 v8 M600.6 514.5 v8 M606.4 514.5 v8 M612.2 514.5 v8"/>
+    <rect fill="#9cb3cd" x="589" y="522.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="589" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M594.8 503.5 v8 M600.6 503.5 v8 M606.4 503.5 v8 M612.2 503.5 v8"/>
+    <rect fill="#dde3e5" x="589" y="511.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="589" y="491" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M594.8 492.5 v8 M600.6 492.5 v8 M606.4 492.5 v8 M612.2 492.5 v8"/>
+    <rect fill="#e3a982" x="589" y="500.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="620" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M625.8 536.5 v8 M631.6 536.5 v8 M637.4 536.5 v8 M643.2 536.5 v8"/>
+    <rect fill="#dde3e5" x="620" y="544.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="620" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M625.8 525.5 v8 M631.6 525.5 v8 M637.4 525.5 v8 M643.2 525.5 v8"/>
+    <rect fill="#e3a982" x="620" y="533.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="620" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M625.8 514.5 v8 M631.6 514.5 v8 M637.4 514.5 v8 M643.2 514.5 v8"/>
+    <rect fill="#e3a982" x="620" y="522.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="620" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M625.8 503.5 v8 M631.6 503.5 v8 M637.4 503.5 v8 M643.2 503.5 v8"/>
+    <rect fill="#9cb3cd" x="620" y="511.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="620" y="491" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M625.8 492.5 v8 M631.6 492.5 v8 M637.4 492.5 v8 M643.2 492.5 v8"/>
+    <rect fill="#97c2a4" x="620" y="500.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="651" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M656.8 536.5 v8 M662.6 536.5 v8 M668.4 536.5 v8 M674.2 536.5 v8"/>
+    <rect fill="#9cb3cd" x="651" y="544.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="651" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M656.8 525.5 v8 M662.6 525.5 v8 M668.4 525.5 v8 M674.2 525.5 v8"/>
+    <rect fill="#97c2a4" x="651" y="533.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="651" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M656.8 514.5 v8 M662.6 514.5 v8 M668.4 514.5 v8 M674.2 514.5 v8"/>
+    <rect fill="#dde3e5" x="651" y="522.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="651" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M656.8 503.5 v8 M662.6 503.5 v8 M668.4 503.5 v8 M674.2 503.5 v8"/>
+    <rect fill="#97c2a4" x="651" y="511.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="682" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M687.8 536.5 v8 M693.6 536.5 v8 M699.4 536.5 v8 M705.2 536.5 v8"/>
+    <rect fill="#97c2a4" x="682" y="544.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="682" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M687.8 525.5 v8 M693.6 525.5 v8 M699.4 525.5 v8 M705.2 525.5 v8"/>
+    <rect fill="#e3a982" x="682" y="533.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="682" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M687.8 514.5 v8 M693.6 514.5 v8 M699.4 514.5 v8 M705.2 514.5 v8"/>
+    <rect fill="#9cb3cd" x="682" y="522.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="682" y="502" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M687.8 503.5 v8 M693.6 503.5 v8 M699.4 503.5 v8 M705.2 503.5 v8"/>
+    <rect fill="#e3a982" x="682" y="511.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="682" y="491" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M687.8 492.5 v8 M693.6 492.5 v8 M699.4 492.5 v8 M705.2 492.5 v8"/>
+    <rect fill="#e3a982" x="682" y="500.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="713" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M718.8 536.5 v8 M724.6 536.5 v8 M730.4 536.5 v8 M736.2 536.5 v8"/>
+    <rect fill="#e3a982" x="713" y="544.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="713" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M718.8 525.5 v8 M724.6 525.5 v8 M730.4 525.5 v8 M736.2 525.5 v8"/>
+    <rect fill="#e3a982" x="713" y="533.4" width="29" height="1.6"/>
+    <rect fill="#a9cfb4" x="744" y="535" width="29" height="11"/>
+    <path fill="none" stroke="#97c2a4" stroke-width="1.6" d="M749.8 536.5 v8 M755.6 536.5 v8 M761.4 536.5 v8 M767.2 536.5 v8"/>
+    <rect fill="#97c2a4" x="744" y="544.4" width="29" height="1.6"/>
+    <rect fill="#aec2d9" x="744" y="524" width="29" height="11"/>
+    <path fill="none" stroke="#9cb3cd" stroke-width="1.6" d="M749.8 525.5 v8 M755.6 525.5 v8 M761.4 525.5 v8 M767.2 525.5 v8"/>
+    <rect fill="#9cb3cd" x="744" y="533.4" width="29" height="1.6"/>
+    <rect fill="#eef1f1" x="744" y="513" width="29" height="11"/>
+    <path fill="none" stroke="#dde3e5" stroke-width="1.6" d="M749.8 514.5 v8 M755.6 514.5 v8 M761.4 514.5 v8 M767.2 514.5 v8"/>
+    <rect fill="#dde3e5" x="744" y="522.4" width="29" height="1.6"/>
+    <rect fill="#efbb95" x="713" y="433" width="29" height="11"/>
+    <path fill="none" stroke="#e3a982" stroke-width="1.6" d="M718.8 434.5 v8 M724.6 434.5 v8 M730.4 434.5 v8 M736.2 434.5 v8"/>
+    <rect fill="#e3a982" x="713" y="442.4" width="29" height="1.6"/>
+    <rect fill="#e9edf0" x="458" y="470" width="32" height="76"/>
+    <rect fill="#e9edf0" x="450" y="462" width="48" height="9"/>
+    <path fill="#c1cddb" d="M462 480 h24 v4 h-24 Z M462 492 h24 v4 h-24 Z M462 504 h24 v4 h-24 Z M462 516 h24 v4 h-24 Z M462 528 h24 v4 h-24 Z M454 465 h40 v3 h-40 Z"/>
+    <path fill="#d4dbe2" d="M438 546 L439 478 L454 478 L455 546 Z"/>
+    <path fill="#b8c3cf" d="M439 478 h15 v6 h-15 Z"/>
+    <path fill="none" stroke="#8fbf9f" stroke-width="1.8" stroke-linecap="round" d="M440.5 514 q2.6 -3 5.2 0 t5.2 0 M446.5 495 v11 M443.5 498.5 h6 M443 503 q3.5 3.5 7 0"/>
+    <path fill="#9fadc1" d="M430 546 L802 540 Q794 568 784 590 L444 590 Q434 572 430 546 Z"/>
+    <path fill="#b1bdcd" d="M430 546 L802 540 L800 546 L431 552 Z"/>
+    <path fill="#d7aea4" d="M438 582 L788 582 Q786 586 784 590 L444 590 Q440 586 438 582 Z"/>
+    <!-- A tug with its nose against the bow, pushing. -->
+    <path fill="#aac7b3" d="M810 570 L890 570 Q888 584 878 592 L820 592 Q812 584 810 570 Z"/>
+    <path fill="#9aa3ab" d="M803 568 h11 v18 h-6 Q803 578 803 568 Z"/>
+    <path fill="#c3dccb" d="M810 570 L890 570 L889 574 L811 574 Z"/>
+    <rect fill="#eceff1" x="828" y="548" width="28" height="22"/>
+    <rect fill="#eceff1" x="823" y="543" width="38" height="6"/>
+    <path fill="#c1cddb" d="M832 553 h8 v7 h-8 Z M844 553 h8 v7 h-8 Z"/>
+    <path fill="#d4dbe2" d="M862 570 L862 552 L872 552 L872 570 Z"/>
+    <path fill="#b8c3cf" d="M862 552 h10 v4 h-10 Z"/>
+    <path fill="none" stroke="#b9c4ce" stroke-width="2" stroke-linecap="round" d="M842 543 V527 M836 528 h12"/>
+    <path fill="none" stroke="#e1ebf0" stroke-width="2.4" stroke-linecap="round" d="M890 589 q9 -2 16 1 M800 590 q-6 -2 -10 0"/>
+    <path fill="none" stroke="#cde0e8" stroke-width="2" stroke-linecap="round" d="M20 566 h40 M120 580 h56 M260 570 h34 M352 584 h44 M900 562 h40 M930 582 h52 M1020 572 h40 M560 596 h48"/>
+    <!-- Behind the road: the near quay, with its edge, a yellow line and bollards. A gull keeps watch. -->
+    <rect fill="#cbc7bf" y="598" width="1100" height="42"/>
+    <rect fill="#b8b3aa" y="598" width="1100" height="4"/>
+    <path fill="none" stroke="#e2d08e" stroke-width="3" d="M0 609 L1100 609"/>
+    <path fill="none" stroke="#b7b2a9" stroke-width="2" d="M25 612 v28 M135 612 v28 M245 612 v28 M355 612 v28 M465 612 v28 M575 612 v28 M685 612 v28 M795 612 v28 M905 612 v28 M1015 612 v28"/>
+    <path fill="#9ea4aa" d="M404 626 L405 614 L415 614 L416 626 Z"/><ellipse fill="#a9afb5" cx="410" cy="613" rx="9" ry="3.6"/>
+    <path fill="#9ea4aa" d="M624 626 L625 614 L635 614 L636 626 Z"/><ellipse fill="#a9afb5" cx="630" cy="613" rx="9" ry="3.6"/>
+    <path fill="#9ea4aa" d="M844 626 L845 614 L855 614 L856 626 Z"/><ellipse fill="#a9afb5" cx="850" cy="613" rx="9" ry="3.6"/>
+    <g><ellipse fill="#f4f4f2" cx="630" cy="601" rx="9" ry="5.5"/><circle fill="#f4f4f2" cx="638" cy="595" r="4"/><path fill="#bfc6cc" d="M622 599 Q630 596 636 600 L628 604 Z"/><path fill="#e9c46a" d="M641.5 594.5 L646 596 L641.5 597 Z"/><path fill="none" stroke="#d9a35b" stroke-width="1.6" d="M629 606 v4 M633 606 v4"/></g>
+    <!-- The road: port asphalt with white lines. -->
+    <rect fill="#979490" y="638" width="1100" height="104"/>
+    <path fill="none" stroke="#eceae4" stroke-width="3" d="M0 652 L1100 652 M0 728 L1100 728"/>
+    <path fill="none" stroke="#eceae4" stroke-width="3" stroke-dasharray="40 30" d="M30 690 L1100 690"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+    <!-- In front of the road, where the buttons sit: the terminal floor, large concrete slabs. -->
+    <rect fill="#d5d2cb" y="742" width="1100" height="338"/>
+    <path fill="none" stroke="#c4c0b8" stroke-width="2" d="M0 826 L1100 826 M0 910 L1100 910 M0 994 L1100 994 M190 742 L156.1 1080 M410 742 L385.8 1080 M630 742 L615.5 1080 M850 742 L845.2 1080 M1070 742 L1074.8 1080"/>
+    <path fill="none" stroke="#e3d6a6" stroke-width="3" d="M0 758 L1100 758"/>
+  </g>
+</svg>

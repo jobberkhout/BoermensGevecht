@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-18 -19 36 38" data-rig="static">
+  <title>Een vliegende keukenstoel: verchroomde buizen, een groene zitting, uit 1984</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- The kitchen chair from the cube house: chrome tube frame, green seat and back. Origin = the middle. -->
+  <g id="chair" transform="translate(0 0)">
+    <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M-9 -16 L-8 15 M-8 2 L11 2 L11 15 M-8 2 L-11 15"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M-9 -16 L-8 15 M-8 2 L11 2 L11 15 M-8 2 L-11 15"/>
+    <path fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" d="M-9.4 -12 L-9 -4 M2 1.6 L8 1.6"/>
+    <rect class="o" fill="#4f9a3c" x="-13" y="-15" width="9" height="13" rx="2.6"/>
+    <path class="n" fill="#6cb854" d="M-11.4 -13 L-9 -13 L-9.6 -5 L-11.4 -5 Z"/>
+    <rect class="o" fill="#4f9a3c" x="-11" y="-3" width="25" height="6" rx="2.6"/>
+    <path class="n" fill="#6cb854" d="M-8 -1.6 L10 -1.6 L10 0 L-8 0 Z"/>
+  </g>
+</svg>

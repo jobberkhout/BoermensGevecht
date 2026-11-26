@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-98 -240 206 246" data-rig="free">
+  <title>De Kraan: een kadekraan die is opgestaan en is gaan lopen. Hij tilt wat voor hem staat op en zet het weer neer</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.8; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- Everything hangs from here: the walk bobs it. -->
+  <g id="mech" transform="translate(0 0)"/>
+
+  <!-- The two legs on the far side, darker. Joints at the portal beam. -->
+  <g id="leg_back_far" data-parent="mech" transform="translate(-50 -118)">
+    <g transform="translate(50 118)">
+      <g transform="translate(8 0)">
+        <path class="o" fill="#3e4c5c" d="M-65 -118 L-51 -118 L-61 -16 L-77 -16 Z"/>
+        <path class="n" fill="#55697a" d="M-55 -116 L-53 -116 L-63 -18 L-65.4 -18 Z"/>
+        <path class="t" style="stroke:#2f3a47;stroke-width:1.6" d="M-69 -96 L-60 -84 M-65 -48 L-57 -36"/>
+        <circle class="o" style="stroke-width:2.4" fill="#55697a" cx="-63" cy="-66" r="6.4"/>
+        <circle class="n" fill="#3e4c5c" cx="-63" cy="-66" r="2.4"/>
+        <path class="o" fill="#2b2b2b" d="M-92 0 L-92 -10 Q-92 -19 -82 -19 L-64 -19 Q-54 -19 -50 -10 Q-48 -4 -50 0 Z"/>
+        <path class="o" style="stroke-width:2.4" fill="#a8540f" d="M-60 -19 Q-52 -18 -49.4 -9 Q-48.6 -4 -50 0 L-60 0 Z"/>
+        <path class="n" fill="#1d1d1d" d="M-91 -3.4 L-50.4 -3.4 L-50 -1.2 L-91 -1.2 Z"/>
+      </g>
+    </g>
+  </g>
+  <!-- The far front leg. -->
+  <g id="leg_front_far" data-parent="mech" transform="translate(38 -118)">
+    <g transform="translate(-38 118)">
+      <g transform="translate(8 0)">
+        <path class="o" fill="#3e4c5c" d="M23 -118 L37 -118 L47 -16 L31 -16 Z"/>
+        <path class="n" fill="#55697a" d="M33 -116 L35 -116 L45 -18 L42.6 -18 Z"/>
+        <path class="t" style="stroke:#2f3a47;stroke-width:1.6" d="M29 -96 L38 -84 M33 -48 L41 -36"/>
+        <circle class="o" style="stroke-width:2.4" fill="#55697a" cx="35" cy="-66" r="6.4"/>
+        <circle class="n" fill="#3e4c5c" cx="35" cy="-66" r="2.4"/>
+        <path class="o" fill="#2b2b2b" d="M22 0 L22 -10 Q22 -19 32 -19 L50 -19 Q60 -19 64 -10 Q66 -4 64 0 Z"/>
+        <path class="o" style="stroke-width:2.4" fill="#a8540f" d="M54 -19 Q62 -18 64.6 -9 Q65.4 -4 64 0 L54 0 Z"/>
+        <path class="n" fill="#1d1d1d" d="M23 -3.4 L64.6 -3.4 L65 -1.2 L23 -1.2 Z"/>
+      </g>
+    </g>
+  </g>
+  <!-- The frame: portal beam, posts, A-frame, the girder and the machinery house. Joint in the middle of the portal beam. -->
+  <g id="frame" data-parent="mech" transform="translate(-14 -118)">
+    <g transform="translate(14 118)">
+      <!-- the posts up to the girder, braced -->
+      <rect class="o" fill="#5d7487" x="-58" y="-174" width="12" height="52"/>
+      <rect class="o" fill="#5d7487" x="12" y="-174" width="12" height="52"/>
+      <path class="t" style="stroke:#3e4c5c;stroke-width:3" d="M-46 -168 L12 -128 M-46 -128 L12 -168"/>
+      <!-- the A-frame and the back stay -->
+      <path class="t" style="stroke-width:8" d="M-44 -174 L-16 -228 M8 -174 L-12 -228"/>
+      <path fill="none" stroke="#8fa3b3" stroke-width="4.4" stroke-linecap="round" d="M-44 -174 L-16 -228 M8 -174 L-12 -228"/>
+      <path class="t" style="stroke-width:4" d="M-15 -228 L-86 -176"/>
+      <path fill="none" stroke="#c9d4dd" stroke-width="1.8" stroke-linecap="round" d="M-15 -228 L-86 -176"/>
+      <rect class="o" style="stroke-width:2.4" fill="#5d7487" x="-22" y="-234" width="14" height="9" rx="2"/>
+      <!-- the girder, white lattice, from the machinery house to the hinge of the boom -->
+      <rect class="o" fill="#f2f4f1" x="-90" y="-174" width="122" height="16" rx="2"/>
+      <path class="t" style="stroke:#b4bec6;stroke-width:1.8" d="M-84 -171 L-74 -161 L-64 -171 L-54 -161 L-44 -171 L-34 -161 L-24 -171 L-14 -161 L-4 -171 L6 -161 L16 -171 L26 -161"/>
+      <!-- the machinery house, green, the shipping line's wave-and-anchor on its side -->
+      <rect class="o" fill="#1f8a4c" x="-90" y="-198" width="38" height="24" rx="2"/>
+      <path class="n" fill="#13603a" d="M-88.6 -180 L-53.4 -180 L-53.4 -175.4 L-88.6 -175.4 Z"/>
+      <path class="t" style="stroke:#f4f4f0;stroke-width:2" d="M-71 -195 L-71 -186 M-74.4 -192.4 L-67.6 -192.4 M-75 -189 Q-71 -185 -67 -189"/>
+      <path class="t" style="stroke:#f4f4f0;stroke-width:2" d="M-79 -182.4 Q-75 -185.4 -71 -182.4 Q-67 -179.4 -63 -182.4"/>
+      <!-- the portal beam on top of the legs -->
+      <rect class="o" fill="#5d7487" x="-76" y="-128" width="126" height="20" rx="3"/>
+      <path class="n" fill="#8fa3b3" d="M-74 -125.6 L48 -125.6 L48 -121.6 L-74 -121.6 Z"/>
+      <path class="n" fill="#e8731c" d="M-74 -113 L48 -113 L48 -110 L-74 -110 Z"/>
+      <circle class="n" fill="#3e4c5c" cx="-64" cy="-117" r="1.6"/>
+      <circle class="n" fill="#3e4c5c" cx="-30" cy="-117" r="1.6"/>
+      <circle class="n" fill="#3e4c5c" cx="4" cy="-117" r="1.6"/>
+      <circle class="n" fill="#3e4c5c" cx="38" cy="-117" r="1.6"/>
+    </g>
+  </g>
+  <!-- The boom, out over the water side, on its hinge. Joint at the hinge. -->
+  <g id="boom" data-parent="frame" transform="translate(30 -166)">
+    <g transform="translate(-30 166)">
+      <!-- the forestays, from the apex out to the tip -->
+      <path class="t" style="stroke-width:4" d="M-12 -228 L98 -172 M-12 -228 L64 -172"/>
+      <path fill="none" stroke="#c9d4dd" stroke-width="1.8" stroke-linecap="round" d="M-12 -228 L98 -172 M-12 -228 L64 -172"/>
+      <rect class="o" fill="#f2f4f1" x="28" y="-174" width="74" height="16" rx="2"/>
+      <path class="t" style="stroke:#b4bec6;stroke-width:1.8" d="M34 -171 L44 -161 L54 -171 L64 -161 L74 -171 L84 -161 L94 -171"/>
+      <rect class="o" style="stroke-width:2.4" fill="#e8731c" x="96" y="-176" width="8" height="20" rx="1.6"/>
+      <circle class="o" style="stroke-width:2.4" fill="#8fa3b3" cx="30" cy="-166" r="5"/>
+    </g>
+  </g>
+  <!-- The trolley and its cab, which is the face. Joint at the trolley. -->
+  <g id="trolley" data-parent="boom" transform="translate(62 -154)">
+    <g transform="translate(-62 154)">
+      <!-- the trolley, running under the boom -->
+      <circle class="o" style="stroke-width:2" fill="#3b4656" cx="55" cy="-157" r="3"/>
+      <circle class="o" style="stroke-width:2" fill="#3b4656" cx="69" cy="-157" r="3"/>
+      <rect class="o" fill="#e8731c" x="48" y="-158" width="30" height="9" rx="2"/>
+      <!-- the cab under its back half: nobody inside, but it looks at you -->
+      <path class="o" fill="#e6ecef" d="M44 -150 L70 -150 L68 -128 L46 -128 Z"/>
+      <path class="n" fill="#c9d4dd" d="M45 -136 L69 -136 L68.4 -129.4 L45.6 -129.4 Z"/>
+      <circle class="o" style="stroke-width:2.2" fill="#d6eef8" cx="52" cy="-141" r="5"/>
+      <circle class="o" style="stroke-width:2.2" fill="#d6eef8" cx="63" cy="-141" r="4.4"/>
+      <!-- a sunshade over the windows, set like a frown -->
+      <path class="o" style="stroke-width:2.4" fill="#3b4656" d="M43 -151 L72 -149 L72 -146 L44 -147.6 Z"/>
+    </g>
+  </g>
+  <!-- Pupils in the cab windows, looking down at whoever is next. Joint between them. -->
+  <g id="eyes" data-parent="trolley" transform="translate(59 -140)">
+    <g transform="translate(-59 140)">
+      <circle class="n" fill="#2b1b16" cx="54" cy="-139.4" r="2.4"/>
+      <circle class="n" fill="#2b1b16" cx="64.6" cy="-139.6" r="2.1"/>
+      <circle class="n" fill="#ffffff" cx="53.2" cy="-140.4" r="0.8"/>
+    </g>
+  </g>
+  <!-- The hoist: the point the hook swings from. Joint under the trolley. -->
+  <g id="hoist" data-parent="trolley" transform="translate(73 -150)">
+    <g transform="translate(-73 150)">
+
+    </g>
+  </g>
+  <!-- The hoist cables. Stretched (sy) when the hook goes down. Joint at the trolley. -->
+  <g id="cables" data-parent="hoist" transform="translate(73 -150)">
+    <g transform="translate(-73 150)">
+      <path class="t" style="stroke-width:2.2" d="M70 -150 L70 -116 M76 -150 L76 -116"/>
+    </g>
+  </g>
+  <!-- The hook block and the hook. Joint at the top of the block. -->
+  <g id="hook" data-parent="hoist" transform="translate(73 -117)">
+    <g transform="translate(-73 117)">
+      <!-- the hook block, orange, and the hook itself -->
+      <rect class="o" fill="#e8731c" x="65" y="-118" width="16" height="15" rx="2.4"/>
+      <circle class="o" style="stroke-width:1.8" fill="#8fa3b3" cx="73" cy="-110.6" r="3.6"/>
+      <path class="t" style="stroke-width:7" d="M73 -103 L73 -96 Q73 -86 81 -86 Q87 -86 87 -92"/>
+      <path fill="none" stroke="#9aa4b2" stroke-width="3.6" stroke-linecap="round" d="M73 -103 L73 -96 Q73 -86 81 -86 Q87 -86 87 -92"/>
+      <path class="t" style="stroke:#e8731c;stroke-width:2" d="M74 -98 L85 -92"/>
+    </g>
+  </g>
+  <!-- The near back leg, splayed back, in a steel boot with an orange toe cap. Joint at the portal beam. -->
+  <g id="leg_back" data-parent="mech" transform="translate(-58 -118)">
+    <g transform="translate(58 118)">
+      <g>
+        <path class="o" fill="#5d7487" d="M-65 -118 L-51 -118 L-61 -16 L-77 -16 Z"/>
+        <path class="n" fill="#8fa3b3" d="M-55 -116 L-53 -116 L-63 -18 L-65.4 -18 Z"/>
+        <path class="t" style="stroke:#3e4c5c;stroke-width:1.6" d="M-69 -96 L-60 -84 M-65 -48 L-57 -36"/>
+        <circle class="o" style="stroke-width:2.4" fill="#8fa3b3" cx="-63" cy="-66" r="6.4"/>
+        <circle class="n" fill="#5d7487" cx="-63" cy="-66" r="2.4"/>
+        <path class="o" fill="#3b4656" d="M-92 0 L-92 -10 Q-92 -19 -82 -19 L-64 -19 Q-54 -19 -50 -10 Q-48 -4 -50 0 Z"/>
+        <path class="o" style="stroke-width:2.4" fill="#e8731c" d="M-60 -19 Q-52 -18 -49.4 -9 Q-48.6 -4 -50 0 L-60 0 Z"/>
+        <path class="n" fill="#1d1d1d" d="M-91 -3.4 L-50.4 -3.4 L-50 -1.2 L-91 -1.2 Z"/>
+      </g>
+    </g>
+  </g>
+  <!-- The near front leg, splayed forward. Joint at the portal beam. -->
+  <g id="leg_front" data-parent="mech" transform="translate(30 -118)">
+    <g transform="translate(-30 118)">
+      <g>
+        <path class="o" fill="#5d7487" d="M23 -118 L37 -118 L47 -16 L31 -16 Z"/>
+        <path class="n" fill="#8fa3b3" d="M33 -116 L35 -116 L45 -18 L42.6 -18 Z"/>
+        <path class="t" style="stroke:#3e4c5c;stroke-width:1.6" d="M29 -96 L38 -84 M33 -48 L41 -36"/>
+        <circle class="o" style="stroke-width:2.4" fill="#8fa3b3" cx="35" cy="-66" r="6.4"/>
+        <circle class="n" fill="#5d7487" cx="35" cy="-66" r="2.4"/>
+        <path class="o" fill="#3b4656" d="M22 0 L22 -10 Q22 -19 32 -19 L50 -19 Q60 -19 64 -10 Q66 -4 64 0 Z"/>
+        <path class="o" style="stroke-width:2.4" fill="#e8731c" d="M54 -19 Q62 -18 64.6 -9 Q65.4 -4 64 0 L54 0 Z"/>
+        <path class="n" fill="#1d1d1d" d="M23 -3.4 L64.6 -3.4 L65 -1.2 L23 -1.2 Z"/>
+      </g>
+    </g>
+  </g>
+  <!-- The orange beacon on the machinery house. Joint at its middle. -->
+  <g id="beacon" data-parent="frame" transform="translate(-72 -204)">
+    <g transform="translate(72 204)">
+      <rect class="o" style="stroke-width:2" fill="#5d7487" x="-78" y="-201" width="12" height="4" rx="1"/>
+      <path class="o" style="stroke-width:2" fill="#e8731c" d="M-76.6 -201 L-76.6 -204 Q-76.6 -209 -72 -209 Q-67.4 -209 -67.4 -204 L-67.4 -201 Z"/>
+      <path class="n" fill="#ffb066" d="M-75 -202 L-75 -204 Q-75 -207 -72.6 -207.4 Q-73.6 -205 -73.4 -202 Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -134 112 140" data-rig="humanoid">
+  <title>De Kapsalonkoerier: fietshelm, regenjas met opgestroopte mouwen, korte broek in elk weer, een grote thermotas op zijn rug en een kapsalon op zijn hand</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The insulated delivery bag: a big grey cube with a reflective band and no name on it. Joint where it sits on his back. -->
+  <g id="bag" data-parent="torso" transform="translate(-12 -78)">
+    <rect class="o" fill="#4a5262" x="-33" y="-34" width="37" height="48" rx="4"/>
+    <path class="n" fill="#5d6678" d="M-30 -31 L-24 -31 L-24 11 L-30 11 Z"/>
+    <!-- the lid and its zip -->
+    <path class="o" fill="#3d4453" d="M-34 -36 Q-34 -40 -30 -40 L1 -40 Q5 -40 5 -36 L5 -27 L-34 -27 Z"/>
+    <path class="t" style="stroke:#8b95a6;stroke-width:1.2;stroke-dasharray:2 1.6" d="M-31 -29.6 L2 -29.6"/>
+    <!-- the reflective band -->
+    <rect class="o" style="stroke-width:1.8" fill="#dfe6ea" x="-33.5" y="2" width="38" height="5"/>
+    <path class="n" fill="#ffffff" d="M-30 3 L-22 3 L-23 6 L-31 6 Z"/>
+    <!-- a handle on top -->
+    <path fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" d="M-22 -40 L-22 -44 L-10 -44 L-10 -40"/>
+    <path fill="none" stroke="#6b7385" stroke-width="2" stroke-linecap="round" d="M-22 -40 L-22 -44 L-10 -44 L-10 -40"/>
+  </g>
+
+  <!-- The far arm, sleeve rolled up, hanging. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#d9a27c" d="M-4.4 13 L-4 25 L4.4 25 L4.6 13 Z"/>
+    <path class="o" fill="#23345a" d="M-6 -3 Q-8 6 -6.5 12 L6.5 12 Q7.5 6 6 -3 Z"/>
+    <path class="o" fill="#1b2a4a" d="M-7.4 9.4 Q-8 13 -7 16 L7.2 16 Q8 12.6 7.4 9.4 Z"/>
+    <circle class="o" fill="#d9a27c" cx="0.2" cy="28" r="4.6"/>
+  </g>
+
+  <!-- Shorts, in all weathers. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#2f333c" d="M-7.5 -3 L7.5 -3 L7 13 L-7 13 Z"/>
+    <path class="o" fill="#c48e6a" d="M-5 12 L5 12 L4.5 28 L-4.5 28 Z"/>
+    <path class="o" fill="#e8e8e8" d="M-5 27 L5 27 L5 31 L-5 31 Z"/>
+    <path class="o" fill="#3a3f4a" d="M-7.5 34.5 Q-7.5 30 -4 30 L4 30 Q11.5 30.5 14 34 L14 38 L-7.5 38 Z"/>
+    <path class="n" fill="#e8e8e8" d="M-6.6 35.6 L13.2 35.6 L13.2 37.4 L-6.6 37.4 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#3a3f4a" d="M-7.5 -3 L7.5 -3 L7 13 L-7 13 Z"/>
+    <path class="o" fill="#d9a27c" d="M-5 12 L5 12 L4.5 28 L-4.5 28 Z"/>
+    <path class="n" fill="#e6b493" d="M1.4 14 L3.2 14 L3 26 L1.4 26 Z"/>
+    <path class="o" fill="#fafafa" d="M-5 27 L5 27 L5 31 L-5 31 Z"/>
+    <path class="o" fill="#4a5060" d="M-7.5 34.5 Q-7.5 30 -4 30 L4 30 Q11.5 30.5 14 34 L14 38 L-7.5 38 Z"/>
+    <path class="n" fill="#fafafa" d="M-6.6 35.6 L13.2 35.6 L13.2 37.4 L-6.6 37.4 Z"/>
+  </g>
+
+  <!-- A navy rain jacket with a reflective band, the strap of the bag over the shoulder, the phone clipped to it. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2c3e66" d="M-15 8 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 16 8 Z"/>
+    <path class="n" fill="#3d5384" d="M-12 -28 Q-9 -34 -3 -35 Q-9 -29 -10 -12 L-13 -12 Q-14 -20 -12 -28 Z"/>
+    <rect class="o" style="stroke-width:1.8" fill="#dfe6ea" x="-16.6" y="-6" width="34" height="5"/>
+    <path class="t" d="M9 -34 Q12 -16 11 8"/>
+    <!-- the hood, down -->
+    <path class="o" fill="#2c3e66" d="M-14 -36 Q-21 -36 -21 -27 Q-19 -23 -12 -27 Z"/>
+    <!-- the strap -->
+    <path class="o" style="stroke-width:2" fill="#2f333c" d="M-3 -37.5 L3 -37.5 Q6 -20 4 -2 L-1.4 -2 Q0.6 -20 -3 -37.5 Z"/>
+    <rect class="o" style="stroke-width:1.6" fill="#9aa3ad" x="-1.8" y="-8" width="6.6" height="4" rx="1"/>
+    <!-- the phone: the next order is already in -->
+    <rect class="o" style="stroke-width:1.8" fill="#1d1f26" x="-3.4" y="-30" width="9" height="13" rx="1.6"/>
+    <rect class="n" fill="#8fd3f0" x="-2" y="-28.6" width="6.2" height="10.2" rx="0.6"/>
+    <path class="n" fill="#e5283f" d="M1.1 -27 Q-0.9 -27 -0.9 -25 Q-0.9 -23.4 1.1 -21.4 Q3.1 -23.4 3.1 -25 Q3.1 -27 1.1 -27 Z"/>
+    <circle class="n" fill="#ffffff" cx="1.1" cy="-25" r="0.8"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#c48e6a" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#d9a27c" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#d9a27c" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- dark hair under the helmet, a short beard -->
+    <path class="o" fill="#2b2420" d="M-16 -24 Q-17 -30 -14 -32 L-6 -30 Q-10 -26 -11 -20 Q-14 -18 -16 -24 Z"/>
+    <path class="n" fill="#3a302a" fill-opacity="0.8" d="M-7 -14 Q-7 -3.6 3 -3.4 Q16 -3.4 19.6 -12 Q15 -9.4 12.6 -9.6 Q10 -12 6 -10.4 Q0 -9 -3 -12 Q-5 -14.6 -7 -14 Z"/>
+    <!-- the bike helmet, with its vents and the strap under the chin -->
+    <path class="t" style="stroke-width:1.4" d="M-6 -27 L-3 -10 Q4 -4 12 -5"/>
+    <path class="o" fill="#6b7480" d="M-19 -26 Q-20 -46 2 -47 Q21 -47 23 -31 Q21 -27.6 16 -28.6 L-14 -24 Q-18 -23 -19 -26 Z"/>
+    <path class="n" fill="#454c58" d="M-11 -38 Q-6 -43 0 -43.6 L-1 -39 Q-6 -38.4 -9 -35.4 Z M4 -43.8 Q10 -43.4 14 -40 L11 -36.6 Q8 -39 3 -39.4 Z"/>
+    <path class="n" fill="#8e98a5" d="M-14 -31 Q2 -34 20 -32.6 L20.6 -30.2 Q2 -31.2 -15 -28.6 Z"/>
+    <path class="o" style="stroke-width:2" fill="#3d4450" d="M17 -29.6 L25.4 -30.6 L24.6 -27.6 L16.6 -27.4 Z"/>
+    <!-- eyes on the road, a little smile: still on time -->
+    <circle class="n" fill="#2b1b16" cx="10" cy="-20" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.6" cy="-20" r="1.8"/>
+    <path class="t" style="stroke-width:2" d="M6 -25.6 Q9.6 -27 13 -25.6 M15.4 -25.6 Q18 -26.6 20.6 -25.4"/>
+    <path class="o" fill="#d9a27c" d="M19.5 -18 Q24.5 -15 19.8 -12.6"/>
+    <path class="o" style="stroke-width:1.8" fill="#7a2a20" d="M9.6 -9.6 Q14 -6.4 18.4 -9.8 Q14 -8.6 9.6 -9.6 Z"/>
+  </g>
+
+  <!-- The near arm, bent like a waiter's: the kapsalon rides on his flat hand. Sleeve rolled up. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path fill="none" stroke="#2b1b16" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" d="M1 13 L2 17 L16 12"/>
+    <path fill="none" stroke="#d9a27c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M1 13 L2 17 L16 12"/>
+    <path class="o" fill="#2c3e66" d="M-6 -3 Q-8 6 -6 12 L6.5 12 Q7.4 5 6 -3 Z"/>
+    <path class="n" fill="#3d5384" d="M1.6 -1 L4.4 -1 Q5 4 4.2 9 L1.6 9 Z"/>
+    <path class="o" fill="#22335a" d="M-7.4 9 Q-8 13 -6 16.4 L7.8 15.4 Q8.6 11.6 7.6 8.6 Z"/>
+    <!-- the flat hand -->
+    <path class="o" fill="#d9a27c" d="M13 13.6 Q14 9 20 9 L25 9.4 Q26.6 10.6 25 12 L20 12.6 Q17 15 13 13.6 Z"/>
+    <circle data-mount="hand" fill="none" cx="20" cy="2" r="1"/>
+  </g>
+
+  <!-- The kapsalon in its aluminium tray, steaming. Joint at the palm under it. -->
+  <g id="tray" data-parent="arm_front" transform="translate(30 -63)">
+    <!-- the heap: fries, shoarma, melted cheese, lettuce, garlic sauce -->
+    <path class="o" style="stroke-width:1.8" fill="#f2c94c" d="M-12 -7 L-10 -14 L-6 -10 L-3 -16 L1 -11 L5 -15 L8 -10 L12 -13 L13 -7 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#9a5a2c" d="M-11 -9 Q-9 -15 -3 -13.6 Q1 -17 6 -13.6 Q11 -15 12 -9 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f4b23a" d="M-12.4 -8.6 Q-8 -12.6 -2 -11 Q4 -13.4 10 -11 Q13 -10 13.2 -8 L13 -4 Q11.6 -2 10.4 -4.6 Q8 -7 4 -5 Q2.6 -2.4 1 -5.4 Q-3 -7 -7 -5.6 Q-8.6 -2.6 -10 -5.6 Q-12 -6 -12.4 -8.6 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#7cc04a" d="M-9 -12 L-6.4 -16.2 L-4 -12.6 L-1.4 -17 L1.4 -12.8 L4 -16.4 L6.6 -12.4 L9.4 -15 L10 -11.4 Q0 -9.6 -9 -12 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#fffbf2" d="M-4 -14.6 Q-4 -20 1 -19.4 Q4 -22.6 7 -19.6 Q10.6 -19 9.4 -15.2 Q3 -12.6 -4 -14.6 Z"/>
+    <!-- the tray, and the sauce over its edge -->
+    <path class="o" fill="#c9d0d6" d="M-14 -7 L14 -7 L11.6 0 L-11.6 0 Z"/>
+    <path class="n" fill="#e9eef2" d="M-12 -5.6 L-4 -5.6 L-5 -1.4 L-10.8 -1.4 Z"/>
+    <path class="t" style="stroke-width:1;stroke:#8e979f" d="M-9 -3.6 L-3 -3.6 M2 -3.6 L9 -3.6"/>
+    <path class="o" style="stroke-width:1.4" fill="#fffbf2" d="M10.4 -7.6 Q13.6 -9 14.6 -6.6 Q15.6 -3 14.6 1.4 Q13.6 3.2 12.8 1.2 Q13.2 -2.4 11.4 -4.4 Z"/>
+  </g>
+
+  <!-- Steam off the top. -->
+  <g id="steam" data-parent="tray" transform="translate(31 -86)">
+    <path fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" d="M-3 0 Q-5.6 -3.6 -3 -7 Q-0.4 -10.4 -3 -14 M3.4 -2 Q1 -5 3.4 -8.4 Q5.8 -11.4 3.4 -14.6"/>
+    <path fill="none" stroke="#bfc7cf" stroke-width="1" stroke-linecap="round" d="M-3 0 Q-5.6 -3.6 -3 -7 Q-0.4 -10.4 -3 -14 M3.4 -2 Q1 -5 3.4 -8.4 Q5.8 -11.4 3.4 -14.6"/>
+  </g>
+</svg>

@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -132 112 138" data-rig="humanoid">
+  <title>Stapelaar Sjaan: de laatste mens op de kade, in een tilharnas, met een stapel kistjes op haar rug die ze een voor een gooit</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The harness's back frame: a steel spine with a fork, and on it her stack of parcel-sized containers. Joint at the middle of her back. -->
+  <g id="stack" data-parent="torso" transform="translate(-18 -60)">
+    <g transform="translate(18 60)">
+      <rect class="o" fill="#5d7487" x="-23" y="-112" width="7" height="78" rx="2"/>
+      <path class="o" fill="#5d7487" d="M-45 -76 L-18 -76 L-18 -71 L-45 -71 Z"/>
+      <path class="o" style="stroke-width:2" fill="#8fa3b3" d="M-26 -114 L-13 -114 L-13 -110 L-26 -110 Z"/>
+      <!-- bottom: container orange -->
+      <rect class="o" fill="#e8731c" x="-45" y="-87" width="24" height="11" rx="1.2"/>
+      <path class="t" style="stroke:#b8540f;stroke-width:1.2" d="M-40 -85 L-40 -78 M-36 -85 L-36 -78 M-32 -85 L-32 -78 M-28 -85 L-28 -78 M-24.4 -85 L-24.4 -78"/>
+      <!-- middle: green -->
+      <rect class="o" fill="#1f8a4c" x="-43" y="-98" width="23" height="11" rx="1.2"/>
+      <path class="t" style="stroke:#13603a;stroke-width:1.2" d="M-38 -96 L-38 -89 M-34 -96 L-34 -89 M-30 -96 L-30 -89 M-26 -96 L-26 -89"/>
+      <!-- top: steel blue, set down not quite square -->
+      <g transform="rotate(-6 -34 -103)">
+        <rect class="o" fill="#7d93a6" x="-46" y="-109" width="24" height="11" rx="1.2"/>
+        <path class="t" style="stroke:#55697a;stroke-width:1.2" d="M-41 -107 L-41 -100 M-37 -107 L-37 -100 M-33 -107 L-33 -100 M-29 -107 L-29 -100 M-25.4 -107 L-25.4 -100"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- The back arm, hand on her hip: sleeve rolled up, a steel strut along the forearm. Joint at the shoulder. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -73)">
+    <g transform="translate(9 73)">
+      <path class="o" fill="#2c3e66" d="M-15 -78 Q-6 -80 -4 -72 L-14 -60 L-22 -66 Q-21 -74 -15 -78 Z"/>
+      <path class="o" fill="#4b64a0" d="M-23.6 -67 L-14.4 -60.6 L-17.6 -55.4 L-26.4 -61.8 Z"/>
+      <path class="o" fill="#e9b38c" d="M-24.4 -58.6 L-17.4 -56.4 L-10 -44.4 L-15.6 -40.6 Z"/>
+      <path class="t" style="stroke:#5d7487;stroke-width:3" d="M-22 -55 L-13 -42.4"/>
+      <ellipse class="o" fill="#c9b04a" cx="-11.6" cy="-41.6" rx="5" ry="4.4"/>
+    </g>
+  </g>
+
+  <!-- Navy work trousers, an exo strut down the outside of each leg, steel-capped boots. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <g transform="translate(5 38)">
+      <path class="o" fill="#22305a" d="M-12.6 -41 L1.6 -41 L1 -9 L-12 -9 Z"/>
+      <path class="t" style="stroke:#3e4c60;stroke-width:3.2" d="M-10.4 -36 L-10.4 -9"/>
+      <circle class="o" style="stroke-width:1.6" fill="#5d7487" cx="-10.4" cy="-22" r="3"/>
+      <path class="o" fill="#2b2b2b" d="M-14 0 L-14 -6 Q-14 -10 -9 -10 L1 -10 Q8 -9.6 9 -4 L9 0 Z"/>
+      <path class="n" fill="#9a6a3a" d="M3.6 -9.6 Q8 -8.6 8.8 -4.6 L3.6 -4.6 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <g transform="translate(-5 38)">
+      <path class="o" fill="#2c3e66" d="M-1.6 -41 L12.6 -41 L12 -9 L-1 -9 Z"/>
+      <path class="n" fill="#3d5288" d="M8 -39 L10.6 -39 L10.2 -11 L7.6 -11 Z"/>
+      <path class="t" style="stroke-width:5.6" d="M2.4 -36 L2.4 -9"/>
+      <path fill="none" stroke="#8fa3b3" stroke-width="2.8" stroke-linecap="round" d="M2.4 -36 L2.4 -9"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b8c7d3" cx="2.4" cy="-22" r="3.2"/>
+      <path class="o" fill="#3a3a3a" d="M-3 0 L-3 -6 Q-3 -10 2 -10 L12 -10 Q19 -9.6 20 -4 L20 0 Z"/>
+      <path class="n" fill="#c9934f" d="M14.6 -9.6 Q19 -8.6 19.8 -4.6 L14.6 -4.6 Z"/>
+      <path class="t" style="stroke:#6b6b6b;stroke-width:1.2" d="M-2 -2 L19 -2"/>
+    </g>
+  </g>
+
+  <!-- Navy jacket, a hi-vis vest over it, and the harness straps over that. Joint at the waist. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <g transform="translate(0 40)">
+      <path class="o" fill="#2c3e66" d="M-15.5 -32 Q-18 -54 -15 -70 Q-12 -77 0 -77 Q13 -77 16 -70 Q19 -54 16.5 -32 Z"/>
+      <!-- the vest -->
+      <path class="o" fill="#e3ec3a" d="M-14.6 -33 Q-16.6 -54 -13.6 -68 Q-10 -74 -5 -75 L3 -63 L9 -75 Q14 -73 15 -68 Q17.6 -54 15.6 -33 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#e6ecef" d="M-15.4 -49 L16.4 -49 L16.4 -45 L-15.4 -45 Z M-15 -39.6 L16 -39.6 L16 -35.8 L-15 -35.8 Z"/>
+      <!-- harness straps, the chest buckle, and the hip belt the frame hangs on -->
+      <path class="o" style="stroke-width:2" fill="#3e4c60" d="M-9 -76 L-4 -76 L-4 -36 L-9 -36 Z"/>
+      <path class="o" style="stroke-width:2" fill="#3e4c60" d="M7 -76 L12 -75 L11 -36 L6 -36 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#8fa3b3" x="-8" y="-60" width="18" height="6" rx="2"/>
+      <rect class="o" fill="#3e4c60" x="-17" y="-38" width="34" height="7" rx="2"/>
+      <rect class="o" style="stroke-width:1.6" fill="#b8c7d3" x="-3" y="-38" width="8" height="7" rx="1.5"/>
+    </g>
+  </g>
+
+  <!-- Her head: a hard hat, a permed fringe, blue eyeshadow, red lips, a grin. Joint at the neck. -->
+  <g id="head" data-parent="torso" transform="translate(2 -77)">
+    <g transform="translate(-2 77)">
+      <rect class="o" fill="#e0a07c" x="-3" y="-85" width="9" height="9" rx="2"/>
+      <!-- the perm, puffing out at the back -->
+      <circle class="o" fill="#e3cf98" cx="-11" cy="-104" r="6.4"/>
+      <circle class="o" fill="#e3cf98" cx="-13" cy="-95" r="6"/>
+      <circle class="o" fill="#e3cf98" cx="-9" cy="-87.4" r="5"/>
+      <ellipse class="o" fill="#f0c19a" cx="3" cy="-99" rx="16.4" ry="16.6"/>
+      <ellipse class="o" style="stroke-width:2" fill="#f0c19a" cx="-5" cy="-97" rx="3.2" ry="4.4"/>
+      <circle fill="none" stroke="#e6b422" stroke-width="1.8" cx="-5" cy="-90.6" r="2.6"/>
+      <!-- curls over the forehead, under the hat -->
+      <path class="o" style="stroke-width:2" fill="#e3cf98" d="M-8 -108 Q-6 -114 0 -112 Q3 -116 8 -112 Q12 -115 16 -110 L16 -106 Q12 -108 8 -106 Q4 -109 0 -106 Q-4 -108 -8 -105 Z"/>
+      <!-- blue eyeshadow, a lash, an eyebrow that has heard it all -->
+      <path class="n" fill="#6fa8dc" d="M7.4 -103.6 Q12 -107.6 16.4 -103.4 Q12 -104.6 7.4 -102 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="12" cy="-100.4" r="3.4"/>
+      <circle class="n" fill="#2b1b16" cx="13.4" cy="-100" r="1.7"/>
+      <path class="t" style="stroke-width:1.4" d="M15.4 -103 L17.6 -104.6"/>
+      <path class="t" style="stroke-width:2" d="M7.6 -108.6 Q12.4 -111.4 17 -108"/>
+      <!-- the nose -->
+      <path class="o" style="stroke-width:2" fill="#f0c19a" d="M18 -100 Q22.6 -95 19.6 -93 Q18 -92.4 17 -93.6"/>
+      <ellipse class="n" fill="#e8786a" fill-opacity="0.5" cx="8" cy="-92" rx="4" ry="2.6"/>
+      <!-- the grin: red lips, white teeth -->
+      <path class="o" style="stroke-width:1.8" fill="#7a2a20" d="M7.4 -90.4 Q13.6 -81.6 20.2 -89.6 Q14 -88 7.4 -90.4 Z"/>
+      <path class="n" fill="#ffffff" d="M9.4 -89.6 Q14 -88.2 18.6 -89.2 L17.6 -87.2 Q14 -86.2 10.6 -87.6 Z"/>
+      <path fill="none" stroke="#d0263c" stroke-width="1.8" stroke-linecap="round" d="M9.4 -87.6 Q13.8 -82.8 18.6 -87.8"/>
+    </g>
+  </g>
+
+  <!-- The hard hat: white, with the city's green ridge. Joint where it sits. -->
+  <g id="hat" data-parent="head" transform="translate(3 -108)">
+    <g transform="translate(-3 108)">
+      <path class="o" fill="#f4f4f0" d="M-14 -108 Q-14 -126 3 -126 Q20 -126 20 -108 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#1f8a4c" d="M0 -125.6 Q3 -126.4 6 -125.6 L6 -108.6 L0 -108.6 Z"/>
+      <path class="o" fill="#f4f4f0" d="M-16 -109 L22 -109 Q30 -108.4 29 -104.6 L-16 -105 Q-18 -107 -16 -109 Z"/>
+      <path class="n" fill="#ffffff" d="M-9 -112 Q-9 -121 -2 -123 Q-5 -118 -5 -112 Z"/>
+    </g>
+  </g>
+
+  <!-- The front arm: sleeve rolled to the elbow, the harness's steel strut along the arm, a work glove. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -73)">
+    <g transform="translate(-10 73)">
+      <path class="o" fill="#f0c19a" d="M11.4 -61 L18.6 -52 L32 -58.6 L29 -66.6 Z"/>
+      <path class="n" fill="#e0a07c" d="M14 -55.4 L18.6 -52 L31.4 -58.4 L30.6 -60.6 Z"/>
+      <!-- the strut: a piston to the elbow, a bar under the forearm to the wrist -->
+      <path class="t" style="stroke-width:4.4" d="M10 -73 L15 -57 L30 -59.4"/>
+      <path fill="none" stroke="#8fa3b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 -73 L15 -57 L30 -59.4"/>
+      <path class="o" fill="#2c3e66" d="M4 -77 Q12 -81 16 -74 L18.6 -65 L8.4 -62.6 Q4 -68 4 -77 Z"/>
+      <path class="n" fill="#3d5288" d="M13 -78.4 Q15.4 -76 16.4 -71 L13.6 -70.4 Q13 -75 11 -77.4 Z"/>
+      <!-- rolled up to above the elbow -->
+      <path class="o" fill="#4b64a0" d="M6.6 -66.4 L19.6 -68.6 L21 -60.6 L8 -58.4 Z"/>
+      <path class="t" style="stroke:#22305a;stroke-width:1.3" d="M7.4 -62.2 L20.4 -64.4"/>
+      <circle class="o" style="stroke-width:1.8" fill="#5d7487" cx="10" cy="-73" r="4.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b8c7d3" cx="15.4" cy="-56" r="3"/>
+      <circle data-mount="hand" fill="none" cx="33" cy="-71" r="1"/>
+    </g>
+  </g>
+
+  <!-- The container she is about to throw, on her gloved palm. Joint at the hand. -->
+  <g id="box" data-parent="arm_front" transform="translate(32 -63)">
+    <g transform="translate(-32 63)">
+      <rect class="o" fill="#e8731c" x="22" y="-77" width="23" height="12" rx="1.2"/>
+      <path class="t" style="stroke:#b8540f;stroke-width:1.2" d="M27 -75 L27 -67 M31 -75 L31 -67 M35 -75 L35 -67 M39 -75 L39 -67"/>
+      <path class="t" style="stroke-width:1.2" d="M42.4 -75.6 L42.4 -66.4"/>
+      <!-- the glove: fingers under the box, the thumb up its side -->
+      <path class="o" fill="#c9b04a" d="M26 -66 Q30 -67 38 -66 Q40 -63 37 -61 L30 -60 Q25 -60.6 26 -66 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c9b04a" d="M26.4 -64 Q23 -67 24 -71 Q26.6 -72 27.6 -69 L28.4 -65 Z"/>
+    </g>
+  </g>
+</svg>

@@ -585,8 +585,13 @@ export const FEED = { percent: 30 } as const;
  * the numbers below (not fitted: bots only as a bug alarm). Rules in sim/haven.ts.
  */
 
-/** Lasser Leen (1975, schild): whoever hits him up close burns on his welding sparks and takes `percent` of its own blow back. */
-export const VONK = { percent: 50 } as const;
+/**
+ * Lasser Leen (1975, schild): whoever hits him up close burns on his welding
+ * sparks and takes `percent` of its own blow back. At 50 he beat two of
+ * Amsterdam's light units, which a schild must not (tests/shield.test.ts);
+ * that holds up to 45.
+ */
+export const VONK = { percent: 30 } as const;
 
 /**
  * Gabber Gerrie (2025, light) hakt to a beat that keeps speeding up: every

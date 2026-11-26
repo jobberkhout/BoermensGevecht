@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -132 92 138" data-rig="humanoid">
+  <title>Lasser Leen: lashelm omlaag, achter de scheepsplaat die hij net wilde lassen; wie erop slaat krijgt de vonken</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-14 -38)"/>
+
+  <!-- The far arm reaches over the top of the plate. Only its glove shows, and that is drawn on the plate. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-24 -72)">
+    <path class="o" fill="#24345a" d="M-6.5 -3 Q-8 5 -6 12 L6.5 12 Q7.5 5 6.5 -3 Z"/>
+  </g>
+
+  <!-- Navy overall and boots with steel toecaps, scorched. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-19 -38)">
+    <path class="o" fill="#24345a" d="M-8 -3 L8 -3 L7 29 L-7 29 Z"/>
+    <path class="o" fill="#2f2a26" d="M-8.5 38 L-8.5 30 Q-8.5 27.5 -4.5 27.5 L5 27.5 Q8.5 27.5 9 30.5 Q15.5 31.5 17 35 L17 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-9 -38)">
+    <path class="o" fill="#2c3e66" d="M-8 -3 L8 -3 L7 29 L-7 29 Z"/>
+    <path class="t" style="stroke:#1d2b4c" d="M1 0 L1 27"/>
+    <path class="o" fill="#3a332e" d="M-8.5 38 L-8.5 30 Q-8.5 27.5 -4.5 27.5 L5 27.5 Q8.5 27.5 9 30.5 Q15.5 31.5 17 35 L17 38 Z"/>
+    <path class="n" fill="#8f969b" d="M9.4 31 Q14.6 32 16.2 35 L10.6 35 Z"/>
+    <path class="n" fill="#1c1816" d="M-7.8 35.6 L16.3 35.6 L16.3 37.3 L-7.8 37.3 Z"/>
+  </g>
+
+  <!-- Navy overall, broad in the shoulders, a leather apron over it. -->
+  <g id="torso" data-parent="hips" transform="translate(-14 -40)">
+    <path class="o" fill="#2c3e66" d="M-18 8 Q-21.5 -14 -18 -30 Q-14 -38.5 0 -38.5 Q14.5 -38.5 18.5 -30 Q22 -14 18.5 8 Z"/>
+    <path class="n" fill="#24345a" d="M-17 7 Q-20 -14 -17 -29 Q-12 -20 -11.5 7 Z"/>
+    <path class="o" fill="#8a5a32" d="M-9 -30 L13 -30 L17.5 8 L-12 8 Z"/>
+    <path class="t" style="stroke:#6b4423" d="M-6 -26 Q2 -24 10 -26 M-8 -6 L15 -6"/>
+    <path class="t" style="stroke:#6b4423;stroke-width:2.4" d="M-8 -30 L-4 -38 M12 -30 L8 -38"/>
+    <!-- burn holes in the apron -->
+    <circle class="n" fill="#3b2414" cx="-4" cy="-14" r="1.3"/>
+    <circle class="n" fill="#3b2414" cx="2" cy="-2" r="1"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-13 -76)">
+    <rect class="o" fill="#c48a64" x="-7" y="-7" width="15" height="10" rx="2"/>
+    <ellipse class="o" fill="#dfa47c" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <!-- short dark hair, cropped -->
+    <path class="o" fill="#3b2c22" d="M-16 -18 Q-19 -36 -4 -39.6 Q4 -40.6 8 -39 L6 -33 Q-4 -33 -8 -26 L-9 -13 Q-15 -12 -16 -18 Z"/>
+    <ellipse class="o" fill="#dfa47c" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- mutton chops, and a jaw he has not shaved this week -->
+    <path class="o" fill="#3b2c22" d="M-4.6 -26 Q-2 -26 -1.4 -22 L-0.6 -10 Q-3 -6 -6 -8 Q-6.4 -16 -4.6 -26 Z"/>
+    <path class="n" fill="#5a4030" fill-opacity="0.45" d="M-1 -12 Q4 -3.6 14 -3.6 Q20 -5 21 -11 L14 -9 Q6 -9 -1 -12 Z"/>
+    <!-- the face, for when the helmet goes up: bushy brows, a nose, a moustache like a yard brush -->
+    <path class="t" style="stroke:#3b2c22;stroke-width:3.2" d="M5.4 -26 L12.6 -26.8 M14.6 -26.8 L20.4 -25.6"/>
+    <circle class="n" fill="#2b1b16" cx="10" cy="-21" r="1.8"/>
+    <circle class="n" fill="#2b1b16" cx="17.6" cy="-21" r="1.6"/>
+    <path class="o" fill="#d48f68" d="M19.4 -21 Q26.4 -16.6 20.4 -12.6"/>
+    <path class="o" fill="#3b2c22" d="M6 -12.6 Q13.6 -16.4 22 -12.4 Q23.4 -9 21.4 -7 Q17.6 -9.8 13.6 -9.6 Q9.8 -9.4 6.2 -7.4 Q4.4 -10 6 -12.6 Z"/>
+  </g>
+
+  <!-- The welding helmet, flipped down. Joint at the ratchet knob on the side of his head. -->
+  <g id="mask" data-parent="head" transform="translate(-16 -99)">
+    <g transform="translate(3 23)">
+      <path class="t" style="stroke-width:3.6" d="M-3.4 -24 Q-6 -38 4 -40.6"/>
+      <path class="o" fill="#3a3d42" d="M-3 -35 Q8 -44.6 21 -37 Q27.6 -27 26 -11 Q25 -0.6 12 1.6 L0 0.6 Q-5.4 -16 -3 -35 Z"/>
+      <path class="n" fill="#555a60" d="M0 -33 Q9 -40.6 18.4 -36 Q10 -36 2 -30 Z"/>
+      <path class="n" fill="#2a2c30" d="M24 -24 Q25.4 -12 22 -4 Q20 -12 21 -24 Z"/>
+      <!-- the window, dark green, with a glint -->
+      <rect class="o" style="stroke-width:2" fill="#5d646b" x="11" y="-28.6" width="13.6" height="10.6" rx="1.6"/>
+      <rect class="n" fill="#16301f" x="13" y="-26.6" width="9.6" height="6.6" rx="0.8"/>
+      <path class="n" fill="#8fd0a4" fill-opacity="0.7" d="M14.2 -25.6 L16.6 -25.6 L14.2 -21.4 Z"/>
+      <!-- scorch marks -->
+      <path class="n" fill="#1e1f22" fill-opacity="0.6" d="M6 -10 Q9 -14 13 -11 Q10 -8 6 -10 Z M18 -6 Q21 -8 23 -5 Q20 -3 18 -6 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#8a8f94" cx="-3" cy="-23" r="3.6"/>
+      <circle class="n" fill="#2b1b16" cx="-3" cy="-23" r="1.2"/>
+    </g>
+  </g>
+
+  <!-- The sparks that fly off the plate when something hits it. At rest they sit hidden behind the plate;
+       the hit throws them out past its front edge. Joint in the middle of the plate. -->
+  <g id="sparks" data-parent="plate" transform="translate(16 -54)">
+    <path fill="none" stroke="#2b1b16" stroke-width="4.2" stroke-linecap="round" d="M4 -1 L17 -3 M4 -4 L13 -13 M1 -5 L2 -16 M-3 -4 L-8 -14 M4 2 L16 7 M3 4 L10 14 M-1 5 L-2 16 M-4 3 L-13 9 M-5 -1 L-15 -3"/>
+    <path fill="none" stroke="#ffc02e" stroke-width="2.2" stroke-linecap="round" d="M4 -1 L17 -3 M4 -4 L13 -13 M1 -5 L2 -16 M-3 -4 L-8 -14 M4 2 L16 7 M3 4 L10 14 M-1 5 L-2 16 M-4 3 L-13 9 M-5 -1 L-15 -3"/>
+    <path fill="none" stroke="#fff6c8" stroke-width="0.9" stroke-linecap="round" d="M6 -1.4 L14 -2.6 M5.4 -5.4 L11 -11 M6 3 L13 6 M4.6 6 L8.6 12"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffe066" cx="17" cy="-9" r="1.5"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffe066" cx="8" cy="-16" r="1.3"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffe066" cx="16" cy="13" r="1.4"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffe066" cx="-9" cy="-15" r="1.2"/>
+    <path class="o" style="stroke-width:1.6" fill="#fff6c8" d="M0 -6 L1.8 -1.8 L6 0 L1.8 1.8 L0 6 L-1.8 1.8 L-6 0 L-1.8 -1.8 Z"/>
+  </g>
+
+  <!-- The steel plate he was about to weld: a piece of hull with a half-done seam and a lifting lug. Joint where he holds it. -->
+  <g id="plate" data-parent="torso" transform="translate(16 -48)">
+    <!-- the lifting lug on top -->
+    <path class="o" fill="#7a868e" d="M4 -41 L4 -47 Q4 -52 10 -52 Q16 -52 16 -47 L16 -41 Z"/>
+    <circle class="o" style="stroke-width:1.8" fill="#3a3d42" cx="10" cy="-46.6" r="2.4"/>
+    <path class="o" fill="#8a979f" d="M-22 -36 L-16 -42 L22 -42 L22 38 L16 44 L-22 44 Z"/>
+    <path class="n" fill="#a7b3ba" d="M-19.6 -35 L-15 -39.6 L19.6 -39.6 L19.6 -37 L-14 -37 L-19.6 -32 Z"/>
+    <path class="n" fill="#6f7c84" d="M17 -36 L19.6 -36 L19.6 37 L15 41.6 L-19.6 41.6 L-19.6 39 L15 39 L17 37 Z"/>
+    <!-- rivet holes down both edges -->
+    <path class="n" fill="#4a545a" d="M-17 -26 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M-17 -12 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M-17 2 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M-17 16 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M-17 30 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M16 -26 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M16 -12 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M16 2 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M16 16 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0 M16 30 m-1.6 0 a1.6 1.6 0 1 0 3.2 0 a1.6 1.6 0 1 0 -3.2 0"/>
+    <!-- rust -->
+    <path class="n" fill="#a5602e" fill-opacity="0.55" d="M-10 28 Q-6 24 -1 27 Q2 32 -4 34 Q-10 33 -10 28 Z M8 -30 Q11 -32 13 -29 Q11 -26 8 -30 Z"/>
+    <!-- the seam: welded as far as here, and the chalk line for the rest -->
+    <path fill="none" stroke="#2b1b16" stroke-width="5.4" stroke-linecap="round" d="M-14 -14 L6 -14"/>
+    <path fill="none" stroke="#c9cfd2" stroke-width="3" stroke-linecap="round" d="M-14 -14 L6 -14"/>
+    <path fill="none" stroke="#8a949a" stroke-width="1" stroke-linecap="round" d="M-12 -15.4 Q-11 -12.6 -10 -15.4 Q-9 -12.6 -8 -15.4 Q-7 -12.6 -6 -15.4 Q-5 -12.6 -4 -15.4 Q-3 -12.6 -2 -15.4 Q-1 -12.6 0 -15.4 Q1 -12.6 2 -15.4 Q3 -12.6 4 -15.4"/>
+    <path fill="none" stroke="#f4f1e8" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2.4 2.2" d="M9 -14 L19 -14"/>
+    <circle class="n" fill="#ff8a1f" cx="6" cy="-14" r="3.4"/>
+    <circle class="n" fill="#fff0a0" cx="6" cy="-14" r="1.6"/>
+    <!-- a chalk ring round a spot that needs another look -->
+    <path fill="none" stroke="#f4f1e8" stroke-width="1.4" stroke-linecap="round" d="M-6 10 Q-6 3 2 3 Q10 3 10 10 Q10 17 2 17 Q-4 17 -5 12"/>
+    <!-- the glove of the far hand, over the top edge -->
+    <path class="o" style="stroke-width:2" fill="#c08a50" d="M-14 -36 Q-14 -46 -10.4 -46 Q-7.6 -46 -7.6 -42.6 Q-7.4 -46.4 -4.2 -46.4 Q-1 -46.4 -1 -42.6 Q-0.6 -46 2.2 -46 Q5.2 -46 5 -36 Z"/>
+    <path class="t" style="stroke:#8f6234;stroke-width:1.2" d="M-7.6 -42 L-7.6 -38 M-1 -42 L-1 -38"/>
+  </g>
+
+  <!-- The near arm: sleeve rolled past the elbow, a hairy forearm, and a leather gauntlet on the edge of the plate. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-4 -72)">
+    <g transform="rotate(-22)">
+      <path class="o" fill="#2c3e66" d="M-6.5 -3.5 Q-8.5 4 -7.5 9 L7.5 9 Q8.5 4 6.5 -3.5 Z"/>
+      <rect class="o" fill="#3e5288" x="-8.4" y="7.4" width="16.8" height="6" rx="3"/>
+      <path class="o" fill="#dfa47c" d="M-5.6 13 L-5.4 18 L5.4 18 L5.6 13 Z"/>
+      <path class="t" style="stroke:#7a5038;stroke-width:1" d="M-3 14.4 L-2 16 M0 15 L1 16.6 M3 14.4 L3.6 16"/>
+      <path class="o" fill="#c08a50" d="M-7.6 17 L7.6 17 L6 25 L-6 25 Z"/>
+      <path class="t" style="stroke:#8f6234;stroke-width:1.2" d="M-6.8 19.6 L6.8 19.6"/>
+      <ellipse class="o" fill="#c08a50" cx="0.6" cy="28" rx="6.6" ry="5.8"/>
+      <path class="t" style="stroke:#8f6234;stroke-width:1.2" d="M3 25 L5.4 27 M3.4 28.6 L5.8 30.4"/>
+    </g>
+  </g>
+</svg>

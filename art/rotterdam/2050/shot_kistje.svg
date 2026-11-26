@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19 -11 38 22" data-rig="static">
+  <title>Een kistje: een zeecontainer zo groot als een schoenendoos</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A sea container the size of a shoebox: ribbed orange sides, corner castings, doors with their bars at the back end. Origin = its middle. -->
+  <g id="kistje" transform="translate(0 0)">
+    <rect class="o" fill="#e8731c" x="-17" y="-8" width="34" height="16" rx="1.4"/>
+    <path class="n" fill="#ff9a4d" d="M-15.6 -6.6 L15.6 -6.6 L15.6 -5 L-15.6 -5 Z"/>
+    <path class="n" fill="#c25e12" d="M-15.6 5 L15.6 5 L15.6 6.6 L-15.6 6.6 Z"/>
+    <path class="t" style="stroke:#a84f0e" d="M-7.6 -5 L-7.6 5 M-4 -5 L-4 5 M0 -5 L0 5 M4 -5 L4 5 M8 -5 L8 5 M12 -5 L12 5"/>
+    <!-- the doors at the back end, and their locking bars -->
+    <path class="t" style="stroke:#6b3510" d="M-11 -7 L-11 7"/>
+    <path class="t" style="stroke:#8fa3b3;stroke-width:1.1" d="M-14.6 -5 L-14.6 5 M-12.8 -5 L-12.8 5"/>
+    <!-- corner castings -->
+    <rect class="n" fill="#2b1b16" x="-16.6" y="-7.6" width="2.6" height="2.6"/>
+    <rect class="n" fill="#2b1b16" x="14" y="-7.6" width="2.6" height="2.6"/>
+    <rect class="n" fill="#2b1b16" x="-16.6" y="5" width="2.6" height="2.6"/>
+    <rect class="n" fill="#2b1b16" x="14" y="5" width="2.6" height="2.6"/>
+  </g>
+</svg>

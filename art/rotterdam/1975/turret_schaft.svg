@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -114 224 118" data-rig="static">
+  <title>De Schaft: drie bootwerkers op een stapel kisten in hun schafttijd. Een schenkt een bakkie pleur, een eet, en de derde gooit zijn broodtrommel</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .w { stroke: #8a6236; stroke-width: 1.3; stroke-linecap: round; fill: none; }
+  </style>
+
+  <!-- The crates on a pallet, one more stacked at the back, and the thermos. Origin = middle of the floor. -->
+  <g id="crates" transform="translate(0 0)">
+    <!-- the crate stacked at the back -->
+    <rect class="o" fill="#b88a52" x="-110" y="-66" width="40" height="28" rx="1.5"/>
+    <path class="w" d="M-108 -56.6 L-72 -56.6 M-108 -47.2 L-72 -47.2"/>
+    <path class="t" style="stroke:#7a5a32;stroke-width:3" d="M-106 -63 L-74 -41"/>
+    <!-- the pallet -->
+    <rect class="o" fill="#a8804f" x="-108" y="-9" width="214" height="5" rx="1"/>
+    <path class="o" style="stroke-width:2" fill="#8a6236" d="M-104 -4 L-94 -4 L-94 0 L-104 0 Z M-6 -4 L4 -4 L4 0 L-6 0 Z M92 -4 L102 -4 L102 0 L92 0 Z"/>
+    <!-- three crates side by side -->
+    <rect class="o" fill="#c4975c" x="-106" y="-38" width="64" height="29" rx="1.5"/>
+    <rect class="o" fill="#b88a52" x="-42" y="-38" width="64" height="29" rx="1.5"/>
+    <rect class="o" fill="#c4975c" x="22" y="-38" width="82" height="29" rx="1.5"/>
+    <path class="w" d="M-104 -28.4 L-44 -28.4 M-104 -18.8 L-44 -18.8 M-40 -28.4 L20 -28.4 M-40 -18.8 L20 -18.8 M24 -28.4 L102 -28.4 M24 -18.8 L102 -18.8"/>
+    <path class="t" style="stroke:#7a5a32;stroke-width:3" d="M-102 -12 L-46 -35"/>
+    <path class="t" style="stroke:#7a5a32;stroke-width:3" d="M26 -12 L100 -35"/>
+    <!-- the wave and the anchor, stencilled on the middle crate -->
+    <path fill="none" stroke="#4a2e14" stroke-width="2" stroke-linecap="round" d="M-18 -16 Q-14 -19.6 -10 -16 Q-6 -12.4 -2 -16 Q2 -19.6 6 -16"/>
+    <path fill="none" stroke="#4a2e14" stroke-width="1.8" stroke-linecap="round" d="M-6 -34 L-6 -22 M-9.4 -31 L-2.6 -31 M-10.4 -25.6 Q-6 -20.6 -1.6 -25.6"/>
+    <!-- the thermos, between A and B -->
+    <rect class="o" fill="#1f8a4c" x="-46" y="-58" width="12" height="20" rx="3"/>
+    <rect class="o" style="stroke-width:2" fill="#c9ced2" x="-47" y="-63" width="14" height="6" rx="2"/>
+    <path class="n" fill="#3aa866" d="M-44.4 -55 L-42 -55 L-42 -41 L-44.4 -41 Z"/>
+  </g>
+
+  <!-- A: the big one, in a green and white beanie, with his mug of coffee. -->
+  <g id="a_body" transform="translate(-74 -38)">
+    <path class="o" fill="#3b2a20" d="M9 30 L9 23 Q9 21 12 21 L19 21 Q22 21 22.5 23.5 Q28 24 29 27 L29 30 Z"/>
+    <path class="o" fill="#24345a" d="M11 -2 L22 -2 L21 22 L12 22 Z"/>
+    <path class="o" fill="#2c3e66" d="M-8 -10 L18 -10 Q23 -5 19 1 L-8 1 Z"/>
+    <path class="o" fill="#2c3e66" d="M-14 -2 Q-18 -22 -10 -35 Q1 -41 12 -35 Q21 -22 17 -2 Z"/>
+    <path class="o" fill="#f2efe6" d="M-10 -35 Q1 -41 12 -35 L11 -29 Q1 -33 -9 -29 Z"/>
+    <path class="t" style="stroke:#1d2b4c" d="M-6 -29 L-5 -12 M8 -29 L10 -12 M-4 -14 L10 -14"/>
+    <circle class="n" fill="#d9b74a" cx="-5.2" cy="-27" r="1.4"/>
+    <circle class="n" fill="#d9b74a" cx="8.4" cy="-27" r="1.4"/>
+  </g>
+
+  <g id="a_head" data-parent="a_body" transform="translate(-72 -76)">
+    <rect class="o" fill="#c98b63" x="-5" y="-4" width="10" height="6" rx="2"/>
+    <circle class="o" fill="#e0aa84" cx="0" cy="-12" r="12.5"/>
+    <ellipse class="o" style="stroke-width:2" fill="#e0aa84" cx="-8" cy="-10" rx="2.6" ry="3.6"/>
+    <path class="o" fill="#e0aa84" d="M11.4 -14 Q17.6 -11 11.8 -7.6"/>
+    <circle class="n" fill="#2b1b16" cx="6" cy="-13" r="1.5"/>
+    <path class="t" style="stroke-width:2.2" d="M3 -17.4 L9 -17"/>
+    <path class="o" fill="#5a3d28" d="M4 -6.4 Q9.6 -9.6 15 -6.4 Q13 -3.4 9.6 -4.6 Q6.6 -3.4 4 -6.4 Z"/>
+    <!-- the beanie: green with a white band -->
+    <path class="o" fill="#1f8a4c" d="M-13.4 -14 Q-15 -29.6 0 -30 Q14 -29.6 13.4 -16 Q0 -19.6 -13.4 -14 Z"/>
+    <path class="n" fill="#f2f2ec" d="M-13.6 -17.6 Q0 -23 13.4 -19.6 L13.4 -16.6 Q0 -20 -13.4 -14.6 Z"/>
+  </g>
+
+  <!-- His arm with the mug. Joint at the shoulder. -->
+  <g id="a_arm" data-parent="a_body" transform="translate(-70 -70)">
+    <path class="o" fill="#f2efe6" d="M-5 -3 L5 -3 L5 9 L-5 9 Z"/>
+    <rect class="o" fill="#ffffff" x="-6" y="7" width="12" height="5" rx="2.5"/>
+    <path class="o" fill="#e0aa84" d="M-2 9 L13 1 L16 6 L1 14 Z"/>
+    <rect class="o" fill="#f4f4f0" x="13" y="-7" width="10" height="11" rx="1.5"/>
+    <path class="n" fill="#2c5fa8" d="M13.6 -5.4 L22.4 -5.4 L22.4 -3.6 L13.6 -3.6 Z"/>
+    <path class="t" style="stroke-width:2" d="M23 -4 Q27 -3 26 0 Q25 2.6 22.6 2"/>
+    <circle class="o" fill="#e0aa84" cx="15" cy="3" r="3.6"/>
+    <path class="t" style="stroke:#c9ced2;stroke-width:1.4" d="M16 -10 Q14 -13 16.6 -16 M20 -10 Q18 -13 20.6 -16"/>
+  </g>
+
+  <!-- B: flat cap, his lunch tin open on his knees, a sandwich as thick as a brick. -->
+  <g id="b_body" transform="translate(-14 -38)">
+    <path class="o" fill="#3b2a20" d="M9 30 L9 23 Q9 21 12 21 L19 21 Q22 21 22.5 23.5 Q28 24 29 27 L29 30 Z"/>
+    <path class="o" fill="#24345a" d="M11 -2 L22 -2 L21 22 L12 22 Z"/>
+    <path class="o" fill="#2c3e66" d="M-8 -10 L18 -10 Q23 -5 19 1 L-8 1 Z"/>
+    <path class="o" fill="#9cb8d0" d="M-12 -2 Q-15 -22 -9 -34 Q1 -39 11 -34 Q17 -22 15 -2 Z"/>
+    <path class="n" fill="#86a5bf" d="M-11 -3 Q-14 -20 -9 -32 Q-5 -22 -5 -3 Z"/>
+    <path class="o" fill="#1f8a4c" d="M-6 -34.6 L-5 -9 L-1.6 -9 L-2.4 -35.4 Z"/>
+    <!-- the tin, lid up -->
+    <path class="o" fill="#4f86b8" d="M2 -20 L6 -28 L22 -28 L18 -20 Z"/>
+    <rect class="o" fill="#4f86b8" x="0" y="-20" width="20" height="9" rx="1.5"/>
+    <path class="n" fill="#f2d27a" d="M2.6 -20.6 L17.6 -20.6 L17 -18.4 L3 -18.4 Z"/>
+  </g>
+
+  <g id="b_head" data-parent="b_body" transform="translate(-12 -76)">
+    <rect class="o" fill="#b97a54" x="-5" y="-4" width="10" height="6" rx="2"/>
+    <circle class="o" fill="#d29a74" cx="0" cy="-12" r="12.5"/>
+    <ellipse class="o" style="stroke-width:2" fill="#d29a74" cx="-8" cy="-10" rx="2.6" ry="3.6"/>
+    <path class="o" fill="#d29a74" d="M11.4 -14 Q17.6 -11 11.8 -7.6"/>
+    <!-- cheeks full -->
+    <ellipse class="n" fill="#e07a5c" fill-opacity="0.5" cx="5" cy="-6" rx="4.6" ry="3.4"/>
+    <circle class="n" fill="#2b1b16" cx="6" cy="-13.4" r="1.5"/>
+    <path class="t" style="stroke-width:1.8" d="M7 -4 Q10 -2.4 13 -4.4"/>
+    <!-- the flat cap -->
+    <path class="o" fill="#4e4842" d="M-14 -14 Q-15.4 -27 -2 -28 Q9 -28.6 13 -21 L19.6 -18 Q20.6 -15.4 17.4 -15 Q4 -17.6 -14 -14 Z"/>
+    <path class="n" fill="#6a625a" d="M-9 -24 Q-2 -27 7 -25 Q-2 -24 -7 -20 Z"/>
+  </g>
+
+  <!-- His arm with the sandwich. Joint at the shoulder. -->
+  <g id="b_arm" data-parent="b_body" transform="translate(-10 -70)">
+    <path class="o" fill="#9cb8d0" d="M-5 -3 L5 -3 L5 9 L-5 9 Z"/>
+    <rect class="o" fill="#c3d5e3" x="-6" y="7" width="12" height="5" rx="2.5"/>
+    <path class="o" fill="#d29a74" d="M-2 9 L15 -1 L18 4 L1 14 Z"/>
+    <!-- bread, butter, a slab of cheese -->
+    <g transform="rotate(-24 22 -4)">
+      <rect class="o" fill="#e9c891" x="14" y="-9" width="17" height="11" rx="3"/>
+      <path class="n" fill="#f6d55c" d="M14.6 -4.6 L31 -4.6 L32.4 -2 L14.6 -2.4 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M14.8 -4.6 L30.6 -4.6 M14.8 -2.2 L30.6 -2.2"/>
+    </g>
+    <circle class="o" fill="#d29a74" cx="17" cy="1" r="3.6"/>
+  </g>
+
+  <!-- C: orange beanie, and the tin he is about to throw. -->
+  <g id="c_body" transform="translate(44 -38)">
+    <path class="o" fill="#3b2a20" d="M9 30 L9 23 Q9 21 12 21 L19 21 Q22 21 22.5 23.5 Q28 24 29 27 L29 30 Z"/>
+    <path class="o" fill="#24345a" d="M11 -2 L22 -2 L21 22 L12 22 Z"/>
+    <path class="o" fill="#2c3e66" d="M-8 -10 L18 -10 Q23 -5 19 1 L-8 1 Z"/>
+    <path class="o" fill="#2c3e66" d="M-12 -2 Q-15 -22 -9 -34 Q1 -39 11 -34 Q17 -22 15 -2 Z"/>
+    <path class="n" fill="#24345a" d="M-11 -3 Q-14 -20 -9 -32 Q-5 -22 -5 -3 Z"/>
+    <path class="o" fill="#f2efe6" d="M-6 -36 L1 -29 L8 -36 Z"/>
+    <path class="t" style="stroke:#1d2b4c" d="M1 -29 L1 -4"/>
+  </g>
+
+  <!-- The tin in his hand: blue, dented, rubber band round it. Joint in his hand. -->
+  <g id="c_tin" data-parent="c_arm" transform="translate(68 -66)">
+    <g transform="rotate(-8)">
+      <rect class="o" fill="#4f86b8" x="-9" y="-12" width="18" height="11" rx="2"/>
+      <path class="o" fill="#5f97c8" d="M-10 -12 Q-10 -15.4 -6 -15.4 L6 -15.4 Q10 -15.4 10 -12 Z"/>
+      <path class="n" fill="#3a6d9c" d="M-2 -10 Q1 -7 4 -10 Q3 -5 -1 -6 Z"/>
+      <path class="t" style="stroke:#d9342b;stroke-width:1.4" d="M3.6 -15.6 L3.6 -1.4"/>
+    </g>
+    <circle data-mount="muzzle" fill="none" cx="0" cy="-8" r="1"/>
+  </g>
+  <!-- His throwing arm, the tin held out in front of him. Joint at the shoulder. -->
+  <g id="c_arm" data-parent="c_body" transform="translate(48 -70)">
+    <path class="o" fill="#2c3e66" d="M-5 -3 L5 -3 L5 9 L-5 9 Z"/>
+    <rect class="o" fill="#3e5288" x="-6" y="7" width="12" height="5" rx="2.5"/>
+    <path class="o" fill="#efc09a" d="M-2 9 L18 1 L20.4 6.6 L1 14 Z"/>
+    <circle class="o" fill="#efc09a" cx="20" cy="4" r="3.8"/>
+  </g>
+
+  <g id="c_head" data-parent="c_body" transform="translate(46 -76)">
+    <rect class="o" fill="#c98b63" x="-5" y="-4" width="10" height="6" rx="2"/>
+    <circle class="o" fill="#efc09a" cx="0" cy="-12" r="12.5"/>
+    <ellipse class="o" style="stroke-width:2" fill="#efc09a" cx="-8" cy="-10" rx="2.6" ry="3.6"/>
+    <path class="o" fill="#efc09a" d="M11.4 -14 Q17.6 -11 11.8 -7.6"/>
+    <circle class="n" fill="#2b1b16" cx="6.4" cy="-13" r="1.5"/>
+    <path class="t" style="stroke-width:2.4" d="M2.6 -16 L9.4 -18.4"/>
+    <!-- a grin: this one is going far -->
+    <path class="o" style="stroke-width:1.8" fill="#7a2a20" d="M4 -6 Q9 -1.6 14 -6.4 Q9 -5 4 -6 Z"/>
+    <!-- the beanie: container orange -->
+    <path class="o" fill="#e8731c" d="M-13.4 -14 Q-15 -29.6 0 -30 Q14 -29.6 13.4 -16 Q0 -19.6 -13.4 -14 Z"/>
+    <path class="t" style="stroke:#b8560e;stroke-width:1.4" d="M-12.6 -17.6 Q0 -22.4 13 -19.4"/>
+  </g>
+
+  <!-- A gull on the end of the crate, waiting for a crust. Joint at its feet. -->
+  <g id="gull" transform="translate(90 -38)">
+    <path class="t" style="stroke:#e8a62a;stroke-width:1.8" d="M-2 -6 L-3 0 M2 -6 L3 0"/>
+    <path class="o" fill="#f4f4f0" d="M-12 -10 Q-12 -20 -2 -20 Q6 -20 8 -14 Q8 -6 0 -5 Q-8 -5 -12 -10 Z"/>
+    <path class="o" fill="#a9b4bc" d="M-14 -12 Q-8 -19 2 -15 Q-2 -9 -10 -8 Z"/>
+    <path class="n" fill="#2b2b2b" d="M-16 -11 L-12 -13 L-11 -10 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="6" cy="-22" r="5.4"/>
+    <path class="o" style="stroke-width:1.8" fill="#f2c230" d="M10.4 -23 L17 -21.6 L10.6 -19.8 Z"/>
+    <circle class="n" fill="#d9342b" cx="14.4" cy="-21" r="0.9"/>
+    <circle class="n" fill="#2b1b16" cx="7.4" cy="-23.4" r="1.2"/>
+  </g>
+
+</svg>

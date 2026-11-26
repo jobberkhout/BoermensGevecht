@@ -209,7 +209,7 @@ and the buttons get bigger.
   carries the sack, in 2025 he holds a joystick, in 2050 a robot does it), and the bragging stays the same.
   Six of its units do something no other unit does, and all three specials are of kinds of their own:
   - **Lasser Leen** (the schild, Jaren '70): whoever hits him up close burns on his welding sparks and takes
-    half of its own blow back. Turret shots make no sparks.
+    30% of its own blow back. Turret shots make no sparks.
   - **Gabber Gerrie** (light, Jaren '20) hakt to a beat that keeps speeding up: every blow in a row comes a
     bit sooner, until his pause between blows is a quarter of the usual one. Once he walks again, or is
     stunned, he has lost the beat.
@@ -328,4 +328,5 @@ Adding `?test=1` to the game's address stops the clock; `window.__game` then ste
 - The flag of De Zuidas is made up: the house flag of Krijtstreep & Zn., a firm that does not exist.
 - The flag of De Gasten is made up: the flag of the street, a tea glass and a wedding ribbon on a tiled wall.
 - The flag of De Toeristen is made up: a tour guide's pennant, yellow with a red umbrella.
+- The flag of Rotterdam is the city's own flag since 1949, green, white and green, redrawn.
 - Everything else is original to this project.

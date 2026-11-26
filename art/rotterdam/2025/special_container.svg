@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -214 224 222" data-rig="static">
+  <title>De container: een zeecontainer van Nultien Lines aan de kraanhaak, net neergezet op de weg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    De container: a sea container dropped onto the lane in front of the enemy, still on the crane's
+    slings. Container orange, corrugated, corner castings, the wave-and-anchor of Nultien Lines, doors
+    with locking bars at the back end. Origin = the middle of the container's bottom edge, on the road.
+  -->
+
+  <!-- The slings and the crane hook. Drawn first, so the slings run in behind the top rail. Joint in the middle of the roof. -->
+  <g id="hook" data-parent="container" transform="translate(0 -86)">
+    <!-- four slings, two to each end: the near ones and the far ones -->
+    <path fill="none" stroke="#2b1b16" stroke-width="4.4" stroke-linecap="round" d="M0 -80 L-95 4 M0 -80 L-82 4 M0 -80 L82 4 M0 -80 L95 4"/>
+    <path fill="none" stroke="#9aa3ad" stroke-width="2" stroke-linecap="round" d="M0 -80 L-95 4 M0 -80 L-82 4 M0 -80 L82 4 M0 -80 L95 4"/>
+    <!-- the master link -->
+    <ellipse class="o" style="stroke-width:2.6" fill="none" cx="0" cy="-88" rx="5" ry="8.4"/>
+    <ellipse fill="none" stroke="#c9cdd0" stroke-width="1.6" cx="0" cy="-88" rx="5" ry="8.4"/>
+    <!-- the hook -->
+    <path fill="none" stroke="#2b1b16" stroke-width="8.4" stroke-linecap="round" stroke-linejoin="round" d="M0 -110 L0 -100 Q0 -92 6 -92 Q11 -92 11 -98 L11 -100"/>
+    <path fill="none" stroke="#f2c230" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" d="M0 -110 L0 -100 Q0 -92 6 -92 Q11 -92 11 -98 L11 -100"/>
+    <!-- the hook block, yellow with black stripes -->
+    <rect class="o" fill="#f2c230" x="-13" y="-128" width="26" height="19" rx="3"/>
+    <path class="n" fill="#2b1b16" d="M-11 -110.6 L-6 -126 L-2 -126 L-7 -110.6 Z M1 -110.6 L6 -126 L10 -126 L5 -110.6 Z"/>
+    <circle class="o" style="stroke-width:2.2" fill="#9aa3ad" cx="0" cy="-118.4" r="4"/>
+  </g>
+
+  <!-- The container. -->
+  <g id="container" transform="translate(0 0)">
+    <rect class="o" fill="#e8731c" x="-100" y="-86" width="200" height="86" rx="2"/>
+    <!-- the corrugation -->
+    <path class="t" style="stroke:#c25a10;stroke-width:3" d="M-56 -78 L-56 -8 M-46 -78 L-46 -8 M-36 -78 L-36 -8 M-26 -78 L-26 -8 M26 -78 L26 -8 M36 -78 L36 -8 M46 -78 L46 -8 M56 -78 L56 -8 M66 -78 L66 -8 M76 -78 L76 -8 M86 -78 L86 -8"/>
+    <path class="t" style="stroke:#f59a4e;stroke-width:1.6" d="M-53 -78 L-53 -8 M-43 -78 L-43 -8 M-33 -78 L-33 -8 M-23 -78 L-23 -8 M29 -78 L29 -8 M39 -78 L39 -8 M49 -78 L49 -8 M59 -78 L59 -8 M69 -78 L69 -8 M79 -78 L79 -8 M89 -78 L89 -8"/>
+    <!-- top and bottom rails -->
+    <path class="n" fill="#c25a10" d="M-98 -84.4 L98 -84.4 L98 -78 L-98 -78 Z M-98 -8 L98 -8 L98 -1.6 L-98 -1.6 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M-98 -78 L98 -78 M-98 -8 L98 -8"/>
+    <!-- the doors at the back end: two leaves, four locking bars with their handles -->
+    <path class="t" style="stroke-width:2.4" d="M-64 -84 L-64 -2 M-82 -84 L-82 -2"/>
+    <path class="t" style="stroke-width:4.6" d="M-93 -80 L-93 -6 M-87 -80 L-87 -6 M-76 -80 L-76 -6 M-70 -80 L-70 -6"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="2.2" stroke-linecap="round" d="M-93 -80 L-93 -6 M-87 -80 L-87 -6 M-76 -80 L-76 -6 M-70 -80 L-70 -6"/>
+    <path class="o" style="stroke-width:2" fill="#d6dbe0" d="M-95 -46 L-85 -46 L-85 -41 L-95 -41 Z M-78 -46 L-68 -46 L-68 -41 L-78 -41 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#9aa3ad" d="M-96 -72 L-84 -72 L-84 -69 L-96 -69 Z M-79 -72 L-67 -72 L-67 -69 L-79 -69 Z M-96 -17 L-84 -17 L-84 -14 L-96 -14 Z M-79 -17 L-67 -17 L-67 -14 L-79 -14 Z"/>
+    <!-- the emblem of Nultien Lines: a wave and a small anchor -->
+    <path fill="none" stroke="#ffffff" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round" d="M-24 -22 Q-16 -31 -8 -22 Q0 -13 8 -22 Q16 -31 24 -22"/>
+    <path fill="none" stroke="#ffffff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" d="M0 -62 L0 -33 M-9 -54 L9 -54 M-13 -43 Q-12 -32 0 -31.6 Q12 -32 13 -43"/>
+    <circle fill="none" stroke="#ffffff" stroke-width="3.6" cx="0" cy="-66" r="4"/>
+    <!-- corner castings -->
+    <rect class="o" style="stroke-width:2.2" fill="#b44f0c" x="-100" y="-86" width="10" height="9" rx="1"/>
+    <rect class="o" style="stroke-width:2.2" fill="#b44f0c" x="90" y="-86" width="10" height="9" rx="1"/>
+    <rect class="o" style="stroke-width:2.2" fill="#b44f0c" x="-100" y="-9" width="10" height="9" rx="1"/>
+    <rect class="o" style="stroke-width:2.2" fill="#b44f0c" x="90" y="-9" width="10" height="9" rx="1"/>
+    <path class="n" fill="#2b1b16" d="M-97 -83 L-93 -83 L-93 -80 L-97 -80 Z M93 -83 L97 -83 L97 -80 L93 -80 Z M-97 -6 L-93 -6 L-93 -3 L-97 -3 Z M93 -6 L97 -6 L97 -3 L93 -3 Z"/>
+    <!-- a scrape of rust, a dent: it has been round the world a few times -->
+    <path fill="none" stroke="#a8480b" stroke-width="2" stroke-linecap="round" d="M38 -22 L52 -24 M41 -18 L49 -19 M-44 -69 L-34 -70"/>
+  </g>
+</svg>

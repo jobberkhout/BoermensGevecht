@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -150 232 156" data-rig="static">
+  <title>Mouwen opstropen! Twee reuzenarmen komen uit de kade, stropen hun mouwen nog wat verder op en spannen hun spierballen; tussen hen in een stopwatch die tikt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- A stretch of quay: granite edge, cobbles, and a bollard in the middle. Origin = the ground under the middle. -->
+  <g id="quay" transform="translate(0 0)">
+    <rect class="o" fill="#8f8d86" x="-110" y="-16" width="220" height="16" rx="2"/>
+    <path class="n" fill="#a9a79f" d="M-107 -14 L107 -14 L107 -11 L-107 -11 Z"/>
+    <path class="t" style="stroke:#6f6d67;stroke-width:1.3" d="M-110 -8 L110 -8 M-88 -16 L-88 -8 M-50 -16 L-50 -8 M-12 -16 L-12 -8 M26 -16 L26 -8 M64 -16 L64 -8 M96 -16 L96 -8 M-70 -8 L-70 0 M-32 -8 L-32 0 M6 -8 L6 0 M44 -8 L44 0 M82 -8 L82 0"/>
+    <!-- the bollard the stopwatch stands on -->
+    <path class="o" fill="#2f3b44" d="M-13 -16 L-11 -30 L11 -30 L13 -16 Z"/>
+    <rect class="o" fill="#3d4b56" x="-16" y="-36" width="32" height="7" rx="3"/>
+    <path class="n" fill="#55656f" d="M-8 -28 L-6 -28 L-7 -18 L-9 -18 Z"/>
+  </g>
+
+  <!-- The stopwatch: chrome, a white face, one hand that will not stop. Joint at its foot, on the bollard. -->
+  <g id="watch" data-parent="quay" transform="translate(0 -36)">
+    <g transform="translate(0 36)">
+      <rect class="o" fill="#c9ced2" x="-5" y="-102" width="10" height="10" rx="2"/>
+      <rect class="o" fill="#e8ecee" x="-9" y="-108" width="18" height="7" rx="3"/>
+      <path class="o" fill="#c9ced2" d="M19 -88 L26 -95 L31 -90 L24 -83 Z"/>
+      <circle class="o" fill="#c9ced2" cx="0" cy="-64" r="29"/>
+      <path class="n" fill="#e8ecee" d="M-22 -76 Q-14 -90 4 -91 Q-12 -84 -18 -70 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#fbfaf4" cx="0" cy="-64" r="23"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="2.2" stroke-linecap="round" d="M0 -85 L0 -80 M0 -43 L0 -48 M21 -64 L16 -64 M-21 -64 L-16 -64"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.2" stroke-linecap="round" d="M10.5 -82.2 L9 -79.6 M18.2 -74.5 L15.6 -73 M18.2 -53.5 L15.6 -55 M10.5 -45.8 L9 -48.4 M-10.5 -45.8 L-9 -48.4 M-18.2 -53.5 L-15.6 -55 M-18.2 -74.5 L-15.6 -73 M-10.5 -82.2 L-9 -79.6"/>
+      <!-- the last bit of the dial is green: nearly done -->
+      <path class="n" fill="#1f8a4c" fill-opacity="0.85" d="M0 -64 L0 -86 A22 22 0 0 0 -11 -83 Z"/>
+    </g>
+  </g>
+
+  <!-- Its hand. Joint in the middle of the face. -->
+  <g id="watch_hand" data-parent="watch" transform="translate(0 -64)">
+    <path class="t" style="stroke:#d9342b;stroke-width:2.4" d="M0 4 L0 -19"/>
+    <circle class="o" style="stroke-width:1.6" fill="#d9342b" cx="0" cy="0" r="3"/>
+  </g>
+
+  <!-- The left arm: sleeve out of the quay, rolled past the elbow, a bulge like a ship's fender. Joint where it comes out of the quay. -->
+  <g id="arm_l" data-parent="quay" transform="translate(-60 -14)">
+    <g transform="rotate(-30)">
+      <path class="o" fill="#9cb8d0" d="M-14 6 L14 6 L13 -30 L-13 -30 Z"/>
+      <path class="n" fill="#86a5bf" d="M-13 4 L-7 4 L-7 -29 L-12.4 -29 Z"/>
+      <path class="o" fill="#e0aa84" d="M-12 -28 Q-13 -48 -11 -62 Q0 -70 11 -64 Q15 -48 12 -28 Z"/>
+    </g>
+  </g>
+
+  <!-- The biceps, which swells when it flexes. Joint in its middle. -->
+  <g id="bicep_l" data-parent="arm_l" transform="translate(-76 -57)">
+    <g transform="rotate(-30)">
+      <path class="o" fill="#e0aa84" d="M-5 -15 Q9 -12 10.6 0 Q9 12 -5 15 Z"/>
+      <path class="n" fill="#eec0a0" d="M0 -9 Q6.6 -7 7.4 0 Q4 -4 0 -5 Z"/>
+    </g>
+  </g>
+
+  <!-- The forearm and fist. Joint at the elbow. -->
+  <g id="fore_l" data-parent="arm_l" transform="translate(-92 -69)">
+    <g transform="rotate(20)">
+      <path class="o" fill="#e0aa84" d="M-12 4 Q-15 -14 -11 -30 Q-10 -38 -8.5 -43 L8.5 -43 Q10 -38 11.5 -30 Q16 -12 12 4 Q0 10 -12 4 Z"/>
+      <path class="t" style="stroke:#b8805c;stroke-width:1.2" d="M4 -6 Q6 -20 4 -34"/>
+      <path class="t" style="stroke:#8a6650;stroke-width:1" d="M-6 -10 L-5 -8 M-3 -16 L-2 -14 M-7 -22 L-6 -20 M-4 -28 L-3 -26"/>
+      <!-- an anchor -->
+      <path fill="none" stroke="#3d5a8a" stroke-width="1.5" stroke-linecap="round" d="M0 -30 L0 -18 M-3 -27 L3 -27 M-4.4 -21.6 Q0 -16 4.4 -21.6"/>
+      <!-- the fist: fingers curled towards the watch, thumb across them -->
+      <path class="o" fill="#e0aa84" d="M-10 -40 Q-14.6 -50 -12.4 -58 Q-10 -65 -2 -65 L8 -65 Q15 -64 15 -57 L15 -46 Q14 -40 6 -40 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M5 -60.4 L15 -60.4 M5 -55.6 L15 -55.6 M5 -50.8 L15 -50.8 M5 -46 L14.4 -46"/>
+      <path class="o" style="stroke-width:2" fill="#e8b590" d="M-11 -50 Q-3 -55 7 -51.6 Q9.6 -48.6 6 -46.6 Q-3 -45.4 -10 -45.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The rolled-up sleeve. It rolls further up the arm in the clip. Joint in its middle. -->
+  <g id="cuff_l" data-parent="arm_l" transform="translate(-75 -40)">
+    <g transform="rotate(-30)">
+      <rect class="o" fill="#c3d5e3" x="-15.5" y="-5.5" width="31" height="11" rx="5.5"/>
+      <path class="t" style="stroke:#8aa8c0;stroke-width:1.2" d="M-13 0 L13 0"/>
+    </g>
+  </g>
+
+  <!-- The right arm: the same, mirrored. -->
+  <g id="arm_r" data-parent="quay" transform="translate(60 -14)">
+    <g transform="scale(-1 1) rotate(-30)">
+      <path class="o" fill="#9cb8d0" d="M-14 6 L14 6 L13 -30 L-13 -30 Z"/>
+      <path class="n" fill="#86a5bf" d="M7 4 L13 4 L12.4 -29 L7 -29 Z"/>
+      <path class="o" fill="#e0aa84" d="M-12 -28 Q-13 -48 -11 -62 Q0 -70 11 -64 Q15 -48 12 -28 Z"/>
+    </g>
+  </g>
+
+  <g id="bicep_r" data-parent="arm_r" transform="translate(76 -57)">
+    <g transform="scale(-1 1) rotate(-30)">
+      <path class="o" fill="#e0aa84" d="M-5 -15 Q9 -12 10.6 0 Q9 12 -5 15 Z"/>
+      <path class="n" fill="#eec0a0" d="M0 -9 Q6.6 -7 7.4 0 Q4 -4 0 -5 Z"/>
+    </g>
+  </g>
+
+  <g id="fore_r" data-parent="arm_r" transform="translate(92 -69)">
+    <g transform="scale(-1 1) rotate(20)">
+      <path class="o" fill="#e0aa84" d="M-12 4 Q-15 -14 -11 -30 Q-10 -38 -8.5 -43 L8.5 -43 Q10 -38 11.5 -30 Q16 -12 12 4 Q0 10 -12 4 Z"/>
+      <path class="t" style="stroke:#b8805c;stroke-width:1.2" d="M4 -6 Q6 -20 4 -34"/>
+      <path class="t" style="stroke:#8a6650;stroke-width:1" d="M-6 -10 L-5 -8 M-3 -16 L-2 -14 M-7 -22 L-6 -20 M-4 -28 L-3 -26"/>
+      <!-- a heart with a wave through it, for the missus -->
+      <path fill="none" stroke="#3d5a8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M0 -18 L-5 -24 Q-6.6 -29 -2.6 -29.4 Q-0.4 -29.4 0 -27 Q0.4 -29.4 2.6 -29.4 Q6.6 -29 5 -24 Z"/>
+      <!-- the fist: fingers curled towards the watch, thumb across them -->
+      <path class="o" fill="#e0aa84" d="M-10 -40 Q-14.6 -50 -12.4 -58 Q-10 -65 -2 -65 L8 -65 Q15 -64 15 -57 L15 -46 Q14 -40 6 -40 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M5 -60.4 L15 -60.4 M5 -55.6 L15 -55.6 M5 -50.8 L15 -50.8 M5 -46 L14.4 -46"/>
+      <path class="o" style="stroke-width:2" fill="#e8b590" d="M-11 -50 Q-3 -55 7 -51.6 Q9.6 -48.6 6 -46.6 Q-3 -45.4 -10 -45.6 Z"/>
+    </g>
+  </g>
+
+  <g id="cuff_r" data-parent="arm_r" transform="translate(75 -40)">
+    <g transform="scale(-1 1) rotate(-30)">
+      <rect class="o" fill="#c3d5e3" x="-15.5" y="-5.5" width="31" height="11" rx="5.5"/>
+      <path class="t" style="stroke:#8aa8c0;stroke-width:1.2" d="M-13 0 L13 0"/>
+    </g>
+  </g>
+
+  <!-- The broken edge of the quay where the arms came up through it, over their sleeves. -->
+  <g id="lip" data-parent="quay" transform="translate(0 -12)">
+    <g transform="translate(0 12)">
+      <path class="o" fill="#8f8d86" d="M-80 -8 L-76 -14 L-70 -11 L-64 -16 L-58 -12 L-50 -15 L-44 -9 L-42 -4 L-82 -4 Z"/>
+      <path class="o" fill="#8f8d86" d="M80 -8 L76 -14 L70 -11 L64 -16 L58 -12 L50 -15 L44 -9 L42 -4 L82 -4 Z"/>
+      <path class="n" fill="#6f6d67" d="M-90 -2 L-86 -6 L-84 -2 Z M-38 -2 L-34 -6 L-32 -2 Z M32 -2 L34 -6 L38 -2 Z M84 -2 L86 -6 L90 -2 Z"/>
+    </g>
+  </g>
+</svg>

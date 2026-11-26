@@ -281,7 +281,7 @@ they are special now". The choices of unit and rule are mine. The same day the s
 8, a bit under half of a light unit's: "cause then they are really a shield".
 
 Rotterdam (section 4, 26 November 2026, rules in `src/sim/haven.ts`) brings six: Lasser Leen's sparks
-burn whoever hits her up close, Gabber Gerrie hits faster with every blow in a row, the kapsalon splashes
+burn whoever hits him up close, Gabber Gerrie hits faster with every blow in a row, the kapsalon splashes
 garlic sauce on everyone around its target, De AGV earns money while it is on the lane, De Poetsrobot
 shrugs specials off and De Kraan lifts the enemy's front unit and drops it on the one behind. The owner
 asked that "each faction has some units that do something special"; the choice of units and rules is mine.
@@ -878,8 +878,9 @@ The base is not behind it. (The brief had a wave here, a kind three factions alr
 units that do something special", the choice is mine; numbers in `src/defs/balance.ts`, rules in
 `src/sim/haven.ts`):
 
-- **Lasser Leen** (schild, 1975): whoever hits him up close takes half of its own blow back (VONK).
-  Turret shots make no sparks.
+- **Lasser Leen** (schild, 1975): whoever hits him up close takes 30% of its own blow back (VONK).
+  Turret shots make no sparks. At 50% he beat two of Amsterdam's light units, which breaks the rule that
+  a schild is no match for its price in light units; that rule holds up to 45%.
 - **Gabber Gerrie** (light, 2025): every blow in a row cuts his pause between blows by 15% of the usual
   one, down to a quarter of it (HAKKEN). Walking or being stunned, he loses the beat.
 - **De Kapsalonkoerier** (ranged, 2025): every other enemy unit within 70 pixels of the one the tray hits,

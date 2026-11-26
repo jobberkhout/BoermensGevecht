@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De Markthal: een hoefijzervormige markthal met woningen in de boog, een stapel containers ernaast en een bouwkraan erachter</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    The market hall: a great horseshoe arch of grey stone with flats in it, their windows following the
+    curve. The two floors for the turrets are under the arch; the painted ceiling is only a ring of plain
+    colour blocks round the inside. On the ground floor: a stack of containers, a market stall in the city's
+    green and white, and the doorway. Behind it all, a building crane: the city is never finished.
+    Origin = the gate on the road; the building stands to the left of it.
+  -->
+  <g id="building" transform="translate(0 0)">
+    <!-- the building crane, behind everything -->
+    <path fill="none" stroke="#2b1b16" stroke-width="13" stroke-linejoin="round" d="M-46 -440 L-46 -582"/>
+    <path fill="none" stroke="#f2c230" stroke-width="8" d="M-46 -440 L-46 -582"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M-50 -470 L-42 -486 L-50 -502 L-42 -518 L-50 -534 L-42 -550 L-50 -566"/>
+    <path class="o" style="stroke-width:2.4" fill="#f2c230" d="M-166 -585 L-4 -585 L-4 -578 L-166 -578 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.4" d="M-160 -578 L-154 -585 L-148 -578 L-142 -585 L-136 -578 L-130 -585 L-124 -578 L-118 -585 L-112 -578 L-106 -585 L-100 -578 L-94 -585 L-88 -578 L-82 -585 L-76 -578 L-70 -585 L-64 -578 L-58 -585"/>
+    <path class="t" style="stroke-width:1.6" d="M-46 -594 L-160 -585 M-46 -594 L-8 -585"/>
+    <path class="o" style="stroke-width:2.4" fill="#f2c230" d="M-50 -594 L-42 -594 L-44 -585 L-48 -585 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#5d7487" x="-16" y="-578" width="16" height="11" rx="1.5"/>
+    <rect class="o" style="stroke-width:2.2" fill="#e9e4da" x="-58" y="-578" width="12" height="10" rx="1.5"/>
+    <rect class="n" fill="#9fc3d6" x="-56" y="-576" width="6" height="5"/>
+
+    <!-- flagpole, on the shoulder of the arch -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" stroke-linecap="round" d="M-286 -408 L-286 -552"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2.6" stroke-linecap="round" d="M-286 -408 L-286 -552"/>
+    <circle class="o" fill="#f2c230" cx="-286" cy="-556" r="4.6"/>
+
+    <!-- under the arch: the ceiling, a ring of plain colour blocks round the inside, and the upper floor -->
+    <path fill="none" stroke="#e8731c" stroke-width="11" d="M-279 -292 L-279 -350"/>
+    <path fill="none" stroke="#4f9a3c" stroke-width="11" d="M-279 -350 A93 93 0 0 1 -251.8 -415.8"/>
+    <path fill="none" stroke="#7cc0e0" stroke-width="11" d="M-251.8 -415.8 A93 93 0 0 1 -186 -443 L-154 -443"/>
+    <path fill="none" stroke="#f2c230" stroke-width="11" d="M-154 -443 L-122 -443 A93 93 0 0 1 -56.2 -415.8"/>
+    <path fill="none" stroke="#d9566b" stroke-width="11" d="M-56.2 -415.8 A93 93 0 0 1 -29 -350 L-29 -292"/>
+    <path class="o" fill="#2a3442" d="M-274 -292 L-274 -350 A88 88 0 0 1 -186 -438 L-122 -438 A88 88 0 0 1 -34 -350 L-34 -292 Z"/>
+    <path class="n" fill="#3a4656" d="M-273 -306 L-35 -306 L-35 -293 L-273 -293 Z"/>
+    <rect class="o" fill="#e9e4da" x="-300" y="-292" width="292" height="10" rx="3"/>
+
+    <!-- the lower floor -->
+    <rect class="o" fill="#2a3442" x="-284" y="-282" width="260" height="140"/>
+    <path class="n" fill="#3a4656" d="M-282 -156 L-26 -156 L-26 -144 L-282 -144 Z"/>
+    <rect class="o" fill="#e9e4da" x="-300" y="-142" width="292" height="10" rx="3"/>
+
+    <!-- the ground floor: the glass front of the market -->
+    <rect class="o" fill="#cfe3ec" x="-284" y="-132" width="260" height="132"/>
+    <path class="t" style="stroke:#9fb8c6;stroke-width:2" d="M-284 -104 L-24 -104 M-258 -132 L-258 0 M-232 -132 L-232 0 M-206 -132 L-206 0 M-180 -132 L-180 0 M-154 -132 L-154 0 M-128 -132 L-128 0 M-102 -132 L-102 0 M-76 -132 L-76 0 M-50 -132 L-50 0"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-140 -130 L-130 -130 L-150 -106 L-160 -106 Z M-62 -130 L-56 -130 L-72 -106 L-78 -106 Z"/>
+
+    <!-- the arch itself: grey stone, the flats in it -->
+    <path class="o" fill="#b5b0a6" fill-rule="evenodd" d="M-306 0 L-306 -350 A120 120 0 0 1 -186 -470 L-122 -470 A120 120 0 0 1 -2 -350 L-2 0 Z M-284 0 L-284 -350 A98 98 0 0 1 -186 -448 L-122 -448 A98 98 0 0 1 -24 -350 L-24 0 Z"/>
+    <path class="n" fill="#c9c4bb" d="M-300 -350 A114 114 0 0 1 -186 -464 L-122 -464 L-122 -460 L-186 -460 A110 110 0 0 0 -296 -350 L-296 -20 L-300 -20 Z"/>
+    <g class="o" style="stroke-width:1.6">
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -24.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -41.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -58.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-295.0 -75.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -92.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -109.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -126.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -143.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-295.0 -160.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -177.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -194.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -211.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -228.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -245.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-295.0 -262.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -279.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -296.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -313.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -330.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-295.0 -347.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-295.0 -350.0) rotate(-90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-293.7 -367.1) rotate(-81.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-289.7 -383.7) rotate(-72.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-283.1 -399.5) rotate(-63.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-274.2 -414.1) rotate(-54.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-263.1 -427.1) rotate(-45.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-250.1 -438.2) rotate(-36.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-235.5 -447.1) rotate(-27.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-219.7 -453.7) rotate(-18.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-203.1 -457.7) rotate(-9.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-186.0 -459.0) rotate(0.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-169.0 -459.0) rotate(0.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-152.0 -459.0) rotate(0.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-135.0 -459.0) rotate(0.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-122.0 -459.0) rotate(0.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-104.9 -457.7) rotate(9.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-88.3 -453.7) rotate(18.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-72.5 -447.1) rotate(27.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-57.9 -438.2) rotate(36.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-44.9 -427.1) rotate(45.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-33.8 -414.1) rotate(54.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#ffe9a8" transform="translate(-24.9 -399.5) rotate(63.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-18.3 -383.7) rotate(72.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-14.3 -367.1) rotate(81.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -350.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -333.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -316.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -299.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -282.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -265.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -248.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -231.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -214.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -197.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -180.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -163.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -146.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -129.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -112.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -95.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -78.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -61.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -44.0) rotate(90.0)"/>
+      <rect x="-5" y="-4.5" width="10" height="9" rx="1" fill="#9fc3d6" transform="translate(-13.0 -27.0) rotate(90.0)"/>
+    </g>
+    <rect class="o" fill="#e9e4da" x="-310" y="-10" width="312" height="10" rx="2"/>
+
+    <!-- the stack of containers -->
+    <rect class="o" fill="#e8731c" x="-282" y="-34" width="64" height="34" rx="1.5"/>
+    <path fill="none" stroke="#c25a10" stroke-width="2" d="M-270 -30 L-270 -4 M-263 -30 L-263 -4 M-256 -30 L-256 -4 M-249 -30 L-249 -4 M-242 -30 L-242 -4 M-235 -30 L-235 -4 M-228 -30 L-228 -4"/>
+    <path class="n" fill="#c25a10" d="M-281 -33 L-219 -33 L-219 -30 L-281 -30 Z M-281 -4 L-219 -4 L-219 -1 L-281 -1 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-277 -30 L-277 -4 M-273 -30 L-273 -4"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="1.2" stroke-linecap="round" d="M-277 -30 L-277 -4 M-273 -30 L-273 -4"/>
+    <path class="n" fill="#2b1b16" d="M-281 -33 L-277 -33 L-277 -29 L-281 -29 Z M-223 -33 L-219 -33 L-219 -29 L-223 -29 Z M-281 -5 L-277 -5 L-277 -1 L-281 -1 Z M-223 -5 L-219 -5 L-219 -1 L-223 -1 Z"/>
+    <rect class="o" fill="#5d7487" x="-216" y="-34" width="62" height="34" rx="1.5"/>
+    <path fill="none" stroke="#4a5e6e" stroke-width="2" d="M-204 -30 L-204 -4 M-197 -30 L-197 -4 M-190 -30 L-190 -4 M-183 -30 L-183 -4 M-176 -30 L-176 -4 M-169 -30 L-169 -4 M-162 -30 L-162 -4"/>
+    <path class="n" fill="#4a5e6e" d="M-215 -33 L-155 -33 L-155 -30 L-215 -30 Z M-215 -4 L-155 -4 L-155 -1 L-215 -1 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-211 -30 L-211 -4 M-207 -30 L-207 -4"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="1.2" stroke-linecap="round" d="M-211 -30 L-211 -4 M-207 -30 L-207 -4"/>
+    <path class="n" fill="#2b1b16" d="M-215 -33 L-211 -33 L-211 -29 L-215 -29 Z M-159 -33 L-155 -33 L-155 -29 L-159 -29 Z M-215 -5 L-211 -5 L-211 -1 L-215 -1 Z M-159 -5 L-155 -5 L-155 -1 L-159 -1 Z"/>
+    <rect class="o" fill="#1f8a4c" x="-264" y="-68" width="64" height="34" rx="1.5"/>
+    <path fill="none" stroke="#13603a" stroke-width="2" d="M-252 -64 L-252 -38 M-245 -64 L-245 -38 M-238 -64 L-238 -38 M-231 -64 L-231 -38 M-224 -64 L-224 -38 M-217 -64 L-217 -38 M-210 -64 L-210 -38"/>
+    <path class="n" fill="#13603a" d="M-263 -67 L-201 -67 L-201 -64 L-263 -64 Z M-263 -38 L-201 -38 L-201 -35 L-263 -35 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-259 -64 L-259 -38 M-255 -64 L-255 -38"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="1.2" stroke-linecap="round" d="M-259 -64 L-259 -38 M-255 -64 L-255 -38"/>
+    <path class="n" fill="#2b1b16" d="M-263 -67 L-259 -67 L-259 -63 L-263 -63 Z M-205 -67 L-201 -67 L-201 -63 L-205 -63 Z M-263 -39 L-259 -39 L-259 -35 L-263 -35 Z M-205 -39 L-201 -39 L-201 -35 L-205 -35 Z"/>
+    <rect class="o" fill="#e9e4da" x="-246" y="-102" width="58" height="34" rx="1.5"/>
+    <path fill="none" stroke="#c9c2b6" stroke-width="2" d="M-234 -98 L-234 -72 M-227 -98 L-227 -72 M-220 -98 L-220 -72 M-213 -98 L-213 -72 M-206 -98 L-206 -72 M-199 -98 L-199 -72"/>
+    <path class="n" fill="#c9c2b6" d="M-245 -101 L-189 -101 L-189 -98 L-245 -98 Z M-245 -72 L-189 -72 L-189 -69 L-245 -69 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-241 -98 L-241 -72 M-237 -98 L-237 -72"/>
+    <path fill="none" stroke="#9aa3ad" stroke-width="1.2" stroke-linecap="round" d="M-241 -98 L-241 -72 M-237 -98 L-237 -72"/>
+    <path class="n" fill="#2b1b16" d="M-245 -101 L-241 -101 L-241 -97 L-245 -97 Z M-193 -101 L-189 -101 L-189 -97 L-193 -97 Z M-245 -73 L-241 -73 L-241 -69 L-245 -69 Z M-193 -73 L-189 -73 L-189 -69 L-193 -69 Z"/>
+
+    <!-- a market stall in the city's green and white -->
+    <path class="t" style="stroke-width:3.4" d="M-146 -64 L-146 -10 M-108 -64 L-108 -10"/>
+    <path fill="none" stroke="#e9e4da" stroke-width="1.6" d="M-146 -64 L-146 -10 M-108 -64 L-108 -10"/>
+    <path class="o" fill="#ffffff" d="M-152 -74 L-102 -74 L-100 -60 Q-104.2 -55 -108.4 -60 Q-112.6 -55 -116.8 -60 Q-121 -55 -125.2 -60 Q-129.4 -55 -133.6 -60 Q-137.8 -55 -142 -60 Q-146.2 -55 -150.4 -60 Q-152.6 -57 -154 -60 Z"/>
+    <path class="n" fill="#1f8a4c" d="M-152 -73 L-144 -73 L-145.2 -60 L-150.4 -60 Z M-136 -73 L-128 -73 L-129.4 -59 L-133.6 -60 Z M-120 -73 L-112 -73 L-112.6 -59 L-116.8 -60 Z"/>
+    <path class="t" d="M-152 -74 L-102 -74"/>
+    <rect class="o" fill="#8a6a4a" x="-150" y="-30" width="46" height="20" rx="2"/>
+    <path class="o" style="stroke-width:2" fill="#c9a06a" d="M-148 -30 L-132 -30 L-132 -38 L-148 -38 Z M-128 -30 L-108 -30 L-108 -38 L-128 -38 Z"/>
+    <path class="n" fill="#e8731c" d="M-146 -38 Q-146 -42 -143 -42 Q-140 -42 -140 -38 Z M-140 -38 Q-140 -42 -137 -42 Q-134 -42 -134 -38 Z"/>
+    <path class="n" fill="#4f9a3c" d="M-126 -38 Q-126 -43 -121 -43 Q-117 -43 -117 -38 Z M-117 -38 Q-117 -43 -112.6 -43 Q-109 -43 -109 -38 Z"/>
+    <rect class="n" fill="#d9566b" x="-148" y="-24" width="8" height="8" rx="1"/>
+    <rect class="n" fill="#f2c230" x="-136" y="-24" width="8" height="8" rx="1"/>
+
+    <!-- the doorway -->
+    <rect class="o" fill="#e9e4da" x="-96" y="-112" width="66" height="112" rx="3"/>
+    <path class="o" fill="#241b26" d="M-88 0 L-88 -102 L-38 -102 L-38 0 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The crane's load: a bundle of formwork panels on the hook, going up and coming down. Joint at the trolley. -->
+  <g id="crane_load" transform="translate(-128 -578)">
+    <rect class="o" style="stroke-width:2.2" fill="#5d7487" x="-7" y="-2" width="14" height="6" rx="1"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M-2 4 L-2 60 M2 4 L2 60"/>
+    <path class="o" style="stroke-width:2.2" fill="#f2c230" d="M-5 60 L5 60 L5 66 L-5 66 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="1.6" d="M0 66 L-14 74 M0 66 L14 74"/>
+    <rect class="o" style="stroke-width:2.4" fill="#a5532e" x="-18" y="74" width="36" height="5" rx="1"/>
+    <rect class="o" style="stroke-width:2.4" fill="#b8643a" x="-18" y="79" width="36" height="5" rx="1"/>
+    <rect class="o" style="stroke-width:2.4" fill="#a5532e" x="-18" y="84" width="36" height="5" rx="1"/>
+  </g>
+</svg>
