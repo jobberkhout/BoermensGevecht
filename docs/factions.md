@@ -8,7 +8,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | Faction | In one line | State |
 |---|---|---|
 | [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Built** |
-| [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
+| [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | **Built** |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates: in the game De Elf Steden | **Built** |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Built** |
@@ -120,7 +120,7 @@ would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Twelve kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Fifteen kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
@@ -136,6 +136,9 @@ Every faction has three specials, one per era, each of a different kind. Twelve 
 | Price hike | For a few seconds everything the enemy buys costs double: units, turrets, subsidie and modernizing | Huurverhoging voor de locals |
 | Revive | The last units of your own that were beaten come back out of your gate, fresh, whatever the unit cap; not super units, and not units a special called in | De Bezemwagen |
 | Siesta | For a few seconds the enemy's turrets do not fire | Tropenrooster |
+| Conga | A line sweeps the lane and every enemy unit it passes dances back towards its own base for a few seconds, without fighting; it hurts nobody | De Polonaise |
+| Blind | For a few seconds whatever the enemy units on the lane throw misses; blows up close and turrets are not affected | Elf Kanonschoten |
+| Slow | Enemy units crawl for a few seconds; they can still fight | De Kater |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
@@ -165,11 +168,10 @@ tick at which they leave. At the horn, whoever is still ashore leaves the lane a
 come out of the gate yet stays on board; nobody is paid anything and nobody learns from it. The ship is
 drawn behind the base for as long as they are ashore.
 
-New kinds the rest of this plan asks for:
+New kinds the rest of this plan asks for (slow is built, for Carnaval; De Camping can use it):
 
 | Kind | What it does | First used by |
 |---|---|---|
-| Slow | Enemy units crawl for a few seconds; they can still fight | De Camping: Zwarte Zaterdag |
 | Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
 
@@ -181,7 +183,7 @@ The twenty-four specials at a glance:
 | Faction | 1975 | 2025 | 2050 |
 |---|---|---|---|
 | De Zuidas | De gong (buff) | Vijandige overname (convert) | De Succesfee (divert) |
-| Carnaval | De Polonaise (wave) | Elf Kanonschoten (barrage) | De Kater (slow) |
+| Carnaval | De Polonaise (conga) | Elf Kanonschoten (blind) | De Kater (slow) |
 | De Friezen (De Elf Steden) | De winter van '63 (stun) | De Bezemwagen (revive) | Tropenrooster (siesta) |
 | Rotterdam | Mouwen opstropen! (buff) | De container (block) | De kering sluit (wave) |
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Huurverhoging voor de locals (price hike) |
@@ -206,6 +208,7 @@ on the title card.
 | De Gasten | met de hele familie | 15% cheaper, trained in 80% of the time, 15% fewer hit points | +10% hit points, 10% longer between throws | +10% hit points, 10% slower (the fatbike has numbers of its own) | +10% hit points, 5% slower |
 | De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
 | De Elf Steden | koppig en bedaard | +10% hit points, 15% longer in training | the same | the same | the same |
+| Carnaval | uitbundig en wankel | 10% harder blows, 10% faster, 15% fewer hit points | the same | the same | the same |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -512,18 +515,35 @@ are on the list below.
 ### 2. Carnaval
 
 The carnival of the south: Brabant and Limburg, four days a year and all year in the heart. The faction
-that is pure party.
+that is pure party. Built on 26 November 2026, with the owner's changes of that day (below).
 
 | | |
 |---|---|
 | Code name | `carnaval` (ids start with `cv.`) |
 | Home | Hossegat, a carnival town that does not exist |
 | Money | consumptiemunten |
+| Temperament | **uitbundig en wankel**: every unit hits 10% harder and walks 10% faster, and has 15% fewer hit points. Mine; the brief had none |
 | Colours | Red, yellow and green, with the blue of the boerenkiel |
 | Flag | Red, yellow and green bands with our own emblem: a sousaphone |
 | Names | What they do: De Hosser, De Sousafonist, De Confettischutter |
 | When it wins | "Carnaval wint! Alaaf! En nou allemaal de polonaise." |
 | Super unit shrugs off a special with | "Agge mar leut et!" |
+
+**What the owner asked for, 26 November 2026**
+
+- Units "that do something no other unit does, funny and a bit dumb", at least two or three, spread over
+  the eras, the way De Elf Steden were built. Their starting ideas: De Zuipwagen makes enemy units near it
+  stop fighting and party; Het Bananenpak is lost in the wrong town. Built: De Grote Trom, Het
+  Bananenpak, De Zuipwagen (below); which units, and the drum and the peel, are my choices.
+- Specials of their own, not kinds that already exist. De Polonaise: enemy units it passes are pulled
+  into the conga line and dance back towards their own base for a few seconds. Elf Kanonschoten: confetti
+  in their faces, so for a few seconds the enemy's throws miss. De Kater may stay a slow. Built as the
+  kinds conga, blind and slow; the durations are mine.
+- De Reuzenprins gets the key of the city and takes over an enemy turret for a while, firing for
+  Carnaval. "That is very strong, so unlike other super units it does NOT shrug off turrets: it takes
+  their full damage."
+- The open question about the banana suit: take the brief's lean (yes, that is the joke).
+- No balancing: bot matches only as a bug alarm.
 
 **What makes them recognizable**
 
@@ -554,29 +574,37 @@ that is pure party.
 | Ranged | `sousafonist` | De Sousafonist | Blows oompah and confetti out of the bell | humanoid |
 | His projectile | `shot_hoempa` | | A fat note trailing confetti | static |
 | Heavy | `praalwagen` | De Praalwagen | A farm tractor pulling a papier-mâché float with a giant nodding jester's head | vehicle |
-| Schild | `de_grote_trom` | De Grote Trom | The bass drummer of the hofkapel, drum first. Every shot is one more boom, in time | humanoid |
+| Schild | `de_grote_trom` | De Grote Trom | The bass drummer of the hofkapel, drum first. Every shot is one more boom, in time: **every turret shot that bounces off the drum makes everyone of his own within 160 pixels march 30% faster for 1.2 seconds**, himself too | humanoid |
 | Turret | `turret_pronkzitting` | De Pronkzitting | A tonprater in his barrel between two council members in feathered hats, behind a table of beer mugs | static |
 | Its projectile | `shot_bierviltje` | | A beer mat, spinning | static |
 | Special | `special_polonaise` | De Polonaise | A conga line of revellers, hands on shoulders. See below | free |
 | Base | `base` | | The brown café that is the club's residence: paper garlands, a banner, the town sign with its carnival name | static |
 
-Special, **De Polonaise** (wave): the line sweeps the whole lane and bumps every enemy unit once.
+Special, **De Polonaise** (conga, a kind of its own): the line sweeps the whole lane, and every enemy unit
+it passes is pulled in: for four seconds it neither walks forward nor fights, and dances back towards its
+own base at its own pace. It hurts nobody; super units do not join in. (The brief had a wave that bumped
+every unit once; the owner asked for the dance instead.)
 
 **2025: the party tent**
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `bananenpak` | Het Bananenpak | The visitor from above the rivers, in a banana suit, shouting Alaaf in the wrong town | humanoid |
+| Light | `bananenpak` | Het Bananenpak | The visitor from above the rivers, in a banana suit, shouting Alaaf in the wrong town. **When he is beaten he leaves his peel on the road; the first enemy unit to walk over it in that row slips and lies flat for 1.5 seconds** (not super units; a peel lasts 20 seconds) | humanoid |
+| His peel | `bananenschil` | | The banana peel he leaves, lying on the road | static |
 | Ranged | `confettischutter` | De Confettischutter | Emblem jacket, ski goggles, a confetti cannon under the arm | humanoid |
 | Their projectile | `shot_confetti` | | A burst of confetti and one serpentine | static |
-| Heavy | `zuipwagen` | De Zuipwagen | A closed box of loudspeakers behind an enormous tractor, with the compulsory fence around it | vehicle |
+| Heavy | `zuipwagen` | De Zuipwagen | A closed box of loudspeakers behind an enormous tractor, with the compulsory fence around it. **Every five seconds it drops the beat: every enemy unit within 180 pixels of its front stops fighting and parties for 1.5 seconds** (not super units; the owner's idea). Its drawing has a `trick` clip, the drop | vehicle |
 | Schild | `verkeersregelaar` | De Verkeersregelaar | A volunteer in an orange vest carrying a crowd barrier. He did the online course and takes it very seriously | humanoid |
 | Turret | `turret_vipdeck` | Het VIP-deck | Two guests with wristbands and a bouncer, on the raised deck of the tent. They throw drink tokens | static |
 | Its projectile | `shot_munt` | | A consumptiemunt | static |
 | Special | `special_kanonschoten` | Elf Kanonschoten | A row of confetti cannons. See below | static |
 | Base | `base` | | The party tent on the market square: gates, lockers, a queue, a row of portable toilets | static |
 
-Special, **Elf Kanonschoten** (barrage): eleven shots, one after another, each on the foremost enemy unit.
+Special, **Elf Kanonschoten** (blind, a kind of its own): eleven confetti cannons fire into the faces of
+the enemy units on the lane, and for six seconds whatever they throw misses: their ranged units' throws,
+the beer bikes' beers, the cousins' voice messages. Blows up close still land, and turrets, up in their
+bases, still aim (my reading of "the enemy's throws"). The cannons stand beside Carnaval's base while it
+lasts. (The brief had a barrage of eleven shots.)
 
 **2050: the dome**
 
@@ -590,9 +618,11 @@ Special, **Elf Kanonschoten** (barrage): eleven shots, one after another, each o
 | Its projectile | `shot_medaille` | | An antique medal on a ribbon | static |
 | Special | `special_kater` | De Kater | Herring raining down and a grey morning light. See below | static |
 | Base | `base` | | De Carnavalskoepel: a climate-controlled dome with turnstiles and a time-slot board | static |
-| **Super unit** | `reuzenprins` | De Reuzenprins | A walking float in the shape of the prince: feathered hat, sceptre for a club, confetti cannons in the cape, and eleven little windows in the belly where the Raad van Elf pulls the levers | humanoid |
+| **Super unit** | `reuzenprins` | De Reuzenprins | A walking float in the shape of the prince: feathered hat, sceptre for a club, confetti cannons in the cape, and eleven little windows in the belly where the Raad van Elf pulls the levers. **The key of the city**: once an enemy turret can reach him he takes over the most upgraded one for twelve seconds, and it fires at its own side's units (those nearest its gate first) for Carnaval, who earns the bounties. The key goes back when the time is up or he is beaten; eight seconds later he can take one again. He still draws turrets' fire but, unlike other super units, takes all of it (the owner's rule). His drawing has a `trick` clip, the key held up | humanoid |
+| The key | `stadssleutel` | | The key of the city, hanging over the turret he took | static |
 
-Special, **De Kater** (slow): the morning after. Enemy units crawl for eight seconds; they can still fight.
+Special, **De Kater** (slow, built here as a kind of its own): the morning after. Enemy units crawl at 30% of
+their pace for eight seconds under grey clouds raining herring, and go grey; they can still fight.
 
 **Lines**
 
@@ -613,10 +643,11 @@ Special, **De Kater** (slow): the morning after. Enemy units crawl for eight sec
 - Real politicians on the floats, the 2020 carnival and the virus, floods, accidents with floats, drunk
   children, and jokes about groping.
 
-**Open questions**
+**Decided**
 
 - The banana suit mocks visitors from the north, which is to say most of the people who will play this.
-  I think that is the joke. Agreed?
+  That is the joke: the brief's lean, taken at the owner's word (26 November 2026).
+- Het Bananenpak's own lines ("Alaaf! …toch?", "Is dit Brabant of Limburg?") are mine.
 
 ### 3. De Friezen
 
@@ -1714,7 +1745,7 @@ battle, and one pull request per faction.
    own: the fatbike, a rider.~~ Done.
 4. ~~**De Toeristen.** At the owner's choice (24 November 2026): three units with rules of their own,
    the summon with a time limit, and the price hike.~~ Done.
-5. **Carnaval.** The most colourful to draw, and it needs only one new kind (slow).
+5. ~~**Carnaval.** At the owner's request (26 November 2026), with three kinds of special of its own and four units with rules of their own.~~ Done.
 6. **Rotterdam.** Amsterdam's rival, with the container as the block.
 7. **De Camping.**
 8. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.

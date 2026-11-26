@@ -62,6 +62,36 @@ export interface Unit {
   returnAt?: number;
   /** The last tick it took a blow, for a unit that grows back only when left alone (UnitDef.regrows). */
   hitAt?: number;
+  /** In the enemy's polonaise until this tick: it neither walks forward nor fights, and dances back towards its own base. */
+  congaUntil?: number;
+  /** Confetti in its face until this tick: whatever it throws misses (the enemy's Elf Kanonschoten). */
+  blindUntil?: number;
+  /** Hung over until this tick: it walks at `slowPercent` of its pace (the enemy's De Kater). */
+  slowUntil?: number;
+  slowPercent?: number;
+  /** Marching to the beat of its own side's big drum until this tick, at `beatPercent` of its pace (UnitDef.drum). */
+  beatUntil?: number;
+  beatPercent?: number;
+  /** Tick from which De Zuipwagen may drop the beat again (UnitDef.party). */
+  partyAt?: number;
+  /** Tick from which De Reuzenprins may take an enemy turret again (UnitDef.keys). */
+  keyAt?: number;
+}
+
+/**
+ * A banana peel on the road, left by Het Bananenpak when it was beaten
+ * (UnitDef.peel). It belongs to the side that dropped it and lies at `pos` in
+ * that side's frame, in `row`. The first enemy unit that walks over it slips.
+ */
+export interface Peel {
+  id: number;
+  pos: number;
+  row: number;
+  /** Gone at this tick if nobody stepped on it. */
+  until: number;
+  /** Its drawing, and how long whoever slips on it lies dazed. */
+  rig: string;
+  dazeTicks: number;
 }
 
 /**
@@ -103,6 +133,13 @@ export interface Turret {
    * the new one's price.
    */
   value: number;
+  /**
+   * Taken over with the key of the city: the id of the enemy's Reuzenprins
+   * holding it, and until which tick. Meanwhile it fires at its own side's
+   * units for the other side (UnitDef.keys, sim/carnaval.ts).
+   */
+  heldBy?: number;
+  heldUntil?: number;
 }
 
 export interface SideState {
@@ -149,6 +186,8 @@ export interface SideState {
   fallen: string[];
   /** This side's turrets do not fire until this tick: the enemy's Tropenrooster. */
   siestaUntil: number;
+  /** Banana peels this side left on the road (UnitDef.peel). */
+  peels: Peel[];
 }
 
 export interface Shot {
@@ -183,6 +222,14 @@ export interface Shot {
   sticky?: number;
   /** It bounces on to the unit behind the one it hits (UnitDef.bounce). */
   bounce?: { dmgPercent: number; reach: number };
+  /** Thrown with confetti in the eyes: it hits nobody and comes down at its limit (the enemy's Elf Kanonschoten). */
+  miss?: true;
+  /**
+   * Fired by a turret of `side` that the enemy took over with the key of the
+   * city: it flies out of `side`'s own base at `side`'s own unit `aim`, in
+   * `side`'s frame (UnitDef.keys).
+   */
+  turned?: true;
 }
 
 export interface Wave {
@@ -195,6 +242,8 @@ export interface Wave {
   dmg: number;
   /** Ids of enemy units it has already hit. */
   hit: number[];
+  /** A polonaise: whoever it passes dances back home for this many ticks instead of being hurt. */
+  conga?: number;
 }
 
 /** Blows still to come from a barrage special. */
@@ -247,6 +296,12 @@ export interface Damage {
   sticky?: number;
   /** Id of the unit whose blow this is, when that unit feeds on what it hits (UnitDef.feeds). */
   from?: number;
+  /** Pulled into the polonaise: it dances back home for this many ticks. */
+  conga?: number;
+  /** De Zuipwagen dropped the beat: it parties, neither walking nor fighting, for this many ticks. */
+  party?: number;
+  /** It walked onto a banana peel: it lies dazed for this many ticks. */
+  slip?: number;
 }
 
 /** What happened during one tick, for effects and sound. `pos` is in the frame of `side`. */
@@ -319,4 +374,24 @@ export type SimEvent =
   /** Unit `id` of `side` got `amount` hit points back by itself: it grew back, or it ate. */
   | { t: 'mended'; side: Side; id: number; amount: number }
   /** Unit `id` of `side` sent an enemy throw back down the lane. */
-  | { t: 'returned'; side: Side; id: number; pos: number };
+  | { t: 'returned'; side: Side; id: number; pos: number }
+  /** Unit `id` of `side` was pulled into the enemy's polonaise and dances back home for `ticks`. */
+  | { t: 'conga'; side: Side; id: number; ticks: number }
+  /** Confetti in the faces of the units `ids` of `side`: for `ticks` what they throw misses. */
+  | { t: 'blinded'; side: Side; ids: number[]; ticks: number }
+  /** The units `ids` of `side` are hung over: for `ticks` they crawl. */
+  | { t: 'slowed'; side: Side; ids: number[]; ticks: number }
+  /** The big drum `id` of `side` went boom, and the units `ids` around it march in time. */
+  | { t: 'boomed'; side: Side; id: number; ids: number[] }
+  /** Unit `id` of `side` dropped the banana peel `peel`, lying at `pos` in the side's frame. */
+  | { t: 'peeled'; side: Side; id: number; peel: number; pos: number }
+  /** Unit `id` of `side` slipped on the enemy's banana peel `peel` and lies dazed for `ticks`. */
+  | { t: 'slipped'; side: Side; id: number; peel: number; ticks: number }
+  /** De Zuipwagen `id` of `side` dropped the beat. */
+  | { t: 'dropped'; side: Side; id: number }
+  /** The units `ids` of `side` stopped fighting to party for `ticks`. */
+  | { t: 'partied'; side: Side; ids: number[]; ticks: number }
+  /** De Reuzenprins `id` of `side` took over the enemy's turret in `slot` with the key of the city, for `ticks`. */
+  | { t: 'keyed'; side: Side; id: number; slot: number; ticks: number }
+  /** The turret of `side` in `slot` got its key back and fires for its own side again. */
+  | { t: 'unkeyed'; side: Side; slot: number };

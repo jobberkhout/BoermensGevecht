@@ -128,7 +128,14 @@ After this step the game knows the faction and the tests tell you everything tha
      first blow that hits harder and shoves, then dazed; a `dazed` clip), `sticky` (STICKY, throws that
      glue the enemy to half pace), `soup` (SOUP, a unit that patches up its neighbours every second),
      `returns` (RETURN, Padel-Pepijn: sends enemy throws back) and `bounce` (BOUNCE, Smijtink: a throw that
-     bounces on to the unit behind).
+     bounces on to the unit behind). Carnaval brought four more, with their rules in `src/sim/carnaval.ts`
+     (`src/defs/carnaval.ts` shows them): `drum` (DRUM, De Grote Trom: every turret shot off it speeds up its
+     own units around it), `peel` (PEEL, Het Bananenpak: beaten, it leaves a drawing on the road that the
+     next enemy slips on; one more drawing, named in the perk), `party` (PARTY, De Zuipwagen: every few
+     seconds the enemy units near it stop to party; its drawing needs a `trick` clip, laid over whatever
+     plays) and `keys` (KEYS, De Reuzenprins: takes over an enemy turret for a while; one more drawing, the
+     key, named in the perk, and a `trick` clip). A super unit with `keys` also takes turrets' full damage,
+     `turretPercent: KEYS.turretPercent` in the perk.
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
@@ -188,9 +195,19 @@ Every era has its own special, and the three must be of different kinds. These k
 | `hike` | For a few seconds everything the enemy buys costs more: units, turrets, subsidie and modernizing. Their buttons show the prices in red. It starts on the tick after it is pressed | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post. It falls out of the sky onto the verge beside the enemy's base and stands there for as long as it lasts. Example: `toeristen/2050/special_huurverhoging` |
 | `revive` | The last `count` units of your own that were beaten come back out of your gate, fresh, whatever the unit cap. Not super units, not units a special called in | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `summon`. Example: `friezen/2025/special_bezemwagen` |
 | `siesta` | For a few seconds the enemy's turrets do not fire; they snore | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post, falling beside the enemy's base like the one of a `hike`. Example: `friezen/2050/special_tropenrooster` |
+| `conga` | A line sweeps the lane like a `wave`, but hurts nobody: every enemy unit it passes neither walks forward nor fights for `ticks`, and dances back towards its own base | The drawing of a `wave`: a rig with a `walk` clip, about 190 wide and 130 tall, feet at y = 0, drawn three times. Example: `carnaval/1975/special_polonaise` |
+| `blind` | For a few seconds whatever the enemy units on the lane throw misses: it sails over everyone and comes down at its limit. Blows up close and turrets are not affected | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, standing beside your own base while it lasts like the one of a `buff`. A marker `muzzle` where the confetti leaves: eleven bursts of the faction's ranged projectile fly from there into the enemy's faces. Example: `carnaval/2025/special_kanonschoten` |
+| `slow` | Enemy units crawl at `speedPercent` of their pace for a few seconds; they can still fight | A `static` cloud with an `idle` clip, about 240 wide, (0,0) its middle, with what rains from it falling to about y = +170. Up to three hover 280 pixels over the slowed enemy units while it lasts, and those go grey. Example: `carnaval/2050/special_kater` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
+
+**A special that does no damage is worth next to nothing to the bots.** Bot matches turn on the fights of
+the first era, and a special that only holds the enemy up (Carnaval's dance, missed throws and hangover)
+wins none of them: in bot matches Carnaval did as well with its own three specials as with a special that
+does nothing, and lost nearly every match, while the same units with De Zuidas' specials won about half.
+Between people that may be different, and it is the owner's call. Expect `npm run balance` to put such a
+faction low, and say so in the pull request rather than tuning it away.
 
 **Numbers.** A special of an existing kind takes the numbers of the existing special of that kind in the
 same era. In another era, scale damage by the era's power: 1 for 1975, 2.4 for 2025, 5.6 for 2050. Add an
@@ -200,10 +217,10 @@ is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
-`docs/factions.md` plans three more kinds: slow, block and lockout. If your faction needs one, you
-build the kind. `convert`, `divert`, `summon` and `hike` were added that way; search the code for `convert`
-and `converted`, `divert` and `diverted`, `summon` and `summoned`, or `hike` and `hiked`, and you have a
-complete example of each. The places, in order:
+`docs/factions.md` plans two more kinds: block and lockout (slow came with Carnaval). If your faction needs one, you
+build the kind. `convert`, `divert`, `summon` and `hike` were added that way, and later `revive`, `siesta`, `conga`,
+`blind` and `slow`; search the code for `convert` and `converted`, `divert` and `diverted`, `summon` and
+`summoned`, `hike` and `hiked`, or `slow` and `slowed`, and you have a complete example of each. The places, in order:
 
 1. `src/defs/types.ts`: a new member of the `SpecialDef` union, with the fields it needs.
 2. `src/defs/balance.ts`: its numbers, under `SPECIAL`.
@@ -238,7 +255,7 @@ Then add the kind to the table above and to the table in `docs/factions.md`.
 
 A faction needs 29 drawings. Nine per era, the flag and the backdrop. A summon adds the unit it calls in,
 a schild that scatters adds its group, and a ranged unit that poses has its mark instead of a projectile
-(De Toeristen have 31):
+(De Toeristen have 31); a unit that leaves a peel or holds a key adds that drawing (Carnaval have 31):
 
 | Drawing | File | Rig | Canvas and origin | Markers | Animations |
 |---|---|---|---|---|---|

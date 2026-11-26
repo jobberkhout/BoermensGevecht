@@ -319,10 +319,14 @@ export class Sound {
     this.tone({ type: 'triangle', freq: 170, to: 110, dur: 0.16, gain: 0.4 });
   }
 
-  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country, a desk phone at the office, a suitcase on the cobbles for the tourists. */
+  /** A unit walks out: a bicycle bell in town, a clomp of klompen in the country, a desk phone at the office, a suitcase on the cobbles for the tourists, an oompah at carnival. */
   spawn(voice: Voice): void {
     if (!this.due(`spawn.${voice}`, 0.1)) return;
-    if (voice === 'town') {
+    if (voice === 'party') {
+      // Hoem-pa: a low note on the sousaphone and the one above it.
+      this.tone({ type: 'triangle', freq: 98, dur: 0.13, gain: 0.3, attack: 0.01 });
+      this.tone({ type: 'triangle', freq: 147, dur: 0.11, gain: 0.24, at: 0.15, attack: 0.01 });
+    } else if (voice === 'town') {
       this.tone({ type: 'sine', freq: 1568, dur: 0.22, gain: 0.16 });
       this.tone({ type: 'sine', freq: 1976, dur: 0.3, gain: 0.12, at: 0.09 });
     } else if (voice === 'country') {
@@ -359,10 +363,13 @@ export class Sound {
     this.hiss({ from: 500, to: 2000, dur: 0.16, gain: 0.18, q: 1.4 });
   }
 
-  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn, glasses clinking at the office, an "ooh!" from the tourists. */
+  /** A turret speaks up: blah-blah from the studio, a gruff "nee" from the barn, glasses clinking at the office, an "ooh!" from the tourists, a toot of brass at carnival. */
   turret(voice: Voice): void {
     if (!this.due(`turret.${voice}`, 0.2)) return;
-    if (voice === 'town') {
+    if (voice === 'party') {
+      this.tone({ type: 'square', freq: 392, to: 330, dur: 0.12, gain: 0.1, attack: 0.01 });
+      this.tone({ type: 'triangle', freq: 196, dur: 0.12, gain: 0.16, attack: 0.01 });
+    } else if (voice === 'town') {
       this.tone({ type: 'triangle', freq: 300, to: 380, dur: 0.07, gain: 0.22 });
       this.tone({ type: 'triangle', freq: 360, to: 270, dur: 0.09, gain: 0.22, at: 0.08 });
     } else if (voice === 'country') {
@@ -512,6 +519,58 @@ export class Sound {
     }
   }
 
+  /** The polonaise sets off: a little march on sousaphone and snare. */
+  conga(): void {
+    [98, 147, 110, 147, 98, 147, 131, 147].forEach((freq, i) => {
+      this.tone({ type: 'triangle', freq, dur: 0.12, gain: 0.26, at: i * 0.14, attack: 0.01 });
+      if (i % 2 === 1) this.hiss({ from: 2600, to: 1800, dur: 0.05, gain: 0.16, q: 1.2, at: i * 0.14 });
+    });
+  }
+
+  /** Eleven confetti cannons, one after another: pop, pop, pop. */
+  confetti(): void {
+    for (let i = 0; i < 11; i++) {
+      this.hiss({ from: 1800 + (i % 3) * 300, to: 500, dur: 0.06, gain: 0.3, q: 0.9, at: i * 0.09 });
+      this.tone({ type: 'sine', freq: 260 - (i % 4) * 20, to: 120, dur: 0.06, gain: 0.18, at: i * 0.09 });
+    }
+  }
+
+  /** The morning after: a long, low groan. */
+  groan(): void {
+    this.tone({ type: 'sawtooth', freq: 196, to: 98, dur: 1.0, gain: 0.12, attack: 0.15 });
+    this.tone({ type: 'triangle', freq: 233, to: 110, dur: 1.0, gain: 0.14, attack: 0.15 });
+  }
+
+  /** A turret shot bounces off the big drum: BOOM. */
+  boom(): void {
+    if (!this.due('boom', 0.15)) return;
+    this.tone({ type: 'sine', freq: 75, to: 42, dur: 0.24, gain: 0.5 });
+    this.hiss({ from: 220, to: 70, dur: 0.12, gain: 0.25, filter: 'lowpass' });
+  }
+
+  /** De Zuipwagen drops the beat: a riser, then two big thumps. */
+  drop(): void {
+    if (!this.due('drop', 0.3)) return;
+    this.hiss({ from: 600, to: 3200, dur: 0.25, gain: 0.12, q: 1.5 });
+    for (const at of [0.26, 0.44]) {
+      this.tone({ type: 'sine', freq: 62, to: 40, dur: 0.18, gain: 0.48, at });
+      this.tone({ type: 'square', freq: 124, dur: 0.08, gain: 0.07, at });
+    }
+  }
+
+  /** Somebody slips on a banana peel: a whistle up, and a bump. */
+  slip(): void {
+    if (!this.due('slip', 0.2)) return;
+    this.tone({ type: 'sine', freq: 420, to: 1500, dur: 0.22, gain: 0.18 });
+    this.tone({ type: 'sine', freq: 110, to: 55, dur: 0.16, gain: 0.4, at: 0.24 });
+  }
+
+  /** The key of the city changes hands: a jingle and a little ta-da. */
+  key(): void {
+    for (let i = 0; i < 4; i++) this.tone({ type: 'sine', freq: 2637 + (i % 2) * 520, dur: 0.05, gain: 0.07, at: i * 0.045 });
+    [523.25, 659.25, 783.99].forEach((freq, i) => this.tone({ type: 'triangle', freq, dur: i === 2 ? 0.35 : 0.1, gain: 0.22, at: 0.22 + i * 0.1 }));
+  }
+
   /** Overtime starts. */
   alarm(): void {
     for (const at of [0, 0.22, 0.44]) this.tone({ type: 'triangle', freq: 880, to: 660, dur: 0.18, gain: 0.3, at });
@@ -630,8 +689,9 @@ export class Sound {
    */
   demo(): number {
     const effects: (() => void)[] = [
-      () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'), () => this.spawn('tourist'),
-      () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'), () => this.turret('tourist'),
+      () => this.click(), () => this.refuse(), () => this.spawn('town'), () => this.spawn('country'), () => this.spawn('office'), () => this.spawn('tourist'), () => this.spawn('party'),
+      () => this.hit(), () => this.clang(), () => this.whoosh(), () => this.turret('town'), () => this.turret('country'), () => this.turret('office'), () => this.turret('tourist'), () => this.turret('party'),
+      () => this.conga(), () => this.confetti(), () => this.groan(), () => this.boom(), () => this.drop(), () => this.slip(), () => this.key(),
       () => this.shipHorn(), () => this.hike(), () => this.shutter(),
       () => this.defeat(), () => this.coin(), () => this.baseHit(), () => this.built(), () => this.eraUp(), () => this.horn(),
       () => this.chant(), () => this.riff(), () => this.mend(), () => this.swarm(), () => this.zap(), () => this.deal(), () => this.drain(),

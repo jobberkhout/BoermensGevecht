@@ -12,9 +12,14 @@ import { forgetRigsExcept, hasRig, loadRig, rigSource } from './assets.ts';
 import { BAND_SPOT, dirOf, rowScale, rowY, TURRET_SCALE } from './layout.ts';
 import { useWorld, type Stage } from './stage.ts';
 import {
+  CONFETTI,
   DOCK_SECONDS,
   DROP_SECONDS,
   GHOST_LIFE,
+  KEY_FLIGHT,
+  SLIP_FALL,
+  SLIP_RISE,
+  type Hangover,
   LEAP_HEIGHT,
   LEAP_SECONDS,
   SPAWN_FADE,
@@ -63,6 +68,10 @@ const FLAG_SCALE = 0.85;
 /** Per kind of unit: how far above the ground its health bar hangs, how wide it is, and how tall its stand-in box is. */
 /** Frozen in the ice of De winter van '63: everything goes pale and blue. Browsers without canvas filters just skip it. */
 const ICE_FILTER = 'grayscale(0.55) sepia(0.5) hue-rotate(165deg) saturate(1.8) brightness(1.08)';
+/** The grey morning light of De Kater. */
+const KATER_FILTER = 'grayscale(0.75) brightness(0.92)';
+/** How high over the road the clouds of De Kater hang. */
+const KATER_Y = -280;
 
 const BUILD: Record<Role, { bar: number; barWidth: number; box: number }> = {
   light: { bar: 140, barWidth: 40, box: 100 },
@@ -167,6 +176,9 @@ export class Renderer {
     // The band stands on the verge behind the road, so everyone walks past in front of it.
     for (const b of view.bands) if (b.mode !== 'dock') this.drawBand(b, view.time);
 
+    // Banana peels lie on the road, under everyone's feet.
+    for (const p of view.peels) this.drawPeel(p.rig, p.x, p.row, p.side, view.time);
+
     // Far rows first, so nearer units overlap them.
     const ghosts = [...view.ghosts].sort((a, b) => a.row - b.row);
     for (const g of ghosts) this.drawGhost(g);
@@ -177,7 +189,8 @@ export class Renderer {
 
     // The activists sit low, so they go on top: otherwise whoever stands next to them hides them.
     for (const b of view.blockades) this.drawBlockade(b, view.time);
-    for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, w.rig, view.time);
+    for (const w of view.waves(s, alpha)) this.drawWave(w.side, w.x, w.rig, view.time, w.conga);
+    for (const h of view.hangovers) this.drawHangover(h, view, view.time);
     for (const w of view.swarms) this.drawSwarm(w, view.time);
     this.drawShots(view);
     for (const sp of view.sprites) this.drawSprite(sp, view.time);
@@ -350,7 +363,7 @@ export class Renderer {
       if (!turret) return;
       const t = view.turrets[side][slot];
       if (t) {
-        this.drawTurret(t, dir);
+        this.drawTurret(t, dir, view.time);
       } else {
         const spot = view.turretSpot(s, side, slot);
         this.drawTurretBox(spot, dir, look.dark);
@@ -400,9 +413,15 @@ export class Renderer {
     ctx.stroke();
   }
 
-  private drawTurret(t: TurretView, dir: number): void {
+  private drawTurret(t: TurretView, dir: number, time: number): void {
     this.drawSolved(t.rig, t.world, t.x, t.y, dir, TURRET_SCALE);
     this.drawStars(t.x + dir * 112, t.y + 13, dir, t.level, t.outdated);
+    // Taken over with the key of the city: the key swings over it, on the side away from the stars.
+    const key = t.key && time - t.keySince >= KEY_FLIGHT ? this.rigs.get(t.key) : undefined;
+    if (key) {
+      const idle = CLIPS[key.id]?.idle;
+      this.drawLoose(key, t.x - dir * 96, t.y - 150, dir, 0.9, idle, idle ? (time / (idle.seconds ?? 1.6)) % 1 : 0);
+    }
   }
 
   /** One star per level, on the edge of the ledge. Grey when the turret is from an older era. */
@@ -477,17 +496,26 @@ export class Renderer {
     const flight = v.leap < LEAP_SECONDS ? v.leap / LEAP_SECONDS : 1;
     const lag = flight < 1 ? dirOf(v.side) * v.leapDx * (1 - flight) : 0;
     const lift = flight < 1 ? Math.sin(Math.PI * flight) * LEAP_HEIGHT : 0;
-    const shiver = v.stunned && !v.dazed && !v.icy ? Math.sin(time * 45 + v.id) * 1.5 : 0;
+    const shiver = v.stunned && !v.dazed && !v.icy && !v.partying ? Math.sin(time * 45 + v.id) * 1.5 : 0;
+    // Partying hops on the spot; dancing in a polonaise bounces along.
+    const hop = v.partying ? Math.abs(Math.sin(time * 10 + v.id)) * 12 * scale : v.dancing ? Math.abs(Math.sin(time * 8 + v.id)) * 6 * scale : 0;
     const x = v.x + v.slide - lag + shiver;
-    const y = ground - lift;
+    const y = ground - lift - hop;
     const facing = dirOf(v.side) * v.facing;
-    // Frozen over, it slips this way and that on its own feet.
-    const slip = v.icy ? Math.sin(time * 9 + v.id) * 0.2 : 0;
+    // Frozen over, it slips this way and that on its own feet; partying and dancing, it sways.
+    let slip = v.icy ? Math.sin(time * 9 + v.id) * 0.2 : v.partying ? Math.sin(time * 10 + v.id) * 0.12 : v.dancing ? Math.sin(time * 4 + v.id) * 0.08 : 0;
+    const slipped = time < v.slipUntil;
+    if (slipped) {
+      // Flat on its back on a banana peel, and up again at the end. A long vehicle only tips.
+      const down = Math.min(1, (time - v.slipFrom) / SLIP_FALL) * Math.min(1, (v.slipUntil - time) / SLIP_RISE);
+      const tip = v.def.role === 'heavy' || v.def.role === 'super' ? 0.3 : 1.25;
+      slip = -tip * facing * down;
+    }
     // Fresh units fade in as they come out of the dark doorway.
     const fade = Math.min(1, v.age / SPAWN_FADE);
     ctx.globalAlpha = fade;
     this.drawShadow(x, ground, len * scale);
-    if (v.stunned && flight >= 1 && !v.dazed) {
+    if (v.stunned && flight >= 1 && !v.dazed && !v.partying) {
       // Glued to the road, or standing on the ice of '63.
       ctx.fillStyle = v.icy ? '#bfe6ff' : '#ffc93c';
       ctx.strokeStyle = v.icy ? '#5aa9de' : INK;
@@ -506,9 +534,10 @@ export class Renderer {
     }
 
     if (v.puppet) {
-      if (v.icy) ctx.filter = ICE_FILTER;
+      const filter = v.icy ? ICE_FILTER : v.slowed ? KATER_FILTER : '';
+      if (filter) ctx.filter = filter;
       this.drawSolved(v.puppet.rig, v.puppet.world, x, y, facing, scale, slip);
-      if (v.icy) ctx.filter = 'none';
+      if (filter) ctx.filter = 'none';
       if (v.flash > 0) {
         ctx.globalCompositeOperation = 'lighter';
         ctx.globalAlpha = v.flash * 0.55 * fade;
@@ -521,8 +550,9 @@ export class Renderer {
       this.drawBox(x, y, len * scale, BUILD[v.def.role].box * scale, v.def.role[0]!.toUpperCase(), fill);
     }
     ctx.globalAlpha = 1;
-    if (v.dazed && flight >= 1) this.drawDazeStars(x, ground - 92 * scale, time + v.id);
+    if (v.dazed && flight >= 1) this.drawDazeStars(slipped ? x - facing * 40 * scale : x, ground - (slipped ? 40 : 92) * scale, time + v.id);
     if (v.sticky) this.drawSugar(x, y - 70 * scale, time + v.id);
+    if (v.blind) this.drawConfetti(x + facing * 8 * scale, y - (BUILD[v.def.role].bar - 28) * scale, time + v.id);
 
     if (v.hp < v.def.hp) {
       const top = y - BUILD[v.def.role].bar * scale;
@@ -558,6 +588,71 @@ export class Renderer {
       ctx.fill();
       ctx.stroke();
     }
+  }
+
+  /** Confetti stuck round the face of a unit that got Elf Kanonschoten in the eyes: bits that flutter and turn. */
+  private drawConfetti(x: number, y: number, time: number): void {
+    const { ctx } = this.stage;
+    for (let i = 0; i < 7; i++) {
+      const a = time * (1.5 + (i % 3) * 0.4) + i * 0.9;
+      const cx = x + Math.cos(a) * (14 + (i % 2) * 6);
+      const cy = y + Math.sin(a * 1.3) * 9 + (i % 3) * 3;
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(a * 2);
+      ctx.fillStyle = CONFETTI[i % CONFETTI.length]!;
+      ctx.fillRect(-3.5, -2, 7, 4);
+      ctx.restore();
+    }
+  }
+
+  /** A banana peel lying on the road. Without its drawing, a yellow blob. */
+  private drawPeel(rigId: string, x: number, row: number, side: Side, time: number): void {
+    const rig = this.rigs.get(rigId);
+    const scale = rowScale(row);
+    const y = rowY(row);
+    if (rig) {
+      const idle = CLIPS[rig.id]?.idle;
+      this.drawLoose(rig, x, y, dirOf(side), scale, idle, idle ? (time / (idle.seconds ?? 2)) % 1 : 0);
+      return;
+    }
+    const { ctx } = this.stage;
+    ctx.fillStyle = '#f6d43a';
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.ellipse(x, y - 4, 20 * scale, 7 * scale, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
+
+  /**
+   * The clouds of De Kater over the units it slows down: one over a few of
+   * them, up to three spread over a crowd, raining herring. They follow the
+   * army as it crawls, and fade in and out.
+   */
+  private drawHangover(h: Hangover, view: BattleView, time: number): void {
+    const rig = this.rigs.get(h.rig);
+    if (!rig) return;
+    const sick = [...view.units.values()].filter((v) => v.side === h.side && v.slowed);
+    if (sick.length === 0) return;
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const v of sick) {
+      lo = Math.min(lo, v.x);
+      hi = Math.max(hi, v.x);
+    }
+    const count = Math.min(3, sick.length, 1 + Math.floor((hi - lo) / 220));
+    const { ctx } = this.stage;
+    const fade = Math.min(1, h.age / 0.4, (h.life - h.age) / 0.5);
+    ctx.globalAlpha = Math.max(0, fade);
+    const idle = CLIPS[rig.id]?.idle;
+    for (let i = 0; i < count; i++) {
+      const x = count === 1 ? (lo + hi) / 2 : lo + ((hi - lo) * i) / (count - 1);
+      const u = idle ? ((time + i * 0.37) / (idle.seconds ?? 2)) % 1 : 0;
+      this.drawLoose(rig, x + Math.sin(time * 0.8 + i * 2) * 8, rowY(1) + KATER_Y + Math.sin(time * 1.1 + i) * 5, dirOf(other(h.side)), 1, idle, u);
+    }
+    ctx.globalAlpha = 1;
   }
 
   /** A few grains of sugar glinting on a unit that was hit by a sûkerbôle. */
@@ -748,7 +843,7 @@ export class Renderer {
   }
 
   /** A special that sweeps the lane: a convoy if it has art, plain blocks otherwise. Dust either way. */
-  private drawWave(side: Side, x: number, rigId: string, time: number): void {
+  private drawWave(side: Side, x: number, rigId: string, time: number, conga = false): void {
     const { ctx } = this.stage;
     const dir = dirOf(side);
     const rig = this.rigs.get(rigId);
@@ -761,7 +856,8 @@ export class Renderer {
       for (let p = 0; p < 4; p++) {
         const age = (time * 3 + p * 0.25 + i * 0.4) % 1;
         ctx.globalAlpha = 0.5 * (1 - age);
-        ctx.fillStyle = '#cdb68a';
+        // A polonaise leaves streamers and confetti, not dust.
+        ctx.fillStyle = conga ? CONFETTI[(p + i) % CONFETTI.length]! : '#cdb68a';
         ctx.beginPath();
         ctx.arc(cx - dir * (60 + age * 70), ground - 10 - age * 26, 10 + age * 18, 0, Math.PI * 2);
         ctx.fill();

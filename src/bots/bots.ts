@@ -52,7 +52,13 @@ function special(s: SimState, side: Side): Command | null {
   switch (kind) {
     case 'wave':
     case 'barrage':
+    case 'conga':
+    case 'slow':
       worth = foe.units.length >= 3;
+      break;
+    case 'blind':
+      // Confetti is only worth it against an army that throws things.
+      worth = foe.units.filter((u) => unitDef(u.def).shot || unitDef(u.def).toss).length >= 2;
       break;
     case 'snipe':
       worth = foe.units.length >= 3 || foe.units.some((u) => unitDef(u.def).role === 'heavy');

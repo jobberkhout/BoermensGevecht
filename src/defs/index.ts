@@ -1,4 +1,5 @@
 import { achterhoek } from './achterhoek.ts';
+import { carnaval } from './carnaval.ts';
 import { friezen } from './friezen.ts';
 import { gasten } from './gasten.ts';
 import { havermelk } from './havermelk.ts';
@@ -6,7 +7,7 @@ import { toeristen } from './toeristen.ts';
 import type { EraDef, FactionDef, FactionId, SpecialDef, TurretDef, UnitDef } from './types.ts';
 import { zuidas } from './zuidas.ts';
 
-export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen };
+export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen, carnaval };
 
 /**
  * Every faction that can be picked, in the order the players step through
@@ -57,6 +58,8 @@ export function artFor(factions: readonly FactionId[]): Set<string> {
         if (unit.shot) ids.add(unit.shot.rig);
         if (unit.poser) ids.add(unit.poser.rig);
         if (unit.toss) ids.add(unit.toss.shot.rig);
+        if (unit.peel) ids.add(unit.peel.rig);
+        if (unit.keys) ids.add(unit.keys.rig);
       }
     }
   }

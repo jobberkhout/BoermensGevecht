@@ -28,6 +28,33 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
     case 'wave':
       s.waves.push({ id: s.nextId++, side, rig: def.rig, pos: 0, prevPos: 0, speed: def.speed, dmg: def.dmg, hit: [] });
       return;
+    case 'conga':
+      // A wave that hurts nobody: whoever it passes joins the line and dances home (sim/carnaval.ts).
+      s.waves.push({ id: s.nextId++, side, rig: def.rig, pos: 0, prevPos: 0, speed: def.speed, dmg: 0, hit: [], conga: def.ticks });
+      return;
+    case 'blind': {
+      // Confetti in their faces: what the enemy units on the lane throw misses for a while (launch() in sim/step.ts).
+      const until = s.tick + def.ticks;
+      const ids: number[] = [];
+      for (const u of touchable(s.sides[foe].units)) {
+        u.blindUntil = until;
+        ids.push(u.id);
+      }
+      events.push({ t: 'blinded', side: foe, ids, ticks: def.ticks });
+      return;
+    }
+    case 'slow': {
+      // The morning after: the enemy units on the lane crawl, and can still fight.
+      const until = s.tick + def.ticks;
+      const ids: number[] = [];
+      for (const u of touchable(s.sides[foe].units)) {
+        u.slowUntil = until;
+        u.slowPercent = def.speedPercent;
+        ids.push(u.id);
+      }
+      events.push({ t: 'slowed', side: foe, ids, ticks: def.ticks });
+      return;
+    }
     case 'stun': {
       const until = s.tick + def.ticks;
       const ids: number[] = [];
@@ -136,7 +163,7 @@ export function advanceWaves(s: SimState, dmg: Damage[]): void {
     for (const u of touchable(s.sides[foe].units)) {
       if (LANE - w.pos - u.pos <= 0 && !w.hit.includes(u.id)) {
         w.hit.push(u.id);
-        dmg.push({ side: foe, unit: u.id, amount: w.dmg });
+        dmg.push({ side: foe, unit: u.id, amount: w.dmg, ...(w.conga ? { conga: w.conga } : {}) });
       }
     }
     if (w.pos < LANE) keep.push(w);
@@ -220,6 +247,8 @@ export function applyTakeovers(s: SimState, sold: readonly [readonly number[], r
     u.act = 'idle';
     u.actTick = 0;
     u.stunUntil = 0;
+    // Whoever was dancing in a polonaise stops: the line is the other side's now.
+    delete u.congaUntil;
     u.turncoat = !u.turncoat;
     insertInRow(mine, u);
     events.push({ t: 'converted', side: m.to, id: u.id, def: u.def, pos });

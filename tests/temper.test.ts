@@ -83,7 +83,8 @@ describe('temperament', () => {
           expect(unit.windup, unit.id).toBe(base.windup);
           expect(unit.cleave, unit.id).toBe(base.cleave ?? false);
           expect(unit.immune, unit.id).toBe(base.immune ?? false);
-          expect(unit.turretPercent, unit.id).toBe(base.turretPercent ?? 100);
+          // Except De Reuzenprins, who takes over a turret and takes turrets' full damage for it (KEYS, tests/carnaval.test.ts).
+          expect(unit.turretPercent, unit.id).toBe(unit.keys ? 100 : (base.turretPercent ?? 100));
           expect(unit.drawsFire, unit.id).toBe(base.drawsFire ?? false);
           // A unit that poses the enemy throws nothing (POSE).
           if (unit.poser) expect(unit.shot, unit.id).toBeUndefined();

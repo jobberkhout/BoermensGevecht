@@ -1,7 +1,7 @@
 # Boermens Gevecht
 
 A lane-battle game for two players on one keyboard or one phone, or one against the computer, in the browser. It started as the Achterhoek against
-the havermelkelite of Amsterdam; De Zuidas, De Gasten, De Toeristen and De Elf Steden have joined, and more factions are planned. Each player picks a
+the havermelkelite of Amsterdam; De Zuidas, De Gasten, De Toeristen, De Elf Steden and Carnaval have joined, and more factions are planned. Each player picks a
 faction, buys units that walk to the other side on their own, builds and upgrades turrets, applies for
 more subsidie, uses a special move, and modernizes from the seventies to the future. Whoever wrecks the
 other base wins.
@@ -34,7 +34,7 @@ push to `main`.
 | Part | State |
 |---|---|
 | Rules: units, three rows, turrets with levels, specials, subsidie, modernizing, overtime | Done, covered by tests |
-| Six factions, picked on the title screen: any pair, the same one twice too | Done |
+| Seven factions, picked on the title screen: any pair, the same one twice too | Done |
 | Three eras per faction: Jaren '70, Jaren '20, the future | Done: each has its own three units, turret, special and base |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
 | Phones and tablets: touch layout, fullscreen, home screen, offline | Done. Tested in Chrome's Pixel emulation, not on a real phone yet. Two phones against each other is not possible |
@@ -43,16 +43,16 @@ push to `main`.
 | Sound | Done: synthesized effects and a tune, no audio files. Checked for errors and loudness by test, not judged by ear |
 | Balance between factions | Not looked at yet. That waits until all factions are in |
 
-**What comes next:** four more factions are planned. [`docs/factions.md`](docs/factions.md) is the
+**What comes next:** three more factions are planned. [`docs/factions.md`](docs/factions.md) is the
 blueprint: who they are, every unit and special per era, and the list of drawings each one needs.
 
 ## The factions
 
-| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten | De Toeristen | De Elf Steden (Fryslân) |
-|---|---|---|---|---|---|---|
-| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink (bouncing beets, see below), Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) | Rugzak-Robin, Flitsblokje-Fien, De Touringcar, and the schild: Plattegrond-Paula. Turret: De Kaartenmolen. Special: De Dia-avond (enemy units stand still) | De Fierljepper (vaults over the first enemy, see below), De Opslagger, De Kopgroep, and the schild: Baanveger Bauke. Turret: De Leugenbank. Special: De winter van '63 (enemy units freeze and stand still) |
-| Jaren '20 | Padel-Pepijn (returns throws, see below), Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) | Rolkoffer-Rita, Influencer-Ivy (poses the enemy, see below), De Bierfiets (tosses beers, see below), and the schild: Paraplu-Pam (scatters, see below). Turret: De Hype-rij. Special: Cruiseschip legt aan (eight day trippers for twenty seconds) | De Kluner (cannot brake, see below), Bakker Tjitske (sticky bread, see below), It Skûtsje, and the schild: Beppe's Koek-en-zopie (feeds her neighbours, see below). Turret: De Brugwachter. Special: De Bezemwagen (your last four beaten units come back) |
-| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the two toughest enemies outright) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight, swatting and sending voice messages) | De Robokoffer, Eénster-Eli, De Zweefbierfiets (tosses beers, see below), and the super unit: MS Kolossaal. Turret: De Sleutelkluizentoren. Special: Huurverhoging voor de locals (for twenty seconds everything the enemy buys costs double) | De Zweefschaatser, It Kokoskanon, It Tikiskûtsje, and the super unit: De Grutte. Turret: De IJscommissie. Special: Tropenrooster (for fifteen seconds the enemy's turrets do not fire) |
+| | Havermelkelite (Amsterdam) | Achterhoek | De Zuidas | De Gasten | De Toeristen | De Elf Steden (Fryslân) | Carnaval (Brabant and Limburg) |
+|---|---|---|---|---|---|---|---|
+| Jaren '70 | Kraker Sjors, Bloemenkind Fleur, Flowerpowerbusje, and the schild: Matras-Marleen. Turret: De Kraakradio. Special: Love-in (heals your units) | Klein Mepperink, Smijtink (bouncing beets, see below), Groot Ploegink, and the schild: Deurink. Turret: Carbidbus. Special: Høken! (your units hit harder and move faster) | De jongste bediende, De hoekman, De directiewagen, and the schild: De brandkast. Turret: De Sociëteit. Special: De gong (your units hit harder and move faster) | De Nachtploeg, De Tolk, De Imperiaal, and the schild: De Koffer. Turret: Het Pension. Special: Eerst thee (heals your units) | Rugzak-Robin, Flitsblokje-Fien, De Touringcar, and the schild: Plattegrond-Paula. Turret: De Kaartenmolen. Special: De Dia-avond (enemy units stand still) | De Fierljepper (vaults over the first enemy, see below), De Opslagger, De Kopgroep, and the schild: Baanveger Bauke. Turret: De Leugenbank. Special: De winter van '63 (enemy units freeze and stand still) | De Hosser, De Sousafonist, De Praalwagen, and the schild: De Grote Trom (booms, see below). Turret: De Pronkzitting. Special: De Polonaise (enemy units dance home, see below) |
+| Jaren '20 | Padel-Pepijn (returns throws, see below), Barista Bo, Bakfiets-Babette, and the schild: Sup-Sanne. Turret: Podcaststudio. Special: Wegblokkade (enemy units stand still) | Quadink, Dronink, Giertink, and the schild: Balink. Turret: De Heitinks. Special: Trekkerkolonne (sweeps the lane) | Bodywarmer-Bas, Mr. Declarabel, De Leasebak, and the schild: De Disclaimer. Turret: De Vrijmibo. Special: Vijandige overname (buys the toughest enemy unit) | De Gastvrouw, De Dönerbaas, De Fatbike (rides through the ranks, see below), and the schild: De Trouwfilmer. Turret: De Kapperszaak. Special: De Toeterstoet (sweeps the lane) | Rolkoffer-Rita, Influencer-Ivy (poses the enemy, see below), De Bierfiets (tosses beers, see below), and the schild: Paraplu-Pam (scatters, see below). Turret: De Hype-rij. Special: Cruiseschip legt aan (eight day trippers for twenty seconds) | De Kluner (cannot brake, see below), Bakker Tjitske (sticky bread, see below), It Skûtsje, and the schild: Beppe's Koek-en-zopie (feeds her neighbours, see below). Turret: De Brugwachter. Special: De Bezemwagen (your last four beaten units come back) | Het Bananenpak (leaves his peel, see below), De Confettischutter, De Zuipwagen (drops the beat, see below), and the schild: De Verkeersregelaar. Turret: Het VIP-deck. Special: Elf Kanonschoten (enemy throws miss, see below) |
+| The future | VR-Vik, Boba-Bibi, Kweekvleesblob, and the super unit: the Havermelkreus. Turret: Livestream. Special: Het Algoritme (cancels the two toughest enemies outright) | Exo-Mepperink, Verschrikkerink, De Vreter, and the super unit: Kolossink. Turret: Melkrobot. Special: Dronezwerm (ten strikes on the foremost enemy) | De Stagebot, De Cryptobro, De Vergaderpod, and the super unit: De Gouden Handdruk. Turret: De Kwartaalcijfers. Special: De Succesfee (for five seconds everything the enemy earns is paid to you) | De Kapbot, De Prijzenvader, De Zweefimperiaal, and the super unit: Mo-Tron. Turret: Het Theeterras. Special: De Familie-app (four hologram cousins join the fight, swatting and sending voice messages) | De Robokoffer, Eénster-Eli, De Zweefbierfiets (tosses beers, see below), and the super unit: MS Kolossaal. Turret: De Sleutelkluizentoren. Special: Huurverhoging voor de locals (for twenty seconds everything the enemy buys costs double) | De Zweefschaatser, It Kokoskanon, It Tikiskûtsje, and the super unit: De Grutte. Turret: De IJscommissie. Special: Tropenrooster (for fifteen seconds the enemy's turrets do not fire) | De Tijdslot-hosser, De Robo-tonprater, De Zelfrijdende Praalwagen, and the super unit: De Reuzenprins (takes over a turret, see below). Turret: De Laatste Raad van Elf. Special: De Kater (enemy units crawl) |
 
 All factions start from the same numbers for the same role in the same era. On top of those each has its
 own temperament, a small twist that is the same in every era and is shown next to its name on the title
@@ -66,6 +66,7 @@ card:
 | De Toeristen | snel en overal: fast and everywhere | 25% faster, 15% softer blows, and every unit but MS Kolossaal costs 10% less. Paraplu-Pam and the two beer bikes have numbers of their own |
 | De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 | De Elf Steden | koppig en bedaard: stubborn and unhurried | 10% more hit points, and 15% longer in training. Four units have rules of their own, below |
+| Carnaval | uitbundig en wankel: in high spirits, and easily knocked over | 10% harder blows, 10% faster, 15% fewer hit points. Four units have rules of their own, below |
 
 Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
 units apart from their price. The tables are in `src/defs/<faction>.ts` and a test keeps every twist
@@ -204,6 +205,29 @@ and the buttons get bigger.
     units and units a special called in are not picked up.
   - **Tropenrooster**, their special of the future: too hot to work. For fifteen seconds the enemy's
     turrets do not fire.
+- **Carnaval** goes from the village carnival of the seventies through the party tent to a climate-controlled
+  dome, and four of its units and all three of its specials do something nobody else does:
+  - **De Grote Trom** (the schild, Jaren '70): every turret shot that bounces off the bass drum is one
+    more boom, in time, and for a moment everyone of his own within 160 pixels, himself too, marches 30%
+    faster. The more the turrets fire at him, the faster his band walks into them.
+  - **Het Bananenpak** (light, Jaren '20) is lost in the wrong town. When he is beaten he leaves his peel on
+    the road where he stood, and the first enemy unit that walks over it in that row slips and lies flat for
+    a second and a half. A peel nobody steps on is gone after twenty seconds. Super units step over it.
+  - **De Zuipwagen** (heavy, Jaren '20) drops the beat every five seconds: every enemy unit within 180
+    pixels of its front stops fighting and parties for a second and a half. Super units keep their heads.
+  - **De Reuzenprins** (the super unit, the future) gets the key of the city: once an enemy turret can
+    reach him, he takes over the most upgraded one for twelve seconds, and it fires at its own side's units,
+    the ones nearest its own gate first, for Carnaval. When the time is up or he is beaten the key goes
+    back, and eight seconds later he can take one again. Because that is so strong, he does not shrug off
+    turrets as other super units do: he still draws their fire, and takes all of it.
+  - **De Polonaise**, their special of the Jaren '70: a conga line sweeps the lane, and every enemy unit it
+    passes is pulled in and dances back towards its own base for four seconds, without fighting. It hurts
+    nobody.
+  - **Elf Kanonschoten**, their special of the Jaren '20: eleven confetti cannons fire into the faces of the
+    enemy units on the lane, and for six seconds whatever they throw misses. Their blows up close still
+    land, and turrets, up in their bases, still aim.
+  - **De Kater**, their special of the future: the morning after. For eight seconds the enemy units on the
+    lane crawl at 30% of their pace under clouds raining herring; they can still fight.
 - **Padel-Pepijn** (Havermelkelite, Jaren '20) smashes an enemy unit's throw back down the lane instead of
   being hit by it, one every two seconds. A turret's shot is out of his reach. He costs 10% more for it.
 - **De Kweekvleesblob** (Havermelkelite, the future) is lab meat and grows back: once nobody has hit it for
@@ -218,7 +242,7 @@ and the buttons get bigger.
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like
-  the schild it draws the fire of turrets and takes only a fifth of it. Its blow sweeps further than a
+  the schild it draws the fire of turrets and takes only a fifth of it (except De Reuzenprins, above). Its blow sweeps further than a
   heavy's: 120 pixels, so two small units deep in every row, and a stream of cheap units no longer holds it
   up. Six heavies still bring it down.
 - **Overtime.** After ten minutes units hit 20% harder, and another 20% every ten seconds. Turrets go the
@@ -301,4 +325,5 @@ Adding `?test=1` to the game's address stops the clock; `window.__game` then ste
 - The flag of De Zuidas is made up: the house flag of Krijtstreep & Zn., a firm that does not exist.
 - The flag of De Gasten is made up: the flag of the street, a tea glass and a wedding ribbon on a tiled wall.
 - The flag of De Toeristen is made up: a tour guide's pennant, yellow with a red umbrella.
+- The flag of Carnaval is made up: red, yellow and green bands with a sousaphone on a blue badge.
 - Everything else is original to this project.

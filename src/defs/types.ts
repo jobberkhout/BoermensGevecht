@@ -1,9 +1,9 @@
 import type { EraKey, Temper } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen' | 'friezen';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen' | 'friezen' | 'carnaval';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
-export type Voice = 'town' | 'country' | 'office' | 'tourist';
+export type Voice = 'town' | 'country' | 'office' | 'tourist' | 'party';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -105,6 +105,33 @@ export interface UnitDef {
   regrows?: { every: number; healPercent: number; rest: number };
   /** It gets `percent` of the damage its blows do back as hit points: De Vreter eats what it hits. See FEED. */
   feeds?: { percent: number };
+  /**
+   * De Grote Trom: every turret shot that bounces off its drum is one more
+   * boom, in time, and for `ticks` its own units within `reach` (itself too)
+   * march at `speedPercent` of their pace. See DRUM in defs/balance.ts and sim/carnaval.ts.
+   */
+  drum?: { reach: number; ticks: number; speedPercent: number };
+  /**
+   * Het Bananenpak: when it is beaten it leaves its peel, the drawing `rig`, on
+   * the road where it stood. The first enemy unit that walks over it in that row
+   * slips and lies dazed for `dazeTicks`; a peel nobody steps on is gone after
+   * `ticks`. Super units do not slip. See PEEL and sim/carnaval.ts.
+   */
+  peel?: { rig: string; dazeTicks: number; ticks: number };
+  /**
+   * De Zuipwagen drops the beat: every `every` ticks, if enemy units stand
+   * within `reach` of its front, all of them stop fighting and party for
+   * `ticks`. Super units do not. See PARTY and sim/carnaval.ts.
+   */
+  party?: { every: number; ticks: number; reach: number };
+  /**
+   * De Reuzenprins gets the key of the city: once an enemy turret can reach
+   * it, it takes over the most upgraded one for `ticks`, and that turret fires
+   * at its own side's units for this one's. When it is over, or the prince is
+   * beaten, the key goes back; after `rest` more ticks it can take one again.
+   * `rig` is the drawing of the key. See KEYS and sim/carnaval.ts.
+   */
+  keys?: { ticks: number; rest: number; rig: string };
 }
 
 export interface TurretDef {
@@ -140,6 +167,9 @@ export type SpecialDef = SpecialBase &
     | { kind: 'hike'; ticks: number; pricePercent: number } // for a while everything the enemy buys costs more
     | { kind: 'revive'; count: number } // the last units of your own that were beaten come back out of your gate
     | { kind: 'siesta'; ticks: number } // for a while the enemy's turrets do not fire
+    | { kind: 'conga'; rig: string; speed: number; ticks: number } // a line sweeps the lane; every enemy unit it passes dances back towards its own base for a while
+    | { kind: 'blind'; ticks: number } // confetti in the enemy's faces: for a while what their units throw misses
+    | { kind: 'slow'; ticks: number; speedPercent: number } // enemy units crawl for a while; they can still fight
   );
 
 export interface EraDef {
