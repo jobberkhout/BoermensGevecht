@@ -100,13 +100,19 @@ export interface EraLook {
   /**
    * Rules of their own for some of its units, on top of their role: the pole
    * vaulter, the skater who cannot brake, sticky throws, soup, a padel player
-   * who returns throws, bouncing beets. Their numbers are in defs/balance.ts.
+   * who returns throws, bouncing beets, Rotterdam's sparks, tempo, sauce,
+   * havengeld and the crane's lift, and a unit that shrugs specials off. Their
+   * numbers are in defs/balance.ts. The fourth slot is the super unit in 2050.
    */
   perks?: Partial<Record<'light' | 'ranged' | 'heavy' | 'shield', Perk>>;
 }
 
 /** What a unit can do that its role does not, see UnitDef; and, for one that is worth more for it, its price as a share of the usual one. */
-export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds'> & { costPercent?: number };
+export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds' | 'sparks' | 'tempo' | 'sauce' | 'earns' | 'lift'> & {
+  /** It shrugs enemy specials off, as super units do: De Poetsrobot. */
+  immune?: true;
+  costPercent?: number;
+};
 
 /** A throw on top of a unit's own blows, as shares of the era's ranged unit's damage and reach. */
 export interface TossShare {

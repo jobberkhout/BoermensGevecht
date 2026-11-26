@@ -107,6 +107,20 @@ function special(s: SimState, side: Side): Command | null {
       worth = reach > 0 && me.units.filter((u) => u.pos >= LANE - reach).length >= 2;
       break;
     }
+    case 'rush':
+      // Rolling up the sleeves pays when there is something in the queue to be ready at once.
+      worth = me.queue.length >= 2 || (me.queue.length >= 1 && s.tick - me.specialReadyAt >= sec(15));
+      break;
+    case 'block': {
+      // The container: when the enemy is about to reach the base, or in a fight with a crowd under it.
+      const theirs = frontUnit(foe.units);
+      worth = theirs !== undefined && (theirs.pos >= (LANE * 6) / 10 || (foe.units.length >= 3 && fighting >= 2));
+      break;
+    }
+    case 'shelter':
+      // The storm barrier: for a fight that is on.
+      worth = fighting >= 2 && foe.units.length >= 2;
+      break;
     case 'heal': {
       let missing = 0;
       let full = 0;

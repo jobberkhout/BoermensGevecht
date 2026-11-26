@@ -2,11 +2,12 @@ import { achterhoek } from './achterhoek.ts';
 import { friezen } from './friezen.ts';
 import { gasten } from './gasten.ts';
 import { havermelk } from './havermelk.ts';
+import { rotterdam } from './rotterdam.ts';
 import { toeristen } from './toeristen.ts';
 import type { EraDef, FactionDef, FactionId, SpecialDef, TurretDef, UnitDef } from './types.ts';
 import { zuidas } from './zuidas.ts';
 
-export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen };
+export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen, rotterdam };
 
 /**
  * Every faction that can be picked, in the order the players step through

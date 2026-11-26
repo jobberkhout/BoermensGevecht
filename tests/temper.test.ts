@@ -82,7 +82,8 @@ describe('temperament', () => {
           expect(unit.len, unit.id).toBe(base.len);
           expect(unit.windup, unit.id).toBe(base.windup);
           expect(unit.cleave, unit.id).toBe(base.cleave ?? false);
-          expect(unit.immune, unit.id).toBe(base.immune ?? false);
+          // Except De Poetsrobot, whose rule of its own is that it shrugs specials off (sim/haven.ts).
+          expect(unit.immune, unit.id).toBe((base.immune ?? false) || unit.id === 'rt.2050.light');
           expect(unit.turretPercent, unit.id).toBe(base.turretPercent ?? 100);
           expect(unit.drawsFire, unit.id).toBe(base.drawsFire ?? false);
           // A unit that poses the enemy throws nothing (POSE).

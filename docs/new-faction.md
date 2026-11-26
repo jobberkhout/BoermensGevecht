@@ -128,7 +128,13 @@ After this step the game knows the faction and the tests tell you everything tha
      first blow that hits harder and shoves, then dazed; a `dazed` clip), `sticky` (STICKY, throws that
      glue the enemy to half pace), `soup` (SOUP, a unit that patches up its neighbours every second),
      `returns` (RETURN, Padel-Pepijn: sends enemy throws back) and `bounce` (BOUNCE, Smijtink: a throw that
-     bounces on to the unit behind).
+     bounces on to the unit behind). Rotterdam added six more, with their rules in `src/sim/haven.ts`
+     (`src/defs/rotterdam.ts` shows them all): `sparks` (VONK, Lasser Leen: whoever hits it up close takes
+     part of the blow back), `tempo` (HAKKEN, Gabber Gerrie: every blow in a row comes sooner), `sauce`
+     (SAUS, the kapsalon: a throw that splashes on everyone around its target), `earns` (HAVENGELD, De AGV:
+     money every second it is on the lane), `lift` (HIJS, De Kraan: now and then lifts the front enemy and
+     drops it on the one behind) and `immune: true` (De Poetsrobot: an ordinary unit that shrugs specials
+     off; `tests/temper.test.ts` names it, so a new one must be added there).
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
@@ -155,7 +161,8 @@ After this step the game knows the faction and the tests tell you everything tha
    table), `money`, the `win` lines, `unmoved` (what its super
    unit says when an enemy special does nothing to it), and per id a name and a one-line description
    (`blurbs`), plus four or five lines per era to shout when walking out (`battleCry`) and to mutter when
-   beaten (`slinkOff`). A unit with lines of its own gets them under its id instead of an era, as De
+   beaten (`slinkOff`). Optionally `rivals`: lines its units now and then shout instead of a battle cry
+   against one particular faction, as Rotterdam has for Amsterdam. A unit with lines of its own gets them under its id instead of an era, as De
    Gasten's fatbike kid does in `src/ui/factions/gasten.ts`; only it says those. The ids are `<prefix>.<era>.light`, `.ranged`, `.heavy`, `.shield` or `.super`,
    `.turret` and `.special`.
    - A description is one or two short sentences, at most about 95 characters, or the title card no
@@ -188,6 +195,9 @@ Every era has its own special, and the three must be of different kinds. These k
 | `hike` | For a few seconds everything the enemy buys costs more: units, turrets, subsidie and modernizing. Their buttons show the prices in red. It starts on the tick after it is pressed | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post. It falls out of the sky onto the verge beside the enemy's base and stands there for as long as it lasts. Example: `toeristen/2050/special_huurverhoging` |
 | `revive` | The last `count` units of your own that were beaten come back out of your gate, fresh, whatever the unit cap. Not super units, not units a special called in | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `summon`. Example: `friezen/2025/special_bezemwagen` |
 | `siesta` | For a few seconds the enemy's turrets do not fire; they snore | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post, falling beside the enemy's base like the one of a `hike`. Example: `friezen/2050/special_tropenrooster` |
+| `rush` | For a few seconds everything you train is ready at once | Like a `buff`: a `static` scene with an `idle` clip, about 232 wide and 154 tall, beside your own base for as long as it lasts. Example: `rotterdam/1975/special_mouwen` |
+| `block` | Something lands on the enemy's foremost unit: their units under it are hurt, both front lines are pushed out from under it, and nobody walks past it for a few seconds | A `static` drawing with an `idle` clip, (0,0) at the middle of its bottom edge, about as wide as the special's `width` (200). It falls out of the sky onto the lane at full size, drawn over the units, and stays until it is lifted. Example: `rotterdam/2025/special_container` |
+| `shelter` | For a few seconds your units take only part of every hit; your base is not covered | Like a `buff`: a `static` scene with an `idle` clip, about 232 wide and 154 tall, beside your own base for as long as it lasts. Example: `rotterdam/2050/special_kering` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.
@@ -200,7 +210,7 @@ is looked at once all factions are in, and that is the owner's decision.
 
 ### A special of a kind that does not exist yet
 
-`docs/factions.md` plans three more kinds: slow, block and lockout. If your faction needs one, you
+`docs/factions.md` plans two more kinds: slow and lockout. If your faction needs one, you
 build the kind. `convert`, `divert`, `summon` and `hike` were added that way; search the code for `convert`
 and `converted`, `divert` and `diverted`, `summon` and `summoned`, or `hike` and `hiked`, and you have a
 complete example of each. The places, in order:

@@ -404,11 +404,24 @@ export class Game {
             // A sign falls beside the enemy base, as the rent increase does.
             this.sound.hike();
             break;
+          case 'rush':
+            this.sound.hammers();
+            break;
+          case 'block':
+            this.sound.container();
+            break;
+          case 'shelter':
+            this.sound.barrier();
+            break;
         }
         break;
       case 'vaulted':
       case 'returned':
+      case 'lifted':
         this.sound.whoosh();
+        break;
+      case 'sparked':
+        this.sound.sparks();
         break;
       case 'braked':
         this.sound.clang();
