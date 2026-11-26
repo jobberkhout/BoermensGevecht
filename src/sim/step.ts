@@ -425,6 +425,8 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
   // How far each side's front line may advance this tick. When the two lines
   // are about to meet they share the remaining gap in proportion to their
   // speed, rounded down for both, so neither side gains from the rounding.
+  // Where both front lines stand before anyone moves. The left side moves first, so reading the
+  // front unit itself later in this function would show the right side the left one's new position.
   const line: [number, number] = [fronts[0]?.pos ?? 0, fronts[1]?.pos ?? 0];
   const fastest: [number, number] = [0, 0];
   const pace: [number, number] = [100, 100];
@@ -443,7 +445,7 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
 
   for (const side of SIDES) {
     const units = s.sides[side].units;
-    const foePos = fronts[other(side)]?.pos ?? 0;
+    const foePos = line[other(side)];
     // Nobody passes the front line, and nobody walks into the enemy base.
     const frontLimit = Math.min(line[side] + reach[side], LANE - BASE_GAP);
     const rows: RowRoom[] = Array.from({ length: ROWS }, () => ({ all: frontLimit, solid: frontLimit, room: LANE - BASE_GAP, thrower: -1 }));
@@ -565,6 +567,8 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       events.push({ t: 'hit', side: d.side, id: u.id, amount, pos: u.pos });
       continue;
     }
+    // A unit that grows back only does so once it is left alone (sim/stunts.ts).
+    if (unitDef(u.def).regrows && d.amount > 0) u.hitAt = s.tick;
     const share = d.turret ? unitDef(u.def).turretPercent : 100;
     if (share < 100) {
       // A turret's shot on a unit that shrugs turrets off: most of it bounces away.

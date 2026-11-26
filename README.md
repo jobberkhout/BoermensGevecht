@@ -205,9 +205,16 @@ and the buttons get bigger.
   - **Tropenrooster**, their special of the future: too hot to work. For fifteen seconds the enemy's
     turrets do not fire.
 - **Padel-Pepijn** (Havermelkelite, Jaren '20) smashes an enemy unit's throw back down the lane instead of
-  being hit by it, one every two seconds. A turret's shot is out of his reach.
+  being hit by it, one every two seconds. A turret's shot is out of his reach. He costs 10% more for it.
+- **De Kweekvleesblob** (Havermelkelite, the future) is lab meat and grows back: once nobody has hit it for
+  three seconds, it gets 2% of its hit points back every second. In a fight it is an ordinary heavy. 10%
+  dearer.
+- **De Vreter** (Achterhoek, the future) eats what it hits: 30% of the damage its blows do comes back as
+  hit points. 10% dearer.
 - **Smijtink's voederbieten** (Achterhoek, Jaren '70) bounce: after the first head a beet goes on to the
   enemy unit behind, if that one stands within 140 pixels of the first one's back, for half the damage.
+  Smijtink costs 20% more for it: 95.
+- **The schild** hits for 8, a bit under half of a light unit's blow (it was 10).
 - **The super unit.** In the future the fourth unit is one machine that is an army by itself. It costs
   3000 (De Zuidas pays 3300), takes twelve seconds to build, beats its own price in any mix of ordinary units, and enemy specials
   have no effect on it: it cannot be cancelled, glued down, run over, bought or picked out by drones. Like

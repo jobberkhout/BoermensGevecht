@@ -1,4 +1,4 @@
-import { BOUNCE, FEED, SPECIAL, type Temper } from './balance.ts';
+import { BOUNCE, FEED, PERK_COST_PERCENT, SPECIAL, type Temper } from './balance.ts';
 import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
 
@@ -78,7 +78,7 @@ export const achterhoek: FactionDef = {
       },
       // De Vreter eats what it hits (sim/stunts.ts): the owner asked for one unit of the last era
       // that does something no other does, 26 November 2026.
-      perks: { heavy: { feeds: { percent: FEED.percent } } },
+      perks: { heavy: { feeds: { percent: FEED.percent }, costPercent: PERK_COST_PERCENT } },
     }, TEMPER),
   ],
 };

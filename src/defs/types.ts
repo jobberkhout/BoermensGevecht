@@ -101,8 +101,8 @@ export interface UnitDef {
   returns?: { every: number };
   /** Its throw bounces on to the enemy unit behind the one it hit, if that one is within `reach`, with `dmgPercent` of the damage: Smijtink's beets. See BOUNCE. */
   bounce?: { dmgPercent: number; reach: number };
-  /** Every `every` ticks it grows back `healPercent` of its hit points: De Kweekvleesblob. See REGROW. */
-  regrows?: { every: number; healPercent: number };
+  /** Every `every` ticks it grows back `healPercent` of its hit points, once it has not been hit for `rest` ticks: De Kweekvleesblob. See REGROW. */
+  regrows?: { every: number; healPercent: number; rest: number };
   /** It gets `percent` of the damage its blows do back as hit points: De Vreter eats what it hits. See FEED. */
   feeds?: { percent: number };
 }

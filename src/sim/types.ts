@@ -60,6 +60,8 @@ export interface Unit {
   stickyUntil?: number;
   /** Tick from which it can send a throw back again (UnitDef.returns). */
   returnAt?: number;
+  /** The last tick it took a blow, for a unit that grows back only when left alone (UnitDef.regrows). */
+  hitAt?: number;
 }
 
 /**

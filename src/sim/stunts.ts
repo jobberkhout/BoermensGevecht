@@ -166,11 +166,12 @@ export function bounceOn(s: SimState, shot: Shot, units: readonly Unit[], hit: U
   };
 }
 
-/** De Kweekvleesblob grows back: every so often whoever regrows gets a share of its hit points back. */
+/** De Kweekvleesblob grows back: once nobody has hit it for a while, it gets a share of its hit points back every so often. */
 export function regrow(s: SimState, side: Side, events: SimEvent[]): void {
   for (const u of s.sides[side].units) {
     const def = unitDef(u.def);
     if (!def.regrows || s.tick % def.regrows.every !== 0 || u.hp >= def.hp || u.hp <= 0) continue;
+    if (u.hitAt !== undefined && s.tick - u.hitAt < def.regrows.rest) continue;
     const amount = Math.min(def.hp - u.hp, Math.max(1, Math.floor((def.hp * def.regrows.healPercent) / 100)));
     u.hp += amount;
     events.push({ t: 'mended', side, id: u.id, amount });

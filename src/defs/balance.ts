@@ -342,7 +342,9 @@ const SHIELD: Omit<RoleStats, 'bounty'> = {
   speed: walk(50),
   len: px(80),
   range: px(18),
-  dmg: 10,
+  // A bit under half a light unit's blow: the owner, 26 November 2026, "reduce the damage of shield
+  // enemies though, cause then they are really a shield". It was 10.
+  dmg: 8,
   windup: sec(0.4),
   recover: sec(0.6),
   turretPercent: 20,
@@ -548,6 +550,14 @@ export const SOUP = { every: sec(1), healPercent: 3, reach: px(160) } as const;
 export const RETURN = { every: sec(2) } as const;
 
 /**
+ * What a unit that was given a rule of its own after the fact costs, as a
+ * share of what it cost before. The owner, 26 November 2026: "increase the
+ * prize of those units by a bit, since they are special now". Padel-Pepijn,
+ * De Kweekvleesblob and De Vreter; Smijtink has his own (BOUNCE).
+ */
+export const PERK_COST_PERCENT = 110;
+
+/**
  * Smijtink's voederbieten (Achterhoek, 1975) bounce on to the enemy unit
  * behind the one they hit, if it stands within `reach` of the first one's
  * back, with `dmgPercent` of the damage. Once. The owner, the same day: "just
@@ -556,8 +566,15 @@ export const RETURN = { every: sec(2) } as const;
  */
 export const BOUNCE = { dmgPercent: 50, reach: px(140), costPercent: 120 } as const;
 
-/** De Kweekvleesblob (Havermelkelite, 2050) is lab meat and grows back: `healPercent` of its hit points every `every` ticks. */
-export const REGROW = { every: sec(1), healPercent: 2 } as const;
+/**
+ * De Kweekvleesblob (Havermelkelite, 2050) is lab meat and grows back:
+ * `healPercent` of its hit points every `every` ticks, once nobody has hit it
+ * for `rest` ticks. So it heals between fights, and in a fight it is an
+ * ordinary heavy. The owner asked whether it would ever die when it grew back
+ * all the time, the same day; in bot matches that took Amsterdam from 35% to
+ * 54% against the Achterhoek.
+ */
+export const REGROW = { every: sec(1), healPercent: 2, rest: sec(3) } as const;
 
 /** De Vreter (Achterhoek, 2050) eats what it hits: it gets `percent` of the damage its blows do back as hit points. */
 export const FEED = { percent: 30 } as const;

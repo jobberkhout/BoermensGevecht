@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BASE_GAP, BOUNCE, CHARGE, FEED, LANE, REGROW, RETURN, SOUP, SPECIAL, STICKY, VAULT, px } from '../src/defs/balance.ts';
+import { BASE_GAP, BOUNCE, CHARGE, FEED, LANE, PERK_COST_PERCENT, REGROW, RETURN, SOUP, SPECIAL, STICKY, VAULT, px } from '../src/defs/balance.ts';
 import { eraOf, unitDef } from '../src/defs/index.ts';
 import type { FactionId } from '../src/defs/types.ts';
 import type { Side, SimEvent, SimState } from '../src/sim/types.ts';
@@ -219,6 +219,16 @@ describe('De Kweekvleesblob grows back', () => {
     run(s, 2);
     expect(blob.hp).toBe(1000 + Math.floor((unitDef(blob.def).hp * REGROW.healPercent) / 100));
   });
+
+  it('only once nobody has hit it for a while', () => {
+    const s = setup('havermelk', 'achterhoek', 2);
+    const blob = place(s, 0, 'hm.2050.heavy', px(200), 1000);
+    blob.act = 'idle';
+    s.tick = REGROW.every * 4 - 1;
+    blob.hitAt = s.tick - REGROW.rest + 5;
+    run(s, 2);
+    expect(blob.hp).toBe(1000);
+  });
 });
 
 describe('De Vreter eats what it hits', () => {
@@ -239,5 +249,13 @@ describe('Smijtink', () => {
   it('costs more than a ranged unit usually does, for his bouncing beets', () => {
     expect(unitDef(SMIJTINK).cost).toBeGreaterThan(unitDef('ah.1975.light').cost);
     expect(unitDef(SMIJTINK).cost).toBe(Math.round((80 * BOUNCE.costPercent) / 100 / 5) * 5);
+  });
+});
+
+describe('units that were given a rule of their own afterwards', () => {
+  it('cost a bit more than they did', () => {
+    for (const [id, before] of [['hm.2025.light', 90], ['hm.2050.heavy', 830], ['ah.2050.heavy', 920]] as const) {
+      expect(unitDef(id).cost, id).toBe(Math.round((before * PERK_COST_PERCENT) / 100 / 5) * 5);
+    }
   });
 });

@@ -45,7 +45,7 @@ export const havermelk: FactionText = {
       'hm.2025.special': 'Activisten lijmen zich vast: de vijand staat vijf tellen stil.',
       'hm.2050.light': 'Ziet niks door die bril, maar slaat er vrolijk op los.',
       'hm.2050.ranged': 'Blaast tapiocaparels door haar rietje. Scherpschutter met bubbelthee.',
-      'hm.2050.heavy': 'Ontsnapt uit het lab, en het groeit gewoon weer aan: elke tel 2% van zijn levenspunten.',
+      'hm.2050.heavy': 'Ontsnapt uit het lab. Laat je hem drie tellen met rust, dan groeit hij weer aan.',
       'hm.2050.super': 'Een wandelend pak havermelk van drie verdiepingen. Heeft iedereen gemute: speciale acties en torens doen hem niks.',
       'hm.2050.turret': 'Een influencer gaat live. Duimpjes omlaag voor iedereen.',
       'hm.2050.special': 'Cancelt de twee sterkste vijanden op de baan. Weg zijn ze, hoe sterk ook.',

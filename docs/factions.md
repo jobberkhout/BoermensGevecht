@@ -259,8 +259,12 @@ Steden's pole vaulter, skater who cannot brake, sticky sugar bread and soup (sec
 request one unit each for the first two factions, "a unit that fits the vibe that does something no other
 unit does": **Padel-Pepijn** (Havermelkelite, 2025) smashes an enemy unit's throw back down the lane, one
 every two seconds, and **Smijtink** (Achterhoek, 1975) throws fodder beets that bounce on to the enemy unit
-behind the one they hit, within 140 pixels of its back, for half the damage. Both choices of unit and rule
-are mine.
+behind the one they hit, within 140 pixels of its back, for half the damage; Smijtink costs 20% more for
+it, at the owner's word. Then one each in the last era: **De Kweekvleesblob** (Havermelkelite) grows back
+2% of its hit points a second once nobody has hit it for three seconds, and **De Vreter** (Achterhoek) gets
+30% of the damage its blows do back. Padel-Pepijn, the blob and De Vreter cost 10% more, the owner's "since
+they are special now". The choices of unit and rule are mine. The same day the schild's blow went from 10 to
+8, a bit under half of a light unit's: "cause then they are really a shield".
 
 The first one asked for is the owner's own, and it is built: the fatbike of section 8, a cheap rider
 that rides through the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a
