@@ -37,33 +37,78 @@ const facing = (pos: number, gap: number): number => LANE - pos - gap;
 const blows = (events: readonly SimEvent[], side: Side, id: number): number[] =>
   events.flatMap((e) => (e.t === 'hit' && e.side === side && e.id === id ? [e.amount] : []));
 
-describe('De Fierljepper vaults over the first enemy it meets', () => {
+describe('De Fierljepper vaults over the close fighters to a thrower', () => {
+  /** A heavy at the front, idle, and a thrower of the same side `behind` further back. */
+  function lineUp(s: SimState, foe: Side, jumperPos: number, behind: number) {
+    const heavy = place(s, foe, 'ah.1975.heavy', facing(jumperPos, px(60)));
+    heavy.act = 'idle';
+    const thrower = place(s, foe, 'ah.1975.ranged', heavy.pos - unitDef(heavy.def).len - behind);
+    thrower.act = 'idle';
+    return { heavy, thrower };
+  }
+
   for (const side of [0, 1] as const) {
-    it(`lands just behind that enemy, sits dazed, and fights on from there (seat ${side})`, () => {
+    it(`lands just in front of the thrower, sits dazed, and fights the thrower, not the heavy (seat ${side})`, () => {
       const foe = side === 0 ? 1 : 0;
       const s = setup(side === 0 ? 'friezen' : 'achterhoek', side === 0 ? 'achterhoek' : 'friezen');
       const jumper = place(s, side, FIERLJEPPER, px(400));
-      const first = place(s, foe, 'ah.1975.heavy', facing(px(400), px(60)));
-      first.act = 'idle';
+      const { heavy, thrower } = lineUp(s, foe, px(400), px(60));
       const events = run(s, 40);
       const leap = events.find((e) => e.t === 'vaulted');
       expect(leap).toMatchObject({ side, id: jumper.id });
-      const over = LANE - first.pos + unitDef(first.def).len + VAULT.gap + unitDef(FIERLJEPPER).len;
       expect(jumper.vaulted).toBe(true);
-      // Where it landed: behind the heavy's back. It is dazed for a while, then hits the heavy.
-      expect(leap && leap.t === 'vaulted' ? leap.to : -1).toBe(Math.min(LANE - BASE_GAP, over));
+      // It came down past the heavy's front, right in front of the thrower (who may have taken one more step).
+      expect(jumper.pos).toBeGreaterThan(LANE - heavy.pos);
+      expect(LANE - jumper.pos - thrower.pos).toBeGreaterThanOrEqual(0);
+      expect(LANE - jumper.pos - thrower.pos).toBeLessThanOrEqual(VAULT.gap);
       expect(jumper.stunUntil).toBeGreaterThan(0);
       run(s, VAULT.dazeTicks + 30);
-      expect(s.sides[foe].units.find((u) => u.id === first.id)!.hp).toBeLessThan(unitDef(first.def).hp);
+      expect(s.sides[foe].units.find((u) => u.id === thrower.id)!.hp).toBeLessThan(unitDef(thrower.def).hp);
+      expect(s.sides[foe].units.find((u) => u.id === heavy.id)!.hp).toBe(unitDef(heavy.def).hp);
     });
   }
 
-  it('vaults only once', () => {
+  it('with no thrower within its leap it fights the front, and leaps once one comes', () => {
     const s = setup('friezen', 'achterhoek');
     const jumper = place(s, 0, FIERLJEPPER, px(400));
-    place(s, 1, 'ah.1975.heavy', facing(px(400), px(60))).act = 'idle';
-    const events = run(s, 200);
+    const heavy = place(s, 1, 'ah.1975.heavy', facing(px(400), px(60)));
+    heavy.act = 'idle';
+    // A thrower further back than the leap reaches does not count.
+    const far = place(s, 1, 'ah.1975.ranged', heavy.pos - unitDef(heavy.def).len - VAULT.reach);
+    far.act = 'idle';
+    let events = run(s, 60);
+    expect(events.some((e) => e.t === 'vaulted')).toBe(false);
+    expect(jumper.vaulted).toBeUndefined();
+    expect(heavy.hp).toBeLessThan(unitDef(heavy.def).hp);
+    const near = place(s, 1, 'ah.1975.ranged', heavy.pos - unitDef(heavy.def).len - px(40));
+    near.act = 'idle';
+    events = run(s, 30);
+    expect(events.some((e) => e.t === 'vaulted')).toBe(true);
+    expect(jumper.prey).toBe(near.id);
+    expect(LANE - jumper.pos - near.pos).toBeLessThanOrEqual(VAULT.gap);
+  });
+
+  it('does not leap when the front itself is a thrower', () => {
+    const s = setup('friezen', 'achterhoek');
+    place(s, 0, FIERLJEPPER, px(400));
+    const thrower = place(s, 1, 'ah.1975.ranged', facing(px(400), px(60)));
+    thrower.act = 'idle';
+    place(s, 1, 'ah.1975.ranged', thrower.pos - unitDef(thrower.def).len - px(40)).act = 'idle';
+    const events = run(s, 60);
+    expect(events.some((e) => e.t === 'vaulted')).toBe(false);
+    expect(thrower.hp).toBeLessThan(unitDef(thrower.def).hp);
+  });
+
+  it('vaults only once, and fights on once its thrower is beaten', () => {
+    const s = setup('friezen', 'achterhoek');
+    const jumper = place(s, 0, FIERLJEPPER, px(400));
+    const { heavy } = lineUp(s, 1, px(400), px(60));
+    place(s, 1, 'ah.1975.ranged', heavy.pos - unitDef(heavy.def).len - px(120)).act = 'idle';
+    jumper.hp = 100000;
+    const events = run(s, 400);
     expect(events.filter((e) => e.t === 'vaulted' && e.id === jumper.id)).toHaveLength(1);
+    expect(jumper.prey).toBeUndefined();
+    expect(heavy.hp).toBeLessThan(unitDef(heavy.def).hp);
   });
 });
 

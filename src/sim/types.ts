@@ -54,6 +54,8 @@ export interface Unit {
   vaulted?: true;
   /** Where the pole vaulter lands, decided this tick and carried out once both sides have decided. */
   vaultTo?: number;
+  /** The enemy thrower the pole vaulter leapt at: its target for as long as that one stands within its reach. */
+  prey?: number;
   /** The skater has crashed into its first enemy and goes at a normal pace from now on (UnitDef.charge). */
   charged?: true;
   /** Glued with sugar until this tick: it walks and fights at half pace (UnitDef.sticky). */
@@ -304,7 +306,7 @@ export type SimEvent =
   /** Overtime has gone on so long that both bases start to crumble. */
   | { t: 'crumble' }
   | { t: 'win'; winner: Side | 'draw' }
-  /** The pole vaulter `id` of `side` leapt from `from` to `to` over the first enemy it met, and sits dazed. */
+  /** The pole vaulter `id` of `side` leapt from `from` to `to`, over the close fighters to a thrower, and sits dazed. */
   | { t: 'vaulted'; side: Side; id: number; from: number; to: number }
   /** The skater `id` of `side` could not brake, crashed into its first enemy and sits dazed. */
   | { t: 'braked'; side: Side; id: number }

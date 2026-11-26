@@ -945,9 +945,10 @@ export class BattleView {
         v.dazed = v.stunned && this.time < v.dazedUntil;
         v.icy = v.stunned && this.time < v.icyUntil;
         v.sticky = (u.stickyUntil ?? 0) > s.tick;
-        // A pole vaulter that came down beyond the enemy's front turns round to face whoever it went over.
+        // A pole vaulter that came down beyond the enemy's front faces the thrower it leapt at, and
+        // once that one is gone turns round to face whoever it went over.
         const foeFront = frontUnit(s.sides[other(side)].units);
-        v.facing = u.vaulted && foeFront && u.pos - def.len > LANE - foeFront.pos ? -1 : 1;
+        v.facing = u.vaulted && u.prey === undefined && foeFront && u.pos - def.len > LANE - foeFront.pos ? -1 : 1;
         if (v.leap < NEVER) v.leap += dt;
         v.pose = u.posing && poser ? poser.rig : '';
         v.flash = Math.max(0, v.flash - dt * 5);

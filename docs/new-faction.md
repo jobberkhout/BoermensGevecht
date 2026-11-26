@@ -123,7 +123,7 @@ After this step the game knows the faction and the tests tell you everything tha
    - `perks` gives single units a rule of their own on top of their role, per slot (`light`, `ranged`,
      `heavy`, `shield`; the fourth slot is the super unit in 2050). Six exist, with their numbers in
      `src/defs/balance.ts` and their rules in `src/sim/stunts.ts`; `src/defs/friezen.ts` shows four:
-     `vault` (VAULT, the pole vaulter: leaps over the first enemy it meets and sits dazed; its drawing
+     `vault` (VAULT, the pole vaulter: leaps over the close fighters to a thrower, sits dazed, then fights it; its drawing
      needs a `vault` and a `dazed` clip), `charge` (CHARGE, the skater who cannot brake: fast until a
      first blow that hits harder and shoves, then dazed; a `dazed` clip), `sticky` (STICKY, throws that
      glue the enemy to half pace), `soup` (SOUP, a unit that patches up its neighbours every second),

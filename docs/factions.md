@@ -672,7 +672,7 @@ Built on 26 November 2026 as **De Elf Steden**, with the owner's changes of that
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `fierljepper` | De Fierljepper | Long johns under his shorts, bobble hat, pole. **Vaults over the first enemy he meets**, lands behind it on his backside, sits dazed, and fights on from inside the enemy ranks | humanoid, with `vault` and `dazed` clips |
+| Light | `fierljepper` | De Fierljepper | Long johns under his shorts, bobble hat, pole. **Vaults over the close fighters to a thrower behind them**, lands in front of it on his backside, sits dazed, and then fights that thrower, inside the enemy ranks (changed on 26 November 2026, see below) | humanoid, with `vault` and `dazed` clips |
 | Ranged | `opslagger` | De Opslagger | A kaatser in whites with a winter coat over them, serving small hard balls | humanoid |
 | His projectile | `shot_keatsbal` | | A kaatsbal | static |
 | Heavy | `kopgroep` | De Kopgroep | Four tour skaters in a row, hands on their backs, scarves flapping, skating on the road. The ice skater of 1975 | free |
@@ -748,6 +748,17 @@ De Fierljepper and De Kluner have lines of their own ("Ik spring der oer!", "Ik 
 
 - No proofreading by a native speaker; the lines ship as they are. Several are my own and unverified.
 - The super unit is De Grutte, not Mega-Mem.
+
+**Changed after building**
+
+- 26 November 2026, the owner: "The fierljepper jumps over melee units to attach ranged units. Now it
+  jumps over and then attacks melee which is a bit useless haha." So De Fierljepper now goes for the
+  throwers. When he reaches the enemy's front and a thrower stands no more than 300 pixels further on, he
+  vaults over the close fighters, lands just in front of the nearest thrower, and fights it. With no
+  thrower in reach he fights the front like anyone and keeps his leap for later; when the front itself is
+  a thrower he does not jump. He sits dazed for half a second instead of 1.1: at 1.1 he lost every staged
+  fight against a thrower with a fighter in front of it, at 0.5 he beats a lone thrower behind one light
+  unit. The reach and the daze are mine.
 
 ### 4. Rotterdam
 

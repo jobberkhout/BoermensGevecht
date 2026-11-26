@@ -80,12 +80,13 @@ export interface UnitDef {
    */
   toss?: { dmg: number; range: number; every: number; shot: ShotDef };
   /**
-   * The pole vaulter, De Fierljepper: at the first enemy unit it meets it
-   * vaults over it instead of fighting, lands `gap` behind that unit's back,
-   * in the middle of the enemy ranks, and sits dazed for `dazeTicks`. Once a
-   * life. See VAULT in defs/balance.ts and sim/stunts.ts.
+   * The pole vaulter, De Fierljepper: when it reaches the enemy's front and a
+   * thrower stands at most `reach` further on, it vaults over the close
+   * fighters, lands `gap` in front of that thrower and sits dazed for
+   * `dazeTicks`; then it fights the thrower. Once a life. See VAULT in
+   * defs/balance.ts and sim/stunts.ts.
    */
-  vault?: { gap: number; dazeTicks: number };
+  vault?: { gap: number; reach: number; dazeTicks: number };
   /**
    * The skater who cannot brake, De Kluner: until its first blow it is
    * `speedPercent` as fast, that first blow does `dmgPercent` of its damage and
