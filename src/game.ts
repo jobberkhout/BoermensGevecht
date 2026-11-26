@@ -52,8 +52,15 @@ export class Game {
   private startWhenReady = false;
   /** When true the clock does not drive the match; tests step it by hand. */
   manual = false;
+  /** Played with fingers on a phone or tablet rather than on a keyboard. */
+  private readonly touch: boolean;
+  /** Keeps a phone's screen on during a match, where the browser allows it. */
+  private awake: { release(): Promise<void> } | null = null;
 
-  constructor(stage: Stage, hudRoot: HTMLElement, options: { sound?: boolean } = {}) {
+  constructor(stage: Stage, hudRoot: HTMLElement, options: { sound?: boolean; touch?: boolean } = {}) {
+    this.touch = options.touch ?? false;
+    // Someone with a phone in their hands most likely plays alone: the computer takes the right side until they say otherwise.
+    if (this.touch) this.computer = [false, true];
     this.renderer = new Renderer(stage);
     this.sound = new Sound(options.sound ?? true);
     this.state = createMatch(this.seed, this.picks);
@@ -62,6 +69,7 @@ export class Game {
       hudRoot,
       (side, action) => this.press(side, action),
       () => this.toggleMute(),
+      () => this.togglePause(),
     );
     this.hud.setSoundMode(this.sound.mode);
     this.screens = new Screens(hudRoot, {
@@ -70,7 +78,7 @@ export class Game {
       pick: (side, by) => this.pick(side, by),
       toggle: (side) => this.toggleComputer(side),
       back: () => this.back(),
-    });
+    }, this.touch);
     this.screens.setFactions(this.picks, this.computer);
     bindKeys({
       act: (side, action) => this.press(side, action),
@@ -82,6 +90,12 @@ export class Game {
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && this.phase === 'playing' && !this.paused) this.togglePause();
     });
+    // A phone turned upright cannot show the field; the match waits until it is turned back.
+    if (this.touch) {
+      matchMedia('(orientation: portrait)').addEventListener('change', (e) => {
+        if (e.matches && this.phase === 'playing' && !this.paused) this.togglePause();
+      });
+    }
     this.hud.show(false);
   }
 
@@ -143,8 +157,10 @@ export class Game {
   /** Enter: start from the title, or play again after a match. */
   confirm(): void {
     if (this.phase === 'playing') return;
-    // This runs inside a key press or a click, which is the only moment a browser lets sound start.
+    // This runs inside a key press or a click, which is the only moment a browser lets sound start,
+    // or a phone go fullscreen.
     this.sound.unlock();
+    this.fullscreen();
     if (this.artReady) this.begin();
     else this.startWhenReady = true;
   }
@@ -168,6 +184,7 @@ export class Game {
     this.screens.showWinner(null);
     this.hud.show(true);
     this.hud.setOvertime(null);
+    this.keepAwake(true);
     // The names and pictures of the two factions that were picked, before the first frame.
     this.hud.update(this.state);
   }
@@ -188,6 +205,7 @@ export class Game {
     this.screens.showTitle(true);
     this.hud.show(false);
     this.hud.setOvertime(null);
+    this.keepAwake(false);
   }
 
   togglePause(): void {
@@ -195,6 +213,40 @@ export class Game {
     this.paused = !this.paused;
     this.sound.pause(this.paused);
     this.screens.showPause(this.paused);
+    // The browser lets go of the screen when the page is hidden; take it back on the way in.
+    this.keepAwake(!this.paused);
+  }
+
+  /** On a phone: the whole screen, held sideways. Without the browser's bars the field is a good deal bigger. */
+  private fullscreen(): void {
+    if (!this.touch || document.fullscreenElement || !document.documentElement.requestFullscreen) return;
+    // Started from the home screen it is fullscreen already.
+    if (matchMedia('(display-mode: fullscreen)').matches) return;
+    document.documentElement
+      .requestFullscreen({ navigationUI: 'hide' })
+      .then(() => (screen.orientation as ScreenOrientation & { lock?(o: string): Promise<void> }).lock?.('landscape'))
+      .catch(() => {
+        // Not every browser allows either; the game plays the same without.
+      });
+  }
+
+  /** Asks that the screen stays on while a match runs, and lets go after. */
+  private keepAwake(on: boolean): void {
+    const lock = (navigator as Navigator & { wakeLock?: { request(type: 'screen'): Promise<{ release(): Promise<void> }> } }).wakeLock;
+    if (!on) {
+      void this.awake?.release().catch(() => {});
+      this.awake = null;
+      return;
+    }
+    if (!this.touch || !lock || this.awake) return;
+    lock
+      .request('screen')
+      .then((sentinel) => {
+        // The match may have ended while the request was out.
+        if (this.phase === 'playing' && !this.paused && !this.awake) this.awake = sentinel;
+        else void sentinel.release().catch(() => {});
+      })
+      .catch(() => {});
   }
 
   /** M: everything, effects without the tune, silence, and round again. */
@@ -387,6 +439,7 @@ export class Game {
 
   private finish(): void {
     this.phase = 'over';
+    this.keepAwake(false);
     this.sound.stopMusic();
     this.sound.fanfare();
     const w = this.state.winner;

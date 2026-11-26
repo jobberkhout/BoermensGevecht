@@ -235,6 +235,32 @@ body {
   font-size: 0.85cqw;
 }
 
+/* Sound and pause, side by side under the clock. */
+.tools {
+  display: flex;
+  gap: 0.4cqw;
+}
+
+.pause {
+  display: flex;
+  align-items: center;
+  padding: 0.2cqw 0.5cqw;
+  border: 0.2cqw solid var(--ink);
+  border-radius: 0.8cqw;
+  background: var(--paper);
+  box-shadow: 0 0.2cqw 0 var(--ink);
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.pause svg {
+  width: 1.5cqw;
+  height: 1.5cqw;
+  fill: var(--ink);
+}
+
 .banner {
   position: absolute;
   top: 8.4cqw;
@@ -855,4 +881,320 @@ body {
 .go:active {
   transform: translateY(0.26cqw);
   box-shadow: 0 0.14cqw 0 var(--ink);
+}
+
+/* ---- phones and tablets ----
+   A finger needs bigger buttons than a mouse, and there are no keys to show.
+   Against the computer only the player's own panel is there, as one row along
+   the bottom; two players on one screen each get half of it. */
+
+#turn {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  body {
+    touch-action: none;
+  }
+
+  .btn kbd,
+  .mute kbd,
+  .keys kbd,
+  .side h3 .arrow kbd,
+  .side .player kbd {
+    display: none;
+  }
+
+  /* The top bar. */
+  .title small {
+    font-size: 1.3cqw;
+  }
+
+  .hp {
+    height: 2.3cqw;
+  }
+
+  .hp span {
+    font-size: 1.35cqw;
+  }
+
+  .tools {
+    gap: 0.9cqw;
+  }
+
+  .mute,
+  .pause {
+    padding: 0.55cqw 1cqw;
+    border-radius: 1.1cqw;
+  }
+
+  .mute svg {
+    width: 3.4cqw;
+    height: 2.2cqw;
+  }
+
+  .pause svg {
+    width: 2.2cqw;
+    height: 2.2cqw;
+  }
+
+  .banner {
+    top: 10cqw;
+    font-size: 1.9cqw;
+  }
+
+  .why {
+    font-size: 1.6cqw;
+    padding: 0.4cqw 1cqw;
+  }
+
+  /* Two players on one screen: each half of it. */
+  .panel {
+    width: 48.3cqw;
+    gap: 0.45cqw;
+  }
+
+  .purse small {
+    font-size: 1.35cqw;
+  }
+
+  .queue i {
+    width: 2.4cqw;
+    height: 1.2cqw;
+  }
+
+  .buttons {
+    gap: 0.5cqw;
+  }
+
+  .btn {
+    height: 7.8cqw;
+    border-radius: 1.2cqw;
+  }
+
+  .btn.small {
+    height: 5.8cqw;
+    padding: 0 0.5cqw 0.35cqw;
+  }
+
+  /* Names may take two lines; a long word breaks rather than vanishes. */
+  .btn .label,
+  .buttons.four .btn:not(.small) .label,
+  .buttons.four .btn:not(.small) .label.long {
+    font-size: 1.3cqw;
+    line-height: 1.02;
+    letter-spacing: 0;
+    white-space: normal;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+
+  .btn.small .label,
+  .btn.small .label.long,
+  .btn.small .label.long.two {
+    font-size: 1.25cqw;
+    text-indent: 0;
+  }
+
+  .btn .sub {
+    font-size: 1.15cqw;
+  }
+
+  .btn .cost {
+    font-size: 1.4cqw;
+  }
+
+  .btn .pic.letter,
+  .panel.right .btn .pic.letter {
+    font-size: 3cqw;
+  }
+
+  /* Against the computer: one row of big buttons for the one player there is. */
+  #hud[data-human='left'] .panel.right,
+  #hud[data-human='right'] .panel.left {
+    display: none;
+  }
+
+  #hud[data-human] .panel {
+    left: 1.4cqw;
+    right: 1.4cqw;
+    width: auto;
+  }
+
+  #hud[data-human] .buttons {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0.6cqw;
+  }
+
+  #hud[data-human] .btn,
+  #hud[data-human] .btn.small,
+  #hud[data-human] .buttons.four .btn:not(.small),
+  #hud[data-human] .buttons.three .btn.small {
+    grid-column: auto;
+    height: 10.5cqw;
+  }
+
+  #hud[data-human] .btn.small {
+    padding: 0 0.6cqw 0.5cqw;
+  }
+
+  #hud[data-human] .btn .label,
+  #hud[data-human] .buttons.four .btn:not(.small) .label,
+  #hud[data-human] .buttons.four .btn:not(.small) .label.long {
+    font-size: 1.55cqw;
+  }
+
+  #hud[data-human] .btn.small .label,
+  #hud[data-human] .btn.small .label.long,
+  #hud[data-human] .btn.small .label.long.two {
+    font-size: 1.5cqw;
+  }
+
+  #hud[data-human] .btn .sub {
+    font-size: 1.3cqw;
+    white-space: normal;
+  }
+
+  #hud[data-human] .btn .cost {
+    top: 0.4cqw;
+    right: 0.45cqw;
+    font-size: 1.7cqw;
+  }
+
+  /* The title card: who plays what, and a big button to start. The pictures stand in for the list of keys. */
+  .card {
+    max-width: 94cqw;
+    padding: 1.4cqw 2.4cqw 1.6cqw;
+  }
+
+  .card h2 {
+    font-size: 1.8cqw;
+  }
+
+  .card p {
+    font-size: 1.45cqw;
+  }
+
+  .versus {
+    gap: 2cqw;
+  }
+
+  .side h3 {
+    gap: 1cqw;
+    font-size: 2.3cqw;
+  }
+
+  .side h3 small {
+    font-size: 1.35cqw;
+  }
+
+  .side h3 .trait {
+    font-size: 1.3cqw;
+  }
+
+  .side .flag {
+    width: 6.4cqw;
+  }
+
+  .side h3 .arrow {
+    padding: 0.9cqw 1.5cqw;
+    border-radius: 1.2cqw;
+    font-size: 2.6cqw;
+  }
+
+  .side .player {
+    margin-bottom: 1cqw;
+    padding: 0.6cqw 1.6cqw;
+    border-radius: 1.1cqw;
+    font-size: 1.9cqw;
+  }
+
+  .keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6cqw;
+  }
+
+  .keys > div,
+  .keys .pic.letter {
+    display: none;
+  }
+
+  .keys .pic {
+    width: 5.6cqw;
+    height: 4.4cqw;
+  }
+
+  .go {
+    padding: 1cqw 3.2cqw;
+    font-size: 2.5cqw;
+  }
+
+  .go.quiet {
+    padding: 0.7cqw 2cqw;
+    font-size: 1.7cqw;
+  }
+}
+
+/* Held upright the field would be a strip: ask for the phone to be turned. */
+@media (pointer: coarse) and (orientation: portrait) {
+  #turn {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 14px;
+    padding: 24px;
+    background: #1c1512;
+    color: var(--paper);
+    font-family: ui-rounded, 'Arial Rounded MT Bold', 'Trebuchet MS', system-ui, sans-serif;
+    text-align: center;
+  }
+
+  #turn svg {
+    width: 150px;
+    animation: turn 2.6s ease-in-out infinite;
+  }
+
+  #turn .body {
+    fill: none;
+    stroke: var(--paper);
+    stroke-width: 4;
+  }
+
+  #turn .glass {
+    fill: #9fd3f2;
+  }
+
+  #turn .arrow {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #turn b {
+    font-size: 22px;
+  }
+
+  #turn span {
+    font-size: 16px;
+    color: #cbb9a8;
+  }
+}
+
+@keyframes turn {
+  0%,
+  20% {
+    rotate: -90deg;
+  }
+  55%,
+  100% {
+    rotate: 0deg;
+  }
 }
