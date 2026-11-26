@@ -646,7 +646,7 @@ lasts. (The brief had a barrage of eleven shots.)
 | The key | `stadssleutel` | | The key of the city, hanging over the turret he took | static |
 
 Special, **De Kater** (slow, built here as a kind of its own): the morning after. Enemy units crawl at 30% of
-their pace for eight seconds under grey clouds raining herring, and go grey; they can still fight.
+their pace for eight seconds under grey clouds raining herring; they can still fight.
 
 **Lines**
 

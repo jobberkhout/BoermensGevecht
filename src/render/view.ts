@@ -92,7 +92,7 @@ export interface UnitView {
   slipUntil: number;
   /** Confetti in its eyes: what it throws misses. */
   blind: boolean;
-  /** Hung over: grey and slow. */
+  /** Hung over: it crawls, under the clouds of De Kater. */
   slowed: boolean;
   /** Seconds since it last did a trick of its own (the beat drop, the key), or a large number. */
   trickTime: number;

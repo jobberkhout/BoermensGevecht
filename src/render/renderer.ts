@@ -68,8 +68,6 @@ const FLAG_SCALE = 0.85;
 /** Per kind of unit: how far above the ground its health bar hangs, how wide it is, and how tall its stand-in box is. */
 /** Frozen in the ice of De winter van '63: everything goes pale and blue. Browsers without canvas filters just skip it. */
 const ICE_FILTER = 'grayscale(0.55) sepia(0.5) hue-rotate(165deg) saturate(1.8) brightness(1.08)';
-/** The grey morning light of De Kater. */
-const KATER_FILTER = 'grayscale(0.75) brightness(0.92)';
 /** How high over the road the clouds of De Kater hang. */
 const KATER_Y = -280;
 
@@ -534,10 +532,10 @@ export class Renderer {
     }
 
     if (v.puppet) {
-      const filter = v.icy ? ICE_FILTER : v.slowed ? KATER_FILTER : '';
-      if (filter) ctx.filter = filter;
+      // No canvas filter for De Kater's hangover: Chromium draws a filtered unit very slowly, and the clouds say enough.
+      if (v.icy) ctx.filter = ICE_FILTER;
       this.drawSolved(v.puppet.rig, v.puppet.world, x, y, facing, scale, slip);
-      if (filter) ctx.filter = 'none';
+      if (v.icy) ctx.filter = 'none';
       if (v.flash > 0) {
         ctx.globalCompositeOperation = 'lighter';
         ctx.globalAlpha = v.flash * 0.55 * fade;
