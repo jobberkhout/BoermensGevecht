@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-122 -128 244 134" data-rig="free">
+  <title>De Drijvende Wijk: een lap drijvende buurt onder zeil, met een containerwoning, een kubus op een paal, palmen en een stadsstrand voorop</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The water it brings along: a ripple on the road under the pontoon. Joint in its middle. -->
+  <g id="water" transform="translate(0 -3)">
+    <g transform="translate(0 3)">
+      <ellipse class="o" style="stroke-width:2" fill="#8fd3e8" cx="0" cy="-3" rx="114" ry="5"/>
+      <path class="t" style="stroke:#f4fbff;stroke-width:1.8" d="M-96 -3.4 Q-88 -6 -80 -3.4 M-40 -2 Q-32 -4.6 -24 -2 M24 -3.6 Q32 -6.2 40 -3.6 M78 -2.4 Q86 -5 94 -2.4"/>
+    </g>
+  </g>
+
+  <!-- The slab: everything rides on it. Here only the mast and the sheets, so the sail can go behind the houses. Joint in its middle. -->
+  <g id="slab" transform="translate(0 -20)">
+    <g transform="translate(0 20)">
+      <!-- the mast, standing behind everything on deck -->
+      <path class="t" style="stroke-width:5.4" d="M-4 -30 L-4 -122"/>
+      <path fill="none" stroke="#c9d4dd" stroke-width="2.6" stroke-linecap="round" d="M-4 -30 L-4 -122"/>
+      <!-- the sheets, from the corners of the sail down to cleats on deck -->
+      <path class="t" style="stroke-width:1.2" d="M-42 -79 L-58 -31 M36 -79 L50 -31"/>
+
+    </g>
+  </g>
+
+  <!-- The sail on its yard, bellied out by the wind from behind, the shipping line's wave-and-anchor on it. Joint at the middle of the yard. -->
+  <g id="sail" data-parent="slab" transform="translate(-4 -116)">
+    <g transform="translate(4 116)">
+      <path class="o" fill="#f4f4f0" d="M-48 -116 L40 -116 Q52 -97 36 -79 L-42 -79 Q-32 -97 -48 -116 Z"/>
+      <path class="n" fill="#dcdcd4" d="M-42 -79 Q-32 -97 -48 -116 L-40 -116 Q-26 -97 -34 -79 Z"/>
+      <path class="n" fill="#1f8a4c" d="M-46.4 -112.4 L41.6 -112.4 Q42.8 -110.6 43.8 -108.6 L-44.6 -108.6 Q-45.4 -110.6 -46.4 -112.4 Z"/>
+      <path class="n" fill="#1f8a4c" d="M-37.6 -87 L46 -87 Q45 -85 43.6 -83 L-38.6 -83 Q-38 -85 -37.6 -87 Z"/>
+      <!-- the emblem: a wave with a small anchor -->
+      <path class="t" style="stroke:#2c3e66;stroke-width:2.2" d="M2 -104 L2 -94 M-1.6 -101 L5.6 -101 M-2.6 -96.6 Q2 -92 6.6 -96.6"/>
+      <path class="t" style="stroke:#2c3e66;stroke-width:2.2" d="M-10 -90.6 Q-6 -93.6 -2 -90.6 Q2 -87.6 6 -90.6 Q10 -93.6 14 -90.6"/>
+      <!-- the yard -->
+      <path class="t" style="stroke-width:5" d="M-52 -116 L44 -116"/>
+      <path fill="none" stroke="#c9934f" stroke-width="2.4" stroke-linecap="round" d="M-52 -116 L44 -116"/>
+    </g>
+  </g>
+
+  <!-- A pennant at the masthead, streaming forward. Joint at the mast top. -->
+  <g id="pennant" data-parent="slab" transform="translate(-4 -122)">
+    <g transform="translate(4 122)">
+      <path class="o" style="stroke-width:2" fill="#1f8a4c" d="M-4 -125 L14 -121.6 L-4 -118.4 Z"/>
+      <path class="n" fill="#f4f4f0" d="M-3 -123 L7 -121.6 L-3 -120.2 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ffd21f" cx="-4" cy="-123" r="2.4"/>
+    </g>
+  </g>
+
+  <!-- What stands on the deck: three little houses, the beach at the bow, and the hull under them. Joint in the middle of the slab. -->
+  <g id="deck" data-parent="slab" transform="translate(0 -20)">
+    <g transform="translate(0 20)">
+      <!-- a white box of a house with solar panels on the roof and a green door -->
+      <rect class="o" fill="#f2f0ea" x="-108" y="-70" width="30" height="40"/>
+      <path class="o" style="stroke-width:2" fill="#2c3e66" d="M-110 -70 L-106 -77 L-80 -77 L-76 -70 Z"/>
+      <path class="t" style="stroke:#8fa3b3;stroke-width:1.2" d="M-101 -76 L-103 -71 M-94 -76 L-95 -71 M-87 -76 L-87 -71"/>
+      <rect class="o" style="stroke-width:2" fill="#7fb8d6" x="-104" y="-64" width="22" height="13" rx="1"/>
+      <path class="t" style="stroke-width:1.2" d="M-93 -64 L-93 -51"/>
+      <path class="n" fill="#d6eef8" d="M-102 -62 L-98 -62 L-101 -53 L-102 -53 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#1f8a4c" x="-102" y="-45" width="9" height="15"/>
+      <rect class="o" style="stroke-width:2" fill="#7fb8d6" x="-89" y="-45" width="8" height="8" rx="1"/>
+
+      <!-- the cube on its pole, tipped on one corner: three faces, a window in each wall -->
+      <path class="o" style="stroke-width:2" fill="#8fa3b3" d="M-62.6 -50 L-55.4 -50 L-55.4 -30 L-62.6 -30 Z"/>
+      <path class="o" fill="#e3b342" d="M-59 -81 L-44.2 -72.5 L-44.2 -55.5 L-59 -47 L-73.8 -55.5 L-73.8 -72.5 Z"/>
+      <path class="o" style="stroke-width:2" fill="#c99a2a" d="M-73.8 -72.5 L-59 -64 L-59 -47 L-73.8 -55.5 Z"/>
+      <path class="o" style="stroke-width:2" fill="#8a96a0" d="M-59 -81 L-44.2 -72.5 L-59 -64 L-73.8 -72.5 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7fb8d6" d="M-55.6 -63 L-48 -67.4 L-48 -60.6 L-55.6 -56.2 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#5f8fab" d="M-69.4 -66 L-63 -62.4 L-63 -56.6 L-69.4 -60.2 Z"/>
+      <path class="n" fill="#d6eef8" d="M-54.6 -61.6 L-52.4 -62.8 L-53.6 -58.4 L-54.6 -57.8 Z"/>
+
+      <!-- a container made into a home: a window, a door, a stovepipe and a pot of geraniums on top -->
+      <rect class="o" fill="#e8731c" x="-40" y="-54" width="30" height="24" rx="1"/>
+      <path class="t" style="stroke:#b8540f;stroke-width:1.2" d="M-36 -51 L-36 -33 M-14 -51 L-14 -33"/>
+      <rect class="o" style="stroke-width:2" fill="#7fb8d6" x="-33" y="-49" width="10" height="9" rx="1"/>
+      <path class="n" fill="#d6eef8" d="M-31.6 -47.6 L-28.6 -47.6 L-30.6 -41.6 L-31.6 -41.6 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#2c3e66" x="-21" y="-46" width="8" height="16"/>
+      <path class="o" style="stroke-width:2" fill="#8fa3b3" d="M-37 -54 L-37 -62 L-33 -62 L-33 -54 Z"/>
+      <path class="o" style="stroke-width:2" fill="#b5523b" d="M-22 -54 L-21 -59 L-13 -59 L-12 -54 Z"/>
+      <circle class="n" fill="#e5283f" cx="-19" cy="-61" r="2.2"/>
+      <circle class="n" fill="#e5283f" cx="-15" cy="-62" r="2.2"/>
+      <path class="n" fill="#3fae6a" d="M-21 -59 Q-23 -63 -20 -63 Z M-13 -59 Q-11 -64 -14 -64 Z"/>
+
+      <!-- the city beach, up at the bow: a dune of sand on the deck -->
+      <path class="o" fill="#f0d98c" d="M30 -30 Q44 -38 64 -37 Q90 -39 108 -30 Z"/>
+      <path class="t" style="stroke:#cdb46a;stroke-width:1.2" d="M50 -33 L56 -34 M74 -33.6 L80 -34 M92 -32.4 L97 -33"/>
+      <!-- a beach ball, a towel, a bucket and spade -->
+      <circle class="o" style="stroke-width:2" fill="#f4f4f0" cx="90" cy="-40" r="6.4"/>
+      <path class="n" fill="#1f8a4c" d="M90 -46.4 Q86 -40 90 -33.6 Q87 -33.8 85 -36 Q83.4 -40 85 -44 Q87 -46 90 -46.4 Z"/>
+      <path class="n" fill="#e8731c" d="M90 -46.4 Q94 -40 90 -33.6 Q93 -33.8 95 -36 Q96.6 -40 95 -44 Q93 -46 90 -46.4 Z"/>
+      <circle class="o" style="stroke-width:2" fill="none" cx="90" cy="-40" r="6.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#6fa8dc" d="M38 -33 L58 -34 L58 -31 L38 -30.6 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M101 -40 L107 -40 L106 -32 L102 -32 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M100 -40 Q104 -44 108 -40"/>
+
+      <!-- the hull of the pontoon -->
+      <path class="o" fill="#b4bec6" d="M-114 -30 L102 -30 Q118 -30 116 -20 Q114 -10 100 -10 L-110 -10 Q-116 -11 -115 -20 Z"/>
+      <path class="n" fill="#5d7487" d="M-113.4 -17 L114.6 -17 Q113 -11.4 100 -11.4 L-110 -11.4 Q-114 -12 -113.4 -17 Z"/>
+      <path class="t" style="stroke:#8a96a0;stroke-width:1.2" d="M-60 -27 L-60 -18 M0 -27 L0 -18 M60 -27 L60 -18"/>
+      <path class="o" style="stroke-width:2" fill="#1f8a4c" d="M-115 -30 L103 -30 Q112 -30 114.4 -25 L-114.6 -25 Z"/>
+      <!-- harbour water dripping off the bottom, mooring cleats on the deck edge, and a lifebuoy -->
+      <path class="o" style="stroke-width:1.6" fill="#8fd3e8" d="M-70 -9 Q-72 -5 -70 -4 Q-68 -5 -70 -9 Z M-8 -9 Q-10 -4.4 -8 -3.4 Q-6 -4.4 -8 -9 Z M52 -9 Q50 -5 52 -4 Q54 -5 52 -9 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#5d7487" d="M-92 -30 L-92 -33 L-84 -33 L-84 -30 Z M44 -30 L44 -33 L52 -33 L52 -30 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f4f4f0" cx="80" cy="-19" r="5.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#b4bec6" cx="80" cy="-19" r="2.2"/>
+      <path class="t" style="stroke:#e8731c;stroke-width:2.6" d="M75.6 -22 L77.6 -21 M84.4 -22 L82.4 -21 M75.6 -16 L77.6 -17 M84.4 -16 L82.4 -17"/>
+    </g>
+  </g>
+
+  <!-- Two palms in a planter. Joint at the planter. -->
+  <g id="palm" data-parent="slab" transform="translate(14 -30)">
+    <g transform="translate(-14 30)">
+      <path class="o" style="stroke-width:2" fill="#8a96a0" d="M2 -30 L4 -38 L24 -38 L26 -30 Z"/>
+      <path class="o" style="stroke-width:2" fill="#a5672e" d="M8 -38 Q6 -56 12 -76 L16 -76 Q11 -56 13 -38 Z"/>
+      <path class="o" style="stroke-width:2" fill="#a5672e" d="M17 -38 Q20 -52 26 -64 L29.4 -63 Q24 -50 22 -38 Z"/>
+      <path class="t" style="stroke:#7a4a26;stroke-width:1.2" d="M8.6 -46 L12.6 -46 M8.4 -56 L12.2 -56 M9.6 -66 L13.6 -66 M19 -46 L22.6 -45 M21.6 -54 L25 -53"/>
+      <path class="o" style="stroke-width:2" fill="#3fae6a" d="M14 -76 Q2 -86 -12 -78 Q0 -80 12 -74 Q0 -76 -6 -66 Q4 -74 14 -74 Q22 -86 34 -82 Q24 -80 16 -74 Q28 -76 32 -66 Q24 -74 14 -73 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f9a5a" d="M28 -63 Q22 -72 12 -68 Q22 -68 27 -61 Q30 -72 42 -70 Q34 -68 29 -61 Q38 -60 40 -52 Q34 -60 28 -61 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#7a4a26" cx="12" cy="-74" r="2.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#7a4a26" cx="16" cy="-73" r="2.4"/>
+    </g>
+  </g>
+
+  <!-- The parasol over the beach, orange and white. Joint at the foot of its pole, in the sand. -->
+  <g id="parasol" data-parent="slab" transform="translate(68 -34)">
+    <g transform="translate(-68 34)">
+      <path class="t" style="stroke-width:4.4" d="M68 -34 L64 -70"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="2" stroke-linecap="round" d="M68 -34 L64 -70"/>
+      <path class="o" fill="#f4f4f0" d="M42 -64 Q48 -80 64 -81 Q80 -80 86 -64 Q80 -67 75 -64 Q70 -67 64 -64 Q58 -67 53 -64 Q48 -67 42 -64 Z"/>
+      <path class="n" fill="#e8731c" d="M44 -65.6 Q48 -76 56 -79.6 Q54 -72 53.4 -64.6 Q48 -67 44 -65.6 Z M64 -81 Q68 -76 75 -64.6 Q70 -67 64.6 -64.6 Q64 -72 64 -81 Z M75 -78.8 Q82 -74 84.6 -65.4 Q80 -66.6 77 -65 Q77 -72 75 -78.8 Z"/>
+      <path class="o" fill="none" d="M42 -64 Q48 -80 64 -81 Q80 -80 86 -64 Q80 -67 75 -64 Q70 -67 64 -64 Q58 -67 53 -64 Q48 -67 42 -64 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#1f8a4c" cx="64" cy="-82.6" r="2.4"/>
+    </g>
+  </g>
+</svg>

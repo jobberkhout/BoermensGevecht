@@ -3,13 +3,16 @@ import { BASE_GAP, CONTACT_GAP } from '../src/defs/balance.ts';
 import { FACTIONS, FACTION_IDS, UNITS } from '../src/defs/index.ts';
 import { BOTS, mixed, random } from '../src/bots/bots.ts';
 import { runMatch, runReplay } from '../src/bots/runMatch.ts';
-import type { SideState, SimState } from '../src/sim/types.ts';
+import type { Block, SideState, SimState } from '../src/sim/types.ts';
 
-/** A side's state without the things that legitimately differ between sides: ids. */
-function shape(side: SideState): unknown {
+/** A side's state without the things that legitimately differ between sides: ids. `blocks` are the containers it dropped. */
+function shape(side: SideState, blocks: readonly Block[] = []): unknown {
   // A turret taken over with the key names the unit that holds it, by id.
   const turrets = side.turrets.map((t) => (t && t.heldBy !== undefined ? { ...t, heldBy: 0 } : t));
   return {
+    rush: side.rushUntil,
+    shelter: [side.shelterUntil, side.shelterPercent],
+    blocks: blocks.map((b) => [b.at, b.width, b.until]),
     era: side.era,
     gold: side.gold,
     baseHp: side.baseHp,
@@ -55,7 +58,8 @@ describe('no side has a built-in advantage', () => {
         factions: [faction, faction],
         bots: [mixed(), mixed()],
         onTick: (s: SimState) => {
-          expect(shape(s.sides[0])).toEqual(shape(s.sides[1]));
+          const dropped = (side: 0 | 1) => s.blocks.filter((b) => b.side === side);
+          expect(shape(s.sides[0], dropped(0))).toEqual(shape(s.sides[1], dropped(1)));
           maxEra = Math.max(maxEra, s.sides[0].era);
           checked++;
         },

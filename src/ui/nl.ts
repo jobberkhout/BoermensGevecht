@@ -8,13 +8,14 @@ import { gasten } from './factions/gasten.ts';
 import { toeristen } from './factions/toeristen.ts';
 import { friezen } from './factions/friezen.ts';
 import { carnaval } from './factions/carnaval.ts';
+import { rotterdam } from './factions/rotterdam.ts';
 
 /**
  * Every piece of text the player sees. What a faction says and is called lives
  * in ui/factions/<faction>.ts; what they all share is here. Change a name in
  * one of those files and it changes everywhere.
  */
-const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen, carnaval };
+const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen, carnaval, rotterdam };
 
 /** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
@@ -179,6 +180,8 @@ export const NL = {
   battleCry: perFaction((text) => text.battleCry),
   riding: perFaction((text) => text.riding ?? {}),
   tossing: perFaction((text) => text.tossing ?? {}),
+  /** Lines shouted now and then instead of a battle cry, per faction, by the enemy faction they are for. */
+  rivals: perFaction((text) => text.rivals ?? {}),
 };
 
 export function nameOf(id: string): string {

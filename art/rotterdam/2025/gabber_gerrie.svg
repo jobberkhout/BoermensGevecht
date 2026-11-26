@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -134 110 140" data-rig="humanoid">
+  <title>Gabber Gerrie: kaal geschoren, een glimmend effen trainingspak met de mouwen opgestroopt, niet meer zo jong, en nog altijd aan het hakken</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm, sleeve pushed up to the elbow, fist clenched: it pumps along. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#efc3a1" d="M-4.5 14 L-4 25 L4.5 25 L4.8 14 Z"/>
+    <path class="o" fill="#197a42" d="M-6 -3 Q-8 6 -6.5 13 L6.5 13 Q7.5 6 6 -3 Z"/>
+    <path class="o" fill="#13603a" d="M-7.6 10 Q-8.4 14 -7 17 L7.4 17 Q8.4 13.6 7.6 10 Z"/>
+    <circle class="o" fill="#efc3a1" cx="0.4" cy="28.4" r="5.2"/>
+  </g>
+
+  <!-- Shiny tracksuit trousers, no stripes, elastic at the ankle, big white trainers. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#197a42" d="M-7.5 -3 L7.5 -3 L7 26 L-7 26 Z"/>
+    <path class="o" fill="#13603a" d="M-7 24 L7 24 L6.4 30.5 L-6.4 30.5 Z"/>
+    <path class="o" fill="#e4e4e4" d="M-8.5 34.5 Q-8.5 29.5 -4 29.5 L4 29.5 Q12.5 30 15.5 34 L15.5 38 L-8.5 38 Z"/>
+    <path class="n" fill="#b9b9b9" d="M-7.5 35.4 L14.6 35.4 L14.6 37.4 L-7.5 37.4 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#1f8a4c" d="M-7.5 -3 L7.5 -3 L7 26 L-7 26 Z"/>
+    <path class="n" fill="#4fbf7d" d="M3 0 L5.4 0 L5 22 L2.8 22 Z"/>
+    <path class="o" fill="#167040" d="M-7 24 L7 24 L6.4 30.5 L-6.4 30.5 Z"/>
+    <path class="o" fill="#fafafa" d="M-8.5 34.5 Q-8.5 29.5 -4 29.5 L4 29.5 Q12.5 30 15.5 34 L15.5 38 L-8.5 38 Z"/>
+    <path class="n" fill="#cfcfcf" d="M-7.5 35.4 L14.6 35.4 L14.6 37.4 L-7.5 37.4 Z"/>
+    <path class="t" style="stroke:#b0b0b0;stroke-width:1.2" d="M3 31.4 L6 32.6 M5.4 30.8 L8.4 32"/>
+  </g>
+
+  <!-- The tracksuit jacket over a belly that was not there in 1993. Zip half open, a white vest, a thin chain. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#1f8a4c" d="M-15 7 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q23 -17 21 -2 Q20 5 16 8 Z"/>
+    <!-- the shine of the nylon -->
+    <path class="n" fill="#4fbf7d" d="M-12 -28 Q-9 -34 -3 -35 Q-9 -29 -10 -10 L-13 -10 Q-14 -20 -12 -28 Z"/>
+    <path class="n" fill="#4fbf7d" d="M13 -22 Q19 -14 18 -3 Q15 -11 13 -22 Z"/>
+    <!-- the elastic band round the hem -->
+    <path class="o" fill="#13603a" d="M-15.4 2.5 L20.2 2.5 Q19.4 7 16 9 L-15 9 Z"/>
+    <!-- the vest, the chain, the zip -->
+    <path class="o" fill="#fafafa" d="M-3 -37.5 L4 -24 L10 -36.5 Q3 -39 -3 -37.5 Z"/>
+    <path fill="none" stroke="#e6b422" stroke-width="1.6" stroke-linecap="round" d="M-1.6 -36.4 Q3 -28 8.6 -35.6"/>
+    <path class="t" d="M4 -24 Q10 -12 9.4 2.5"/>
+    <rect class="o" style="stroke-width:1.4" fill="#d9d9d9" x="2.6" y="-25.4" width="3" height="5" rx="1"/>
+    <!-- the collar, standing up -->
+    <path class="o" fill="#167040" d="M-6 -38.5 L-3 -37.5 L3 -25.6 L0 -28 Z M12 -37.5 L10 -36.5 L5 -25.6 L8.4 -28.6 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#dca684" x="-5" y="-7" width="11" height="10" rx="2"/>
+    <ellipse class="o" fill="#efc3a1" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <!-- shaved, with a few days on it, and the shine of a man who has been going since ten -->
+    <path class="n" fill="#6d7486" fill-opacity="0.24" d="M-15.4 -25 Q-16.6 -38.6 2 -38.6 Q16.5 -38.6 19.6 -29.5 Q12 -31.2 5 -30.6 Q-5 -30 -9.5 -23 Q-12.6 -21 -15.4 -25 Z"/>
+    <ellipse class="n" fill="#ffffff" fill-opacity="0.7" cx="-1" cy="-34" rx="6" ry="2.2" transform="rotate(-10 -1 -34)"/>
+    <ellipse class="o" fill="#efc3a1" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <circle fill="none" stroke="#e6b422" stroke-width="1.7" cx="-9.6" cy="-12.6" r="2.2"/>
+    <!-- grey stubble on the jaw, and the start of a second chin -->
+    <path class="n" fill="#a59a92" fill-opacity="0.6" d="M-8 -13 Q-8 -3.5 3 -3.5 Q17 -3.5 19.6 -12.5 Q12 -8 5 -8.6 Q-2.6 -9 -8 -13 Z"/>
+    <path class="t" style="stroke-width:1.3" d="M-1 -4.6 Q5 -1.6 11 -4.2"/>
+    <!-- wide eyes, brows down: nothing will stop the beat -->
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="10" cy="-21" r="3.7"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="17.8" cy="-21.4" r="3"/>
+    <circle class="n" fill="#2b1b16" cx="11.4" cy="-21" r="1.5"/>
+    <circle class="n" fill="#2b1b16" cx="18.8" cy="-21.4" r="1.3"/>
+    <path class="t" style="stroke-width:2.2" d="M5 -28.6 L13.6 -25.6 M15.6 -25.4 L21.4 -28.2"/>
+    <path class="t" style="stroke-width:1.1" d="M5 -22.6 L2.4 -23.6 M5 -20 L2.4 -19.6"/>
+    <!-- a forehead that has seen thirty years of Saturday nights -->
+    <path class="t" style="stroke-width:1.2;stroke:#b97f62" d="M4 -32 Q10 -33.4 16 -31.6 M6 -35.4 Q10.6 -36.4 14.6 -35.2"/>
+    <path class="o" fill="#efb090" d="M19.5 -18.5 Q25.5 -15 20 -12"/>
+    <!-- teeth clenched in a grin -->
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M6.5 -11 Q13 -4 20 -11.6 Q13 -12.8 6.5 -11 Z"/>
+    <path class="t" style="stroke-width:1" d="M7.6 -10.2 Q13 -7.6 19.2 -10.8 M10.6 -11.6 L10.4 -8.4 M14 -11.8 L14 -7.6 M17.2 -11.4 L17.2 -8.6"/>
+  </g>
+
+  <!-- Sweat, flying off the back of his head. -->
+  <g id="sweat" data-parent="head" transform="translate(-14 -110)">
+    <path class="o" style="stroke-width:1.4" fill="#bfe8fb" d="M0 -6 Q-3.6 -0.6 -1.6 1.8 Q1 3.2 2.2 0.4 Q2.4 -2.4 0 -6 Z" transform="rotate(-40)"/>
+    <path class="o" style="stroke-width:1.4" fill="#bfe8fb" d="M0 -5 Q-3 -0.5 -1.4 1.5 Q0.8 2.7 1.8 0.4 Q2 -2 0 -5 Z" transform="translate(-6 10) rotate(-70)"/>
+  </g>
+
+  <!-- The near arm, cocked, fist up: the next pump is coming. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path fill="none" stroke="#2b1b16" stroke-width="11" stroke-linecap="round" d="M2.5 14 L15 1"/>
+    <path fill="none" stroke="#efc3a1" stroke-width="6.2" stroke-linecap="round" d="M2.5 14 L15 1"/>
+    <!-- an anchor on the forearm -->
+    <path fill="none" stroke="#3f6aa8" stroke-width="1.1" stroke-linecap="round" d="M6.6 10.6 L11.4 5.4 M7.4 6.4 L10.6 9.6 M6 8.6 Q6.2 12 9.2 12.2"/>
+    <path class="o" fill="#1f8a4c" d="M-6 -3 Q-8 6 -5.5 14 L6.5 13 Q7.4 5 6 -3 Z"/>
+    <path class="n" fill="#4fbf7d" d="M1.6 -1 L4.4 -1 Q5 5 4 10 L1.6 10 Z"/>
+    <path class="o" fill="#13603a" d="M-7 10.4 Q-7.6 14.6 -5 17.4 L8 16.2 Q8.8 12.4 7.6 9.4 Z"/>
+    <circle class="o" fill="#efc3a1" cx="16" cy="-0.6" r="5.6"/>
+    <path class="t" style="stroke-width:1.2" d="M17.4 -4.8 L21 -3 M18.4 -0.8 L21.6 0.4"/>
+  </g>
+</svg>

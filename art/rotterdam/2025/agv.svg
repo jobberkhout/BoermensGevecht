@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-118 -124 236 130" data-rig="vehicle">
+  <title>De AGV: een zelfrijdende containerwagen, laag en plat, met een container erop en daarbovenop de "chauffeur" aan een bureautje, voeten omhoog, koffie in de hand</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The carrier: a low steel slab on wheels, no cab, hazard stripes at both ends, a sensor in front. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -24)">
+    <path class="o" fill="#5d7487" d="M-108 -8 Q-112 -8 -112 -4 L-112 6 Q-112 10 -108 10 L108 10 Q112 10 112 6 L112 -4 Q112 -8 108 -8 Z"/>
+    <path class="n" fill="#7690a4" d="M-106 -5.6 L106 -5.6 L106 -2.6 L-106 -2.6 Z"/>
+    <!-- hazard stripes -->
+    <path class="n" fill="#f2c230" d="M-110 -1 L-92 -1 L-92 8 L-110 8 Z M92 -1 L110 -1 L110 8 L92 8 Z"/>
+    <path class="n" fill="#2b1b16" d="M-108 -1 L-104 -1 L-110 5 L-110 1 Z M-100 -1 L-96 -1 L-105 8 L-109 8 Z M-93 -0.6 L-92 -0.6 L-92 3.2 L-97 8 L-101 8 Z M94 -1 L98 -1 L92 5 L92 1 Z M102 -1 L106 -1 L97 8 L93 8 Z M109.4 -0.4 L110 2.4 L104.6 8 L100.6 8 Z"/>
+    <path class="t" d="M-110 -1 L-92 -1 L-92 8 M110 -1 L92 -1 L92 8"/>
+    <!-- the sensor: it does the driving -->
+    <rect class="o" fill="#2f333c" x="104" y="-16" width="9" height="8" rx="2"/>
+    <rect class="n" fill="#8fd3f0" x="108" y="-14" width="4" height="4" rx="1"/>
+    <!-- the wheel wells -->
+    <path class="n" fill="#3d4d5a" d="M-92 10 Q-92 -2 -80 -2 Q-68 -2 -68 10 Z M-62 10 Q-62 -2 -50 -2 Q-38 -2 -38 10 Z M38 10 Q38 -2 50 -2 Q62 -2 62 10 Z M68 10 Q68 -2 80 -2 Q92 -2 92 10 Z"/>
+  </g>
+
+  <!-- The orange beacon on the front corner. -->
+  <g id="beacon" data-parent="body" transform="translate(-104 -34)">
+    <rect class="o" style="stroke-width:2" fill="#2f333c" x="-4" y="-1" width="8" height="4" rx="1"/>
+    <path class="o" style="stroke-width:2" fill="#ff9a1f" d="M-3.4 -1 Q-3.4 -8 0 -8 Q3.4 -8 3.4 -1 Z"/>
+    <path class="n" fill="#ffd27a" d="M-1.6 -2 Q-1.6 -6 0 -6.4 L0 -2 Z"/>
+  </g>
+
+  <!-- The container: Nultien Lines orange, corrugated, doors with locking bars at the back. Joint in the middle of its bottom. -->
+  <g id="container" data-parent="body" transform="translate(0 -32)">
+    <rect class="o" fill="#e8731c" x="-98" y="-42" width="196" height="42" rx="1.5"/>
+    <!-- the ribs -->
+    <path class="t" style="stroke:#c25a10;stroke-width:2.2" d="M-64 -38 L-64 -4 M-56 -38 L-56 -4 M-48 -38 L-48 -4 M-40 -38 L-40 -4 M-32 -38 L-32 -4 M-24 -38 L-24 -4 M24 -38 L24 -4 M32 -38 L32 -4 M40 -38 L40 -4 M48 -38 L48 -4 M56 -38 L56 -4 M64 -38 L64 -4 M72 -38 L72 -4 M80 -38 L80 -4 M88 -38 L88 -4"/>
+    <path class="t" style="stroke:#f59a4e;stroke-width:1.2" d="M-62 -38 L-62 -4 M-54 -38 L-54 -4 M-46 -38 L-46 -4 M-38 -38 L-38 -4 M-30 -38 L-30 -4 M26 -38 L26 -4 M34 -38 L34 -4 M42 -38 L42 -4 M50 -38 L50 -4 M58 -38 L58 -4 M66 -38 L66 -4 M74 -38 L74 -4 M82 -38 L82 -4 M90 -38 L90 -4"/>
+    <!-- top and bottom rails -->
+    <path class="n" fill="#c25a10" d="M-97 -41 L97 -41 L97 -37.6 L-97 -37.6 Z M-97 -4 L97 -4 L97 -1 L-97 -1 Z"/>
+    <!-- the doors at the back end, and their locking bars -->
+    <path class="t" d="M-70 -41 L-70 -1 M-84 -41 L-84 -1"/>
+    <path class="t" style="stroke-width:2.2" d="M-91 -39 L-91 -3 M-77 -39 L-77 -3"/>
+    <path fill="none" stroke="#d6dbe0" stroke-width="1.2" stroke-linecap="round" d="M-91 -39 L-91 -3 M-77 -39 L-77 -3"/>
+    <rect class="o" style="stroke-width:1.4" fill="#d6dbe0" x="-93.4" y="-23" width="5" height="3" rx="1"/>
+    <rect class="o" style="stroke-width:1.4" fill="#d6dbe0" x="-79.4" y="-23" width="5" height="3" rx="1"/>
+    <!-- the emblem: a wave and a small anchor -->
+    <path fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" d="M-15 -10 Q-10 -15.6 -5 -10 Q0 -4.4 5 -10 Q10 -15.6 15 -10"/>
+    <path fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" d="M0 -33 L0 -14.6 M-5.6 -28 L5.6 -28 M-8.4 -21 Q-7.6 -14 0 -13.8 Q7.6 -14 8.4 -21"/>
+    <circle fill="none" stroke="#ffffff" stroke-width="2.4" cx="0" cy="-35.4" r="2.4"/>
+    <!-- corner castings -->
+    <rect class="o" style="stroke-width:1.8" fill="#b44f0c" x="-98" y="-42" width="7" height="6" rx="0.8"/>
+    <rect class="o" style="stroke-width:1.8" fill="#b44f0c" x="91" y="-42" width="7" height="6" rx="0.8"/>
+    <rect class="o" style="stroke-width:1.8" fill="#b44f0c" x="-98" y="-6" width="7" height="6" rx="0.8"/>
+    <rect class="o" style="stroke-width:1.8" fill="#b44f0c" x="91" y="-6" width="7" height="6" rx="0.8"/>
+  </g>
+
+  <!-- The desk on the roof of the container: a joystick nobody touches. Joint at the foot of the desk. -->
+  <g id="desk" data-parent="container" transform="translate(52 -74)">
+    <path class="t" style="stroke-width:3.4" d="M-12 0 L-12 -11 M14 0 L14 -11"/>
+    <path fill="none" stroke="#8e979f" stroke-width="1.6" stroke-linecap="round" d="M-12 0 L-12 -11 M14 0 L14 -11"/>
+    <rect class="o" fill="#c9a06a" x="-19" y="-15" width="39" height="5" rx="1.4"/>
+    <!-- the joystick -->
+    <rect class="o" style="stroke-width:2" fill="#2f333c" x="5" y="-21" width="12" height="6" rx="1.6"/>
+    <path class="t" style="stroke-width:2.6" d="M11 -21 L13 -28"/>
+    <circle class="o" style="stroke-width:1.8" fill="#e5283f" cx="13.4" cy="-29" r="2.6"/>
+    <circle class="n" fill="#5ce0a0" cx="8" cy="-18" r="1"/>
+  </g>
+
+  <!-- The "driver": office chair, hi-vis vest, hard hat pushed back, feet up on the desk, a hand behind his head. Joint at the seat. -->
+  <g id="driver" data-parent="container" transform="translate(4 -82)">
+    <g transform="scale(0.85)">
+    <!-- the chair -->
+    <path class="t" style="stroke-width:3.6" d="M2 2 L2 10 M-6 10 L10 10"/>
+    <path fill="none" stroke="#8e979f" stroke-width="1.6" stroke-linecap="round" d="M2 2 L2 10 M-6 10 L10 10"/>
+    <path class="o" fill="#2f333c" d="M-12 -14 Q-14 -18 -11 -20 L-8 -20 L-4 0 L-7 1 Z"/>
+    <rect class="o" fill="#2f333c" x="-9" y="-1" width="20" height="4.6" rx="2"/>
+    <!-- the legs, straight out, ankles crossed on the desk -->
+    <path class="o" fill="#2c3e66" d="M-2 -4 L40 -14 L41 -7 L0 2 Z"/>
+    <path class="n" fill="#3d5384" d="M2 -3 L36 -11 L36.4 -9.6 L2.6 -1.6 Z"/>
+    <path class="o" fill="#3a3f4a" d="M38 -16 L46 -18 Q50 -18 50 -14 L49 -10 L39 -8 Z"/>
+    <path class="o" fill="#4a5060" d="M37 -19.6 Q43 -24 47 -22.6 L47.6 -18.6 L38.6 -16.4 Z"/>
+    <!-- the far arm, hand behind his head -->
+    <path class="o" fill="#2c3e66" d="M-9 -16 L-20 -24 L-16 -29 L-6 -21 Z"/>
+    <!-- the torso, leaning back: navy work clothes under a hi-vis vest -->
+    <path class="o" fill="#2c3e66" d="M-11 -2 Q-14 -12 -11 -20 Q-8 -25 -2 -24 Q4 -23 5 -16 Q6 -8 4 -2 Z"/>
+    <path class="o" fill="#f2e33a" d="M-10.4 -4 Q-13 -12 -10 -19.6 Q-7 -23.4 -3 -23 L-1 -12 L3 -23 Q5 -21 5 -16 Q5.6 -9 3.6 -4 Z"/>
+    <path class="n" fill="#dfe6ea" d="M-12 -11 L4.8 -11 L4.8 -8.4 L-12 -8.4 Z"/>
+    <!-- the head, tipped back -->
+    <rect class="o" style="stroke-width:2" fill="#d9a585" x="-7" y="-28" width="6" height="5" rx="1.5"/>
+    <circle class="o" fill="#efc3a1" cx="-4" cy="-33" r="8.4"/>
+    <path class="o" style="stroke-width:2" fill="#efc3a1" d="M3.6 -34.4 Q7.6 -32.6 4 -30"/>
+    <!-- a moustache, eyes half shut: this is the life -->
+    <path class="o" style="stroke-width:1.6" fill="#7a5a3a" d="M-1 -29.6 Q2 -31.4 4.6 -29.4 Q2 -27.8 -1 -29.6 Z"/>
+    <path class="t" style="stroke-width:1.6" d="M-0.6 -35.4 L3 -35.6"/>
+    <path class="t" style="stroke-width:1.1" d="M-2 -26.6 Q0.6 -25.6 2.6 -27"/>
+    <!-- the white hard hat, pushed back -->
+    <path class="o" fill="#fafafa" d="M-13.4 -36 Q-14 -47 -4 -47 Q5.6 -47 5 -38.4 Q-4 -40 -13.4 -36 Z"/>
+    <path class="o" style="stroke-width:2" fill="#e6e6e6" d="M-15.6 -35.4 L-12 -37.6 L5.6 -39.4 L7.6 -37.6 Z"/>
+    <path class="n" fill="#ffffff" d="M-9 -44 Q-5 -46 -1 -45.2 L-6 -42 Z"/>
+    </g>
+  </g>
+
+  <!-- The coffee, waiting inside the mug: it jumps out when he gets bumped. Drawn before the arm so the mug hides it. -->
+  <g id="splash" data-parent="cup_arm" transform="translate(15.4 -102)">
+    <path class="o" style="stroke-width:1.4" fill="#7a4a2a" d="M-3 2.4 Q-3.6 -1.4 -1.4 -2.4 Q0 -4.4 1.6 -2.4 Q3.6 -1.6 3 2.4 Z"/>
+    <circle class="o" style="stroke-width:1" fill="#7a4a2a" cx="-2.2" cy="-3" r="1"/>
+    <circle class="o" style="stroke-width:1" fill="#7a4a2a" cx="2.4" cy="-3.4" r="0.9"/>
+  </g>
+
+  <!-- His near arm with the coffee. Joint at the shoulder. -->
+  <g id="cup_arm" data-parent="driver" transform="translate(0 -100)">
+    <g transform="scale(0.85)">
+    <path class="o" fill="#2c3e66" d="M-4 -3 Q1 -5 3 -1 L10 6 L6 10 L-2 3 Q-6 1 -4 -3 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="8" stroke-linecap="round" d="M8 8 L15 2"/>
+    <path fill="none" stroke="#efc3a1" stroke-width="4.4" stroke-linecap="round" d="M8 8 L15 2"/>
+    <!-- the mug: no logo, just coffee -->
+    <path class="o" style="stroke-width:2" fill="#ffffff" d="M13 -7 L22 -7 L21 3 L14 3 Z"/>
+    <path class="t" style="stroke-width:1.8" d="M21.6 -5 Q25.6 -4 21.4 0.6"/>
+    <path class="n" fill="#1f8a4c" d="M13.6 -3 L21.4 -3 L21.2 -1 L13.8 -1 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#efc3a1" cx="15.6" cy="1.4" r="3"/>
+    </g>
+  </g>
+
+  <!-- Steam off the coffee. -->
+  <g id="steam" data-parent="cup_arm" transform="translate(15 -107)">
+    <path fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" d="M-1.6 0 Q-3.6 -3 -1.6 -6 Q0.4 -9 -1.6 -12 M2.6 -1 Q0.8 -3.6 2.6 -6.4"/>
+    <path fill="none" stroke="#bfc7cf" stroke-width="0.9" stroke-linecap="round" d="M-1.6 0 Q-3.6 -3 -1.6 -6 Q0.4 -9 -1.6 -12 M2.6 -1 Q0.8 -3.6 2.6 -6.4"/>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-80 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="5.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -5.4 L0 -2 M0 5.4 L0 2 M-5.4 0 L-2 0 M5.4 0 L2 0"/>
+  </g>
+  <g id="wheel_back2" data-parent="chassis" transform="translate(-50 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="5.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -5.4 L0 -2 M0 5.4 L0 2 M-5.4 0 L-2 0 M5.4 0 L2 0"/>
+  </g>
+  <g id="wheel_front2" data-parent="chassis" transform="translate(50 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="5.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -5.4 L0 -2 M0 5.4 L0 2 M-5.4 0 L-2 0 M5.4 0 L2 0"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(80 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="5.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -5.4 L0 -2 M0 5.4 L0 2 M-5.4 0 L-2 0 M5.4 0 L2 0"/>
+  </g>
+</svg>

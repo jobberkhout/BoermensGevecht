@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -156 232 162" data-rig="static">
+  <title>De kering sluit: twee witte vakwerkarmen zwaaien dicht over grijsgroen water, en de golf slaat er tegenaan</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The sea behind the barrier, piling up against it. Joint at the waterline in the middle, so it can surge. -->
+  <g id="wave" transform="translate(0 -24)">
+    <g transform="translate(0 24)">
+      <path class="o" fill="#6f9488" d="M-116 -24 L-116 -60 Q-104 -70 -92 -64 Q-80 -80 -64 -74 Q-50 -92 -34 -84 Q-20 -102 -6 -94 Q0 -100 6 -94 Q20 -102 34 -84 Q50 -92 64 -74 Q80 -80 92 -64 Q104 -70 116 -60 L116 -24 Z"/>
+      <path class="n" fill="#87aa9e" d="M-112 -56 Q-100 -64 -90 -58 Q-78 -72 -64 -68 Q-74 -60 -88 -54 Q-100 -54 -112 -50 Z M112 -56 Q100 -64 90 -58 Q78 -72 64 -68 Q74 -60 88 -54 Q100 -54 112 -50 Z"/>
+      <path class="t" style="stroke:#a9c4ba;stroke-width:2" d="M-100 -46 Q-90 -50 -80 -46 M-66 -54 Q-56 -58 -46 -54 M46 -54 Q56 -58 66 -54 M80 -46 Q90 -50 100 -46"/>
+      <!-- white caps on the crests -->
+      <path class="o" style="stroke-width:2" fill="#f4f4f0" d="M-86 -68 Q-80 -80 -70 -75 Q-76 -74 -78 -70 Q-82 -72 -86 -68 Z M-44 -86 Q-34 -86 -28 -90 Q-20 -102 -10 -96 Q-16 -94 -18 -90 Q-24 -92 -28 -88 Q-36 -84 -44 -86 Z M86 -68 Q80 -80 70 -75 Q76 -74 78 -70 Q82 -72 86 -68 Z M44 -86 Q34 -86 28 -90 Q20 -102 10 -96 Q16 -94 18 -90 Q24 -92 28 -88 Q36 -84 44 -86 Z"/>
+    </g>
+  </g>
+
+  <!-- The spray it throws over the top when it hits: jets and drops of water. Joint at the top of the gates, in the middle. -->
+  <g id="spray" transform="translate(0 -100)">
+    <g transform="translate(0 100)">
+      <path class="o" style="stroke-width:2.2" fill="#d6eef8" d="M-8 -100 Q-30 -112 -42 -132 Q-24 -122 -12 -112 Q-14 -130 -6 -146 Q-2 -128 0 -112 Q4 -132 14 -144 Q10 -126 8 -110 Q24 -124 40 -130 Q28 -112 8 -100 Z"/>
+      <path class="n" fill="#ffffff" d="M-6 -104 Q-6 -120 -4 -134 Q-1 -120 -2 -106 Z M4 -106 Q6 -120 11 -132 Q8 -118 7 -106 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d6eef8" d="M-48 -138 Q-46 -144 -44 -138 Q-44 -135 -46 -135 Q-48 -135 -48 -138 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d6eef8" d="M-20 -146 Q-18 -152 -16 -146 Q-16 -143 -18 -143 Q-20 -143 -20 -146 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d6eef8" d="M22 -150 Q24 -156 26 -150 Q26 -147 24 -147 Q22 -147 22 -150 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d6eef8" d="M46 -136 Q48 -142 50 -136 Q50 -133 48 -133 Q46 -133 46 -136 Z"/>
+    </g>
+  </g>
+
+  <!-- The banks: a concrete abutment on each side, with the huge ball joint the arm turns on. Origin = the middle of the ground. -->
+  <g id="banks" transform="translate(0 0)">
+    <path class="o" fill="#b4bec6" d="M-116 0 L-116 -50 L-90 -50 L-84 0 Z"/>
+    <path class="o" fill="#b4bec6" d="M116 0 L116 -50 L90 -50 L84 0 Z"/>
+    <path class="n" fill="#97a3ad" d="M-114.6 -38 L-88.6 -38 L-87.6 -30 L-114.6 -30 Z M114.6 -38 L88.6 -38 L87.6 -30 L114.6 -30 Z"/>
+    <!-- a little flagpole on the left abutment: the city's green and white -->
+    <path class="t" style="stroke-width:2.4" d="M-112 -50 L-112 -80"/>
+    <path class="o" style="stroke-width:1.8" fill="#f4f4f0" d="M-112 -80 L-98 -80 L-98 -70 L-112 -70 Z"/>
+    <path class="n" fill="#1f8a4c" d="M-111 -79 L-99 -79 L-99 -76.4 L-111 -76.4 Z M-111 -73.6 L-99 -73.6 L-99 -71 L-111 -71 Z"/>
+  </g>
+
+  <!-- The left arm: a white lattice truss from its ball joint on the bank to the curved gate at its tip. Joint at the ball joint, so the arm can swing shut; foreshortening it (sx) is the swing. -->
+  <g id="arm_left" data-parent="banks" transform="translate(-100 -58)">
+    <g transform="translate(100 58)">
+      <path class="t" style="stroke-width:5" d="M-98 -58 L-85 -68.7 L-74 -51.6 L-63 -82 L-52 -49.3 L-40 -96 M-85 -68.7 L-85 -52.8 M-74 -75.4 L-74 -51.6 M-63 -82 L-63 -50.5 M-52 -88.7 L-52 -49.3"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M-98 -58 L-85 -68.7 L-74 -51.6 L-63 -82 L-52 -49.3 L-40 -96 M-85 -68.7 L-85 -52.8 M-74 -75.4 L-74 -51.6 M-63 -82 L-63 -50.5 M-52 -88.7 L-52 -49.3"/>
+      <path class="t" style="stroke-width:7" d="M-96 -62 L-40 -96 M-96 -54 L-40 -48"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="4" stroke-linecap="round" d="M-96 -62 L-40 -96 M-96 -54 L-40 -48"/>
+      <path class="o" fill="#f4f4f0" d="M-60 -76 Q-34 -98 -3 -98 L-3 -22 L-60 -22 Q-63 -50 -60 -76 Z"/>
+      <path class="n" fill="#d6dcd8" d="M-58 -74 Q-61 -50 -58 -24 L-50 -24 Q-52 -50 -50 -82 Z"/>
+      <path class="t" style="stroke:#b4bec6;stroke-width:1.4" d="M-44 -87 L-44 -24 M-30 -93 L-30 -24 M-16 -97 L-16 -24 M-58 -56 L-4 -56"/>
+      <path class="o" fill="none" d="M-60 -76 Q-34 -98 -3 -98 L-3 -22 L-60 -22 Q-63 -50 -60 -76 Z"/>
+    </g>
+  </g>
+
+  <!-- The right arm, the same in mirror. Joint at its ball joint. -->
+  <g id="arm_right" data-parent="banks" transform="translate(100 -58)">
+    <g transform="translate(-100 58)">
+      <path class="t" style="stroke-width:5" d="M 98 -58 L 85 -68.7 L 74 -51.6 L 63 -82 L 52 -49.3 L 40 -96 M 85 -68.7 L 85 -52.8 M 74 -75.4 L 74 -51.6 M 63 -82 L 63 -50.5 M 52 -88.7 L 52 -49.3"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M 98 -58 L 85 -68.7 L 74 -51.6 L 63 -82 L 52 -49.3 L 40 -96 M 85 -68.7 L 85 -52.8 M 74 -75.4 L 74 -51.6 M 63 -82 L 63 -50.5 M 52 -88.7 L 52 -49.3"/>
+      <path class="t" style="stroke-width:7" d="M 96 -62 L 40 -96 M 96 -54 L 40 -48"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="4" stroke-linecap="round" d="M 96 -62 L 40 -96 M 96 -54 L 40 -48"/>
+      <path class="o" fill="#f4f4f0" d="M 60 -76 Q 34 -98 3 -98 L 3 -22 L 60 -22 Q 63 -50 60 -76 Z"/>
+      <path class="n" fill="#d6dcd8" d="M 58 -74 Q 61 -50 58 -24 L 50 -24 Q 52 -50 50 -82 Z"/>
+      <path class="t" style="stroke:#b4bec6;stroke-width:1.4" d="M 44 -87 L 44 -24 M 30 -93 L 30 -24 M 16 -97 L 16 -24 M 58 -56 L 4 -56"/>
+      <path class="o" fill="none" d="M 60 -76 Q 34 -98 3 -98 L 3 -22 L 60 -22 Q 63 -50 60 -76 Z"/>
+    </g>
+  </g>
+
+  <!-- The ball joints, drawn over the ends of the arms. -->
+  <g id="joints" data-parent="banks" transform="translate(0 -58)">
+    <g transform="translate(0 58)">
+      <circle class="o" fill="#8fa3b3" cx="-100" cy="-58" r="10"/>
+      <path class="n" fill="#c9d4dd" d="M-106 -62 Q-104 -66 -99 -66 Q-103 -64 -104 -60 Z"/>
+      <circle class="o" fill="#8fa3b3" cx="100" cy="-58" r="10"/>
+      <path class="n" fill="#c9d4dd" d="M94 -62 Q96 -66 101 -66 Q97 -64 96 -60 Z"/>
+    </g>
+  </g>
+
+  <!-- The water on this side, calm: grey-green, over the feet of the gates. Joint in its middle. -->
+  <g id="water" transform="translate(0 -12)">
+    <g transform="translate(0 12)">
+      <path class="o" fill="#7f9f94" d="M-86 0 L-86 -22 Q-60 -26 -30 -22 Q0 -18 30 -22 Q60 -26 86 -22 L86 0 Z"/>
+      <path class="t" style="stroke:#a9c4ba;stroke-width:2" d="M-70 -14 Q-62 -17 -54 -14 M-20 -10 Q-12 -13 -4 -10 M30 -14 Q38 -17 46 -14 M60 -7 Q66 -9 72 -7"/>
+      <!-- the foam where the gates meet the water -->
+      <path class="o" style="stroke-width:2" fill="#f4f4f0" d="M-30 -22 Q-26 -27 -20 -24 Q-14 -28 -8 -24 Q-3 -27 0 -24 Q3 -27 8 -24 Q14 -28 20 -24 Q26 -27 30 -22 Q15 -19 0 -20 Q-15 -19 -30 -22 Z"/>
+    </g>
+  </g>
+</svg>

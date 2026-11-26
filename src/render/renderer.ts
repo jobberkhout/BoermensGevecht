@@ -727,7 +727,10 @@ export class Renderer {
     if (rig) {
       const idle = CLIPS[rig.id]?.idle;
       ctx.globalAlpha = Math.max(0, leave);
-      this.drawLoose(rig, b.x, rowY(1) + 6, facing, 0.6 + 0.4 * grow, idle, idle ? (time / (idle.seconds ?? 2)) % 1 : 0);
+      // A container falls out of the sky at full size and lands on the road; anything else pops up.
+      const fall = b.drop ? Math.max(0, 1 - b.age / DROP_SECONDS) : 0;
+      const y = rowY(1) + 6 - 520 * fall * fall;
+      this.drawLoose(rig, b.x, y, facing, b.drop ? 1 : 0.6 + 0.4 * grow, idle, idle ? (time / (idle.seconds ?? 2)) % 1 : 0);
       ctx.globalAlpha = 1;
       return;
     }

@@ -10,7 +10,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 | [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Built** |
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | **Built** |
 | [De Friezen](#3-de-friezen) | Proud, stubborn, on skates: in the game De Elf Steden | **Built** |
-| [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
+| [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | **Built** |
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Built** |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
 | [De Camping](#7-de-camping) | The Netherlands on holiday | Concept, waiting for approval |
@@ -120,7 +120,7 @@ would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Fifteen kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Eighteen kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
@@ -139,6 +139,9 @@ Every faction has three specials, one per era, each of a different kind. Fifteen
 | Conga | A line sweeps the lane and every enemy unit it passes dances back towards its own base for a few seconds, without fighting; it hurts nobody | De Polonaise |
 | Blind | For a few seconds whatever the enemy units on the lane throw misses; blows up close and turrets are not affected | Elf Kanonschoten |
 | Slow | Enemy units crawl for a few seconds; they can still fight | De Kater |
+| Rush | For a few seconds everything you train is ready at once: the queue empties as fast as the gate has room | Mouwen opstropen! |
+| Block | Something lands on the enemy's foremost unit: it hurts their units under it, pushes both front lines out from under it, and nobody walks past it for a few seconds | De container |
+| Shelter | For a few seconds your units take only part of every blow, throw and shot; your base is not covered | De kering sluit |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
@@ -168,11 +171,21 @@ tick at which they leave. At the horn, whoever is still ashore leaves the lane a
 come out of the gate yet stays on board; nobody is paid anything and nobody learns from it. The ship is
 drawn behind the base for as long as they are ashore.
 
-New kinds the rest of this plan asks for (slow is built, for Carnaval; De Camping can use it):
+**Rush, block and shelter, as built** (26 November 2026, for Rotterdam; the kinds and their numbers are
+mine). *Rush* is a flag on the side's training: while it lasts, whatever is at the head of the queue is
+ready at once, so the queue and whatever is bought meanwhile walk out as fast as a row at the gate has
+room. *Block* drops a container centred on the front of the enemy's foremost unit (in the middle of the
+lane with nobody there). The enemy units whose front lies under it are hurt, the units of both sides
+whose front lies under it are pushed out to its near edge at the end of the tick, and until it is lifted
+nobody walks past it; throwers and turrets reach over it. Super units are neither hurt nor pushed, but
+cannot walk through it either. *Shelter* is a flag on the side's units, read where damage lands: every
+blow, throw, shot, wave and drone does that share of its damage. The base is not covered, and a unit the
+Algoritme cancels is gone all the same.
+
+New kinds the rest of this plan asks for (slow is built, for Carnaval, and block, for Rotterdam; De Camping can use the slow):
 
 | Kind | What it does | First used by |
 |---|---|---|
-| Block | Something lands on the lane in front of the enemy: it hurts whoever is under it, and nobody gets past it for a few seconds | Rotterdam: De container |
 | Lockout | The enemy can buy and train nothing for a few seconds, and their units wait a moment | De Ambtenarij: Inspraakavond |
 
 As with the existing specials, the super units of 2050 shrug all of these off. The schild does not: it
@@ -185,7 +198,7 @@ The twenty-four specials at a glance:
 | De Zuidas | De gong (buff) | Vijandige overname (convert) | De Succesfee (divert) |
 | Carnaval | De Polonaise (conga) | Elf Kanonschoten (blind) | De Kater (slow) |
 | De Friezen (De Elf Steden) | De winter van '63 (stun) | De Bezemwagen (revive) | Tropenrooster (siesta) |
-| Rotterdam | Mouwen opstropen! (buff) | De container (block) | De kering sluit (wave) |
+| Rotterdam | Mouwen opstropen! (rush) | De container (block) | De kering sluit (shelter) |
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Huurverhoging voor de locals (price hike) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
 | De Camping | Zwarte Zaterdag (slow) | Na tienen is het stil! (stun) | De Minidisco (buff) |
@@ -209,6 +222,7 @@ on the title card.
 | De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
 | De Elf Steden | koppig en bedaard | +10% hit points, 15% longer in training | the same | the same | the same |
 | Carnaval | goedkoop en wankel | 20% cheaper, 15% fewer hit points | the same | the same | as everyone's |
+| Rotterdam | hard en direct | +10% damage, 10% fewer hit points | the same | the same | the same |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -268,6 +282,12 @@ it, at the owner's word. Then one each in the last era: **De Kweekvleesblob** (H
 30% of the damage its blows do back. Padel-Pepijn, the blob and De Vreter cost 10% more, the owner's "since
 they are special now". The choices of unit and rule are mine. The same day the schild's blow went from 10 to
 8, a bit under half of a light unit's: "cause then they are really a shield".
+
+Rotterdam (section 4, 26 November 2026, rules in `src/sim/haven.ts`) brings six: Lasser Leen's sparks
+burn whoever hits him up close, Gabber Gerrie hits faster with every blow in a row, the kapsalon splashes
+garlic sauce on everyone around its target, De AGV earns money while it is on the lane, De Poetsrobot
+shrugs specials off and De Kraan lifts the enemy's front unit and drops it on the one behind. The owner
+asked that "each faction has some units that do something special"; the choice of units and rules is mine.
 
 The first one asked for is the owner's own, and it is built: the fatbike of section 8, a cheap rider
 that rides through the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a
@@ -412,6 +432,17 @@ What to know before the balance pass:
   stalls. Amsterdam and the farmers still win about nine in ten mixed bot matches, at the alarm line; the
   cause is the specials, which are the owner's design, so that is the owner's call. How a dance, missed
   throws and a hangover do between people, who can time them, is not measured.
+- **Rotterdam**, measured on 26 November 2026 with both sides buying a mix, both seats together, 40
+  matches a pairing: it wins 3% against the farmers, 13% against De Zuidas, 18% against Amsterdam, 22%
+  against De Gasten, 30% against De Toeristen and 20% against De Elf Steden; against itself 55 to 45. No
+  stalls. Against the farmers and De Zuidas the matches are short (about four minutes) and seldom reach
+  2050. That is past the owner's alarm of 90%, so it was looked into as a possible bug and none was found:
+  switching off the temperament, the six units' rules or the three specials one at a time leaves it as low
+  (0 to 13% against those two). The same run has the farmers beating De Gasten 100% and De Toeristen 92.5%
+  on the main branch's numbers, so the Achterhoek's lead over the bots is not new. With the farmers'
+  specials in place of its own Rotterdam won 40% against Amsterdam, so its specials are worth little in the
+  bots' hands. Not fitted, as the owner asked; the levers would be TEMPER in `src/defs/rotterdam.ts` and
+  `SPECIAL.mouwen`, `container` and `kering`.
 
 ## The factions
 
@@ -853,36 +884,39 @@ verdiend, in Amsterdam wordt het uitgegeven."
 | Ranged | `sjaak_de_sjouwer` | Sjaak de Sjouwer | Carries a sack on each shoulder and hurls them one at a time | humanoid |
 | His projectile | `shot_baal` | | A jute sack | static |
 | Heavy | `straddle_carrier` | De Straddle Carrier | One of the first, tall on its legs with a single container underneath, dripping oil | vehicle |
-| Schild | `lasser_leen` | Lasser Leen | A shipyard welder, mask down, carrying the steel plate he was about to weld. Shots only make sparks | humanoid |
+| Schild | `lasser_leen` | Lasser Leen | A shipyard welder, mask down, carrying the steel plate he was about to weld. Shots only make sparks. **Whoever hits him up close burns on them** | humanoid |
 | Turret | `turret_schaft` | De Schaft | Three dock workers on a stack of crates during their break. They throw their lunch tins | static |
 | Its projectile | `shot_broodtrommel` | | A dented lunch tin | static |
-| Special | `special_mouwen` | Mouwen opstropen! | A giant pair of rolled-up sleeves over the quay. See below | static |
+| Special | `special_mouwen` | Mouwen opstropen! | Two giant forearms rising out of the quay, rolling their sleeves up. See below | static |
 | Base | `base` | | A harbour shed with a quay crane, and a mast tower with a crow's nest behind it | static |
 
-Special, **Mouwen opstropen!** (buff): own units hit harder and move faster for seven seconds.
+Special, **Mouwen opstropen!** (rush, a kind of its own): "niet lullen maar poetsen". For eight seconds
+everything the side trains is ready at once: the queue, and whatever is bought meanwhile, walks out as fast
+as the gate has room. (The brief had a buff here, a kind three factions already have.)
 
 **2025: Maasvlakte**
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `gabber_gerrie` | Gabber Gerrie | Shaved head, plain tracksuit, no longer young. Hakt at 180 beats a minute and kicks while he is at it | humanoid |
-| Ranged | `kapsalonkoerier` | De Kapsalonkoerier | A delivery rider with an insulated bag who flings aluminium trays | humanoid |
+| Light | `gabber_gerrie` | Gabber Gerrie | Shaved head, plain tracksuit, no longer young. Hakt at 180 beats a minute and kicks while he is at it. **Hits faster with every blow in a row** | humanoid |
+| Ranged | `kapsalonkoerier` | De Kapsalonkoerier | A delivery rider with an insulated bag who flings aluminium trays. **The garlic sauce splashes on everyone around the one it hits** | humanoid |
 | Their projectile | `shot_kapsalon` | | A tray trailing garlic sauce | static |
-| Heavy | `agv` | De AGV | A driverless container carrier. Its "driver" rides along on top, at a desk with a joystick and a coffee | vehicle |
+| Heavy | `agv` | De AGV | A driverless container carrier. Its "driver" rides along on top, at a desk with a joystick and a coffee. **Earns havengeld while it is on the lane** | vehicle |
 | Schild | `bouwvakker_ben` | Bouwvakker Ben | Yellow helmet, a formwork panel on his shoulder, a permit stapled to it. The city is never finished, so he is always on his way somewhere | humanoid |
 | Turret | `turret_kubuswoning` | De Kubuswoning | A tilted cube house. Everything in it slides, so the people who live there throw the furniture out | static |
 | Its projectile | `shot_stoel` | | A kitchen chair | static |
 | Special | `special_container` | De container | A sea container on a crane hook. See below | static |
 | Base | `base` | | A horseshoe-shaped market hall with flats in the arch, and a stack of containers next to it | static |
 
-Special, **De container** (block): a container comes down in front of the enemy's foremost unit. Whoever
-is under it is hurt, and nobody gets past it for five seconds.
+Special, **De container** (block, a kind of its own): a sea container comes down on the enemy's foremost
+unit. Every enemy unit under it takes 150, the two front lines are pushed apart to either side of it, and
+for five seconds nobody walks past it, from either side. Throwers and turrets reach over it.
 
 **2050: the floating city**
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `poetsrobot` | De Poetsrobot | A cleaning robot delivered with its sleeves already rolled up. It keeps announcing that it does not talk | humanoid |
+| Light | `poetsrobot` | De Poetsrobot | A cleaning robot delivered with its sleeves already rolled up. It keeps announcing that it does not talk. **Enemy specials do nothing to it** | humanoid |
 | Ranged | `stapelaar_sjaan` | Stapelaar Sjaan | The last human on the quay, in a lifting harness. Stacks parcel-sized containers and throws them | humanoid |
 | Her projectile | `shot_kistje` | | A container the size of a shoebox | static |
 | Heavy | `drijvende_wijk` | De Drijvende Wijk | A slab of floating neighbourhood under sail, city beach included | free |
@@ -890,10 +924,11 @@ is under it is hurt, and nobody gets past it for five seconds.
 | Its projectile | `shot_joystick` | | A joystick | static |
 | Special | `special_kering` | De kering sluit | Two enormous barrier arms. See below | static |
 | Base | `base` | | A tower of cubes and containers on a pontoon | static |
-| **Super unit** | `de_kraan` | De Kraan | A quay crane that got up and walked. It lifts whatever is in front of it and drops it again | free |
+| **Super unit** | `de_kraan` | De Kraan | A quay crane that got up and walked. **It lifts whatever is in front of it and drops it on the one behind** | free |
 
-Special, **De kering sluit** (wave): the arms of the storm barrier swing across the field and hit every
-enemy unit once.
+Special, **De kering sluit** (shelter, a kind of its own): the arms of the storm barrier swing shut beside
+the base, and for eight seconds every blow, throw and shot on the side's own units does half its damage.
+The base is not behind it. (The brief had a wave here, a kind three factions already have.)
 
 **Lines**
 
@@ -916,13 +951,36 @@ enemy unit once.
 - The bombing of 1940, the memorial, and the motto that came out of it.
 - The slurs that Rotterdam word lists also contain, and swearing with diseases. "Pleur" is as far as it goes.
 
-**Open questions**
+**Units that do something of their own** (26 November 2026; the owner asked that "each faction has some
+units that do something special", the choice is mine; numbers in `src/defs/balance.ts`, rules in
+`src/sim/haven.ts`):
 
-- **The super unit.** A walking quay crane is safe and reads at once. The better-known silhouette is the
-  swan bridge unfolding into a mechanical swan, but that bridge's design is claimed by its architect. I
-  have gone for the crane; say so if you want the swan, heavily stylised.
-- Sjaak throws sacks rather than the boiled beets a "krotenkoker" would, because the Achterhoek already
-  throws beets in the same era.
+- **Lasser Leen** (schild, 1975): whoever hits him up close takes 30% of its own blow back (VONK).
+  Turret shots make no sparks. At 50% he beat two of Amsterdam's light units, which breaks the rule that
+  a schild is no match for its price in light units; that rule holds up to 45%.
+- **Gabber Gerrie** (light, 2025): every blow in a row cuts his pause between blows by 15% of the usual
+  one, down to a quarter of it (HAKKEN). Walking or being stunned, he loses the beat.
+- **De Kapsalonkoerier** (ranged, 2025): every other enemy unit within 70 pixels of the one the tray hits,
+  in any row, takes half the damage (SAUS).
+- **De AGV** (heavy, 2025): every second it stands on the lane, not stunned, it brings in 5, paid like the
+  income: to the enemy while the side's earnings are diverted (HAVENGELD).
+- **De Poetsrobot** (light, 2050): shrugs enemy specials off, as super units do, and says so: "Niet lullen!"
+- **De Kraan** (super unit, 2050): at most once every four seconds its blow lifts the enemy's foremost
+  unit and drops it 110 pixels further back, onto the nearest unit behind it in its row, who takes half
+  the blow (HIJS). A unit that shrugs specials off is too big to lift. Like every super unit it draws
+  turret fire and takes a fifth of it; it does nothing to turrets.
+
+**Temperament: hard en direct.** Every unit hits 10% harder and has 10% fewer hit points. Mine.
+
+**Against Amsterdam** a fresh unit now and then shouts a rivalry line instead of its battle cry: "Hier
+wordt het geld verdiend!", "En daar wordt het uitgegeven.", "Havermelk? Bakkie pleur!", "020? Nooit van
+gehoord." Mine, from the saying in the introduction; nothing from the football club.
+
+**Decided**
+
+- The super unit is the walking quay crane, not the swan bridge.
+- Sjaak throws sacks, not boiled beets.
+- The shipping line is "Nultien Lines", drawn as a wave with an anchor: no lettering.
 
 ### 5. De Toeristen
 
@@ -1781,7 +1839,7 @@ battle, and one pull request per faction.
 4. ~~**De Toeristen.** At the owner's choice (24 November 2026): three units with rules of their own,
    the summon with a time limit, and the price hike.~~ Done.
 5. ~~**Carnaval.** At the owner's request (26 November 2026), with three kinds of special of its own and four units with rules of their own.~~ Done.
-6. **Rotterdam.** Amsterdam's rival, with the container as the block.
+6. ~~**Rotterdam.** Amsterdam's rival, with the container as the block.~~ Done (26 November 2026), with six units that do something of their own and three new kinds of special.
 7. **De Camping.**
 8. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
 9. ~~**De Friezen.** At the owner's choice (26 November 2026), as De Elf Steden.~~ Done.

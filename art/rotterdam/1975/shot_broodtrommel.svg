@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19 -15 38 30" data-rig="static">
+  <title>Een gedeukte broodtrommel, onderweg, met de boterham er half uit</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="trommel" transform="translate(0 0)">
+    <!-- the sandwich, half out under the lid -->
+    <path class="o" fill="#e9c891" d="M4 -6 L14 -12 Q17 -12.6 17.4 -9.6 L9 -3 Z"/>
+    <path class="n" fill="#f6d55c" d="M6.6 -6.4 L15.4 -11.4 L16.4 -9.8 L8 -4.6 Z"/>
+    <!-- the box, with a dent in its side -->
+    <path class="o" fill="#4f86b8" d="M-15 -4 L15 -4 L15 9 Q15 11 13 11 L-13 11 Q-15 11 -15 9 L-15 4 Q-10 3.6 -9.6 1.2 Q-10 -1.4 -15 -1.6 Z"/>
+    <path class="n" fill="#3a6d9c" d="M-14 2.4 Q-11 2 -10.6 1.2 Q-11 0.2 -14 0 Z"/>
+    <path class="n" fill="#78a8d6" d="M-6 -2.6 L13 -2.6 L13 -0.6 L-6 -0.6 Z"/>
+    <!-- the lid, sprung open a little and bent -->
+    <path class="o" fill="#5f97c8" d="M-16 -4.6 Q-16 -9 -11 -10 L10 -13.6 Q14.6 -14 15.4 -10 L16 -7.4 L-16 -3.2 Z"/>
+    <path class="n" fill="#8ab8e2" d="M-11 -8.4 L6 -11.2 L6.4 -9.8 L-10.6 -7 Z"/>
+    <!-- the rubber band that did not hold -->
+    <path fill="none" stroke="#d9342b" stroke-width="1.8" stroke-linecap="round" d="M2 11 L2 -4.4 M-1 -5 Q-4 -14 2 -15"/>
+    <!-- the clasp -->
+    <rect class="o" style="stroke-width:1.4" fill="#c9ced2" x="12.4" y="-2.6" width="4.4" height="4" rx="1"/>
+  </g>
+</svg>

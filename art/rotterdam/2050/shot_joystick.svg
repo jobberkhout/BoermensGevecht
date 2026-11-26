@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19 -19 37 33" data-rig="static">
+  <title>Een joystick, met snoer en al uit de bedieningskast gerukt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A crane joystick, torn out of the desk with its cable still on. Origin = its middle. -->
+  <g id="joystick" transform="translate(0 0)">
+    <path class="t" style="stroke-width:3.6" d="M-10 7 Q-15 6 -14 1 Q-13 -3 -16.6 -4"/>
+    <path fill="none" stroke="#3b4656" stroke-width="1.6" stroke-linecap="round" d="M-10 7 Q-15 6 -14 1 Q-13 -3 -16.6 -4"/>
+    <path class="o" fill="#3b4656" d="M-11 3 L11 3 L12.6 11 L-12.6 11 Z"/>
+    <path class="n" fill="#5d7487" d="M-10 4.4 L10 4.4 L10.4 6 L-10.4 6 Z"/>
+    <circle class="o" style="stroke-width:1.4" fill="#1f8a4c" cx="-6" cy="7.6" r="1.8"/>
+    <circle class="o" style="stroke-width:1.4" fill="#e8731c" cx="6.4" cy="7.6" r="1.8"/>
+    <!-- the rubber boot and the stick -->
+    <path class="o" fill="#2b2b2b" d="M-4.6 3.4 Q-3.6 -1.6 0.6 -1.6 Q4.6 -1.6 5.4 3.4 Z"/>
+    <path class="t" style="stroke-width:5" d="M0.6 -1 L3.4 -11"/>
+    <path fill="none" stroke="#9aa4b2" stroke-width="2.4" stroke-linecap="round" d="M0.6 -1 L3.4 -11"/>
+    <!-- the knob, with a thumb button on top -->
+    <path class="o" fill="#1d2a3a" d="M-0.6 -9 Q-1.4 -17.6 4.4 -17.6 Q9.6 -17.4 8.4 -9.4 Q4 -7.4 -0.6 -9 Z"/>
+    <ellipse class="o" style="stroke-width:1.4" fill="#e8731c" cx="4.2" cy="-16.6" rx="2.6" ry="1.4"/>
+    <path class="n" fill="#4a5d75" d="M1 -10.6 Q0.6 -15.4 3 -16 Q2 -13.4 2.4 -10.2 Z"/>
+  </g>
+</svg>

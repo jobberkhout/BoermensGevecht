@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -136 102 142" data-rig="humanoid">
+  <title>Bouwvakker Ben: gele helm, een bekistingsplaat voor zich met een vergunning erop geniet, op weg naar de volgende klus: de stad is nooit af</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-20 -38)"/>
+
+  <!-- The far arm reaches forward to the back of the panel. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-26 -72)">
+    <path class="o" fill="#22335a" d="M-6 -3 Q-8 9 -5 19 L6 19 Q8 9 6 -3 Z"/>
+  </g>
+
+  <!-- Work trousers with knee pads, a folding rule in the side pocket, boots with steel toes. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-25 -38)">
+    <path class="o" fill="#22335a" d="M-7.5 -3 L7.5 -3 L6.5 30 L-6.5 30 Z"/>
+    <path class="o" fill="#2f333c" d="M-6 13 L6 13 L5.8 20 L-6 20 Z"/>
+    <path class="o" fill="#5a3b22" d="M-7.5 34 Q-7.5 29 -4 29 L4 29 Q11 29.4 13.6 33 L13.6 38 L-7.5 38 Z"/>
+    <path class="n" fill="#2b1b16" d="M-7 36 L13 36 L13 37.6 L-7 37.6 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-15 -38)">
+    <path class="o" fill="#2c3e66" d="M-7.5 -3 L7.5 -3 L6.5 30 L-6.5 30 Z"/>
+    <path class="o" fill="#3a3f4a" d="M-6 16 L6 16 L5.8 23 L-6 23 Z"/>
+    <!-- the yellow folding rule, sticking out of the side pocket -->
+    <path class="o" style="stroke-width:1.6" fill="#f2c230" d="M-5.4 3 L-1.8 3 L-1.8 14 L-5.4 14 Z"/>
+    <path class="t" style="stroke-width:0.9" d="M-5.4 5.6 L-4 5.6 M-5.4 8.2 L-4 8.2"/>
+    <path class="o" style="stroke-width:1.8" fill="#22335a" d="M-7.2 8 L1.4 8 L1 15 L-7 15 Z"/>
+    <path class="o" fill="#6b4a2f" d="M-7.5 34 Q-7.5 29 -4 29 L4 29 Q11 29.4 13.6 33 L13.6 38 L-7.5 38 Z"/>
+    <path class="n" fill="#9aa3ad" d="M7 30.4 Q11.4 31 13 33.6 L8 33.4 Z"/>
+    <path class="n" fill="#2b1b16" d="M-7 36 L13 36 L13 37.6 L-7 37.6 Z"/>
+  </g>
+
+  <!-- A navy work jacket under an orange hi-vis vest. -->
+  <g id="torso" data-parent="hips" transform="translate(-20 -40)">
+    <path class="o" fill="#2c3e66" d="M-15 8 Q-17.6 -14 -14.6 -30 Q-11.6 -37 0 -37 Q12 -37 15 -30 Q18 -14 15 8 Z"/>
+    <path class="o" fill="#ff8a1f" d="M-14 6 Q-16 -12 -13.4 -27 Q-10 -34 -4 -35 L1 -22 L6 -35 Q12 -34 14 -27 Q16.6 -12 14 6 Z"/>
+    <path class="n" fill="#dfe6ea" d="M-15 -14 L15.6 -14 L15.6 -10.4 L-15 -10.4 Z M-15 -4 L15.4 -4 L15.4 -0.6 L-15 -0.6 Z"/>
+    <path class="t" d="M-15 -14 L15.6 -14 M-15 -10.4 L15.6 -10.4 M-15 -4 L15.4 -4 M-15 -0.6 L15.4 -0.6"/>
+    <!-- the tape measure on his belt -->
+    <rect class="o" style="stroke-width:2" fill="#f2c230" x="-17" y="3" width="9" height="8" rx="2"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-19 -76)">
+    <rect class="o" fill="#d08f6a" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#eaa985" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <!-- the carpenter's pencil behind his ear -->
+    <path class="o" style="stroke-width:1.6" fill="#d9342b" d="M-17 -25.4 L-3 -23 L-3.4 -20 L-17.4 -22.4 Z"/>
+    <path class="o" style="stroke-width:1.2" fill="#e9c98f" d="M-3 -23 L0.6 -21.2 L-3.4 -20 Z"/>
+    <ellipse class="o" fill="#eaa985" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- stubble, sunburnt nose -->
+    <path class="n" fill="#8a7466" fill-opacity="0.45" d="M-7 -13 Q-7 -3.5 3 -3.5 Q17 -3.5 19.6 -12.5 Q12 -8 5 -8.6 Q-2 -9 -7 -13 Z"/>
+    <circle class="n" fill="#2b1b16" cx="10" cy="-20.6" r="2"/>
+    <circle class="n" fill="#2b1b16" cx="17.8" cy="-20.6" r="1.8"/>
+    <path class="t" style="stroke-width:2.2" d="M5.4 -26 L13.4 -25 M15.6 -25.2 L21 -26.2"/>
+    <path class="o" fill="#e0785e" d="M19.5 -18.6 Q26 -15.6 20 -11.8"/>
+    <!-- a mouth that has seen this street dug up before -->
+    <path class="t" style="stroke-width:2" d="M9 -9.6 Q13 -10.6 17.6 -9"/>
+    <!-- the yellow hard hat -->
+    <path class="o" fill="#f2c230" d="M-15.6 -29 Q-16 -47 3 -47.6 Q21 -47.6 20.6 -30 Q3 -34 -15.6 -29 Z"/>
+    <path class="o" fill="#e0ad1c" d="M2 -47.4 Q6 -47.6 6.4 -44 L6.4 -33 L1.6 -32.8 L1.6 -44 Q1 -47 2 -47.4 Z"/>
+    <path class="n" fill="#ffe27a" d="M-11 -36 Q-9 -43 -3 -44.6 Q-7 -40 -7.4 -34.4 Z"/>
+    <path class="o" fill="#f2c230" d="M-18 -28.6 Q2 -34.4 26 -29.6 L25.6 -26.4 Q2 -30.6 -17.6 -25.4 Z"/>
+  </g>
+
+  <!-- Bits of concrete and sawdust, waiting behind the panel: they fly off its face when something hits it. -->
+  <g id="chips" data-parent="panel" transform="translate(26 -56)">
+    <path class="o" style="stroke-width:1.6" fill="#d9d4c8" d="M-6 -2 Q-8 -7 -3 -8 Q0 -12 4 -8 Q8 -8 7 -3 Q9 2 4 3 Q0 6 -4 3 Q-8 3 -6 -2 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#b9b4a8" d="M8 -10 L12 -12 L12.6 -8 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#e9c98f" d="M9 4 L14 2.6 L13 5.6 Z"/>
+    <circle class="o" style="stroke-width:1.2" fill="#b9b4a8" cx="-2" cy="-12" r="1.6"/>
+  </g>
+
+  <!-- The formwork panel: film-faced plywood, splattered with concrete, a permit stapled on. Joint at the middle of its foot. -->
+  <g id="panel" data-parent="torso" transform="translate(19 -8)">
+    <rect class="o" fill="#a5532e" x="-25" y="-86" width="50" height="84" rx="2"/>
+    <rect class="n" fill="#b8643a" x="-21.6" y="-82.6" width="43.2" height="77.2" rx="1"/>
+    <path class="n" fill="#c97a4c" d="M-19 -80 L-10 -80 L-19 -62 Z M14 -14 L20 -26 L20 -8 L16 -8 Z"/>
+    <!-- the tie holes -->
+    <g class="o" style="stroke-width:1.6" fill="#5a3b22">
+      <circle cx="-15" cy="-76" r="2.2"/>
+      <circle cx="15" cy="-76" r="2.2"/>
+      <circle cx="-15" cy="-14" r="2.2"/>
+      <circle cx="15" cy="-14" r="2.2"/>
+    </g>
+    <!-- concrete, from every job it has been on -->
+    <path class="n" fill="#cfcac0" d="M-25 -10 Q-18 -14 -12 -8 Q-6 -12 0 -6 Q6 -10 12 -5 Q18 -8 25 -6 L25 -2 L-25 -2 Z"/>
+    <path class="n" fill="#cfcac0" d="M18 -30 Q22 -32 22 -26 Q20 -23 17 -25 Z M-20 -40 Q-17 -42 -16 -38 Q-18 -36 -20.4 -37.4 Z M10 -34 Q12 -35.6 13 -33 Q11 -31.6 10 -34 Z"/>
+    <!-- the permit, and the one before it underneath -->
+    <g transform="rotate(5 0 -48)">
+      <rect class="o" style="stroke-width:1.6" fill="#f3e7c2" x="-12" y="-68" width="24" height="32" rx="0.6"/>
+    </g>
+    <g transform="rotate(-4 0 -50)">
+      <rect class="o" style="stroke-width:1.8" fill="#ffffff" x="-12.6" y="-70" width="25.2" height="34" rx="0.6"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.8" stroke-linecap="round" d="M -9 -65 L 4 -65"/>
+      <path fill="none" stroke="#9aa3b2" stroke-width="1.1" stroke-linecap="round" d="M -9 -60.6 L 9 -60.6 M -9 -57.6 L 8 -57.6 M -9 -54.6 L 9 -54.6 M -9 -51.6 L 5 -51.6"/>
+      <!-- the stamp -->
+      <circle fill="none" stroke="#d9342b" stroke-width="1.6" cx="4" cy="-44" r="5.4"/>
+      <circle fill="none" stroke="#d9342b" stroke-width="0.9" cx="4" cy="-44" r="3"/>
+      <path fill="none" stroke="#2f5d9e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M -9 -42 Q -7 -46 -5.6 -42.6 Q -4.4 -39.6 -3 -44"/>
+      <!-- the staples -->
+      <path fill="none" stroke="#5d6470" stroke-width="1.4" stroke-linecap="round" d="M -10.6 -67.4 L -7 -67.4 M 7 -67.4 L 10.6 -67.4"/>
+    </g>
+  </g>
+
+  <!-- The near arm, sleeve rolled up, his hand round the edge of the panel. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-14 -72)">
+    <path fill="none" stroke="#2b1b16" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M0 12 L3 18 L12 14"/>
+    <path fill="none" stroke="#eaa985" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" d="M0 12 L3 18 L12 14"/>
+    <path class="o" fill="#2c3e66" d="M-6 -3 Q-8 6 -6 12 L6 12 Q7.4 5 6 -3 Z"/>
+    <path class="o" fill="#22335a" d="M-7.4 8.6 Q-8 12.6 -6 16 L7.4 15 Q8.2 11.4 7.2 8.4 Z"/>
+    <path class="o" fill="#eaa985" d="M9 11 Q9.6 7 13.6 7.6 Q16.6 8.4 16 12.4 Q15.4 17 11.6 16.4 Q8.4 15.6 9 11 Z"/>
+    <path class="t" style="stroke-width:1.1" d="M12.6 9.6 L15.6 10 M12.4 12.4 L15.6 12.8"/>
+  </g>
+</svg>

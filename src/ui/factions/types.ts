@@ -1,3 +1,5 @@
+import type { FactionId } from '../../defs/types.ts';
+
 /**
  * Everything one faction says and is called. Each faction has a file like this
  * next to this one; what all factions share is in ui/nl.ts.
@@ -25,4 +27,6 @@ export interface FactionText {
   riding?: Record<string, readonly string[]>;
   /** What one aboard shouts as he tosses something, at the first throw and then now and then, by unit id. The beer bikes have these; De Hologramneef's voice messages speak for themselves. */
   tossing?: Record<string, readonly string[]>;
+  /** Lines a fresh unit now and then shouts instead of its battle cry when the enemy is this faction: a rivalry. Rotterdam has them for Amsterdam. */
+  rivals?: Partial<Record<FactionId, readonly string[]>>;
 }

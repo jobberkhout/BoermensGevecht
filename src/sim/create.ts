@@ -29,6 +29,9 @@ function createSide(faction: FactionId): SideState {
     fallen: [],
     siestaUntil: 0,
     peels: [],
+    rushUntil: 0,
+    shelterUntil: 0,
+    shelterPercent: 100,
   };
 }
 
@@ -42,5 +45,6 @@ export function createMatch(seed: number, factions: [FactionId, FactionId] = DEF
     shots: [],
     waves: [],
     barrages: [],
+    blocks: [],
   };
 }

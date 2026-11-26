@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-118 -130 236 136" data-rig="vehicle">
+  <title>De Straddle Carrier: een van de eerste, hoog op zijn poten, met één container eronder en een spoor van olie erachter</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The frame: two tall legs on their wheels, the girder over the top, the engine and the cab. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -60)">
+    <g transform="translate(0 60)">
+      <!-- the back leg, a lattice post on a little bogie -->
+      <path class="o" fill="#5d7487" d="M-101 -100 L-85 -100 L-86 -26 L-100 -26 Z"/>
+      <path class="t" style="stroke:#46596a;stroke-width:1.8" d="M-98 -94 L-88 -78 L-98 -62 L-88 -46 L-98 -30"/>
+      <path class="n" fill="#7d93a5" d="M-98.6 -97 L-96 -97 L-96.6 -29 L-98.6 -29 Z"/>
+      <!-- oil from the hydraulics, all down the leg -->
+      <path class="n" fill="#1e1712" fill-opacity="0.8" d="M-89.6 -84 Q-87.8 -72 -88.8 -60 Q-87.4 -54 -88.4 -46 L-86.6 -46 Q-85.8 -54 -86.8 -62 Q-86 -74 -87 -84 Z"/>
+      <path class="o" fill="#46596a" d="M-108 -30 L-78 -30 L-78 -22 L-108 -22 Z"/>
+      <path class="n" fill="#e8c12a" d="M-106.6 -28.6 L-79.4 -28.6 L-79.4 -23.4 L-106.6 -23.4 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.8" d="M-105 -23.4 L-101 -28.6 M-98 -23.4 L-94 -28.6 M-91 -23.4 L-87 -28.6 M-84 -23.4 L-80 -28.6"/>
+      <!-- the front leg -->
+      <path class="o" fill="#5d7487" d="M67 -100 L83 -100 L82 -26 L68 -26 Z"/>
+      <path class="t" style="stroke:#46596a;stroke-width:1.8" d="M70 -94 L80 -78 L70 -62 L80 -46 L70 -30"/>
+      <path class="n" fill="#7d93a5" d="M69.4 -97 L72 -97 L71.4 -29 L69.4 -29 Z"/>
+      <path class="o" fill="#46596a" d="M60 -30 L90 -30 L90 -22 L60 -22 Z"/>
+      <path class="n" fill="#e8c12a" d="M61.4 -28.6 L88.6 -28.6 L88.6 -23.4 L61.4 -23.4 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.8" d="M63 -23.4 L67 -28.6 M70 -23.4 L74 -28.6 M77 -23.4 L81 -28.6 M84 -23.4 L88 -28.6"/>
+      <!-- knee braces under the girder -->
+      <path class="t" style="stroke-width:6" d="M-86 -76 L-66 -96 M68 -76 L48 -96"/>
+      <path fill="none" stroke="#5d7487" stroke-width="3" stroke-linecap="round" d="M-86 -76 L-66 -96 M68 -76 L48 -96"/>
+      <!-- the girder over the top -->
+      <rect class="o" fill="#5d7487" x="-106" y="-106" width="196" height="12" rx="2"/>
+      <path class="n" fill="#7d93a5" d="M-103 -104 L87 -104 L87 -101 L-103 -101 Z"/>
+      <path class="t" style="stroke:#46596a;stroke-width:1.2" d="M-76 -105 L-76 -95 M-46 -105 L-46 -95 M-16 -105 L-16 -95 M14 -105 L14 -95 M44 -105 L44 -95"/>
+      <!-- the engine on the back of the girder, and its exhaust -->
+      <rect class="o" fill="#46596a" x="-102" y="-117" width="50" height="12" rx="3"/>
+      <path class="t" style="stroke:#2f3e4a;stroke-width:1.6" d="M-96 -114 L-96 -108 M-91 -114 L-91 -108 M-86 -114 L-86 -108 M-81 -114 L-81 -108"/>
+      <path class="t" style="stroke-width:5.6" d="M-60 -116 L-60 -121"/>
+      <path fill="none" stroke="#7a7066" stroke-width="2.8" stroke-linecap="round" d="M-60 -116 L-60 -121"/>
+      <!-- the hoist: two cable drums under the girder -->
+      <circle class="o" fill="#46596a" cx="-52" cy="-93" r="4.5"/>
+      <circle class="o" fill="#46596a" cx="36" cy="-93" r="4.5"/>
+      <!-- the cab, up front and up high, sticking out over the road -->
+      <path class="o" fill="#1f8a4c" d="M74 -114 L106 -114 Q112 -114 112 -108 L112 -84 L74 -84 Z"/>
+      <rect class="o" fill="#f2f2ec" x="72" y="-118" width="42" height="6" rx="2"/>
+      <path class="n" fill="#34424b" d="M78 -110 L108 -110 L108 -94 L78 -94 Z"/>
+      <path class="o" fill="#5d7487" d="M72 -84 L114 -84 L110 -79 L76 -79 Z"/>
+    </g>
+  </g>
+
+  <!-- The driver, up in the cab, in his cap. Joint at his seat. -->
+  <g id="driver" data-parent="body" transform="translate(92 -92)">
+    <path class="o" fill="#2c3e66" d="M-9 3 Q-10 -8 -2 -9 L5 -9 Q11 -7 10 3 Z"/>
+    <path class="o" fill="#2c3e66" d="M4 -6 L13 -3 L12 1 L3 -1 Z"/>
+    <circle class="o" fill="#e0aa84" cx="13.4" cy="-1.2" r="2.6"/>
+    <circle class="o" fill="#e0aa84" cx="2" cy="-15" r="7.6"/>
+    <path class="o" fill="#e0aa84" d="M8.4 -15.8 Q12.4 -14 9.2 -11.2"/>
+    <path class="o" fill="#4e4842" d="M-6.4 -16 Q-7.6 -24.4 1.6 -24.4 Q9 -24.6 9.6 -19 L13.6 -17 Q13.6 -15.4 11.6 -15.6 Q2 -17.2 -6.4 -16 Z"/>
+    <circle class="n" fill="#2b1b16" cx="5.6" cy="-14" r="1.2"/>
+    <!-- a pipe, of course -->
+    <path class="t" style="stroke-width:1.6" d="M6.2 -10 L10.6 -9.6"/>
+    <path class="o" style="stroke-width:1.4" fill="#6b4a2a" d="M10 -12 L13 -12 L12.6 -8.4 Q11.4 -7.6 10.2 -8.4 Z"/>
+  </g>
+
+  <!-- Glass and the lower panel of the cab, over the driver. -->
+  <g id="cab" data-parent="body" transform="translate(93 -99)">
+    <g transform="translate(-93 99)">
+      <path class="n" fill="#bfe6f5" fill-opacity="0.3" d="M78 -110 L108 -110 L108 -94 L78 -94 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.6" d="M102 -109 L106 -109 L106 -103 L100 -95 L97 -95 Z"/>
+      <path class="t" style="stroke-width:2.2" d="M78 -110 L108 -110 L108 -94 L78 -94 Z"/>
+      <path class="o" fill="#1f8a4c" d="M74 -94 L112 -94 L112 -84 L74 -84 Z"/>
+      <path class="n" fill="#13603a" d="M76 -88.6 L110 -88.6 L110 -85.4 L76 -85.4 Z"/>
+      <path class="o" fill="#1f8a4c" d="M74 -114 L78.5 -114 L78.5 -92 L74 -92 Z"/>
+    </g>
+  </g>
+
+  <!-- The container, hanging on its spreader under the girder: Nultien Lines orange, the wave and the anchor. Joint at the hoist. -->
+  <g id="container" data-parent="body" transform="translate(-8 -93)">
+    <g transform="translate(8 93)">
+      <path class="t" style="stroke-width:2.2" d="M-52 -93 L-52 -88 M36 -93 L36 -88"/>
+      <rect class="o" fill="#46596a" x="-66" y="-90" width="116" height="5" rx="1.5"/>
+      <rect class="o" fill="#e8731c" x="-64" y="-85" width="112" height="46" rx="1.5"/>
+      <path class="n" fill="#f39147" d="M-62 -83 L46 -83 L46 -80 L-62 -80 Z"/>
+      <path class="n" fill="#c75d12" d="M-62 -44 L46 -44 L46 -41 L-62 -41 Z"/>
+      <path fill="none" stroke="#c75d12" stroke-width="2" d="M-55 -81 L-55 -43 M-48 -81 L-48 -43 M-41 -81 L-41 -43 M-34 -81 L-34 -43 M20 -81 L20 -43 M27 -81 L27 -43"/>
+      <path fill="none" stroke="#f39147" stroke-width="1.2" d="M-53 -81 L-53 -43 M-46 -81 L-46 -43 M-39 -81 L-39 -43 M-32 -81 L-32 -43 M22 -81 L22 -43 M29 -81 L29 -43"/>
+      <!-- the door end, with its locking bars -->
+      <path class="t" style="stroke-width:1.4" d="M35 -84 L35 -40"/>
+      <path class="t" style="stroke:#9a4a0e;stroke-width:2" d="M39 -82 L39 -42 M43 -82 L43 -42"/>
+      <rect class="o" style="stroke-width:1.2" fill="#b9c2bd" x="37" y="-64" width="8" height="3" rx="1"/>
+      <!-- the emblem: a small anchor riding on a wave, in white -->
+      <path fill="none" stroke="#f6f2ea" stroke-width="3.4" stroke-linecap="round" d="M-24 -51 Q-18 -57 -12 -51 Q-6 -45 0 -51 Q6 -57 12 -51"/>
+      <path fill="none" stroke="#f6f2ea" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M-6 -74 L-6 -57 M-11 -70 L-1 -70 M-13 -62 Q-6 -53 1 -62"/>
+      <circle fill="none" stroke="#f6f2ea" stroke-width="2.2" cx="-6" cy="-76.4" r="2.4"/>
+      <!-- corner castings -->
+      <path class="n" fill="#3a3a3a" d="M-64 -85 L-58 -85 L-58 -80 L-64 -80 Z M42 -85 L48 -85 L48 -80 L42 -80 Z M-64 -44 L-58 -44 L-58 -39 L-64 -39 Z M42 -44 L48 -44 L48 -39 L42 -39 Z"/>
+      <rect class="t" style="stroke-width:2.5" x="-64" y="-85" width="112" height="46" rx="1.5"/>
+    </g>
+  </g>
+
+  <!-- A drop of oil from the spreader's hydraulics, on its way to the quay. -->
+  <g id="drip" data-parent="body" transform="translate(-40 -36)">
+    <path class="o" style="stroke-width:1.4" fill="#1e1712" d="M0 -3 Q-3.2 2.4 -2.6 4.4 Q0 7 2.6 4.4 Q3.2 2.4 0 -3 Z"/>
+  </g>
+
+  <!-- A puff from the exhaust. -->
+  <g id="smoke" data-parent="body" transform="translate(-60 -125)">
+    <circle class="o" style="stroke-width:1.8" fill="#8a8580" cx="0" cy="0" r="3.8"/>
+    <circle class="o" style="stroke-width:1.8" fill="#9e9994" cx="-5.6" cy="-2.6" r="2.8"/>
+  </g>
+
+  <g id="wheel_back" data-parent="body" transform="translate(-93 -15)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="15"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="4" stroke-dasharray="4 4.4" cx="0" cy="0" r="12"/>
+    <circle class="o" fill="#e8c12a" cx="0" cy="0" r="7"/>
+    <path class="t" style="stroke-width:1.6" d="M0 -7 L0 -2.6 M0 7 L0 2.6 M-7 0 L-2.6 0 M7 0 L2.6 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#b89820" cx="0" cy="0" r="2.6"/>
+  </g>
+
+  <g id="wheel_front" data-parent="body" transform="translate(75 -15)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="15"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="4" stroke-dasharray="4 4.4" cx="0" cy="0" r="12"/>
+    <circle class="o" fill="#e8c12a" cx="0" cy="0" r="7"/>
+    <path class="t" style="stroke-width:1.6" d="M0 -7 L0 -2.6 M0 7 L0 2.6 M-7 0 L-2.6 0 M7 0 L2.6 0"/>
+    <circle class="o" style="stroke-width:1.8" fill="#b89820" cx="0" cy="0" r="2.6"/>
+  </g>
+</svg>

@@ -1,9 +1,9 @@
 import type { EraKey, Temper } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen' | 'friezen' | 'carnaval';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen' | 'friezen' | 'carnaval' | 'rotterdam';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
-export type Voice = 'town' | 'country' | 'office' | 'tourist' | 'party';
+export type Voice = 'town' | 'country' | 'office' | 'tourist' | 'party' | 'port';
 
 export interface ShotDef {
   /** Art id of the projectile, e.g. 'havermelk/2025/shot_flatwhite'. */
@@ -133,6 +133,26 @@ export interface UnitDef {
    * `rig` is the drawing of the key. See KEYS and sim/carnaval.ts.
    */
   keys?: { ticks: number; rest: number; rig: string };
+  /** Whoever hits it up close burns on its welding sparks and takes `percent` of its own blow back: Lasser Leen. See VONK and sim/haven.ts. */
+  sparks?: { percent: number };
+  /**
+   * Every blow in a row comes sooner than the one before: its pause between
+   * blows shrinks by `stepPercent` a blow, down to `floorPercent`, and is back
+   * to normal once it walks again. Gabber Gerrie, hakken to a beat that keeps
+   * speeding up. See HAKKEN and sim/haven.ts.
+   */
+  tempo?: { stepPercent: number; floorPercent: number };
+  /** Its throw splashes garlic sauce: every other enemy unit within `reach` of the one it hits takes `dmgPercent` of the damage. De Kapsalonkoerier. See SAUS. */
+  sauce?: { reach: number; dmgPercent: number };
+  /** Every second it stands on the lane it brings in `amount`, on top of the income: De AGV. See HAVENGELD. */
+  earns?: { amount: number };
+  /**
+   * At most once every `every` ticks its blow lifts the enemy's foremost unit
+   * and drops it `shove` further back, onto whoever stands behind it there,
+   * who takes `dmgPercent` of the blow. Not a unit that shrugs specials off.
+   * De Kraan. See HIJS and sim/haven.ts.
+   */
+  lift?: { every: number; shove: number; dmgPercent: number };
 }
 
 export interface TurretDef {
@@ -171,6 +191,9 @@ export type SpecialDef = SpecialBase &
     | { kind: 'conga'; rig: string; speed: number; ticks: number } // a line sweeps the lane; every enemy unit it passes dances back towards its own base for a while
     | { kind: 'blind'; ticks: number } // confetti in the enemy's faces: for a while what their units throw misses
     | { kind: 'slow'; ticks: number; speedPercent: number } // enemy units crawl for a while; they can still fight
+    | { kind: 'rush'; ticks: number } // for a while everything you train is ready at once
+    | { kind: 'block'; ticks: number; dmg: number; width: number } // something lands on the enemy's front: it hurts whoever is under it, and nobody walks past it for a while
+    | { kind: 'shelter'; ticks: number; percent: number } // for a while your units take only this share of every blow, throw and shot
   );
 
 export interface EraDef {

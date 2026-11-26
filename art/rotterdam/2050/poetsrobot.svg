@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -138 118 144" data-rig="humanoid">
+  <title>De Poetsrobot: een schoonmaakrobot met een schrobber, afgeleverd met de mouwen al opgerold. Hij praat niet, hij poetst</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -36)"/>
+
+  <!-- The back arm: a work-shirt sleeve rolled to the elbow on a steel arm, a bucket of suds in its grip. Joint at the shoulder. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-15 -78)">
+    <g transform="translate(15 78)">
+      <!-- the steel forearm, ribbed like a hose -->
+      <path class="o" fill="#8fa3b3" d="M-25.5 -61 L-17.5 -61 L-18 -44 L-25 -44 Z"/>
+      <path class="t" style="stroke:#5d7487;stroke-width:1.4" d="M-25 -56 L-18 -56 M-25 -51 L-18 -51 M-25 -46.6 L-18 -46.6"/>
+      <!-- the bucket on its bail, hanging from the gripper -->
+      <path class="t" style="stroke-width:1.8" d="M-32 -34 Q-22 -48 -12 -34"/>
+      <path class="o" fill="#1f8a4c" d="M-33 -36 L-11 -36 L-13.5 -16 L-30.5 -16 Z"/>
+      <path class="n" fill="#13603a" d="M-31 -24 L-13 -24 L-13.6 -18 L-30.4 -18 Z"/>
+      <path class="o" style="stroke-width:2" fill="#ffffff" d="M-34 -36 Q-33 -41 -28 -40 Q-25 -44 -20 -41 Q-16 -44 -13 -40 Q-9 -40 -10 -36 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="-26" cy="-46" r="2.2"/>
+      <!-- the gripper round the bail -->
+      <path class="o" style="stroke-width:2" fill="#5d7487" d="M-26.5 -45 L-16.5 -45 L-17.5 -40 L-25.5 -40 Z"/>
+      <!-- the sleeve, navy, and its rolled-up cuff -->
+      <path class="o" fill="#2c3e66" d="M-22 -82 Q-14 -84 -9 -79 L-15.5 -64 L-27 -65 Q-28 -76 -22 -82 Z"/>
+      <path class="o" fill="#3d5288" d="M-28.5 -67 L-15 -66 L-15.5 -58.5 L-28.5 -59.5 Z"/>
+      <path class="t" style="stroke:#22305a;stroke-width:1.3" d="M-27.6 -63 L-15.6 -62.4"/>
+    </g>
+  </g>
+
+  <!-- Steel legs with rubber feet, the soles in the city's green. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-6 -36)">
+    <g transform="translate(6 36)">
+      <rect class="o" fill="#6f8698" x="-12" y="-38" width="11" height="30" rx="3"/>
+      <circle class="o" style="stroke-width:1.6" fill="#8fa3b3" cx="-6.5" cy="-21" r="3.2"/>
+      <path class="o" fill="#3b4656" d="M-15 0 L-15 -5 Q-15 -10 -9 -10 L0 -10 Q7 -9.6 8 -4 L8 0 Z"/>
+      <path class="n" fill="#13603a" d="M-14 -2.8 L7 -2.8 L7 -1.2 L-14 -1.2 Z"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(6 -36)">
+    <g transform="translate(-6 36)">
+      <rect class="o" fill="#8fa3b3" x="1" y="-38" width="11" height="30" rx="3"/>
+      <path class="n" fill="#b8c7d3" d="M8 -35 L10 -35 L10 -11 L8 -11 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#c9d4dd" cx="6.5" cy="-21" r="3.2"/>
+      <path class="o" fill="#4a5566" d="M-2 0 L-2 -5 Q-2 -10 4 -10 L13 -10 Q20 -9.6 21 -4 L21 0 Z"/>
+      <path class="n" fill="#1f8a4c" d="M-1 -2.8 L20 -2.8 L20 -1.2 L-1 -1.2 Z"/>
+    </g>
+  </g>
+
+  <!-- The body: a white box with the city's green top and bottom, and the shipping line's wave-and-anchor on the chest. Joint at the waist. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -38)">
+    <g transform="translate(0 38)">
+      <rect class="o" fill="#5d7487" x="-14" y="-42" width="28" height="8" rx="2.5"/>
+      <rect class="o" fill="#f2f4f1" x="-20" y="-86" width="40" height="48" rx="6"/>
+      <path class="n" fill="#1f8a4c" d="M-18.8 -78 L18.8 -78 L18.8 -81 Q18.8 -84.8 15 -84.8 L-15 -84.8 Q-18.8 -84.8 -18.8 -81 Z"/>
+      <path class="n" fill="#1f8a4c" d="M-18.8 -47 L18.8 -47 L18.8 -43 Q18.8 -39.2 15 -39.2 L-15 -39.2 Q-18.8 -39.2 -18.8 -43 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-19.6 -78 L19.6 -78 M-19.6 -47 L19.6 -47"/>
+      <path class="n" fill="#d6dcd8" d="M-18.6 -76.6 L-14 -76.6 L-14 -48.4 L-18.6 -48.4 Z"/>
+      <!-- the emblem: a wave with a small anchor -->
+      <path class="t" style="stroke:#2c3e66;stroke-width:2" d="M-1 -70 L-1 -58 M-4.6 -66.6 L2.6 -66.6 M-5.6 -61.6 Q-1 -55.6 3.6 -61.6"/>
+      <path class="t" style="stroke:#2c3e66;stroke-width:2" d="M-9 -54 Q-6 -57 -3 -54 Q0 -51 3 -54 Q6 -57 9 -54"/>
+      <!-- a battery gauge, full -->
+      <rect class="o" style="stroke-width:1.4" fill="#2b1b16" x="8" y="-74" width="8" height="4.4" rx="1"/>
+      <path class="n" fill="#7ad65a" d="M9.2 -73 L14.8 -73 L14.8 -70.6 L9.2 -70.6 Z"/>
+    </g>
+  </g>
+
+  <!-- A box of a head: a dark face plate with two working lamps, and a speaker grille for a mouth, shut tight. Joint at the neck. -->
+  <g id="head" data-parent="torso" transform="translate(1 -85)">
+    <g transform="translate(-1 85)">
+      <rect class="o" fill="#5d7487" x="-4" y="-92" width="9" height="8" rx="2"/>
+      <rect class="o" fill="#f2f4f1" x="-17" y="-121" width="38" height="31" rx="6"/>
+      <path class="n" fill="#d6dcd8" d="M-15.8 -97 Q-15 -91.4 -10 -91.4 L14 -91.4 Q19.6 -91.4 19.8 -96 Z"/>
+      <!-- the ear: a bolt on the side -->
+      <circle class="o" style="stroke-width:1.8" fill="#8fa3b3" cx="-8" cy="-106" r="4.4"/>
+      <circle class="n" fill="#5d7487" cx="-8" cy="-106" r="1.6"/>
+      <!-- the face plate -->
+      <rect class="o" style="stroke-width:1.8" fill="#1d2a3a" x="-0.6" y="-117" width="20" height="13" rx="4"/>
+      <!-- the speaker grille, and it stays shut -->
+      <rect class="o" style="stroke-width:1.8" fill="#3b4656" x="3.6" y="-101.4" width="14" height="7.6" rx="2.4"/>
+      <path class="t" style="stroke:#c9d4dd;stroke-width:1.1" d="M5.6 -99 L15.6 -99 M5.6 -97.6 L15.6 -97.6 M5.6 -96.2 L15.6 -96.2"/>
+    </g>
+  </g>
+
+  <!-- The eyes, two lamps under a flat brow: on the job. -->
+  <g id="eyes" data-parent="head" transform="translate(9.4 -110.4)">
+    <path class="n" fill="#ffd27a" d="M-7.6 -1.2 L-1.6 -1.2 Q-1.6 3.4 -4.6 3.4 Q-7.6 3.4 -7.6 -1.2 Z M1.6 -1.6 L7.6 -1.6 Q7.6 3.2 4.6 3.2 Q1.6 3.2 1.6 -1.6 Z"/>
+    <path class="t" style="stroke:#ffd27a;stroke-width:1.4" d="M-8.4 -3.4 L-1.2 -2.4 M1.2 -2.8 L8.4 -3.8"/>
+  </g>
+
+  <!-- The beacon on top, like everything on a quay. Joint at its foot. -->
+  <g id="beacon" data-parent="head" transform="translate(2 -121)">
+    <g transform="translate(-2 121)">
+      <path class="t" style="stroke-width:2.6" d="M2 -121 L2 -125"/>
+      <rect class="o" style="stroke-width:1.8" fill="#5d7487" x="-3.6" y="-127" width="11.2" height="3.6" rx="1"/>
+      <path class="o" style="stroke-width:1.8" fill="#e8731c" d="M-2.4 -127 L-2.4 -131 Q-2.4 -136 2 -136 Q6.4 -136 6.4 -131 L6.4 -127 Z"/>
+      <path class="n" fill="#ffb066" d="M-0.8 -128 L-0.8 -131 Q-0.8 -134 1.6 -134.4 Q0.6 -131.6 0.8 -128 Z"/>
+    </g>
+  </g>
+
+  <!-- The front arm: the same rolled-up sleeve, a steel forearm, a gripper on the handle. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(13 -79)">
+    <g transform="translate(-13 79)">
+      <!-- the steel forearm, ribbed like a hose -->
+      <path class="o" fill="#a9b9c6" d="M25.6 -65.4 L38.6 -53.4 L33.4 -48.6 L20.4 -60.6 Z"/>
+      <path class="t" style="stroke:#6f8698;stroke-width:1.4" d="M27.4 -62 L23.8 -58.4 M31 -58.8 L27.4 -55 M34.6 -55.6 L31 -51.8"/>
+      <!-- the sleeve, navy work shirt -->
+      <path class="o" fill="#2c3e66" d="M7 -81 Q11 -89 19 -85 L27 -70 L15 -60 Q7 -70 7 -81 Z"/>
+      <path class="n" fill="#3d5288" d="M17 -84 L24 -71 L21 -69 L14.6 -81.4 Z"/>
+      <!-- rolled up to the elbow, a thick turned-back cuff with a crease -->
+      <path class="o" fill="#4b64a0" d="M24.2 -73.6 L29.6 -67.2 L17.6 -56.6 L12.2 -63 Z"/>
+      <path class="t" style="stroke:#22305a;stroke-width:1.3" d="M27 -70.4 L14.8 -59.8"/>
+      <!-- the shoulder socket -->
+      <circle class="o" style="stroke-width:1.8" fill="#8fa3b3" cx="13" cy="-79" r="4.2"/>
+    </g>
+  </g>
+
+  <!-- The schrobber: a deck brush on a long handle, bristles on the deck. Joint in the gripper. -->
+  <g id="brush" data-parent="arm_front" transform="translate(38 -53)">
+    <g transform="translate(-38 53)">
+      <path class="t" style="stroke-width:6.2" d="M30 -84 L48 -12"/>
+      <path fill="none" stroke="#d9a35f" stroke-width="3.4" stroke-linecap="round" d="M30 -84 L48 -12"/>
+      <path fill="none" stroke="#f0c98a" stroke-width="1.1" stroke-linecap="round" d="M32 -78 L45.6 -23"/>
+      <!-- the brush head and its bristles -->
+      <path class="o" style="stroke-width:2" fill="#ffd21f" d="M32.4 -6 L64.6 -6 L65.4 0 L31.6 0 Z"/>
+      <path class="t" style="stroke-width:1.1" d="M37 -5 L36.8 -0.6 M42 -5 L42 -0.6 M47 -5 L47 -0.6 M52 -5 L52 -0.6 M57 -5 L57.2 -0.6 M61.6 -5 L62 -0.6"/>
+      <rect class="o" fill="#e8731c" x="30" y="-13" width="37" height="9" rx="2.5"/>
+      <path class="n" fill="#ff9a4d" d="M32 -11.6 L65 -11.6 L65 -10 L32 -10 Z"/>
+      <!-- the gripper -->
+      <path class="o" style="stroke-width:2" fill="#5d7487" d="M33 -58 L42 -57 L43 -49 L35 -48.4 Q32 -53 33 -58 Z"/>
+      <path class="t" style="stroke:#8fa3b3;stroke-width:1.2" d="M34.4 -54 L41.6 -53.2"/>
+    </g>
+  </g>
+</svg>

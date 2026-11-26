@@ -64,6 +64,10 @@ export interface Unit {
   returnAt?: number;
   /** The last tick it took a blow, for a unit that grows back only when left alone (UnitDef.regrows). */
   hitAt?: number;
+  /** Blows it has struck in a row without walking, for a unit whose beat speeds up (UnitDef.tempo). */
+  beat?: number;
+  /** Tick from which the crane may lift again (UnitDef.lift). */
+  liftAt?: number;
   /** In the enemy's polonaise until this tick: it neither walks forward nor fights, and dances back towards its own base. */
   congaUntil?: number;
   /** Confetti in its face until this tick: whatever it throws misses (the enemy's Elf Kanonschoten). */
@@ -190,6 +194,11 @@ export interface SideState {
   siestaUntil: number;
   /** Banana peels this side left on the road (UnitDef.peel). */
   peels: Peel[];
+  /** Until this tick everything this side trains is ready at once: Mouwen opstropen! */
+  rushUntil: number;
+  /** Until this tick this side's units take `shelterPercent` of every blow, throw and shot: De kering sluit. */
+  shelterUntil: number;
+  shelterPercent: number;
 }
 
 export interface Shot {
@@ -232,6 +241,22 @@ export interface Shot {
    * `side`'s frame (UnitDef.keys).
    */
   turned?: true;
+  /** It splashes on everyone around the one it hits (UnitDef.sauce). */
+  sauce?: { dmgPercent: number; reach: number };
+}
+
+/**
+ * Something lying across the lane that nobody walks past until `until`: De
+ * container. `at` is the middle of it, measured from the gate of `side`, the
+ * side that dropped it; it is `width` long.
+ */
+export interface Block {
+  id: number;
+  side: Side;
+  at: number;
+  width: number;
+  until: number;
+  rig: string;
 }
 
 export interface Wave {
@@ -271,6 +296,8 @@ export interface SimState {
   shots: Shot[];
   waves: Wave[];
   barrages: Barrage[];
+  /** Containers on the lane. */
+  blocks: Block[];
 }
 
 /** `unit` value that means "the base". */
@@ -304,6 +331,8 @@ export interface Damage {
   party?: number;
   /** It walked onto a banana peel: it lies dazed for this many ticks. */
   slip?: number;
+  /** The shove is a lift: the crane picks the unit up and drops it further back (UnitDef.lift). Looks only. */
+  lift?: true;
 }
 
 /** What happened during one tick, for effects and sound. `pos` is in the frame of `side`. */
@@ -396,4 +425,18 @@ export type SimEvent =
   /** De Reuzenprins `id` of `side` took over the enemy's turret in `slot` with the key of the city, for `ticks`. */
   | { t: 'keyed'; side: Side; id: number; slot: number; ticks: number }
   /** The turret of `side` in `slot` got its key back and fires for its own side again. */
-  | { t: 'unkeyed'; side: Side; slot: number };
+  | { t: 'unkeyed'; side: Side; slot: number }
+  /** For the next `ticks` ticks everything `side` trains is ready at once: Mouwen opstropen! */
+  | { t: 'rushed'; side: Side; ticks: number }
+  /** `side` dropped a container on the lane, `at` from its own gate, for `ticks` ticks; the enemy units `ids` were under it. */
+  | { t: 'blocked'; side: Side; at: number; ticks: number; ids: number[] }
+  /** For the next `ticks` ticks the units of `side` take only part of every hit: De kering sluit. */
+  | { t: 'sheltered'; side: Side; ticks: number }
+  /** Unit `id` of `side` (Lasser Leen) was hit up close, and the enemy unit `by` burned on his sparks. */
+  | { t: 'sparked'; side: Side; id: number; by: number }
+  /** Garlic sauce splashed on the units `ids` of `side`. */
+  | { t: 'sauced'; side: Side; ids: number[] }
+  /** Unit `id` of `owner` brought in `amount` havengeld, paid to `side` (the other one while its earnings are diverted). */
+  | { t: 'earned'; side: Side; owner: Side; id: number; amount: number }
+  /** Unit `id` of `side` was lifted by the enemy's crane and dropped from `from` to `to`. */
+  | { t: 'lifted'; side: Side; id: number; from: number; to: number };

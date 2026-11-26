@@ -583,6 +583,41 @@ export const REGROW = { every: sec(1), healPercent: 2, rest: sec(3) } as const;
 /** De Vreter (Achterhoek, 2050) eats what it hits: it gets `percent` of the damage its blows do back as hit points. */
 export const FEED = { percent: 30 } as const;
 
+/*
+ * Rotterdam, 26 November 2026. The owner wants "each faction has some units
+ * that do something special"; which units and how is mine, and so are all
+ * the numbers below (not fitted: bots only as a bug alarm). Rules in sim/haven.ts.
+ */
+
+/**
+ * Lasser Leen (1975, schild): whoever hits him up close burns on his welding
+ * sparks and takes `percent` of its own blow back. At 50 he beat two of
+ * Amsterdam's light units, which a schild must not (tests/shield.test.ts);
+ * that holds up to 45.
+ */
+export const VONK = { percent: 30 } as const;
+
+/**
+ * Gabber Gerrie (2025, light) hakt to a beat that keeps speeding up: every
+ * blow in a row cuts his pause between blows by `stepPercent` of the usual
+ * one, down to `floorPercent`. Back to the usual pause once he walks again.
+ */
+export const HAKKEN = { stepPercent: 15, floorPercent: 25 } as const;
+
+/** De Kapsalonkoerier (2025, ranged): the tray splashes garlic sauce on every other enemy unit within `reach` of the one it hits, for `dmgPercent` of the damage. */
+export const SAUS = { reach: px(70), dmgPercent: 50 } as const;
+
+/** De AGV (2025, heavy): "In Rotterdam wordt het geld verdiend." Every second it stands on the lane it brings in `amount`, with the income. */
+export const HAVENGELD = { amount: 5 } as const;
+
+/**
+ * De Kraan (2050, super unit): at most once every `every` ticks its blow
+ * lifts the enemy's foremost unit and drops it `shove` further back, onto
+ * whoever stands behind it in its row, who takes `dmgPercent` of the blow.
+ * A unit that shrugs specials off is not lifted.
+ */
+export const HIJS = { every: sec(4), shove: px(110), dmgPercent: 50 } as const;
+
 /** How many beaten units of its own a side remembers for De Bezemwagen to pick up. */
 export const FALLEN_KEEP = 8;
 
@@ -806,4 +841,23 @@ export const SPECIAL = {
    * docs/factions.md planned as "slow" (also for De Camping); Carnaval has it first.
    */
   kater: { ticks: sec(8), speedPercent: 30 },
+  /**
+   * 1975, Rotterdam: "Niet lullen maar poetsen." For this long everything the
+   * side trains is ready at once: whatever is in its queue, and whatever it
+   * buys meanwhile, walks out as fast as the gate has room. Mine, 26 November 2026.
+   */
+  mouwen: { ticks: sec(8) },
+  /**
+   * 2025, Rotterdam: a sea container comes down on the enemy's foremost unit.
+   * Every enemy unit whose front is under it takes `dmg` (a bit more than a
+   * heavy's blow in 2025), and for `ticks` nobody walks past it, from either
+   * side: it is `width` long, centred on that unit's front. Mine, the same day.
+   */
+  container: { ticks: sec(5), dmg: 150, width: px(200) },
+  /**
+   * 2050, Rotterdam: the storm barrier closes. For `ticks` every blow, throw
+   * and turret shot on the side's own units does `percent` of its damage. Its
+   * base is not covered. Mine, the same day.
+   */
+  kering: { ticks: sec(8), percent: 50 },
 } as const;

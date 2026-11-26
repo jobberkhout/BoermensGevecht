@@ -1,6 +1,7 @@
 import { BASE_GAP, CONTACT_GAP, LANE, ROW_ORDER } from '../defs/balance.ts';
 import { unitDef } from '../defs/index.ts';
 import type { SpecialDef } from '../defs/types.ts';
+import { dropContainer } from './haven.ts';
 import { byToughness, frontUnit, insertInRow, slotIn } from './lane.ts';
 import { BASE, SIDES, other, type Barrage, type Damage, type Side, type SimEvent, type SimState, type Unit, type Wave } from './types.ts';
 
@@ -18,7 +19,7 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
   const me = s.sides[side];
   const foe = other(side);
   events.push({ t: 'special', side, id: def.id });
-  const selfOrTurrets = ['buff', 'heal', 'divert', 'summon', 'hike', 'revive', 'siesta'];
+  const selfOrTurrets = ['buff', 'heal', 'divert', 'summon', 'hike', 'revive', 'siesta', 'rush', 'shelter'];
   if (!selfOrTurrets.includes(def.kind)) {
     // Aimed at the enemy's units: whoever shrugs specials off gets to say so.
     const unmoved = s.sides[foe].units.filter((u) => unitDef(u.def).immune).map((u) => u.id);
@@ -139,6 +140,23 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       events.push({ t: 'siesta', side: foe, ticks: def.ticks });
       return;
     }
+    case 'rush':
+      // A flag on this side's training, read in the economy step (sim/step.ts):
+      // whatever is at the head of the queue is ready at once.
+      me.rushUntil = s.tick + def.ticks;
+      events.push({ t: 'rushed', side, ticks: def.ticks });
+      return;
+    case 'block':
+      // Hurting and pushing go onto the damage list; the container itself lies
+      // on the lane from now on and holds everyone back in the move step.
+      dropContainer(s, side, def, dmg, events);
+      return;
+    case 'shelter':
+      // A flag on this side's units, read where damage lands (sim/step.ts, resolve).
+      me.shelterUntil = s.tick + def.ticks;
+      me.shelterPercent = def.percent;
+      events.push({ t: 'sheltered', side, ticks: def.ticks });
+      return;
     case 'snipe': {
       // The toughest enemy units are cancelled, gone whatever their hit points.
       // They fall at the end of the tick, with the damage, so a heal on the same

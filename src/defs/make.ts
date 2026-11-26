@@ -101,14 +101,21 @@ export interface EraLook {
    * Rules of their own for some of its units, on top of their role: the pole
    * vaulter, the skater who cannot brake, sticky throws, soup, a padel player
    * who returns throws, bouncing beets, a big drum, a banana peel, a box that
-   * drops the beat, the key of the city. Their numbers are in defs/balance.ts.
+   * drops the beat, the key of the city, Rotterdam's sparks, tempo, sauce,
+   * havengeld and the crane's lift, and a unit that shrugs specials off. Their
+   * numbers are in defs/balance.ts. The fourth slot is the super unit in 2050.
    * A drawing a rule names (the peel, the key) is a file name in the era's folder.
    */
   perks?: Partial<Record<'light' | 'ranged' | 'heavy' | 'shield', Perk>>;
 }
 
 /** What a unit can do that its role does not, see UnitDef; and, for one that is worth more for it, its price as a share of the usual one. */
-export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds' | 'drum' | 'peel' | 'party' | 'keys'> & {
+export type Perk = Pick<
+  UnitDef,
+  'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds' | 'drum' | 'peel' | 'party' | 'keys' | 'sparks' | 'tempo' | 'sauce' | 'earns' | 'lift'
+> & {
+  /** It shrugs enemy specials off, as super units do: De Poetsrobot. */
+  immune?: true;
   costPercent?: number;
   /** The share of a turret's shot it takes, for a super unit that does not shrug turrets off: De Reuzenprins. */
   turretPercent?: number;

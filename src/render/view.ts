@@ -2,7 +2,7 @@ import { CLIPS } from '../anim/clips/index.ts';
 import { attackTime, sampleClip } from '../anim/sample.ts';
 import type { Clip, ClipSet } from '../anim/types.ts';
 import { GATE_X, GROUND_Y, LANE, SUB, TPS } from '../defs/balance.ts';
-import { SPLASH, eraOf, turretDef, turretEra, unitDef } from '../defs/index.ts';
+import { SPLASH, eraOf, homeOf, turretDef, turretEra, unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { addPose, copyPose, lerpPose, makePose, mountPoint, solve, type Pose } from '../rig/pose.ts';
 import type { Rig } from '../rig/raster.ts';
@@ -199,6 +199,8 @@ export interface Blockade {
   x: number;
   age: number;
   life: number;
+  /** It falls out of the sky and lands with a thud, full size (De container), instead of popping up. */
+  drop?: true;
 }
 
 /**
@@ -419,7 +421,9 @@ export class BattleView {
             this.puffs.push({ x, y: y - 60, age: 0, life: 0.35, color: '#9fe8ff', size: 46 });
             this.puffs.push({ x, y: y - 120, age: -0.05, life: 0.3, color: '#e6fbff', size: 30 });
           }
-          const cries = linesFor('battleCry', e.def);
+          // Against its rival a unit now and then shouts something meant for them instead (Rotterdam against Amsterdam).
+          const rival = NL.rivals[homeOf(e.def)]?.[s.sides[other(e.side)].faction] ?? [];
+          const cries = rival.length > 0 && this.random() < 0.5 ? rival : linesFor('battleCry', e.def);
           // The fatbike kid and the beer bikes always have something to say, and so does the first cousin of the family; everyone else now and then.
           const talks = def.summoned ? this.familyLine[e.side] : def.rider || def.toss ? true : this.random() < 0.35;
           if (def.summoned) this.familyLine[e.side] = false;
@@ -883,6 +887,58 @@ export class BattleView {
         case 'unkeyed': {
           const spot = this.turretSpot(s, e.side, e.slot);
           this.puffs.push({ x: spot.x, y: spot.y - 120, age: 0, life: 0.35, color: '#ffd21f', size: 26 });
+          break;
+        }
+        case 'rushed':
+        case 'sheltered': {
+          // Rolled-up sleeves, or the storm barrier, beside the base for as long as it lasts.
+          const state = s.sides[e.side];
+          const rig = eraOf(state.faction, state.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== e.side || b.mode !== 'pop');
+          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS, mode: 'pop' });
+          break;
+        }
+        case 'blocked': {
+          // A sea container comes down on the enemy's front and lies across the lane.
+          const owner = s.sides[e.side];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          const x = laneX(e.side, e.at);
+          this.blockades.push({ side: other(e.side), rig, x, age: 0, life: e.ticks / TPS, drop: true });
+          // It lands with a cloud of dust, as the rent increase's sign does.
+          this.puffs.push({ x, y: rowY(1) - 10, age: -DROP_SECONDS, life: 0.45, color: '#fffdf5', size: 70 });
+          break;
+        }
+        case 'sparked': {
+          // Welding sparks fly off the plate.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          for (let i = 0; i < 3; i++) {
+            this.puffs.push({ x: v.x + dirOf(v.side) * (24 + this.random() * 14), y: rowY(v.row) - 50 - this.random() * 40, age: -i * 0.04, life: 0.22, color: i === 1 ? '#fff3a0' : '#ffb21f', size: 8 + this.random() * 6 });
+          }
+          break;
+        }
+        case 'sauced': {
+          // Garlic sauce on everyone around.
+          for (const id of e.ids) {
+            const v = this.units.get(id);
+            if (v) this.puffs.push({ x: v.x, y: rowY(v.row) - 60 - this.random() * 30, age: 0, life: 0.35, color: '#fffdf5', size: 18 + this.random() * 8 });
+          }
+          break;
+        }
+        case 'earned': {
+          // Havengeld: now and then a gold number over the unit; diverted, the coins fly to whoever collects.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          if (e.side !== e.owner) this.pay(e.side, { x: v.x, y: rowY(v.row) - 90 }, e.amount);
+          else if (this.random() < 0.4) this.say(v.x, rowY(v.row) - 140, `+${e.amount}`, '#ffd21f', 0.9, 22);
+          break;
+        }
+        case 'lifted': {
+          // Up on the hook and down again further back, along the vaulter's arc.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.leap = 0;
+          v.leapDx = (e.to - e.from) / SUB;
           break;
         }
         case 'special':

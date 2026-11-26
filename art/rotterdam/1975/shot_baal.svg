@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -15 40 30" data-rig="static">
+  <title>Een jute baal, onderweg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="baal" transform="translate(0 0)">
+    <!-- the tied ear, flapping behind -->
+    <path class="o" fill="#d4ad72" d="M10 -3.5 Q15 -7 18 -5 L15 -1 L18.5 2.5 Q15.5 5.5 10 3 Z"/>
+    <path class="t" style="stroke:#6b4a2a;stroke-width:2" d="M10.6 -4 L10.6 3.6"/>
+    <!-- the sack itself, plump and lumpy -->
+    <path class="o" fill="#c8a066" d="M-16 -2 Q-17 -10 -9 -11 Q0 -12.5 8 -10 Q12 -7 11 0 Q12 8 7 10 Q-2 12 -10 10.5 Q-17.5 8.5 -16 -2 Z"/>
+    <path class="t" style="stroke:#a37b45;stroke-width:0.9" d="M-11 -10.4 Q-12 0 -11 10 M-5 -11.4 Q-6 0 -5 11 M1 -11.6 Q0 0 1 11.2 M6 -10.6 Q5.4 0 6 10.4 M-16 -5 Q-2 -7.4 10.6 -5 M-16.4 1 Q-2 -1 11.4 1 M-15 6.6 Q-2 5 10 6.6"/>
+    <path class="n" fill="#dcbb85" d="M-12 -8.4 Q-4 -10.6 4 -9.6 Q-4 -7.6 -11 -4 Z"/>
+    <!-- the stencilled anchor and wave -->
+    <path fill="none" stroke="#5a3a1c" stroke-width="1.5" stroke-linecap="round" d="M-3 -5 L-3 2.6 M-5.2 -3 L-0.8 -3 M-5.8 0.4 Q-3 4 -0.2 0.4"/>
+    <path fill="none" stroke="#5a3a1c" stroke-width="1.5" stroke-linecap="round" d="M-9 6.6 Q-6.5 4.4 -4 6.6 Q-1.5 8.8 1 6.6 Q3.5 4.4 6 6.6"/>
+  </g>
+</svg>

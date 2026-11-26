@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -134 108 140" data-rig="humanoid">
+  <title>Sjaak de Sjouwer: een knoopzakdoek op zijn hoofd, een jute baal op elke schouder, en die smijt hij er een voor een af</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The sack on his far shoulder, standing up behind his head. Joint where it rests on the shoulder. -->
+  <g id="sack_back" data-parent="torso" transform="translate(-10 -74)">
+    <g transform="rotate(-16)">
+      <path class="o" fill="#b38a52" d="M-15 4 Q-19 -16 -15 -38 Q-13 -45.5 -4 -46.5 Q1 -47.5 4 -46.5 Q14 -45.5 15 -38 Q19 -16 15 4 Q0 10 -15 4 Z"/>
+      <path class="t" style="stroke:#8c6634;stroke-width:1" d="M-10 -40 L-11 2 M-4 -44 L-4 6 M2 -44 L2 7 M8 -42 L9 5 M-15 -30 L15 -30 M-16 -18 L16 -18 M-16 -6 L16 -6"/>
+      <path class="n" fill="#c9a068" d="M-11 -40 Q-6 -44 0 -44 Q-8 -38 -10 -24 Z"/>
+      <!-- the ear of the sack, tied with twine -->
+      <path class="o" fill="#c39a60" d="M-5 -46 Q-9 -54 -4 -57 L0 -52 L4 -57 Q9 -54 5 -46 Z"/>
+      <path class="t" style="stroke:#6b4a2a;stroke-width:2.2" d="M-5.6 -47 L5.6 -47"/>
+    </g>
+  </g>
+
+  <!-- The far arm hangs, fist on his hip: the sack up there balances by itself, he says. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-10 -72)">
+    <g transform="rotate(22)">
+      <path class="o" fill="#efe9dc" d="M-6.5 -3 Q-8 3 -7 7 L7 7 Q8 3 6.5 -3 Z"/>
+      <rect class="o" fill="#f8f4ea" x="-7.6" y="5.4" width="15.2" height="5.4" rx="2.7"/>
+      <path class="o" fill="#c98b63" d="M-5.5 10 Q-6.8 17 -5 23 L5 23 Q6.8 17 5.5 10 Z"/>
+      <circle class="o" fill="#c98b63" cx="0" cy="25.5" r="5.4"/>
+    </g>
+  </g>
+
+  <!-- Navy bib overall, the legs rolled up once over his boots. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#24345a" d="M-8 -3 L8 -3 L7 26 L-7 26 Z"/>
+    <rect class="o" fill="#33467a" x="-8" y="22" width="16" height="5" rx="2"/>
+    <path class="o" fill="#3b2a20" d="M-8.5 38 L-8.5 30 Q-8.5 27.5 -4.5 27.5 L5 27.5 Q8.5 27.5 9 30.5 Q15.5 31.5 17 35 L17 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#2c3e66" d="M-8 -3 L8 -3 L7 26 L-7 26 Z"/>
+    <path class="t" style="stroke:#1d2b4c" d="M1 0 L1 22"/>
+    <rect class="o" fill="#3e5288" x="-8" y="22" width="16" height="5" rx="2"/>
+    <path class="o" fill="#4a3426" d="M-8.5 38 L-8.5 30 Q-8.5 27.5 -4.5 27.5 L5 27.5 Q8.5 27.5 9 30.5 Q15.5 31.5 17 35 L17 38 Z"/>
+    <path class="n" fill="#241912" d="M-7.8 35.6 L16.3 35.6 L16.3 37.3 L-7.8 37.3 Z"/>
+  </g>
+
+  <!-- A vest that was white once, and the bib of the overall. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#efe9dc" d="M-16.5 8 Q-20 -14 -16.5 -30 Q-12.5 -38 0 -38 Q13.5 -38 17.5 -30 Q21 -14 17 8 Z"/>
+    <path class="o" fill="#2c3e66" d="M-17.4 8 Q-19 -4 -18 -10 L-11 -10 L-10 -28 L11.5 -28 L12.5 -10 L19 -10 Q20 -2 17.6 8 Z"/>
+    <path class="n" fill="#3e5288" d="M-8 -26 L9.6 -26 L9.8 -22 L-8 -22 Z"/>
+    <path class="t" style="stroke:#1d2b4c" d="M-2 -18 L5 -18 L5 -12 L-2 -12"/>
+    <path class="o" fill="#2c3e66" d="M-10 -28 L-10.8 -37 L-6.6 -37.6 L-6.4 -28 Z"/>
+    <path class="o" fill="#2c3e66" d="M8 -28 L8.6 -37.6 L12.6 -37 L11.6 -28 Z"/>
+    <circle class="o" style="stroke-width:1.4" fill="#d9b74a" cx="-8.2" cy="-27" r="2"/>
+    <circle class="o" style="stroke-width:1.4" fill="#d9b74a" cx="9.8" cy="-27" r="2"/>
+  </g>
+
+  <!-- The sack on his near shoulder, slung over it and hanging down his chest. Joint at the shoulder. -->
+  <g id="sack_front" data-parent="arm_front" transform="translate(10 -74)">
+    <path class="o" fill="#c8a066" d="M-12 -3 Q-8 -14 6 -13 Q19 -11 23 0 Q29 14 25 30 Q15 38 3 34 Q-4 22 -2 9 Q-14 5 -12 -3 Z"/>
+    <path class="t" style="stroke:#a37b45;stroke-width:1" d="M-6 -9 Q-4 0 -3 7 M0 -12 Q2 10 4 32 M7 -13 Q9 10 10 35 M14 -11 Q16 12 17 35 M20 -6 Q22 12 23 31 M-10 2 Q8 -4 25 6 M-3 14 Q12 10 27 16 M-1 25 Q12 22 27 26"/>
+    <path class="n" fill="#dcbb85" d="M-6 -8 Q4 -13 14 -9 Q6 -8 -2 -3 Z"/>
+    <!-- a stencilled anchor over a wave, all the label it gets -->
+    <path fill="none" stroke="#5a3a1c" stroke-width="1.7" stroke-linecap="round" d="M15 -5 L15 4 M12.4 -2.6 L17.6 -2.6 M11.8 1.6 Q15 5.6 18.2 1.6"/>
+    <path fill="none" stroke="#5a3a1c" stroke-width="1.8" stroke-linecap="round" d="M9 9 Q12 6 15 9 Q18 12 21 9"/>
+    <!-- the tied ear, sticking out at the bottom -->
+    <path class="o" fill="#d4ad72" d="M9 34 Q7 41 11 43 L13 38.5 L16 42.5 Q20 39 16 33.5 Z"/>
+    <path class="t" style="stroke:#6b4a2a;stroke-width:2.2" d="M9 35.4 L16.6 34.6"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#bd7f58" x="-5" y="-6" width="11" height="9" rx="2"/>
+    <ellipse class="o" fill="#dd9d74" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#dd9d74" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- red with effort -->
+    <ellipse class="n" fill="#e0604a" fill-opacity="0.5" cx="7" cy="-13.5" rx="4.6" ry="2.8"/>
+    <!-- a white handkerchief with a knot in each corner, against the sun -->
+    <path class="o" fill="#f6f6f0" d="M-17.5 -24 Q-19 -40 2 -41.5 Q21 -41 20.5 -26 Q10 -30 2 -30 Q-8 -30 -17.5 -24 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f6f6f0" d="M-19 -24 Q-24 -24 -23.5 -20 Q-20 -18.6 -17.5 -21.6 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f6f6f0" d="M20 -27 Q25.5 -28 25 -24 Q22.4 -22.4 19.6 -24.4 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#f6f6f0" d="M-8 -40 Q-10 -45.6 -6 -46 Q-3 -45 -3.6 -41 Z"/>
+    <path class="t" style="stroke:#c8c8be;stroke-width:1.2" d="M-12 -33 Q2 -38 15 -32 M-8 -36.5 Q4 -40 12 -36"/>
+    <!-- squeezed eyes, a grin full of teeth -->
+    <path class="t" style="stroke-width:2.2" d="M6.6 -21 Q9.8 -23.4 12.8 -20.4 M15.6 -20.6 Q18 -23 20.4 -20.6"/>
+    <path class="t" style="stroke-width:2.6" d="M5.4 -26 L12.6 -27.2 M15 -27.2 L20.4 -26"/>
+    <path class="o" fill="#d48c64" d="M19.5 -19 Q26 -15.5 20 -11.5"/>
+    <path class="o" fill="#7a2a20" d="M5 -10.6 Q13 -2 21.6 -10.6 Q13 -8.6 5 -10.6 Z"/>
+    <path class="n" fill="#ffffff" d="M7 -10.1 Q13 -8.7 19.6 -10 L18.8 -8.2 Q13 -6.8 7.8 -8.4 Z"/>
+    <!-- a sweat drop, flying off -->
+    <path class="o" style="stroke-width:1.4" fill="#bfe6f5" d="M-19 -36 Q-22 -32 -20 -30 Q-17.6 -30 -17.8 -33 Z"/>
+  </g>
+
+  <!-- The near arm, round the front sack. Bare to the shoulder: the vest has no sleeves left to roll. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <g transform="rotate(-42)">
+      <path class="o" fill="#efe9dc" d="M-6.5 -3.5 Q-8 2 -7 6 L7 6 Q8 2 6.5 -3.5 Z"/>
+      <rect class="o" fill="#f8f4ea" x="-7.8" y="4.6" width="15.6" height="5.4" rx="2.7"/>
+      <path class="o" fill="#dd9d74" d="M-5.8 9.6 Q-7.4 17 -5.4 25 L5.4 25 Q7.4 17 5.8 9.6 Z"/>
+      <path class="t" style="stroke:#a86b48;stroke-width:1" d="M-2 14 L-1 16 M1.6 17 L2.6 19 M-2.4 20 L-1.4 22"/>
+      <circle class="o" fill="#dd9d74" cx="0" cy="27" r="5.6"/>
+      <circle data-mount="hand" fill="none" cx="0" cy="34" r="1"/>
+    </g>
+  </g>
+</svg>

@@ -22,6 +22,7 @@ import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } fro
 import { advanceRiders, riderInReach, sendRider } from './riders.ts';
 import { blinded, boom, dance, dancing, dropPeel, dropTheBeat, flyTurned, passKeys, slipOnPeels, turnedShot } from './carnaval.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
+import { clearBlocks, earn, lift, recoverOf, rushing, sheltered, sparksOff, splashSauce, wallFor } from './haven.ts';
 import { applyVaults, bounceOn, crash, feed, preyOf, regrow, remember, sendBack, serveSoup, shoveBack, startVault, sticky, walkSpeed } from './stunts.ts';
 import { markPosing, posed, recall, scatterGroup } from './tourists.ts';
 import { turretDamage, turretRange } from './turrets.ts';
@@ -86,8 +87,9 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   passKeys(s, events);
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
 
-  // 4-6. Movement, riders, projectiles, specials. Whoever is in a polonaise dances
-  // home once the ranks have moved, and then anyone may walk onto a banana peel.
+  // 4-6. Movement, riders, projectiles, specials. A container whose time is up is lifted first.
+  // Whoever is in a polonaise dances home once the ranks have moved, and then anyone may walk onto a banana peel.
+  clearBlocks(s);
   move(s, fronts);
   dance(s);
   slipOnPeels(s, dmg, events);
@@ -119,6 +121,8 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
       const income = SUBSIDY.income[me.subsidy]!;
       s.sides[to].gold += income;
       if (to !== side) events.push({ t: 'skimmed', side: to, amount: income });
+      // De AGV brings in havengeld with it (sim/haven.ts).
+      earn(s, side, events);
     }
     me.progress += PROGRESS.perInterval;
   }
@@ -131,6 +135,8 @@ function economy(s: SimState, side: Side, events: SimEvent[]): void {
 
   const head = me.queue[0];
   if (!head) return;
+  // Mouwen opstropen!: while it lasts, whatever is in training is ready at once (sim/haven.ts).
+  if (rushing(s, side)) head.left = 0;
   if (head.left > 0) {
     head.left--;
     return;
@@ -201,10 +207,11 @@ function decide(s: SimState, side: Side, front: Unit | undefined, dmg: Damage[],
     const dist = LANE - u.pos - (foeFront ? foeFront.pos : 0);
 
     if (u.stunUntil > s.tick || dancing(s, u)) {
-      // Stuck, or dancing in the enemy's polonaise: no walking forward, no fighting,
-      // and whatever it was doing is interrupted. A dancer is moved by dance().
+      // Stuck, or dancing in the enemy's polonaise: no walking forward, no fighting, and whatever it
+      // was doing is interrupted; a beat is lost. A dancer is moved by dance().
       u.act = 'idle';
       u.actTick = 0;
+      if (u.beat) u.beat = 0;
       continue;
     }
 
@@ -225,7 +232,8 @@ function decide(s: SimState, side: Side, front: Unit | undefined, dmg: Damage[],
         u.actTick++;
         if (u.actTick === def.windup) strike(s, side, u, def, foeFront, dist, dmg, events);
       }
-      if (u.actTick < def.windup + def.recover) continue;
+      // Gabber Gerrie's pause shrinks with every blow in a row (sim/haven.ts).
+      if (u.actTick < def.windup + recoverOf(u, def)) continue;
     }
 
     u.actTick = 0;
@@ -241,6 +249,7 @@ function decide(s: SimState, side: Side, front: Unit | undefined, dmg: Damage[],
       events.push({ t: 'attack', side, id: u.id });
     } else {
       u.act = 'walk';
+      if (u.beat) u.beat = 0;
     }
   }
 }
@@ -261,11 +270,13 @@ function strike(
     return;
   }
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
+  if (def.tempo) u.beat = (u.beat ?? 0) + 1;
   let amount = damageOf(s, side, u, def.dmg);
   if (def.shot) {
     launch(s, side, u, def.shot, amount, dist, def.range, {
       ...(def.sticky ? { sticky: def.sticky.ticks } : {}),
       ...(def.bounce ? { bounce: { ...def.bounce } } : {}),
+      ...(def.sauce ? { sauce: { ...def.sauce } } : {}),
     });
     return;
   }
@@ -283,10 +294,15 @@ function strike(
     // Everyone within the sweep: the front unit of each row, and with a long
     // sweep (a super unit's) the ranks behind them as well.
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.sweep) dmg.push({ side: foe, unit: f.id, amount, ...from });
+      if (LANE - u.pos - f.pos > def.sweep) continue;
+      dmg.push({ side: foe, unit: f.id, amount, ...from });
+      sparksOff(s, side, u, f, amount, dmg, events);
     }
+    // De Kraan picks the front one up and drops it on the one behind (sim/haven.ts).
+    lift(s, side, u, def, foeFront, amount, dmg);
   } else {
     dmg.push({ side: foe, unit: foeFront.id, amount, ...shove, ...from });
+    sparksOff(s, side, u, foeFront, amount, dmg, events);
   }
 }
 
@@ -472,8 +488,8 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
   for (const side of SIDES) {
     const units = s.sides[side].units;
     const foePos = line[other(side)];
-    // Nobody passes the front line, and nobody walks into the enemy base.
-    const frontLimit = Math.min(line[side] + reach[side], LANE - BASE_GAP);
+    // Nobody passes the front line, nobody walks into the enemy base, and nobody walks past a container (sim/haven.ts).
+    const frontLimit = Math.min(line[side] + reach[side], LANE - BASE_GAP, wallFor(s, side));
     const rows: RowRoom[] = Array.from({ length: ROWS }, () => ({ all: frontLimit, solid: frontLimit, room: LANE - BASE_GAP, thrower: -1 }));
     // Front to back, whatever the row, so whoever stands further forward has
     // moved before anyone behind looks. Within a row the list then runs front
@@ -541,6 +557,7 @@ function advanceShots(s: SimState, dmg: Damage[], events: SimEvent[]): void {
           continue;
         }
         dmg.push({ side: foe, unit: front.id, amount: shot.dmg, turret: shot.slot >= 0, ...(shot.sticky ? { sticky: shot.sticky } : {}) });
+        if (hit) splashSauce(shot, foe, units, hit, dmg, events);
         const on = hit ? bounceOn(s, shot, units, hit) : null;
         if (on) keep.push(on);
         continue;
@@ -594,8 +611,9 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     if (!u) {
       const r = target.riders.find((x) => x.id === d.unit);
       if (r) {
-        r.hp -= d.amount;
-        events.push({ t: 'hit', side: d.side, id: r.id, amount: d.amount, pos: r.pos });
+        const landed = sheltered(s, d.side, d.amount);
+        r.hp -= landed;
+        events.push({ t: 'hit', side: d.side, id: r.id, amount: landed, pos: r.pos });
       }
       continue;
     }
@@ -624,17 +642,20 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     }
     // A unit that grows back only does so once it is left alone (sim/stunts.ts).
     if (unitDef(u.def).regrows && d.amount > 0) u.hitAt = s.tick;
+    // Behind the storm barrier every hit lands for only part (sim/haven.ts).
+    const landed = sheltered(s, d.side, d.amount);
     const share = d.turret ? unitDef(u.def).turretPercent : 100;
     if (share < 100) {
       // A turret's shot on a unit that shrugs turrets off: most of it bounces away. Off a big drum it booms.
-      const amount = Math.floor((d.amount * share) / 100);
+      const amount = Math.floor((landed * share) / 100);
       u.hp -= amount;
       events.push({ t: 'glance', side: d.side, id: u.id, amount, pos: u.pos });
       if (unitDef(u.def).drum) drums[d.side].add(u.id);
       continue;
     }
-    u.hp -= d.amount;
-    events.push({ t: 'hit', side: d.side, id: u.id, amount: d.amount, pos: u.pos });
+    u.hp -= landed;
+    // Nothing to show for a push with no blow in it (a container, a crane's lift).
+    if (d.amount > 0) events.push({ t: 'hit', side: d.side, id: u.id, amount: landed, pos: u.pos });
     // Sugar sticks to anyone who does not shrug specials off.
     if (d.sticky && !unitDef(u.def).immune) u.stickyUntil = Math.max(u.stickyUntil ?? 0, s.tick + d.sticky);
   }
@@ -657,7 +678,7 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     u.prevPos = u.pos;
     u.act = 'idle';
     u.actTick = 0;
-    if (u.pos !== from) events.push({ t: 'shoved', side: d.side, id: u.id, from, to: u.pos });
+    if (u.pos !== from) events.push({ t: d.lift ? 'lifted' : 'shoved', side: d.side, id: u.id, from, to: u.pos });
   }
 
   for (const side of SIDES) {
