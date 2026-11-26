@@ -2,7 +2,7 @@ import { BASE_GAP, FALLEN_KEEP, FOLLOW_GAP, LANE, SHOT_SLACK } from '../defs/bal
 import { unitDef } from '../defs/index.ts';
 import type { UnitDef } from '../defs/types.ts';
 import { frontUnit } from './lane.ts';
-import { SIDES, type Damage, type Shot, type Side, type SimEvent, type SimState, type Unit } from './types.ts';
+import { SIDES, other, type Damage, type Shot, type Side, type SimEvent, type SimState, type Unit } from './types.ts';
 
 /**
  * Units that do something their role does not: the owner's of 26 November
@@ -12,9 +12,12 @@ import { SIDES, type Damage, type Shot, type Side, type SimEvent, type SimState,
  * side's ranks directly, and what it does to the enemy lands at the end of
  * the tick, with the damage.
  *
- * - The pole vaulter (De Fierljepper): at the first enemy unit it meets it
- *   vaults over it, lands just behind that unit's back and sits dazed. From
- *   there it fights on as anyone does, in the middle of the enemy ranks.
+ * - The pole vaulter (De Fierljepper) goes for the throwers: at the enemy's
+ *   front it vaults over the close fighters to the nearest thrower within its
+ *   leap, lands just in front of it, sits dazed, and then fights that thrower.
+ *   With no thrower in reach it fights the front as anyone does, and keeps its
+ *   leap. Once its thrower is beaten or out of reach it fights on as anyone
+ *   does, in the middle of the enemy ranks.
  * - The skater who cannot brake (De Kluner): fast until its first blow, which
  *   hits three times as hard and shoves the enemy back; then it sits dazed.
  * - Sticky throws (Bakker Tjitske): whoever is hit walks and fights at half pace.
@@ -37,17 +40,43 @@ export function walkSpeed(s: SimState, u: Unit, def: UnitDef, pacePercent: numbe
 }
 
 /**
- * The pole vaulter meets its first enemy: it will land just behind that
- * unit's back, at the far end of the lane at most. Only decided here; the leap
- * itself happens in applyVaults, once both sides have looked at the lane.
+ * The pole vaulter has reached the enemy's front, `foeFront`. If that is a
+ * close fighter and a thrower of theirs stands no more than the leap's reach
+ * further on, it takes off for the nearest such thrower and will land just in
+ * front of it, at the far end of the lane at most. Returns whether it took
+ * off; if not, it fights the front as anyone does and keeps its leap. Only
+ * decided here, from the lane as it stands; the leap itself happens in
+ * applyVaults, once both sides have looked at the lane.
  */
-export function startVault(u: Unit, def: UnitDef, foe: Unit): void {
-  if (!def.vault) return;
-  const over = LANE - foe.pos + unitDef(foe.def).len + def.vault.gap + def.len;
+export function startVault(s: SimState, side: Side, u: Unit, def: UnitDef, foeFront: Unit): boolean {
+  if (!def.vault || u.vaulted || unitDef(foeFront.def).role === 'ranged') return false;
+  let prey: Unit | undefined;
+  for (const f of s.sides[other(side)].units) {
+    if (f.hp <= 0 || unitDef(f.def).role !== 'ranged') continue;
+    const ahead = LANE - f.pos - u.pos;
+    if (ahead <= 0 || ahead > def.vault.reach) continue;
+    if (!prey || f.pos > prey.pos || (f.pos === prey.pos && f.id < prey.id)) prey = f;
+  }
+  if (!prey) return false;
   u.vaulted = true;
-  u.vaultTo = Math.min(LANE - BASE_GAP, Math.max(u.pos, over));
+  u.prey = prey.id;
+  u.vaultTo = Math.min(LANE - BASE_GAP, Math.max(u.pos, LANE - prey.pos - def.vault.gap));
   u.act = 'idle';
   u.actTick = 0;
+  return true;
+}
+
+/**
+ * The thrower a pole vaulter leapt at, while it still stands on the lane
+ * within the vaulter's reach. Once it is gone the vaulter forgets it and fights
+ * the front like anyone.
+ */
+export function preyOf(s: SimState, side: Side, u: Unit, def: UnitDef): Unit | undefined {
+  if (u.prey === undefined) return undefined;
+  const prey = s.sides[other(side)].units.find((f) => f.id === u.prey && f.hp > 0);
+  if (prey && LANE - u.pos - prey.pos <= def.range) return prey;
+  delete u.prey;
+  return undefined;
 }
 
 /** Every pole vaulter that took off this tick lands, and sits dazed. */

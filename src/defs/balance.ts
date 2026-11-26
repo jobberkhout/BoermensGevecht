@@ -525,12 +525,16 @@ export const STATS: Record<EraKey, EraStats> = {
 // are mine, not fitted (the owner: "No need to do the balancing").
 
 /**
- * De Fierljepper (De Elf Steden, 1975): at the first enemy unit it meets it
- * vaults over it and lands `gap` behind that unit's back, in the middle of the
- * enemy ranks, where it sits dazed in the snow for `dazeTicks` before it
- * fights on. Once a life.
+ * De Fierljepper (De Elf Steden, 1975) goes for the throwers. When it reaches
+ * the enemy's front and a thrower stands no more than `reach` further on, it
+ * vaults over the close fighters and lands `gap` in front of that thrower,
+ * where it sits dazed in the snow for `dazeTicks` and then fights it. With no
+ * thrower in reach it fights the front like anyone, and keeps its leap for
+ * later. Once a life. The owner, 26 November 2026: it should jump over melee
+ * units "to attack ranged units"; jumping and then fighting the unit it went
+ * over "is a bit useless".
  */
-export const VAULT = { gap: px(8), dazeTicks: sec(1.1) } as const;
+export const VAULT = { gap: px(8), reach: px(300), dazeTicks: sec(0.5) } as const;
 
 /**
  * De Kluner (De Elf Steden, 2025) cannot brake: until its first blow it goes

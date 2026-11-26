@@ -21,7 +21,7 @@ import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
 import { advanceRiders, riderInReach, sendRider } from './riders.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
-import { applyVaults, bounceOn, crash, feed, regrow, remember, sendBack, serveSoup, shoveBack, startVault, sticky, walkSpeed } from './stunts.ts';
+import { applyVaults, bounceOn, crash, feed, preyOf, regrow, remember, sendBack, serveSoup, shoveBack, startVault, sticky, walkSpeed } from './stunts.ts';
 import { markPosing, posed, recall, scatterGroup } from './tourists.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
@@ -183,14 +183,16 @@ function freeRow(units: readonly Unit[]): number {
   return best;
 }
 
-function decide(s: SimState, side: Side, foeFront: Unit | undefined, dmg: Damage[], events: SimEvent[]): void {
+function decide(s: SimState, side: Side, front: Unit | undefined, dmg: Damage[], events: SimEvent[]): void {
   const me = s.sides[side];
-  // With no enemy unit on the lane the target is the enemy base, at distance LANE.
-  const foePos = foeFront ? foeFront.pos : 0;
 
   for (const u of me.units) {
     const def = unitDef(u.def);
-    const dist = LANE - u.pos - foePos;
+    // Everyone fights the enemy's front, except a pole vaulter that leapt at a
+    // thrower (sim/stunts.ts). With no enemy unit on the lane the target is the
+    // enemy base, at distance LANE.
+    const foeFront = (def.vault && preyOf(s, side, u, def)) || front;
+    const dist = LANE - u.pos - (foeFront ? foeFront.pos : 0);
 
     if (u.stunUntil > s.tick) {
       // Stuck: no walking, no fighting, and whatever it was doing is interrupted.
@@ -220,9 +222,8 @@ function decide(s: SimState, side: Side, foeFront: Unit | undefined, dmg: Damage
     // Against units a fighter stops as soon as it can reach. Against the base it
     // closes in first, or only the front rank of a ranged army would ever fire.
     const reach = foeFront ? def.range : Math.min(def.range, SIEGE_REACH);
-    if (foeFront && def.vault && !u.vaulted && dist <= reach) {
-      // The pole vaulter does not fight the first enemy it meets: it goes over it (sim/stunts.ts).
-      startVault(u, def, foeFront);
+    if (foeFront && def.vault && !u.vaulted && dist <= reach && startVault(s, side, u, def, foeFront)) {
+      // The pole vaulter goes over the close fighters to a thrower behind them (sim/stunts.ts).
       continue;
     }
     if (dist <= reach) {

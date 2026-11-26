@@ -9,7 +9,7 @@ import type { FactionDef } from './types.ts';
  * yet (26 November 2026).
  *
  * More than any faction before them, their units do things of their own (the
- * owner: "Go NUTS"): De Fierljepper vaults over the first enemy it meets,
+ * owner: "Go NUTS"): De Fierljepper vaults over the close fighters to a thrower,
  * De Kluner cannot brake, Bakker Tjitske's sugar bread glues the enemy, and
  * Beppe's Koek-en-zopie feeds whoever stands around her. Their numbers are in
  * defs/balance.ts (VAULT, CHARGE, STICKY, SOUP), their rules in sim/stunts.ts.
@@ -44,7 +44,7 @@ export const friezen: FactionDef = {
       turret: 'turret_leugenbank',
       turretShot: { rig: 'shot_dumke', arc: 50, spin: 2, splash: '#e8c58a' },
       special: { kind: 'stun', ticks: SPECIAL.winter63.ticks, look: 'ice', rig: 'special_winter63' },
-      perks: { light: { vault: { gap: VAULT.gap, dazeTicks: VAULT.dazeTicks } } },
+      perks: { light: { vault: { gap: VAULT.gap, reach: VAULT.reach, dazeTicks: VAULT.dazeTicks } } },
     }, TEMPER),
     // Kwakkelwinter: rain over the skating suits, and the bezemwagen ready.
     makeEra('fr', 'friezen', {

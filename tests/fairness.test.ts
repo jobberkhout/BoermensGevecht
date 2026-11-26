@@ -20,7 +20,8 @@ function shape(side: SideState): unknown {
     hike: [side.hikeFrom, side.hikeUntil, side.hikePercent],
     arrivals: side.arrivals,
     specialReadyAt: side.specialReadyAt,
-    units: side.units.map((u) => ({ ...u, id: 0 })),
+    // Ids differ between the seats by construction; a pole vaulter's prey is an id of the other side's.
+    units: side.units.map((u) => ({ ...u, id: 0, ...(u.prey === undefined ? {} : { prey: 0 }) })),
     riders: side.riders.map((r) => ({ ...r, id: 0, passed: r.passed.length })),
   };
 }

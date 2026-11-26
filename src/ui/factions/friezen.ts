@@ -36,7 +36,7 @@ export const friezen: FactionText = {
   },
 
   blurbs: {
-    'fr.1975.light': 'Springt met zijn polsstok over de eerste vijand heen, landt op zijn kont en vecht daar verder.',
+    'fr.1975.light': 'Springt met zijn polsstok over de vechters heen, landt op zijn kont en pakt de werpers aan.',
     'fr.1975.ranged': 'Kaatser in het wit, met een winterjas erover. Slaat keiharde balletjes op.',
     'fr.1975.heavy': 'Vier toerschaatsers, handen op de rug, sjaals wapperend. Ze schaatsen gewoon over de weg.',
     'fr.1975.shield': 'Duwt een houten sneeuwschuif voor zich uit. Torens mikken op hem en raken alleen de schuif.',
