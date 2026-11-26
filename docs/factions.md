@@ -406,6 +406,18 @@ What to know before the balance pass:
   66% and 56%, about as before. No stalls. With the beer at half again a throw's damage, which the owner
   asked for next: 31%, 32%, 25% and 37% with a mix.
 
+- **Rotterdam**, measured on 26 November 2026 with both sides buying a mix, both seats together, 40
+  matches a pairing: it wins 3% against the farmers, 13% against De Zuidas, 18% against Amsterdam, 22%
+  against De Gasten, 30% against De Toeristen and 20% against De Elf Steden; against itself 55 to 45. No
+  stalls. Against the farmers and De Zuidas the matches are short (about four minutes) and seldom reach
+  2050. That is past the owner's alarm of 90%, so it was looked into as a possible bug and none was found:
+  switching off the temperament, the six units' rules or the three specials one at a time leaves it as low
+  (0 to 13% against those two). The same run has the farmers beating De Gasten 100% and De Toeristen 92.5%
+  on the main branch's numbers, so the Achterhoek's lead over the bots is not new. With the farmers'
+  specials in place of its own Rotterdam won 40% against Amsterdam, so its specials are worth little in the
+  bots' hands. Not fitted, as the owner asked; the levers would be TEMPER in `src/defs/rotterdam.ts` and
+  `SPECIAL.mouwen`, `container` and `kering`.
+
 ## The factions
 
 ### 1. De Zuidas
