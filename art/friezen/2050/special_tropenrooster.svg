@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -194 156 200" data-rig="static">
+  <title>Tropenrooster: een bord met een thermometer die uit zijn buis kookt, een zon met een zonnebril en een strandstoel. Te warm om te werken: de torens gaan naar huis</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The post, rammed into the verge in front of the enemy's base. (0,0) is its foot. -->
+  <g id="post" transform="translate(0 0)">
+    <path class="o" fill="#c9b79c" d="M-12 2 Q-8 -6 0 -6 Q8 -6 12 2 Z"/>
+    <path class="o" fill="#fbf8f0" d="M-5 -2 L-5 -184 Q-5 -188 0 -188 L132 -188 Q136 -188 136 -184 L136 -180 Q136 -177 132 -177 L5 -177 L5 -2 Z"/>
+    <path class="n" fill="#e6ecee" d="M1 -4 L4 -4 L4 -176 L1 -176 Z"/>
+    <path class="t" style="stroke-width:2.4" d="M5 -164 L18 -177"/>
+    <circle class="o" style="stroke-width:2" fill="#ff8a3d" cx="0" cy="-188" r="4"/>
+  </g>
+
+  <!-- The board, hanging from two hooks. Joint in the middle of the arm, so it swings. -->
+  <g id="board" data-parent="post" transform="translate(72 -177)">
+    <g transform="translate(-72 177)">
+      <path class="t" style="stroke:#8a919c;stroke-width:2.2" d="M24 -177 L24 -164 M120 -177 L120 -164"/>
+      <rect class="o" fill="#fff3d6" x="12" y="-164" width="120" height="104" rx="6"/>
+      <!-- a heat haze along the bottom, in waves -->
+      <path class="t" style="stroke:#ffb27a;stroke-width:2.2" d="M20 -70 Q26 -74 32 -70 Q38 -66 44 -70 M84 -70 Q90 -74 96 -70 Q102 -66 108 -70 Q114 -74 120 -70"/>
+      <!-- the thermometer: its glass tube and scale -->
+      <rect class="o" fill="#fbf8f0" x="32" y="-146" width="16" height="66" rx="8"/>
+      <path class="t" style="stroke-width:1.6" d="M48 -132 L54 -132 M48 -120 L54 -120 M48 -108 L54 -108 M48 -96 L54 -96"/>
+      <circle class="o" fill="#e5283f" cx="40" cy="-80" r="13"/>
+      <path class="n" fill="#ff8a8a" d="M33 -84 Q36 -90 41 -91 Q36 -86 35 -80 Z"/>
+      <!-- the deck chair, standing ready under the sun -->
+      <path class="o" style="stroke-width:2.4" fill="#e5283f" d="M78 -96 L104 -96 L118 -72 L92 -72 Z"/>
+      <path class="n" fill="#fbf8f0" d="M86 -96 L92 -96 L106 -72 L100 -72 Z M98 -96 L102 -96 L116 -72 L112 -72 Z"/>
+      <path class="t" style="stroke-width:2.6" d="M80 -64 L104 -96 M116 -64 L96 -84 M92 -72 L84 -64"/>
+      <path class="t" style="stroke:#e5283f;stroke-width:2.4" d="M78 -96 L104 -96 L118 -72 L92 -72 Z"/>
+    </g>
+  </g>
+
+  <!-- The red, all the way up the tube and out of the top. Joint at the bulb, so it can push up. -->
+  <g id="mercury" data-parent="board" transform="translate(40 -84)">
+    <g transform="translate(-40 84)">
+      <rect class="n" fill="#e5283f" x="36" y="-146" width="8" height="64" rx="4"/>
+    </g>
+  </g>
+
+  <!-- What boils out of the top: a red splash and two drops. Joint at the mouth of the tube. -->
+  <g id="burst" data-parent="board" transform="translate(40 -148)">
+    <g transform="translate(-40 148)">
+      <path class="o" style="stroke-width:2.4" fill="#e5283f" d="M34 -146 Q30 -156 36 -160 Q38 -166 44 -162 Q50 -164 50 -156 Q52 -148 46 -146 Z"/>
+      <path class="o" style="stroke-width:2" fill="#e5283f" d="M26 -164 Q24 -170 28 -172 Q32 -170 30 -164 Z"/>
+      <path class="o" style="stroke-width:2" fill="#e5283f" d="M54 -168 Q52 -174 56 -176 Q60 -174 58 -168 Z"/>
+    </g>
+  </g>
+
+  <!-- The sun, in sunglasses, smug. Joint in its middle. -->
+  <g id="sun" data-parent="board" transform="translate(98 -130)">
+    <g transform="translate(-98 130)">
+      <path class="t" style="stroke:#ff8a3d;stroke-width:4" d="M98 -156 L98 -150 M98 -110 L98 -104 M72 -130 L78 -130 M118 -130 L124 -130 M80 -148 L84 -144 M112 -116 L116 -112 M116 -148 L112 -144 M84 -116 L80 -112"/>
+      <circle class="o" fill="#ffd21f" cx="98" cy="-130" r="17"/>
+      <!-- sunglasses -->
+      <path class="o" style="stroke-width:2.2" fill="#2b1b16" d="M85 -136 L97 -136 L96 -128 Q91 -126 86 -128 Z M99 -136 L111 -136 L110 -128 Q105 -126 100 -128 Z"/>
+      <path class="t" style="stroke-width:2.2" d="M97 -134 L99 -134"/>
+      <path class="n" fill="#7ff0f0" d="M88 -134 L91 -134 L89 -131 Z M102 -134 L105 -134 L103 -131 Z"/>
+      <!-- the smirk -->
+      <path class="t" style="stroke-width:2.4" d="M91 -121 Q98 -116 106 -122"/>
+    </g>
+  </g>
+</svg>

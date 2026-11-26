@@ -216,8 +216,8 @@ export class Hud {
     parts.buttons.special.root.title = NL.blurbs[era.special.id] ?? '';
     parts.buttons.turret.root.title = NL.blurbs[era.turret.id] ?? '';
     this.write(parts.buttons.special.label, nameOf(era.special.id));
-    parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 13);
-    parts.buttons.special.label.classList.toggle('two', nameOf(era.special.id).length > 13 && nameOf(era.special.id).includes(' '));
+    parts.buttons.special.label.classList.toggle('long', nameOf(era.special.id).length > 12);
+    parts.buttons.special.label.classList.toggle('two', nameOf(era.special.id).length > 12 && nameOf(era.special.id).includes(' '));
     this.write(parts.buttons.subsidy.label, NL.hud.subsidy);
 
     // In the last era there is nothing left to modernize to: the button makes
@@ -293,8 +293,8 @@ export class Hud {
       const plan = turretPlan(s, side);
       const turretName = nameOf(plan ? plan.def.id : era.turret.id);
       this.write(turret.label, turretName);
-      turret.label.classList.toggle('long', turretName.length > 13);
-      turret.label.classList.toggle('two', turretName.length > 13 && turretName.includes(' '));
+      turret.label.classList.toggle('long', turretName.length > 12);
+      turret.label.classList.toggle('two', turretName.length > 12 && turretName.includes(' '));
       this.write(turret.cost, plan ? String(plan.cost) : '');
       this.write(
         turret.sub!,

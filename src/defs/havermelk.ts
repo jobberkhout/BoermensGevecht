@@ -1,4 +1,4 @@
-import { SPECIAL, type Temper } from './balance.ts';
+import { REGROW, RETURN, SPECIAL, type Temper } from './balance.ts';
 import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
 
@@ -54,6 +54,9 @@ export const havermelk: FactionDef = {
       turret: 'turret_podcast',
       turretShot: { rig: 'shot_geklaag', arc: 14, spin: 0, splash: '#ffffff' },
       special: { kind: 'stun', ticks: SPECIAL.blokkade.ticks, rig: 'special_blokkade' },
+      // Padel-Pepijn smashes enemy throws back down the lane (sim/stunts.ts). The owner asked
+      // for one unit per faction that does something no other does, 26 November 2026.
+      perks: { light: { returns: { every: RETURN.every } } },
     }, TEMPER),
     // Headsets, bubble tea and meat from a vat.
     makeEra('hm', 'havermelk', {
@@ -67,6 +70,9 @@ export const havermelk: FactionDef = {
       turret: 'turret_livestream',
       turretShot: { rig: 'shot_dislike', arc: 14, spin: 0, splash: '#ff5d73' },
       special: { kind: 'snipe', count: SPECIAL.algoritme.count, rig: 'special_algoritme' },
+      // De Kweekvleesblob grows back (sim/stunts.ts): the owner asked for one unit of the last era
+      // that does something no other does, 26 November 2026.
+      perks: { heavy: { regrows: { every: REGROW.every, healPercent: REGROW.healPercent } } },
     }, TEMPER),
   ],
 };

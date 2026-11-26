@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 126 92" data-rig="static">
+  <title>De flagge fan Fryslân</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+  <!-- The flag of Fryslân, redrawn: four blue and three white diagonal stripes and seven red pompeblêden.
+       Pompeblêden are water-lily leaves, not hearts: round pads with a slit to the stem, and veins.
+       Cut into the same eight strips as the other flags. -->
+  <defs>
+    <clipPath id="strip"><rect x="0" y="-1" width="16.2" height="82"/></clipPath>
+    <clipPath id="field"><rect width="120" height="80"/></clipPath>
+    <g id="flag">
+      <rect width="120" height="80" fill="#ffffff"/>
+      <g clip-path="url(#field)" fill="#1d5fa8">
+        <path d="M-10 -86.67 L130 6.67 L130 29.52 L-10 -63.81 Z"/>
+        <path d="M-10 -40.95 L130 52.38 L130 75.24 L-10 -18.1 Z"/>
+        <path d="M-10 4.76 L130 98.1 L130 120.95 L-10 27.62 Z"/>
+        <path d="M-10 50.48 L130 143.81 L130 166.67 L-10 73.33 Z"/>
+      </g>
+      <g transform="translate(85 11)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(106 25)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(22 16)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(60 40)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(97 64)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(12 54)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+      <g transform="translate(36 70)"><path fill="#d8232a" d="M0 0.6 L-2.1 -6.4 A6.8 6.8 0 1 0 2.1 -6.4 Z"/><path fill="none" stroke="#b0161d" stroke-width="0.8" stroke-linecap="round" d="M0 1 L0 4.6 M0 1 L3.2 3.4 M0 1 L-3.2 3.4 M0 1 L3.8 -1.4 M0 1 L-3.8 -1.4"/></g>
+    </g>
+  </defs>
+
+  <g id="s0" transform="translate(0 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="0"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M0 0 L0 80"/>
+  </g>
+  <g id="s1" transform="translate(15 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-15"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s2" transform="translate(30 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-30"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s3" transform="translate(45 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-45"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s4" transform="translate(60 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-60"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s5" transform="translate(75 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-75"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s6" transform="translate(90 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-90"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s7" transform="translate(105 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-105"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M15 0 L15 80"/>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" data-rig="static">
+  <title>Fryslân: greide, sleatten, in terp mei tsjerke, in mole en in skûtsje op de mar</title>
+
+  <!--
+    A faction's half of the backdrop. It is drawn for the left side of the screen and mirrored when the
+    faction plays on the right. There is no sky in it. The skyline thins out before the middle (x = 960);
+    the ground runs on to x = 1100, because the other half fades in over the stretch from 860 to 1060.
+
+    Flat meadows cut by straight ditches, a terp with its church (a saddleback tower), a windmill, a lake
+    with the brown sail of a skûtsje, a row of pollard willows, cows and a black Frisian horse. One land for
+    all three eras, so no snow and no palm trees: the units bring the weather.
+  -->
+  <g id="scene" transform="translate(0 0)">
+    <!-- Far meadows: the land is flat, so the horizon is low and long. -->
+    <path fill="#c3dfb3" d="M0 598 L0 566 Q260 560 520 564 Q760 558 980 566 L1100 568 L1100 598 Z"/>
+    <path fill="none" stroke="#d6ebe9" stroke-width="2.2" d="M0 576 L1100 578 M0 587 L1100 589"/>
+
+    <!-- The lake, with a skûtsje under its brown sail. -->
+    <path fill="#cfe4ee" d="M360 574 Q450 566 560 570 Q600 574 590 582 Q470 588 368 584 Z"/>
+    <path fill="none" stroke="#e7f2f6" stroke-width="2" stroke-linecap="round" d="M392 578 h22 M450 581 h30 M520 576 h24"/>
+    <g>
+      <path fill="#9c8a74" d="M446 576 Q470 584 500 576 L496 570 L450 570 Z"/>
+      <path fill="#8f7d66" d="M472 571 L473 488 L476 488 L475 571 Z"/>
+      <path fill="#c79a6c" d="M476 492 L503 506 L500 566 L477 566 Z"/>
+      <path fill="#d3ab80" d="M471 498 L448 562 L470 562 Z"/>
+      <path fill="#8f7d66" d="M476 492 L503 506 L503 508 L476 495 Z"/>
+    </g>
+
+    <!-- A row of pollard willows along the far ditch: short knotted trunks, a head of thin twigs. -->
+    <g>
+      <path fill="#a7998a" d="M348 598 L350 566 L358 566 L360 598 Z"/><circle fill="#b8d3a3" cx="354" cy="556" r="16"/><path fill="none" stroke="#a7998a" stroke-width="2" d="M354 566 L346 546 M354 566 L362 544 M354 566 L354 540"/>
+      <path fill="#a7998a" d="M598 598 L600 568 L608 568 L610 598 Z"/><circle fill="#b8d3a3" cx="604" cy="558" r="15"/><path fill="none" stroke="#a7998a" stroke-width="2" d="M604 568 L596 548 M604 568 L612 547 M604 568 L604 543"/>
+      <path fill="#a7998a" d="M640 598 L642 570 L649 570 L651 598 Z"/><circle fill="#b8d3a3" cx="646" cy="561" r="13"/><path fill="none" stroke="#a7998a" stroke-width="2" d="M646 570 L639 552 M646 570 L653 551"/>
+      <path fill="#a7998a" d="M560 598 L562 570 L569 570 L571 598 Z"/><circle fill="#b8d3a3" cx="566" cy="560" r="14"/><path fill="none" stroke="#a7998a" stroke-width="2" d="M566 570 L558 551 M566 570 L573 550"/>
+    </g>
+
+    <!-- The terp: a mound with the village on it, and the church with its saddleback tower on top. -->
+    <path fill="#b9d8a6" d="M660 598 Q690 548 760 538 Q830 546 856 598 Z"/>
+    <g>
+      <path fill="#d7c8b6" d="M676 598 L676 572 L700 572 L700 598 Z"/>
+      <path fill="#c9a597" d="M672 574 L688 558 L704 574 Z"/>
+      <path fill="#d7c8b6" d="M818 598 L818 574 L840 574 L840 598 Z"/>
+      <path fill="#c9a597" d="M814 576 L829 561 L844 576 Z"/>
+      <!-- the church: a nave and a tower with a saddleback roof, seen with one gable towards us -->
+      <path fill="#d9c2b0" d="M756 586 L756 548 L812 548 L812 586 Z"/>
+      <path fill="#b9a3a0" d="M752 550 L784 528 L816 550 Z"/>
+      <path fill="#d2b8a4" d="M726 588 L726 452 L758 452 L758 588 Z"/>
+      <path fill="#b9a3a0" d="M722 454 L742 420 L762 454 Z"/>
+      <path fill="#c6ab97" d="M742 420 L762 454 L766 454 L746 420 Z"/>
+      <path fill="#ece0d3" d="M736 474 h12 v16 h-12 Z M736 512 h12 v18 h-12 Z"/>
+      <circle fill="#ece0d3" cx="742" cy="440" r="5"/>
+      <path fill="none" stroke="#b9a3a0" stroke-width="2.2" stroke-linecap="round" d="M742 420 L742 406 M737 411 L747 411"/>
+      <path fill="#e8dccf" d="M766 560 h8 v12 h-8 Z M786 560 h8 v12 h-8 Z"/>
+    </g>
+
+    <!-- A farm in the meadow, behind the lake: a long roof down to the ground. -->
+    <path fill="#c9b7a2" d="M396 566 L396 548 L430 548 L430 566 Z"/>
+    <path fill="#b7a28e" d="M392 550 L413 532 L434 550 Z"/>
+    <path fill="#c3ad93" d="M430 566 L430 540 L470 536 L476 566 Z"/>
+
+    <!-- The windmill, out in the polder by itself. -->
+    <g>
+      <path fill="#d9cbbb" d="M874 598 L882 488 L902 488 L910 598 Z"/>
+      <path fill="#b5a08a" d="M878 490 Q892 468 906 490 Z"/>
+      <path fill="#e7dccd" d="M886 598 L886 580 L898 580 L898 598 Z"/>
+      <g fill="none" stroke="#b5a08a" stroke-width="4" stroke-linecap="round">
+        <path d="M892 476 L846 424 M892 476 L938 424 M892 476 L846 528 M892 476 L938 528"/>
+      </g>
+      <g fill="#efe8dc" fill-opacity="0.9">
+        <path d="M886 470 L850 430 L857 423 L893 463 Z M898 470 L934 430 L927 423 L891 463 Z M886 482 L850 522 L857 529 L893 489 Z M898 482 L934 522 L927 529 L891 489 Z"/>
+      </g>
+    </g>
+
+    <!-- Black-and-white cows, and a black Frisian horse with its long mane. -->
+    <g>
+      <ellipse fill="#f6f4ef" cx="540" cy="590" rx="14" ry="7.5"/><path fill="#4b4a4a" d="M533 584 q6 -2 9 1 q1 5 -4 6 q-7 -1 -5 -7 Z M546 588 q4 -1 5 3 q-3 3 -6 0 Z"/><circle fill="#f6f4ef" cx="555" cy="586" r="4.8"/><path fill="none" stroke="#5a5858" stroke-width="2" stroke-linecap="round" d="M531 596 v6 M537 596 v6 M545 596 v6 M550 596 v6"/>
+      <ellipse fill="#f6f4ef" cx="690" cy="592" rx="14" ry="7.5"/><path fill="#4b4a4a" d="M684 586 q6 -2 9 1 q1 5 -4 6 q-7 -1 -5 -7 Z M695 590 q4 -1 5 3 q-3 3 -6 0 Z"/><circle fill="#f6f4ef" cx="676" cy="588" r="4.8"/><path fill="none" stroke="#5a5858" stroke-width="2" stroke-linecap="round" d="M681 598 v6 M687 598 v6 M695 598 v6 M700 598 v6"/>
+      <ellipse fill="#f6f4ef" cx="398" cy="592" rx="13" ry="7"/><path fill="#4b4a4a" d="M392 586 q6 -2 9 1 q1 5 -4 6 q-7 -1 -5 -7 Z"/><circle fill="#f6f4ef" cx="412" cy="588" r="4.6"/><path fill="none" stroke="#5a5858" stroke-width="2" stroke-linecap="round" d="M389 598 v6 M395 598 v6 M402 598 v6 M407 598 v6"/>
+      <!-- the horse: black, with a long mane and feathered hooves -->
+      <path fill="none" stroke="#6e6662" stroke-width="3.4" stroke-linecap="round" d="M938 588 v13 M945 590 v12 M960 590 v12 M967 588 v13"/>
+      <path fill="#625b58" d="M935 600 h6 v3 h-7 Z M942 601 h6 v3 h-7 Z M957 601 h6 v3 h-7 Z M964 600 h6 v3 h-7 Z"/>
+      <ellipse fill="#756d69" cx="952" cy="584" rx="19" ry="8.5"/>
+      <path fill="#756d69" d="M962 582 L970 562 L978 562 L974 584 Z"/>
+      <path fill="#756d69" d="M970 560 q8 -4 14 2 q2 4 -2 6 l-12 -2 Z"/>
+      <path fill="#5d5653" d="M966 584 q-2 -14 6 -24 l3 2 q-6 10 -5 22 Z M934 580 q-8 4 -8 16 q4 -4 9 -10 Z"/>
+      <path fill="#5d5653" d="M971 558 l2 -5 l3 5 Z"/>
+    </g>
+
+    <!-- Behind the road: a grass verge with a ditch in it. -->
+    <rect fill="#94cc78" y="598" width="1100" height="42"/>
+    <path fill="#a9d3e0" d="M0 606 L1100 606 L1100 616 L0 616 Z"/>
+    <path fill="none" stroke="#c4e2ec" stroke-width="2" stroke-linecap="round" d="M40 610 h40 M220 611 h50 M430 610 h36 M640 611 h44 M860 610 h40 M1010 611 h46"/>
+    <path fill="#7fbd63" d="M60 632 q4 -12 8 0 q4 -13 8 0 Z M300 630 q4 -12 8 0 q4 -13 8 0 Z M540 633 q4 -12 8 0 q4 -13 8 0 Z M780 631 q4 -12 8 0 q4 -13 8 0 Z M1020 632 q4 -12 8 0 q4 -13 8 0 Z"/>
+
+    <!-- The road along the dyke: plain asphalt with dashed edge lines. -->
+    <rect fill="#a19d97" y="638" width="1100" height="104"/>
+    <path fill="none" stroke="#e9e4da" stroke-width="3" stroke-dasharray="30 18" d="M0 650 L1100 650 M0 730 L1100 730"/>
+    <path fill="#99958f" d="M120 690 a5 2.4 0 1 0 10 0 a5 2.4 0 1 0 -10 0 Z M460 704 a6 2.6 0 1 0 12 0 a6 2.6 0 1 0 -12 0 Z M820 676 a5 2.2 0 1 0 10 0 a5 2.2 0 1 0 -10 0 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-opacity="0.28" stroke-width="3" d="M0 638 L1100 638 M0 742 L1100 742"/>
+
+    <!-- In front of the road, where the buttons sit: meadow, with one straight ditch through it. -->
+    <rect fill="#8fca72" y="742" width="1100" height="338"/>
+    <path fill="#a6d3e2" d="M0 818 L1100 818 L1100 832 L0 832 Z"/>
+    <path fill="none" stroke="#c2e2ec" stroke-width="2" stroke-linecap="round" d="M70 824 h44 M300 825 h50 M560 824 h40 M820 825 h52"/>
+    <path fill="#80c065" d="M40 790 q5 -14 10 0 q5 -16 10 0 Z M380 780 q5 -14 10 0 q5 -16 10 0 Z M700 796 q5 -14 10 0 q5 -16 10 0 Z M980 784 q5 -14 10 0 q5 -16 10 0 Z M160 900 q5 -14 10 0 q5 -16 10 0 Z M520 940 q5 -14 10 0 q5 -16 10 0 Z M860 920 q5 -14 10 0 q5 -16 10 0 Z M260 1030 q5 -14 10 0 Z M640 1040 q5 -14 10 0 Z M1000 1020 q5 -14 10 0 Z"/>
+    <g>
+      <circle fill="#f3d64a" cx="210" cy="868" r="3.6"/><circle fill="#f3d64a" cx="640" cy="880" r="3.6"/><circle fill="#f3d64a" cx="940" cy="980" r="3.6"/>
+      <circle fill="#ffffff" cx="430" cy="990" r="3.6"/><circle fill="#f3d64a" cx="430" cy="990" r="1.6"/>
+      <circle fill="#ffffff" cx="760" cy="860" r="3.6"/><circle fill="#f3d64a" cx="760" cy="860" r="1.6"/>
+    </g>
+  </g>
+</svg>

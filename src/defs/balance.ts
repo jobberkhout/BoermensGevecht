@@ -286,6 +286,42 @@ const FIRST = {
   },
 } satisfies { light: Omit<RoleStats, 'bounty'>; ranged: Omit<RoleStats, 'bounty'>; heavy: Omit<RoleStats, 'bounty'>; turret: TurretStats };
 
+/**
+ * Turrets. Each base has two slots and one button does it all: build, replace
+ * an old one, upgrade. The owner, 26 November 2026: going from a fully
+ * upgraded turret of one era to a fresh one of the next "can be quite the
+ * downgrade", and the money in the old one was simply gone. So:
+ *
+ * - Reach is one ladder through all three eras. Every upgrade reaches
+ *   `rangeStep` further, and a new era's turret starts where a fully upgraded
+ *   one of the era before ends: 300, 360, 420 pixels in the Jaren '70, 420 to
+ *   540 in the Jaren '20, 540 to 660 in the future. Damage already only goes up.
+ * - A turret of the next era costs exactly what it took to upgrade one of
+ *   this era all the way: 190, 494 and 1284 to build, 494, 1284 and 3338 for a
+ *   fully upgraded one. Dearer than before in the later eras, as asked.
+ * - Replacing an old turret trades it in: `tradeInPercent` of what went into
+ *   it, at list prices, comes off the price of the new one. A fully upgraded
+ *   turret of the Jaren '70 makes the first one of the Jaren '20 half price.
+ */
+export const TURRET = {
+  maxLevel: 3,
+  /** Damage at each level, as a percentage of the turret's own damage. */
+  damagePercent: [100, 150, 200],
+  /** How much further every upgrade reaches. */
+  rangeStep: px(60),
+  /** Price of each upgrade, as a percentage of the turret's price: level 1 to 2, level 2 to 3. */
+  upgradePercent: [60, 100],
+  /** Share of what went into an old turret that comes off the price of the one that replaces it. */
+  tradeInPercent: 50,
+} as const;
+
+/** What a turret of the era at this index costs to build: what it took to upgrade one of the era before all the way. */
+function turretCost(era: number): number {
+  let cost = FIRST.turret.cost;
+  for (let e = 0; e < era; e++) cost += TURRET.upgradePercent.reduce((sum, pct) => sum + Math.round((cost * pct) / 100), 0);
+  return cost;
+}
+
 /** Share of a unit's price that the opponent earns for beating it. */
 export const BOUNTY_PERCENT = 40;
 
@@ -453,6 +489,7 @@ function scaleRole(base: Omit<RoleStats, 'bounty'>, s: EraScale): RoleStats {
 
 function scaleEra(key: EraKey): EraStats {
   const s = SCALE[key];
+  const era = ERA_KEYS.indexOf(key);
   return {
     baseHp: s.baseHp,
     progressNeeded: s.progressNeeded,
@@ -460,7 +497,13 @@ function scaleEra(key: EraKey): EraStats {
     light: scaleRole(FIRST.light, s),
     ranged: scaleRole(FIRST.ranged, s),
     heavy: scaleRole(FIRST.heavy, s),
-    turret: { ...FIRST.turret, cost: Math.round(FIRST.turret.cost * s.price), dmg: Math.round(FIRST.turret.dmg * s.power) },
+    turret: {
+      ...FIRST.turret,
+      cost: turretCost(era),
+      // Each era's turret starts where a fully upgraded one of the era before ends.
+      range: FIRST.turret.range + era * (TURRET.maxLevel - 1) * TURRET.rangeStep,
+      dmg: Math.round(FIRST.turret.dmg * s.power),
+    },
   };
 }
 
@@ -469,6 +512,58 @@ export const STATS: Record<EraKey, EraStats> = {
   '2025': { ...scaleEra('2025'), shield: scaleRole(SHIELD, SCALE['2025']) },
   '2050': { ...scaleEra('2050'), super: { ...SUPER, bounty: Math.round((SUPER.cost * BOUNTY_PERCENT) / 100) } },
 };
+
+
+// ---- Units that do something of their own ----------------------------------
+// The owner, 26 November 2026, building De Elf Steden: "have their polevaulters
+// jump over the first enemy they encounter and make them extra funny and dumb",
+// and "make some other units also do something special". The same day, for
+// Havermelkelite and the Achterhoek: "A unit that fits the vibe that does
+// something no other unit does". The rules are in sim/stunts.ts; the numbers
+// are mine, not fitted (the owner: "No need to do the balancing").
+
+/**
+ * De Fierljepper (De Elf Steden, 1975): at the first enemy unit it meets it
+ * vaults over it and lands `gap` behind that unit's back, in the middle of the
+ * enemy ranks, where it sits dazed in the snow for `dazeTicks` before it
+ * fights on. Once a life.
+ */
+export const VAULT = { gap: px(8), dazeTicks: sec(1.1) } as const;
+
+/**
+ * De Kluner (De Elf Steden, 2025) cannot brake: until its first blow it goes
+ * `speedPercent` as fast, that blow does `dmgPercent` of its damage and shoves
+ * the unit it hits back by `shove`, and then it sits on its backside for
+ * `dazeTicks`.
+ */
+export const CHARGE = { speedPercent: 170, dmgPercent: 300, shove: px(70), dazeTicks: sec(1.0) } as const;
+
+/** Bakker Tjitske's sûkerbôle (De Elf Steden, 2025): whoever it hits walks and fights at half pace for this long. Super units shrug it off. */
+export const STICKY = { ticks: sec(3) } as const;
+
+/** Beppe's Koek-en-zopie (De Elf Steden, 2025): every `every` ticks her own units within `reach` get `healPercent` of their hit points back. Not she herself. */
+export const SOUP = { every: sec(1), healPercent: 3, reach: px(160) } as const;
+
+/** Padel-Pepijn (Havermelkelite, 2025): an enemy unit's throw that would hit him goes back down the lane instead, one every this many ticks. Turrets' shots he cannot reach. */
+export const RETURN = { every: sec(2) } as const;
+
+/**
+ * Smijtink's voederbieten (Achterhoek, 1975) bounce on to the enemy unit
+ * behind the one they hit, if it stands within `reach` of the first one's
+ * back, with `dmgPercent` of the damage. Once. The owner, the same day: "just
+ * make the voederbiet trower a bit more expensive", so Smijtink costs
+ * `costPercent` of a ranged unit.
+ */
+export const BOUNCE = { dmgPercent: 50, reach: px(140), costPercent: 120 } as const;
+
+/** De Kweekvleesblob (Havermelkelite, 2050) is lab meat and grows back: `healPercent` of its hit points every `every` ticks. */
+export const REGROW = { every: sec(1), healPercent: 2 } as const;
+
+/** De Vreter (Achterhoek, 2050) eats what it hits: it gets `percent` of the damage its blows do back as hit points. */
+export const FEED = { percent: 30 } as const;
+
+/** How many beaten units of its own a side remembers for De Bezemwagen to pick up. */
+export const FALLEN_KEEP = 8;
 
 // ---- Temperament ------------------------------------------------------------
 // What makes one faction play differently from another, besides its specials:
@@ -530,16 +625,6 @@ export function twisted(stats: RoleStats, twist: Twist | undefined): RoleStats {
 // doorstep, and 58% with these numbers.
 // After modernizing, the old turrets stay until they are bought again; the new
 // one replaces the oldest and starts at level 1.
-
-export const TURRET = {
-  maxLevel: 3,
-  /** Damage at each level, as a percentage of the turret's own damage. */
-  damagePercent: [100, 150, 200],
-  /** Reach at each level, as a percentage of the turret's own range: 300, 480 and 660 pixels of a 1280 pixel lane. */
-  rangePercent: [100, 160, 220],
-  /** Price of each upgrade, as a percentage of the turret's price: level 1 to 2, level 2 to 3. */
-  upgradePercent: [60, 100],
-} as const;
 
 // ---- Specials ---------------------------------------------------------------
 // One per era per faction, each a different kind of trick.
@@ -621,4 +706,20 @@ export const SPECIAL = {
    * faction in place of its own special it won as often as with no special at all.
    */
   huurverhoging: { ticks: sec(20), pricePercent: 200 },
+  /**
+   * 1975, De Elf Steden: Pake tells about the winter of '63 and the road
+   * freezes over. Enemy units slip and can neither walk nor fight: the same
+   * kind of trick as the Wegblokkade, with the same numbers, but icy blue.
+   * The owner's pick of 26 November 2026.
+   */
+  winter63: { ticks: sec(5) },
+  /**
+   * 2025, De Elf Steden: the broom wagon of the tour picks up whoever dropped
+   * out. The last `count` units of your own that were beaten, whatever their
+   * kind, come back out of your gate, fresh, unit cap or not. Super units are
+   * not picked up. The only special of its kind.
+   */
+  bezemwagen: { count: 4 },
+  /** 2050, De Elf Steden: too hot to work. For this long the enemy's turrets do not fire. The only special of its kind. */
+  tropenrooster: { ticks: sec(15) },
 } as const;

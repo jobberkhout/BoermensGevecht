@@ -138,7 +138,7 @@ describe('Influencer-Ivy poses the enemy', () => {
 
   it('turrets do not pose: a turret shot at a unit next to her lands in full', () => {
     const s = setup(ERA.y2025);
-    s.sides[1].turrets[0] = { def: 'ah.2025.turret', level: 1, cd: 0 };
+    s.sides[1].turrets[0] = { def: 'ah.2025.turret', level: 1, cd: 0, value: 0 };
     const dummy = place(s, 0, 'tr.2025.light', LANE - px(200), 1_000_000, 1);
     dummy.stunUntil = STUNNED;
     place(s, 0, IVY, LANE - px(260), 1_000_000, 0).stunUntil = STUNNED;

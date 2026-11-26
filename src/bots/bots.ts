@@ -1,9 +1,10 @@
 import { LANE, SUBSIDY, sec } from '../defs/balance.ts';
-import { eraOf, unitDef } from '../defs/index.ts';
+import { eraOf, turretDef, unitDef } from '../defs/index.ts';
 import type { Role } from '../defs/types.ts';
 import { canDo, progressNeeded, subsidyCost, turretPlan, unitPrice } from '../sim/commands.ts';
 import { frontUnit } from '../sim/lane.ts';
 import { kraanDicht } from '../sim/overtime.ts';
+import { turretRange } from '../sim/turrets.ts';
 import { nextRng, rngValue } from '../sim/rng.ts';
 import { other, type Command, type Side, type SimState } from '../sim/types.ts';
 
@@ -93,6 +94,17 @@ function special(s: SimState, side: Side): Command | null {
       const heavy = eraOf(foe.faction, foe.era).units[2]!;
       const waited = s.tick - me.specialReadyAt >= sec(15);
       worth = modernizing || foe.gold >= heavy.cost || waited;
+      break;
+    }
+    case 'revive':
+      // The broom wagon is worth it once a few have dropped out, or after a while for whoever there is.
+      worth = me.fallen.length >= 3 || (me.fallen.length >= 1 && s.tick - me.specialReadyAt >= sec(15));
+      break;
+    case 'siesta': {
+      // Best when the enemy's turrets are what holds the army up: some of it stands in their reach.
+      let reach = 0;
+      for (const t of foe.turrets) if (t) reach = Math.max(reach, turretRange(turretDef(t.def), t.level));
+      worth = reach > 0 && me.units.filter((u) => u.pos >= LANE - reach).length >= 2;
       break;
     }
     case 'heal': {

@@ -1,4 +1,4 @@
-import { SPECIAL, type Temper } from './balance.ts';
+import { BOUNCE, FEED, SPECIAL, type Temper } from './balance.ts';
 import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
 
@@ -41,6 +41,9 @@ export const achterhoek: FactionDef = {
         speedPercent: SPECIAL.hoken.speedPercent,
         rig: 'special_hoken',
       },
+      // Smijtink's beets bounce on to the next head (sim/stunts.ts). The owner asked for one
+      // unit per faction that does something no other does, 26 November 2026.
+      perks: { ranged: { bounce: { dmgPercent: BOUNCE.dmgPercent, reach: BOUNCE.reach }, costPercent: BOUNCE.costPercent } },
     }, TEMPER),
     // Quads, drones and a megatrekker.
     makeEra('ah', 'achterhoek', {
@@ -73,6 +76,9 @@ export const achterhoek: FactionDef = {
         dmg: SPECIAL.zwerm.dmg,
         rig: 'special_zwerm',
       },
+      // De Vreter eats what it hits (sim/stunts.ts): the owner asked for one unit of the last era
+      // that does something no other does, 26 November 2026.
+      perks: { heavy: { feeds: { percent: FEED.percent } } },
     }, TEMPER),
   ],
 };

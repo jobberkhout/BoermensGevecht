@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-78 -112 156 118" data-rig="static">
+  <title>De winter van '63: Pake in zijn schommelstoel op een plak ijs vertelt over de tocht, en het gaat weer sneeuwen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- A sheet of black ice across the road, cracked and shining. -->
+  <g id="ice" transform="translate(0 0)">
+    <path class="o" fill="#9fd0f0" d="M-76 1 Q-74 -6 -60 -7 L58 -7 Q76 -6 76 1 Q74 6 58 6 L-60 6 Q-74 6 -76 1 Z"/>
+    <path class="n" fill="#c9e8fb" d="M-62 -4.6 L-20 -4.6 L-24 -2.4 L-60 -2.4 Z M10 -4.6 L50 -4.6 L46 -2.6 L12 -2.6 Z"/>
+    <path class="t" style="stroke:#3f7fb4;stroke-width:1.2" d="M30 -5 L36 0 L44 -1 L50 4 M36 0 L34 5 M-44 -3 L-38 2 L-30 1"/>
+  </g>
+
+  <!-- The rocking chair. Joint where the rockers touch the ice. -->
+  <g id="chair" data-parent="ice" transform="translate(-20 -6)">
+    <g transform="translate(20 6)">
+      <path class="t" style="stroke-width:6.4" d="M-50 -14 Q-20 0 12 -10"/>
+      <path fill="none" stroke="#9c6a3a" stroke-width="3.2" stroke-linecap="round" d="M-50 -14 Q-20 0 12 -10"/>
+      <path class="t" style="stroke-width:5.6" d="M-38 -10 L-36 -36 M-4 -8 L-4 -34"/>
+      <path fill="none" stroke="#9c6a3a" stroke-width="2.6" stroke-linecap="round" d="M-38 -10 L-36 -36 M-4 -8 L-4 -34"/>
+      <path class="o" fill="#b07a44" d="M-46 -86 L-38 -88 L-30 -36 L-38 -34 Z"/>
+      <path class="t" style="stroke:#7a5230" d="M-40 -80 L-35 -42"/>
+      <rect class="o" fill="#b07a44" x="-40" y="-40" width="40" height="7" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Pake, under the plaid, telling it. Joint at his hip. -->
+  <g id="pake" data-parent="chair" transform="translate(-24 -40)">
+    <g transform="translate(24 40)">
+      <!-- slippers -->
+      <path class="o" fill="#7a2a2a" d="M2 -12 L2 -6 L14 -6 Q16 -10 10 -12 Z"/>
+      <!-- his coat -->
+      <path class="o" fill="#3a4a6a" d="M-36 -36 Q-38 -58 -31 -68 Q-22 -72 -12 -68 Q-6 -58 -8 -36 Z"/>
+      <path class="o" fill="#d9342b" d="M-30 -68 Q-21 -63 -13 -68 L-14 -61 Q-21 -58 -29 -61 Z"/>
+      <!-- the plaid over his knees, down to the floor -->
+      <path class="o" fill="#2f8a4f" d="M-36 -42 L4 -44 Q8 -40 6 -12 L-6 -10 L-8 -32 L-34 -30 Z"/>
+      <path class="t" style="stroke:#d9342b;stroke-width:2.4" d="M-26 -42 L-25 -31 M-14 -43 L-13 -32 M-2 -43.6 L-2 -14 M-34 -36 L4 -38 M-6 -24 L6 -25"/>
+      <path class="t" style="stroke:#ffd21f;stroke-width:1.2" d="M-20 -42.5 L-19 -31 M2 -43.8 L2 -12"/>
+    </g>
+  </g>
+
+  <g id="pake_head" data-parent="pake" transform="translate(-20 -70)">
+    <g transform="translate(20 70)">
+      <circle class="o" fill="#efc09a" cx="-18" cy="-82" r="13"/>
+      <path class="o" fill="#4a4a4a" d="M-32 -86 Q-33 -97 -18 -97 Q-6 -97 -4 -89 L3 -87.5 L2.5 -85 L-6 -86 Q-19 -89.5 -32 -86 Z"/>
+      <!-- frost: eyebrows like hedges, beard full of icicles -->
+      <path class="o" style="stroke-width:1.4" fill="#ffffff" d="M-15 -86 L-7 -88 L-6.6 -84.6 L-14.4 -83 Z"/>
+      <path class="t" style="stroke-width:2" d="M-14 -80 Q-11 -82 -8 -80"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#e0442c" cx="-3" cy="-77" rx="3.6" ry="3"/>
+      <path class="o" fill="#f4f8fb" d="M-29 -78 Q-30 -62 -16 -62 Q-4 -62 -2 -73 Q-8 -70 -14 -72 Q-22 -71 -29 -78 Z"/>
+      <path class="o" style="stroke-width:1.2" fill="#cfe8f7" d="M-24 -64 L-23 -58 L-21 -64 Z M-17 -63 L-16 -56 L-14 -63 Z M-10 -64 L-9 -59 L-7.4 -65 Z"/>
+      <!-- the pipe -->
+      <path class="t" style="stroke-width:3" d="M-8 -70 L2 -68"/>
+      <path class="o" style="stroke-width:1.8" fill="#6b4a2a" d="M1 -73 L7 -73 L6.4 -66.6 Q4 -65 1.6 -66.6 Z"/>
+    </g>
+  </g>
+
+  <!-- "Achttien graden vorst..." One finger up. Joint at the shoulder. -->
+  <g id="pake_arm" data-parent="pake" transform="translate(-14 -62)">
+    <g transform="translate(14 62)">
+      <path class="o" fill="#3a4a6a" d="M-16 -64 L-2 -60 L-4 -54 L-18 -58 Z"/>
+      <path class="o" fill="#3a4a6a" d="M-4 -58 L4 -72 L9 -69 L1 -56 Z"/>
+      <ellipse class="o" style="stroke-width:2" fill="#efc09a" cx="6.4" cy="-72.6" rx="4" ry="3.6"/>
+      <path class="o" style="stroke-width:1.6" fill="#efc09a" d="M6 -75 L7 -84 L9.6 -84 L9.4 -75 Z"/>
+    </g>
+  </g>
+
+  <!-- Snow, in two layers that keep falling. -->
+  <g id="snow_a" transform="translate(0 -60)">
+    <g transform="translate(0 60)">
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M-60 -98 l0 8 M-64 -94 l8 0 M-62.8 -96.8 l5.6 5.6 M-62.8 -91.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M-60 -98 l0 8 M-64 -94 l8 0 M-62.8 -96.8 l5.6 5.6 M-62.8 -91.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M30 -104 l0 8 M26 -100 l8 0 M27.2 -102.8 l5.6 5.6 M27.2 -97.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M30 -104 l0 8 M26 -100 l8 0 M27.2 -102.8 l5.6 5.6 M27.2 -97.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M58 -70 l0 8 M54 -66 l8 0 M55.2 -68.8 l5.6 5.6 M55.2 -63.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M58 -70 l0 8 M54 -66 l8 0 M55.2 -68.8 l5.6 5.6 M55.2 -63.2 l5.6 -5.6"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M22 -46 l0 7 M18.5 -42.5 l7 0"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M22 -46 l0 7 M18.5 -42.5 l7 0"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M-66 -40 l0 7 M-69.5 -36.5 l7 0"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M-66 -40 l0 7 M-69.5 -36.5 l7 0"/>
+    </g>
+  </g>
+  <g id="snow_b" transform="translate(0 -60)">
+    <g transform="translate(0 60)">
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M-30 -108 l0 7 M-33.5 -104.5 l7 0 M-32.5 -107 l5 5 M-32.5 -102 l5 -5"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M-30 -108 l0 7 M-33.5 -104.5 l7 0 M-32.5 -107 l5 5 M-32.5 -102 l5 -5"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M48 -96 l0 6 M45 -93 l6 0"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M48 -96 l0 6 M45 -93 l6 0"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M40 -32 l0 7 M36.5 -28.5 l7 0 M37.5 -31 l5 5 M37.5 -26 l5 -5"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M40 -32 l0 7 M36.5 -28.5 l7 0 M37.5 -31 l5 5 M37.5 -26 l5 -5"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M-48 -62 l0 6 M-51 -59 l6 0"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M-48 -62 l0 6 M-51 -59 l6 0"/>
+      <path class="t" style="stroke:#2b1b16;stroke-width:4.4" d="M68 -20 l0 6 M65 -17 l6 0"/>
+      <path class="t" style="stroke:#ffffff;stroke-width:2.2" d="M68 -20 l0 6 M65 -17 l6 0"/>
+    </g>
+  </g>
+</svg>

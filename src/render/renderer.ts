@@ -15,6 +15,8 @@ import {
   DOCK_SECONDS,
   DROP_SECONDS,
   GHOST_LIFE,
+  LEAP_HEIGHT,
+  LEAP_SECONDS,
   SPAWN_FADE,
   type Band,
   type BattleView,
@@ -59,6 +61,9 @@ const base6 = new Float32Array(6);
 const FLAG_SCALE = 0.85;
 
 /** Per kind of unit: how far above the ground its health bar hangs, how wide it is, and how tall its stand-in box is. */
+/** Frozen in the ice of De winter van '63: everything goes pale and blue. Browsers without canvas filters just skip it. */
+const ICE_FILTER = 'grayscale(0.55) sepia(0.5) hue-rotate(165deg) saturate(1.8) brightness(1.08)';
+
 const BUILD: Record<Role, { bar: number; barWidth: number; box: number }> = {
   light: { bar: 140, barWidth: 40, box: 100 },
   ranged: { bar: 140, barWidth: 40, box: 92 },
@@ -465,39 +470,59 @@ export class Renderer {
 
   private drawUnit(v: UnitView, time: number): void {
     const { ctx } = this.stage;
-    const y = rowY(v.row);
+    const ground = rowY(v.row);
     const scale = rowScale(v.row);
     const len = v.def.len / SUB;
-    const x = v.x + v.slide + (v.stunned ? Math.sin(time * 45 + v.id) * 1.5 : 0);
+    // A pole vaulter in the air: from where it took off to where it lands, along an arc.
+    const flight = v.leap < LEAP_SECONDS ? v.leap / LEAP_SECONDS : 1;
+    const lag = flight < 1 ? dirOf(v.side) * v.leapDx * (1 - flight) : 0;
+    const lift = flight < 1 ? Math.sin(Math.PI * flight) * LEAP_HEIGHT : 0;
+    const shiver = v.stunned && !v.dazed && !v.icy ? Math.sin(time * 45 + v.id) * 1.5 : 0;
+    const x = v.x + v.slide - lag + shiver;
+    const y = ground - lift;
+    const facing = dirOf(v.side) * v.facing;
+    // Frozen over, it slips this way and that on its own feet.
+    const slip = v.icy ? Math.sin(time * 9 + v.id) * 0.2 : 0;
     // Fresh units fade in as they come out of the dark doorway.
     const fade = Math.min(1, v.age / SPAWN_FADE);
     ctx.globalAlpha = fade;
-    this.drawShadow(x, y, len * scale);
-    if (v.stunned) {
-      // Glued to the road.
-      ctx.fillStyle = '#ffc93c';
-      ctx.strokeStyle = INK;
+    this.drawShadow(x, ground, len * scale);
+    if (v.stunned && flight >= 1 && !v.dazed) {
+      // Glued to the road, or standing on the ice of '63.
+      ctx.fillStyle = v.icy ? '#bfe6ff' : '#ffc93c';
+      ctx.strokeStyle = v.icy ? '#5aa9de' : INK;
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.ellipse(x, y + 4, Math.max(26, len * scale * 0.55), 9, 0, 0, Math.PI * 2);
+      ctx.ellipse(x, ground + 4, Math.max(v.icy ? 40 : 26, len * scale * (v.icy ? 0.7 : 0.55)), 9, 0, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
     }
+    if (v.sticky) {
+      // Sugar and syrup under its feet.
+      ctx.fillStyle = 'rgba(201,138,69,0.6)';
+      ctx.beginPath();
+      ctx.ellipse(x, ground + 4, Math.max(22, len * scale * 0.45), 7, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
     if (v.puppet) {
-      this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale);
+      if (v.icy) ctx.filter = ICE_FILTER;
+      this.drawSolved(v.puppet.rig, v.puppet.world, x, y, facing, scale, slip);
+      if (v.icy) ctx.filter = 'none';
       if (v.flash > 0) {
         ctx.globalCompositeOperation = 'lighter';
         ctx.globalAlpha = v.flash * 0.55 * fade;
-        this.drawPuppet(v.puppet, x, y, dirOf(v.side), scale);
+        this.drawSolved(v.puppet.rig, v.puppet.world, x, y, facing, scale, slip);
         ctx.globalCompositeOperation = 'source-over';
         ctx.globalAlpha = fade;
       }
     } else {
-      const fill = v.flash > 0.3 ? '#ffffff' : FACTIONS[homeOf(v.def.id)].colors.light;
+      const fill = v.flash > 0.3 ? '#ffffff' : v.icy ? '#bfe6ff' : FACTIONS[homeOf(v.def.id)].colors.light;
       this.drawBox(x, y, len * scale, BUILD[v.def.role].box * scale, v.def.role[0]!.toUpperCase(), fill);
     }
     ctx.globalAlpha = 1;
+    if (v.dazed && flight >= 1) this.drawDazeStars(x, ground - 92 * scale, time + v.id);
+    if (v.sticky) this.drawSugar(x, y - 70 * scale, time + v.id);
 
     if (v.hp < v.def.hp) {
       const top = y - BUILD[v.def.role].bar * scale;
@@ -509,6 +534,44 @@ export class Renderer {
       ctx.fillStyle = '#7fd35b';
       ctx.fillRect(x - w / 2, top, w * Math.max(0, v.hp / v.def.hp), 6);
     }
+  }
+
+  /** Three little stars going round over the head of a unit that sits dazed. */
+  private drawDazeStars(x: number, y: number, time: number): void {
+    const { ctx } = this.stage;
+    ctx.fillStyle = '#ffd21f';
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 1.5;
+    ctx.lineJoin = 'round';
+    for (let i = 0; i < 3; i++) {
+      const a = time * 5 + (i * Math.PI * 2) / 3;
+      const cx = x + Math.cos(a) * 24;
+      const cy = y + Math.sin(a) * 7;
+      ctx.beginPath();
+      for (let p = 0; p < 10; p++) {
+        const r = p % 2 === 0 ? 7 : 3;
+        const b = (p * Math.PI) / 5 - Math.PI / 2;
+        if (p === 0) ctx.moveTo(cx + Math.cos(b) * r, cy + Math.sin(b) * r);
+        else ctx.lineTo(cx + Math.cos(b) * r, cy + Math.sin(b) * r);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+  }
+
+  /** A few grains of sugar glinting on a unit that was hit by a sûkerbôle. */
+  private drawSugar(x: number, y: number, time: number): void {
+    const { ctx } = this.stage;
+    for (let i = 0; i < 4; i++) {
+      const glint = 0.5 + 0.5 * Math.sin(time * 6 + i * 1.7);
+      ctx.globalAlpha = 0.4 + 0.6 * glint;
+      ctx.fillStyle = i % 2 === 0 ? '#fffdf5' : '#f3d9a0';
+      ctx.beginPath();
+      ctx.arc(x - 14 + i * 9, y + (i % 2) * 10, 2.5 + glint, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
   }
 
   /**

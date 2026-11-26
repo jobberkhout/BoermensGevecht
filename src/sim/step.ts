@@ -21,6 +21,7 @@ import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
 import { advanceRiders, riderInReach, sendRider } from './riders.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
+import { applyVaults, bounceOn, crash, feed, regrow, remember, sendBack, serveSoup, shoveBack, startVault, sticky, walkSpeed } from './stunts.ts';
 import { markPosing, posed, recall, scatterGroup } from './tourists.ts';
 import { turretDamage, turretRange } from './turrets.ts';
 import {
@@ -67,19 +68,25 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
     }
   }
 
-  // 2. Money and training.
+  // 2. Money and training, and Beppe's soup, which only touches her own side.
   for (const side of SIDES) economy(s, side, events);
+  for (const side of SIDES) {
+    serveSoup(s, side, events);
+    regrow(s, side, events);
+  }
 
   // 3. Everyone decides what to do, looking at the lane as it is right now.
+  //    Pole vaulters land once both sides have decided, and then they may be the front.
   markPosing(s);
-  const fronts = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)] as const;
+  let fronts: readonly [Unit | undefined, Unit | undefined] = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)];
   for (const side of SIDES) decide(s, side, fronts[other(side)], dmg, events);
+  if (applyVaults(s, events)) fronts = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)];
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
 
   // 4-6. Movement, riders, projectiles, specials.
   move(s, fronts);
   advanceRiders(s, dmg, events);
-  advanceShots(s, dmg);
+  advanceShots(s, dmg, events);
   advanceWaves(s, dmg);
   advanceBarrages(s, dmg, events);
   overtime(s, dmg, events);
@@ -201,8 +208,11 @@ function decide(s: SimState, side: Side, foeFront: Unit | undefined, dmg: Damage
 
     if (u.act === 'attack') {
       // An attack always runs to the end, so its animation never gets cut off.
-      u.actTick++;
-      if (u.actTick === def.windup) strike(s, side, u, def, foeFront, dist, dmg, events);
+      // Glued with sugar it runs at half pace: every other tick it stands still.
+      if (!(sticky(s, u) && s.tick % 2 === 1)) {
+        u.actTick++;
+        if (u.actTick === def.windup) strike(s, side, u, def, foeFront, dist, dmg, events);
+      }
       if (u.actTick < def.windup + def.recover) continue;
     }
 
@@ -210,6 +220,11 @@ function decide(s: SimState, side: Side, foeFront: Unit | undefined, dmg: Damage
     // Against units a fighter stops as soon as it can reach. Against the base it
     // closes in first, or only the front rank of a ranged army would ever fire.
     const reach = foeFront ? def.range : Math.min(def.range, SIEGE_REACH);
+    if (foeFront && def.vault && !u.vaulted && dist <= reach) {
+      // The pole vaulter does not fight the first enemy it meets: it goes over it (sim/stunts.ts).
+      startVault(u, def, foeFront);
+      continue;
+    }
     if (dist <= reach) {
       u.act = 'attack';
       events.push({ t: 'attack', side, id: u.id });
@@ -235,23 +250,32 @@ function strike(
     return;
   }
   events.push({ t: 'strike', side, id: u.id, ranged: def.shot !== undefined });
-  const amount = damageOf(s, side, u, def.dmg);
+  let amount = damageOf(s, side, u, def.dmg);
   if (def.shot) {
-    launch(s, side, u, def.shot, amount, dist, def.range);
+    launch(s, side, u, def.shot, amount, dist, def.range, {
+      ...(def.sticky ? { sticky: def.sticky.ticks } : {}),
+      ...(def.bounce ? { bounce: { ...def.bounce } } : {}),
+    });
     return;
   }
   if (dist > def.range) return; // the target is gone; the blow hits air
   const foe = other(side);
+  // The skater who cannot brake: the first blow is a crash (sim/stunts.ts).
+  const crashing = def.charge !== undefined && !u.charged;
+  if (crashing) amount = crash(s, side, u, def, amount, events);
+  const shove = crashing && def.charge ? { shove: def.charge.shove } : {};
+  // De Vreter keeps count of what it hits, to eat it at the end of the tick.
+  const from = def.feeds ? { from: u.id } : {};
   if (!foeFront) {
     dmg.push({ side: foe, unit: BASE, amount });
   } else if (def.cleave) {
     // Everyone within the sweep: the front unit of each row, and with a long
     // sweep (a super unit's) the ranks behind them as well.
     for (const f of s.sides[foe].units) {
-      if (LANE - u.pos - f.pos <= def.sweep) dmg.push({ side: foe, unit: f.id, amount });
+      if (LANE - u.pos - f.pos <= def.sweep) dmg.push({ side: foe, unit: f.id, amount, ...from });
     }
   } else {
-    dmg.push({ side: foe, unit: foeFront.id, amount });
+    dmg.push({ side: foe, unit: foeFront.id, amount, ...shove, ...from });
   }
 }
 
@@ -263,8 +287,9 @@ function damageOf(s: SimState, side: Side, u: Unit, base: number): number {
 }
 
 /** Sends a unit's throw down the lane. It hits the first enemy body it meets (see advanceShots). */
-function launch(s: SimState, side: Side, u: Unit, shot: ShotDef, amount: number, dist: number, range: number): void {
+function launch(s: SimState, side: Side, u: Unit, shot: ShotDef, amount: number, dist: number, range: number, extra: Partial<Shot> = {}): void {
   s.shots.push({
+    ...extra,
     id: s.nextId++,
     side,
     pos: u.pos,
@@ -286,6 +311,8 @@ function launch(s: SimState, side: Side, u: Unit, shot: ShotDef, amount: number,
 
 function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events: SimEvent[]): void {
   const turrets = s.sides[side].turrets;
+  // Too hot to work: under the enemy's Tropenrooster nobody fires, though the turrets do reload.
+  const siesta = s.sides[side].siestaUntil > s.tick;
   // A unit that draws fire is what every turret in reach aims at, wherever it
   // stands in the enemy's ranks. With several of them, the foremost.
   const rod = frontUnit(s.sides[other(side)].units.filter((u) => unitDef(u.def).drawsFire));
@@ -296,7 +323,7 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
     const t = turrets[slot];
     if (!t) continue;
     if (t.cd > 0) t.cd--;
-    if (t.cd > 0 || worn <= 0) continue;
+    if (t.cd > 0 || worn <= 0 || siesta) continue;
     const def = turretDef(t.def);
     const range = turretRange(def, t.level);
     // A rider in reach comes before anything else: it is the thing going for the base.
@@ -404,7 +431,7 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
   for (const side of SIDES) {
     if (buffed(s.sides[side], s.tick)) pace[side] = s.sides[side].buffSpeedPercent;
     for (const u of s.sides[side].units) {
-      if (u.act === 'walk') fastest[side] = Math.max(fastest[side], Math.floor((unitDef(u.def).speed * pace[side]) / 100));
+      if (u.act === 'walk') fastest[side] = Math.max(fastest[side], walkSpeed(s, u, unitDef(u.def), pace[side]));
     }
   }
   const gap = Math.max(0, LANE - line[0] - line[1] - CONTACT_GAP);
@@ -428,7 +455,7 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
       const def = unitDef(u.def);
       u.prevPos = u.pos;
       if (u.act === 'walk') {
-        const speed = Math.floor((def.speed * pace[side]) / 100);
+        const speed = walkSpeed(s, u, def, pace[side]);
         let next = advance(u, def, rows[u.row]!, speed, foePos);
         if (next === u.pos) {
           const r = sidestep(units, u, def, rows, speed, foePos);
@@ -454,7 +481,7 @@ function move(s: SimState, fronts: readonly [Unit | undefined, Unit | undefined]
   }
 }
 
-function advanceShots(s: SimState, dmg: Damage[]): void {
+function advanceShots(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   const keep: Shot[] = [];
   for (const shot of s.shots) {
     shot.prevPos = shot.pos;
@@ -469,7 +496,16 @@ function advanceShots(s: SimState, dmg: Damage[]): void {
     const reach = Math.min(shot.pos, shot.limit);
     if (front) {
       if (LANE - reach - front.pos <= 0) {
-        dmg.push({ side: foe, unit: front.id, amount: shot.dmg, turret: shot.slot >= 0 });
+        const hit = units.find((u) => u.id === front.id);
+        // Padel-Pepijn sends it back; a bouncing beet goes on to the next one (sim/stunts.ts).
+        const back = hit ? sendBack(s, foe, hit, shot, events) : null;
+        if (back) {
+          keep.push(back);
+          continue;
+        }
+        dmg.push({ side: foe, unit: front.id, amount: shot.dmg, turret: shot.slot >= 0, ...(shot.sticky ? { sticky: shot.sticky } : {}) });
+        const on = hit ? bounceOn(s, shot, units, hit) : null;
+        if (on) keep.push(on);
         continue;
       }
     } else if (reach >= LANE) {
@@ -539,6 +575,26 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
     }
     u.hp -= d.amount;
     events.push({ t: 'hit', side: d.side, id: u.id, amount: d.amount, pos: u.pos });
+    // Sugar sticks to anyone who does not shrug specials off.
+    if (d.sticky && !unitDef(u.def).immune) u.stickyUntil = Math.max(u.stickyUntil ?? 0, s.tick + d.sticky);
+  }
+
+  // De Vreter eats what it hit, if it is still standing itself.
+  feed(s, dmg, events);
+
+  // Whoever a skater crashed into and is still standing is shoved back. Each
+  // side's units only move among their own, so the order of the sides does not matter.
+  for (const d of dmg) {
+    if (!d.shove) continue;
+    const units = s.sides[d.side].units;
+    const u = units.find((x) => x.id === d.unit);
+    if (!u || u.hp <= 0) continue;
+    const from = u.pos;
+    u.pos = shoveBack(units, u, d.shove);
+    u.prevPos = u.pos;
+    u.act = 'idle';
+    u.actTick = 0;
+    if (u.pos !== from) events.push({ t: 'shoved', side: d.side, id: u.id, from, to: u.pos });
   }
 
   for (const side of SIDES) {
@@ -564,6 +620,7 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       if (u.hp > 0) alive.push(u);
       else {
         beaten(u);
+        remember(s, side, u);
         fallen.push(u);
       }
     }

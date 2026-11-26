@@ -65,7 +65,27 @@ export interface UnitView {
   slide: number;
   /** In the shot of an enemy poser: the drawing of the camera frame over its head, or ''. */
   pose: string;
+  /** Seconds since a pole vaulter took off, or NEVER. While it is under LEAP_SECONDS the unit is in the air. */
+  leap: number;
+  /** Stage pixels the leap carries it, in the direction it walks. */
+  leapDx: number;
+  /** View time until which it sits dazed after a stunt of its own, the vault or the crash. */
+  dazedUntil: number;
+  /** View time until which it is frozen in the ice of De winter van '63. */
+  icyUntil: number;
+  /** Stunned by itself, after a stunt: it sits dazed, with stars. */
+  dazed: boolean;
+  /** Stunned by ice: it slips, blue. */
+  icy: boolean;
+  /** Glued with sugar. */
+  sticky: boolean;
+  /** -1 when it has landed in the enemy ranks beyond their front and turns round to fight, else 1. */
+  facing: number;
 }
+
+/** How long a pole vaulter is in the air, and how high it gets. */
+export const LEAP_SECONDS = 0.6;
+export const LEAP_HEIGHT = 150;
 
 /** A close fighter whose body overlaps one of its own throwers in its row: it is walking, or was caught, past them. */
 function passing(u: Unit, def: UnitDef, mine: readonly Unit[]): boolean {
@@ -282,6 +302,8 @@ export class BattleView {
   private tossShout = new Map<number, number>();
   /** Whether the next unit a special calls in for each side says something: only the first of the family does. */
   private familyLine: [boolean, boolean] = [false, false];
+  /** Seconds until the next snore rises from a side's turrets during a Tropenrooster. */
+  private zzzIn: [number, number] = [0, 0];
   private seed = 12345;
 
   constructor(rigOf: (id: string) => Rig | undefined) {
@@ -531,7 +553,15 @@ export class BattleView {
           let front = -1;
           for (const u of s.sides[e.side].units) if (e.ids.includes(u.id)) front = Math.max(front, u.pos);
           const owner = s.sides[other(e.side)];
-          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          const special = eraOf(owner.faction, owner.era).special;
+          const rig = special.rig ?? '';
+          // De winter van '63: whoever it stops freezes over and slips.
+          if (special.kind === 'stun' && special.look === 'ice') {
+            for (const id of e.ids) {
+              const v = this.units.get(id);
+              if (v) v.icyUntil = this.time + e.ticks / TPS;
+            }
+          }
           if (front >= 0) {
             this.blockades.push({ side: e.side, rig, x: laneX(e.side, front) + dirOf(e.side) * 46, age: 0, life: e.ticks / TPS });
           }
@@ -623,6 +653,74 @@ export class BattleView {
           this.sprites.push({ rig: from.rig, side: other(e.side), x0: from.x, y0: from.y, x1: x, y1: y, scale: 1, age: 0, life: 0.16, hold: 0, ease: 'drop', puff: '#b6d24a', landed: false });
           break;
         }
+        case 'vaulted': {
+          // Up and over: the leap is drawn from where it took off, and it lands in a heap.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.leap = 0;
+          v.leapDx = (e.to - e.from) / SUB;
+          v.dazedUntil = this.time + (v.def.vault?.dazeTicks ?? 0) / TPS;
+          this.say(v.x, rowY(v.row) - 175, NL.shout.vault, '#fffdf5', 1.0, 26);
+          break;
+        }
+        case 'braked': {
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.dazedUntil = this.time + (v.def.charge?.dazeTicks ?? 0) / TPS;
+          this.shake = Math.min(6, this.shake + 2);
+          this.puffs.push({ x: v.x + dirOf(v.side) * 30, y: rowY(v.row) - 50, age: 0, life: 0.3, color: '#fffdf5', size: 34 });
+          this.say(v.x, rowY(v.row) - 165, NL.shout.braked, '#ffd21f', 1.0, 28);
+          break;
+        }
+        case 'shoved': {
+          // It slides back to where it now stands instead of jumping there.
+          const v = this.units.get(e.id);
+          if (v) v.slide += (dirOf(e.side) * (e.from - e.to)) / SUB;
+          break;
+        }
+        case 'served': {
+          // A puff of steam from the pan, and a few of those she fed look the better for it.
+          const cook = this.units.get(e.id);
+          if (cook) this.puffs.push({ x: cook.x, y: rowY(cook.row) - 95, age: 0, life: 0.5, color: '#fffdf5', size: 18 });
+          for (const id of e.ids.slice(0, 3)) {
+            const v = this.units.get(id);
+            if (v) this.say(v.x + (this.random() - 0.5) * 20, rowY(v.row) - 120, '+', '#7fd35b', 0.7, 24);
+          }
+          break;
+        }
+        case 'revived': {
+          // The broom wagon pulls up beside the base while the dropouts climb out.
+          const state = s.sides[e.side];
+          const rig = eraOf(state.faction, state.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== e.side || b.mode !== 'pop');
+          this.bands.push({ side: e.side, rig, age: 0, life: 2.5, mode: 'pop' });
+          // Said at the gate, under the special's own name, which goes up higher.
+          this.say(GATE_X[e.side] + dirOf(e.side) * 120, rowY(0) - 120, NL.shout.revived, '#fffdf5', 1.8, 26, 0.4);
+          break;
+        }
+        case 'siesta': {
+          // The sign comes down beside the base whose turrets stop work, as the rent increase does.
+          const owner = s.sides[other(e.side)];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.rig !== rig || b.side !== e.side);
+          this.bands.push({ side: e.side, rig, age: 0, life: e.ticks / TPS, mode: 'drop' });
+          const x = GATE_X[e.side] + dirOf(e.side) * BAND_SPOT.dx;
+          this.puffs.push({ x, y: GROUND_Y + BAND_SPOT.dy, age: -DROP_SECONDS, life: 0.4, color: '#fffdf5', size: 50 });
+          this.say(x, GROUND_Y + BAND_SPOT.dy - 230, NL.shout.siesta, '#ffb347', 1.8, 30, DROP_SECONDS);
+          this.zzzIn[e.side] = DROP_SECONDS;
+          break;
+        }
+        case 'mended': {
+          // Lab meat growing back, or a combine that ate: a green number, now and then.
+          const v = this.units.get(e.id);
+          if (v && this.random() < 0.5) this.say(v.x, rowY(v.row) - 135, `+${e.amount}`, '#7fd35b', 0.8, 22);
+          break;
+        }
+        case 'returned': {
+          const v = this.units.get(e.id);
+          if (v) this.say(v.x, rowY(v.row) - 160, NL.shout.returned, '#ffd21f', 0.9, 26);
+          break;
+        }
         case 'special':
           this.shake = Math.min(8, this.shake + 3);
           this.say(GATE_X[e.side] + dirOf(e.side) * 330, rowY(0) - 210, `${nameOf(e.id).replace(/!$/, '')}!`, '#ffd21f', 1.8, 44);
@@ -694,6 +792,7 @@ export class BattleView {
     for (const b of this.blockades) b.age += dt;
     this.blockades = this.blockades.filter((b) => b.age < b.life);
     this.updateBands(s, dt);
+    this.updateSiesta(s, dt);
     this.updateSwarms(s, dt);
     this.updateSprites(dt);
     this.updateCoins(dt);
@@ -719,6 +818,22 @@ export class BattleView {
       if (mine.length === 0) continue;
       const v = this.pick(mine);
       this.say(v.x + (this.random() - 0.5) * 30, rowY(v.row) - 120, this.random() < 0.5 ? '♪' : '♫', '#ffd21f', 0.8, 30);
+    }
+  }
+
+  /** During a Tropenrooster the turrets of the side that stopped work snore. */
+  private updateSiesta(s: SimState, dt: number): void {
+    for (const side of SIDES) {
+      const state = s.sides[side];
+      if (state.siestaUntil <= s.tick) continue;
+      this.zzzIn[side] -= dt;
+      if (this.zzzIn[side] > 0) continue;
+      this.zzzIn[side] = 0.9;
+      state.turrets.forEach((t, slot) => {
+        if (!t) return;
+        const spot = this.turretSpot(s, side, slot);
+        this.say(spot.x + dirOf(side) * (10 + this.random() * 40), spot.y - 110, 'Zzz', '#bfe3ff', 1.3, 26);
+      });
     }
   }
 
@@ -796,6 +911,14 @@ export class BattleView {
             turncoat: u.turncoat,
             slide: 0,
             pose: '',
+            leap: NEVER,
+            leapDx: 0,
+            dazedUntil: 0,
+            icyUntil: 0,
+            dazed: false,
+            icy: false,
+            sticky: false,
+            facing: 1,
           };
           this.units.set(u.id, v);
         }
@@ -819,6 +942,13 @@ export class BattleView {
         v.x = x;
         v.hp = u.hp;
         v.stunned = u.stunUntil > s.tick;
+        v.dazed = v.stunned && this.time < v.dazedUntil;
+        v.icy = v.stunned && this.time < v.icyUntil;
+        v.sticky = (u.stickyUntil ?? 0) > s.tick;
+        // A pole vaulter that came down beyond the enemy's front turns round to face whoever it went over.
+        const foeFront = frontUnit(s.sides[other(side)].units);
+        v.facing = u.vaulted && foeFront && u.pos - def.len > LANE - foeFront.pos ? -1 : 1;
+        if (v.leap < NEVER) v.leap += dt;
         v.pose = u.posing && poser ? poser.rig : '';
         v.flash = Math.max(0, v.flash - dt * 5);
         v.hitTime += dt;
@@ -831,7 +961,11 @@ export class BattleView {
             copyPose(p.last, p.from);
             p.blend = 0;
           }
-          if (u.act === 'attack') {
+          if (v.leap < LEAP_SECONDS && p.clips.vault) {
+            sampleClip(p.clips.vault, v.leap / LEAP_SECONDS, p.rig.index, p.pose);
+          } else if (v.dazed && p.clips.dazed) {
+            sampleClip(p.clips.dazed, (v.idleTime / (p.clips.dazed.seconds ?? 1)) % 1, p.rig.index, p.pose);
+          } else if (u.act === 'attack') {
             const t = attackTime(p.clips.attack, Math.max(0, u.actTick - 1 + alpha), def.windup, def.recover);
             sampleClip(p.clips.attack, t, p.rig.index, p.pose);
           } else if (u.act === 'walk') {

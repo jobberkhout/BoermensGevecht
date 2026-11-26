@@ -32,7 +32,7 @@ export const achterhoek: FactionText = {
 
   blurbs: {
       'ah.1975.light': 'Boerenknecht met riek en klompen. Snel en goedkoop.',
-      'ah.1975.ranged': 'Smijt met voederbieten. Raak is raak.',
+      'ah.1975.ranged': 'Smijt voederbieten die doorstuiteren: na de eerste kop raakt hij de volgende.',
       'ah.1975.heavy': 'Oude trekker met ploeg. Ploegt alles om wat in de weg staat.',
       'ah.1975.shield': 'Loopt achter een staldeur. Torens mikken op hem en raken alleen de deur.',
       'ah.1975.turret': 'Melkbus, carbid, vlammetje erbij: knal! Het deksel vliegt je om de oren.',
@@ -45,7 +45,7 @@ export const achterhoek: FactionText = {
       'ah.2025.special': 'Een stoet trekkers dendert over de baan en raakt iedereen.',
       'ah.2050.light': 'Zelf gelast exoskelet van trekkeronderdelen. Mept voor tien.',
       'ah.2050.ranged': 'Vogelverschrikker met laserogen. Geen kraai die nog durft.',
-      'ah.2050.heavy': 'Zelfrijdende combine. Vreet alles op wat voor de haspel komt.',
+      'ah.2050.heavy': 'Zelfrijdende combine die vreet wat hij raakt: 30% van de schade krijgt hij terug.',
       'ah.2050.super': 'Een kolos van silo en trekkerwielen. Zit niet online: speciale acties en torens doen hem niks.',
       'ah.2050.turret': 'Robotkoe in de melkstal. Spuit melk onder hoge druk.',
       'ah.2050.special': 'Tien drones duiken een voor een op de voorste vijand.',

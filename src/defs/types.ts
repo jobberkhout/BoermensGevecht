@@ -1,6 +1,6 @@
 import type { EraKey, Temper } from './balance.ts';
 
-export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen';
+export type FactionId = 'havermelk' | 'achterhoek' | 'zuidas' | 'gasten' | 'toeristen' | 'friezen';
 export type Role = 'light' | 'ranged' | 'heavy' | 'shield' | 'super';
 /** How a faction sounds: its units walking out and its turrets firing. See audio/sound.ts. */
 export type Voice = 'town' | 'country' | 'office' | 'tourist';
@@ -79,6 +79,32 @@ export interface UnitDef {
    * See TOSS in defs/balance.ts and sim/step.ts.
    */
   toss?: { dmg: number; range: number; every: number; shot: ShotDef };
+  /**
+   * The pole vaulter, De Fierljepper: at the first enemy unit it meets it
+   * vaults over it instead of fighting, lands `gap` behind that unit's back,
+   * in the middle of the enemy ranks, and sits dazed for `dazeTicks`. Once a
+   * life. See VAULT in defs/balance.ts and sim/stunts.ts.
+   */
+  vault?: { gap: number; dazeTicks: number };
+  /**
+   * The skater who cannot brake, De Kluner: until its first blow it is
+   * `speedPercent` as fast, that first blow does `dmgPercent` of its damage and
+   * shoves the unit it hits `shove` back, and then it sits dazed for
+   * `dazeTicks`. See CHARGE in defs/balance.ts and sim/stunts.ts.
+   */
+  charge?: { speedPercent: number; dmgPercent: number; shove: number; dazeTicks: number };
+  /** Its throws glue whoever they hit with sugar: for `ticks` it walks and fights at half pace. Bakker Tjitske. See STICKY. */
+  sticky?: { ticks: number };
+  /** Every `every` ticks it patches up its own units within `reach`, by `healPercent` of their hit points: Beppe's soup. See SOUP. */
+  soup?: { every: number; healPercent: number; reach: number };
+  /** A throw by an enemy unit that would hit it is sent back down the lane instead, once every `every` ticks: Padel-Pepijn. See RETURN. */
+  returns?: { every: number };
+  /** Its throw bounces on to the enemy unit behind the one it hit, if that one is within `reach`, with `dmgPercent` of the damage: Smijtink's beets. See BOUNCE. */
+  bounce?: { dmgPercent: number; reach: number };
+  /** Every `every` ticks it grows back `healPercent` of its hit points: De Kweekvleesblob. See REGROW. */
+  regrows?: { every: number; healPercent: number };
+  /** It gets `percent` of the damage its blows do back as hit points: De Vreter eats what it hits. See FEED. */
+  feeds?: { percent: number };
 }
 
 export interface TurretDef {
@@ -103,7 +129,7 @@ interface SpecialBase {
 export type SpecialDef = SpecialBase &
   (
     | { kind: 'wave'; rig: string; speed: number; dmg: number } // sweeps the lane, hits every enemy unit once
-    | { kind: 'stun'; ticks: number } // enemy units on the lane can neither walk nor fight for a while
+    | { kind: 'stun'; ticks: number; look?: 'ice' } // enemy units on the lane can neither walk nor fight for a while; with 'ice' they freeze over and slip
     | { kind: 'buff'; ticks: number; dmgPercent: number; speedPercent: number } // own units hit harder and move faster
     | { kind: 'heal'; healPercent: number } // own units on the lane get hit points back
     | { kind: 'barrage'; strikes: number; every: number; dmg: number } // repeated blows on the foremost enemy
@@ -112,6 +138,8 @@ export type SpecialDef = SpecialBase &
     | { kind: 'divert'; ticks: number } // for a while everything the enemy earns is paid to you instead
     | { kind: 'summon'; unit: string; count: number; ticks?: number } // free units of your own come out at your gate, unit cap or not; with `ticks`, they leave again after that long
     | { kind: 'hike'; ticks: number; pricePercent: number } // for a while everything the enemy buys costs more
+    | { kind: 'revive'; count: number } // the last units of your own that were beaten come back out of your gate
+    | { kind: 'siesta'; ticks: number } // for a while the enemy's turrets do not fire
   );
 
 export interface EraDef {

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-316 -596 332 602" data-rig="static">
+  <title>Een Friese stelpboerderij op een terp in de sneeuw: blauwe pannen, ijspegels, zwanen op het ûleboerd en de schaatsen bij de deur</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The farm stands behind it, to the left, on its terp. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole -->
+    <path class="t" style="stroke-width:5" d="M-288 -462 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the chimney, snow on its cap -->
+    <rect class="o" fill="#9c4a32" x="-118" y="-548" width="22" height="50"/>
+    <path class="t" style="stroke:#7a3424" d="M-118 -536 L-96 -536 M-118 -522 L-96 -522 M-107 -548 L-107 -536 M-112 -536 L-112 -522 M-102 -522 L-102 -508"/>
+    <path class="o" fill="#f6fbff" d="M-122 -548 Q-121 -557 -112 -556 Q-106 -561 -100 -556 Q-92 -556 -92 -548 Z"/>
+
+    <!-- the ûleboerd at the end of the ridge, with its two white swans -->
+    <path class="o" fill="#1f5a2a" d="M-30 -500 L-30 -538 Q-20 -548 -10 -538 L-10 -500 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M-29 -510 Q-30 -517 -25 -518 L-23 -518 Q-22 -524 -24 -528 Q-23.5 -532.5 -20 -531 L-17 -529.6 L-20.4 -528.6 Q-19.6 -523 -20.6 -517.4 Q-17 -516 -17.4 -510 Z"/>
+    <g transform="translate(-40 0) scale(-1 1)">
+      <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M-29 -510 Q-30 -517 -25 -518 L-23 -518 Q-22 -524 -24 -528 Q-23.5 -532.5 -20 -531 L-17 -529.6 L-20.4 -528.6 Q-19.6 -523 -20.6 -517.4 Q-17 -516 -17.4 -510 Z"/>
+    </g>
+    <circle class="o" style="stroke-width:1.6" fill="#ffd21f" cx="-20" cy="-541" r="3.2"/>
+
+    <!-- the steep roof of blue glazed tiles -->
+    <path class="o" fill="#3b5a86" d="M-316 -440 L-262 -506 L-36 -506 L16 -440 Z"/>
+    <path class="t" style="stroke:#2c466c;stroke-width:2.2" d="M-305 -453 L5 -453 M-294 -466 L-6 -466 M-283 -479 L-16 -479 M-272 -492 L-26 -492"/>
+    <path class="t" style="stroke:#2c466c" d="M-240 -506 L-246 -492 M-200 -506 L-204 -492 M-160 -506 L-162 -492 M-120 -506 L-120 -492 M-80 -506 L-78 -492 M-50 -506 L-46 -492 M-250 -479 L-256 -466 M-210 -479 L-214 -466 M-170 -479 L-172 -466 M-130 -479 L-130 -466 M-90 -479 L-88 -466 M-50 -479 L-46 -466 M-12 -479 L-6 -466"/>
+    <!-- snow, thick on top, slipping down the sides -->
+    <path class="o" fill="#f6fbff" d="M-268 -500 Q-266 -516 -248 -514 Q-236 -524 -220 -514 Q-204 -522 -188 -514 Q-170 -523 -152 -514 Q-136 -521 -120 -514 Q-100 -522 -84 -514 Q-66 -521 -50 -513 Q-34 -516 -30 -500 Q-40 -494 -54 -497 Q-74 -490 -96 -497 Q-120 -490 -144 -497 Q-168 -490 -192 -497 Q-216 -490 -240 -497 Q-258 -492 -268 -500 Z"/>
+    <path class="o" fill="#f6fbff" d="M-296 -466 Q-300 -474 -290 -476 Q-284 -486 -274 -480 L-282 -458 Q-290 -458 -296 -466 Z"/>
+    <path class="o" fill="#f6fbff" d="M-6 -470 Q0 -480 6 -470 Q10 -462 4 -458 Q-4 -460 -6 -470 Z"/>
+
+    <!-- the inside of the barn, open to the road -->
+    <rect class="o" fill="#33302e" x="-296" y="-438" width="292" height="438"/>
+    <path class="t" style="stroke:#44403c;stroke-width:2.4" d="M-262 -426 L-262 -296 M-226 -426 L-226 -296 M-190 -426 L-190 -296 M-116 -426 L-116 -296 M-80 -426 L-80 -296 M-44 -426 L-44 -296 M-262 -284 L-262 -146 M-226 -284 L-226 -146 M-190 -284 L-190 -146 M-116 -284 L-116 -146 M-80 -284 L-80 -146 M-44 -284 L-44 -146"/>
+
+    <!-- upper loft: an old sledge on the back wall, and a lantern -->
+    <path class="o" fill="#8a5a32" d="M-278 -330 L-210 -330 L-210 -318 L-278 -318 Z"/>
+    <path class="t" style="stroke-width:4" d="M-282 -310 L-206 -310 Q-198 -310 -198 -318"/>
+    <path fill="none" stroke="#9aa0a4" stroke-width="2" stroke-linecap="round" d="M-282 -310 L-206 -310 Q-198 -310 -198 -318"/>
+    <path class="t" style="stroke-width:3" d="M-270 -318 L-270 -310 M-218 -318 L-218 -310"/>
+    <path class="t" style="stroke-width:2" d="M-60 -426 L-60 -392"/>
+    <rect class="o" style="stroke-width:2" fill="#ffd21f" x="-67" y="-392" width="14" height="18" rx="3"/>
+    <!-- lower loft: hay, and a spare pair of skates on a nail -->
+    <path class="o" fill="#d9bf5a" d="M-286 -146 Q-286 -172 -262 -180 Q-246 -196 -226 -184 Q-206 -180 -202 -146 Z"/>
+    <path class="t" style="stroke:#b39a3a;stroke-width:2.2" d="M-272 -156 Q-264 -170 -250 -174 M-246 -154 Q-238 -170 -226 -176"/>
+    <path class="t" style="stroke:#6b4a2a;stroke-width:2" d="M-40 -270 L-46 -252 M-40 -270 L-34 -252"/>
+    <path class="t" style="stroke-width:3.4" d="M-58 -250 L-42 -250 Q-38 -250 -38 -254 M-42 -248 L-26 -248 Q-22 -248 -22 -252"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="1.6" stroke-linecap="round" d="M-58 -250 L-42 -250 Q-38 -250 -38 -254 M-42 -248 L-26 -248 Q-22 -248 -22 -252"/>
+
+    <!-- loft floors and the frame that carries them, with snow blown onto the edges -->
+    <rect class="o" fill="#6b4f33" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#6b4f33" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#7a5a3a" x="-298" y="-438" width="12" height="438"/>
+    <rect class="o" fill="#7a5a3a" x="-14" y="-438" width="12" height="304"/>
+    <path class="t" style="stroke:#4a3622;stroke-width:5" d="M-286 -396 L-258 -436 M-14 -396 L-42 -436 M-286 -250 L-262 -284 M-14 -250 L-38 -284"/>
+    <path class="n" fill="#f6fbff" d="M-300 -296 Q-290 -302 -278 -298 L-276 -296 Z M-24 -296 Q-12 -302 0 -297 L0 -296 Z M-300 -146 Q-292 -151 -282 -147 L-280 -146 Z"/>
+
+    <!-- the eave, with icicles all along it -->
+    <rect class="o" fill="#2c466c" x="-318" y="-448" width="336" height="10" rx="2"/>
+    <path class="o" style="stroke-width:2" fill="#cfe8f7" d="M-306 -438 L-302 -420 L-298 -438 Z M-282 -438 L-279 -426 L-276 -438 Z M-250 -438 L-246 -414 L-242 -438 Z M-214 -438 L-211 -424 L-208 -438 Z M-178 -438 L-174 -410 L-170 -438 Z M-140 -438 L-137 -425 L-134 -438 Z M-104 -438 L-100 -416 L-96 -438 Z M-66 -438 L-63 -426 L-60 -438 Z M-32 -438 L-28 -412 L-24 -438 Z M0 -438 L3 -426 L6 -438 Z"/>
+
+    <!-- ground floor: brick, white windows with green shutters and snow on the sills -->
+    <rect class="o" fill="#a8553c" x="-286" y="-134" width="184" height="134"/>
+    <path class="t" style="stroke:#8a412c;stroke-width:1.6" d="M-286 -112 L-102 -112 M-286 -90 L-102 -90 M-286 -68 L-102 -68 M-286 -46 L-102 -46 M-286 -24 L-102 -24 M-250 -134 L-250 -112 M-200 -134 L-200 -112 M-150 -134 L-150 -112 M-270 -112 L-270 -90 M-220 -112 L-220 -90 M-170 -112 L-170 -90 M-124 -112 L-124 -90"/>
+    <rect class="o" fill="#f4f4f0" x="-262" y="-112" width="44" height="52"/>
+    <rect class="n" fill="#9fc7e4" x="-257" y="-107" width="34" height="42"/>
+    <path class="t" style="stroke:#f4f4f0;stroke-width:3" d="M-240 -107 L-240 -65 M-257 -86 L-223 -86"/>
+    <rect class="o" fill="#1f5a2a" x="-276" y="-112" width="14" height="52"/>
+    <rect class="o" fill="#1f5a2a" x="-218" y="-112" width="14" height="52"/>
+    <path class="o" fill="#f6fbff" d="M-280 -60 Q-276 -66 -240 -64 Q-204 -66 -200 -60 Z"/>
+    <rect class="o" fill="#f4f4f0" x="-178" y="-112" width="44" height="52"/>
+    <rect class="n" fill="#9fc7e4" x="-173" y="-107" width="34" height="42"/>
+    <path class="t" style="stroke:#f4f4f0;stroke-width:3" d="M-156 -107 L-156 -65 M-173 -86 L-139 -86"/>
+    <rect class="o" fill="#1f5a2a" x="-192" y="-112" width="14" height="52"/>
+    <rect class="o" fill="#1f5a2a" x="-134" y="-112" width="14" height="52"/>
+    <path class="o" fill="#f6fbff" d="M-196 -60 Q-192 -66 -156 -64 Q-120 -66 -116 -60 Z"/>
+    <!-- a cat in the window, watching the snow -->
+    <path class="o" style="stroke-width:2" fill="#2b2b2b" d="M-168 -66 Q-170 -80 -164 -84 L-166 -91 L-161 -87 L-157 -91 L-157 -84 Q-152 -80 -154 -66 Z"/>
+    <circle class="n" fill="#ffd21f" cx="-163" cy="-82" r="1.3"/>
+    <circle class="n" fill="#ffd21f" cx="-158.6" cy="-82" r="1.3"/>
+
+    <!-- the stand for the milk churns, snow on the lids -->
+    <rect class="o" fill="#7a5a3a" x="-296" y="-40" width="44" height="6"/>
+    <path class="t" style="stroke-width:4" d="M-292 -34 L-292 0 M-256 -34 L-256 0"/>
+    <path class="o" fill="#b9c2bd" d="M-292 -40 L-292 -62 Q-292 -68 -287.5 -69 L-287.5 -73 L-278.5 -73 L-278.5 -69 Q-274 -68 -274 -62 L-274 -40 Z"/>
+    <path class="o" fill="#c7cfca" d="M-272 -40 L-272 -62 Q-272 -68 -267.5 -69 L-267.5 -73 L-258.5 -73 L-258.5 -69 Q-254 -68 -254 -62 L-254 -40 Z"/>
+    <path class="o" style="stroke-width:2" fill="#f6fbff" d="M-290 -73 Q-288 -79 -283 -78 Q-278 -80 -276 -73 Z M-270 -73 Q-268 -79 -263 -78 Q-258 -80 -256 -73 Z"/>
+
+    <!-- the doorway units come out of, icicles on the lintel, the skates by the door -->
+    <rect class="o" fill="#6b4f33" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#241d17" x="-90" y="-122" width="76" height="122"/>
+    <rect class="o" fill="#7a5a3a" x="-102" y="-134" width="12" height="134"/>
+    <path class="o" style="stroke-width:2" fill="#cfe8f7" d="M-84 -122 L-81 -108 L-78 -122 Z M-62 -122 L-58 -102 L-54 -122 Z M-36 -122 L-33 -112 L-30 -122 Z"/>
+    <path class="t" style="stroke:#6b4a2a;stroke-width:2" d="M-96 -112 L-104 -94 M-96 -112 L-88 -94"/>
+    <circle class="n" fill="#2b1b16" cx="-96" cy="-112" r="1.6"/>
+    <path class="t" style="stroke-width:3.4" d="M-116 -92 L-98 -92 Q-94 -92 -94 -96 M-104 -88 L-86 -88 Q-82 -88 -82 -92"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="1.6" stroke-linecap="round" d="M-116 -92 L-98 -92 Q-94 -92 -94 -96 M-104 -88 L-86 -88 Q-82 -88 -82 -92"/>
+    <rect class="o" style="stroke-width:1.4" fill="#c9934f" x="-114" y="-96" width="14" height="3" rx="1"/>
+    <rect class="o" style="stroke-width:1.4" fill="#c9934f" x="-102" y="-92" width="14" height="3" rx="1"/>
+
+    <!-- the terp under it all, deep in snow, and drifts against the walls -->
+    <path class="o" fill="#f6fbff" d="M-316 4 Q-316 -22 -300 -26 Q-290 -16 -276 -18 Q-262 -12 -250 -14 Q-230 -6 -210 -10 Q-180 -2 -150 -6 Q-128 -2 -104 -4 L-104 4 Z"/>
+    <path class="n" fill="#d6e9f6" d="M-312 2 Q-300 -8 -280 -8 Q-250 -2 -220 -4 Q-170 2 -120 -1 L-120 2 Z"/>
+    <path class="o" fill="#f6fbff" d="M-6 4 Q-6 -10 2 -12 Q12 -10 14 4 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- Smoke from the stove. -->
+  <g id="smoke" transform="translate(-107 -566)">
+    <circle class="o" style="stroke-width:2" fill="#e6e6e6" cx="0" cy="0" r="7"/>
+    <circle class="o" style="stroke-width:2" fill="#eeeeee" cx="8" cy="-10" r="5.4"/>
+    <circle class="o" style="stroke-width:2" fill="#f4f4f4" cx="3" cy="-20" r="4"/>
+  </g>
+
+</svg>

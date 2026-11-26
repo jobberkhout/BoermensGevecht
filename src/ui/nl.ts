@@ -6,13 +6,14 @@ import type { FactionText } from './factions/types.ts';
 import { zuidas } from './factions/zuidas.ts';
 import { gasten } from './factions/gasten.ts';
 import { toeristen } from './factions/toeristen.ts';
+import { friezen } from './factions/friezen.ts';
 
 /**
  * Every piece of text the player sees. What a faction says and is called lives
  * in ui/factions/<faction>.ts; what they all share is here. Change a name in
  * one of those files and it changes everywhere.
  */
-const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen };
+const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen };
 
 /** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
@@ -46,7 +47,7 @@ export const NL = {
     perSecond: '/s',
     subsidyMax: 'maximaal',
     /** Under the turret's name: what the button will do. */
-    turretHow: { build: 'bouwen', replace: 'oude vervangen', upgrade: 'verbeteren' },
+    turretHow: { build: 'bouwen', replace: 'oude inruilen', upgrade: 'verbeteren' },
     turretMax: 'maximaal ★★★',
     paused: 'Pauze',
     /** On the pause button beside the clock. */
@@ -81,6 +82,16 @@ export const NL = {
     bought: 'Overgenomen!',
     /** Over the estate agent's sign of the Huurverhoging, on the base of the side that pays more. */
     hiked: 'Alles het dubbele!',
+    /** A pole vaulter takes off over the first enemy it meets. */
+    vault: 'Hup!',
+    /** A skater who cannot brake crashes into the first enemy it meets. */
+    braked: 'Krak!',
+    /** Padel-Pepijn sends a throw back. */
+    returned: 'Smash!',
+    /** De Bezemwagen: whoever dropped out is back. */
+    revived: 'Wer it iis op!',
+    /** Over the sign of the Tropenrooster, beside the base whose turrets stop work. */
+    siesta: 'Te heet om te werken!',
     /** What a super unit says when an enemy special passes it by, per faction. */
     unmoved: perFaction((text) => text.unmoved),
   },

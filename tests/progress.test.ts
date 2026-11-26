@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { INCOME_EVERY, LANE, PROGRESS, SPECIAL, STATS, SUBSIDY, TURRET, TURRET_SLOTS, px } from '../src/defs/balance.ts';
-import { FACTION_IDS, TURRETS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
+import { FACTIONS, FACTION_IDS, TURRETS, eraOf, turretDef, unitDef } from '../src/defs/index.ts';
 import { canDo, eraUpCost, progressNeeded, subsidyCost, turretPlan } from '../src/sim/commands.ts';
 import { turretRange } from '../src/sim/turrets.ts';
 import { BASE } from '../src/sim/types.ts';
@@ -190,21 +190,55 @@ describe('turret button', () => {
       target.stunUntil = 1e9;
       return run(s, def.cooldown * 3).some((e) => e.t === 'turretFire');
     };
-    expect([1, 2, 3].map((level) => turretRange(def, level))).toEqual([px(300), px(480), px(660)]);
+    expect([1, 2, 3].map((level) => turretRange(def, level))).toEqual([px(300), px(360), px(420)]);
     expect(fires(1, 290)).toBe(true);
-    expect(fires(1, 400)).toBe(false);
-    expect(fires(2, 400)).toBe(true);
-    expect(fires(2, 600)).toBe(false);
-    expect(fires(3, 600)).toBe(true);
-    expect(fires(3, 700)).toBe(false);
+    expect(fires(1, 330)).toBe(false);
+    expect(fires(2, 350)).toBe(true);
+    expect(fires(2, 400)).toBe(false);
+    expect(fires(3, 410)).toBe(true);
+    expect(fires(3, 450)).toBe(false);
   });
 
-  it('a fully upgraded turret joins the fight in the middle, and no turret reaches the enemy base', () => {
-    for (const def of Object.values(TURRETS)) {
-      expect(turretRange(def, 1), `${def.id} level 1`).toBeLessThan(LANE / 2);
-      expect(turretRange(def, TURRET.maxLevel), `${def.id} at its best`).toBeGreaterThan(LANE / 2);
-      expect(turretRange(def, TURRET.maxLevel), `${def.id} at its best`).toBeLessThan(LANE - px(300));
+  it('reaches further with every step, and a new era never reaches less than a fully upgraded old one', () => {
+    for (const faction of Object.values(FACTIONS)) {
+      const reach = faction.eras.flatMap((era) => [1, 2, 3].map((level) => turretRange(era.turret, level)));
+      for (let i = 1; i < reach.length; i++) expect(reach[i]!, `${faction.id} step ${i}`).toBeGreaterThanOrEqual(reach[i - 1]!);
+      faction.eras.slice(1).forEach((era, i) => {
+        expect(turretRange(era.turret, 1), era.turret.id).toBe(turretRange(faction.eras[i]!.turret, TURRET.maxLevel));
+      });
+      // Only a fully upgraded turret of the future joins the fight in the middle, and none reaches the enemy base.
+      const best = turretRange(faction.eras.at(-1)!.turret, TURRET.maxLevel);
+      expect(best).toBeGreaterThan(LANE / 2);
+      expect(best).toBeLessThan(LANE - px(300));
     }
+  });
+
+  it("costs in the next era what it took to upgrade one all the way in this one", () => {
+    for (const faction of Object.values(FACTIONS)) {
+      faction.eras.slice(1).forEach((era, i) => {
+        const before = faction.eras[i]!.turret.cost;
+        const maxed = before + TURRET.upgradePercent.reduce((sum, pct) => sum + Math.round((before * pct) / 100), 0);
+        expect(era.turret.cost, era.turret.id).toBe(maxed);
+      });
+    }
+  });
+
+  it('trades a fully upgraded old turret in for half of what went into it', () => {
+    const s = match();
+    rich(s, 0);
+    for (let i = 0; i < 6; i++) act(s, 0, { t: 'turret' }); // both slots at level 3
+    expect(s.sides[0].turrets.map((t) => t!.level)).toEqual([3, 3]);
+    s.sides[0].progress = 1_000_000;
+    act(s, 0, { t: 'eraUp' });
+    const next = turretDef('hm.2025.turret').cost;
+    const plan = turretPlan(s, 0)!;
+    expect(plan.how).toBe('replace');
+    expect(plan.credit).toBe(Math.floor((next * TURRET.tradeInPercent) / 100));
+    const gold = s.sides[0].gold;
+    act(s, 0, { t: 'turret' });
+    expect(gold - s.sides[0].gold).toBe(next - plan.credit);
+    // The new one is worth its full price, so it is traded in for half of that in turn.
+    expect(s.sides[0].turrets[0]!.value).toBe(next);
   });
 
   it('after modernizing, old turrets keep working until they are bought again, oldest first', () => {
@@ -219,7 +253,10 @@ describe('turret button', () => {
 
     const plan = turretPlan(s, 0)!;
     expect(plan.how).toBe('replace');
-    expect(plan.cost).toBe(turretDef('hm.2025.turret').cost);
+    // Slot 0 is traded in first: half of what went into it, a level 1 turret and one upgrade, comes off the price.
+    const old = turretDef('hm.1975.turret').cost;
+    const worth = old + Math.round((old * TURRET.upgradePercent[0]) / 100);
+    expect(plan.cost).toBe(turretDef('hm.2025.turret').cost - Math.floor((worth * TURRET.tradeInPercent) / 100));
     act(s, 0, { t: 'turret' });
     act(s, 0, { t: 'turret' });
     // Both replaced, both back at level 1: the upgrades have to be earned again.

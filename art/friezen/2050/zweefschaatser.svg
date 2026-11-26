@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-52 -138 116 146" data-rig="humanoid">
+  <title>De Zweefschaatser: zweefschaatsen, een Hawaïshirt over het schaatspak en zinkzalf op de neus. Heeft nog nooit een bevroren sloot gezien</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The back arm, folded behind him the way skaters do: hand flat on the small of the back. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#174c87" d="M-6 -3 Q-9 8 -8 16 L-1 18 Q2 8 6 -2 Z"/>
+    <path class="o" fill="#174c87" d="M-8.5 13 Q-4 22 4 24 L6 18 Q0 16 -2 11 Z"/>
+    <path class="o" fill="#ee8a6e" d="M3 17 Q10 16 11 21 Q10 26 4 25 Z"/>
+  </g>
+
+  <!-- Long legs in the skating suit, on hover-skates that glow underneath. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#174c87" d="M-7.5 -3 L7.5 -3 L6.5 27 L-6.5 27 Z"/>
+    <path class="o" fill="#e9e6df" d="M-7 25 L7 25 L7.5 31 Q12 31 15 33 L15 35 L-8 35 Z"/>
+    <path class="n" fill="#7ff0f0" fill-opacity="0.45" d="M-10 37 L17 37 L14 42 L-7 42 Z"/>
+    <rect class="o" fill="#3a3d4a" x="-11" y="34" width="29" height="4.5" rx="2.2"/>
+    <rect class="n" fill="#7ff0f0" x="-8" y="35.4" width="23" height="1.6" rx="0.8"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#1d5fa8" d="M-7.5 -3 L7.5 -3 L6.5 27 L-6.5 27 Z"/>
+    <!-- the white stripe down the side of the suit -->
+    <path class="n" fill="#fbf8f0" d="M1.5 -1 L4.5 -1 L4 25 L1.8 25 Z"/>
+    <path class="o" fill="#fbf8f0" d="M-7 25 L7 25 L7.5 31 Q12 31 15 33 L15 35 L-8 35 Z"/>
+    <path class="n" fill="#7ff0f0" fill-opacity="0.55" d="M-10 37 L17 37 L14 43 L-7 43 Z"/>
+    <rect class="o" fill="#3a3d4a" x="-11" y="34" width="29" height="4.5" rx="2.2"/>
+    <rect class="n" fill="#7ff0f0" x="-8" y="35.4" width="23" height="1.6" rx="0.8"/>
+    <circle class="n" fill="#7ff0f0" cx="15" cy="36.2" r="1.6"/>
+  </g>
+
+  <!-- The skating suit, and over it, wide open, a Hawaiian shirt. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#1d5fa8" d="M-15 7 Q-18 -14 -15 -30 Q-11 -38 0 -38 Q12 -38 16 -30 Q19 -14 15 7 Z"/>
+    <path class="n" fill="#fbf8f0" d="M5 -36 L8 -36 L9 5 L6 5 Z"/>
+    <!-- the shirt: orange, hibiscus, flapping open -->
+    <path class="o" fill="#ff8a3d" d="M-16 6 Q-20 -14 -16 -31 Q-12 -38 -3 -38 L0 -30 L-4 6 Z"/>
+    <path class="o" fill="#ff8a3d" d="M16 -31 Q12 -38 4 -38 L3 -30 L10 6 L17 6 Q19 -14 16 -31 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#ffb27a" d="M-3 -38 L0 -30 L-7 -27 Z M4 -38 L3 -30 L10 -28 Z"/>
+    <g class="n" fill="#ffe0f0">
+      <path d="M-11 -24 l2.4 -3 l2.4 3 l-1 3 l-2.8 0 Z"/>
+      <path d="M-13 -8 l2.4 -3 l2.4 3 l-1 3 l-2.8 0 Z"/>
+      <path d="M11 -18 l2.4 -3 l2.4 3 l-1 3 l-2.8 0 Z"/>
+    </g>
+    <g class="n" fill="#e5283f">
+      <circle cx="-8.6" cy="-25" r="1"/>
+      <circle cx="-10.6" cy="-9" r="1"/>
+      <circle cx="13.4" cy="-19" r="1"/>
+    </g>
+    <path class="n" fill="#3fae6a" d="M-7 -14 q3 -3 5 0 q-3 2 -5 0 Z M12 -4 q3 -3 5 0 q-3 2 -5 0 Z"/>
+    <rect class="o" fill="#174c87" x="-15.5" y="3" width="31" height="4.5" rx="1.6"/>
+  </g>
+
+  <!-- A flap of the shirt that streams out behind him. Joint at his back. -->
+  <g id="shirt_tail" data-parent="torso" transform="translate(-15 -42)">
+    <path class="o" style="stroke-width:2.2" fill="#ff8a3d" d="M0 -6 Q-8 -2 -9 8 L0 10 Z"/>
+    <path class="n" fill="#ffe0f0" d="M-5 2 l1.6 -2 l1.6 2 l-0.7 2 l-1.8 0 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#d9705a" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#ee8a6e" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#ee8a6e" cx="-8.5" cy="-17" rx="3.4" ry="4.8"/>
+    <!-- the skating hood of the suit, pulled tight -->
+    <path class="o" fill="#1d5fa8" d="M-17 -14 Q-21 -41 3 -41 Q20 -41 21 -28 L6 -29 Q-5 -29 -9 -21 Q-11 -14 -12 -7 Q-17 -8 -17 -14 Z"/>
+    <path class="n" fill="#fbf8f0" d="M-6 -39.6 Q4 -41 12 -38 L10 -36 Q2 -38 -5 -36.6 Z"/>
+    <!-- sunglasses pushed up on the hood: where else would they be -->
+    <path class="o" style="stroke-width:2" fill="#2b1b16" d="M-2 -37 Q4 -42 11 -39 L12 -34 Q6 -32 0 -33 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2b1b16" d="M12 -39 Q17 -40 20 -36 L19 -32 Q15 -31 12.5 -33.5 Z"/>
+    <path class="n" fill="#7ff0f0" d="M2 -38 L6 -39 L4 -35.6 Z M14 -37.6 L17 -37.4 L15 -34.6 Z"/>
+    <!-- sunburn, freckled by now -->
+    <ellipse class="n" fill="#e5583f" fill-opacity="0.55" cx="9" cy="-14" rx="6" ry="3.4"/>
+    <circle class="n" fill="#b84a35" cx="6" cy="-16" r="0.7"/>
+    <circle class="n" fill="#b84a35" cx="10" cy="-12.6" r="0.7"/>
+    <circle class="n" fill="#b84a35" cx="13" cy="-16" r="0.7"/>
+    <!-- the eye: blissfully unaware -->
+    <path class="t" style="stroke-width:2.2" d="M10 -24 Q13 -26.4 16 -24"/>
+    <!-- the nose, white with zinc -->
+    <path class="o" fill="#fbf8f0" d="M17 -22 Q25 -19 22 -14 Q19 -13 16.5 -15 Z"/>
+    <path class="n" fill="#ffffff" d="M18.6 -20.4 Q21.6 -19.6 21 -17 Z"/>
+    <!-- a wide, daft grin -->
+    <path class="o" style="stroke-width:1.8" fill="#7a2a2a" d="M6 -8.4 Q13 0 21 -8 Q13 -10 6 -8.4 Z"/>
+    <path class="n" fill="#ffffff" d="M8.4 -8.4 Q13.4 -9.6 19 -8.2 L18 -6.4 Q13.4 -7.4 9.4 -6.6 Z"/>
+  </g>
+
+  <!-- The front arm holds a cocktail, little umbrella and all. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#ff8a3d" d="M-6.5 -3 Q-8.5 6 -7 12 L7 12 Q8 6 6.5 -3 Z"/>
+    <path class="n" fill="#ffe0f0" d="M-3 2 l1.6 -2 l1.6 2 l-0.7 2 l-1.8 0 Z"/>
+    <path class="o" fill="#1d5fa8" d="M-6 11 L6 11 L6 22 L-5 22 Z"/>
+    <path class="o" fill="#ee8a6e" d="M-6 21 L6 21 Q8 29 0 30 Q-7 29 -6 21 Z"/>
+    <!-- the glass -->
+    <path class="t" style="stroke-width:2" d="M4 26 L4 33 M0 34 L8 34"/>
+    <path class="o" style="stroke-width:2" fill="#ff6fae" d="M-3 18 L11 18 Q10 26 4 26 Q-2 26 -3 18 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-1 19.5 L2 19.5 L3 24 Z"/>
+    <!-- the umbrella -->
+    <path class="t" style="stroke-width:1.4" d="M6 19 L11 8"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffd21f" d="M5 8 Q11 1 17 9 Z"/>
+    <path class="t" style="stroke:#e5283f;stroke-width:1.2" d="M11 4 L8 8.6 M11 4 L14 8.6"/>
+  </g>
+</svg>

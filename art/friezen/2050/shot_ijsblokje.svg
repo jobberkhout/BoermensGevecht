@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 30" data-rig="static">
+  <title>Een ijsblokje, het laatste ijs van Fryslân, en het smelt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <!-- An ice cube seen a little from above, with a shine and a drip. Origin = its middle. -->
+  <g id="cube" transform="translate(0 0)">
+    <path class="o" fill="#bfe8f7" d="M-10 -4 L0 -10 L10 -4 L10 7 L0 12 L-10 7 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#e8f8ff" d="M-10 -4 L0 -10 L10 -4 L0 1 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#9fd8ef" d="M0 1 L10 -4 L10 7 L0 12 Z"/>
+    <path class="n" fill="#ffffff" d="M-7 -1 L-5 -2 L-5 6 L-7 5 Z"/>
+    <path class="n" fill="#ffffff" d="M-2 -7 L2 -8.6 L4 -7.6 L0 -6 Z"/>
+    <!-- the drip: it is melting already -->
+    <path class="o" style="stroke-width:1.4" fill="#9fd8ef" d="M3 11 Q5 14 4 15.4 Q2 16 1.6 14 Q2 12.6 3 11 Z"/>
+  </g>
+</svg>

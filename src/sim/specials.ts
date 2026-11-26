@@ -18,7 +18,8 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
   const me = s.sides[side];
   const foe = other(side);
   events.push({ t: 'special', side, id: def.id });
-  if (def.kind !== 'buff' && def.kind !== 'heal' && def.kind !== 'divert' && def.kind !== 'summon' && def.kind !== 'hike') {
+  const selfOrTurrets = ['buff', 'heal', 'divert', 'summon', 'hike', 'revive', 'siesta'];
+  if (!selfOrTurrets.includes(def.kind)) {
     // Aimed at the enemy's units: whoever shrugs specials off gets to say so.
     const unmoved = s.sides[foe].units.filter((u) => unitDef(u.def).immune).map((u) => u.id);
     if (unmoved.length > 0) events.push({ t: 'shrugged', side: foe, ids: unmoved });
@@ -91,6 +92,24 @@ export function startSpecial(s: SimState, side: Side, def: SpecialDef, events: S
       them.hikeUntil = s.tick + 1 + def.ticks;
       them.hikePercent = def.pricePercent;
       events.push({ t: 'hiked', side: foe, ticks: def.ticks, percent: def.pricePercent });
+      return;
+    }
+    case 'revive': {
+      // The broom wagon picks up whoever dropped out, the most recent first.
+      // They come out at the gate in the economy step, as the family of De
+      // Familie-app does, and they are themselves again: bought units, with a
+      // bounty and everything. With nobody to pick up it is wasted.
+      const picked = me.fallen.splice(Math.max(0, me.fallen.length - def.count)).reverse();
+      for (const unit of picked) me.arrivals.push({ def: unit, leaveAt: 0 });
+      events.push({ t: 'revived', side, count: picked.length });
+      return;
+    }
+    case 'siesta': {
+      // A flag on the enemy's turrets, read where they fire (sim/step.ts).
+      // Turrets fire after every command of the tick is in, so two sides that
+      // do it to each other on the same tick are both silenced at once.
+      s.sides[foe].siestaUntil = s.tick + def.ticks;
+      events.push({ t: 'siesta', side: foe, ticks: def.ticks });
       return;
     }
     case 'snipe': {

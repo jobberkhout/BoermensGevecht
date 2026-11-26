@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -132 224 136" data-rig="static">
+  <title>De IJscommissie: drie keurmeesters in korte broek onder een parasol meten het laatste ijsblokje met een laser. Een millimeter te dun. Ze gooien met ijsblokjes</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The cooled plinth with the last ice cube of Fryslân on it, and the parasol over all of it. (0,0) is the middle of the floor. -->
+  <g id="ledge" transform="translate(0 0)">
+    <!-- the parasol: pole first, so everyone stands in front of it -->
+    <path class="t" style="stroke:#5b4a40;stroke-width:3.4" d="M18 -2 L18 -116"/>
+    <path class="o" fill="#fbf8f0" d="M-44 -104 Q18 -136 80 -104 Z"/>
+    <path class="n" fill="#e5283f" d="M-30 -106 Q-6 -124 4 -126 L-2 -106 Z M30 -106 L32 -126 Q46 -124 64 -108 Z"/>
+    <path class="t" style="stroke-width:2.5" d="M-44 -104 Q18 -136 80 -104 Z"/>
+    <path class="t" style="stroke-width:1.8" d="M-44 -104 Q-36 -99 -30 -104 Q-22 -99 -14 -104 Q-6 -99 2 -104 Q10 -99 18 -104 Q26 -99 34 -104 Q42 -99 50 -104 Q58 -99 66 -104 Q74 -99 80 -104"/>
+    <circle class="o" style="stroke-width:2" fill="#ffd21f" cx="18" cy="-121" r="3"/>
+    <!-- the refrigerated plinth, frosty, humming -->
+    <rect class="o" fill="#e8f4fa" x="-40" y="-30" width="52" height="30" rx="3"/>
+    <path class="t" style="stroke:#7fc4ec;stroke-width:1.6" d="M-34 -22 L6 -22 M-34 -14 L6 -14 M-34 -6 L6 -6"/>
+    <rect class="o" style="stroke-width:2" fill="#7fc4ec" x="-6" y="-27" width="14" height="7" rx="1.5"/>
+    <circle class="n" fill="#7fd35b" cx="4" cy="-23.5" r="1.6"/>
+    <!-- the puddle it is standing in -->
+    <ellipse class="n" fill="#9fd8ef" cx="-15" cy="-30.6" rx="16" ry="2.4"/>
+    <!-- the cube itself, the last one -->
+    <path class="o" fill="#bfe8f7" d="M-25 -40 L-17 -45 L-7 -40 L-7 -32 L-15 -28 L-25 -32 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#e8f8ff" d="M-25 -40 L-17 -45 L-7 -40 L-15 -35 Z"/>
+    <path class="n" fill="#ffffff" d="M-22 -37 L-20.6 -37.8 L-20.6 -32.6 L-22 -33.4 Z"/>
+    <!-- a cool box of spares, for throwing -->
+    <rect class="o" fill="#1d5fa8" x="36" y="-20" width="26" height="20" rx="3"/>
+    <rect class="o" fill="#fbf8f0" x="34" y="-24" width="30" height="6" rx="2"/>
+    <path class="o" style="stroke-width:1.6" fill="#bfe8f7" d="M40 -24 L44 -28 L48 -24 Z M50 -24 L54 -29 L58 -24 Z"/>
+  </g>
+
+  <!-- The warden with the laser gauge, kneeling to it, dismayed. Joint at his hips. -->
+  <g id="a_body" transform="translate(-74 -22)">
+    <g transform="translate(74 22)">
+      <!-- shorts and knees -->
+      <path class="o" fill="#e9e6df" d="M-86 -24 L-64 -24 L-62 -10 L-84 -10 Z"/>
+      <path class="o" fill="#ee8a6e" d="M-84 -10 L-76 -10 L-76 -2 L-84 -2 Z M-70 -10 L-62 -10 L-58 -4 L-66 -2 Z"/>
+      <path class="o" fill="#3fae6a" d="M-88 -2 L-74 -2 L-74 2 L-88 2 Z M-68 -2 L-54 -2 L-54 2 L-68 2 Z"/>
+      <!-- the shirt, with the armband of office -->
+      <path class="o" fill="#ffd21f" d="M-88 -24 Q-92 -46 -76 -52 Q-62 -52 -62 -24 Z"/>
+      <g class="n" fill="#e5283f">
+        <circle cx="-84" cy="-40" r="2"/>
+        <circle cx="-72" cy="-32" r="2"/>
+        <circle cx="-70" cy="-46" r="2"/>
+      </g>
+      <path class="o" style="stroke-width:1.8" fill="#1d5fa8" d="M-90 -40 L-84 -42 L-83 -36 L-89 -34 Z"/>
+    </g>
+  </g>
+
+  <g id="a_head" data-parent="a_body" transform="translate(-74 -52)">
+    <g transform="translate(74 52)">
+      <ellipse class="o" fill="#ee8a6e" cx="-74" cy="-62" rx="10" ry="10"/>
+      <!-- the official cap -->
+      <path class="o" fill="#1d5fa8" d="M-84 -66 Q-84 -76 -74 -76 Q-64 -76 -64 -66 Z"/>
+      <path class="o" style="stroke-width:2" fill="#1d5fa8" d="M-66 -67 L-56 -66 L-58 -63 L-66 -64 Z"/>
+      <!-- eyebrows up: one millimetre! -->
+      <path class="t" style="stroke-width:2" d="M-70 -64 L-64 -66"/>
+      <circle class="n" fill="#2b1b16" cx="-66" cy="-61" r="1.6"/>
+      <ellipse class="o" style="stroke-width:1.6" fill="#7a2a2a" cx="-66" cy="-55" rx="2" ry="2.4"/>
+      <!-- a drop of sweat -->
+      <path class="o" style="stroke-width:1.4" fill="#9fd8ef" d="M-84 -60 Q-82 -56 -84 -54 Q-86 -56 -84 -60 Z"/>
+    </g>
+  </g>
+
+  <!-- His arm with the laser gauge, aimed at the cube. Joint at the shoulder. -->
+  <g id="a_arm" data-parent="a_body" transform="translate(-70 -46)">
+    <g transform="translate(70 46)">
+      <path class="o" fill="#ffd21f" d="M-72 -48 L-62 -50 L-56 -40 L-64 -38 Z"/>
+      <path class="o" fill="#ee8a6e" d="M-62 -42 L-52 -42 L-52 -36 L-60 -36 Z"/>
+      <!-- the gauge: a box with a screen that shows a bar one notch short -->
+      <rect class="o" fill="#3a3d4a" x="-54" y="-46" width="16" height="12" rx="2"/>
+      <rect class="n" fill="#7fd35b" x="-52" y="-44" width="9" height="3"/>
+      <path class="t" style="stroke:#e5283f;stroke-width:1.4" d="M-41 -45 L-41 -40"/>
+    </g>
+  </g>
+
+  <!-- The red line of the laser, from the gauge to the cube. Joint at the gauge. -->
+  <g id="beam" data-parent="a_arm" transform="translate(-38 -40)">
+    <g transform="translate(38 40)">
+      <path class="n" fill="#ff3b3b" fill-opacity="0.85" d="M-38 -41 L-25 -37 L-25 -36 L-38 -39 Z"/>
+      <circle class="n" fill="#ff3b3b" cx="-25" cy="-36.6" r="1.6"/>
+    </g>
+  </g>
+
+  <!-- The chairman behind the plinth, fanning himself with the report. Joint at his waist. -->
+  <g id="b_body" transform="translate(12 -40)">
+    <g transform="translate(2 40)">
+      <path class="o" fill="#ff8a3d" d="M-12 -30 Q-16 -60 -2 -64 Q12 -64 10 -30 Z"/>
+      <g class="n" fill="#fbf8f0">
+        <path d="M-8 -50 l2 -3 l2 3 l-1 2 l-2 0 Z"/>
+        <path d="M2 -40 l2 -3 l2 3 l-1 2 l-2 0 Z"/>
+      </g>
+      <path class="o" style="stroke-width:1.8" fill="#1d5fa8" d="M-14 -52 L-8 -54 L-7 -48 L-13 -46 Z"/>
+    </g>
+  </g>
+
+  <g id="b_head" data-parent="b_body" transform="translate(13 -64)">
+    <g transform="translate(1 64)">
+      <ellipse class="o" fill="#ee8a6e" cx="0" cy="-74" rx="10" ry="11"/>
+      <path class="o" fill="#1d5fa8" d="M-10 -78 Q-10 -88 0 -88 Q10 -88 10 -78 Z"/>
+      <path class="o" style="stroke-width:2" fill="#1d5fa8" d="M8 -79 L18 -78 L16 -75 L8 -76 Z"/>
+      <path class="t" style="stroke-width:2" d="M3 -73 L8 -73"/>
+      <path class="t" style="stroke-width:1.8" d="M4 -66 Q7 -68 10 -66"/>
+      <path class="o" style="stroke-width:1.4" fill="#9fd8ef" d="M-11 -70 Q-9 -66 -11 -64 Q-13 -66 -11 -70 Z"/>
+      <path class="o" style="stroke-width:1.4" fill="#9fd8ef" d="M12 -84 Q14 -80 12 -78 Q10 -80 12 -84 Z"/>
+    </g>
+  </g>
+
+  <!-- The arm with the report, as a fan. Joint at the shoulder. -->
+  <g id="b_arm" data-parent="b_body" transform="translate(20 -58)">
+    <g transform="translate(-6 58)">
+      <path class="o" fill="#ff8a3d" d="M4 -60 L12 -62 L16 -54 L8 -52 Z"/>
+      <path class="o" fill="#ee8a6e" d="M12 -56 L18 -62 L22 -58 L16 -52 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#fbf8f0" x="16" y="-76" width="14" height="18" rx="1.5" transform="rotate(12 23 -67)"/>
+      <path class="t" style="stroke:#8a919c;stroke-width:1.2" d="M19 -72 L28 -70 M19 -68 L27 -66 M18 -64 L25 -62" transform="rotate(12 23 -67)"/>
+    </g>
+  </g>
+
+  <!-- The thrower, on the right, by the cool box. Joint at his hips. -->
+  <g id="c_body" transform="translate(76 -24)">
+    <g transform="translate(-76 24)">
+      <path class="o" fill="#e9e6df" d="M66 -26 L86 -26 L86 -12 L66 -12 Z"/>
+      <path class="o" fill="#ee8a6e" d="M67 -12 L74 -12 L74 -3 L67 -3 Z M78 -12 L85 -12 L85 -3 L78 -3 Z"/>
+      <path class="o" fill="#ff6fae" d="M64 -3 L76 -3 L76 1 L64 1 Z M77 -3 L90 -3 L90 1 L77 1 Z"/>
+      <path class="o" fill="#7fc4ec" d="M64 -26 Q60 -54 76 -58 Q90 -58 88 -26 Z"/>
+      <g class="n" fill="#ffd21f">
+        <circle cx="70" cy="-44" r="2"/>
+        <circle cx="82" cy="-36" r="2"/>
+        <circle cx="79" cy="-50" r="2"/>
+      </g>
+      <path class="o" style="stroke-width:1.8" fill="#1d5fa8" d="M62 -46 L68 -48 L69 -42 L63 -40 Z"/>
+    </g>
+  </g>
+
+  <g id="c_head" data-parent="c_body" transform="translate(77 -58)">
+    <g transform="translate(-77 58)">
+      <ellipse class="o" fill="#ee8a6e" cx="78" cy="-68" rx="10" ry="10"/>
+      <path class="o" fill="#1d5fa8" d="M68 -72 Q68 -82 78 -82 Q88 -82 88 -72 Z"/>
+      <path class="o" style="stroke-width:2" fill="#1d5fa8" d="M86 -73 L96 -72 L94 -69 L86 -70 Z"/>
+      <!-- sunglasses, official -->
+      <path class="o" style="stroke-width:1.6" fill="#2b1b16" d="M80 -70 L90 -70 L89 -65 L81 -65 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7a2a2a" d="M82 -61 Q86 -58 89 -61 Z"/>
+    </g>
+  </g>
+
+  <!-- His throwing arm, an ice cube ready. Joint at the shoulder. -->
+  <g id="c_arm" data-parent="c_body" transform="translate(84 -52)">
+    <g transform="translate(-84 52)">
+      <path class="o" fill="#7fc4ec" d="M80 -56 L88 -58 L92 -50 L84 -48 Z"/>
+      <path class="o" fill="#ee8a6e" d="M88 -54 L94 -64 L99 -61 L93 -51 Z"/>
+      <circle data-mount="muzzle" fill="none" cx="98" cy="-69" r="1"/>
+    </g>
+  </g>
+
+  <!-- The ice cube in his hand, gone the moment it is thrown. Joint in its middle. -->
+  <g id="c_cube" data-parent="c_arm" transform="translate(98 -69)">
+    <path class="o" style="stroke-width:1.8" fill="#bfe8f7" d="M-5 -3 L1 -6 L6 -3 L6 3 L0 6 L-5 3 Z"/>
+    <path class="n" fill="#ffffff" d="M-3 -1 L-2 -1.6 L-2 2 L-3 1.6 Z"/>
+  </g>
+</svg>

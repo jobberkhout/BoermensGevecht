@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -130 104 136" data-rig="humanoid">
+  <title>De Opslagger: kaatser in het wit, met een dikke winterjas eroverheen en oorwarmers op</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm: winter coat sleeve, a red mitten. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-10 -72)">
+    <path class="o" fill="#4c5e4a" d="M-7 -3 Q-9 10 -7 22 L7 22 Q8 10 7 -3 Z"/>
+    <path class="o" fill="#3e4e3c" d="M-7.5 19 L7.5 19 L7.5 24 L-7.5 24 Z"/>
+    <ellipse class="o" fill="#d9342b" cx="0" cy="28" rx="5.6" ry="5.2"/>
+  </g>
+
+  <!-- Kaatser's whites, and black shoes in the snow. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#e6e2d6" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="o" fill="#26282b" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#f8f6ef" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="t" style="stroke:#d9d4c4" d="M2 0 L2 29"/>
+    <path class="o" fill="#33363a" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+    <path class="n" fill="#55595e" d="M-6 32 L4 32 L4 33.6 L-6 33.6 Z"/>
+  </g>
+
+  <!-- A heavy duffel coat, open over the white shirt, with toggles and a skirt down to his knees. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#5a6e57" d="M-18 22 Q-21 -10 -17 -30 Q-13 -37 0 -37 Q14 -37 18 -30 Q22 -10 19.5 22 Z"/>
+    <path class="o" fill="#f8f6ef" d="M-3 -36 L9 -36 Q8 -10 6 8 L0 8 Q-3 -10 -3 -36 Z"/>
+    <path class="t" style="stroke:#d9d4c4" d="M3 -32 L2.5 4"/>
+    <path class="o" fill="#4c5e4a" d="M-4 -36 Q-8 -22 -3 -2 L-1 -2 Q-2 -20 1 -34 Z"/>
+    <path class="o" fill="#4c5e4a" d="M10 -36 Q15 -22 9 -2 L7 -2 Q9 -20 7.5 -34 Z"/>
+    <rect class="o" style="stroke-width:1.6" fill="#c9a86b" x="-7.5" y="-24" width="4" height="7" rx="2"/>
+    <rect class="o" style="stroke-width:1.6" fill="#c9a86b" x="-7.5" y="-10" width="4" height="7" rx="2"/>
+    <path class="t" style="stroke:#3e4e3c" d="M-17.5 10 L19.8 10"/>
+    <path class="n" fill="#4c5e4a" d="M-17 20 Q-19 0 -17 -26 Q-12 -10 -11 20 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e3a98a" x="-5" y="-6" width="11" height="9" rx="2"/>
+    <ellipse class="o" fill="#f0bd9c" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <!-- a white cap -->
+    <path class="o" fill="#f8f6ef" d="M-16 -27 Q-17 -42 2 -42.5 Q17 -42.5 19 -32 L28 -29.5 L27 -26 L16 -28 Q0 -33 -16 -27 Z"/>
+    <path class="t" style="stroke:#d9d4c4" d="M-8 -34 Q3 -39 14 -34"/>
+    <!-- earmuffs on a band over the cap -->
+    <path class="t" style="stroke-width:4.4" d="M-12 -18 Q-14 -45 4 -44"/>
+    <path fill="none" stroke="#d9342b" stroke-width="2.2" stroke-linecap="round" d="M-12 -18 Q-14 -45 4 -44"/>
+    <ellipse class="o" fill="#d9342b" cx="-10" cy="-17" rx="6.5" ry="7.5"/>
+    <ellipse class="n" fill="#f4f4f0" cx="-9" cy="-17" rx="3.4" ry="4.4"/>
+    <!-- squinting into the cold, red to the tip of his nose -->
+    <path class="t" style="stroke-width:2.2" d="M6 -21 Q9.5 -23 13 -21 M15 -21.5 Q18 -23.2 21 -21.5"/>
+    <path class="t" style="stroke-width:2" d="M5 -26.5 L12 -25.5 M15 -25.5 L21 -26.6"/>
+    <ellipse class="o" fill="#e0442c" cx="21" cy="-15.5" rx="4.4" ry="3.8"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.55" cx="6" cy="-13" rx="4.2" ry="2.5"/>
+    <!-- a frozen moustache, icicles and all -->
+    <path class="o" fill="#f4f4f0" d="M6 -11 Q13 -15 21 -11 Q24 -8 22 -4.5 Q17 -8 13.5 -7.5 Q9 -7 4.5 -4 Q3 -8 6 -11 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#cfe8f7" d="M8 -6 L9 -1 L10.5 -6.6 Z M13.5 -7.4 L14.2 -2 L15.8 -7.4 Z M19 -7.2 L20.4 -2.6 L21.4 -6.4 Z"/>
+    <!-- his breath -->
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="28" cy="-6" r="2.4"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="32" cy="-9.5" r="1.7"/>
+  </g>
+
+  <!-- The serving arm: no mitten on that hand, you serve with the flat of it. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#5a6e57" d="M-7 -3 Q-9 10 -7 20 L7 20 Q8 10 7 -3 Z"/>
+    <path class="o" fill="#f8f6ef" d="M-6.5 18 L6.5 18 L6.5 23 L-6.5 23 Z"/>
+    <path class="o" fill="#f0a38a" d="M-5 22 L5 22 Q7 30 3 33 L-3 33 Q-6 29 -5 22 Z"/>
+    <circle data-mount="hand" fill="none" cx="2" cy="34" r="1"/>
+  </g>
+
+  <!-- The ball, ready in his palm. Joint in his hand. -->
+  <g id="ball" data-parent="arm_front" transform="translate(12 -40)">
+    <circle class="o" style="stroke-width:2" fill="#f4f4f0" cx="0" cy="2" r="4.2"/>
+    <path class="t" style="stroke:#c9493c;stroke-width:1" d="M-2.6 -0.2 Q0 2.4 2.6 -0.2 M-2.6 4.2 Q0 1.6 2.6 4.2"/>
+  </g>
+</svg>
