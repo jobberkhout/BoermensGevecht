@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -12 34 24" data-rig="static">
+  <title>Het tolklompje: een houten klompje met een munt erin</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <g id="clog" transform="translate(0 0)">
+    <path class="o" fill="#f2d14b" d="M-14 2 Q-15 -6 -8 -6 L-1 -6 Q2 -9 7 -8 Q15 -6 14 3 Q13 8 6 8 L-9 8 Q-14 8 -14 2 Z"/>
+    <path class="n" fill="#f7e38a" d="M-11 -3 Q-6 -5 0 -5 Q-5 -2 -10 0 Z"/>
+    <!-- the opening, with the toll in it -->
+    <path class="o" style="stroke-width:1.8" fill="#5a3a22" d="M-11 -2 Q-11 -5 -6 -5 L-1 -5 Q1 -5 1 -2 Q1 1 -5 1 Q-11 1 -11 -2 Z"/>
+    <circle class="o" style="stroke-width:1.4" fill="#e6b422" cx="-5" cy="-4" r="3"/>
+    <path class="n" fill="#c99a1a" d="M-6 -5 L-4 -5 L-4 -3 L-6 -3 Z"/>
+    <!-- a painted band, blue and white -->
+    <path class="n" fill="#1d5fa8" d="M4 -6.4 Q10 -6 12 -2 L9 -1 Q8 -4 4 -4 Z"/>
+  </g>
+</svg>

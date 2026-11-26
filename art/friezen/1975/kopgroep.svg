@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -118 244 124" data-rig="free">
+  <title>De Kopgroep: vier toerschaatsers op een rij, diep voorover, handen op de rug, sjaals in de wind</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is on the road in the middle of the four. Each skater turns at the hip. -->
+  <g id="train" transform="translate(0 0)"/>
+
+  <!-- Skater 1: the little one at the back, done in. -->
+  <g id="s1_leg_back" data-parent="s1_body" transform="translate(-97.7 -41.4)">
+    <g transform="scale(0.9)">
+    <path class="o" fill="#5d4a3a" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+    <path class="n" fill="#2b1b16" fill-opacity="0.18" d="M-7 -3 L7 -3 L8 14 Q0 19 -8 14 Z"/>
+    <path class="o" fill="#2b6f3e" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    </g>
+  </g>
+  <g id="s1_leg_front" data-parent="s1_body" transform="translate(-92.3 -41.4)">
+    <g transform="scale(0.9)">
+    <path class="o" fill="#5d4a3a" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+   
+    <path class="o" fill="#2b6f3e" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    </g>
+  </g>
+  <g id="s1_scarf" data-parent="s1_body" transform="translate(-71.6 -61.2)">
+    <g transform="scale(0.9)">
+    <path class="o" fill="#f4f4f0" d="M2 -3 Q-12 -10 -26 -12 Q-38 -13 -46 -8 L-44 -1 Q-36 -6 -24 -5 Q-10 -3 4 4 Z"/>
+    <path class="n" fill="#2b6f3e" d="M-8 -6.5 L-12 -7.6 L-11 -0.6 L-7.4 0.4 Z M-20 -9.6 L-24 -10.2 L-23 -3.6 L-19.6 -3.4 Z M-32 -10.6 L-36 -10.4 L-34.4 -3.8 L-31 -4.6 Z"/>
+    <path class="t" d="M-46 -8 L-51 -9 M-45.4 -5.6 L-50.6 -5.6 M-44.8 -3.2 L-50 -2.2 M-44 -1 L-48.6 1.4"/>
+    </g>
+  </g>
+  <g id="s1_body" data-parent="train" transform="translate(-95 -41.4)">
+    <g transform="scale(0.9)">
+    <!-- bent double into the wind, the hands clasped on the back -->
+    <path class="o" fill="#e3b23c" d="M-12 3 Q-15 -9 -5 -18 Q7 -27 22 -27 Q31 -26 31.5 -18 Q31 -9 19 -4 Q7 2 -1 8 Q-10 11 -12 3 Z"/>
+    <path class="n" fill="#2b6f3e" d="M-11.4 -3 Q-6 -13 6 -19.5 L9 -15.5 Q-2 -9 -7 -0.5 Z"/>
+    <path class="t" style="stroke:#2b6f3e;stroke-width:2" d="M12 -23 L15 -19 L18 -24 L21 -19.6 L24 -24.4"/>
+    <path class="o" fill="#e3b23c" d="M24 -25 Q10 -31 -4 -22 L-2 -15.5 Q10 -22.5 22 -18.5 Z"/>
+    <ellipse class="o" fill="#d9342b" cx="-5" cy="-17.5" rx="5.4" ry="5"/>
+    <ellipse class="o" fill="#c42a22" cx="-1" cy="-19.5" rx="4.6" ry="4.4"/>
+    <!-- the head, chin first -->
+    <rect class="o" fill="#e3a98a" x="26" y="-27" width="9" height="9" rx="2" transform="rotate(30 30 -22)"/>
+    <ellipse class="o" fill="#f2c4a4" cx="38" cy="-22" rx="11.5" ry="11"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="40" cy="-18" rx="3.2" ry="2"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#e0442c" cx="48.4" cy="-21" rx="3" ry="2.6"/>
+    <path class="o" fill="#2b6f3e" d="M27 -25 Q28 -36 38 -35.5 Q47 -35 49 -28 Q38 -32 27 -25 Z"/>
+    <path class="o" fill="#f4f4f0" d="M26.4 -25.5 Q37.5 -32.5 49.5 -28.5 L49.2 -25.6 Q37.5 -29.5 27.4 -22.8 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="27" cy="-36" r="4.2"/>
+      <path class="t" style="stroke-width:1.8" d="M39 -25.5 Q42 -23.5 45 -25.5"/>
+      <path class="o" style="stroke-width:1.4" fill="#e87b9a" d="M41 -16 Q42.5 -10.5 45 -15.6 Z"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="54" cy="-16" r="2"/>
+    </g>
+  </g>
+
+  <!-- Skater 2: puffing. -->
+  <g id="s2_leg_back" data-parent="s2_body" transform="translate(-44 -46)">
+    <path class="o" fill="#4a3f35" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+    <path class="n" fill="#2b1b16" fill-opacity="0.18" d="M-7 -3 L7 -3 L8 14 Q0 19 -8 14 Z"/>
+    <path class="o" fill="#d9342b" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+  </g>
+  <g id="s2_leg_front" data-parent="s2_body" transform="translate(-38 -46)">
+    <path class="o" fill="#4a3f35" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+   
+    <path class="o" fill="#d9342b" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+  </g>
+  <g id="s2_scarf" data-parent="s2_body" transform="translate(-15 -68)">
+    <path class="o" fill="#1d5fa8" d="M2 -3 Q-12 -10 -26 -12 Q-38 -13 -46 -8 L-44 -1 Q-36 -6 -24 -5 Q-10 -3 4 4 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-8 -6.5 L-12 -7.6 L-11 -0.6 L-7.4 0.4 Z M-20 -9.6 L-24 -10.2 L-23 -3.6 L-19.6 -3.4 Z M-32 -10.6 L-36 -10.4 L-34.4 -3.8 L-31 -4.6 Z"/>
+    <path class="t" d="M-46 -8 L-51 -9 M-45.4 -5.6 L-50.6 -5.6 M-44.8 -3.2 L-50 -2.2 M-44 -1 L-48.6 1.4"/>
+  </g>
+  <g id="s2_body" data-parent="train" transform="translate(-41 -46)">
+    <!-- bent double into the wind, the hands clasped on the back -->
+    <path class="o" fill="#2f8a4f" d="M-12 3 Q-15 -9 -5 -18 Q7 -27 22 -27 Q31 -26 31.5 -18 Q31 -9 19 -4 Q7 2 -1 8 Q-10 11 -12 3 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-11.4 -3 Q-6 -13 6 -19.5 L9 -15.5 Q-2 -9 -7 -0.5 Z"/>
+    <path class="t" style="stroke:#f4f4f0;stroke-width:2" d="M12 -23 L15 -19 L18 -24 L21 -19.6 L24 -24.4"/>
+    <path class="o" fill="#2f8a4f" d="M24 -25 Q10 -31 -4 -22 L-2 -15.5 Q10 -22.5 22 -18.5 Z"/>
+    <ellipse class="o" fill="#d9342b" cx="-5" cy="-17.5" rx="5.4" ry="5"/>
+    <ellipse class="o" fill="#c42a22" cx="-1" cy="-19.5" rx="4.6" ry="4.4"/>
+    <!-- the head, chin first -->
+    <rect class="o" fill="#e3a98a" x="26" y="-27" width="9" height="9" rx="2" transform="rotate(30 30 -22)"/>
+    <ellipse class="o" fill="#f2c4a4" cx="38" cy="-22" rx="11.5" ry="11"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="40" cy="-18" rx="3.2" ry="2"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#e0442c" cx="48.4" cy="-21" rx="3" ry="2.6"/>
+    <path class="o" fill="#d9342b" d="M27 -25 Q28 -36 38 -35.5 Q47 -35 49 -28 Q38 -32 27 -25 Z"/>
+    <path class="o" fill="#f4f4f0" d="M26.4 -25.5 Q37.5 -32.5 49.5 -28.5 L49.2 -25.6 Q37.5 -29.5 27.4 -22.8 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="27" cy="-36" r="4.2"/>
+      <circle class="n" fill="#2b1b16" cx="42" cy="-25.5" r="1.7"/>
+      <path class="t" style="stroke-width:1.8" d="M38.5 -29 Q41.5 -31 44.5 -29"/>
+      <ellipse class="o" style="stroke-width:1.4" fill="#7a2a20" cx="43" cy="-15.6" rx="2.4" ry="3"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="54" cy="-16" r="2"/>
+  </g>
+
+  <!-- Skater 3: gritting his teeth. -->
+  <g id="s3_leg_back" data-parent="s3_body" transform="translate(10 -46)">
+    <path class="o" fill="#3d3a36" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+    <path class="n" fill="#2b1b16" fill-opacity="0.18" d="M-7 -3 L7 -3 L8 14 Q0 19 -8 14 Z"/>
+    <path class="o" fill="#1d5fa8" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+  </g>
+  <g id="s3_leg_front" data-parent="s3_body" transform="translate(16 -46)">
+    <path class="o" fill="#3d3a36" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+   
+    <path class="o" fill="#1d5fa8" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+  </g>
+  <g id="s3_scarf" data-parent="s3_body" transform="translate(39 -68)">
+    <path class="o" fill="#1d5fa8" d="M2 -3 Q-12 -10 -26 -12 Q-38 -13 -46 -8 L-44 -1 Q-36 -6 -24 -5 Q-10 -3 4 4 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-8 -6.5 L-12 -7.6 L-11 -0.6 L-7.4 0.4 Z M-20 -9.6 L-24 -10.2 L-23 -3.6 L-19.6 -3.4 Z M-32 -10.6 L-36 -10.4 L-34.4 -3.8 L-31 -4.6 Z"/>
+    <path class="t" d="M-46 -8 L-51 -9 M-45.4 -5.6 L-50.6 -5.6 M-44.8 -3.2 L-50 -2.2 M-44 -1 L-48.6 1.4"/>
+  </g>
+  <g id="s3_body" data-parent="train" transform="translate(13 -46)">
+    <!-- bent double into the wind, the hands clasped on the back -->
+    <path class="o" fill="#d9342b" d="M-12 3 Q-15 -9 -5 -18 Q7 -27 22 -27 Q31 -26 31.5 -18 Q31 -9 19 -4 Q7 2 -1 8 Q-10 11 -12 3 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-11.4 -3 Q-6 -13 6 -19.5 L9 -15.5 Q-2 -9 -7 -0.5 Z"/>
+    <path class="t" style="stroke:#f4f4f0;stroke-width:2" d="M12 -23 L15 -19 L18 -24 L21 -19.6 L24 -24.4"/>
+    <path class="o" fill="#d9342b" d="M24 -25 Q10 -31 -4 -22 L-2 -15.5 Q10 -22.5 22 -18.5 Z"/>
+    <ellipse class="o" fill="#d9342b" cx="-5" cy="-17.5" rx="5.4" ry="5"/>
+    <ellipse class="o" fill="#c42a22" cx="-1" cy="-19.5" rx="4.6" ry="4.4"/>
+    <!-- the head, chin first -->
+    <rect class="o" fill="#e3a98a" x="26" y="-27" width="9" height="9" rx="2" transform="rotate(30 30 -22)"/>
+    <ellipse class="o" fill="#f2c4a4" cx="38" cy="-22" rx="11.5" ry="11"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="40" cy="-18" rx="3.2" ry="2"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#e0442c" cx="48.4" cy="-21" rx="3" ry="2.6"/>
+    <path class="o" fill="#1d5fa8" d="M27 -25 Q28 -36 38 -35.5 Q47 -35 49 -28 Q38 -32 27 -25 Z"/>
+    <path class="o" fill="#f4f4f0" d="M26.4 -25.5 Q37.5 -32.5 49.5 -28.5 L49.2 -25.6 Q37.5 -29.5 27.4 -22.8 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="27" cy="-36" r="4.2"/>
+      <circle class="n" fill="#2b1b16" cx="42" cy="-25.5" r="1.7"/>
+      <path class="t" style="stroke-width:1.8" d="M38.5 -29.5 L44.5 -28.5"/>
+      <path class="o" style="stroke-width:1.4" fill="#ffffff" d="M39.5 -17 L46 -17.5 L45.5 -14.6 L40 -14.4 Z"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="54" cy="-16" r="2"/>
+  </g>
+
+  <!-- Skater 4: the man in front, who sets the pace. -->
+  <g id="s4_leg_back" data-parent="s4_body" transform="translate(63.82 -48.76)">
+    <g transform="scale(1.06)">
+    <path class="o" fill="#2f2b28" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+    <path class="n" fill="#2b1b16" fill-opacity="0.18" d="M-7 -3 L7 -3 L8 14 Q0 19 -8 14 Z"/>
+    <path class="o" fill="#f4f4f0" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    </g>
+  </g>
+  <g id="s4_leg_front" data-parent="s4_body" transform="translate(70.18 -48.76)">
+    <g transform="scale(1.06)">
+    <path class="o" fill="#2f2b28" d="M-7.5 -3 L7.5 -3 L8.5 14 Q0 19.5 -8.5 14 Z"/>
+   
+    <path class="o" fill="#f4f4f0" d="M-6 15 L6 15 L5.5 35 L-5.5 35 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-5.9 19 L5.9 19 L5.8 22 L-5.8 22 Z M-5.7 27 L5.7 27 L5.6 30 L-5.6 30 Z"/>
+    <path class="o" fill="#26282b" d="M-6.5 34 L6 34 Q9.5 35 10.5 38.5 L10.5 41 L-7 41 L-7 37 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c9934f" x="-12" y="40.5" width="25" height="3.4" rx="1.2"/>
+    <path class="t" style="stroke-width:4.2" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    <path fill="none" stroke="#c3ccd0" stroke-width="2" stroke-linecap="round" d="M-15 45 L16 45 Q24.5 45 24 38.5 Q23.6 34 19 35.2"/>
+    </g>
+  </g>
+  <g id="s4_scarf" data-parent="s4_body" transform="translate(94.56 -72.08)">
+    <g transform="scale(1.06)">
+    <path class="o" fill="#1d5fa8" d="M2 -3 Q-12 -10 -26 -12 Q-38 -13 -46 -8 L-44 -1 Q-36 -6 -24 -5 Q-10 -3 4 4 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-8 -6.5 L-12 -7.6 L-11 -0.6 L-7.4 0.4 Z M-20 -9.6 L-24 -10.2 L-23 -3.6 L-19.6 -3.4 Z M-32 -10.6 L-36 -10.4 L-34.4 -3.8 L-31 -4.6 Z"/>
+    <path class="t" d="M-46 -8 L-51 -9 M-45.4 -5.6 L-50.6 -5.6 M-44.8 -3.2 L-50 -2.2 M-44 -1 L-48.6 1.4"/>
+    </g>
+  </g>
+  <g id="s4_body" data-parent="train" transform="translate(67 -48.76)">
+    <g transform="scale(1.06)">
+    <!-- bent double into the wind, the hands clasped on the back -->
+    <path class="o" fill="#1d5fa8" d="M-12 3 Q-15 -9 -5 -18 Q7 -27 22 -27 Q31 -26 31.5 -18 Q31 -9 19 -4 Q7 2 -1 8 Q-10 11 -12 3 Z"/>
+    <path class="n" fill="#f4f4f0" d="M-11.4 -3 Q-6 -13 6 -19.5 L9 -15.5 Q-2 -9 -7 -0.5 Z"/>
+    <path class="t" style="stroke:#f4f4f0;stroke-width:2" d="M12 -23 L15 -19 L18 -24 L21 -19.6 L24 -24.4"/>
+    <path class="o" fill="#1d5fa8" d="M24 -25 Q10 -31 -4 -22 L-2 -15.5 Q10 -22.5 22 -18.5 Z"/>
+    <ellipse class="o" fill="#d9342b" cx="-5" cy="-17.5" rx="5.4" ry="5"/>
+    <ellipse class="o" fill="#c42a22" cx="-1" cy="-19.5" rx="4.6" ry="4.4"/>
+    <!-- the head, chin first -->
+    <rect class="o" fill="#e3a98a" x="26" y="-27" width="9" height="9" rx="2" transform="rotate(30 30 -22)"/>
+    <ellipse class="o" fill="#f2c4a4" cx="38" cy="-22" rx="11.5" ry="11"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="40" cy="-18" rx="3.2" ry="2"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#e0442c" cx="48.4" cy="-21" rx="3" ry="2.6"/>
+    <path class="o" fill="#d9342b" d="M27 -25 Q28 -36 38 -35.5 Q47 -35 49 -28 Q38 -32 27 -25 Z"/>
+    <path class="o" fill="#f4f4f0" d="M26.4 -25.5 Q37.5 -32.5 49.5 -28.5 L49.2 -25.6 Q37.5 -29.5 27.4 -22.8 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="27" cy="-36" r="4.2"/>
+      <path class="t" style="stroke-width:2.2" d="M38 -29 L45 -27.4"/>
+      <circle class="n" fill="#2b1b16" cx="42" cy="-25" r="1.8"/>
+      <path class="t" style="stroke-width:1.8" d="M40 -15.5 L46 -16.5"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="54" cy="-16" r="2"/>
+    </g>
+  </g>
+</svg>

@@ -50,6 +50,18 @@ export interface Unit {
   leaveAt: number;
   /** Tick from which the one aboard may toss again (the beer bikes, UnitDef.toss). 0 for right away. */
   tossAt: number;
+  /** The pole vaulter has used its one leap (UnitDef.vault). */
+  vaulted?: true;
+  /** Where the pole vaulter lands, decided this tick and carried out once both sides have decided. */
+  vaultTo?: number;
+  /** The skater has crashed into its first enemy and goes at a normal pace from now on (UnitDef.charge). */
+  charged?: true;
+  /** Glued with sugar until this tick: it walks and fights at half pace (UnitDef.sticky). */
+  stickyUntil?: number;
+  /** Tick from which it can send a throw back again (UnitDef.returns). */
+  returnAt?: number;
+  /** The last tick it took a blow, for a unit that grows back only when left alone (UnitDef.regrows). */
+  hitAt?: number;
 }
 
 /**
@@ -85,6 +97,12 @@ export interface Turret {
   level: number;
   /** Ticks until it can fire again. */
   cd: number;
+  /**
+   * What went into it at list prices: its own price and its upgrades'. When a
+   * turret of a later era replaces it, TURRET.tradeInPercent of this comes off
+   * the new one's price.
+   */
+  value: number;
 }
 
 export interface SideState {
@@ -127,6 +145,10 @@ export interface SideState {
   hikeFrom: number;
   hikeUntil: number;
   hikePercent: number;
+  /** Units of this side that were beaten, by definition id, the most recent last, for De Bezemwagen to pick up. At most FALLEN_KEEP. */
+  fallen: string[];
+  /** This side's turrets do not fire until this tick: the enemy's Tropenrooster. */
+  siestaUntil: number;
 }
 
 export interface Shot {
@@ -157,6 +179,10 @@ export interface Shot {
    * first body it meets.
    */
   aim: number;
+  /** Whoever it hits is glued with sugar for this many ticks (UnitDef.sticky). */
+  sticky?: number;
+  /** It bounces on to the unit behind the one it hits (UnitDef.bounce). */
+  bounce?: { dmgPercent: number; reach: number };
 }
 
 export interface Wave {
@@ -215,6 +241,12 @@ export interface Damage {
   cancelled?: boolean;
   /** It comes from a turret, so a unit that shrugs turrets off takes only its share of it. */
   turret?: boolean;
+  /** If it is still standing, the unit is shoved this far back towards its own gate: the skater who cannot brake. */
+  shove?: number;
+  /** The unit is glued with sugar for this many ticks. */
+  sticky?: number;
+  /** Id of the unit whose blow this is, when that unit feeds on what it hits (UnitDef.feeds). */
+  from?: number;
 }
 
 /** What happened during one tick, for effects and sound. `pos` is in the frame of `side`. */
@@ -271,4 +303,20 @@ export type SimEvent =
   | { t: 'escalate'; level: number; percent: number; turrets: number }
   /** Overtime has gone on so long that both bases start to crumble. */
   | { t: 'crumble' }
-  | { t: 'win'; winner: Side | 'draw' };
+  | { t: 'win'; winner: Side | 'draw' }
+  /** The pole vaulter `id` of `side` leapt from `from` to `to` over the first enemy it met, and sits dazed. */
+  | { t: 'vaulted'; side: Side; id: number; from: number; to: number }
+  /** The skater `id` of `side` could not brake, crashed into its first enemy and sits dazed. */
+  | { t: 'braked'; side: Side; id: number }
+  /** Unit `id` of `side` was shoved back from `from` to `to`. */
+  | { t: 'shoved'; side: Side; id: number; from: number; to: number }
+  /** Unit `id` of `side` ladled soup, and the units `ids` got hit points back. */
+  | { t: 'served'; side: Side; id: number; ids: number[] }
+  /** `count` beaten units of `side` are picked up and come back out of its gate. */
+  | { t: 'revived'; side: Side; count: number }
+  /** For the next `ticks` ticks the turrets of `side` do not fire: the enemy's Tropenrooster. */
+  | { t: 'siesta'; side: Side; ticks: number }
+  /** Unit `id` of `side` got `amount` hit points back by itself: it grew back, or it ate. */
+  | { t: 'mended'; side: Side; id: number; amount: number }
+  /** Unit `id` of `side` sent an enemy throw back down the lane. */
+  | { t: 'returned'; side: Side; id: number; pos: number };

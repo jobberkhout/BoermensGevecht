@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-122 -118 236 124" data-rig="vehicle">
+  <title>It Skûtsje: een wedstrijdskûtsje op een boottrailer, zonder auta ervoor; het zeilt over de weg</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The boat trailer: a galvanised frame, two cradles, a drawbar with nothing hitched to it. -->
+  <g id="trailer" data-parent="chassis" transform="translate(0 -20)">
+    <rect class="o" fill="#b9c2c8" x="-92" y="-4" width="170" height="6" rx="2"/>
+    <path class="o" fill="#b9c2c8" d="M76 -4 L108 -1 L108 2 L76 2 Z"/>
+    <circle class="o" fill="#3a3a3a" cx="111" cy="0" r="3.4"/>
+    <!-- the cradles under the hull -->
+    <path class="o" fill="#9aa3aa" d="M-64 -4 L-60 -12 L-50 -12 L-46 -4 Z M34 -4 L38 -12 L48 -12 L52 -4 Z"/>
+    <!-- mudguards over the wheels -->
+    <path class="o" fill="#d7dde2" d="M-40 -2 Q-40 -12 -22 -12 Q-5 -12 -5 -2 Z M-7 -2 Q-7 -12 10 -12 Q27 -12 27 -2 Z"/>
+    <!-- a rear light board, and a rag tied on as a flag -->
+    <rect class="o" fill="#d8342c" x="-98" y="-8" width="8" height="6" rx="1"/>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(-22 -13)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="13"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="6.5"/>
+    <circle class="n" fill="#8e979f" cx="0" cy="0" r="2.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -6.5 L0 -3 M0 6.5 L0 3 M-6.5 0 L-3 0 M6.5 0 L3 0"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(10 -13)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="13"/>
+    <circle class="o" fill="#c9cdd0" cx="0" cy="0" r="6.5"/>
+    <circle class="n" fill="#8e979f" cx="0" cy="0" r="2.4"/>
+    <path class="t" style="stroke-width:1.4" d="M0 -6.5 L0 -3 M0 6.5 L0 3 M-6.5 0 L-3 0 M6.5 0 L3 0"/>
+  </g>
+
+  <!-- The sail: brown, reefed short so it clears the viaducts, bellied out by the wind from behind. Joint at the gooseneck. -->
+  <g id="sail" data-parent="body" transform="translate(-4 -62)">
+    <path class="o" fill="#9c4f26" d="M0 -2 L0 -46 L-34 -52 Q-62 -30 -78 0 Z"/>
+    <path class="n" fill="#b5622f" d="M-4 -8 L-4 -42 L-30 -46 Q-48 -28 -58 -8 Z"/>
+    <path class="t" style="stroke:#6b3518;stroke-width:1.2" d="M-6 -14 L-66 -14"/>
+    <!-- the reef points, tied off -->
+    <path class="t" style="stroke:#f2e6c9;stroke-width:1.4" d="M-18 -16 L-18 -11 M-34 -16 L-34 -11 M-50 -16 L-50 -11"/>
+    <!-- the short curved gaff of a skûtsje, and the boom -->
+    <path class="o" fill="#6b4a2f" d="M1 -44 Q-16 -50 -36 -55 L-34 -51 Q-16 -46 1 -40 Z"/>
+    <path class="o" fill="#6b4a2f" d="M2 -2 L-82 -2 L-82 2 L2 2 Z"/>
+  </g>
+
+  <!-- The skûtsje: tarred black, a green and white band at the sheer, a bluff round bow. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -44)">
+    <!-- the mast -->
+    <rect class="o" fill="#9a6a3f" x="-7" y="-70" width="6" height="58" rx="1.5"/>
+    <path class="n" fill="#b88552" d="M-6 -68 L-4.6 -68 L-4.6 -13 L-6 -13 Z"/>
+    <!-- the hull -->
+    <path class="o" fill="#2a2b2e" d="M-104 -12 L58 -12 Q82 -14 94 -22 Q100 -2 86 8 Q72 14 48 14 L-62 14 Q-94 12 -102 0 Q-106 -6 -104 -12 Z"/>
+    <path class="n" fill="#3a3c40" d="M-96 4 Q-90 11 -62 12 L48 12 Q70 12 80 7 Q66 9 46 9 L-60 9 Q-86 8 -96 4 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2f7a4a" d="M-104 -12 L58 -12 Q82 -14 94 -22 L95 -16 Q82 -8 58 -6 L-103 -6 Z"/>
+    <path class="t" style="stroke:#ffffff;stroke-width:1.6" d="M-102 -3 L58 -3 Q80 -4 93 -12"/>
+    <!-- the gunwale -->
+    <path class="o" fill="#c49a5a" d="M-106 -15 L58 -15 Q84 -17 96 -25 L97 -20 Q84 -12 58 -11 L-105 -11 Z"/>
+    <!-- a fender over the side -->
+    <path class="o" style="stroke-width:1.6" fill="#f2e6c9" d="M-80 -6 Q-80 4 -76 6 Q-72 4 -72 -6 Z"/>
+    <path class="t" style="stroke-width:1.2" d="M-76 -11 L-76 -6"/>
+  </g>
+
+  <!-- The pennant on top of the mast: blue and white, pointing the way the wind blows it, forward. -->
+  <g id="pennant" data-parent="body" transform="translate(-4 -113)">
+    <path class="o" style="stroke-width:1.8" fill="#1d5fa8" d="M0 -2 L18 1 L0 4 Z"/>
+    <path class="n" fill="#ffffff" d="M3 -0.6 L12 0.9 L3 2 Z"/>
+  </g>
+
+  <!-- The crew, in oilskins and sou'westers, hanging out over the high side up front. Joints where they sit. -->
+  <g id="crew_b" data-parent="body" transform="translate(22 -58)">
+    <g transform="rotate(-24)">
+      <path class="o" fill="#ffd21f" d="M-7 2 Q-9 -10 -5 -20 L7 -20 Q10 -10 8 2 Z"/>
+      <path class="t" style="stroke:#c99a00" d="M0 -18 L1 0"/>
+      <circle class="o" fill="#f3b996" cx="2" cy="-27" r="7.6"/>
+      <path class="o" fill="#ffd21f" d="M-9 -29 Q-9 -39 2 -39 Q12 -39 12 -30 Q2 -32 -9 -29 Z"/>
+      <path class="o" fill="#ffd21f" d="M-12 -29 Q2 -33 14 -30 Q12 -27 2 -28 Q-6 -27 -12 -29 Z"/>
+      <circle class="n" fill="#2b1b16" cx="6" cy="-25.5" r="1.4"/>
+      <circle class="n" fill="#2b1b16" cx="9.6" cy="-25.5" r="1.2"/>
+      <path class="o" style="stroke-width:1.5" fill="#7a1f1f" d="M5 -22 Q8 -20.6 10 -22.4 Q9.4 -19 7 -19.2 Q5.4 -19.6 5 -22 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="7.5" stroke-linecap="round" d="M3 -14 L15 -20"/>
+      <path fill="none" stroke="#ffd21f" stroke-width="3.6" stroke-linecap="round" d="M3 -14 L15 -20"/>
+    </g>
+  </g>
+
+  <g id="crew_a" data-parent="body" transform="translate(50 -60)">
+    <g transform="rotate(-32)">
+      <path class="o" fill="#ffd21f" d="M-7 2 Q-9 -10 -5 -20 L7 -20 Q10 -10 8 2 Z"/>
+      <path class="t" style="stroke:#c99a00" d="M0 -18 L1 0"/>
+      <circle class="o" fill="#e9a487" cx="2" cy="-27" r="7.6"/>
+      <path class="o" fill="#ffd21f" d="M-9 -29 Q-9 -39 2 -39 Q12 -39 12 -30 Q2 -32 -9 -29 Z"/>
+      <path class="o" fill="#ffd21f" d="M-12 -29 Q2 -33 14 -30 Q12 -27 2 -28 Q-6 -27 -12 -29 Z"/>
+      <circle class="n" fill="#2b1b16" cx="6" cy="-25.5" r="1.4"/>
+      <circle class="n" fill="#2b1b16" cx="9.6" cy="-25.5" r="1.2"/>
+      <!-- this one is not enjoying it -->
+      <path class="t" style="stroke-width:1.6" d="M5 -20 Q7.6 -22 10 -20"/>
+      <path class="o" style="stroke-width:1.3" fill="#9be872" d="M4 -30 Q2 -24 4 -22 Q6 -24 4 -30 Z" transform="translate(-6 4) scale(0.6)"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="7.5" stroke-linecap="round" d="M3 -14 L17 -11"/>
+      <path fill="none" stroke="#ffd21f" stroke-width="3.6" stroke-linecap="round" d="M3 -14 L17 -11"/>
+    </g>
+  </g>
+
+  <!-- The leeboard (zwaard) on this side, hauled up. In a fight it slams down. Joint at its pivot on the sheer. -->
+  <g id="zwaard" data-parent="body" transform="translate(70 -52)">
+    <path class="o" fill="#5a3a22" d="M3 -5 L3 6 L-30 13 Q-42 4 -32 -9 Z"/>
+    <path class="n" fill="#6f4a2c" d="M0 -3 L0 3 L-28 8 Q-34 2 -29 -5 Z"/>
+    <path class="t" style="stroke:#3e2716;stroke-width:1.2" d="M-8 -6 L-10 9 M-18 -8 L-20 11"/>
+    <circle class="o" style="stroke-width:1.8" fill="#9aa3aa" cx="0" cy="0" r="3.4"/>
+  </g>
+</svg>

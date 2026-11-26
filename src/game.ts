@@ -396,7 +396,22 @@ export class Game {
           case 'hike':
             this.sound.hike();
             break;
+          case 'revive':
+            // The broom wagon honks as it pulls up at the gate.
+            this.sound.horn();
+            break;
+          case 'siesta':
+            // A sign falls beside the enemy base, as the rent increase does.
+            this.sound.hike();
+            break;
         }
+        break;
+      case 'vaulted':
+      case 'returned':
+        this.sound.whoosh();
+        break;
+      case 'braked':
+        this.sound.clang();
         break;
       case 'recalled':
         this.sound.shipHorn();

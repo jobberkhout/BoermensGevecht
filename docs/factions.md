@@ -9,7 +9,7 @@ are a plan to pick from and to change. How to build one, step by step, is in
 |---|---|---|
 | [De Zuidas](#1-de-zuidas) | Bankers, lawyers and consultants | **Built** |
 | [Carnaval](#2-carnaval) | Brabant and Limburg in full swing | Concept, waiting for approval |
-| [De Friezen](#3-de-friezen) | Proud, stubborn, on skates | Concept, waiting for approval |
+| [De Friezen](#3-de-friezen) | Proud, stubborn, on skates: in the game De Elf Steden | **Built** |
 | [Rotterdam](#4-rotterdam) | The port: niet lullen maar poetsen | Concept, waiting for approval |
 | [De Toeristen](#5-de-toeristen) | Everyone's shared enemy, worse with every era | **Built** |
 | [De Ambtenarij](#6-de-ambtenarij) | Forms in triplicate | Concept, waiting for approval |
@@ -120,12 +120,12 @@ would be about 2.3 MB with all ten, which is still fine to send around.
 
 ## Specials: the kinds
 
-Every faction has three specials, one per era, each of a different kind. Nine kinds exist today:
+Every faction has three specials, one per era, each of a different kind. Twelve kinds exist today:
 
 | Kind | What it does | Used today by |
 |---|---|---|
 | Wave | Sweeps the lane and hits every enemy unit once | Trekkerkolonne |
-| Stun | Enemy units can neither walk nor fight for a few seconds | Wegblokkade |
+| Stun | Enemy units can neither walk nor fight for a few seconds | Wegblokkade, De Dia-avond; De winter van '63, as ice that turns them blue |
 | Buff | Own units hit harder and move faster for a few seconds | Høken!, De gong |
 | Heal | Own units on the lane are patched up | Love-in |
 | Barrage | Repeated blows on the foremost enemy unit, or the base | Dronezwerm |
@@ -134,6 +134,8 @@ Every faction has three specials, one per era, each of a different kind. Nine ki
 | Divert | For a few seconds everything the enemy earns is paid to you instead: income and bounties | De Succesfee |
 | Summon | Units of your own pour out of your gate at once, outside the queue and whatever the unit cap; with a time limit, they go home together when it is up | De Familie-app; Cruiseschip legt aan, with the time limit |
 | Price hike | For a few seconds everything the enemy buys costs double: units, turrets, subsidie and modernizing | Huurverhoging voor de locals |
+| Revive | The last units of your own that were beaten come back out of your gate, fresh, whatever the unit cap; not super units, and not units a special called in | De Bezemwagen |
+| Siesta | For a few seconds the enemy's turrets do not fire | Tropenrooster |
 
 **Convert, as built.** The unit turns round where it stands. It never ends up beyond the line its old
 side still holds: bought out of the back ranks, it comes forward to its new side's front line and takes
@@ -180,7 +182,7 @@ The twenty-four specials at a glance:
 |---|---|---|---|
 | De Zuidas | De gong (buff) | Vijandige overname (convert) | De Succesfee (divert) |
 | Carnaval | De Polonaise (wave) | Elf Kanonschoten (barrage) | De Kater (slow) |
-| De Friezen | De winter van '63 (slow) | It giet oan! (wave) | Kunstijs (stun) |
+| De Friezen (De Elf Steden) | De winter van '63 (stun) | De Bezemwagen (revive) | Tropenrooster (siesta) |
 | Rotterdam | Mouwen opstropen! (buff) | De container (block) | De kering sluit (wave) |
 | De Toeristen | De Dia-avond (stun) | Cruiseschip legt aan (summon) | Huurverhoging voor de locals (price hike) |
 | De Ambtenarij | Inspraakavond (lockout) | Het Overleg (stun) | De Doorverwijslus (slow) |
@@ -203,6 +205,7 @@ on the title card.
 | De Zuidas | duur en gehaast | trained in 70% of the time, 15% shorter between blows, 10% dearer | the same, and 10% more damage | as the ranged unit | trained in 70% of the time, 10% dearer, +10% hit points |
 | De Gasten | met de hele familie | 15% cheaper, trained in 80% of the time, 15% fewer hit points | +10% hit points, 10% longer between throws | +10% hit points, 10% slower (the fatbike has numbers of its own) | +10% hit points, 5% slower |
 | De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
+| De Elf Steden | koppig en bedaard | +10% hit points, 15% longer in training | the same | the same | the same |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -250,6 +253,18 @@ without becoming a different game, as a starting point for whoever writes the ne
 | charges: fast until it first hits something, slow after | a heavy unit that arrives early | a speed that depends on its state |
 | cannot be hit by ranged units, only in melee | a low, quick unit | a flag the shots respect |
 | earns money while it lives | a unit that brings in a little every second | income per unit, on top of the subsidie |
+
+Built since, on 26 November 2026 (rules in `src/sim/stunts.ts`, numbers in `src/defs/balance.ts`): De Elf
+Steden's pole vaulter, skater who cannot brake, sticky sugar bread and soup (section 3), and at the owner's
+request one unit each for the first two factions, "a unit that fits the vibe that does something no other
+unit does": **Padel-Pepijn** (Havermelkelite, 2025) smashes an enemy unit's throw back down the lane, one
+every two seconds, and **Smijtink** (Achterhoek, 1975) throws fodder beets that bounce on to the enemy unit
+behind the one they hit, within 140 pixels of its back, for half the damage; Smijtink costs 20% more for
+it, at the owner's word. Then one each in the last era: **De Kweekvleesblob** (Havermelkelite) grows back
+2% of its hit points a second once nobody has hit it for three seconds, and **De Vreter** (Achterhoek) gets
+30% of the damage its blows do back. Padel-Pepijn, the blob and De Vreter cost 10% more, the owner's "since
+they are special now". The choices of unit and rule are mine. The same day the schild's blow went from 10 to
+8, a bit under half of a light unit's: "cause then they are really a shield".
 
 The first one asked for is the owner's own, and it is built: the fatbike of section 8, a cheap rider
 that rides through the enemy ranks, hitting every unit it passes, goes for the base and is stopped by a
@@ -606,118 +621,133 @@ Special, **De Kater** (slow): the morning after. Enemy units crawl for eight sec
 ### 3. De Friezen
 
 Fryslân: proud, stubborn, and still waiting for ice. The teasing here is the kind Frisians do themselves.
+Built on 26 November 2026 as **De Elf Steden**, with the owner's changes of that day (below).
 
 | | |
 |---|---|
 | Code name | `friezen` (ids start with `fr.`) |
+| Name in the game | **De Elf Steden**, the owner's choice: "call them the elf steden" |
 | Home | Fryslân |
 | Money | melkgeld |
+| Temperament | **koppig en bedaard**: every unit has 10% more hit points and takes 15% longer in training. Mine; the brief had none |
 | Colours | The blue and white of the flag, with the red of the pompeblêden |
-| Flag | The Frisian flag, redrawn: four blue and three white diagonal stripes and seven red pompeblêden. They are water-lily leaves; the official description says they "may not be hearts" |
+| Flag | The Frisian flag, redrawn: four blue and three white diagonal stripes and seven red pompeblêden, drawn as round lily pads with a slit, because the official description says they "may not be hearts" |
 | Names | Frisian first names and family words: Sietse, Tjitske, Pake, Beppe |
-| When it wins | "De Friezen winnen! It giet oan!" |
+| When it wins | "De Elf Steden winnen! It giet oan! Fryslân boppe!" |
 | Super unit shrugs off a special with | "Bûter, brea en griene tsiis!" |
+
+**What the owner asked for, 26 November 2026**
+
+- "have their polevaulters jump over the first enemy they encounter and make them extra funny and dumb".
+- "One theme could be in 1975 everyone will be in winter clothes and such and then later 2050 really
+  tropical." So the eras run from a hard winter (1975) through a wet one (2025, my reading of the middle)
+  to a tropical Friesland (2050).
+- "call them the 'elf steden' for the 'elf steden tocht'". The faction is called De Elf Steden. The
+  association behind the tour guards its own name, logo and cross medal; none of those is used, and the
+  tour itself is still called "De Tocht" where it comes up. The name is the owner's decision.
+- "special for the first could be the stun (e.g. add ice that the enemies slip on (recolor to blue)."
+  That is De winter van '63.
+- "make some other units also do something special like I did in the later additions (someting unique
+  and funny)", "the units should have at least a ice skater unit in 1975 and 2025", "Go NUTS", and "The
+  two other specials should be unique." So De Bezemwagen and the Tropenrooster are kinds of special
+  nobody else has.
+- "No need to do the balancing, that is what we will do last."
 
 **What makes them recognizable**
 
 - The flag.
 - The Elfstedentocht: 199 kilometres on natural ice, famous because it almost never happens. Fifteen
-  times since 1909, the last one in 1997.
+  times since 1909, the last one in 1997. The bezemwagen picks up whoever gives up.
 - A language of their own, bilingual signs, and the old password: "Bûter, brea en griene tsiis; wa't dat
   net sizze kin, is gjin oprjochte Fries."
 - Fierljeppen: a sprint, a leap onto a pole standing in the ditch, a climb while it tips over, and a
   landing in the sand or the water.
 - Skûtsjesilen: flat-bottomed cargo barges with brown sails, racing on the lakes.
+- Klunen: walking on your skates over the land between two stretches of ice.
 - The black Frisian horse, dairy cows, and kaatsen in teams of three.
 - The farm on a terp, with swans on the ûleboerd.
-- Sûkerbôle, dúmkes and berenburg.
+- Sûkerbôle, dúmkes, erwtensoep from the koek-en-zopie.
 
-**Corrections the research made to my first sketch**
-
-- "It giet oan" was said on 2 January 1997. It cannot be shouted in 1975; it is the special of 2025.
-- The kaatser is the natural ranged unit, and the tour skater deserves to be a unit, not only a special.
-- In 1975 there had been no tocht for twelve years, and nobody knew whether there would ever be one
-  again. That is the mood of the first era.
-
-**1975: waiting for ice**
+**1975: De strenge winter.** Everyone in wool: bobble hats, earmuffs, mittens, long scarves.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `fierljepper` | De Fierljepper | Shorts and a wooden pole. Arrives feet first. When beaten he slides down the pole into the ditch | humanoid |
-| Ranged | `opslagger` | De Opslagger | A kaatser in whites who serves small hard balls | humanoid |
+| Light | `fierljepper` | De Fierljepper | Long johns under his shorts, bobble hat, pole. **Vaults over the first enemy he meets**, lands behind it on his backside, sits dazed, and fights on from inside the enemy ranks | humanoid, with `vault` and `dazed` clips |
+| Ranged | `opslagger` | De Opslagger | A kaatser in whites with a winter coat over them, serving small hard balls | humanoid |
 | His projectile | `shot_keatsbal` | | A kaatsbal | static |
-| Heavy | `melkrijder` | De Melkrijder | A flat cart piled with milk churns that roll off like bowling balls | vehicle |
-| Schild | `baanveger_bauke` | Baanveger Bauke | Pushes a wide wooden snow scraper ahead of him, sweeping a track that is not frozen yet | humanoid |
-| Turret | `turret_leugenbank` | De Leugenbank | Three old men in caps on the liars' bench, each one sure he finished in '63. They flick dúmkes from a biscuit tin | static |
+| Heavy | `kopgroep` | De Kopgroep | Four tour skaters in a row, hands on their backs, scarves flapping, skating on the road. The ice skater of 1975 | free |
+| Schild | `baanveger_bauke` | Baanveger Bauke | On skates, behind a wide wooden snow scraper | humanoid |
+| Turret | `turret_leugenbank` | De Leugenbank | Three old men on the liars' bench, each sure he finished in '63. They flick dúmkes from a biscuit tin | static |
 | Its projectile | `shot_dumke` | | A thumb-sized biscuit | static |
-| Special | `special_winter63` | De winter van '63 | Pake starts telling, and the blizzard of the last tocht comes back. See below | static |
-| Base | `base` | | A kop-hals-romp farm on a terp: swans on the ûleboerd, a stand for the churns, and someone painting the Frisian name under the Dutch one on the village sign | static |
+| Special | `special_winter63` | De winter van '63 | Pake in his rocking chair on the ice, telling. See below | static |
+| Base | `base` | | A kop-hals-romp farm on a terp in deep snow, swans on the ûleboerd, skates by the door | static |
 
-Special, **De winter van '63** (slow): drifting snow and eighteen below. Enemy units crawl for eight
-seconds; they can still fight.
+Special, **De winter van '63** (stun, the owner's pick): Pake tells about the last winter of the tour and
+the road freezes over. For five seconds enemy units can neither walk nor fight; they stand on blue ice,
+turn pale blue and slip to and fro. The same numbers as the Wegblokkade.
 
-**2025: it giet oan**
+**2025: Kwakkelwinter.** Rain over the skating suits, and everyone still hoping.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `de_kluner` | De Kluner | A tour skater crossing dry land on his skates, stamp card on a string round his neck | humanoid |
-| Ranged | `bakker_tjitske` | Bakker Tjitske | Lobs loaves of sûkerbôle, sticky with sugar | humanoid |
+| Light | `de_kluner` | De Kluner | A tour skater in a rain poncho, stamp card round his neck, waddling over land on his skates. **Cannot brake**: 70% faster until his first blow, which does three times the damage and shoves the enemy back 70 pixels; then he sits on his backside for a second. The ice skater of 2025 | humanoid, with a `dazed` clip |
+| Ranged | `bakker_tjitske` | Bakker Tjitske | Lobs loaves of sûkerbôle. **Sticky**: whoever is hit walks and fights at half pace for three seconds. Super units shrug it off | humanoid |
 | Her projectile | `shot_sukerbole` | | A sugar loaf | static |
-| Heavy | `skutsje` | It Skûtsje | A racing barge on a boat trailer. The crew hangs over the high side and the leeboard slams down | vehicle |
-| Schild | `koek_en_zopie` | Beppe's Koek-en-zopie | Beppe behind her stall on runners, striped awning and all. What is thrown at her lands in the pea soup | humanoid |
-| Turret | `turret_brugwachter` | De Brugwachter | A bridge keeper on a raised drawbridge who swings the toll clog on its rod, with two anglers beside him | static |
-| Its projectile | `shot_klompje` | | The little clog that collects the bridge toll | static |
-| Special | `special_it_giet_oan` | It giet oan! | A man in a fur hat says the words, and a crowd of tour skaters comes through. See below | free |
-| Base | `base` | | A stjelp with its long hipped roof, a robot barn, one village wind turbine and a bilingual sign | static |
+| Heavy | `skutsje` | It Skûtsje | A racing barge on a boat trailer; the leeboard slams down | vehicle |
+| Schild | `koek_en_zopie` | Beppe's Koek-en-zopie | Beppe behind her stall on runners. **Soup**: every second, her own units within 160 pixels get 3% of their hit points back (not she herself, and not while she is stunned) | humanoid |
+| Turret | `turret_brugwachter` | De Brugwachter | A bridge keeper swinging the toll clog on its rod, with two anglers | static |
+| Its projectile | `shot_klompje` | | The little clog of the bridge toll | static |
+| Special | `special_bezemwagen` | De Bezemwagen | The broom wagon of the tour. See below | static |
+| Base | `base` | | A stjelp in the rain, a robot barn, one village wind turbine, skates by the door just in case | static |
 
-Special, **It giet oan!** (wave): the skaters sweep the whole lane and hit every enemy unit once.
+Special, **De Bezemwagen** (revive, a kind of its own): the broom wagon picks up whoever dropped out. The
+last four units of your own that were beaten, the most recent first, come back out of your gate, fresh
+and whatever the unit cap. They are bought units again: a bounty when beaten, and remembered again. Units
+a special called in and super units are not picked up. A side remembers its last eight. (The brief had
+"It giet oan!" here as a wave; the words are now a battle cry and the win line.)
 
-**2050: artificial ice**
+**2050: Tropysk Fryslân.** Hawaiian shirts, sunburn and palm trees; the only ice left is in the turret.
 
 | Slot | File | Name | What it is, and the joke | Rig |
 |---|---|---|---|---|
-| Light | `zweefschaatser` | De Zweefschaatser | Hover-skates and a full tour outfit. Has never seen a frozen ditch | humanoid |
-| Ranged | `keatskanon` | It Keatskanon | A ball-serving machine, fed by a veteran in whites who does not trust it | vehicle |
-| Its projectile | `shot_keatsbal` | | A kaatsbal, faster | static |
-| Heavy | `zweefskutsje` | It Sweefskûtsje | A barge that hovers, with a solar sail and its leeboards as skids | vehicle |
-| Turret | `turret_ijscommissie` | De IJscommissie | Three wardens with a laser gauge on a refrigerated ledge. It reads one millimetre short. They throw ice cubes | static |
+| Light | `zweefschaatser` | De Zweefschaatser | Hover-skates and a Hawaiian shirt over the skating suit. Has never seen a frozen ditch | humanoid |
+| Ranged | `kokoskanon` | It Kokoskanon | A kaatsing veteran feeding a ball machine that serves coconuts. He does not trust it | humanoid |
+| Its projectile | `shot_kokosnoot` | | A coconut | static |
+| Heavy | `tikiskutsje` | It Tikiskûtsje | A hovering party barge with a palm tree for a mast | vehicle |
+| Turret | `turret_ijscommissie` | De IJscommissie | Three wardens under a parasol measuring the last ice cube: one millimetre short. They throw ice cubes | static |
 | Its projectile | `shot_ijsblokje` | | An ice cube | static |
-| Special | `special_kunstijs` | Kunstijs | A cooling grid under the road. See below | static |
-| Base | `base` | | Terp 2.0: a freshly raised mound with the sea all round, an amphibious farm and an ice dome on top | static |
-| **Super unit** | `de_grutte` | De Grutte | A nameless giant with a sword taller than a man. He asks everyone the password and lets nobody by who cannot say it | humanoid |
+| Special | `special_tropenrooster` | Tropenrooster | A sign with a bursting thermometer. See below | static |
+| Base | `base` | | Terp 2.0: palm trees, a tiki-thatched farm, flamingos on the ûleboerd, an ice dome | static |
+| **Super unit** | `de_grutte` | De Grutte | A nameless giant in a Hawaiian shirt with a sword taller than a man, who asks everyone the password | humanoid |
 
-Special, **Kunstijs** (stun): the whole field is flash-frozen. Enemy units can neither walk nor fight for
-five seconds.
+Special, **Tropenrooster** (siesta, a kind of its own): too hot to work. For fifteen seconds the enemy's
+turrets do not fire; they snore. The sign falls beside the enemy base, as the Huurverhoging's does.
 
 **Lines**
 
 | Era | Walking out | Beaten |
 |---|---|---|
-| 1975 | "Fryslân boppe!" · "Bûter, brea en griene tsiis!" · "Flean op!" · "Tuike tuike!" | "Hawar." · "It kin net oars." · "Oant sjen!" · "It giet net oan." |
-| 2025 | "It giet oan!" · "It sil heve!" · "Tsjoch!" · "Fryslân boppe!" | "It giet net oan." · "Hawar." · "Blinder!" · "Oant sjen!" |
-| 2050 | "It giet oan!" · "Flean op!" · "Tsjoch!" · "Suvel op suvel dat bringt de duvel." | "Veertien komma negen centimeter." · "Hawar." · "It kin net oars." · "Oant sjen!" |
+| 1975 | "Fryslân boppe!" · "Bûter, brea en griene tsiis!" · "Flean op!" · "Tuike tuike!" · "Kâld, hè?" · "Wannear giet it oan?" | "Hawar." · "It kin net oars." · "Oant sjen!" · "It giet net oan." · "Myn teannen binne beferzen." · "Wachtsje mar op it iis." |
+| 2025 | "It giet oan!" · "It sil heve!" · "Tsjoch!" · "Fryslân boppe!" · "Noch net!" · "Hâld de moed der yn!" | "It giet net oan." · "Hawar." · "Blinder!" · "Oant sjen!" · "Wer net." · "Natte sokken." |
+| 2050 | "It giet oan!" · "Flean op!" · "Tsjoch!" · "Suvel op suvel dat bringt de duvel." · "Aloha, Fryslân!" · "Lekker waarm!" | "Veertien komma negen centimeter." · "Hawar." · "It kin net oars." · "Oant sjen!" · "Te waarm." · "Wer gjin iis." |
+
+De Fierljepper and De Kluner have lines of their own ("Ik spring der oer!", "Ik kin net remje!").
 
 **Stay away from**
 
-- The bitter with the protected spelling and its brand names. Ours is "berenburg" with an invented label,
-  "Pakebitter".
+- The bitter with the protected spelling and its brand names.
 - The name, the logo and the cross medal of the Elfstedentocht association, which forbids their use.
-  Ours is "De Tocht" with a medal of our own design.
 - Sneekweek, the ice stadium, the regional broadcaster, club kits and the "Praat mar Frysk" sticker.
 - Real people: chairmen, winners, weathermen. The folk hero the password is attributed to was a real
   rebel and is now also a brewery; De Grutte has no name.
 - "Leaver dea as slaef", which was used in Nazi propaganda.
-- Hearts on the flag, calling Frisian a dialect, made-up Frisian, and jokes about backward farmers.
+- Hearts on the flag, calling Frisian a dialect, and jokes about backward farmers.
 - Lapwing eggs, protest imagery, and horses stranded by a flood.
 
-**Open questions**
+**Decided**
 
-- The spellings were checked against Frisian and Dutch sources, but four lines ("Fryslân boppe!", "It
-  giet net oan.", "Blinder!", "It Sweefskûtsje") are my own or unverified. **Decided: no proofreading by a
-  native speaker.** The faction ships with the lines as they are.
-- **The super unit.** De Grutte nods at the legend without naming anyone. The alternative from the
-  research is Mega-Mem, a colossal robot cow on her own hovering roundabout, which is funnier but close
-  to the Achterhoek's robot cow. Which one?
+- No proofreading by a native speaker; the lines ship as they are. Several are my own and unverified.
+- The super unit is De Grutte, not Mega-Mem.
 
 ### 4. Rotterdam
 
@@ -1688,7 +1718,7 @@ battle, and one pull request per faction.
 6. **Rotterdam.** Amsterdam's rival, with the container as the block.
 7. **De Camping.**
 8. **De Ambtenarij.** Best after De Zuidas has shown how far apart the two office factions can be kept.
-9. **De Friezen.**
+9. ~~**De Friezen.** At the owner's choice (26 November 2026), as De Elf Steden.~~ Done.
 
 Any other order works.
 

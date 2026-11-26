@@ -34,6 +34,10 @@ export interface TurretPlan {
   def: TurretDef;
   /** Its level afterwards. */
   level: number;
+  /** What it adds to the turret's worth at list prices, whatever the rent: see Turret.value. */
+  list: number;
+  /** What comes off the price for the old turret it replaces. */
+  credit: number;
 }
 
 /**
@@ -47,7 +51,7 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
   const now = eraOf(me.faction, me.era).turret;
 
   const empty = me.turrets.indexOf(null);
-  if (empty >= 0) return { how: 'build', slot: empty, cost: price(s, side, now.cost), def: now, level: 1 };
+  if (empty >= 0) return { how: 'build', slot: empty, cost: price(s, side, now.cost), def: now, level: 1, list: now.cost, credit: 0 };
 
   let outdated = -1;
   let oldest = me.era;
@@ -58,7 +62,11 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
       outdated = slot;
     }
   });
-  if (outdated >= 0) return { how: 'replace', slot: outdated, cost: price(s, side, now.cost), def: now, level: 1 };
+  if (outdated >= 0) {
+    // The old one is traded in: part of what went into it comes off the new one's price.
+    const credit = Math.floor((me.turrets[outdated]!.value * TURRET.tradeInPercent) / 100);
+    return { how: 'replace', slot: outdated, cost: Math.max(0, price(s, side, now.cost) - credit), def: now, level: 1, list: now.cost, credit };
+  }
 
   let lowest = -1;
   me.turrets.forEach((t, slot) => {
@@ -66,13 +74,8 @@ export function turretPlan(s: SimState, side: Side): TurretPlan | null {
   });
   if (lowest < 0) return null;
   const level = me.turrets[lowest]!.level;
-  return {
-    how: 'upgrade',
-    slot: lowest,
-    cost: price(s, side, Math.round((now.cost * TURRET.upgradePercent[level - 1]!) / 100)),
-    def: now,
-    level: level + 1,
-  };
+  const list = Math.round((now.cost * TURRET.upgradePercent[level - 1]!) / 100);
+  return { how: 'upgrade', slot: lowest, cost: price(s, side, list), def: now, level: level + 1, list, credit: 0 };
 }
 
 /** Price of the next "subsidie aanvragen", or null when there is nothing left to apply for. */
@@ -141,8 +144,13 @@ export function applyCommand(s: SimState, side: Side, cmd: Command, events: SimE
     case 'turret': {
       const plan = turretPlan(s, side)!;
       me.gold -= plan.cost;
-      if (plan.how === 'upgrade') me.turrets[plan.slot]!.level = plan.level;
-      else me.turrets[plan.slot] = { def: plan.def.id, level: 1, cd: plan.def.cooldown };
+      if (plan.how === 'upgrade') {
+        const t = me.turrets[plan.slot]!;
+        t.level = plan.level;
+        t.value += plan.list;
+      } else {
+        me.turrets[plan.slot] = { def: plan.def.id, level: 1, cd: plan.def.cooldown, value: plan.list };
+      }
       events.push({ t: 'turretBuilt', side, slot: plan.slot, how: plan.how, level: plan.level });
       return;
     }

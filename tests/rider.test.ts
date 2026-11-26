@@ -179,7 +179,7 @@ describe('the fatbike', () => {
     s.sides[1].turrets[0]!.cd = 0;
     // A schild of De Gasten well within reach, and the fatbike just coming into it.
     place(s, 0, 'gs.2025.shield', LANE - px(200), 1_000_000);
-    const rider = ride(s, 0, LANE - px(640));
+    const rider = ride(s, 0, LANE - px(530));
     run(s, 1);
     expect(s.shots.length).toBe(1);
     expect(s.shots[0]!.aim).toBe(rider.id);

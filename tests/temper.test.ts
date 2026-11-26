@@ -62,6 +62,9 @@ describe('temperament', () => {
           // So do a few numbers of units with rules of their own, tested in tests/tourists.test.ts:
           // the price and speed of a schild that scatters (SCATTER) and of a beer bike (TOSS).
           const own = new Set<string>(unit.scatter || unit.toss ? ['cost', 'speed'] : []);
+          // And units of the first factions that were given a rule of their own afterwards have a price of
+          // their own (BOUNCE, PERK_COST_PERCENT), tested in tests/stunts.test.ts.
+          if (unit.bounce || unit.returns || unit.regrows || unit.feeds) own.add('cost');
           const base = shared[unit.role]!;
           const twist = faction.temper[unit.role] ?? {};
           for (const stat of TWISTABLE) {
@@ -120,7 +123,10 @@ describe('what each faction is like', () => {
       }
       // Everything it fields costs less than anyone else's, the Havermelkreus excepted.
       for (const role of ['light', 'ranged', 'heavy', ...(era === '2050' ? [] : ['shield'])]) {
-        expect(of('hm', era, role).cost, role).toBeLessThan(of('ah', era, role).cost);
+        // Except the units that were given a rule of their own afterwards (PERK_COST_PERCENT): Padel-Pepijn, the blob.
+        const unit = of('hm', era, role);
+        if (unit.returns || unit.regrows) continue;
+        expect(unit.cost, role).toBeLessThan(of('ah', era, role).cost);
       }
       // It throws from further away than anyone, and softer.
       expect(of('hm', era, 'ranged').range).toBeGreaterThan(of('ah', era, 'ranged').range);
@@ -132,9 +138,9 @@ describe('what each faction is like', () => {
         expect(of('za', era, role).buildTicks, role).toBeLessThan(of('ah', era, role).buildTicks);
         expect(of('za', era, role).recover, role).toBeLessThan(of('hm', era, role).recover);
       }
-      // Everything it fields costs more than anyone else's.
-      for (const role of ['light', 'ranged', 'heavy', era === '2050' ? 'super' : 'shield']) {
-        expect(of('za', era, role).cost, role).toBeGreaterThan(of('ah', era, role).cost);
+      // Everything it fields costs more than the shared price (Smijtink, with his bouncing beets, is dearer still).
+      for (const role of ['light', 'ranged', 'heavy', era === '2050' ? 'super' : 'shield'] as const) {
+        expect(of("za", era, role).cost, role).toBeGreaterThan(STATS[era as keyof typeof STATS][role]!.cost);
       }
       for (const role of ['ranged', 'heavy']) {
         expect(of('za', era, role).dmg, role).toBeGreaterThan(of('hm', era, role).dmg);

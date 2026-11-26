@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -136 112 142" data-rig="humanoid">
+  <title>It Kokoskanon: een oude kaatser in het wit en een Hawaïshirt voert een ballenmachine die tegenwoordig kokosnoten serveert. Hij vertrouwt het ding niet</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-14 -38)"/>
+
+  <g id="arm_back" data-parent="torso" transform="translate(-23 -72)">
+    <path class="o" fill="#3fae6a" d="M-6 -3 Q-8 6 -6.5 12 L6.5 12 Q7.5 6 6 -3 Z"/>
+    <path class="o" fill="#fbf8f0" d="M-6 11 L6 11 L5.5 21 L-5.5 21 Z"/>
+    <path class="o" fill="#e9906f" d="M-6 20 L6 20 Q7.5 28 0 29 Q-7 28 -6 20 Z"/>
+  </g>
+
+  <!-- Long whites, as a kaatser wears them, rolled up for the heat. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-19 -38)">
+    <path class="o" fill="#e9e6df" d="M-7.5 -3 L7.5 -3 L6.5 25 L-6.5 25 Z"/>
+    <rect class="o" fill="#d6d1c6" x="-7" y="22" width="14" height="5" rx="1.5"/>
+    <rect class="o" fill="#d9775a" x="-3" y="27" width="6" height="5"/>
+    <!-- flip-flops -->
+    <path class="o" fill="#3fae6a" d="M-7 35 L14 35 Q15 38 12 38 L-7 38 Z"/>
+    <path class="t" style="stroke-width:1.8" d="M-1 35 L2 31 L6 35"/>
+    <path class="o" style="stroke-width:1.8" fill="#e9906f" d="M-5 35 Q-5 31 -1 31 L8 31 Q12 32 12 35 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-9 -38)">
+    <path class="o" fill="#fbf8f0" d="M-7.5 -3 L7.5 -3 L6.5 25 L-6.5 25 Z"/>
+    <path class="n" fill="#e9e6df" d="M1 -1 L5 -1 L4.5 22 L1.5 22 Z"/>
+    <rect class="o" fill="#e9e6df" x="-7" y="22" width="14" height="5" rx="1.5"/>
+    <rect class="o" fill="#e9906f" x="-3" y="27" width="6" height="5"/>
+    <path class="o" fill="#ffd21f" d="M-7 35 L14 35 Q15 38 12 38 L-7 38 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#e9906f" d="M-5 35 Q-5 31 -1 31 L8 31 Q12 32 12 35 Z"/>
+    <path class="t" style="stroke-width:1.8" d="M-1 35 L2 31 L6 35"/>
+  </g>
+
+  <!-- Kaatsing whites under an open shirt of pineapples, and a belly that has served for sixty years. -->
+  <g id="torso" data-parent="hips" transform="translate(-14 -40)">
+    <path class="o" fill="#fbf8f0" d="M-15 7 Q-19 -14 -15 -30 Q-11 -38 0 -38 Q12 -38 16 -30 Q22 -14 16 7 Z"/>
+    <path class="o" fill="#3fae6a" d="M-16 6 Q-20 -14 -16 -31 Q-12 -38 -3 -38 L-1 -30 L-5 6 Z"/>
+    <path class="o" fill="#3fae6a" d="M17 -31 Q12 -38 4 -38 L3 -30 L12 6 L18 6 Q22 -14 17 -31 Z"/>
+    <g class="n" fill="#ffd21f">
+      <ellipse cx="-10" cy="-22" rx="2.2" ry="3"/>
+      <ellipse cx="-11" cy="-6" rx="2.2" ry="3"/>
+      <ellipse cx="13" cy="-16" rx="2.2" ry="3"/>
+    </g>
+    <path class="n" fill="#1e7a45" d="M-11 -26 l1 -3 l1 3 Z M-12 -10 l1 -3 l1 3 Z M12 -20 l1 -3 l1 3 Z"/>
+    <!-- the old club badge: a ball and a glove, sewn on long ago -->
+    <circle class="o" style="stroke-width:1.6" fill="#1d5fa8" cx="4" cy="-22" r="4.4"/>
+    <circle class="n" fill="#fbf8f0" cx="4" cy="-22" r="2"/>
+    <rect class="o" fill="#e9e6df" x="-15.5" y="3" width="31" height="4.5" rx="1.6"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-13 -76)">
+    <rect class="o" fill="#d9775a" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#e9906f" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#e9906f" cx="-8.5" cy="-17" rx="3.4" ry="4.8"/>
+    <!-- white hair at the back -->
+    <path class="o" style="stroke-width:2" fill="#f2f0ea" d="M-16 -18 Q-19 -26 -13 -30 L-9 -22 Q-11 -16 -12 -10 Q-16 -11 -16 -18 Z"/>
+    <!-- the eye, narrowed: he has seen what this machine can do -->
+    <path class="t" style="stroke-width:2.4" d="M9 -23 L16 -22.4"/>
+    <path class="t" style="stroke-width:2" d="M8 -28 L17 -26"/>
+    <!-- the nose, and a mustache like a broom -->
+    <path class="o" fill="#d9775a" d="M16 -22 Q23 -18 20 -13 Q17 -12 15 -14 Z"/>
+    <path class="o" fill="#f2f0ea" d="M4 -12 Q12 -16 22 -12 Q24 -7 19 -7 Q14 -10 11 -7 Q6 -6 4 -12 Z"/>
+    <path class="t" style="stroke-width:1.8" d="M11 -3 Q15 -4.4 18 -3"/>
+    <!-- a straw hat, brim like a tray -->
+    <path class="o" fill="#e8c46a" d="M-24 -31 Q2 -40 30 -32 Q30 -27 24 -28 Q2 -34 -20 -27 Q-25 -27 -24 -31 Z"/>
+    <path class="o" fill="#efd27e" d="M-13 -33 Q-14 -52 3 -52 Q19 -52 17 -34 Q2 -38 -13 -33 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#1d5fa8" d="M-13 -36 Q2 -40 17 -37 L17 -33 Q2 -37 -13 -32.6 Z"/>
+    <path class="t" style="stroke:#c59a3e;stroke-width:1.2" d="M-6 -50 L-8 -38 M4 -51 L4 -39 M12 -49 L13 -38 M-18 -30 L-14 -33 M20 -32 L24 -30"/>
+  </g>
+
+  <!-- The ball machine on its little cart, mouth up and forward, hopper full of coconuts.
+       Joint at the axle of the cart. -->
+  <g id="machine" data-parent="hips" transform="translate(28 -8)">
+    <path class="t" style="stroke-width:3" d="M-14 -4 L-20 8"/>
+    <path class="o" fill="#3a3d4a" d="M-22 7 L-17 7 L-17 9 L-22 9 Z"/>
+    <rect class="o" fill="#7fd3c8" x="-18" y="-50" width="34" height="42" rx="6"/>
+    <path class="n" fill="#a9e6de" d="M-15 -47 L-9 -47 L-9 -12 L-15 -12 Z"/>
+    <!-- the fan grille that spins the balls -->
+    <circle class="o" fill="#3a3d4a" cx="-2" cy="-30" r="10"/>
+    <path class="t" style="stroke:#7fd3c8;stroke-width:1.8" d="M-9 -30 L5 -30 M-2 -37 L-2 -23 M-7 -35 L3 -25 M3 -35 L-7 -25"/>
+    <!-- the dial, turned all the way up -->
+    <circle class="o" style="stroke-width:1.8" fill="#fbf8f0" cx="10" cy="-18" r="4"/>
+    <path class="t" style="stroke:#e5283f;stroke-width:1.8" d="M10 -18 L13 -21"/>
+    <!-- a palm frond stuck in the vent: it came that way -->
+    <path class="o" style="stroke-width:1.6" fill="#3fae6a" d="M-18 -16 Q-30 -22 -32 -14 Q-26 -14 -18 -12 Z"/>
+    <!-- the hopper -->
+    <path class="o" fill="#5fb8ad" d="M-20 -50 L-24 -64 L18 -64 L14 -50 Z"/>
+    <circle class="o" fill="#7a4a26" cx="-12" cy="-64" r="6"/>
+    <circle class="o" fill="#8a5a2e" cx="0" cy="-66" r="6.4"/>
+    <circle class="o" fill="#7a4a26" cx="10" cy="-63" r="5.6"/>
+    <circle class="n" fill="#2b1b16" cx="-1" cy="-68" r="1"/>
+    <circle class="n" fill="#2b1b16" cx="2" cy="-67" r="1"/>
+    <circle class="n" fill="#2b1b16" cx="0.4" cy="-64.6" r="1"/>
+  </g>
+
+  <!-- The mouth of the machine. Joint where it leaves the box, so it kicks when it serves. -->
+  <g id="barrel" data-parent="machine" transform="translate(40 -50)">
+    <path class="o" fill="#5fb8ad" d="M-4 6 L0 -4 L16 -14 L22 -4 L8 8 Z"/>
+    <ellipse class="o" fill="#2b1b16" cx="19" cy="-9" rx="4" ry="6.6" transform="rotate(-34 19 -9)"/>
+    <circle data-mount="muzzle" fill="none" cx="21" cy="-12" r="1"/>
+  </g>
+
+  <!-- A warning light on top that never stops blinking. Joint at its foot. -->
+  <g id="lamp" data-parent="machine" transform="translate(42 -58)">
+    <path class="o" style="stroke-width:1.8" fill="#3a3d4a" d="M-3 2 L3 2 L2 -1 L-2 -1 Z"/>
+    <circle class="o" style="stroke-width:1.8" fill="#ff8a3d" cx="0" cy="-4" r="3.4"/>
+  </g>
+
+  <!-- The wheel of the cart. Joint at the axle. -->
+  <g id="cart_wheel" data-parent="machine" transform="translate(28 -8)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="8"/>
+    <circle class="n" fill="#8a919c" cx="0" cy="0" r="4"/>
+    <path class="t" style="stroke:#c9d1dc;stroke-width:1.6" d="M0 -4 L0 4 M-4 0 L4 0"/>
+  </g>
+
+  <!-- The front arm, feeding it a coconut, at arm's length. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-4 -72)">
+    <path class="o" fill="#3fae6a" d="M-6.5 -3 Q-8.5 6 -7 12 L7 12 Q8 6 6.5 -3 Z"/>
+    <ellipse class="n" fill="#ffd21f" cx="0" cy="4" rx="2" ry="2.8"/>
+    <path class="o" fill="#fbf8f0" d="M-6 11 L6 11 L6 21 L-5 21 Z"/>
+    <path class="o" fill="#e9906f" d="M-6 20 L6 20 Q8 28 0 29 Q-7 28 -6 20 Z"/>
+  </g>
+
+  <!-- The coconut in his hand, next in line. Joint at its middle. -->
+  <g id="nut" data-parent="arm_front" transform="translate(0 -41)">
+    <circle class="o" fill="#8a5a2e" cx="0" cy="0" r="7"/>
+    <circle class="n" fill="#2b1b16" cx="-1" cy="-2" r="1"/>
+    <circle class="n" fill="#2b1b16" cx="2" cy="-1" r="1"/>
+    <circle class="n" fill="#2b1b16" cx="0.4" cy="1.6" r="1"/>
+  </g>
+</svg>

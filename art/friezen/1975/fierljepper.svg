@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -140 104 146" data-rig="humanoid">
+  <title>De Fierljepper: lange onderbroek onder zijn korte broek, bobbelmuts, sjaal en zijn polsstok</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm, in the ribbed sleeve of his long johns, with a red mitten. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#e9dfc6" d="M-6 -3 Q-8 10 -6 21 L6 21 Q7 10 6 -3 Z"/>
+    <path class="t" style="stroke:#cbbf9f" d="M-3 2 L-3 19 M1 2 L1 19"/>
+    <ellipse class="o" fill="#d9342b" cx="0" cy="25" rx="5.6" ry="5.2"/>
+  </g>
+
+  <!-- The long scarf, trailing behind him in the wind. Joint at the back of his neck. -->
+  <g id="scarf" data-parent="torso" transform="translate(-8 -73)">
+    <path class="o" fill="#f4f4f0" d="M2 -3 Q-10 -1 -20 6 Q-26 10 -30 18 L-22 22 Q-18 14 -12 10 Q-4 6 4 5 Z"/>
+    <path class="n" fill="#1d5fa8" d="M-6.5 -0.7 L-10 0.8 L-7 7.6 L-3.4 6.3 Z M-15 3.4 L-18.4 5.6 L-14.6 12.4 L-11.4 9.8 Z M-23.5 9.8 L-26.2 13.4 L-21.4 17.8 L-19 14.6 Z"/>
+    <path class="o" fill="#f4f4f0" d="M-30 18 L-22 22"/>
+    <path class="t" d="M-31 19 L-34 25 M-28.5 20 L-30.5 27 M-26 21 L-27 28 M-23.5 22 L-23.5 28.5"/>
+  </g>
+
+  <!-- Thick woollen socks and running shoes: in the snow. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#1d5fa8" d="M-7.5 -3 L7.5 -3 L7 10 L-7 10 Z"/>
+    <path class="o" fill="#e3d8bd" d="M-6 9 L6 9 L5.5 27 L-5.5 27 Z"/>
+    <path class="o" fill="#cfc8bb" d="M-6 26 L6 26 L6 32 L-6 32 Z"/>
+    <path class="o" fill="#dcdcdc" d="M-8 38 L-8 33 Q-8 30.5 -4 30.5 L5 30.5 Q12 31 16 34 Q17 37 15 38 Z"/>
+    <path class="n" fill="#d9342b" d="M-7 35.8 L15.6 35.8 L15.2 37.4 L-7 37.4 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#2a6fbd" d="M-7.5 -3 L7.5 -3 L7 10 L-7 10 Z"/>
+    <path class="n" fill="#ffffff" d="M4 -2 L6 -2 L5.6 9 L3.6 9 Z"/>
+    <path class="o" fill="#efe6cf" d="M-6 9 L6 9 L5.5 27 L-5.5 27 Z"/>
+    <path class="t" style="stroke:#cbbf9f" d="M-2.5 11 L-2.5 25 M1.5 11 L1.5 25"/>
+    <path class="o" fill="#e8e2d6" d="M-6 26 L6 26 L6 32 L-6 32 Z"/>
+    <path class="t" style="stroke:#c3bcae" d="M-5.5 28.6 L5.5 28.6"/>
+    <path class="o" fill="#f4f4f4" d="M-8 38 L-8 33 Q-8 30.5 -4 30.5 L5 30.5 Q12 31 16 34 Q17 37 15 38 Z"/>
+    <path class="n" fill="#d9342b" d="M-7 35.8 L15.6 35.8 L15.2 37.4 L-7 37.4 Z"/>
+    <path class="t" style="stroke:#9aa0a4;stroke-width:1.2" d="M1 32 L4 32.8 M3 31.4 L6 32.4"/>
+  </g>
+
+  <!-- Long johns with a button placket, and a blue singlet pulled over the top for the sport. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#efe6cf" d="M-15.5 8 Q-18 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q19 -14 16.5 8 Z"/>
+    <path class="o" fill="#1d5fa8" d="M-13 8 Q-15 -8 -12.5 -22 Q-8 -24 -6 -34 L6 -34 Q8 -24 13 -22 Q16 -8 14 8 Z"/>
+    <path class="n" fill="#ffffff" d="M-12.8 -4 L14.6 -4 L14.4 0 L-13 0 Z"/>
+    <path class="t" style="stroke:#cbbf9f" d="M-1 -36 L-1 -33"/>
+    <circle class="n" fill="#a89a78" cx="-1" cy="-35.4" r="0.9"/>
+    <path class="o" fill="#efe6cf" d="M-15.8 6 L16.8 6 L16.5 9.5 L-15.5 9.5 Z"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e3a98a" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <!-- the scarf, wound round twice -->
+    <path class="o" fill="#f4f4f0" d="M-12 -4 Q2 4 16 -4 L16 3 Q2 11 -12 3 Z"/>
+    <path class="n" fill="#1d5fa8" d="M-7 -1.3 L-3.5 0 L-3.5 7 L-7 5.6 Z M3 0.6 L6.5 0 L6.5 6.9 L3 7.4 Z M11.5 -2.2 L14.6 -3.4 L14.6 3.6 L11.5 4.8 Z"/>
+    <ellipse class="o" fill="#f2c4a4" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#f2c4a4" cx="-9" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- red with cold -->
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="6" cy="-13" rx="4.5" ry="2.8"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.45" cx="-6" cy="-14" rx="3" ry="2.2"/>
+    <!-- the bobble hat, rolled up once, with a pompon the size of his fist -->
+    <path class="o" fill="#d9342b" d="M-17 -27 Q-18 -47 2 -48 Q22 -48 21 -29 Z"/>
+    <path class="t" style="stroke:#a8231c" d="M-10 -30 L-8 -45 M-2 -30 L-1 -47 M6 -30 L7 -47 M14 -30 L14 -45"/>
+    <path class="o" fill="#f4f4f0" d="M-18.5 -30.5 Q2 -36 22.5 -31 L22 -24.5 Q2 -29.5 -18 -24 Z"/>
+    <path class="n" fill="#1d5fa8" d="M-12 -30.2 L-6 -31.5 L-6 -27.3 L-12 -26 Z M0 -32.3 L6 -32.3 L6 -28.2 L0 -28.2 Z M12 -31.8 L18 -31.2 L18 -27.1 L12 -27.6 Z"/>
+    <circle class="o" fill="#f4f4f0" cx="1" cy="-52" r="7.5"/>
+    <path class="t" style="stroke:#d9342b;stroke-width:1.4" d="M-3 -55 L-1 -53 M3 -56 L4 -53.5 M-2 -49 L0 -50.5 M4 -49.5 L6 -51"/>
+    <!-- eyes that do not quite agree -->
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="9" cy="-20" r="4"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="17.5" cy="-21.5" r="3"/>
+    <circle class="n" fill="#2b1b16" cx="10.6" cy="-19" r="1.9"/>
+    <circle class="n" fill="#2b1b16" cx="17" cy="-22.3" r="1.5"/>
+    <path class="t" style="stroke-width:1.8" d="M5 -26.5 Q9 -29 13 -26.5 M15 -26.8 Q18 -28.5 21 -26.2"/>
+    <!-- the nose, glowing -->
+    <ellipse class="o" fill="#e0442c" cx="21.5" cy="-15" rx="4.8" ry="4"/>
+    <circle class="n" fill="#ff9a86" cx="20.4" cy="-16.4" r="1.2"/>
+    <!-- a big daft grin with a gap in it -->
+    <path class="o" fill="#7a2a20" d="M6 -10 Q12 -1 20 -9 Q13 -8 6 -10 Z"/>
+    <path class="n" fill="#ffffff" d="M8.4 -9.3 L11.4 -8.8 L11.2 -6.4 L8.8 -7.2 Z M13 -8.6 L16 -8.7 L15.6 -6.2 L13.2 -6.1 Z"/>
+    <!-- frost on his breath -->
+    <circle class="n" fill="#ffffff" fill-opacity="0.85" cx="27" cy="-8" r="2.4"/>
+    <circle class="n" fill="#ffffff" fill-opacity="0.7" cx="31" cy="-11" r="1.8"/>
+  </g>
+
+  <!-- The near arm, reaching forward to hold the pole. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#efe6cf" d="M-5.5 -4 Q0 -8 5.5 -4 L16 18 L9 23.5 L-6.5 4 Q-7.5 0 -5.5 -4 Z"/>
+    <path class="t" style="stroke:#cbbf9f" d="M-1 1 L10 17 M3 -1 L13 14"/>
+    <ellipse class="o" fill="#d9342b" cx="13" cy="22" rx="5.8" ry="5.4"/>
+  </g>
+
+  <!-- The fierljep pole: ash wood with a plate at the foot so it does not sink in the ditch. Joint in his mitten. -->
+  <g id="pole" data-parent="arm_front" transform="translate(23 -50)">
+    <path class="t" style="stroke-width:6.4" d="M6 40 L-12 -86"/>
+    <path fill="none" stroke="#c9934f" stroke-width="3.4" stroke-linecap="round" d="M6 40 L-12 -86"/>
+    <path fill="none" stroke="#e0b277" stroke-width="1.2" stroke-linecap="round" d="M5 32 L-10 -76"/>
+    <ellipse class="o" fill="#4a4a4a" cx="6.3" cy="41.5" rx="7" ry="2.4"/>
+    <path class="t" style="stroke:#3d6b2a;stroke-width:2.2" d="M-12 -86 L-15 -82"/>
+    <ellipse class="o" fill="#d9342b" cx="0.6" cy="0.4" rx="5" ry="5.4"/>
+    <path class="t" style="stroke:#a8231c;stroke-width:1.2" d="M-2 -2 L3 -2 M-2.5 1.5 L3.5 1.5"/>
+  </g>
+</svg>

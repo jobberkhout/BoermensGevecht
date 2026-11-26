@@ -171,7 +171,7 @@ test('subsidie, turret levels and modernizing work from the keyboard', async ({ 
 
   // The old turrets keep standing, but the button now offers to replace them, back at level 1.
   await expect(page.locator('.panel.left .btn.turret .label')).toHaveText('Podcaststudio');
-  await expect(page.locator('.panel.left .btn.turret .sub')).toHaveText('oude vervangen');
+  await expect(page.locator('.panel.left .btn.turret .sub')).toHaveText('oude inruilen');
   await page.keyboard.press('KeyA');
   summary = await advance(page, 2);
   expect(summary.turrets[0]).toEqual([1, 1]);

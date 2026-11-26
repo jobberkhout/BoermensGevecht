@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 28" data-rig="static">
+  <title>Een keatsbal: klein, wit, hard, met stiksels</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <g id="ball" transform="translate(0 0)">
+    <circle class="o" fill="#f6f3ea" cx="0" cy="0" r="9.5"/>
+    <path class="n" fill="#dcd5c3" d="M-6 6 Q2 9 8 2 Q7 7 1 8.8 Q-3 9 -6 6 Z"/>
+    <path fill="none" stroke="#c9493c" stroke-width="1.4" d="M-8.4 -4 Q-2 0 -8 5.5 M8.4 -4 Q2 0 8 5.5"/>
+    <path class="t" style="stroke:#c9493c;stroke-width:1" d="M-8.6 -1.4 L-6.6 -2 M-8 2.4 L-5.8 1.6 M8.6 -1.4 L6.6 -2 M8 2.4 L5.8 1.6"/>
+    <circle class="n" fill="#ffffff" cx="-3" cy="-4" r="2"/>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-import { RIDER, RIDER_STATS, SCATTER, SPECIAL, STATS, TOSS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats, type Twist } from './balance.ts';
+import { BOUNTY_PERCENT, PRICE_STEP, RIDER, RIDER_STATS, SCATTER, SPECIAL, STATS, TOSS, twisted, type EraKey, type RoleStats, type Temper, type TurretStats, type Twist } from './balance.ts';
 import type { EraDef, Role, ShotDef, SpecialDef, TurretDef, UnitDef } from './types.ts';
 
 type Look = Omit<ShotDef, 'speed'>;
@@ -97,7 +97,16 @@ export interface EraLook {
   turret: string;
   turretShot: Look;
   special: SpecialKind;
+  /**
+   * Rules of their own for some of its units, on top of their role: the pole
+   * vaulter, the skater who cannot brake, sticky throws, soup, a padel player
+   * who returns throws, bouncing beets. Their numbers are in defs/balance.ts.
+   */
+  perks?: Partial<Record<'light' | 'ranged' | 'heavy' | 'shield', Perk>>;
 }
+
+/** What a unit can do that its role does not, see UnitDef; and, for one that is worth more for it, its price as a share of the usual one. */
+export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds'> & { costPercent?: number };
 
 /** A throw on top of a unit's own blows, as shares of the era's ranged unit's damage and reach. */
 export interface TossShare {
@@ -185,6 +194,18 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     const tosses = look.summonedTosses;
     extras.push(tosses ? { ...called, toss: tossFrom(thrower, withArt(tosses.shot), tosses) } : called);
   }
+  const slots = ['light', 'ranged', 'heavy', 'shield'] as const;
+  slots.forEach((slot, i) => {
+    const perk = look.perks?.[slot];
+    if (!perk || !units[i]) return;
+    const { costPercent, ...rules } = perk;
+    const unit: UnitDef = { ...units[i]!, ...rules };
+    if (costPercent !== undefined) {
+      unit.cost = Math.round((unit.cost * costPercent) / 100 / PRICE_STEP) * PRICE_STEP;
+      unit.bounty = Math.round((unit.cost * BOUNTY_PERCENT) / 100);
+    }
+    units[i] = unit;
+  });
   return {
     id,
     key: look.key,

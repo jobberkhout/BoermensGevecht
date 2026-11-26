@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19 -15 38 30" data-rig="static">
+  <title>Een sûkerbôle: suikerbrood met klontjes erin en een plakkerige druppel</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <g id="loaf" transform="translate(0 0)">
+    <path class="o" fill="#c9873a" d="M-15 4 Q-16 -9 -4 -10 Q0 -12.5 4 -10 Q16 -9 15 4 Q15 8 10 8 L-10 8 Q-15 8 -15 4 Z"/>
+    <path class="n" fill="#e2a85a" d="M-11 -4 Q-6 -9 0 -9 Q-5 -6 -9 -1 Z M3 -8.6 Q10 -8 12 -3 Q8 -6 3 -6.4 Z"/>
+    <path class="n" fill="#a86a2a" d="M-14 4 L14 4 Q14 7 10 7 L-10 7 Q-14 7 -14 4 Z"/>
+    <!-- the sugar lumps baked in, poking through the crust -->
+    <rect class="o" style="stroke-width:1.4" fill="#fff6dc" x="-8" y="-5" width="4" height="4" rx="0.8" transform="rotate(-12 -6 -3)"/>
+    <rect class="o" style="stroke-width:1.4" fill="#fff6dc" x="1" y="-7" width="4" height="4" rx="0.8" transform="rotate(14 3 -5)"/>
+    <rect class="o" style="stroke-width:1.4" fill="#fff6dc" x="6" y="-1" width="3.6" height="3.6" rx="0.8" transform="rotate(-8 8 1)"/>
+    <rect class="o" style="stroke-width:1.4" fill="#fff6dc" x="-3" y="0" width="3.4" height="3.4" rx="0.8"/>
+    <!-- and the syrup: sticky -->
+    <path class="o" style="stroke-width:1.6" fill="#e0a13a" d="M-6 7 Q-6.5 12.5 -4 13 Q-1.5 12.5 -2 7 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#e0a13a" d="M6 7 Q5.8 10 7.2 10.4 Q8.6 10 8.4 7 Z"/>
+  </g>
+</svg>

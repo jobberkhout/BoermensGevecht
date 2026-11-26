@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-124 -128 248 134" data-rig="vehicle">
+  <title>It Tikiskûtsje: een zwevend skûtsje als tikifeestboot, met een palmboom als mast, het bruine zeil als zonnescherm en de zwaarden als sleden</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shove the whole barge. -->
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- Its shadow on the road, a good way down. Joint on the road. -->
+  <g id="shadow" data-parent="chassis" transform="translate(0 0)">
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.2" cx="0" cy="-1" rx="100" ry="5"/>
+  </g>
+
+  <!-- The glow the hover pads blow downwards. Joint at the pads. -->
+  <g id="jets" data-parent="chassis" transform="translate(0 -18)">
+    <g transform="translate(0 18)">
+      <path class="n" fill="#7ff0f0" fill-opacity="0.45" d="M-80 -16 L-60 -16 L-56 -6 L-84 -6 Z M60 -16 L80 -16 L84 -6 L56 -6 Z"/>
+      <path class="n" fill="#7ff0f0" fill-opacity="0.2" d="M-84 -6 L-56 -6 L-54 -2 L-86 -2 Z M56 -6 L84 -6 L86 -2 L54 -2 Z"/>
+    </g>
+  </g>
+
+  <!-- Hover pads instead of wheels. Joints at their hubs. -->
+  <g id="wheel_back" data-parent="chassis" transform="translate(-70 -22)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="9"/>
+    <circle class="n" fill="#7ff0f0" fill-opacity="0.7" cx="0" cy="0" r="6.4"/>
+    <path class="t" style="stroke-width:2" d="M0 -6.4 Q3 -2.2 0 0 Q-3 2.2 0 6.4 M-6.4 0 Q-2.2 -3 0 0 Q2.2 3 6.4 0"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.2"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(70 -22)">
+    <circle class="o" fill="#3a3d4a" cx="0" cy="0" r="9"/>
+    <circle class="n" fill="#7ff0f0" fill-opacity="0.7" cx="0" cy="0" r="6.4"/>
+    <path class="t" style="stroke-width:2" d="M0 -6.4 Q3 -2.2 0 0 Q-3 2.2 0 6.4 M-6.4 0 Q-2.2 -3 0 0 Q2.2 3 6.4 0"/>
+    <circle class="o" style="stroke-width:1.6" fill="#c9d1dc" cx="0" cy="0" r="2.2"/>
+  </g>
+
+  <!-- The barge. Joint just above the pads, so it bobs as one. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -30)">
+    <g transform="translate(0 30)">
+      <!-- the tiki bar on the afterdeck: posts, a thatched roof, a counter with a row of glasses -->
+      <path class="t" style="stroke-width:3" d="M-82 -58 L-82 -76 M-34 -58 L-34 -76"/>
+      <path class="o" fill="#d9b45a" d="M-92 -74 L-24 -74 L-30 -82 L-86 -82 Z"/>
+      <path class="t" style="stroke:#a8823a;stroke-width:1.4" d="M-86 -74 L-84 -79 M-76 -74 L-75 -80 M-66 -74 L-66 -81 M-56 -74 L-56 -81 M-46 -74 L-46 -81 M-36 -74 L-37 -80"/>
+      <rect class="o" fill="#8a5a2e" x="-84" y="-66" width="44" height="10" rx="2"/>
+      <path class="o" style="stroke-width:1.6" fill="#ff6fae" d="M-78 -66 L-72 -66 L-73 -72 L-77 -72 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffd21f" d="M-66 -66 L-60 -66 L-61 -72 L-65 -72 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#7fd35b" d="M-54 -66 L-48 -66 L-49 -72 L-53 -72 Z"/>
+      <!-- the hull: black tar below, varnished wood above, the bluff bow of a skûtsje -->
+      <path class="o" fill="#2f3340" d="M-112 -58 L106 -58 Q120 -58 118 -48 Q114 -34 98 -32 L-96 -32 Q-112 -34 -114 -48 Z"/>
+      <path class="o" fill="#a5672e" d="M-114 -60 L108 -60 Q119 -60 119 -54 L-114 -54 Z"/>
+      <path class="n" fill="#c98a45" d="M-110 -59 L104 -59 L104 -57 L-110 -57 Z"/>
+      <path class="t" style="stroke:#4a5060;stroke-width:1.6" d="M-108 -46 L114 -46"/>
+      <!-- a garland of flowers along the rail -->
+      <path class="t" style="stroke:#3fae6a;stroke-width:1.4" d="M-104 -54 Q-90 -48 -76 -54 Q-62 -48 -48 -54 Q-34 -48 -20 -54 Q-6 -48 8 -54 Q22 -48 36 -54 Q50 -48 64 -54 Q78 -48 92 -54"/>
+      <g class="n">
+        <circle fill="#ff6fae" cx="-90" cy="-50" r="2.4"/>
+        <circle fill="#ffd21f" cx="-62" cy="-50" r="2.4"/>
+        <circle fill="#ff6fae" cx="-34" cy="-50" r="2.4"/>
+        <circle fill="#ffd21f" cx="-6" cy="-50" r="2.4"/>
+        <circle fill="#ff6fae" cx="22" cy="-50" r="2.4"/>
+        <circle fill="#ffd21f" cx="50" cy="-50" r="2.4"/>
+        <circle fill="#ff6fae" cx="78" cy="-50" r="2.4"/>
+      </g>
+      <!-- the bow ornament: a little carved tiki face where the swan used to be -->
+      <path class="o" style="stroke-width:2" fill="#c98a45" d="M110 -60 L110 -72 Q116 -74 117 -68 L116 -60 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M112 -69 L115 -69 M112 -64 L115.6 -64"/>
+      <!-- the trunk of the palm: the mast -->
+      <path class="o" fill="#a5672e" d="M2 -58 Q0 -86 6 -112 L12 -112 Q8 -86 10 -58 Z"/>
+      <path class="t" style="stroke:#7a4a26" d="M2.6 -66 L9.6 -67 M2.2 -76 L9 -77 M2.6 -86 L9 -87 M4 -96 L10 -97 M5.4 -106 L11 -107"/>
+      <!-- the poles of the two tiki torches; the flames are their own parts -->
+      <path class="t" style="stroke:#8a5a2e;stroke-width:3" d="M102 -60 L102 -96 M-116 -60 L-116 -98"/>
+      <path class="o" style="stroke-width:1.8" fill="#c98a45" d="M98 -96 L106 -96 L105 -91 L99 -91 Z M-120 -98 L-112 -98 L-113 -93 L-119 -93 Z"/>
+      <!-- the stern lantern post and the rudder head -->
+      <rect class="o" fill="#8a5a2e" x="-118" y="-66" width="8" height="10" rx="2"/>
+    </g>
+  </g>
+
+  <!-- The fronds on top of the palm, with a bunch of coconuts. Joint where they leave the trunk. -->
+  <g id="palm" data-parent="body" transform="translate(9 -112)">
+    <g transform="translate(-9 112)">
+      <path class="o" fill="#3fae6a" d="M9 -112 Q-12 -118 -32 -100 Q-14 -108 9 -107 Z"/>
+      <path class="o" fill="#3fae6a" d="M9 -112 Q32 -120 52 -102 Q32 -108 9 -107 Z"/>
+      <path class="o" fill="#5ccf86" d="M9 -112 Q-6 -126 -22 -120 Q-8 -118 7 -109 Z"/>
+      <path class="o" fill="#5ccf86" d="M9 -112 Q24 -126 40 -118 Q26 -118 11 -109 Z"/>
+      <circle class="o" fill="#7a4a26" cx="5" cy="-107" r="4"/>
+      <circle class="o" fill="#7a4a26" cx="13" cy="-107" r="4"/>
+    </g>
+  </g>
+
+  <!-- The helmsman at the tiller: sunglasses, a shirt of parrots, a cocktail. Joint at his seat on the stern. -->
+  <g id="crew_a" data-parent="body" transform="translate(-102 -62)">
+    <g transform="translate(102 62)">
+      <path class="t" style="stroke-width:3.4" d="M-114 -60 L-92 -70"/>
+      <path class="o" fill="#1d5fa8" d="M-110 -62 Q-114 -80 -104 -84 Q-92 -84 -92 -62 Z"/>
+      <g class="n" fill="#ffd21f">
+        <circle cx="-105" cy="-75" r="1.8"/>
+        <circle cx="-98" cy="-68" r="1.8"/>
+      </g>
+      <path class="n" fill="#e5283f" d="M-101 -78 l2 -2 l2 2 Z"/>
+      <ellipse class="o" fill="#ee8a6e" cx="-100" cy="-91" rx="8" ry="8"/>
+      <path class="o" style="stroke-width:1.8" fill="#2b1b16" d="M-100 -94 L-91 -95 L-91 -90 L-99 -90 Z"/>
+      <path class="o" fill="#fbf8f0" d="M-109 -96 Q-106 -102 -98 -101 Q-92 -100 -93 -96 Z"/>
+      <path class="t" style="stroke-width:1.8" d="M-95 -85 Q-92 -84 -90 -86"/>
+      <path class="o" style="stroke-width:1.6" fill="#ff6fae" d="M-92 -76 L-86 -76 Q-86 -70 -89 -70 Q-92 -70 -92 -76 Z"/>
+    </g>
+  </g>
+
+  <!-- The other one, hanging out over the high side the way skûtsje crews do. Joint at his hips on the rail. -->
+  <g id="crew_b" data-parent="body" transform="translate(70 -60)">
+    <g transform="translate(-70 60)">
+      <path class="o" fill="#f2f0ea" d="M62 -60 L74 -60 L76 -54 L60 -54 Z"/>
+      <path class="o" fill="#ff8a3d" d="M64 -60 Q62 -78 74 -84 Q86 -84 82 -60 Z"/>
+      <g class="n" fill="#ffe0f0">
+        <circle cx="70" cy="-76" r="1.8"/>
+        <circle cx="77" cy="-68" r="1.8"/>
+      </g>
+      <ellipse class="o" fill="#ee8a6e" cx="82" cy="-92" rx="8" ry="8"/>
+      <path class="o" fill="#e8c46a" d="M71 -96 Q82 -107 94 -96 Z"/>
+      <path class="t" style="stroke-width:2" d="M85 -92 L89 -92"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a2a2a" d="M83 -87 Q87 -84 90 -87 Z"/>
+    </g>
+  </g>
+
+  <!-- His raised arm with the glass. Joint at the shoulder. -->
+  <g id="toast" data-parent="crew_b" transform="translate(78 -80)">
+    <g transform="translate(-78 80)">
+      <path class="o" fill="#ff8a3d" d="M75 -82 L82 -78 L94 -96 L90 -99 Z"/>
+      <circle class="o" fill="#ee8a6e" cx="93" cy="-99" r="3.4"/>
+      <path class="o" style="stroke-width:1.6" fill="#ffd21f" d="M90 -108 L98 -108 Q98 -101 94 -101 Q90 -101 90 -108 Z"/>
+      <path class="t" style="stroke-width:1.2" d="M95 -108 L99 -114"/>
+      <path class="o" style="stroke-width:1.4" fill="#ff6fae" d="M96 -114 Q100 -119 104 -113 Z"/>
+    </g>
+  </g>
+
+  <!-- The leeboard on the near side, a skid now. Joint where it hangs from the rail. -->
+  <g id="leeboard" data-parent="body" transform="translate(36 -60)">
+    <g transform="translate(-36 60)">
+      <path class="o" fill="#a5672e" d="M31 -66 L41 -66 Q58 -46 49 -30 Q36 -25 25 -31 Q21 -48 31 -66 Z"/>
+      <path class="t" style="stroke:#7a4a26" d="M34 -62 Q29 -46 31 -32 M38 -62 Q45 -46 43 -31"/>
+      <circle class="o" style="stroke-width:1.8" fill="#c9d1dc" cx="36" cy="-61" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- Two tiki torches, bow and stern. Joints at the foot of each flame. -->
+  <g id="flame_bow" data-parent="body" transform="translate(102 -96)">
+    <g transform="translate(-102 96)">
+      <path class="o" style="stroke-width:1.8" fill="#ff8a3d" d="M102 -96 Q95 -102 102 -112 Q109 -102 102 -96 Z"/>
+      <path class="n" fill="#ffd21f" d="M102 -98 Q99 -102 102 -106 Q105 -102 102 -98 Z"/>
+    </g>
+  </g>
+  <g id="flame_stern" data-parent="body" transform="translate(-116 -98)">
+    <g transform="translate(116 98)">
+      <path class="o" style="stroke-width:1.8" fill="#ff8a3d" d="M-116 -98 Q-123 -104 -116 -114 Q-109 -104 -116 -98 Z"/>
+      <path class="n" fill="#ffd21f" d="M-116 -100 Q-119 -104 -116 -108 Q-113 -104 -116 -100 Z"/>
+    </g>
+  </g>
+</svg>

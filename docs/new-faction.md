@@ -120,6 +120,15 @@ After this step the game knows the faction and the tests tell you everything tha
      `shieldScatters: '<drawing>'` makes the schild dearer and slower and leave a group behind when it
      falls, who come as `<era id>.scattered` (one more drawing). `summonedStats` gives whoever a summon calls in numbers of their own instead of the
      temperament.
+   - `perks` gives single units a rule of their own on top of their role, per slot (`light`, `ranged`,
+     `heavy`, `shield`; the fourth slot is the super unit in 2050). Six exist, with their numbers in
+     `src/defs/balance.ts` and their rules in `src/sim/stunts.ts`; `src/defs/friezen.ts` shows four:
+     `vault` (VAULT, the pole vaulter: leaps over the first enemy it meets and sits dazed; its drawing
+     needs a `vault` and a `dazed` clip), `charge` (CHARGE, the skater who cannot brake: fast until a
+     first blow that hits harder and shoves, then dazed; a `dazed` clip), `sticky` (STICKY, throws that
+     glue the enemy to half pace), `soup` (SOUP, a unit that patches up its neighbours every second),
+     `returns` (RETURN, Padel-Pepijn: sends enemy throws back) and `bounce` (BOUNCE, Smijtink: a throw that
+     bounces on to the unit behind).
    - `TEMPER`, at the top of the sheet and passed to every `makeEra` call: the faction's temperament. Per
      role (`light`, `ranged`, `heavy`, `shield`) it gives percentages of the shared numbers: `cost`,
      `buildTicks`, `hp`, `speed`, `dmg`, `recover` (the pause between two blows) and, for the ranged unit
@@ -168,7 +177,7 @@ Every era has its own special, and the three must be of different kinds. These k
 | Kind | What it does | What its drawing is, and how the game uses it |
 |---|---|---|
 | `wave` | Sweeps the lane from your gate and hits every enemy unit once | A rig with a `walk` clip (driven by `stride`), about 190 wide and 130 tall, feet at y = 0. Drawn three times behind each other, one per row. A `static` scene with only an `idle` clip works too; it plays in time as it goes. Examples: `achterhoek/2025/special_kolonne` (a `vehicle`), `gasten/2025/special_toeterstoet` (`static`, `idle`) |
-| `stun` | Enemy units can neither walk nor fight for a few seconds | A `static` scene with an `idle` clip, about 156 wide and 118 tall, standing on the road at y = 0. It appears in front of the units it stops, facing them. Example: `havermelk/2025/special_blokkade` |
+| `stun` | Enemy units can neither walk nor fight for a few seconds. With `look: 'ice'` they stand on blue ice, pale blue and slipping, instead of glued (De winter van '63) | A `static` scene with an `idle` clip, about 156 wide and 118 tall, standing on the road at y = 0. It appears in front of the units it stops, facing them. Example: `havermelk/2025/special_blokkade` |
 | `buff` | Your units hit harder and move faster for a few seconds | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet. It pops up beside your own base, on the verge behind the road, for as long as the buff lasts. Examples: `achterhoek/1975/special_hoken`, `zuidas/1975/special_gong` |
 | `heal` | Your units on the lane get their hit points back | A small `static` drawing around (0,0), about 50 by 48. Three of them float up from every healed unit. Example: `havermelk/1975/special_lovein` |
 | `barrage` | A number of blows, one after another, on the foremost enemy unit, or the base | A small `static` drawing around (0,0) with an `idle` clip, about 78 by 46. Up to six hover in formation over the victim and dive one by one. Example: `achterhoek/2050/special_zwerm` |
@@ -177,6 +186,8 @@ Every era has its own special, and the three must be of different kinds. These k
 | `divert` | For a few seconds everything the enemy earns is paid to you instead: their income and their bounties | A `static` scene with an `idle` clip, about 232 wide and 154 tall, y = 0 at its feet, like the one of a `buff`: it stands beside your own base for as long as it lasts. It needs a marker `slot` where the money goes in; the game makes coins fly there from the enemy's purse and from every unit they beat. Example: `zuidas/2050/special_succesfee` |
 | `summon` | A number of free units of your own come out at your gate, whatever the unit cap, ahead of anyone in training. They pay no bounty when beaten. With `ticks`, they all leave again after that long, paying nobody | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `buff`. With `ticks` it is a ship instead: drawn behind your base at full size with (0,0) at the gate, it slides in from the edge of the screen and stays until they leave; viewBox about `-300 -660 640 668`, hull bottom at y = -52. **And one more drawing**: the unit it calls in, a `humanoid` like a light unit, named in the era's `summoned` field; it comes as `<era id>.summoned` with the numbers of the era's light unit and the faction's temperament, or `summonedStats`. So a faction with a summon has 30 drawings. Examples: `gasten/2050/special_familie_app` with `gasten/2050/holoneef`; `toeristen/2025/special_cruiseschip` with `toeristen/2025/dagjesmens` |
 | `hike` | For a few seconds everything the enemy buys costs more: units, turrets, subsidie and modernizing. Their buttons show the prices in red. It starts on the tick after it is pressed | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post. It falls out of the sky onto the verge beside the enemy's base and stands there for as long as it lasts. Example: `toeristen/2050/special_huurverhoging` |
+| `revive` | The last `count` units of your own that were beaten come back out of your gate, fresh, whatever the unit cap. Not super units, not units a special called in | A `static` scene with an `idle` clip, about 232 wide and 176 tall, y = 0 at its feet, shown beside your own base for two and a half seconds like the one of a `summon`. Example: `friezen/2025/special_bezemwagen` |
+| `siesta` | For a few seconds the enemy's turrets do not fire; they snore | A `static` sign with an `idle` clip, about 150 wide and 190 tall, (0,0) at the foot of its post, falling beside the enemy's base like the one of a `hike`. Example: `friezen/2050/special_tropenrooster` |
 
 Whatever the kind, the drawing in its rest pose is also the picture on the special button and on the
 title card, about 50 pixels wide. It has to read at that size.

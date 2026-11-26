@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-316 -596 332 602" data-rig="static">
+  <title>Terp 2.0: een vers opgeworpen terp met palmen, een stjelp met een tikidak, flamingo's op het uleboard en bovenop een glazen koepel met het laatste natuurijs</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The farm stands behind it, to the left, on its mound. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole on the roof -->
+    <path class="t" style="stroke-width:5" d="M-288 -440 L-288 -552"/>
+    <circle class="o" fill="#ffd21f" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the plinth of the ice dome, on the ridge -->
+    <rect class="o" fill="#8fa3b3" x="-116" y="-532" width="56" height="12" rx="3"/>
+    <circle class="n" fill="#5fe3ff" cx="-104" cy="-526" r="2"/>
+    <circle class="n" fill="#7fd35b" cx="-96" cy="-526" r="2"/>
+
+    <!-- the thatched roof: a stjelp's big roof, done as a tiki hut -->
+    <path class="o" fill="#d9b45a" d="M-316 -436 L-206 -522 L-48 -522 L16 -436 Z"/>
+    <path class="t" style="stroke:#a8823a;stroke-width:2.2" d="M-280 -440 L-196 -512 M-240 -440 L-176 -514 M-200 -440 L-150 -516 M-160 -440 L-120 -518 M-120 -440 L-94 -518 M-80 -440 L-68 -516 M-40 -440 L-48 -512"/>
+    <path class="n" fill="#efd27e" d="M-200 -514 L-60 -514 L-56 -508 L-204 -508 Z"/>
+    <!-- the ragged fringe along the eaves -->
+    <path class="o" fill="#c59a3e" d="M-318 -440 L-306 -426 L-294 -440 L-282 -426 L-270 -440 L-258 -426 L-246 -440 L-234 -426 L-222 -440 L-210 -426 L-198 -440 L-186 -426 L-174 -440 L-162 -426 L-150 -440 L-138 -426 L-126 -440 L-114 -426 L-102 -440 L-90 -426 L-78 -440 L-66 -426 L-54 -440 L-42 -426 L-30 -440 L-18 -426 L-6 -440 L6 -426 L18 -440 Z"/>
+
+    <!-- the ûleboerd on the gable, white with its little gable window -->
+    <path class="o" fill="#fbf8f0" d="M-176 -458 L-150 -500 L-124 -458 Z"/>
+    <path class="n" fill="#1d5fa8" d="M-158 -470 L-142 -470 L-142 -462 L-158 -462 Z"/>
+    <path class="t" style="stroke:#1d5fa8;stroke-width:2.6" d="M-170 -462 L-150 -494 L-130 -462"/>
+
+    <!-- the inside of the stjelp, seen through its open front: bamboo walls -->
+    <rect class="o" fill="#2c3a33" x="-296" y="-428" width="292" height="428"/>
+    <path class="t" style="stroke:#3a4d43;stroke-width:2.4" d="M-262 -424 L-262 -296 M-226 -424 L-226 -296 M-190 -424 L-190 -296 M-116 -424 L-116 -296 M-80 -424 L-80 -296 M-44 -424 L-44 -296 M-262 -284 L-262 -146 M-226 -284 L-226 -146 M-190 -284 L-190 -146 M-116 -284 L-116 -146 M-80 -284 L-80 -146 M-44 -284 L-44 -146"/>
+    <!-- a string of party lights under each ceiling -->
+    <path class="t" style="stroke:#5b4a40;stroke-width:1.6" d="M-290 -420 Q-224 -404 -150 -420 Q-76 -404 -10 -420 M-290 -284 Q-224 -268 -150 -284 Q-76 -268 -10 -284"/>
+    <g class="n">
+      <circle fill="#ff6fae" cx="-262" cy="-412" r="3.4"/>
+      <circle fill="#ffd21f" cx="-224" cy="-408" r="3.4"/>
+      <circle fill="#7ff0f0" cx="-186" cy="-412" r="3.4"/>
+      <circle fill="#ff6fae" cx="-114" cy="-412" r="3.4"/>
+      <circle fill="#ffd21f" cx="-76" cy="-408" r="3.4"/>
+      <circle fill="#7ff0f0" cx="-38" cy="-412" r="3.4"/>
+      <circle fill="#ff6fae" cx="-262" cy="-276" r="3.4"/>
+      <circle fill="#ffd21f" cx="-224" cy="-272" r="3.4"/>
+      <circle fill="#7ff0f0" cx="-186" cy="-276" r="3.4"/>
+      <circle fill="#ff6fae" cx="-114" cy="-276" r="3.4"/>
+      <circle fill="#ffd21f" cx="-76" cy="-272" r="3.4"/>
+      <circle fill="#7ff0f0" cx="-38" cy="-276" r="3.4"/>
+    </g>
+
+    <!-- floors of bamboo, a strip of cool light under each -->
+    <rect class="o" fill="#c98a45" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <path class="t" style="stroke:#a5672e;stroke-width:1.6" d="M-260 -296 L-260 -284 M-210 -296 L-210 -284 M-160 -296 L-160 -284 M-110 -296 L-110 -284 M-60 -296 L-60 -284"/>
+    <rect class="n" fill="#7ff0f0" x="-297" y="-288.4" width="294" height="2.6"/>
+    <rect class="o" fill="#c98a45" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <path class="t" style="stroke:#a5672e;stroke-width:1.6" d="M-260 -146 L-260 -134 M-210 -146 L-210 -134 M-160 -146 L-160 -134 M-110 -146 L-110 -134 M-60 -146 L-60 -134"/>
+    <rect class="n" fill="#7ff0f0" x="-297" y="-138.4" width="294" height="2.6"/>
+    <!-- the corner posts: bamboo -->
+    <rect class="o" fill="#d9b45a" x="-298" y="-428" width="12" height="428"/>
+    <rect class="o" fill="#d9b45a" x="-14" y="-428" width="12" height="294"/>
+    <path class="t" style="stroke:#a8823a;stroke-width:2" d="M-298 -380 L-286 -380 M-298 -330 L-286 -330 M-298 -240 L-286 -240 M-298 -190 L-286 -190 M-298 -90 L-286 -90 M-298 -40 L-286 -40 M-14 -380 L-2 -380 M-14 -330 L-2 -330 M-14 -240 L-2 -240 M-14 -190 L-2 -190"/>
+
+    <!-- ground floor: the old farmhouse front, whitewashed now, with a bar hatch and the green door -->
+    <rect class="o" fill="#f2ead8" x="-286" y="-134" width="184" height="134"/>
+    <rect class="o" fill="#1f5a2a" x="-270" y="-112" width="60" height="112"/>
+    <path class="t" style="stroke:#f4ecdc;stroke-width:4" d="M-264 -106 L-216 -106 L-216 -6 L-264 -6 Z"/>
+    <!-- the hatch, propped open with a paddle, coconuts on the counter -->
+    <rect class="o" fill="#2c3a33" x="-196" y="-104" width="78" height="44"/>
+    <path class="o" fill="#1d5fa8" d="M-200 -108 L-114 -108 L-110 -126 L-204 -126 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-196 -60 L-200 -108"/>
+    <rect class="o" fill="#a5672e" x="-200" y="-62" width="86" height="8" rx="2"/>
+    <circle class="o" style="stroke-width:2.2" fill="#7a4a26" cx="-180" cy="-68" r="6"/>
+    <circle class="o" style="stroke-width:2.2" fill="#7a4a26" cx="-166" cy="-68" r="6"/>
+    <path class="o" style="stroke-width:2" fill="#ff6fae" d="M-146 -76 L-136 -76 Q-136 -64 -141 -64 Q-146 -64 -146 -76 Z"/>
+
+    <!-- the doorway units come out of, garlanded -->
+    <rect class="o" fill="#c98a45" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#1b2227" x="-90" y="-122" width="76" height="122"/>
+    <path class="t" style="stroke:#3fae6a;stroke-width:3" d="M-88 -118 Q-70 -104 -52 -118 Q-34 -104 -16 -118"/>
+    <g class="n">
+      <circle fill="#ff6fae" cx="-78" cy="-111" r="3"/>
+      <circle fill="#ffd21f" cx="-52" cy="-116" r="3"/>
+      <circle fill="#ff6fae" cx="-26" cy="-111" r="3"/>
+    </g>
+    <rect class="o" fill="#d9b45a" x="-102" y="-134" width="12" height="134"/>
+
+    <!-- the mound it stands on, freshly raised, and the sea lapping at its foot -->
+    <path class="o" fill="#e8d29a" d="M-318 6 L-318 -30 Q-300 -42 -270 -38 Q-200 -34 -150 -26 Q-118 -22 -102 -14 L-102 6 Z"/>
+    <path class="n" fill="#7fd35b" d="M-316 -28 Q-300 -40 -270 -36 Q-200 -32 -150 -24 Q-118 -20 -104 -12 L-104 -6 Q-122 -14 -152 -18 Q-200 -26 -270 -30 Q-300 -32 -316 -22 Z"/>
+    <path class="t" style="stroke:#c9b276;stroke-width:1.6" d="M-230 -14 L-222 -16 M-180 -8 L-172 -10 M-140 -6 L-132 -8"/>
+    <path class="o" fill="#5fb8e0" d="M-318 6 L-318 -14 Q-306 -22 -294 -14 Q-282 -6 -270 -12 Q-262 -4 -258 6 Z"/>
+    <path class="t" style="stroke:#fbf8f0;stroke-width:2" d="M-312 -10 Q-306 -14 -300 -10"/>
+    <!-- the old village sign, now half in the water: a ring of a lifebuoy hangs on it -->
+    <path class="t" style="stroke-width:3" d="M-246 -32 L-246 -66"/>
+    <circle class="o" style="stroke-width:2.4" fill="none" cx="-246" cy="-52" r="9"/>
+    <path class="t" style="stroke:#e5283f;stroke-width:4" d="M-252.4 -58.4 L-250 -56 M-239.6 -58.4 L-242 -56 M-252.4 -45.6 L-250 -48 M-239.6 -45.6 L-242 -48"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-146" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-296" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The two flamingos on top of the ûleboerd, where the swans used to stand. Joint at their feet. -->
+  <g id="flamingo" data-parent="building" transform="translate(-150 -500)">
+    <path class="t" style="stroke:#e86fa0;stroke-width:2" d="M-6 0 L-6 -12 M6 0 L6 -12"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ff8ab8" cx="-8" cy="-16" rx="8" ry="5"/>
+    <ellipse class="o" style="stroke-width:2" fill="#ff8ab8" cx="8" cy="-16" rx="8" ry="5"/>
+    <path class="t" style="stroke:#2b1b16;stroke-width:5" d="M-12 -18 Q-20 -30 -12 -36"/>
+    <path class="t" style="stroke:#ff8ab8;stroke-width:3" d="M-12 -18 Q-20 -30 -12 -36"/>
+    <path class="t" style="stroke:#2b1b16;stroke-width:5" d="M12 -18 Q20 -30 12 -36"/>
+    <path class="t" style="stroke:#ff8ab8;stroke-width:3" d="M12 -18 Q20 -30 12 -36"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ff8ab8" cx="-11" cy="-38" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ff8ab8" cx="11" cy="-38" r="3.6"/>
+    <path class="o" style="stroke-width:1.4" fill="#2b1b16" d="M-8 -39 L-3 -37 L-7 -35 Z M8 -39 L3 -37 L7 -35 Z"/>
+  </g>
+
+  <!-- The ice dome on the ridge: the last natural ice of Fryslân, kept under glass. Joint at its foot. -->
+  <g id="dome" data-parent="building" transform="translate(-88 -532)">
+    <rect class="o" style="stroke-width:2.4" fill="#e8f8ff" x="-14" y="-20" width="28" height="20" rx="2"/>
+    <path class="o" style="stroke-width:2" fill="#bfe8f7" d="M-14 -20 L-6 -26 L20 -26 L14 -20 Z"/>
+    <path class="o" style="stroke-width:2" fill="#9fd8ef" d="M14 -20 L20 -26 L20 -6 L14 0 Z"/>
+    <path class="o" fill="#bfe8f7" fill-opacity="0.45" d="M-26 0 Q-26 -50 0 -50 Q26 -50 26 0 Z"/>
+  </g>
+
+  <!-- The shine on the dome. Joint in its middle. -->
+  <g id="glint" data-parent="dome" transform="translate(-102 -566)">
+    <path class="n" fill="#ffffff" d="M-4 4 Q-2 -6 6 -10 Q2 -2 0 6 Z"/>
+  </g>
+
+  <!-- The palm by the door, leaning out over the road. Joint at the foot of the trunk. -->
+  <g id="palm" data-parent="building" transform="translate(0 -134)">
+    <g transform="translate(0 134)">
+      <path class="o" fill="#a5672e" d="M-4 -134 Q-12 -300 -4 -456 L6 -456 Q-2 -300 6 -134 Z"/>
+      <path class="t" style="stroke:#7a4a26" d="M-5 -170 L5 -172 M-7 -220 L4 -222 M-8 -270 L3 -272 M-8 -320 L3 -322 M-7 -370 L4 -372 M-5 -420 L5 -422"/>
+      <path class="o" fill="#3fae6a" d="M0 -458 Q-40 -474 -70 -444 Q-38 -456 -2 -452 Z"/>
+      <path class="o" fill="#3fae6a" d="M2 -458 Q14 -470 13 -436 Q8 -450 0 -452 Z"/>
+      <path class="o" fill="#5ccf86" d="M0 -460 Q-26 -494 -56 -488 Q-28 -480 -2 -456 Z"/>
+      <path class="o" fill="#5ccf86" d="M2 -460 Q2 -492 12 -500 Q-2 -478 0 -456 Z"/>
+      <path class="o" fill="#4bbf78" d="M0 -459 Q-20 -462 -40 -430 Q-18 -446 -1 -454 Z"/>
+      <circle class="o" fill="#7a4a26" cx="-4" cy="-450" r="5"/>
+      <circle class="o" fill="#7a4a26" cx="6" cy="-450" r="5"/>
+    </g>
+  </g>
+</svg>

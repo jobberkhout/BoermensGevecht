@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -17 34 34" data-rig="static">
+  <title>Een kokosnoot</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+  <!-- A hairy brown coconut with its three eyes, a little surprised to be served. Origin = its middle. -->
+  <g id="nut" transform="translate(0 0)">
+    <path class="o" fill="#7a4a26" d="M-13 1 Q-14 -11 -2 -13 Q12 -14 13 -1 Q14 12 1 13 Q-12 13 -13 1 Z"/>
+    <path class="n" fill="#946036" d="M-9 -6 Q-6 -11 1 -11 Q-5 -8 -7 -2 Z"/>
+    <path class="t" style="stroke:#5a3418" d="M-10 4 L-6 2 M-8 9 L-3 6 M5 9 L8 5 M9 -3 L11 -6 M-2 -9 L1 -7 M3 1 L6 -1"/>
+    <circle class="n" fill="#2b1b16" cx="2" cy="-5" r="1.8"/>
+    <circle class="n" fill="#2b1b16" cx="7" cy="-3" r="1.8"/>
+    <circle class="n" fill="#2b1b16" cx="4.6" cy="1.4" r="1.8"/>
+  </g>
+</svg>

@@ -22,5 +22,6 @@ describe('the computer', () => {
       }
     }
     expect(won / played).toBeGreaterThan(0.85);
-  });
+    // Every pair of factions in both seats: it grows with the square of the factions, six by 26 November 2026.
+  }, 30_000);
 });

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-54 -138 108 144" data-rig="humanoid">
+  <title>Beppe's Koek-en-zopie: Beppe achter haar kraampje op ijzers, gestreepte luifel, een pan dampende erwtensoep</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-26 -38)"/>
+
+  <!-- The far arm, on the handle at the back of the stall. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-36 -72)">
+    <path class="o" fill="#2d3e7a" d="M-5 -3 Q-7 9 -4 16 L6 16 Q7 8 5 -3 Z"/>
+    <path class="o" fill="#2d3e7a" d="M-3 14 L21 22 L18 28 L-6 20 Z"/>
+    <circle class="o" fill="#e9b493" cx="22" cy="26" r="4.2"/>
+  </g>
+
+  <!-- A long dark skirt, thick stockings, and black shoes with a strap. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-31 -38)">
+    <path class="o" fill="#3a2f3f" d="M-7 -3 L7 -3 L6 26 L-6 26 Z"/>
+    <path class="o" fill="#4a4a52" d="M-5 25 L5 25 L5 32 L-5 32 Z"/>
+    <path class="o" fill="#1f1f24" d="M-7 38 L-7 33 Q-7 30.5 -3 30.5 L4 30.5 Q11 31 13 34 L13 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-21 -38)">
+    <path class="o" fill="#463a4c" d="M-7 -3 L7 -3 L6 26 L-6 26 Z"/>
+    <path class="o" fill="#55555e" d="M-5 25 L5 25 L5 32 L-5 32 Z"/>
+    <path class="o" fill="#26262c" d="M-7 38 L-7 33 Q-7 30.5 -3 30.5 L4 30.5 Q11 31 13 34 L13 38 Z"/>
+    <path class="t" style="stroke:#6e6e78;stroke-width:1.2" d="M-3 31 L5 33"/>
+  </g>
+
+  <!-- A navy winter coat, buttoned, and a white apron over it. -->
+  <g id="torso" data-parent="hips" transform="translate(-26 -40)">
+    <path class="o" fill="#2d3e7a" d="M-17 8 Q-20 -14 -16 -30 Q-12 -37 0 -37 Q13 -37 17 -30 Q21 -13 18 8 Z"/>
+    <path class="n" fill="#24336a" d="M-15.6 6.8 Q-18.4 -14 -15 -29 Q-11 -20 -10.5 6.8 Z"/>
+    <path class="o" style="stroke-width:2" fill="#fbfbf7" d="M-4 8 L-4 -20 Q4 -23 12 -20 L14 8 Z"/>
+    <circle class="n" fill="#f2c94c" cx="-8" cy="-24" r="1.4"/>
+    <circle class="n" fill="#f2c94c" cx="-8" cy="-12" r="1.4"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-25 -76)">
+    <rect class="o" fill="#d99c7d" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f0c0a0" cx="2" cy="-20" rx="18" ry="17.5"/>
+    <!-- the headscarf: red with white dots, knotted under her chin -->
+    <path class="o" fill="#d8342c" d="M-17 -12 Q-22 -40 2 -40 Q24 -40 20 -24 Q8 -32 -4 -28 Q-11 -24 -12 -10 Q-14 -2 -8 2 L-12 3 Q-19 -2 -17 -12 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#d8342c" d="M-10 1 L-4 -2 L-6 6 Z"/>
+    <circle class="n" fill="#ffffff" cx="-8" cy="-33" r="1.5"/>
+    <circle class="n" fill="#ffffff" cx="1" cy="-36" r="1.5"/>
+    <circle class="n" fill="#ffffff" cx="11" cy="-34" r="1.5"/>
+    <circle class="n" fill="#ffffff" cx="-13" cy="-24" r="1.5"/>
+    <circle class="n" fill="#ffffff" cx="-12" cy="-14" r="1.5"/>
+    <circle class="n" fill="#ffffff" cx="16" cy="-29" r="1.3"/>
+    <!-- grey curls peeking out -->
+    <path class="o" style="stroke-width:1.8" fill="#d9d9de" d="M-5 -27 Q-1 -31 3 -28 Q7 -31 11 -27 Q8 -25 3 -26 Q-1 -24 -5 -27 Z"/>
+    <!-- round glasses, rosy cheeks, the smile of someone who has made soup for sixty years -->
+    <ellipse class="n" fill="#e5583f" fill-opacity="0.45" cx="6" cy="-11" rx="4.6" ry="3"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" fill-opacity="0.5" cx="9.5" cy="-19.5" r="4.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" fill-opacity="0.5" cx="19" cy="-19" r="3.8"/>
+    <path class="t" style="stroke-width:1.4" d="M14 -20 L15.4 -20"/>
+    <circle class="n" fill="#2b1b16" cx="10.5" cy="-19.5" r="1.7"/>
+    <circle class="n" fill="#2b1b16" cx="19.4" cy="-19" r="1.5"/>
+    <path class="o" fill="#f0c0a0" d="M21 -16.5 Q25 -13.5 20.5 -11.5"/>
+    <path class="t" style="stroke-width:1.9" d="M9 -8.6 Q13.6 -5.2 18 -8.4"/>
+  </g>
+
+  <!-- The near arm, reaching over the counter with the ladle. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-15 -72)">
+    <path class="o" fill="#2d3e7a" d="M-6 -3 Q-8 6 -6.5 13 L6 13 Q7 6 6 -3 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" d="M0 11 L16 6 L30 -10"/>
+    <path fill="none" stroke="#2d3e7a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M0 11 L16 6 L30 -10"/>
+    <circle class="o" fill="#f0c0a0" cx="31" cy="-13" r="4.2"/>
+  </g>
+
+  <!-- The ladle, from her hand down into the pan. Joint in her hand. -->
+  <g id="ladle" data-parent="arm_front" transform="translate(16 -85)">
+    <path class="o" style="stroke-width:1.8" fill="#b9c2c8" d="M-1 -4 L1.8 -4 L7.6 9 L5 10 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#b9c2c8" d="M2 9 Q6.4 15 11 8 Z"/>
+  </g>
+
+  <!-- The stall on its runners, pushed towards the enemy. What is thrown lands in the soup. Joint where she holds it. -->
+  <g id="stall" data-parent="hips" transform="translate(-4 -40)">
+    <!-- the awning poles and the striped awning -->
+    <path class="o" fill="#d7dde2" d="M6 -27 L6 -88 L9.4 -88 L9.4 -27 Z M38 -27 L38 -88 L41.4 -88 L41.4 -27 Z"/>
+    <path class="o" fill="#ffffff" d="M-16 -82 L-10 -96 L46 -96 L50 -82 Z"/>
+    <path class="n" fill="#d8342c" d="M-13 -89 L-10.4 -95 L-2 -95 L-4.6 -83 L-14 -83 Z M6 -95 L14 -95 L12.4 -83 L4.4 -83 Z M22 -95 L30 -95 L30.4 -83 L22.4 -83 Z M38 -95 L45.4 -95 L48.4 -83 L40.4 -83 Z"/>
+    <path class="o" fill="none" d="M-16 -82 L-10 -96 L46 -96 L50 -82 Z"/>
+    <!-- the scalloped edge -->
+    <path class="o" fill="#d8342c" d="M-16 -82 Q-12 -76 -8 -82 Q-4 -76 0 -82 Q4 -76 8 -82 Q12 -76 16 -82 Q20 -76 24 -82 Q28 -76 32 -82 Q36 -76 40 -82 Q44 -76 50 -82 Z"/>
+    <!-- the box: green planks, and a picture of a steaming cup and a slice of koek, no words -->
+    <rect class="o" fill="#2f7a4a" x="-2" y="-24" width="46" height="56" rx="2"/>
+    <path class="t" style="stroke:#246338;stroke-width:1.4" d="M-1 -10 L43 -10 M-1 4 L43 4 M-1 18 L43 18"/>
+    <rect class="o" style="stroke-width:2" fill="#fff6dc" x="8" y="-6" width="26" height="22" rx="2"/>
+    <path class="o" style="stroke-width:1.6" fill="#ffffff" d="M12 2 L22 2 L21 12 L13 12 Z"/>
+    <path class="t" style="stroke-width:1.4" d="M22 4 Q26 6 22 9"/>
+    <path class="t" style="stroke:#9aa3aa;stroke-width:1.3" d="M15 -1 Q14 -3 16 -4 M19 -1 Q18 -3 20 -4"/>
+    <path class="o" style="stroke-width:1.6" fill="#c9873a" d="M25 12 L32 12 L30 4 Z"/>
+    <!-- the counter -->
+    <rect class="o" fill="#c49a5a" x="-5" y="-29" width="52" height="6" rx="1.5"/>
+    <!-- two mugs of hot chocolate -->
+    <path class="o" style="stroke-width:1.8" fill="#ffffff" d="M4 -38 L12 -38 L11.4 -29 L4.6 -29 Z"/>
+    <path class="n" fill="#7a4a2a" d="M5 -36.6 L11.6 -36.6 L11.5 -35 L5.2 -35 Z"/>
+    <!-- struts and the runners: it is a sled -->
+    <path class="t" style="stroke-width:2.4" d="M4 32 L4 38 M38 32 L38 38"/>
+    <path class="o" fill="#3a3a3a" d="M-6 37 L40 37 Q50 37 50 28 L53 28 Q54 40 40 40 L-6 40 Z"/>
+  </g>
+
+  <!-- The pan of erwtensoep on the counter. It jumps when something lands in it. -->
+  <g id="pot" data-parent="stall" transform="translate(29 -69)">
+    <path class="o" fill="#8e979f" d="M-12 -10 L12 -10 L10 0 L-10 0 Z"/>
+    <path class="o" style="stroke-width:1.8" fill="#8e979f" d="M-12 -8 L-15 -8 M12 -8 L15 -8"/>
+    <ellipse class="o" style="stroke-width:1.8" fill="#8faa3a" cx="0" cy="-10" rx="12" ry="3"/>
+    <circle class="n" fill="#c76a4a" cx="-4" cy="-10.4" r="1.4"/>
+    <circle class="n" fill="#c76a4a" cx="4" cy="-9.6" r="1.2"/>
+  </g>
+
+  <!-- Steam off the soup. -->
+  <g id="steam" data-parent="stall" transform="translate(29 -82)">
+    <path fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" d="M-4 0 Q-8 -5 -4 -10 Q0 -15 -4 -20 M4 0 Q0 -5 4 -10 Q8 -15 4 -20"/>
+    <path fill="none" stroke="#c9ced4" stroke-width="1.2" stroke-linecap="round" d="M-4 0 Q-8 -5 -4 -10 Q0 -15 -4 -20 M4 0 Q0 -5 4 -10 Q8 -15 4 -20"/>
+  </g>
+</svg>

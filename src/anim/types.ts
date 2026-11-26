@@ -53,6 +53,14 @@ export interface ClipSet {
   die: Clip;
   /** Laid on top of whatever else is playing when one aboard tosses something: the beer bikes (UnitDef.toss). */
   toss?: Clip;
+  /**
+   * The pole vaulter's leap over the first enemy it meets (UnitDef.vault). Played once, from the
+   * start of the leap to the landing; the game carries the body along the arc, so the feet stay at
+   * the origin and the clip does the pole, the limbs and the tumble.
+   */
+  vault?: Clip;
+  /** Loops in place of idle while a unit sits dazed after a stunt of its own: the vaulter after landing, the skater who could not brake. */
+  dazed?: Clip;
 }
 
 /** The clips every unit has. */

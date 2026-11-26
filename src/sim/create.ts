@@ -26,6 +26,8 @@ function createSide(faction: FactionId): SideState {
     hikeFrom: 0,
     hikeUntil: 0,
     hikePercent: 100,
+    fallen: [],
+    siestaUntil: 0,
   };
 }
 
