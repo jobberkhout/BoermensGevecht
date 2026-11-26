@@ -149,7 +149,7 @@
       <ellipse class="o" style="stroke-width:1.6" fill="#c6cfd2" cx="89" cy="-59.6" rx="4" ry="2.4" transform="rotate(-30 89 -59.6)"/>
       <rect class="o" style="stroke-width:1.4" fill="#fbf8f0" x="86.4" y="-66.4" width="5" height="5" rx="0.8"/>
       <circle class="o" style="stroke-width:1.6" fill="#b07850" cx="76" cy="-52" r="3.2"/>
-      <circle data-mount="muzzle" fill="none" cx="90" cy="-64" r="1"/>
     </g>
+    <circle data-mount="muzzle" fill="none" cx="30" cy="-4" r="1"/>
   </g>
 </svg>

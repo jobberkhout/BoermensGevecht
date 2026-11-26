@@ -116,7 +116,7 @@
         <path class="t" style="stroke:#2f9f80;stroke-width:1.1;stroke-dasharray:1.4 1.4" d="M32 -81 L32 -75"/>
       </g>
       <circle class="o" fill="#b07850" cx="25" cy="-69" r="4.8"/>
-      <circle data-mount="hand" fill="none" cx="29" cy="-76" r="1"/>
     </g>
+    <circle data-mount="hand" fill="none" cx="19" cy="-4" r="1"/>
   </g>
 </svg>

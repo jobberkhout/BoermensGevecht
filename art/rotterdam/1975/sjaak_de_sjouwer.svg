@@ -100,7 +100,7 @@
       <path class="o" fill="#dd9d74" d="M-5.8 9.6 Q-7.4 17 -5.4 25 L5.4 25 Q7.4 17 5.8 9.6 Z"/>
       <path class="t" style="stroke:#a86b48;stroke-width:1" d="M-2 14 L-1 16 M1.6 17 L2.6 19 M-2.4 20 L-1.4 22"/>
       <circle class="o" fill="#dd9d74" cx="0" cy="27" r="5.6"/>
-      <circle data-mount="hand" fill="none" cx="0" cy="34" r="1"/>
     </g>
+    <circle data-mount="hand" fill="none" cx="22.8" cy="25.3" r="1"/>
   </g>
 </svg>

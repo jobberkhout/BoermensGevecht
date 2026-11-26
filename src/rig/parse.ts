@@ -183,7 +183,12 @@ export function parseRig(id: string, text: string, dom: Dom): RigSource {
       }
     }
 
-    // Markers say where things attach (a hand, a muzzle). They are not drawn.
+    // Markers say where things attach (a hand, a muzzle). They are not drawn. Only one that is a direct
+    // child of its part is read: inside a nested group its spot would need that group's transform too.
+    const nested = (node: Element): Element[] => elements(node).flatMap((c) => [...(c.getAttribute('data-mount') ? [c] : []), ...nested(c)]);
+    for (const deep of elements(el).flatMap(nested)) {
+      problems.push(`part "${partId}": mount "${deep.getAttribute('data-mount')}" sits inside a nested group, where it is not read; make it a direct child of the part, in the part's own coordinates`);
+    }
     const mounts: MountSource[] = [];
     for (const child of elements(el)) {
       const mount = child.getAttribute('data-mount');

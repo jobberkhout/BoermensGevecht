@@ -191,8 +191,8 @@
       <path class="o" fill="#2c3e66" d="M70 -68 Q77 -71 79 -64 L80 -58 L72 -56 Q68 -62 70 -68 Z"/>
       <path class="o" fill="#4b64a0" d="M71 -58.6 L80.6 -60.4 L81.6 -54.4 L72 -52.6 Z"/>
       <path class="o" fill="#f2c4a4" d="M74 -54 L81 -55.4 L89 -62 L86 -66.6 Z"/>
-      <circle data-mount="muzzle" fill="none" cx="91" cy="-74" r="1"/>
     </g>
+    <circle data-mount="muzzle" fill="none" cx="18" cy="-10" r="1"/>
   </g>
 
   <!-- The joystick in his fist, its cable torn off. Joint at his fist. -->

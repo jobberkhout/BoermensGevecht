@@ -124,8 +124,8 @@
     <g transform="translate(-27 58)">
       <path class="o" fill="#c98f66" d="M23 -61 Q26 -66 31 -63 L36 -82 L30 -85 Z"/>
       <circle class="o" fill="#c98f66" cx="34" cy="-86" r="4.4"/>
-      <circle data-mount="muzzle" fill="none" cx="37" cy="-94" r="1"/>
     </g>
+    <circle data-mount="muzzle" fill="none" cx="10" cy="-36" r="1"/>
   </g>
 
   <!-- The alarm clock, ringing. Joint at his fist. -->

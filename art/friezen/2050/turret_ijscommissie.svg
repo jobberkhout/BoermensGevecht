@@ -151,8 +151,8 @@
     <g transform="translate(-84 52)">
       <path class="o" fill="#7fc4ec" d="M80 -56 L88 -58 L92 -50 L84 -48 Z"/>
       <path class="o" fill="#ee8a6e" d="M88 -54 L94 -64 L99 -61 L93 -51 Z"/>
-      <circle data-mount="muzzle" fill="none" cx="98" cy="-69" r="1"/>
     </g>
+    <circle data-mount="muzzle" fill="none" cx="14" cy="-17" r="1"/>
   </g>
 
   <!-- The ice cube in his hand, gone the moment it is thrown. Joint in its middle. -->

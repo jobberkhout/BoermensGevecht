@@ -120,7 +120,7 @@
       <!-- the star -->
       <path class="o" style="stroke-width:1.8" fill="#ffd21f" d="M30 -84 L32.3 -78.6 L38 -78.2 L33.6 -74.4 L35 -68.8 L30 -71.8 L25 -68.8 L26.4 -74.4 L22 -78.2 L27.7 -78.6 Z"/>
       <circle class="o" fill="#f2a98a" cx="25" cy="-69" r="4.8"/>
-      <circle data-mount="hand" fill="none" cx="30" cy="-76" r="1"/>
     </g>
+    <circle data-mount="hand" fill="none" cx="20" cy="-4" r="1"/>
   </g>
 </svg>
