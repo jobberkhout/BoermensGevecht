@@ -236,7 +236,7 @@ async function showOne(id: string): Promise<void> {
     app.append(el('p', { className: 'muted', textContent: 'no clips registered for this rig' }));
     return;
   }
-  for (const name of [...CLIP_NAMES, 'toss', 'vault', 'dazed'] as const satisfies readonly (keyof ClipSet)[]) {
+  for (const name of [...CLIP_NAMES, 'toss', 'vault', 'dazed', 'trick'] as const satisfies readonly (keyof ClipSet)[]) {
     const clip = clips[name];
     if (!clip) continue;
     app.append(el('h2', { textContent: name }), clipFigure(rig, name, clip, clips.idle));

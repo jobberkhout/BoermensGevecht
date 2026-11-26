@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-19 -19 38 38" data-rig="static">
+  <title>Een salvo confetti: een wolk snippers in rood, geel, groen en blauw, en een serpentine die eruit krult</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .c { stroke: #2b1b16; stroke-width: 1.1; stroke-linejoin: round; }
+    .n { stroke: none; }
+  </style>
+  <!-- The burst as it leaves the cannon: a puff, snippers flying out of it, one serpentine curling
+       through. Origin = the middle of the burst. -->
+  <g id="burst" transform="translate(0 0)">
+    <!-- the puff -->
+    <path class="o" fill="#fff3c4" d="M0 -12 L3.4 -7.6 L9 -9.4 L8 -3.6 L13 -1 L8.4 2.6 L10.4 8 L4.6 7.6 L2 12.6 L-1.6 8.2 L-7.4 10.4 L-6.8 4.8 L-12.4 2.4 L-7.8 -1.2 L-10 -6.6 L-4.4 -6.6 Z"/>
+    <!-- the serpentine, curling out of the back -->
+    <path fill="none" stroke="#2b1b16" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" d="M-2 1 Q-8 -2 -10 4 Q-11 9 -15 8 Q-18 6.4 -16.4 3"/>
+    <path fill="none" stroke="#2f9a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-2 1 Q-8 -2 -10 4 Q-11 9 -15 8 Q-18 6.4 -16.4 3"/>
+    <!-- snippers -->
+    <rect class="c" fill="#d8342b" x="-3" y="-5" width="5" height="3.6" transform="rotate(20 -0.5 -3.2)"/>
+    <rect class="c" fill="#2f62b0" x="3" y="-1" width="4.6" height="3.4" transform="rotate(-30 5.3 0.7)"/>
+    <rect class="c" fill="#f6c21c" x="-6" y="2" width="4.6" height="3.4" transform="rotate(40 -3.7 3.7)"/>
+    <rect class="c" fill="#2f9a48" x="1" y="4.4" width="4.4" height="3.2" transform="rotate(-10 3.2 6)"/>
+    <circle class="c" fill="#ffffff" cx="-1" cy="1" r="1.8"/>
+    <rect class="c" fill="#f6c21c" x="11" y="-14" width="4.4" height="3.2" transform="rotate(30 13.2 -12.4)"/>
+    <rect class="c" fill="#d8342b" x="13" y="5" width="4" height="3" transform="rotate(-24 15 6.5)"/>
+    <rect class="c" fill="#2f9a48" x="-6" y="-17" width="4" height="3" transform="rotate(-36 -4 -15.5)"/>
+    <rect class="c" fill="#2f62b0" x="3" y="13" width="4" height="3" transform="rotate(16 5 14.5)"/>
+    <circle class="c" fill="#d8342b" cx="-14" cy="-6" r="1.8"/>
+    <circle class="c" fill="#f6c21c" cx="16" cy="-3" r="1.6"/>
+    <circle class="c" fill="#2f62b0" cx="5" cy="-15" r="1.6"/>
+  </g>
+</svg>

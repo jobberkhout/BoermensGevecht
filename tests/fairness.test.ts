@@ -7,12 +7,14 @@ import type { SideState, SimState } from '../src/sim/types.ts';
 
 /** A side's state without the things that legitimately differ between sides: ids. */
 function shape(side: SideState): unknown {
+  // A turret taken over with the key names the unit that holds it, by id.
+  const turrets = side.turrets.map((t) => (t && t.heldBy !== undefined ? { ...t, heldBy: 0 } : t));
   return {
     era: side.era,
     gold: side.gold,
     baseHp: side.baseHp,
     queue: side.queue,
-    turrets: side.turrets,
+    turrets,
     subsidy: side.subsidy,
     progress: side.progress,
     buffUntil: side.buffUntil,
@@ -23,6 +25,7 @@ function shape(side: SideState): unknown {
     // Ids differ between the seats by construction; a pole vaulter's prey is an id of the other side's.
     units: side.units.map((u) => ({ ...u, id: 0, ...(u.prey === undefined ? {} : { prey: 0 }) })),
     riders: side.riders.map((r) => ({ ...r, id: 0, passed: r.passed.length })),
+    peels: side.peels.map((p) => ({ ...p, id: 0 })),
   };
 }
 

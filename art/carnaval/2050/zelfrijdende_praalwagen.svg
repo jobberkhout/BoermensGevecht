@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-126 -128 252 134" data-rig="vehicle">
+  <title>De Zelfrijdende Praalwagen: een elektrische praalwagen zonder chauffeur, ingepakt in dranghekken en airbags, met een hydraulische nar die op en neer pompt en een opblaasbare hamer</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- Everything hangs from this, so one track can shove the whole float. -->
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- Electric wheels with a glowing hub. Joints at their hubs. -->
+  <g id="wheel_back" data-parent="chassis" transform="translate(-70 -16)">
+    <circle class="o" fill="#2b2430" cx="0" cy="0" r="15"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -8.6 L0 8.6 M-7.4 -4.3 L7.4 4.3 M-7.4 4.3 L7.4 -4.3"/>
+    <circle class="n" fill="#7ff0f0" cx="0" cy="0" r="4.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#eef1f5" cx="0" cy="0" r="2.2"/>
+  </g>
+  <g id="wheel_front" data-parent="chassis" transform="translate(70 -16)">
+    <circle class="o" fill="#2b2430" cx="0" cy="0" r="15"/>
+    <circle class="o" style="stroke-width:2" fill="#c9d1dc" cx="0" cy="0" r="9"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -8.6 L0 8.6 M-7.4 -4.3 L7.4 4.3 M-7.4 4.3 L7.4 -4.3"/>
+    <circle class="n" fill="#7ff0f0" cx="0" cy="0" r="4.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#eef1f5" cx="0" cy="0" r="2.2"/>
+  </g>
+
+  <!-- The float: a low electric platform with a harlequin skirt, a battery at the back, an empty seat at the front and a sensor nose. Joint over the axles. -->
+  <g id="body" data-parent="chassis" transform="translate(0 -30)">
+    <g transform="translate(0 30)">
+      <!-- the battery pack on the afterdeck, with its level and its cable -->
+      <rect class="o" fill="#3a3550" x="-104" y="-74" width="30" height="22" rx="3"/>
+      <rect class="o" style="stroke-width:1.8" fill="#2a2536" x="-99" y="-70" width="20" height="10" rx="1.6"/>
+      <rect class="n" fill="#4dff9a" x="-97" y="-68" width="3.6" height="6"/>
+      <rect class="n" fill="#4dff9a" x="-92.4" y="-68" width="3.6" height="6"/>
+      <rect class="n" fill="#4dff9a" x="-87.8" y="-68" width="3.6" height="6"/>
+      <rect class="n" fill="#5b6270" x="-83.2" y="-68" width="3.6" height="6"/>
+      <path class="t" style="stroke-width:3.6" d="M-74 -58 Q-64 -58 -66 -66 Q-68 -74 -60 -72"/>
+      <path fill="none" stroke="#5ef2c4" stroke-width="1.6" stroke-linecap="round" d="M-74 -58 Q-64 -58 -66 -66 Q-68 -74 -60 -72"/>
+      <!-- the empty driver's seat: nobody drives -->
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="70" y="-90" width="10" height="7" rx="2.4"/>
+      <path class="o" fill="#d8342b" d="M70 -56 L69 -80 Q69 -84 73 -84 L77 -84 Q81 -84 81 -80 L81 -64 L90 -64 Q94 -64 94 -60 L94 -56 Z"/>
+      <path class="n" fill="#ff5a4a" d="M71.6 -80 L75.6 -80 L75.6 -66 L71.6 -66 Z"/>
+      <path class="t" style="stroke-width:3.4" d="M100 -56 L95 -68"/>
+      <!-- the sensor nose -->
+      <path class="o" fill="#f4f1ea" d="M94 -54 L94 -64 Q94 -70 102 -70 L106 -70 Q114 -68 116 -58 L116 -54 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#1f2433" x="103" y="-65" width="10" height="6" rx="2"/>
+      <circle class="n" fill="#7ff0f0" cx="109" cy="-62" r="1.6"/>
+      <path class="t" style="stroke-width:2.6" d="M106 -70 L106 -76"/>
+      <!-- the platform -->
+      <rect class="o" fill="#f4f1ea" x="-110" y="-56" width="226" height="7" rx="2"/>
+      <path class="o" fill="#2f62b0" d="M-108 -50 L112 -50 L114 -44 L114 -30 Q114 -24 108 -24 L93 -24 Q93 -38 70 -38 Q47 -38 47 -24 L-47 -24 Q-47 -38 -70 -38 Q-93 -38 -93 -24 L-104 -24 Q-110 -24 -110 -30 L-110 -46 Z"/>
+      <path class="n" fill="#1d3f7a" d="M-108 -48 L-102 -48 L-102 -26 L-104 -26 Q-108 -26 -108 -30 Z"/>
+      <!-- a row of harlequin diamonds along the skirt -->
+      <g class="o" style="stroke-width:1.6">
+        <path fill="#d8342b" d="M-40 -42 L-34 -48 L-28 -42 L-34 -36 Z"/>
+        <path fill="#f6c21c" d="M-28 -42 L-22 -48 L-16 -42 L-22 -36 Z"/>
+        <path fill="#2f9a48" d="M-16 -42 L-10 -48 L-4 -42 L-10 -36 Z"/>
+        <path fill="#d8342b" d="M-4 -42 L2 -48 L8 -42 L2 -36 Z"/>
+        <path fill="#f6c21c" d="M8 -42 L14 -48 L20 -42 L14 -36 Z"/>
+        <path fill="#2f9a48" d="M20 -42 L26 -48 L32 -42 L26 -36 Z"/>
+        <path fill="#d8342b" d="M32 -42 L38 -48 L44 -42 L38 -36 Z"/>
+      </g>
+      <!-- the cyan strip of an electric car along the bottom -->
+      <path fill="none" stroke="#7ff0f0" stroke-width="2" stroke-linecap="round" d="M-44 -28 L44 -28"/>
+      <!-- the crowd barriers, round the whole deck -->
+      <g fill="none" stroke="#2b1b16" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-66 -54 L-66 -76 L-20 -76 L-20 -54 M-16 -54 L-16 -76 L14 -76 L14 -54"/>
+      </g>
+      <g fill="none" stroke="#c9d1dc" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-66 -54 L-66 -76 L-20 -76 L-20 -54 M-16 -54 L-16 -76 L14 -76 L14 -54"/>
+      </g>
+      <path class="t" style="stroke:#9aa3ad;stroke-width:1.6" d="M-59 -75 L-59 -56 M-52 -75 L-52 -56 M-45 -75 L-45 -56 M-38 -75 L-38 -56 M-31 -75 L-31 -56 M-26 -75 L-26 -56 M-9 -75 L-9 -56 M-2 -75 L-2 -56 M5 -75 L5 -56 M10 -75 L10 -56"/>
+      <path class="t" style="stroke-width:2.2" d="M-70 -52 L-60 -52 M-26 -52 L-14 -52 M8 -52 L18 -52"/>
+      <!-- bunting along the top rails -->
+      <g class="o" style="stroke-width:1.4">
+        <path fill="#d8342b" d="M-62 -75 L-54 -75 L-58 -67 Z"/>
+        <path fill="#f6c21c" d="M-50 -75 L-42 -75 L-46 -67 Z"/>
+        <path fill="#2f9a48" d="M-38 -75 L-30 -75 L-34 -67 Z"/>
+        <path fill="#d8342b" d="M-12 -75 L-4 -75 L-8 -67 Z"/>
+        <path fill="#f6c21c" d="M0 -75 L8 -75 L4 -67 Z"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- The airbags, front and back: puffy, white, ready. Joints where they are fixed to the bumpers. -->
+  <g id="airbag_back" data-parent="body" transform="translate(-110 -40)">
+    <path class="o" fill="#fbf8f0" d="M0 -12 Q-14 -14 -15 -4 Q-17 2 -15 8 Q-13 16 0 14 Z"/>
+    <path class="t" style="stroke:#c9c2b0;stroke-width:1.4" d="M-6 -10 Q-10 0 -6 11"/>
+  </g>
+  <g id="airbag_front" data-parent="body" transform="translate(114 -40)">
+    <path class="o" fill="#fbf8f0" d="M0 -12 Q14 -14 15 -4 Q17 2 15 8 Q13 16 0 14 Z"/>
+    <path class="t" style="stroke:#c9c2b0;stroke-width:1.4" d="M6 -10 Q10 0 6 11"/>
+  </g>
+
+  <!-- The lidar on its mast, which never stops looking. Joint in its middle. -->
+  <g id="lidar" data-parent="body" transform="translate(106 -80)">
+    <rect class="o" style="stroke-width:2" fill="#3a3550" x="-7" y="-4" width="14" height="8" rx="3"/>
+    <rect class="n" fill="#7ff0f0" x="-5" y="-1" width="10" height="2"/>
+  </g>
+  <g id="lidar_eye" data-parent="lidar" transform="translate(106 -80)">
+    <circle class="n" fill="#ffffff" cx="0" cy="0" r="1.8"/>
+  </g>
+
+  <!-- The steering wheel at the empty seat, turning all by itself. Joint at its hub. -->
+  <g id="steering" data-parent="body" transform="translate(94 -71)">
+    <circle class="t" style="stroke-width:4.4" cx="0" cy="0" r="6"/>
+    <circle fill="none" stroke="#5b6270" stroke-width="2" cx="0" cy="0" r="6"/>
+    <path class="t" style="stroke-width:2" d="M-6 0 L6 0 M0 0 L0 6"/>
+  </g>
+
+  <!-- The hydraulic ram, sliding out of its cylinder. Joint at the top of the cylinder. -->
+  <g id="ram" data-parent="piston" transform="translate(36 -74)">
+    <rect class="o" fill="#eef1f5" x="-4" y="-13" width="8" height="24" rx="2"/>
+    <path class="n" fill="#ffffff" d="M-2.4 -11 L-0.8 -11 L-0.8 9 L-2.4 9 Z"/>
+  </g>
+
+  <!-- The cylinder, with hazard stripes at its foot. Joint on the deck. -->
+  <g id="piston" data-parent="body" transform="translate(36 -56)">
+    <g transform="translate(-36 56)">
+      <rect class="o" fill="#9aa3ad" x="29" y="-76" width="14" height="22" rx="2.6"/>
+      <path class="n" fill="#c9d1dc" d="M31.6 -74 L34.4 -74 L34.4 -58 L31.6 -58 Z"/>
+      <rect class="o" fill="#f6c21c" x="24" y="-62" width="24" height="8" rx="1.6"/>
+      <path class="n" fill="#2b1b16" d="M27 -61 L31 -61 L27.6 -55 L24.6 -55 Z M35 -61 L39 -61 L35.6 -55 L31.6 -55 Z M43 -61 L47 -61 L43.6 -55 L39.6 -55 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#c9d1dc" x="27" y="-78" width="18" height="5" rx="1.6"/>
+    </g>
+  </g>
+
+  <!-- The jester: a big papier-mâché bust on the ram, with a long nose, a grin and a cap of three points with bells. Joint where it sits on the ram. -->
+  <g id="jester" data-parent="ram" transform="translate(36 -86)">
+    <g transform="translate(-36 86)">
+      <!-- shoulders in harlequin red and green -->
+      <path class="o" fill="#d8342b" d="M18 -83 Q18 -95 36 -95 Q54 -95 54 -83 Z"/>
+      <path class="n" fill="#2f9a48" d="M36 -94 Q52 -94 52.8 -84.4 L36 -84.4 Z"/>
+      <!-- the ruff -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M21 -95 L25 -90 L29 -95.6 L33 -90 L37 -95.6 L41 -90 L45 -95.6 L49 -90 L52 -95 Q37 -101 21 -95 Z"/>
+      <!-- the face -->
+      <circle class="o" fill="#f5c9a3" cx="38" cy="-104" r="13.6"/>
+      <circle class="n" fill="#ef6f63" fill-opacity="0.6" cx="43" cy="-98.6" r="4"/>
+      <path class="o" style="stroke-width:2.2" fill="#f5c9a3" d="M49 -107 Q61 -108 66 -100 Q58 -100.6 50 -99.6 Z"/>
+      <circle class="n" fill="#2b1b16" cx="45" cy="-108" r="2"/>
+      <path class="t" style="stroke-width:1.8" d="M41 -112.6 Q45.4 -115 49.6 -112.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a2a2a" d="M39 -96.4 Q45 -90.6 51 -96.6 Q45 -95.2 39 -96.4 Z"/>
+      <!-- the cap: three points, three bells -->
+      <path class="o" fill="#2f9a48" d="M28 -112 Q14 -116 8 -106 Q14 -110 24 -106 Z"/>
+      <path class="o" fill="#f6c21c" d="M32 -117 Q26 -124 22 -120 Q20 -118 18 -118 Q22 -114 30 -113 Z"/>
+      <path class="o" fill="#d8342b" d="M42 -117 Q52 -124 60 -118 Q52 -117 48 -111 Z"/>
+      <path class="o" fill="#2f62b0" d="M24.6 -109 Q25 -120 38 -120 Q51 -120 51.4 -110 Q38 -114 24.6 -109 Z"/>
+      <path fill="none" stroke="#f6c21c" stroke-width="2" stroke-linecap="round" d="M26.4 -110.4 Q38 -115 49.6 -111.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f1c54a" cx="7.4" cy="-105" r="2.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f1c54a" cx="17" cy="-118" r="2.6"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f1c54a" cx="61" cy="-117.4" r="2.6"/>
+    </g>
+  </g>
+
+  <!-- The jester's arm with an inflatable hammer: even the club is safe now. Joint at the shoulder. -->
+  <g id="jester_arm" data-parent="jester" transform="translate(50 -90)">
+    <g transform="translate(-50 90)">
+      <path class="o" fill="#2f9a48" d="M46 -93 L58 -99 L62 -92 L50 -86 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M61 -97 L75 -112 L78.4 -109 L64.4 -94 Z"/>
+      <circle class="o" style="stroke-width:2.2" fill="#fbf8f0" cx="62" cy="-95" r="4.6"/>
+      <!-- the hammer head, blown up -->
+      <path class="o" fill="#d8342b" d="M70 -121 L88 -121 Q93 -121 93 -114 Q93 -107 88 -107 L70 -107 Q65 -107 65 -114 Q65 -121 70 -121 Z"/>
+      <path class="n" fill="#f6c21c" d="M72 -120 L76 -120 L76 -108 L72 -108 Z M82 -120 L86 -120 L86 -108 L82 -108 Z"/>
+      <path class="t" style="stroke-width:2.5" d="M70 -121 L88 -121 Q93 -121 93 -114 Q93 -107 88 -107 L70 -107 Q65 -107 65 -114 Q65 -121 70 -121 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.6" d="M69 -118.6 L80 -118.6 L80 -117 L69 -117 Z"/>
+    </g>
+  </g>
+</svg>

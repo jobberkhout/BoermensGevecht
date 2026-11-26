@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -132 224 136" data-rig="static">
+  <title>De Laatste Raad van Elf: drie stokoude raadsleden op scootmobielen met hun veren mutsen, naast een flikkerend hologram van de prins. Ze gooien met antieke medailles</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .h { stroke: #33d6e6; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+  <!-- The projector on the floor and its beam. (0,0) of the file is the middle of the floor. -->
+  <g id="holo_base" transform="translate(-38 0)">
+    <path class="n" fill="#7ff0f0" fill-opacity="0.16" d="M-7 -6 L7 -6 L22 -96 L-22 -96 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-12" y="-7" width="24" height="7" rx="3"/>
+    <rect class="n" fill="#7ff0f0" x="-7" y="-8.6" width="14" height="2.4" rx="1.2"/>
+  </g>
+
+  <!-- The hologram prince: steek, feathers, chain and sceptre, in flickering light. Joint at his feet. -->
+  <g id="holo" data-parent="holo_base" transform="translate(-38 -8)">
+    <g transform="translate(0 8)" fill="#7ff0f0" fill-opacity="0.42">
+      <path class="h" d="M-8 -9 L-2 -9 L-2 -30 L-8 -30 Z M2 -9 L8 -9 L8 -30 L2 -30 Z"/>
+      <path class="h" d="M-4 -96 Q-18 -100 -28 -96 Q-16 -94 -4 -90 Z"/>
+      <ellipse class="h" cx="0" cy="-46" rx="15" ry="17"/>
+      <path class="h" d="M-12 -40 L-24 -34 L-22 -64 Q-18 -60 -12 -60 Z"/>
+      <circle class="h" cx="2" cy="-70" r="8"/>
+      <path class="h" d="M-13 -78 Q-6 -82 -3 -88 Q3 -94 9 -88 Q12 -82 18 -78 Q3 -82 -13 -78 Z"/>
+      <path class="h" d="M12 -34 L15 -34 L19 -88 L16 -88 Z"/>
+      <path class="h" d="M17.5 -98 L19.6 -93.4 L24.6 -93 L20.8 -89.8 L22 -85 L17.5 -87.6 L13 -85 L14.2 -89.8 L10.4 -93 L15.4 -93.4 Z"/>
+      <circle class="h" cx="14" cy="-36" r="3.4"/>
+    </g>
+    <g transform="translate(0 8)">
+      <path fill="none" stroke="#33d6e6" stroke-width="1.4" stroke-linecap="round" d="M-8 -58 Q0 -50 10 -58"/>
+      <circle fill="#bffcfc" cx="5" cy="-71" r="1.2"/>
+      <path fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="1.2" d="M-13 -36 L12 -36 M-14 -42 L13 -42 M-14 -48 L13 -48 M-13 -54 L12 -54 M-4 -66 L8 -66 M-4 -72 L8 -72 M-6 -20 L6 -20 M-6 -14 L6 -14"/>
+    </g>
+  </g>
+  <!-- The first, on a blue scooter: asleep. Joint on the floor under the seat. -->
+  <g id="scooter_a" transform="translate(-86 0)">
+    <g transform="translate(0 0)">
+      <!-- the flag on its whip, so the traffic sees them coming -->
+      <path class="t" style="stroke-width:2" d="M-19 -16 L-23 -92"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-23 -92 L-9 -88 L-22.6 -84 Z"/>
+      <circle class="n" fill="#c9d1dc" cx="5.5" cy="-5.5" r="3"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="-12" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="-12" cy="-5.5" r="2"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="20" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="20" cy="-5.5" r="2"/>
+      <!-- the deck and the front cowl -->
+      <path class="o" style="stroke-width:2.2" fill="#2f62b0" d="M-20 -15 L18 -15 Q24 -26 30 -24 Q33 -22 31 -12 Q30 -8 26 -8 L-18 -8 Q-21 -8 -21 -11 Z"/>
+      <path class="n" fill="#1d3f7a" d="M-19.4 -10 L26 -10 Q28.6 -10 29.4 -12 L29.4 -10.6 Q28.4 -9.2 26 -9.2 L-19.4 -9.2 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#fff6a8" cx="29.6" cy="-19" r="2"/>
+      <!-- the seat -->
+      <path class="t" style="stroke-width:3" d="M-10 -15 L-10 -22"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-22" y="-27" width="22" height="6" rx="2.4"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-24" y="-46" width="7" height="24" rx="2.6"/>
+      <!-- the tiller and the basket -->
+      <path class="t" style="stroke-width:3.2" d="M24 -22 L18 -46"/>
+      <path class="t" style="stroke-width:3.4" d="M15 -47.6 L22 -46.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#e6ebf0" fill-opacity="0.85" d="M24 -32 L35 -32 L33 -22 L25.4 -22 Z"/>
+      <path class="t" style="stroke:#9aa3ad;stroke-width:1.1" d="M27 -31 L27.6 -23 M30 -31 L30 -23 M33 -31 L32.4 -23 M25 -27 L34 -27"/>
+    </g>
+  </g>
+  <!-- His body. Joint at the hips. -->
+  <g id="a_body" data-parent="scooter_a" transform="translate(-94 -26)">
+    <g transform="translate(8 26)">
+      <!-- trousers, shoes, the plaid on the knees -->
+      <path class="o" style="stroke-width:2.2" fill="#4a4f5c" d="M6 -30 L12 -30 L13 -18 L7 -18 Z"/>
+      <path class="o" style="stroke-width:2" fill="#5a3418" d="M6 -19 L14 -19 Q18 -19 18 -15 L6 -15 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-17 -24 Q-19 -40 -12 -50 Q-5 -55 3 -50 Q6 -40 4 -26 Z"/>
+      <path class="n" fill="#23773a" d="M-15.6 -26 Q-17.6 -40 -11.6 -48 Q-12 -38 -10.4 -26 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-9 -33 Q3 -36 14 -31 L13 -23 Q2 -20 -9 -23 Z"/>
+      <path class="t" style="stroke:#f6c21c;stroke-width:1.4" d="M-4 -34 L-4 -22 M2 -35 L2 -21 M8 -34 L8 -22 M-8 -29 Q3 -31 13 -27"/>
+      <!-- a medal on the jacket: they have been on the council for sixty years -->
+      <path class="o" style="stroke-width:1.2" fill="#d8342b" d="M-3 -46 L1 -46 L0 -42 L-2 -42 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f1c54a" cx="-1" cy="-39.6" r="2.6"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-8 -50 Q2 -50 14 -48 L15 -43 Q2 -44 -8 -43 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="17" cy="-46" r="2.8"/>
+    </g>
+  </g>
+  <!-- His head. Joint at the neck. -->
+  <g id="a_head" data-parent="a_body" transform="translate(-89 -51)">
+    <g transform="translate(3 51)">
+      <circle class="o" style="stroke-width:2.2" fill="#f2c4a2" cx="-2" cy="-60" r="9.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#f4f1ea" d="M-11 -62 Q-13 -55 -8 -51 Q-6 -55 -6 -61 Z"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="-6.4" cy="-59" rx="2" ry="2.8"/>
+      <!-- the feathered cap of the council -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-8 -71 Q-16 -80 -24 -80 Q-18 -76 -16 -70 Q-12 -70 -8 -68 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-11.6 -64 Q-12 -74 -2 -74.6 Q8 -74.6 8.6 -65 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f6c21c" d="M-12 -66.4 Q-2 -68.4 9 -66.8 L9.2 -63.6 Q-2 -65.4 -12.2 -63.2 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#eab08c" d="M6 -61 Q12 -61 11.6 -56 Q10 -53 6.4 -55 Z"/>
+      <path class="t" style="stroke:#c98a6a;stroke-width:1.1" d="M-1 -56 Q0 -53.6 2 -52.6 M-3 -64 Q-1 -65 1 -64.6"/>
+      <!-- asleep -->
+      <path class="t" style="stroke-width:1.6" d="M2 -60 Q4.4 -58.4 6.4 -60"/>
+      <path class="t" style="stroke-width:1.4" d="M3 -52.4 Q5 -51.4 7 -52.6"/>
+      <!-- bushy white eyebrows, sixty seasons of them -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+      <path fill="none" stroke="#f4f1ea" stroke-width="2.2" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+    </g>
+  </g>
+  <!-- The bubble at his nose, growing and shrinking as he snores. Joint where it hangs. -->
+  <g id="a_bubble" data-parent="a_head" transform="translate(-75 -55)">
+    <circle class="o" style="stroke-width:1.4" fill="#cdeef7" fill-opacity="0.7" cx="3" cy="0" r="3.6"/>
+    <circle class="n" fill="#ffffff" cx="2" cy="-1.4" r="1"/>
+  </g>
+  <!-- The third, on a yellow scooter, with a basket of medals: the thrower. Joint on the floor under the seat. -->
+  <g id="scooter_c" transform="translate(66 0)">
+    <g transform="translate(0 0)">
+      <!-- the flag on its whip, so the traffic sees them coming -->
+      <path class="t" style="stroke-width:2" d="M-19 -16 L-23 -92"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-23 -92 L-9 -88 L-22.6 -84 Z"/>
+      <circle class="n" fill="#c9d1dc" cx="5.5" cy="-5.5" r="3"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="-12" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="-12" cy="-5.5" r="2"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="20" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="20" cy="-5.5" r="2"/>
+      <!-- the deck and the front cowl -->
+      <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M-20 -15 L18 -15 Q24 -26 30 -24 Q33 -22 31 -12 Q30 -8 26 -8 L-18 -8 Q-21 -8 -21 -11 Z"/>
+      <path class="n" fill="#d9a514" d="M-19.4 -10 L26 -10 Q28.6 -10 29.4 -12 L29.4 -10.6 Q28.4 -9.2 26 -9.2 L-19.4 -9.2 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#fff6a8" cx="29.6" cy="-19" r="2"/>
+      <!-- the seat -->
+      <path class="t" style="stroke-width:3" d="M-10 -15 L-10 -22"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-22" y="-27" width="22" height="6" rx="2.4"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-24" y="-46" width="7" height="24" rx="2.6"/>
+      <!-- the tiller and the basket -->
+      <path class="t" style="stroke-width:3.2" d="M24 -22 L18 -46"/>
+      <path class="t" style="stroke-width:3.4" d="M15 -47.6 L22 -46.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#e6ebf0" fill-opacity="0.85" d="M24 -32 L35 -32 L33 -22 L25.4 -22 Z"/>
+      <path class="t" style="stroke:#9aa3ad;stroke-width:1.1" d="M27 -31 L27.6 -23 M30 -31 L30 -23 M33 -31 L32.4 -23 M25 -27 L34 -27"/>
+      <!-- the basket is full of antique medals -->
+      <circle class="o" style="stroke-width:1.4" fill="#f1c54a" cx="27.6" cy="-33" r="2.6"/>
+      <circle class="o" style="stroke-width:1.4" fill="#d9dee4" cx="31.6" cy="-33.6" r="2.6"/>
+      <circle class="o" style="stroke-width:1.4" fill="#c98a45" cx="29.6" cy="-35.6" r="2.4"/>
+    </g>
+  </g>
+  <!-- His body. Joint at the hips. -->
+  <g id="c_body" data-parent="scooter_c" transform="translate(58 -26)">
+    <g transform="translate(8 26)">
+      <!-- trousers, shoes, the plaid on the knees -->
+      <path class="o" style="stroke-width:2.2" fill="#4a4f5c" d="M6 -30 L12 -30 L13 -18 L7 -18 Z"/>
+      <path class="o" style="stroke-width:2" fill="#5a3418" d="M6 -19 L14 -19 Q18 -19 18 -15 L6 -15 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-17 -24 Q-19 -40 -12 -50 Q-5 -55 3 -50 Q6 -40 4 -26 Z"/>
+      <path class="n" fill="#23773a" d="M-15.6 -26 Q-17.6 -40 -11.6 -48 Q-12 -38 -10.4 -26 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f62b0" d="M-9 -33 Q3 -36 14 -31 L13 -23 Q2 -20 -9 -23 Z"/>
+      <path class="t" style="stroke:#fbf8f0;stroke-width:1.4" d="M-4 -34 L-4 -22 M2 -35 L2 -21 M8 -34 L8 -22 M-8 -29 Q3 -31 13 -27"/>
+      <!-- a medal on the jacket: they have been on the council for sixty years -->
+      <path class="o" style="stroke-width:1.2" fill="#d8342b" d="M-3 -46 L1 -46 L0 -42 L-2 -42 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f1c54a" cx="-1" cy="-39.6" r="2.6"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-8 -50 Q2 -50 14 -48 L15 -43 Q2 -44 -8 -43 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="17" cy="-46" r="2.8"/>
+    </g>
+  </g>
+  <!-- His head. Joint at the neck. -->
+  <g id="c_head" data-parent="c_body" transform="translate(63 -51)">
+    <g transform="translate(3 51)">
+      <circle class="o" style="stroke-width:2.2" fill="#f2c4a2" cx="-2" cy="-60" r="9.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#f4f1ea" d="M-11 -62 Q-13 -55 -8 -51 Q-6 -55 -6 -61 Z"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="-6.4" cy="-59" rx="2" ry="2.8"/>
+      <!-- the feathered cap of the council -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-8 -71 Q-16 -80 -24 -80 Q-18 -76 -16 -70 Q-12 -70 -8 -68 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-11.6 -64 Q-12 -74 -2 -74.6 Q8 -74.6 8.6 -65 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f6c21c" d="M-12 -66.4 Q-2 -68.4 9 -66.8 L9.2 -63.6 Q-2 -65.4 -12.2 -63.2 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#eab08c" d="M6 -61 Q12 -61 11.6 -56 Q10 -53 6.4 -55 Z"/>
+      <path class="t" style="stroke:#c98a6a;stroke-width:1.1" d="M-1 -56 Q0 -53.6 2 -52.6 M-3 -64 Q-1 -65 1 -64.6"/>
+      <!-- eyes narrowed, tongue out: he has a good arm still -->
+      <circle class="n" fill="#2b1b16" cx="4" cy="-61" r="1.5"/>
+      <path class="o" style="stroke-width:1.4" fill="#7a2a2a" d="M3 -52.6 Q7 -50.4 10 -53 Q7 -52.2 3 -52.6 Z"/>
+      <path class="o" style="stroke-width:1.2" fill="#ef6f8a" d="M8 -52.6 Q10.4 -52 10.4 -49.4 Q8.6 -49.4 8 -51.4 Z"/>
+      <!-- bushy white eyebrows, sixty seasons of them -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+      <path fill="none" stroke="#f4f1ea" stroke-width="2.2" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+    </g>
+  </g>
+  <!-- His throwing arm, cocked behind his head with a medal. Joint at the shoulder. -->
+  <g id="c_arm" data-parent="c_body" transform="translate(61 -48)">
+    <g transform="translate(5 48)">
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-9 -50 Q-16 -58 -20 -66 L-14 -70 Q-10 -62 -2 -54 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="-17.6" cy="-70.6" r="3"/>
+    </g>
+    <circle data-mount="muzzle" fill="none" cx="-13" cy="-27" r="1"/>
+  </g>
+  <g id="c_medal" data-parent="c_arm" transform="translate(48 -75)">
+    <path class="o" style="stroke-width:1.4" fill="#d8342b" d="M-2.4 -5 L2.4 -5 L1.4 -1 L-1.4 -1 Z"/>
+    <path class="n" fill="#f6c21c" d="M-0.8 -4.6 L0.8 -4.6 L0.5 -1.4 L-0.5 -1.4 Z"/>
+    <circle class="o" style="stroke-width:1.6" fill="#f1c54a" cx="0" cy="2" r="3.6"/>
+  </g>
+  <!-- The second, on a red scooter, which creeps forward on its own now and then. Joint on the floor under the seat. -->
+  <g id="scooter_b" transform="translate(8 0)">
+    <g transform="translate(0 0)">
+      <!-- the flag on its whip, so the traffic sees them coming -->
+      <path class="t" style="stroke-width:2" d="M-19 -16 L-23 -92"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-23 -92 L-9 -88 L-22.6 -84 Z"/>
+      <circle class="n" fill="#c9d1dc" cx="5.5" cy="-5.5" r="3"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="-12" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="-12" cy="-5.5" r="2"/>
+      <circle class="o" style="stroke-width:2.2" fill="#2b2430" cx="20" cy="-5.5" r="5.5"/>
+      <circle class="n" fill="#c9d1dc" cx="20" cy="-5.5" r="2"/>
+      <!-- the deck and the front cowl -->
+      <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-20 -15 L18 -15 Q24 -26 30 -24 Q33 -22 31 -12 Q30 -8 26 -8 L-18 -8 Q-21 -8 -21 -11 Z"/>
+      <path class="n" fill="#a8231b" d="M-19.4 -10 L26 -10 Q28.6 -10 29.4 -12 L29.4 -10.6 Q28.4 -9.2 26 -9.2 L-19.4 -9.2 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#fff6a8" cx="29.6" cy="-19" r="2"/>
+      <!-- the seat -->
+      <path class="t" style="stroke-width:3" d="M-10 -15 L-10 -22"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-22" y="-27" width="22" height="6" rx="2.4"/>
+      <rect class="o" style="stroke-width:2.2" fill="#3a3550" x="-24" y="-46" width="7" height="24" rx="2.6"/>
+      <!-- the tiller and the basket -->
+      <path class="t" style="stroke-width:3.2" d="M24 -22 L18 -46"/>
+      <path class="t" style="stroke-width:3.4" d="M15 -47.6 L22 -46.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#e6ebf0" fill-opacity="0.85" d="M24 -32 L35 -32 L33 -22 L25.4 -22 Z"/>
+      <path class="t" style="stroke:#9aa3ad;stroke-width:1.1" d="M27 -31 L27.6 -23 M30 -31 L30 -23 M33 -31 L32.4 -23 M25 -27 L34 -27"/>
+    </g>
+  </g>
+  <!-- His body. Joint at the hips. -->
+  <g id="b_body" data-parent="scooter_b" transform="translate(0 -26)">
+    <g transform="translate(8 26)">
+      <!-- trousers, shoes, the plaid on the knees -->
+      <path class="o" style="stroke-width:2.2" fill="#4a4f5c" d="M6 -30 L12 -30 L13 -18 L7 -18 Z"/>
+      <path class="o" style="stroke-width:2" fill="#5a3418" d="M6 -19 L14 -19 Q18 -19 18 -15 L6 -15 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-17 -24 Q-19 -40 -12 -50 Q-5 -55 3 -50 Q6 -40 4 -26 Z"/>
+      <path class="n" fill="#23773a" d="M-15.6 -26 Q-17.6 -40 -11.6 -48 Q-12 -38 -10.4 -26 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M-9 -33 Q3 -36 14 -31 L13 -23 Q2 -20 -9 -23 Z"/>
+      <path class="t" style="stroke:#d8342b;stroke-width:1.4" d="M-4 -34 L-4 -22 M2 -35 L2 -21 M8 -34 L8 -22 M-8 -29 Q3 -31 13 -27"/>
+      <!-- a medal on the jacket: they have been on the council for sixty years -->
+      <path class="o" style="stroke-width:1.2" fill="#d8342b" d="M-3 -46 L1 -46 L0 -42 L-2 -42 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f1c54a" cx="-1" cy="-39.6" r="2.6"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-8 -50 Q2 -50 14 -48 L15 -43 Q2 -44 -8 -43 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="17" cy="-46" r="2.8"/>
+    </g>
+  </g>
+  <!-- His head. Joint at the neck. -->
+  <g id="b_head" data-parent="b_body" transform="translate(5 -51)">
+    <g transform="translate(3 51)">
+      <circle class="o" style="stroke-width:2.2" fill="#f2c4a2" cx="-2" cy="-60" r="9.4"/>
+      <path class="o" style="stroke-width:1.8" fill="#f4f1ea" d="M-11 -62 Q-13 -55 -8 -51 Q-6 -55 -6 -61 Z"/>
+      <ellipse class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="-6.4" cy="-59" rx="2" ry="2.8"/>
+      <!-- the feathered cap of the council -->
+      <path class="o" style="stroke-width:2" fill="#fbf8f0" d="M-8 -71 Q-16 -80 -24 -80 Q-18 -76 -16 -70 Q-12 -70 -8 -68 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-11.6 -64 Q-12 -74 -2 -74.6 Q8 -74.6 8.6 -65 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f6c21c" d="M-12 -66.4 Q-2 -68.4 9 -66.8 L9.2 -63.6 Q-2 -65.4 -12.2 -63.2 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#eab08c" d="M6 -61 Q12 -61 11.6 -56 Q10 -53 6.4 -55 Z"/>
+      <path class="t" style="stroke:#c98a6a;stroke-width:1.1" d="M-1 -56 Q0 -53.6 2 -52.6 M-3 -64 Q-1 -65 1 -64.6"/>
+      <!-- round glasses and a white moustache: delighted -->
+      <circle class="o" style="stroke-width:1.4" fill="#ffffff" fill-opacity="0.5" cx="4" cy="-61" r="3.2"/>
+      <circle class="n" fill="#2b1b16" cx="4.8" cy="-61" r="1.2"/>
+      <path class="t" style="stroke-width:1.2" d="M0.8 -61.4 L-5 -62"/>
+      <path class="o" style="stroke-width:1.4" fill="#f4f1ea" d="M3 -54.6 Q7 -56.6 11 -54.4 Q8 -52.4 3 -54.6 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M4 -51.6 Q7 -50 9.6 -51.8"/>
+      <!-- bushy white eyebrows, sixty seasons of them -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+      <path fill="none" stroke="#f4f1ea" stroke-width="2.2" stroke-linecap="round" d="M1 -65.6 Q4.6 -67.6 8.4 -65.4"/>
+    </g>
+  </g>
+  <!-- His free arm, waving a little flag in the carnival colours. Joint at the shoulder. -->
+  <g id="b_arm" data-parent="b_body" transform="translate(-1 -48)">
+    <g transform="translate(9 48)">
+      <path class="o" style="stroke-width:2.2" fill="#23773a" d="M-12 -50 Q-20 -54 -22 -62 L-16 -64 Q-14 -58 -6 -54 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#f2c4a2" cx="-19.6" cy="-64.6" r="2.8"/>
+      <path class="t" style="stroke-width:1.8" d="M-19.6 -62 L-21 -84"/>
+      <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M-21 -84 L-9 -82.6 L-9.6 -79.4 L-20.6 -80.6 Z"/>
+      <path class="n" fill="#f6c21c" d="M-20.6 -80.6 L-9.6 -79.4 L-10 -76.4 L-20.2 -77.4 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="none" d="M-21 -84 L-9 -82.6 L-10 -73.6 L-20 -74.6 Z"/>
+      <path class="n" fill="#2f9a48" d="M-20.2 -77.4 L-10 -76.4 L-10.2 -74.2 L-20 -75 Z"/>
+    </g>
+  </g>
+</svg>

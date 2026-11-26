@@ -31,11 +31,17 @@ export function sticky(s: SimState, u: Unit): boolean {
   return (u.stickyUntil ?? 0) > s.tick;
 }
 
-/** How far a walking unit gets in a tick: its speed, at the pace of its side, faster before a skater's crash, half while glued. */
+/**
+ * How far a walking unit gets in a tick: its speed, at the pace of its side,
+ * faster before a skater's crash and to the beat of a big drum, half while
+ * glued, a crawl while hung over.
+ */
 export function walkSpeed(s: SimState, u: Unit, def: UnitDef, pacePercent: number): number {
   let percent = pacePercent;
   if (def.charge && !u.charged) percent = Math.floor((percent * def.charge.speedPercent) / 100);
+  if ((u.beatUntil ?? 0) > s.tick) percent = Math.floor((percent * (u.beatPercent ?? 100)) / 100);
   if (sticky(s, u)) percent = Math.floor(percent / 2);
+  if ((u.slowUntil ?? 0) > s.tick) percent = Math.floor((percent * (u.slowPercent ?? 100)) / 100);
   return Math.floor((def.speed * percent) / 100);
 }
 

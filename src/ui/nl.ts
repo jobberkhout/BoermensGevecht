@@ -7,13 +7,14 @@ import { zuidas } from './factions/zuidas.ts';
 import { gasten } from './factions/gasten.ts';
 import { toeristen } from './factions/toeristen.ts';
 import { friezen } from './factions/friezen.ts';
+import { carnaval } from './factions/carnaval.ts';
 
 /**
  * Every piece of text the player sees. What a faction says and is called lives
  * in ui/factions/<faction>.ts; what they all share is here. Change a name in
  * one of those files and it changes everywhere.
  */
-const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen };
+const TEXT: Record<FactionId, FactionText> = { havermelk, achterhoek, zuidas, gasten, toeristen, friezen, carnaval };
 
 /** One value per faction, looked up by faction id. Every faction, also one that cannot be picked yet. */
 function perFaction<T>(pick: (text: FactionText) => T): Record<string, T> {
@@ -92,6 +93,20 @@ export const NL = {
     revived: 'Wer it iis op!',
     /** Over the sign of the Tropenrooster, beside the base whose turrets stop work. */
     siesta: 'Te heet om te werken!',
+    /** Carnaval's special kinds and units (sim/carnaval.ts): over the units that join the polonaise, */
+    conga: 'Polonaise!',
+    /** a throw with confetti in the eyes, */
+    missed: 'Mis!',
+    /** the units under the hangover, */
+    slowed: 'Kater…',
+    /** a turret shot off the big drum, */
+    boomed: 'Boem!',
+    /** a unit that walked onto a banana peel, */
+    slipped: 'Uitgegleden!',
+    /** De Zuipwagen dropping the beat, */
+    dropped: 'Drop!',
+    /** and De Reuzenprins taking a turret over. */
+    keyed: 'De sleutel van de stad!',
     /** What a super unit says when an enemy special passes it by, per faction. */
     unmoved: perFaction((text) => text.unmoved),
   },

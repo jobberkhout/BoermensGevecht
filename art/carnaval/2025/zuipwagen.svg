@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-122 -118 236 124" data-rig="vehicle">
+  <title>De Zuipwagen: een dichte bak vol luidsprekers op een aanhanger, met het verplichte dranghek eromheen, achter een enorme trekker</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The trailer: bed, drawbar and the closed box on it. Joint at its axle. -->
+  <g id="trailer" data-parent="chassis" transform="translate(-62 -17)">
+    <g transform="translate(62 17)">
+      <!-- the drawbar to the hitch behind the tractor's back wheel -->
+      <path class="o" fill="#3a3a3a" d="M-26 -30 L-6 -26 L-6 -21 L-26 -24 Z"/>
+      <!-- the bed -->
+      <rect class="o" fill="#3a3a3a" x="-120" y="-36" width="98" height="9" rx="2"/>
+      <path class="o" fill="#4a4a4a" d="M-84 -27 Q-84 -40 -62 -40 Q-40 -40 -40 -27 Z"/>
+      <!-- the box: kiel blue, a carnival band round the top, bunting under it -->
+      <rect class="o" fill="#2f62b0" x="-118" y="-102" width="92" height="67" rx="3"/>
+      <path class="n" fill="#24508f" d="M-116.6 -100 L-110 -100 L-110 -37 L-116.6 -37 Z"/>
+      <path class="n" fill="#d8342b" d="M-116.8 -100.8 L-27.2 -100.8 L-27.2 -97.4 L-116.8 -97.4 Z"/>
+      <path class="n" fill="#f6c21c" d="M-116.8 -97.4 L-27.2 -97.4 L-27.2 -94 L-116.8 -94 Z"/>
+      <path class="n" fill="#2f9a48" d="M-116.8 -94 L-27.2 -94 L-27.2 -90.6 L-116.8 -90.6 Z"/>
+      <path class="t" d="M-118 -90.6 L-26 -90.6"/>
+      <!-- the baffles the speakers sit in -->
+      <rect class="o" fill="#1f1f26" x="-118" y="-89.6" width="92" height="33" rx="2"/>
+      <path class="t" style="stroke:#3a3a44;stroke-width:1.4" d="M-84 -88 L-84 -58 M-60 -88 L-60 -58"/>
+      <circle class="n" fill="#55555e" cx="-114.6" cy="-85.6" r="1.1"/>
+      <circle class="n" fill="#55555e" cx="-87.4" cy="-85.6" r="1.1"/>
+      <circle class="n" fill="#55555e" cx="-56.6" cy="-85.6" r="1.1"/>
+      <circle class="n" fill="#55555e" cx="-29.4" cy="-85.6" r="1.1"/>
+    </g>
+  </g>
+
+  <!-- The two big woofers and the tweeters between them: they pump to the beat. Joints in their middles. -->
+  <g id="speaker_a" data-parent="trailer" transform="translate(-101 -73)">
+    <circle class="o" fill="#3a3a44" cx="0" cy="0" r="14"/>
+    <circle class="n" fill="#26262e" cx="0" cy="0" r="10.6"/>
+    <circle fill="none" stroke="#4a4a55" stroke-width="1.4" cx="0" cy="0" r="7.6"/>
+    <circle class="o" style="stroke-width:1.8" fill="#6a6a76" cx="0" cy="0" r="4.6"/>
+    <circle class="n" fill="#9a9aa6" cx="-1.4" cy="-1.4" r="1.4"/>
+  </g>
+
+  <g id="tweeters" data-parent="trailer" transform="translate(-72 -73)">
+    <circle class="o" style="stroke-width:2" fill="#3a3a44" cx="0" cy="-7.6" r="6.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#8a8a96" cx="0" cy="-7.6" r="2.6"/>
+    <circle class="o" style="stroke-width:2" fill="#3a3a44" cx="0" cy="7.6" r="6.4"/>
+    <circle class="o" style="stroke-width:1.6" fill="#8a8a96" cx="0" cy="7.6" r="2.6"/>
+  </g>
+
+  <g id="speaker_b" data-parent="trailer" transform="translate(-43 -73)">
+    <circle class="o" fill="#3a3a44" cx="0" cy="0" r="14"/>
+    <circle class="n" fill="#26262e" cx="0" cy="0" r="10.6"/>
+    <circle fill="none" stroke="#4a4a55" stroke-width="1.4" cx="0" cy="0" r="7.6"/>
+    <circle class="o" style="stroke-width:1.8" fill="#6a6a76" cx="0" cy="0" r="4.6"/>
+    <circle class="n" fill="#9a9aa6" cx="-1.4" cy="-1.4" r="1.4"/>
+  </g>
+
+  <!-- The light bar on the roof of the box. Joint in its middle. -->
+  <g id="lights" data-parent="trailer" transform="translate(-72 -105)">
+    <rect class="o" fill="#2b2b33" x="-40" y="-3.6" width="80" height="6.6" rx="2"/>
+    <circle class="o" style="stroke-width:1.6" fill="#d8342b" cx="-32" cy="-0.4" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#f6c21c" cx="-19" cy="-0.4" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#2f9a48" cx="-6" cy="-0.4" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#d8342b" cx="7" cy="-0.4" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#f6c21c" cx="20" cy="-0.4" r="3.6"/>
+    <circle class="o" style="stroke-width:1.6" fill="#2f9a48" cx="33" cy="-0.4" r="3.6"/>
+  </g>
+
+  <!-- The compulsory crowd fence round the box: two sections of dranghek on the bed. -->
+  <g id="fence" data-parent="trailer" transform="translate(-72 -46)">
+    <g transform="translate(72 46)">
+      <path class="o" fill="none" d="M-119 -35 L-119 -57 L-72 -57 L-72 -35 M-70 -35 L-70 -57 L-23 -57 L-23 -35"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="5.2" stroke-linecap="round" d="M-119 -57 L-72 -57 M-70 -57 L-23 -57 M-119 -40 L-72 -40 M-70 -40 L-23 -40"/>
+      <path fill="none" stroke="#c4ccd2" stroke-width="2.4" stroke-linecap="round" d="M-119 -57 L-72 -57 M-70 -57 L-23 -57 M-119 -40 L-72 -40 M-70 -40 L-23 -40 M-119 -35 L-119 -57 M-72 -35 L-72 -57 M-70 -35 L-70 -57 M-23 -35 L-23 -57"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3" stroke-linecap="round" d="M-113 -56 L-113 -41 M-107 -56 L-107 -41 M-101 -56 L-101 -41 M-95 -56 L-95 -41 M-89 -56 L-89 -41 M-83 -56 L-83 -41 M-77 -56 L-77 -41 M-64 -56 L-64 -41 M-58 -56 L-58 -41 M-52 -56 L-52 -41 M-46 -56 L-46 -41 M-40 -56 L-40 -41 M-34 -56 L-34 -41 M-28 -56 L-28 -41"/>
+      <path fill="none" stroke="#c4ccd2" stroke-width="1.2" stroke-linecap="round" d="M-113 -56 L-113 -41 M-107 -56 L-107 -41 M-101 -56 L-101 -41 M-95 -56 L-95 -41 M-89 -56 L-89 -41 M-83 -56 L-83 -41 M-77 -56 L-77 -41 M-64 -56 L-64 -41 M-58 -56 L-58 -41 M-52 -56 L-52 -41 M-46 -56 L-46 -41 M-40 -56 L-40 -41 M-34 -56 L-34 -41 M-28 -56 L-28 -41"/>
+      <!-- the hooks that join the two sections -->
+      <rect class="o" style="stroke-width:1.6" fill="#8e979f" x="-73.6" y="-55" width="5.2" height="4" rx="1"/>
+      <rect class="o" style="stroke-width:1.6" fill="#8e979f" x="-73.6" y="-43" width="5.2" height="4" rx="1"/>
+    </g>
+  </g>
+
+  <g id="wheel_trailer" data-parent="chassis" transform="translate(-62 -17)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="17"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="4.4" stroke-dasharray="4.4 4.6" cx="0" cy="0" r="13.8"/>
+    <circle class="o" fill="#f6c21c" cx="0" cy="0" r="8"/>
+    <path class="t" d="M0 -8 L0 -2.8 M0 8 L0 2.8 M-8 0 L-2.8 0 M8 0 L2.8 0"/>
+    <circle class="o" fill="#c99410" cx="0" cy="0" r="2.6"/>
+  </g>
+
+  <!-- The tractor: frame, bonnet, mudguard and the bottom of the cab. Joint in the middle. -->
+  <g id="body" data-parent="chassis" transform="translate(44 -50)">
+    <g transform="translate(-44 50)">
+      <!-- frame, front weights, the hitch at the back -->
+      <rect class="o" fill="#3a3a3a" x="-10" y="-40" width="114" height="12" rx="3"/>
+      <rect class="o" fill="#2f2f2f" x="104" y="-48" width="9" height="22" rx="2.5"/>
+      <rect class="o" fill="#3a3a3a" x="-12" y="-28" width="10" height="7" rx="2"/>
+      <!-- exhaust -->
+      <rect class="o" fill="#b9c2c8" x="56" y="-104" width="6" height="34" rx="2"/>
+      <path class="o" fill="#b9c2c8" d="M54 -104 L64 -108 L64 -103 L54 -101 Z"/>
+      <!-- the bonnet, red, with a yellow and green band along it -->
+      <path class="o" fill="#c8322a" d="M38 -78 L98 -74 Q108 -73 108 -64 L108 -46 Q108 -40 102 -40 L38 -40 Z"/>
+      <path class="n" fill="#e0483c" d="M41 -75 L97 -71.4 Q103 -71 104 -67.6 L41 -70.6 Z"/>
+      <path class="n" fill="#f6c21c" d="M38 -58 L108 -58 L108 -53.4 L38 -53.4 Z"/>
+      <path class="n" fill="#2f9a48" d="M38 -53.4 L108 -53.4 L108 -48.8 L38 -48.8 Z"/>
+      <path class="t" d="M38 -58 L108 -58 M38 -48.8 L108 -48.8"/>
+      <path class="t" style="stroke-width:2" d="M102 -69 L107 -69 M102 -64.6 L107 -64.6"/>
+      <circle class="o" fill="#fff3b0" cx="103" cy="-74" r="2.8"/>
+      <!-- the big mudguard over the back wheel and the bottom of the cab -->
+      <path class="o" fill="#c8322a" d="M-18 -36 Q-18 -76 18 -78 Q54 -76 56 -40 L46 -40 Q44 -66 18 -68 Q-8 -66 -8 -36 Z"/>
+      <path class="o" fill="#c8322a" d="M-6 -68 L-4 -78 L42 -78 L42 -68 Z"/>
+      <!-- the inside of the cab, seen through the glass -->
+      <path class="o" fill="#34424b" d="M-4 -78 L-2 -108 L38 -108 L42 -78 Z"/>
+      <path class="t" style="stroke-width:2.6" d="M30 -80 L33 -89 M28.6 -90 L37 -87.4"/>
+    </g>
+  </g>
+
+  <!-- The driver: sober, sitting high, wearing ear defenders. Joint at the seat. -->
+  <g id="driver" data-parent="body" transform="translate(18 -80)">
+    <path class="o" fill="#2f62b0" d="M-10 2 Q-11 -9 -3 -11 L5 -11 Q11 -8 11 2 Z"/>
+    <path class="o" fill="#2f62b0" d="M4 -7 L15 -4 L14 1 L3 -1 Z"/>
+    <circle class="o" fill="#f2b096" cx="16" cy="-2.5" r="2.8"/>
+    <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M-5 -11 Q2 -8 8 -11 Q5 -6.6 1.6 -6.6 Q-2 -7 -5 -11 Z"/>
+    <circle class="o" fill="#f2b096" cx="2" cy="-19" r="8.6"/>
+    <path class="o" fill="#5a3a22" d="M-6.6 -21 Q-7 -29 2 -29 Q9 -29 10.4 -23 Q4 -25 -2 -23.6 Q-4 -20 -6.6 -21 Z"/>
+    <circle class="n" fill="#2b1b16" cx="6.6" cy="-19" r="1.4"/>
+    <path class="t" d="M10.4 -18 Q12.8 -16.4 10.6 -15"/>
+    <path class="t" style="stroke-width:1.4" d="M5 -13.6 L8.4 -13.6"/>
+    <!-- the ear defenders -->
+    <path fill="none" stroke="#2b1b16" stroke-width="4.4" stroke-linecap="round" d="M-3.4 -19 Q-3 -31 4 -29"/>
+    <path fill="none" stroke="#3a3a44" stroke-width="2" stroke-linecap="round" d="M-3.4 -19 Q-3 -31 4 -29"/>
+    <rect class="o" style="stroke-width:1.8" fill="#f6c21c" x="-7.6" y="-24" width="8" height="10.4" rx="3.6"/>
+  </g>
+
+  <!-- Glass, pillars, roof and the beacon: drawn over the driver. -->
+  <g id="cab" data-parent="body" transform="translate(20 -92)">
+    <g transform="translate(-20 92)">
+      <path class="n" fill="#bfe6f5" fill-opacity="0.36" d="M-4 -78 L-2 -108 L38 -108 L42 -78 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.5" d="M24 -82 L30 -104 L35 -104 L29 -82 Z"/>
+      <path class="o" fill="#c8322a" d="M-7 -78 L-5 -108 L-1 -108 L-2 -78 Z"/>
+      <path class="o" fill="#c8322a" d="M36 -108 L40 -108 L45 -78 L40 -78 Z"/>
+      <path class="o" fill="#c8322a" d="M-10 -106 Q-10 -113 -3 -113 L40 -113 Q47 -113 47 -106 Z"/>
+      <path class="n" fill="#e0483c" d="M-6 -111 L40 -111 Q44 -111 44.6 -109 L-7.6 -109 Q-7.6 -110.6 -6 -111 Z"/>
+      <path class="o" fill="#ff9a1f" d="M10 -113 Q10 -118 14 -118 Q18 -118 18 -113 Z"/>
+      <path class="t" style="stroke-width:2" d="M44 -96 L52 -99"/>
+      <rect class="o" fill="#34424b" x="51" y="-104" width="4.4" height="10" rx="1.5"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(18 -33)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="33"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="7.4" stroke-dasharray="6.4 7" cx="0" cy="0" r="28"/>
+    <circle class="o" fill="#f6c21c" cx="0" cy="0" r="17"/>
+    <path class="t" style="stroke-width:2.2" d="M0 -17 L0 -6.4 M0 17 L0 6.4 M-17 0 L-6.4 0 M17 0 L6.4 0 M-12 -12 L-4.5 -4.5 M12 12 L4.5 4.5 M-12 12 L-4.5 4.5 M12 -12 L4.5 -4.5"/>
+    <circle class="o" fill="#c99410" cx="0" cy="0" r="6.4"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(86 -21)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="21"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="5" stroke-dasharray="5 5.4" cx="0" cy="0" r="17.4"/>
+    <circle class="o" fill="#f6c21c" cx="0" cy="0" r="10.4"/>
+    <path class="t" style="stroke-width:2" d="M0 -10.4 L0 -4 M0 10.4 L0 4 M-10.4 0 L-4 0 M10.4 0 L4 0"/>
+    <circle class="o" fill="#c99410" cx="0" cy="0" r="4"/>
+  </g>
+</svg>

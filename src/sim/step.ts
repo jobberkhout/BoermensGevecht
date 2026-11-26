@@ -20,6 +20,7 @@ import { applyCommand, canDo } from './commands.ts';
 import { frontUnit, payee } from './lane.ts';
 import { kraanDicht, overtimeLevel, turretDamagePercent, unitDamagePercent } from './overtime.ts';
 import { advanceRiders, riderInReach, sendRider } from './riders.ts';
+import { blinded, boom, dance, dancing, dropPeel, dropTheBeat, flyTurned, passKeys, slipOnPeels, turnedShot } from './carnaval.ts';
 import { advanceBarrages, advanceWaves, applyTakeovers } from './specials.ts';
 import { applyVaults, bounceOn, crash, feed, preyOf, regrow, remember, sendBack, serveSoup, shoveBack, startVault, sticky, walkSpeed } from './stunts.ts';
 import { markPosing, posed, recall, scatterGroup } from './tourists.ts';
@@ -81,10 +82,15 @@ export function step(s: SimState, cmds: readonly Stamped[], events: SimEvent[]):
   let fronts: readonly [Unit | undefined, Unit | undefined] = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)];
   for (const side of SIDES) decide(s, side, fronts[other(side)], dmg, events);
   if (applyVaults(s, events)) fronts = [frontUnit(s.sides[0].units), frontUnit(s.sides[1].units)];
+  // De Reuzenprins takes over a turret, or gives it back, before anyone fires (sim/carnaval.ts).
+  passKeys(s, events);
   for (const side of SIDES) fireTurrets(s, side, fronts[other(side)], events);
 
-  // 4-6. Movement, riders, projectiles, specials.
+  // 4-6. Movement, riders, projectiles, specials. Whoever is in a polonaise dances
+  // home once the ranks have moved, and then anyone may walk onto a banana peel.
   move(s, fronts);
+  dance(s);
+  slipOnPeels(s, dmg, events);
   advanceRiders(s, dmg, events);
   advanceShots(s, dmg, events);
   advanceWaves(s, dmg);
@@ -194,12 +200,16 @@ function decide(s: SimState, side: Side, front: Unit | undefined, dmg: Damage[],
     const foeFront = (def.vault && preyOf(s, side, u, def)) || front;
     const dist = LANE - u.pos - (foeFront ? foeFront.pos : 0);
 
-    if (u.stunUntil > s.tick) {
-      // Stuck: no walking, no fighting, and whatever it was doing is interrupted.
+    if (u.stunUntil > s.tick || dancing(s, u)) {
+      // Stuck, or dancing in the enemy's polonaise: no walking forward, no fighting,
+      // and whatever it was doing is interrupted. A dancer is moved by dance().
       u.act = 'idle';
       u.actTick = 0;
       continue;
     }
+
+    // De Zuipwagen drops the beat on its own beat, whatever it is doing (sim/carnaval.ts).
+    if (def.party) dropTheBeat(s, side, u, events, dmg);
 
     // One aboard a beer bike tosses on his own beat, whatever the bike is doing.
     if (def.toss && s.tick >= u.tossAt && dist <= def.toss.range) {
@@ -287,16 +297,22 @@ function damageOf(s: SimState, side: Side, u: Unit, base: number): number {
   return posed(u, Math.floor((fired * unitDamagePercent(s.tick)) / 100));
 }
 
-/** Sends a unit's throw down the lane. It hits the first enemy body it meets (see advanceShots). */
+/**
+ * Sends a unit's throw down the lane. It hits the first enemy body it meets
+ * (see advanceShots). With confetti in the thrower's eyes it misses: it sails
+ * over everyone and comes down at its limit.
+ */
 function launch(s: SimState, side: Side, u: Unit, shot: ShotDef, amount: number, dist: number, range: number, extra: Partial<Shot> = {}): void {
+  const miss = blinded(s, u);
   s.shots.push({
     ...extra,
+    ...(miss ? { miss: true as const } : {}),
     id: s.nextId++,
     side,
     pos: u.pos,
     prevPos: u.pos,
     origin: u.pos,
-    dist0: Math.max(dist, 1),
+    dist0: miss ? range + SHOT_SLACK : Math.max(dist, 1),
     limit: u.pos + range + SHOT_SLACK,
     speed: shot.speed,
     dmg: amount,
@@ -326,6 +342,15 @@ function fireTurrets(s: SimState, side: Side, foeFront: Unit | undefined, events
     if (t.cd > 0) t.cd--;
     if (t.cd > 0 || worn <= 0 || siesta) continue;
     const def = turretDef(t.def);
+    if (t.heldBy !== undefined) {
+      // Taken over with the key of the city: it fires at its own side's units, for the enemy (sim/carnaval.ts).
+      const turned = turnedShot(s, side, slot);
+      if (!turned) continue;
+      t.cd = def.cooldown;
+      s.shots.push(turned);
+      events.push({ t: 'turretFire', side, slot });
+      continue;
+    }
     const range = turretRange(def, t.level);
     // A rider in reach comes before anything else: it is the thing going for the base.
     const rider = riderInReach(riders, range);
@@ -489,6 +514,15 @@ function advanceShots(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   for (const shot of s.shots) {
     shot.prevPos = shot.pos;
     shot.pos += shot.speed;
+    // A turret taken over with the key fires at its own side; a throw with confetti in the eyes hits nobody.
+    if (shot.turned) {
+      if (flyTurned(s, shot, dmg)) keep.push(shot);
+      continue;
+    }
+    if (shot.miss) {
+      if (shot.pos <= shot.limit) keep.push(shot);
+      continue;
+    }
     const foe = other(shot.side);
     const units = s.sides[foe].units;
     // The first body a shot meets is the enemy's foremost unit. Only a turret's
@@ -541,6 +575,10 @@ function overtime(s: SimState, dmg: Damage[], events: SimEvent[]): void {
 function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
   /** Per side, the units it loses to a takeover this tick. */
   const sold: [number[], number[]] = [[], []];
+  /** Per side, the big drums a turret's shot bounced off this tick, and who stopped to party. */
+  const drums: [Set<number>, Set<number>] = [new Set(), new Set()];
+  const partied: [number[], number[]] = [[], []];
+  let party = 0;
   for (const d of dmg) {
     const target = s.sides[d.side];
     if (d.bought) {
@@ -568,14 +606,31 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       events.push({ t: 'hit', side: d.side, id: u.id, amount, pos: u.pos });
       continue;
     }
+    if (d.conga || d.party || d.slip) {
+      // Pulled into a polonaise, partying, or flat on a banana peel (sim/carnaval.ts). Only the polonaise also bumps.
+      if (d.conga) {
+        u.congaUntil = Math.max(u.congaUntil ?? 0, s.tick + d.conga);
+        u.act = 'idle';
+        u.actTick = 0;
+        events.push({ t: 'conga', side: d.side, id: u.id, ticks: d.conga });
+      }
+      if (d.party) {
+        u.stunUntil = Math.max(u.stunUntil, s.tick + d.party);
+        partied[d.side].push(u.id);
+        party = d.party;
+      }
+      if (d.slip) u.stunUntil = Math.max(u.stunUntil, s.tick + d.slip);
+      if (d.amount <= 0) continue;
+    }
     // A unit that grows back only does so once it is left alone (sim/stunts.ts).
     if (unitDef(u.def).regrows && d.amount > 0) u.hitAt = s.tick;
     const share = d.turret ? unitDef(u.def).turretPercent : 100;
     if (share < 100) {
-      // A turret's shot on a unit that shrugs turrets off: most of it bounces away.
+      // A turret's shot on a unit that shrugs turrets off: most of it bounces away. Off a big drum it booms.
       const amount = Math.floor((d.amount * share) / 100);
       u.hp -= amount;
       events.push({ t: 'glance', side: d.side, id: u.id, amount, pos: u.pos });
+      if (unitDef(u.def).drum) drums[d.side].add(u.id);
       continue;
     }
     u.hp -= d.amount;
@@ -586,6 +641,9 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
 
   // De Vreter eats what it hit, if it is still standing itself.
   feed(s, dmg, events);
+  // The drums that were hit boom, and whoever De Zuipwagen got going parties.
+  boom(s, drums, events);
+  for (const side of SIDES) if (partied[side].length > 0) events.push({ t: 'partied', side, ids: partied[side], ticks: party });
 
   // Whoever a skater crashed into and is still standing is shoved back. Each
   // side's units only move among their own, so the order of the sides does not matter.
@@ -630,8 +688,11 @@ function resolve(s: SimState, dmg: Damage[], events: SimEvent[]): void {
       }
     }
     me.units = alive;
-    // A schild that scatters leaves its group behind where it stood (sim/tourists.ts).
-    for (const u of fallen) scatterGroup(s, side, u, events);
+    // A schild that scatters leaves its group behind where it stood (sim/tourists.ts), and a banana its peel (sim/carnaval.ts).
+    for (const u of fallen) {
+      scatterGroup(s, side, u, events);
+      dropPeel(s, side, u, events);
+    }
     // A rider that reached the base is simply gone; one that was stopped on the way is paid for like a unit.
     const riding: Rider[] = [];
     for (const r of me.riders) {

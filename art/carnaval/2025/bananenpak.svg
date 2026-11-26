@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-52 -137 106 143" data-rig="humanoid">
+  <title>Het Bananenpak: bezoeker van boven de rivieren in een bananenpak, verdwaald in het verkeerde dorp, roept toch Alaaf</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm, reaching round in front of the suit to hold up the phone. Mostly hidden by the banana. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <g transform="rotate(-72)">
+      <path class="o" fill="#4a5262" d="M-6 -3 Q-8 12 -5 30 L5 30 Q7 12 6 -3 Z"/>
+    </g>
+  </g>
+
+  <!-- Jeans and white trainers: dressed for the city, not for this. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#3f5c86" d="M-7 -3 L7 -3 L6 29 L-6 29 Z"/>
+    <path class="o" fill="#e6e6e6" d="M-7 33.5 Q-7 30.5 -3.5 30.5 L4 30.5 Q11 31 13.5 35 L13.5 38 L-7 38 Z"/>
+    <path class="n" fill="#c9c9c9" d="M-6 36 L12.6 36 L12.6 37.6 L-6 37.6 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#4f6f9e" d="M-7 -3 L7 -3 L6 29 L-6 29 Z"/>
+    <path class="n" fill="#6787b5" d="M1.5 -1 L5 -1 L4.5 27 L1.5 27 Z"/>
+    <path class="o" fill="#fafafa" d="M-7 33.5 Q-7 30.5 -3.5 30.5 L4 30.5 Q11 31 13.5 35 L13.5 38 L-7 38 Z"/>
+    <path class="n" fill="#d6d6d6" d="M-6 36 L12.6 36 L12.6 37.6 L-6 37.6 Z"/>
+    <path class="t" style="stroke:#3f5c86;stroke-width:1.4" d="M2 32.5 L7 33.5"/>
+  </g>
+
+  <!-- The banana itself, from the knees to the shoulders. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#f6c21c" d="M-17 17 Q-22 -8 -20 -42 L21 -42 Q27 -12 18 17 Q0 22 -17 17 Z"/>
+    <!-- shade down the back, light down the front, and the ridges of the peel -->
+    <path class="n" fill="#dca313" d="M-16 16 Q-20.6 -8 -18.8 -41 L-12 -41 Q-14 -10 -10 18.4 Q-13 18 -16 16 Z"/>
+    <path class="n" fill="#fde27a" d="M14 -41 L19 -41 Q24.4 -12 16.6 15.6 L12.4 17 Q19 -12 14 -41 Z"/>
+    <path class="t" style="stroke:#c99410;stroke-width:1.3" d="M-2 -41 Q-3 -10 0 19 M9 -41 Q11 -10 8 19"/>
+    <!-- a few brown freckles: he has worn it before -->
+    <circle class="n" fill="#9a6a2a" cx="4" cy="-14" r="1.4"/>
+    <circle class="n" fill="#9a6a2a" cx="-6" cy="4" r="1.1"/>
+    <circle class="n" fill="#9a6a2a" cx="13" cy="6" r="1.2"/>
+    <circle class="n" fill="#9a6a2a" cx="-8" cy="-26" r="0.9"/>
+    <!-- the hem at the bottom of the costume -->
+    <path class="t" style="stroke:#c99410;stroke-width:1.3" d="M-15.6 13 Q0 17.6 17 13"/>
+  </g>
+
+  <!-- The top of the banana, with his face in the opening and the stem on top. Turns with his head. -->
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <!-- the fill runs down over the torso without an edge, so the suit stays one piece -->
+    <path class="n" fill="#f6c21c" d="M-19.6 14 C-22 -6 -21 -30 -24 -44 C-25 -51 -22 -56 -16 -56 C-4 -54 12 -45 19 -33 C25 -22 26.4 -2 22.6 14 Z"/>
+    <path class="n" fill="#dca313" d="M-19.6 14 C-22 -6 -21 -30 -24 -44 C-24.6 -48 -23 -52 -20 -54 Q-18 -30 -13 -16 Q-13.4 0 -12.6 14 Z"/>
+    <path class="n" fill="#fde27a" d="M15.8 -36 Q22.4 -24 23 -6 Q23 4 21.8 14 L17.6 14 Q20.4 -12 15.8 -36 Z"/>
+    <path class="t" style="stroke:#c99410;stroke-width:1.3" d="M-3.2 14 Q-4 2 -6 -6 M-8 -40 Q-2 -46 6 -46"/>
+    <path class="o" fill="none" d="M-19.6 12 C-22 -6 -21 -30 -24 -44 C-25 -51 -22 -56 -16 -56 C-4 -54 12 -45 19 -33 C25 -22 26.4 -2 22.4 12"/>
+    <circle class="n" fill="#9a6a2a" cx="-12" cy="-44" r="1.2"/>
+    <circle class="n" fill="#9a6a2a" cx="-16" cy="-30" r="1"/>
+    <!-- the stem -->
+    <path class="o" fill="#6b4a22" d="M-23.6 -50.6 L-28.4 -56.6 L-24.4 -58.8 L-18.4 -53.6 Z"/>
+    <!-- the opening, its yellow lining, and his face in it -->
+    <ellipse class="o" fill="#c4900e" cx="5.6" cy="-20.5" rx="15" ry="16.6"/>
+    <ellipse class="n" fill="#f2b896" cx="6.6" cy="-20" rx="12.6" ry="14.4"/>
+    <path class="n" fill="#8a5a32" d="M-6 -24 Q-4 -34 6 -34.4 Q15 -34.2 18.4 -27 Q12 -30.4 6 -28.4 Q1 -27 -2 -21 Q-4 -19 -6 -24 Z"/>
+    <ellipse class="n" fill="#e5583f" fill-opacity="0.45" cx="7.4" cy="-12" rx="3.4" ry="2.2"/>
+    <!-- lost: eyes rolled up to the left, one eyebrow up -->
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="9" cy="-20.6" r="3.5"/>
+    <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="16.6" cy="-20.4" r="3.1"/>
+    <circle class="n" fill="#2b1b16" cx="8" cy="-21.8" r="1.7"/>
+    <circle class="n" fill="#2b1b16" cx="15.8" cy="-21.6" r="1.6"/>
+    <path class="t" style="stroke-width:2" d="M4.6 -27.6 Q8 -31.4 12 -28.8 M14.4 -26.6 L19.6 -26.2"/>
+    <path class="o" fill="#f2b896" d="M19.6 -17.6 Q24.2 -14.6 19.8 -12.4"/>
+    <!-- mouth open: Alaaf! -->
+    <ellipse class="o" style="stroke-width:1.8" fill="#7a1f1f" cx="12.6" cy="-9.4" rx="3.4" ry="3.6"/>
+    <path class="n" fill="#e86a6a" d="M10.4 -7.2 Q12.6 -9.2 14.8 -7.2 Q12.6 -6 10.4 -7.2 Z"/>
+  </g>
+
+  <!-- The phone, held out in front of the banana: a map, a pin, and no idea. Joint at his far hand. -->
+  <g id="phone" data-parent="arm_back" transform="translate(20 -63)">
+    <g transform="rotate(14)">
+      <rect class="o" style="stroke-width:2" fill="#1d1d24" x="1" y="-19" width="11" height="18" rx="2"/>
+      <rect class="n" fill="#cfe8c4" x="2.8" y="-17.2" width="7.4" height="14"/>
+      <path fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" d="M2.8 -12 L6 -9 L5 -5 L10 -6"/>
+      <path fill="none" stroke="#7cc6ec" stroke-width="1.4" stroke-linecap="round" d="M7 -17 Q5 -14 9.8 -11"/>
+      <path class="n" fill="#d8342b" d="M6.6 -9.6 Q4.2 -12.2 4.6 -14 Q5.2 -15.8 6.6 -15.8 Q8 -15.8 8.6 -14 Q9 -12.2 6.6 -9.6 Z"/>
+      <circle class="n" fill="#ffffff" cx="6.6" cy="-13.8" r="0.8"/>
+    </g>
+    <circle class="o" fill="#e9a183" cx="2" cy="0" r="4.4"/>
+  </g>
+
+  <!-- The near arm, out of its arm hole in a grey hoodie sleeve; the hand that slaps. -->
+  <g id="arm_front" data-parent="torso" transform="translate(9 -72)">
+    <circle class="o" style="stroke-width:2" fill="#c4900e" cx="0" cy="0" r="7.4"/>
+    <path class="o" fill="#5a6374" d="M-6 -3 Q-8 12 -5.5 24 L5.5 24 Q7.5 12 6 -3 Z"/>
+    <path class="n" fill="#6c7586" d="M1.5 -1 L4.5 -1 Q5.6 10 4.4 22 L1.6 22 Z"/>
+    <path class="o" fill="#5a6374" d="M-6.2 20 L6 20 L5.6 25 L-5.8 25 Z"/>
+    <circle class="o" fill="#f2b896" cx="0" cy="29" r="4.6"/>
+  </g>
+</svg>

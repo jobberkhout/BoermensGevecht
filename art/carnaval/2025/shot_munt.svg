@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 32 32" data-rig="static">
+  <title>Een consumptiemunt: een groen plastic muntje met een biertje erop</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .n { stroke: none; }
+  </style>
+  <!-- A plastic drink token, thrown from the VIP deck. Origin = the middle of the token. -->
+  <g id="munt" transform="translate(0 0)">
+    <!-- its edge, a little thickness below the face -->
+    <ellipse class="o" fill="#1f6e33" cx="0" cy="2.4" rx="13" ry="11.6"/>
+    <!-- the face, with a raised rim -->
+    <ellipse class="o" fill="#2f9a48" cx="0" cy="0" rx="13" ry="11.6"/>
+    <ellipse fill="none" stroke="#5cc274" stroke-width="1.6" cx="0" cy="0" rx="9.6" ry="8.4"/>
+    <!-- the symbol: a glass of beer with a head on it -->
+    <path class="n" fill="#ffffff" d="M-4 -3 L3 -3 L2.4 6 L-3.4 6 Z"/>
+    <path class="n" fill="#ffffff" d="M3 -1.6 Q6 -1.6 6 1.4 Q6 4.2 2.8 4.2 L2.9 2.8 Q4.6 2.8 4.6 1.4 Q4.6 -0.2 2.9 -0.2 Z"/>
+    <path class="n" fill="#ffffff" d="M-5 -2.6 Q-5.4 -6 -2.4 -6 Q-1 -7.6 1 -6.4 Q4 -6.6 4 -2.6 Z"/>
+    <!-- a glint -->
+    <path class="n" fill="#ffffff" fill-opacity="0.55" d="M-9.6 -3 Q-8.6 -8 -3.6 -9.4 Q-7.4 -6.6 -8.4 -2.6 Z"/>
+  </g>
+</svg>

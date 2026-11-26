@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -136 108 142" data-rig="humanoid">
+  <title>De Confettischutter: embleemjas vol eigen emblemen, rode boerenzakdoek, skibril op, een confettikanon onder de arm</title>
+  <defs>
+    <linearGradient id="lens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb02e"/>
+      <stop offset="0.55" stop-color="#f0607a"/>
+      <stop offset="1" stop-color="#8a4fd0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm, down at his side, a fist ready for the Alaaf. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#24508f" d="M-6 -3 Q-8 12 -5.5 24 L5.5 24 Q7.5 12 6 -3 Z"/>
+    <circle class="o" fill="#e9a183" cx="0" cy="28.5" r="4.6"/>
+  </g>
+
+  <!-- Black trousers and big boots: dressed for a long cold night on the square. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#2c2c36" d="M-7 -3 L7 -3 L6 27 L-6 27 Z"/>
+    <path class="o" fill="#5a3a22" d="M-7.4 25 L6.6 25 L7 30.6 Q12.6 31 14 34.6 L14 38 L-7.4 38 Z"/>
+    <path class="n" fill="#3a2414" d="M-6.6 36 L13.2 36 L13.2 37.6 L-6.6 37.6 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#383846" d="M-7 -3 L7 -3 L6 27 L-6 27 Z"/>
+    <path class="n" fill="#4a4a5a" d="M1.5 -1 L5 -1 L4.6 25 L1.6 25 Z"/>
+    <path class="o" fill="#6b4529" d="M-7.4 25 L6.6 25 L7 30.6 Q12.6 31 14 34.6 L14 38 L-7.4 38 Z"/>
+    <path class="n" fill="#43291a" d="M-6.6 36 L13.2 36 L13.2 37.6 L-6.6 37.6 Z"/>
+    <path class="t" style="stroke:#d8342b;stroke-width:1.4" d="M-3 28 L4 28"/>
+  </g>
+
+  <!-- The emblem jacket: kiel blue, covered in badges of his own club. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2f62b0" d="M-16 7 Q-19 -14 -15 -30 Q-12 -37 0 -37 Q13 -37 16 -30 Q20 -14 16 7 Z"/>
+    <path class="n" fill="#24508f" d="M-15 6 Q-17.6 -14 -14 -29 Q-10 -20 -9.4 6 Z"/>
+    <path class="t" style="stroke:#1d3f7a" d="M4 -32 L4 6"/>
+    <!-- badge: a star -->
+    <circle class="o" style="stroke-width:1.6" fill="#2f9a48" cx="-6" cy="-19" r="5"/>
+    <path class="n" fill="#f6c21c" d="M-6 -23 L-4.9 -20.3 L-2 -20.1 L-4.2 -18.2 L-3.5 -15.4 L-6 -16.9 L-8.5 -15.4 L-7.8 -18.2 L-10 -20.1 L-7.1 -20.3 Z"/>
+    <!-- badge: eleven, two upright strokes -->
+    <rect class="o" style="stroke-width:1.6" fill="#ffffff" x="-5.6" y="-3.6" width="8.4" height="8.6" rx="1.6"/>
+    <path class="n" fill="#d8342b" d="M-3.7 -1.8 L-2.2 -1.8 L-2.2 3.2 L-3.7 3.2 Z M-0.6 -1.8 L0.9 -1.8 L0.9 3.2 L-0.6 3.2 Z"/>
+    <!-- badge: a beer mug -->
+    <circle class="o" style="stroke-width:1.6" fill="#d8342b" cx="9.4" cy="0.4" r="5"/>
+    <path class="n" fill="#f6c21c" d="M6.8 -2 L11 -2 L11 3.4 L6.8 3.4 Z"/>
+    <path class="n" fill="#ffffff" d="M6.4 -3.4 L11.4 -3.4 L11.4 -1.8 L6.4 -1.8 Z"/>
+    <path fill="none" stroke="#f6c21c" stroke-width="1.2" d="M11 -1.2 Q13 -1.2 13 0.6 Q13 2.2 11 2.2"/>
+    <!-- the red farmer's handkerchief, knotted at the throat -->
+    <path class="o" fill="#d8342b" d="M-11 -35 Q0 -29 13 -35 Q8 -27 2 -26 Q-6 -27 -11 -35 Z"/>
+    <circle class="n" fill="#ffffff" cx="-5" cy="-31" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="1" cy="-29" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="7" cy="-31" r="0.9"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e9a183" x="-4" y="-6" width="9" height="9" rx="2"/>
+    <ellipse class="o" fill="#f2b096" cx="2" cy="-21" rx="18.5" ry="18"/>
+    <ellipse class="o" fill="#f2b096" cx="-8.5" cy="-18.5" rx="3.4" ry="4.8"/>
+    <!-- short hair, standing up -->
+    <path class="o" fill="#5a3a22" d="M-16.6 -20 Q-20 -36 -8 -40 L-6 -44 L-1 -40.4 L3 -45 L6.4 -40 L11 -43.4 L12.6 -38 Q20 -36 20.4 -28 Q10 -33 0 -32 Q-9 -31 -12 -22 Q-14 -18 -16.6 -20 Z"/>
+    <!-- face paint: three dots in the carnival colours -->
+    <circle class="n" fill="#d8342b" cx="5" cy="-10.6" r="1.5"/>
+    <circle class="n" fill="#f6c21c" cx="8.6" cy="-9" r="1.5"/>
+    <circle class="n" fill="#2f9a48" cx="12" cy="-10.6" r="1.5"/>
+    <!-- a big grin -->
+    <path class="o" style="stroke-width:1.8" fill="#7a1f1f" d="M11 -7.6 Q16.4 -5.4 20.4 -8.6 Q19 -2.4 15 -2.6 Q11.6 -3 11 -7.6 Z"/>
+    <path class="n" fill="#ffffff" d="M12.4 -6.8 Q16.2 -5.2 19.2 -7.6 L18.8 -6.2 Q16 -4.6 12.8 -5.6 Z"/>
+    <path class="o" fill="#f2b096" d="M20.5 -17 Q25 -14 20.5 -12"/>
+    <!-- the ski goggles: strap round the head, a big mirrored lens -->
+    <path fill="none" stroke="#2b1b16" stroke-width="6.6" stroke-linecap="round" d="M-17.4 -24 Q-6 -27 4 -26"/>
+    <path fill="none" stroke="#d8342b" stroke-width="3.6" stroke-linecap="round" d="M-17.4 -24 Q-6 -27 4 -26"/>
+    <path class="o" fill="#ffffff" d="M2 -30 Q13 -31.6 23.4 -29 Q25.4 -22 23.4 -15.4 Q18 -14 14.6 -17.6 Q12.6 -19 10.6 -17.6 Q6 -14.4 2 -16.4 Q0 -23 2 -30 Z"/>
+    <path class="n" fill="url(#lens)" d="M4.2 -27.8 Q13 -29 21.4 -27 Q22.8 -22 21.4 -17.6 Q17.6 -16.8 15.2 -19.4 Q12.6 -21.2 10 -19.4 Q6.6 -17 4.2 -18.2 Q2.8 -23 4.2 -27.8 Z"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.75" d="M7 -26.6 L10.4 -26.6 L6.6 -20.4 L4.8 -21.4 Z M12.4 -27 L14 -27 L10.8 -21.6 L9.8 -22.4 Z"/>
+  </g>
+
+  <!-- The confetti cannon: a long tube in foil, tucked under his arm, mouth forward and a little up,
+       a serpentine hanging from the rim. Joint in his hand. -->
+  <g id="cannon" data-parent="arm_front" transform="translate(22 -58)">
+    <g transform="rotate(-16)">
+      <rect class="o" fill="#f6c21c" x="-34" y="-5.6" width="48" height="11.2" rx="2"/>
+      <path class="n" fill="#d8342b" d="M-24 -4.4 L-19 -4.4 L-23 4.4 L-28 4.4 Z M-10 -4.4 L-5 -4.4 L-9 4.4 L-14 4.4 Z M4 -4.4 L9 -4.4 L5 4.4 L0 4.4 Z"/>
+      <path class="n" fill="#2f9a48" d="M-17 -4.4 L-12 -4.4 L-16 4.4 L-21 4.4 Z M-3 -4.4 L2 -4.4 L-2 4.4 L-7 4.4 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.45" d="M-32 -3.4 L12 -3.4 L12 -1.8 L-32 -1.8 Z"/>
+      <!-- the twist grip at the back -->
+      <rect class="o" fill="#2b2b33" x="-39" y="-6.4" width="7" height="12.8" rx="1.6"/>
+      <path class="t" style="stroke:#55555e;stroke-width:1.2" d="M-37 -5 L-37 5 M-34.4 -5 L-34.4 5"/>
+      <!-- the mouth, with confetti waiting in it -->
+      <rect class="o" fill="#e6e6e6" x="13" y="-7" width="5.4" height="14" rx="1.4"/>
+      <rect class="n" fill="#d8342b" x="18.6" y="-4" width="3" height="2.4" transform="rotate(20 20 -3)"/>
+      <rect class="n" fill="#2f9a48" x="18.4" y="1" width="2.6" height="2.4" transform="rotate(-24 19.6 2)"/>
+      <rect class="n" fill="#2f62b0" x="20.6" y="-1" width="2.4" height="2.2"/>
+    </g>
+    <circle class="o" fill="#f2b096" cx="0" cy="0" r="4.6"/>
+    <circle data-mount="muzzle" fill="none" cx="19.2" cy="-5.5" r="1"/>
+  </g>
+
+  <!-- The serpentine from the rim, dangling. Joint at the rim. -->
+  <g id="streamer" data-parent="cannon" transform="translate(42 -57)">
+    <path fill="none" stroke="#2b1b16" stroke-width="3.6" stroke-linecap="round" d="M0 0 Q4 5 0 9 Q-4 13 0 17 Q3 20 1 23"/>
+    <path fill="none" stroke="#3cc05a" stroke-width="1.8" stroke-linecap="round" d="M0 0 Q4 5 0 9 Q-4 13 0 17 Q3 20 1 23"/>
+  </g>
+
+  <!-- The near arm: elbow clamping the cannon against his hip, forearm along it. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#2f62b0" d="M-6 -3 Q-8 6 -6.5 13 L6 13 Q7.5 6 6 -3 Z"/>
+    <path fill="none" stroke="#2b1b16" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" d="M0 11 L1 15 L12 14"/>
+    <path fill="none" stroke="#2f62b0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M0 11 L1 15 L12 14"/>
+    <path class="o" fill="#2f62b0" d="M-6.5 9 L6 9 L6.2 13.4 L-6.6 13.4 Z"/>
+    <!-- a badge on the sleeve: a little sousaphone bell -->
+    <circle class="o" style="stroke-width:1.4" fill="#f6c21c" cx="0" cy="3" r="3.6"/>
+    <circle class="n" fill="#c99410" cx="0" cy="3" r="1.6"/>
+  </g>
+</svg>

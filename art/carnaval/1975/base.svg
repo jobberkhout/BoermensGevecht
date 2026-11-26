@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-314 -596 332 602" data-rig="static">
+  <title>De residentie: het bruine café van de carnavalsvereniging, vol papieren slingers, een spandoek met het embleem op het dak en het plaatsnaambord met een narrenkap in plaats van een naam</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- (0,0) is the foot of the doorway, where units come out. The café stands behind it, to the left. -->
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole -->
+    <path class="t" style="stroke-width:5" d="M-288 -462 L-288 -552"/>
+    <circle class="o" fill="#f6c21c" cx="-288" cy="-555" r="4.5"/>
+
+    <!-- the chimney -->
+    <rect class="o" fill="#8a4a32" x="-118" y="-548" width="22" height="50"/>
+    <path class="t" style="stroke:#6e3826" d="M-118 -536 L-96 -536 M-118 -522 L-96 -522 M-107 -548 L-107 -536 M-112 -536 L-112 -522 M-102 -522 L-102 -508"/>
+    <rect class="o" fill="#5a2e20" x="-121" y="-552" width="28" height="6" rx="1.5"/>
+
+    <!-- a papier-mache jester's cap on the end of the ridge -->
+    <path class="t" style="stroke-width:3.6" d="M-30 -504 L-30 -518"/>
+    <path class="o" fill="#d8342b" d="M-36 -520 Q-50 -526 -54 -514 Q-52 -510 -48 -512 Q-46 -518 -36 -516 Z"/>
+    <path class="o" fill="#2f9a48" d="M-24 -520 Q-10 -526 -6 -514 Q-8 -510 -12 -512 Q-14 -518 -24 -516 Z"/>
+    <path class="o" fill="#f6c21c" d="M-38 -518 Q-38 -536 -30 -544 Q-22 -536 -22 -518 Z"/>
+    <path class="o" fill="#2f62b0" d="M-40 -520 Q-30 -524 -20 -520 L-20 -515 Q-30 -518 -40 -515 Z"/>
+    <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="-51.6" cy="-509" r="3.6"/>
+    <circle class="o" style="stroke-width:2" fill="#d8342b" cx="-30" cy="-547" r="3.6"/>
+    <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="-8.4" cy="-509" r="3.6"/>
+
+    <!-- the roof of old red pantiles -->
+    <path class="o" fill="#9a4a30" d="M-316 -440 L-262 -506 L-36 -506 L16 -440 Z"/>
+    <path class="t" style="stroke:#7a3622;stroke-width:2.2" d="M-305 -453 L5 -453 M-294 -466 L-6 -466 M-283 -479 L-16 -479 M-272 -492 L-26 -492"/>
+    <path class="t" style="stroke:#7a3622" d="M-240 -506 L-246 -492 M-200 -506 L-204 -492 M-160 -506 L-162 -492 M-120 -506 L-120 -492 M-80 -506 L-78 -492 M-50 -506 L-46 -492 M-250 -479 L-256 -466 M-210 -479 L-214 -466 M-170 -479 L-172 -466 M-130 -479 L-130 -466 M-90 -479 L-88 -466 M-50 -479 L-46 -466 M-12 -479 L-6 -466"/>
+    <path class="o" fill="#7a3622" d="M-264 -510 L-34 -510 L-34 -502 L-264 -502 Z"/>
+
+    <!-- the club's banner, tied across the roof: the three colours, the jester's cap in a ring -->
+    <path class="t" style="stroke-width:2" d="M-176 -500 L-170 -494 M-40 -500 L-46 -494"/>
+    <path class="o" fill="#d8342b" d="M-170 -494 L-46 -494 L-46 -486 L-170 -486 Z"/>
+    <path class="o" fill="#f6c21c" d="M-170 -486 L-46 -486 L-46 -470 L-170 -470 Z"/>
+    <path class="o" fill="#2f9a48" d="M-170 -470 L-46 -470 L-46 -462 L-170 -462 Z"/>
+    <circle class="o" fill="#f4ecd8" cx="-108" cy="-478" r="15"/>
+    <path class="o" style="stroke-width:2" fill="#d8342b" d="M-111 -480 Q-118 -486 -122 -479 Q-122 -475 -120 -474 Q-118 -479 -114 -477 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2f9a48" d="M-105 -480 Q-98 -486 -94 -479 Q-94 -475 -96 -474 Q-98 -479 -102 -477 Z"/>
+    <path class="o" style="stroke-width:2" fill="#f6c21c" d="M-113 -479 Q-113 -489 -108 -493 Q-103 -489 -103 -479 Z"/>
+    <path class="o" style="stroke-width:2" fill="#2f62b0" d="M-115 -478 Q-108 -481 -101 -478 L-101 -474 Q-108 -476.6 -115 -474 Z"/>
+
+    <!-- the upstairs hall where the club meets, open to the road -->
+    <rect class="o" fill="#3b2a22" x="-296" y="-438" width="292" height="438"/>
+    <path class="t" style="stroke:#4a362b;stroke-width:2.4" d="M-262 -420 L-262 -296 M-226 -420 L-226 -296 M-190 -420 L-190 -296 M-116 -420 L-116 -296 M-80 -420 L-80 -296 M-44 -420 L-44 -296 M-262 -270 L-262 -146 M-226 -270 L-226 -146 M-190 -270 L-190 -146 M-116 -270 L-116 -146 M-80 -270 L-80 -146 M-44 -270 L-44 -146"/>
+    <path class="t" style="stroke:#4a362b;stroke-width:2.4" d="M-290 -330 L-10 -330 M-290 -180 L-10 -180"/>
+
+    <!-- floors, and the brick piers that carry them -->
+    <rect class="o" fill="#6b4226" x="-300" y="-296" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#6b4226" x="-300" y="-146" width="300" height="12" rx="2"/>
+    <rect class="o" fill="#8a4a32" x="-300" y="-438" width="14" height="438"/>
+    <rect class="o" fill="#8a4a32" x="-16" y="-438" width="14" height="304"/>
+    <path class="t" style="stroke:#6e3826;stroke-width:1.4" d="M-300 -410 L-286 -410 M-300 -380 L-286 -380 M-300 -350 L-286 -350 M-300 -320 L-286 -320 M-300 -260 L-286 -260 M-300 -230 L-286 -230 M-300 -200 L-286 -200 M-300 -170 L-286 -170 M-16 -410 L-2 -410 M-16 -380 L-2 -380 M-16 -350 L-2 -350 M-16 -320 L-2 -320 M-16 -260 L-2 -260 M-16 -230 L-2 -230 M-16 -200 L-2 -200 M-16 -170 L-2 -170"/>
+
+    <!-- the eave -->
+    <rect class="o" fill="#5a2e20" x="-318" y="-448" width="336" height="10" rx="2"/>
+
+    <!-- downstairs: the brown cafe, dark wood front -->
+    <rect class="o" fill="#5c3a22" x="-296" y="-134" width="198" height="134"/>
+    <path class="t" style="stroke:#4a2e1a;stroke-width:1.6" d="M-296 -20 L-98 -20 M-296 -14 L-98 -14"/>
+    <rect class="o" fill="#4a2e1a" x="-300" y="-12" width="202" height="12"/>
+    <!-- the big window, warm light inside -->
+    <rect class="o" fill="#3a2416" x="-276" y="-110" width="160" height="82" rx="2"/>
+    <rect class="n" fill="#f3cf73" x="-270" y="-104" width="148" height="70"/>
+    <!-- the bar at the back, glasses on a shelf -->
+    <path class="n" fill="#d9a84f" d="M-270 -86 L-122 -86 L-122 -82 L-270 -82 Z"/>
+    <path class="t" style="stroke:#b98a3a;stroke-width:1.4" d="M-262 -86 L-262 -94 L-256 -94 L-256 -86 M-246 -86 L-246 -96 L-240 -96 L-240 -86 M-150 -86 L-150 -94 L-144 -94 L-144 -86 M-136 -86 L-136 -96 L-130 -96 L-130 -86"/>
+
+    <!-- the town sign on its post: blue, with a jester's cap where the name would be -->
+    <rect class="o" fill="#6e6e72" x="-292" y="-74" width="6" height="74"/>
+    <rect class="o" fill="#f4f4f0" x="-312" y="-104" width="46" height="32" rx="3"/>
+    <rect class="n" fill="#2a5ea8" x="-309" y="-101" width="40" height="26" rx="2"/>
+    <path class="n" fill="#ffffff" d="M-292 -86 Q-300 -94 -304 -86 Q-304 -82 -302 -81 Q-300 -86 -296 -84 Z M-286 -86 Q-278 -94 -274 -86 Q-274 -82 -276 -81 Q-278 -86 -282 -84 Z M-294 -85 Q-294 -94 -289 -98 Q-284 -94 -284 -85 Z M-296 -84 Q-289 -87 -282 -84 L-282 -80 Q-289 -82.6 -296 -80 Z"/>
+    <circle class="n" fill="#ffffff" cx="-304" cy="-79.6" r="2"/>
+    <circle class="n" fill="#ffffff" cx="-274" cy="-79.6" r="2"/>
+
+    <!-- the doorway units come out of, a lamp beside it -->
+    <rect class="o" fill="#4a2e1a" x="-100" y="-134" width="98" height="12" rx="2"/>
+    <rect class="o" fill="#241a14" x="-90" y="-122" width="76" height="122"/>
+    <rect class="o" fill="#5c3a22" x="-102" y="-134" width="12" height="134"/>
+    <path class="t" style="stroke-width:2.6" d="M-108 -104 L-100 -104"/>
+    <path class="o" style="stroke-width:2.2" fill="#3a3a3a" d="M-114 -110 L-104 -110 L-106 -114 L-112 -114 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#ffd864" x="-114" y="-110" width="10" height="14" rx="2"/>
+    <path class="o" style="stroke-width:2.2" fill="#3a3a3a" d="M-115 -96 L-103 -96 L-105 -93 L-113 -93 Z"/>
+
+    <!-- a step of blue stone in front, worn hollow -->
+    <path class="o" fill="#7d8790" d="M-96 0 L-96 -4 Q-52 -7 -8 -4 L-8 0 Z"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-148" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-298" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- Someone hossing behind the window, all year round. Joint at his feet, below the sill. -->
+  <g id="hosser" transform="translate(-194 -34)">
+    <g transform="translate(194 34)">
+      <path class="o" style="stroke-width:2.4" fill="#2f62b0" d="M-208 -34 Q-210 -56 -204 -64 Q-194 -68 -184 -64 Q-178 -56 -180 -34 Z"/>
+      <path class="o" style="stroke-width:2.4" fill="#2f62b0" d="M-205 -62 L-214 -82 L-207 -85 L-199 -64 Z"/>
+      <path class="o" style="stroke-width:2.4" fill="#2f62b0" d="M-184 -64 L-176 -84 L-169 -81 L-179 -61 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f0bd9c" cx="-211" cy="-87" r="4"/>
+      <circle class="o" style="stroke-width:2" fill="#f0bd9c" cx="-171" cy="-86" r="4"/>
+      <path class="o" style="stroke-width:2" fill="#d8342b" d="M-200 -65 Q-194 -61 -188 -65 L-191 -59 Q-194 -57 -197 -59 Z"/>
+      <circle class="o" style="stroke-width:2.4" fill="#f0bd9c" cx="-193" cy="-75" r="9.6"/>
+      <path class="t" style="stroke-width:1.8" d="M-190 -77 Q-188.4 -79 -186.6 -77"/>
+      <ellipse class="n" fill="#e0442c" cx="-184.4" cy="-73.4" rx="2.6" ry="2.2"/>
+      <path class="o" style="stroke-width:1.8" fill="#7a2a20" d="M-191 -70 Q-188 -66 -185.6 -70 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-203 -78 Q-203 -88 -193 -88.6 Q-183 -88.6 -182 -80 Q-193 -82 -203 -78 Z"/>
+      <path class="n" fill="#f6c21c" d="M-196 -88 L-191 -88.4 L-192 -81.4 L-196.4 -81 Z"/>
+      <path class="o" style="stroke-width:2" fill="#d8342b" d="M-183 -80 L-176 -78.6 L-176.6 -76.6 L-183 -77.6 Z"/>
+    </g>
+  </g>
+
+  <!-- In front of him: the lace half-curtain, the window bars, and the frame. -->
+  <g id="window" transform="translate(0 0)">
+    <path class="o" style="stroke-width:2" fill="#f7f3ea" d="M-270 -34 L-270 -64 Q-264 -59 -258 -64 Q-252 -59 -246 -64 Q-240 -59 -234 -64 Q-228 -59 -222 -64 Q-216 -59 -210 -64 Q-204 -59 -198 -64 Q-192 -59 -186 -64 Q-180 -59 -174 -64 Q-168 -59 -162 -64 Q-156 -59 -150 -64 Q-144 -59 -138 -64 Q-132 -59 -126 -64 Q-124 -62 -122 -64 L-122 -34 Z"/>
+    <path class="t" style="stroke:#d9d2c0;stroke-width:1.2" d="M-264 -56 L-264 -36 M-252 -56 L-252 -36 M-240 -56 L-240 -36 M-228 -56 L-228 -36 M-216 -56 L-216 -36 M-204 -56 L-204 -36 M-192 -56 L-192 -36 M-180 -56 L-180 -36 M-168 -56 L-168 -36 M-156 -56 L-156 -36 M-144 -56 L-144 -36 M-132 -56 L-132 -36"/>
+    <path class="t" style="stroke:#3a2416;stroke-width:4" d="M-233 -104 L-233 -34 M-159 -104 L-159 -34 M-270 -92 L-122 -92"/>
+    <path class="n" fill="#ffffff" fill-opacity="0.45" d="M-266 -100 L-256 -100 L-266 -88 Z M-229 -100 L-219 -100 L-229 -88 Z M-155 -100 L-145 -100 L-155 -88 Z"/>
+    <rect class="o" fill="#4a2e1a" x="-282" y="-30" width="172" height="7" rx="2"/>
+  </g>
+
+  <!-- Paper bunting under the cafe's beam, in the hall and upstairs. Joints in the middle of each string. -->
+  <g id="garland_cafe" transform="translate(-150 -132)">
+    <g transform="translate(150 132)">
+      <path class="t" style="stroke-width:1.6" d="M-296 -132 Q-150 -112 -4 -132"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-292.6 -131.5 L-276.9 -129.6 L-284.8 -119.5 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-270.2 -128.8 L-254.4 -127.1 L-262.3 -116.9 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-247.7 -126.5 L-232.0 -125.2 L-239.8 -114.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-225.2 -124.7 L-209.5 -123.7 L-217.4 -113.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-202.8 -123.3 L-187.1 -122.6 L-194.9 -111.9 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-180.3 -122.4 L-164.6 -122.1 L-172.5 -111.2 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-157.9 -122.0 L-142.1 -122.0 L-150.0 -111.0 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-135.4 -122.1 L-119.7 -122.4 L-127.5 -111.2 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-112.9 -122.6 L-97.2 -123.3 L-105.1 -111.9 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-90.5 -123.7 L-74.8 -124.7 L-82.6 -113.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-68.0 -125.2 L-52.3 -126.5 L-60.2 -114.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-45.6 -127.1 L-29.8 -128.8 L-37.7 -116.9 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-23.1 -129.6 L-7.4 -131.5 L-15.2 -119.5 Z"/>
+    </g>
+  </g>
+
+  <g id="garland_hall" transform="translate(-150 -282)">
+    <g transform="translate(150 282)">
+      <path class="t" style="stroke-width:1.6" d="M-286 -282 Q-150 -258 -14 -282"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-282.6 -281.4 L-266.7 -278.8 L-274.7 -267.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-259.9 -277.8 L-244.1 -275.7 L-252.0 -263.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-237.3 -274.9 L-221.4 -273.3 L-229.3 -261.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-214.6 -272.7 L-198.7 -271.5 L-206.7 -259.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-191.9 -271.1 L-176.1 -270.4 L-184.0 -257.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-169.3 -270.2 L-153.4 -270.0 L-161.3 -257.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-146.6 -270.0 L-130.7 -270.2 L-138.7 -257.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-123.9 -270.4 L-108.1 -271.1 L-116.0 -257.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-101.3 -271.5 L-85.4 -272.7 L-93.3 -259.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-78.6 -273.3 L-62.7 -274.9 L-70.7 -261.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-55.9 -275.7 L-40.1 -277.8 L-48.0 -263.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-33.3 -278.8 L-17.4 -281.4 L-25.3 -267.1 Z"/>
+    </g>
+  </g>
+
+  <g id="garland_top" transform="translate(-150 -436)">
+    <g transform="translate(150 436)">
+      <path class="t" style="stroke-width:1.6" d="M-286 -436 Q-150 -412 -14 -436"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-282.6 -435.4 L-266.7 -432.8 L-274.7 -421.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-259.9 -431.8 L-244.1 -429.7 L-252.0 -417.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-237.3 -428.9 L-221.4 -427.3 L-229.3 -415.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-214.6 -426.7 L-198.7 -425.5 L-206.7 -413.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-191.9 -425.1 L-176.1 -424.4 L-184.0 -411.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-169.3 -424.2 L-153.4 -424.0 L-161.3 -411.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-146.6 -424.0 L-130.7 -424.2 L-138.7 -411.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-123.9 -424.4 L-108.1 -425.1 L-116.0 -411.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-101.3 -425.5 L-85.4 -426.7 L-93.3 -413.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M-78.6 -427.3 L-62.7 -428.9 L-70.7 -415.1 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M-55.9 -429.7 L-40.1 -431.8 L-48.0 -417.8 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-33.3 -432.8 L-17.4 -435.4 L-25.3 -421.1 Z"/>
+    </g>
+  </g>
+
+  <!-- Smoke from the cafe's stove. -->
+  <g id="smoke" transform="translate(-107 -566)">
+    <circle class="o" style="stroke-width:2" fill="#e6e6e6" cx="0" cy="0" r="7"/>
+    <circle class="o" style="stroke-width:2" fill="#eeeeee" cx="8" cy="-10" r="5.4"/>
+    <circle class="o" style="stroke-width:2" fill="#f4f4f4" cx="3" cy="-20" r="4"/>
+  </g>
+</svg>

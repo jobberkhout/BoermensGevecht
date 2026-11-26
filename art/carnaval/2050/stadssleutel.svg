@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-36 -6 72 116" data-rig="static">
+  <title>De sleutel van de stad: een ouderwetse grote gouden sleutel aan een strik in rood, geel en groen</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The key, hanging bit-down on a ribbon through its bow. Joint at the top of the ribbon, (0,0), where it hangs. -->
+  <g id="key" transform="translate(0 0)">
+    <!-- the ribbon down to the key, striped in the carnival colours -->
+    <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-5 4 L5 4 L5 26 L-5 26 Z"/>
+    <path class="n" fill="#f6c21c" d="M-1.6 5 L1.6 5 L1.6 25 L-1.6 25 Z"/>
+    <path class="n" fill="#2f9a48" d="M2.2 5 L3.8 5 L3.8 25 L2.2 25 Z M-3.8 5 L-2.2 5 L-2.2 25 L-3.8 25 Z"/>
+    <!-- the bow of the key: a ring with three lobes -->
+    <path class="o" fill="#e8b931" d="M0 20 Q8 20 9 27 Q17 28 16 36 Q17 44 9 45 Q8 51 0 51 Q-8 51 -9 45 Q-17 44 -16 36 Q-17 28 -9 27 Q-8 20 0 20 Z"/>
+    <path class="n" fill="#fff3b0" d="M-6 24 Q-2 22.4 3 23.4 Q-2 24.6 -5 27.6 Z"/>
+    <circle class="o" style="stroke-width:2.2" fill="#7a5a1a" cx="0" cy="36" r="6"/>
+    <!-- the ribbon, through the hole -->
+    <path class="o" style="stroke-width:2" fill="#d8342b" d="M-3.6 24 L3.6 24 L3.6 33 L-3.6 33 Z"/>
+    <path class="n" fill="#f6c21c" d="M-1.2 25 L1.2 25 L1.2 32 L-1.2 32 Z"/>
+    <!-- the shaft with its collars -->
+    <rect class="o" fill="#e8b931" x="-4.6" y="50" width="9.2" height="50" rx="2"/>
+    <path class="n" fill="#fff3b0" d="M-2.6 56 L-0.8 56 L-0.8 96 L-2.6 96 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#d9a52a" x="-7" y="54" width="14" height="5" rx="2"/>
+    <rect class="o" style="stroke-width:2.2" fill="#d9a52a" x="-7" y="62" width="14" height="4" rx="1.6"/>
+    <!-- the bit, with its wards -->
+    <path class="o" fill="#e8b931" d="M4 80 L20 80 L20 86 L15 86 L15 90 L20 90 L20 100 L4 100 Z"/>
+    <path class="t" style="stroke:#a87f1a;stroke-width:1.4" d="M8 84 L8 96"/>
+    <circle class="o" style="stroke-width:2.2" fill="#e8b931" cx="0" cy="102" r="4.4"/>
+  </g>
+
+  <!-- The ribbon bow it hangs from, with its tails. -->
+  <g id="bow" transform="translate(0 0)">
+    <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-3 6 L-12 20 L-8 19 L-6 23 L1 8 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M3 6 L12 20 L8 19 L6 23 L-1 8 Z"/>
+    <path class="o" fill="#d8342b" d="M-2 3 Q-14 -6 -22 0 Q-26 6 -20 11 Q-12 13 -2 7 Z"/>
+    <path class="o" fill="#d8342b" d="M2 3 Q14 -6 22 0 Q26 6 20 11 Q12 13 2 7 Z"/>
+    <path class="t" style="stroke:#f6c21c;stroke-width:2.2" d="M-4 4.6 Q-12 -1 -18 2.6 M4 4.6 Q12 -1 18 2.6"/>
+    <rect class="o" style="stroke-width:2.2" fill="#f6c21c" x="-4.6" y="0" width="9.2" height="9" rx="2.6"/>
+  </g>
+</svg>

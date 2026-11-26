@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 126 92" data-rig="static">
+  <title>De vlag van Hossegat: rood, geel en groen, met een sousafoon</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+  </style>
+  <!-- The carnival colours in three bands, a little confetti, and our own emblem in the middle: a brass
+       sousaphone on a roundel of kiel blue. An invented emblem, of no real club. It has no lettering and
+       no direction that matters, so it reads right mirrored. Cut into the same eight strips as the other flags. -->
+  <defs>
+    <clipPath id="strip"><rect x="0" y="-1" width="16.2" height="82"/></clipPath>
+    <g id="flag">
+      <rect width="120" height="80" fill="#2f9a48"/>
+      <rect width="120" height="53.33" fill="#f6c21c"/>
+      <rect width="120" height="26.67" fill="#d8342b"/>
+      <!-- confetti on the bands -->
+      <g>
+        <circle fill="#f6c21c" cx="10" cy="8" r="1.8"/><circle fill="#ffffff" cx="31" cy="12" r="1.6"/><circle fill="#2f9a48" cx="20" cy="20" r="1.8"/>
+        <circle fill="#ffffff" cx="94" cy="7" r="1.6"/><circle fill="#f6c21c" cx="110" cy="15" r="1.8"/><circle fill="#2f9a48" cx="99" cy="21" r="1.6"/>
+        <circle fill="#d8342b" cx="12" cy="36" r="1.8"/><circle fill="#2f9a48" cx="22" cy="46" r="1.6"/>
+        <circle fill="#2f9a48" cx="102" cy="34" r="1.8"/><circle fill="#d8342b" cx="110" cy="46" r="1.6"/>
+        <circle fill="#f6c21c" cx="13" cy="66" r="1.8"/><circle fill="#ffffff" cx="28" cy="74" r="1.6"/>
+        <circle fill="#d8342b" cx="92" cy="73" r="1.6"/><circle fill="#f6c21c" cx="107" cy="64" r="1.8"/>
+      </g>
+      <!-- the roundel -->
+      <circle fill="#2b1b16" cx="60" cy="40" r="29.4"/>
+      <circle fill="#fbf3dc" cx="60" cy="40" r="28"/>
+      <circle fill="#2f62b0" cx="60" cy="40" r="25.4"/>
+      <!-- the sousaphone: the coil round the player, the valves in front, the big bell up over the shoulder -->
+      <ellipse fill="none" stroke="#2b1b16" stroke-width="6.4" cx="55" cy="48" rx="13.5" ry="9"/>
+      <ellipse fill="none" stroke="#e9b630" stroke-width="3.8" cx="55" cy="48" rx="13.5" ry="9"/>
+      <path fill="none" stroke="#fbe08a" stroke-width="1.2" stroke-linecap="round" d="M43.6 45 Q46 40.6 52 39.6"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="M46 51 Q40 50 39 44 L38.4 40"/>
+      <path fill="none" stroke="#e9b630" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M46 51 Q40 50 39 44 L38.4 40"/>
+      <path fill="#e9b630" stroke="#2b1b16" stroke-width="1.1" stroke-linejoin="round" d="M36 38 L40.8 38 L39.6 40.4 L37.2 40.4 Z"/>
+      <path fill="#e9b630" stroke="#2b1b16" stroke-width="1.2" stroke-linejoin="round" d="M46.5 45 h13 v9 h-13 Z"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="1" d="M50.8 45 v9 M55.2 45 v9"/>
+      <path fill="#d9a52a" stroke="#2b1b16" stroke-width="1" stroke-linejoin="round" d="M47.4 42.4 h2.8 v2.6 h-2.8 Z M51.6 42.4 h2.8 v2.6 h-2.8 Z M55.8 42.4 h2.8 v2.6 h-2.8 Z"/>
+      <circle fill="#fbf3dc" stroke="#2b1b16" stroke-width="0.9" cx="48.8" cy="41.4" r="1.3"/>
+      <circle fill="#fbf3dc" stroke="#2b1b16" stroke-width="0.9" cx="53" cy="41.4" r="1.3"/>
+      <circle fill="#fbf3dc" stroke="#2b1b16" stroke-width="0.9" cx="57.2" cy="41.4" r="1.3"/>
+      <circle fill="#e9b630" stroke="#2b1b16" stroke-width="1.4" cx="66.5" cy="30" r="12"/>
+      <circle fill="none" stroke="#f6d56c" stroke-width="1" cx="66.5" cy="30" r="10.3"/>
+      <circle fill="#c38b1a" cx="66.5" cy="30" r="8.4"/>
+      <circle fill="#a8740f" cx="66.5" cy="30" r="6.2"/>
+      <circle fill="#6e4b10" cx="66.5" cy="30" r="4"/>
+      <path fill="none" stroke="#fdeeb0" stroke-width="1.4" stroke-linecap="round" d="M57 26.4 Q59.4 20.6 65 19.4"/>
+    </g>
+  </defs>
+
+  <g id="s0" transform="translate(0 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="0"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M0 0 L0 80"/>
+  </g>
+  <g id="s1" transform="translate(15 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-15"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s2" transform="translate(30 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-30"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s3" transform="translate(45 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-45"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s4" transform="translate(60 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-60"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s5" transform="translate(75 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-75"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s6" transform="translate(90 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-90"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80"/>
+  </g>
+  <g id="s7" transform="translate(105 0)">
+    <g clip-path="url(#strip)"><use href="#flag" x="-105"/></g>
+    <path class="o" d="M0 0 L15 0 M0 80 L15 80 M15 0 L15 80"/>
+  </g>
+</svg>

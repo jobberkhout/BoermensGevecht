@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-122 -130 244 136" data-rig="vehicle">
+  <title>De Praalwagen: een oude trekker met vlaggetjes trekt een zelfgebouwde wagen met een reusachtige papier-maché narrenkop die knikt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="chassis" transform="translate(0 0)"/>
+
+  <!-- The float's own two little wheels, mostly hidden behind the paper skirt. -->
+  <g id="wheel_cart_back" data-parent="chassis" transform="translate(-94 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" style="stroke-width:2" fill="#bfb3a0" cx="0" cy="0" r="5"/>
+    <path class="t" d="M0 -5 L0 5 M-5 0 L5 0"/>
+  </g>
+  <g id="wheel_cart_front" data-parent="chassis" transform="translate(-16 -11)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="11"/>
+    <circle class="o" style="stroke-width:2" fill="#bfb3a0" cx="0" cy="0" r="5"/>
+    <path class="t" d="M0 -5 L0 5 M-5 0 L5 0"/>
+  </g>
+
+  <!-- The float: a hay wagon dressed up in crepe paper. Joint at the hitch, where the drawbar meets the tractor. -->
+  <g id="float" data-parent="chassis" transform="translate(24 -22)">
+    <g transform="translate(-24 22)">
+      <path class="t" style="stroke-width:5.6" d="M2 -25 L24 -22"/>
+      <path fill="none" stroke="#7a5a3a" stroke-width="2.6" stroke-linecap="round" d="M2 -25 L24 -22"/>
+      <rect class="o" fill="#8a6440" x="-118" y="-35" width="122" height="9" rx="2"/>
+      <path class="t" style="stroke:#6b4a2a" d="M-90 -34 L-90 -27 M-60 -34 L-60 -27 M-30 -34 L-30 -27"/>
+      <!-- the crepe paper skirt, red, yellow and green -->
+      <path class="o" style="stroke-width:2" fill="#d8342b" d="M-116 -26 L-100 -26 L-100 -9 L-104 -12 L-108 -8 L-112 -12 L-116 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#f6c21c" d="M-100 -26 L-84 -26 L-84 -9 L-88 -12 L-92 -8 L-96 -12 L-100 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f9a48" d="M-84 -26 L-68 -26 L-68 -9 L-72 -12 L-76 -8 L-80 -12 L-84 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#d8342b" d="M-68 -26 L-52 -26 L-52 -9 L-56 -12 L-60 -8 L-64 -12 L-68 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#f6c21c" d="M-52 -26 L-36 -26 L-36 -9 L-40 -12 L-44 -8 L-48 -12 L-52 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f9a48" d="M-36 -26 L-20 -26 L-20 -9 L-24 -12 L-28 -8 L-32 -12 L-36 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#d8342b" d="M-20 -26 L-4 -26 L-4 -9 L-8 -12 L-12 -8 L-16 -12 L-20 -9 Z"/>
+      <path class="o" style="stroke-width:2" fill="#f6c21c" d="M-4 -26 L2 -26 L2 -9 L-1 -12 L-4 -9 Z"/>
+      <!-- paper roses along the edge of the bed -->
+      <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="-108" cy="-37" r="4.6"/>
+      <circle class="o" style="stroke-width:2" fill="#d8342b" cx="-98" cy="-36" r="4"/>
+      <circle class="o" style="stroke-width:2" fill="#d8342b" cx="-8" cy="-37" r="4.6"/>
+      <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="2" cy="-36" r="4"/>
+      <path class="t" style="stroke:#a8231c;stroke-width:1.2" d="M-110 -38 Q-108 -35 -106 -38 M-10 -38 Q-8 -35 -6 -38"/>
+    </g>
+  </g>
+
+  <!-- The giant jester's head, papier-mache over chicken wire. Joint in its neck, inside the ruff. -->
+  <g id="jester" data-parent="float" transform="translate(-52 -44)">
+    <g transform="translate(52 44)">
+      <!-- the left point of the cap, flopping back, and the middle one standing up -->
+      <path class="o" fill="#d8342b" d="M-76 -88 Q-92 -92 -100 -80 Q-102 -74 -97 -72 Q-94 -80 -84 -80 Q-78 -80 -72 -78 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="-98" cy="-69" r="4.4"/>
+      <path class="o" fill="#f6c21c" d="M-68 -92 Q-70 -112 -58 -119 Q-50 -122 -46 -118 Q-54 -114 -54 -104 Q-52 -96 -44 -92 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#d8342b" cx="-43" cy="-120" r="4.4"/>
+      <!-- the face -->
+      <ellipse class="o" fill="#f5cfb0" cx="-52" cy="-68" rx="31" ry="29"/>
+      <ellipse class="o" fill="#f5cfb0" cx="-78" cy="-66" rx="5" ry="7.4"/>
+      <path class="t" style="stroke:#e3b496;stroke-width:1.4" d="M-74 -54 L-62 -50 M-70 -84 L-58 -88 M-36 -48 L-28 -54 M-66 -44 L-54 -42"/>
+      <!-- painted cheeks, eyes made from two plates, a nose the size of a football -->
+      <circle class="n" fill="#e8574a" fill-opacity="0.8" cx="-56" cy="-60" r="6"/>
+      <ellipse class="o" style="stroke-width:2" fill="#ffffff" cx="-42" cy="-74" rx="7" ry="8"/>
+      <ellipse class="o" style="stroke-width:2" fill="#ffffff" cx="-26" cy="-75" rx="5.4" ry="7"/>
+      <circle class="n" fill="#2f62b0" cx="-39.6" cy="-73.6" r="3.6"/>
+      <circle class="n" fill="#2f62b0" cx="-24.4" cy="-74.4" r="3"/>
+      <circle class="n" fill="#2b1b16" cx="-39" cy="-73.4" r="1.8"/>
+      <circle class="n" fill="#2b1b16" cx="-24" cy="-74.2" r="1.5"/>
+      <path class="t" style="stroke-width:2.2" d="M-48 -86 Q-42 -90 -35 -86 M-30 -86 Q-26 -89 -21 -86"/>
+      <path class="o" fill="#7a2a20" d="M-54 -56 Q-40 -38 -22 -53 Q-38 -49 -54 -56 Z"/>
+      <path class="n" fill="#ffffff" d="M-49 -54 L-28 -52.4 L-29 -50 Q-39 -48 -47.6 -51.6 Z"/>
+      <circle class="o" fill="#d8342b" cx="-19" cy="-63" r="8.4"/>
+      <circle class="n" fill="#ff8a76" cx="-21.4" cy="-65.6" r="2.4"/>
+      <!-- the band of the cap, and its forward point flopping over the brow -->
+      <path class="o" fill="#2f9a48" d="M-82 -80 Q-80 -96 -60 -98 Q-40 -100 -26 -92 Q-14 -94 -4 -88 Q2 -82 -2 -76 Q-8 -82 -16 -84 Q-26 -86 -30 -86 Q-50 -92 -82 -80 Z"/>
+      <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="0" cy="-73" r="4.4"/>
+      <path class="n" fill="#4cb565" d="M-74 -86 Q-62 -94 -44 -94 Q-58 -90 -72 -83 Z"/>
+    </g>
+  </g>
+
+  <!-- The ruff the head turns in, fixed to the float. -->
+  <g id="ruff" data-parent="float" transform="translate(-52 -36)">
+    <g transform="translate(52 36)">
+      <path class="o" fill="#ffffff" d="M-82 -38 L-76 -45 L-70 -38 L-64 -45 L-58 -38 L-52 -45 L-46 -38 L-40 -45 L-34 -38 L-28 -45 L-23 -38 L-20 -33 L-84 -33 Z"/>
+      <path class="n" fill="#d8342b" d="M-76 -43 L-72.6 -38.6 L-79.4 -38.6 Z M-52 -43 L-48.6 -38.6 L-55.4 -38.6 Z M-28 -43 L-25.4 -38.6 L-31.4 -38.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The tractor: frame, bonnet, seat, exhaust, and bunting from the stack to the seat. Joint over the axle. -->
+  <g id="body" data-parent="chassis" transform="translate(64 -40)">
+    <g transform="translate(-64 40)">
+      <path class="o" fill="#3a3a3a" d="M18 -40 L112 -42 L112 -30 L18 -28 Z"/>
+      <rect class="o" fill="#2f2f2f" x="94" y="-32" width="12" height="15" rx="2"/>
+      <rect class="o" style="stroke-width:2" fill="#3a3a3a" x="14" y="-27" width="12" height="7" rx="2"/>
+      <!-- seat on its spring -->
+      <path class="t" style="stroke-width:3.4" d="M44 -40 Q42 -52 40 -58"/>
+      <path class="o" fill="#4a3d35" d="M30 -63 Q30 -68 37 -66 L51 -63 Q53 -59 49 -58 L34 -58 Q29 -59 30 -63 Z"/>
+      <!-- exhaust -->
+      <rect class="o" fill="#3a3a3a" x="88" y="-92" width="6" height="32" rx="2"/>
+      <path class="o" fill="#3a3a3a" d="M86 -92 L96 -96 L97 -93.4 L87.4 -89.6 Z"/>
+      <!-- the bonnet, faded red -->
+      <path class="o" fill="#c8452e" d="M60 -66 L108 -65 Q118 -64 118 -56 L118 -40 L60 -40 Z"/>
+      <path class="n" fill="#de6a4f" d="M63 -63.4 L107 -62.4 Q112 -62 113 -59.4 L63 -61 Z"/>
+      <path class="t" style="stroke:#9e3322" d="M66 -60 L66 -44 M72 -60 L72 -44 M78 -60 L78 -44"/>
+      <path class="o" fill="#3a3a3a" d="M110 -64.6 Q118 -64 118 -56 L118 -40 L110 -40 Z"/>
+      <path class="t" style="stroke:#9aa59f" d="M112 -59 L116 -59 M112 -54 L116 -54 M112 -49 L116 -49 M112 -44.4 L116 -44.4"/>
+      <circle class="o" fill="#fff3b0" cx="104" cy="-70" r="4.2"/>
+      <path class="t" style="stroke-width:2.4" d="M104 -66 L104 -65"/>
+      <!-- dashboard and steering column -->
+      <path class="o" fill="#9e3322" d="M54 -40 L56 -66 L62 -66 L62 -40 Z"/>
+      <path class="t" style="stroke-width:3.2" d="M58 -66 L52 -80"/>
+      <!-- bunting: a string of paper flags from the stack back to the seat -->
+      <path class="t" style="stroke-width:1.2" d="M91 -86 Q70 -76 52 -82"/>
+      <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M86 -83.6 L80 -81 L84.6 -75.4 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f6c21c" d="M78 -80 L72 -78.4 L76 -72.4 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#2f9a48" d="M70 -78 L64 -77.8 L67 -71.6 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M62 -78 L56 -79 L58 -72.6 Z"/>
+    </g>
+  </g>
+
+  <!-- The driver, in his kiel and carnival cap, at the wheel. Joint at the seat. -->
+  <g id="driver" data-parent="body" transform="translate(42 -62)">
+    <g transform="translate(-42 62)">
+      <path class="o" fill="#2f62b0" d="M30 -62 Q27 -84 36 -92 L50 -92 Q59 -87 56 -62 Z"/>
+      <path class="n" fill="#24508f" d="M31 -63 Q29 -82 35 -90 Q37 -78 37 -63 Z"/>
+      <rect class="o" fill="#e3a98a" x="39" y="-97" width="9.5" height="8" rx="2"/>
+      <path class="o" fill="#d8342b" d="M35.5 -92.5 Q43.5 -88 52 -92.5 L48 -85 Q43.5 -82.5 40 -85 Z"/>
+      <circle class="n" fill="#ffffff" cx="41" cy="-89" r="0.8"/>
+      <circle class="n" fill="#ffffff" cx="45.5" cy="-88" r="0.8"/>
+      <path class="o" fill="#2f62b0" d="M45 -90.5 L57 -84 L55.4 -76.4 L43.4 -81.5 Z"/>
+      <circle class="o" fill="#f0bd9c" cx="57.4" cy="-79.6" r="4"/>
+      <ellipse class="o" fill="#f0bd9c" cx="37" cy="-106" rx="2.8" ry="3.8"/>
+      <circle class="o" fill="#f0bd9c" cx="46.5" cy="-107" r="12.5"/>
+      <ellipse class="n" fill="#e8786a" fill-opacity="0.65" cx="51" cy="-101" rx="3.4" ry="2.2"/>
+      <path class="t" style="stroke-width:2" d="M50 -109 Q52.4 -111.6 55 -109"/>
+      <ellipse class="o" style="stroke-width:2" fill="#e0442c" cx="58.6" cy="-103.6" rx="3.2" ry="2.8"/>
+      <path class="t" style="stroke-width:1.8" d="M50.6 -97.6 Q54 -95 57 -97.4"/>
+      <path class="o" fill="#d8342b" d="M33.5 -110.5 Q34 -122 46 -121.6 Q57 -121.4 59 -113 L66 -111 L65.4 -108.4 L58 -109.6 Q46 -113 33.5 -110.5 Z"/>
+      <path class="n" fill="#f6c21c" d="M42 -121.4 Q47 -121.6 50 -121 L48.4 -112 L41 -112.4 Z"/>
+      <circle class="o" style="stroke-width:1.8" fill="#2f9a48" cx="46.6" cy="-124" r="2.8"/>
+    </g>
+  </g>
+
+  <!-- The steering wheel and the mudguard, drawn over the driver. -->
+  <g id="guard" data-parent="body" transform="translate(48 -40)">
+    <g transform="translate(-48 40)">
+      <ellipse class="t" style="stroke-width:3.2" cx="53" cy="-80" rx="3.2" ry="9.6" transform="rotate(-30 53 -80)"/>
+      <path class="o" fill="#c8452e" d="M14 -32 Q14 -66 48 -66 Q80 -66 82 -40 L73 -40 Q71 -58 48 -58 Q23 -58 23 -32 Z"/>
+      <path class="n" fill="#de6a4f" d="M17.6 -42 Q21 -62 45 -63.4 Q27 -59 21 -42 Z"/>
+    </g>
+  </g>
+
+  <g id="wheel_back" data-parent="chassis" transform="translate(48 -27)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="27"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="6" stroke-dasharray="5 5.6" cx="0" cy="0" r="23.2"/>
+    <circle class="o" fill="#efe2c0" cx="0" cy="0" r="13.5"/>
+    <path class="t" style="stroke-width:2" d="M0 -13.5 L0 -5 M0 13.5 L0 5 M-13.5 0 L-5 0 M13.5 0 L5 0"/>
+    <circle class="o" fill="#d8342b" cx="0" cy="0" r="5"/>
+  </g>
+
+  <g id="wheel_front" data-parent="chassis" transform="translate(102 -15)">
+    <circle class="o" fill="#2b2b2b" cx="0" cy="0" r="15"/>
+    <circle class="n" style="stroke:#474747" fill="none" stroke-width="4" stroke-dasharray="4 4.64" cx="0" cy="0" r="12.4"/>
+    <circle class="o" fill="#efe2c0" cx="0" cy="0" r="7.4"/>
+    <circle class="o" style="stroke-width:2" fill="#d8342b" cx="0" cy="0" r="2.8"/>
+  </g>
+
+  <!-- A puff from the stack. -->
+  <g id="puff" data-parent="body" transform="translate(91 -102)">
+    <path class="o" style="stroke-width:2" fill="#e8e4dc" d="M-6 1 Q-8 -4 -3 -5 Q0 -9 4 -5 Q8 -4 6 1 Q3 5 -1 3.5 Q-4 5 -6 1 Z"/>
+  </g>
+</svg>

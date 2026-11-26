@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-46 -152 106 158" data-rig="humanoid">
+  <title>De Grote Trom: de grote trommelaar van de hofkapel, in kiel en kapelpet met een pompon, met een enorme trom voor zich en een dikke slegel in de hand</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(-16 -42)"/>
+
+  <!-- The far arm reaches round the drum to hold its rim. Out of sight behind it. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-26 -78)">
+    <path class="o" fill="#24508f" d="M2 -4.5 L22 4.5 L18 13.5 L-2.5 5.5 Q-6.5 3 -5.5 -1.5 Q-3 -5.5 2 -4.5 Z"/>
+    <circle class="o" fill="#e3a98a" cx="24.5" cy="11" r="4.6"/>
+  </g>
+
+  <!-- Long legs in dark trousers, and boots that can march all day. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-21 -42)">
+    <path class="o" fill="#3a302b" d="M-8.5 -3 L8.5 -3 L7.5 35 L-7.5 35 Z"/>
+    <path class="o" fill="#26282b" d="M-8.5 42 L-8.5 37 Q-8.5 34 -4 34 L5 34 Q13 35 16 38 Q17 41 15 42 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(-11 -42)">
+    <path class="o" fill="#4a3d35" d="M-8.5 -3 L8.5 -3 L7.5 35 L-7.5 35 Z"/>
+    <path class="t" style="stroke:#3a302b" d="M-2.5 0 L-2.5 33 M2.5 0 L2.5 33"/>
+    <path class="o" fill="#33363a" d="M-8.5 42 L-8.5 37 Q-8.5 34 -4 34 L5 34 Q13 35 16 38 Q17 41 15 42 Z"/>
+    <path class="n" fill="#6a6f75" d="M5 35.6 Q9 36 11 37.6 L9.6 38.2 Q7.6 37 5 36.8 Z"/>
+  </g>
+
+  <!-- A big man in a big kiel, the drum strap over his shoulder. -->
+  <g id="torso" data-parent="hips" transform="translate(-16 -44)">
+    <path class="o" fill="#2f62b0" d="M-20 14 Q-24 -14 -19 -34 Q-14 -41 0 -41 Q15 -41 19 -34 Q25 -14 21 14 Z"/>
+    <path class="n" fill="#24508f" d="M-18.6 13 Q-22.4 -14 -17.6 -32.4 Q-12.5 -14 -12.5 13 Z"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-10 -27 Q-11 -8 -10.5 13 M-3 -26.5 Q-3.5 -8 -3 13"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-19.6 -28 Q0 -24 21 -29"/>
+    <path fill="none" stroke="#f4f4f0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="1.6 2.4" d="M-18 -31.4 Q0 -27.4 20 -32.4"/>
+    <path class="o" fill="#f4ecd8" d="M-11 -41 L-5 -41 L14 -14 L8 -12 Z"/>
+    <path class="o" fill="#d8342b" d="M-9 -40.5 Q2 -34.5 14 -40.5 L13 -33 Q10 -25 5.5 -24 Q3 -29 -2 -32.5 Q-7 -34.5 -9 -40.5 Z"/>
+    <circle class="n" fill="#ffffff" cx="-4" cy="-36.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="1" cy="-33.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="7" cy="-36" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="9" cy="-30" r="0.9"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c22a22" cx="11.5" cy="-36.5" r="3"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(-15 -84)">
+    <rect class="o" fill="#e3a98a" x="-5" y="-6" width="12" height="9" rx="2"/>
+    <ellipse class="o" fill="#f0bd9c" cx="2" cy="-22" rx="18.5" ry="18"/>
+    <ellipse class="o" fill="#f0bd9c" cx="-8.5" cy="-20" rx="3.4" ry="4.8"/>
+    <!-- grey sideburns and a double chin: he has played every carnival since the war -->
+    <path class="n" fill="#a9a39a" d="M-4.6 -28 L0.6 -28 L1.2 -14 Q-1.4 -11.6 -3.4 -14 Z"/>
+    <path class="t" style="stroke-width:1.6" d="M6 -6.4 Q12 -3.4 18 -6.6"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.6" cx="8.6" cy="-14" rx="4.4" ry="2.8"/>
+    <!-- eyes shut in bliss: he hears only the beat -->
+    <path class="t" style="stroke-width:2.2" d="M6.4 -22.6 Q9.6 -19.4 12.8 -22.6 M15.6 -23 Q18.2 -20 20.8 -23"/>
+    <path class="t" style="stroke-width:1.8" d="M5.6 -28.4 Q9.4 -30.4 13 -28.6 M15.4 -28.8 Q18.4 -30.2 21.4 -28.4"/>
+    <ellipse class="o" fill="#e0442c" cx="21.6" cy="-16.6" rx="4.8" ry="4"/>
+    <circle class="n" fill="#ff9a86" cx="20.4" cy="-18" r="1.2"/>
+    <path class="t" style="stroke-width:2" d="M9.6 -10 Q14 -7.4 19 -10.4"/>
+    <!-- the hofkapel's cap, a woollen pompon on top -->
+    <circle class="o" fill="#d8342b" cx="1" cy="-50" r="5.6"/>
+    <path class="t" style="stroke:#a8231c;stroke-width:1.2" d="M-2.4 -52 L-0.6 -50.4 M2.6 -53.4 L3.4 -51 M-1 -47 L1 -48.4 M3.6 -47.6 L5 -49.2"/>
+    <path class="o" fill="#1d2a4a" d="M-17 -30 Q-18 -46 2 -46.5 Q19 -46.5 20.6 -32.5 Z"/>
+    <path class="n" fill="#2e3f66" d="M-12 -40 Q-4 -45 8 -44.6 Q-2 -42 -10 -37 Z"/>
+    <path class="o" fill="#f6c21c" d="M-17.4 -34.4 Q2 -38.6 21 -36 L21 -31 Q2 -33.4 -17.4 -29.4 Z"/>
+    <path class="o" fill="#1d2a4a" d="M18.6 -33 L31 -30.4 Q31 -27 28.6 -27.2 L18 -28.6 Z"/>
+    <path class="o" style="stroke-width:1.4" fill="#f6c21c" d="M10 -45 L11.3 -42.2 L14.3 -42 L12 -40 L12.8 -37 L10 -38.6 L7.2 -37 L8 -40 L5.7 -42 L8.7 -42.2 Z"/>
+  </g>
+
+  <!-- The bass drum, held out in front of him: rope tension, red hoops, the club's jester cap on the head. Joint in its middle. -->
+  <g id="drum" data-parent="hips" transform="translate(14 -58)">
+    <g transform="translate(-14 58)">
+      <ellipse class="o" fill="#d8342b" cx="26" cy="-58" rx="28" ry="30"/>
+      <ellipse class="n" fill="#f6c21c" cx="21.6" cy="-58" rx="28" ry="30"/>
+      <rect class="n" fill="#f6c21c" x="14" y="-88" width="8" height="60"/>
+      <path class="t" style="stroke-width:2.5" d="M14 -88 L26 -88 M14 -28 L26 -28"/>
+      <path class="t" style="stroke-width:3.6" d="M34 -80 L47.8 -72 L42.4 -64 L50.9 -56 L41.4 -48 L45.4 -40 L33 -34"/>
+      <path fill="none" stroke="#f4f4f0" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M34 -80 L47.8 -72 L42.4 -64 L50.9 -56 L41.4 -48 L45.4 -40 L33 -34"/>
+      <ellipse class="o" fill="#d8342b" cx="14" cy="-58" rx="28" ry="30"/>
+      <path class="n" fill="#e8574a" d="M-10 -66 Q-6 -84 12 -86.4 Q-2 -82 -7 -66 Z"/>
+      <ellipse class="o" style="stroke-width:2" fill="#f4ecd8" cx="14" cy="-58" rx="22.5" ry="24.5"/>
+      <path fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" d="M-2 -70 Q2 -78 10 -80"/>
+      <!-- the club's emblem: a jester's cap -->
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M8 -62 Q0 -70 -4 -62 Q-5 -58 -3 -56 Q-1 -62 4 -60 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M20 -62 Q28 -70 32 -62 Q33 -58 31 -56 Q29 -62 24 -60 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M8 -61 Q8 -74 14 -80 Q20 -74 20 -61 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f62b0" d="M5 -60 Q14 -64 23 -60 L23 -55 Q14 -58 5 -55 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f6c21c" cx="-3.4" cy="-54.6" r="2.4"/>
+      <circle class="o" style="stroke-width:1.4" fill="#d8342b" cx="14" cy="-82" r="2.4"/>
+      <circle class="o" style="stroke-width:1.4" fill="#f6c21c" cx="31.4" cy="-54.6" r="2.4"/>
+      <path class="t" style="stroke:#d8c9a8;stroke-width:1.2" d="M4 -46 Q14 -42 24 -46"/>
+    </g>
+  </g>
+
+  <!-- The near arm, bent round the drum, the beater in his fist. -->
+  <g id="arm_front" data-parent="torso" transform="translate(-6 -78)">
+    <path class="o" fill="#2f62b0" d="M-7 -4 Q-9 9 -7 19 Q-1 24 5 20 Q8 8 7 -4 Z"/>
+    <path class="o" fill="#2f62b0" d="M-5.5 12 L11 4.5 L13.6 12.4 L-2 21.5 Z"/>
+    <path class="n" fill="#2f62b0" d="M-4.6 13 L4 9 L5 17 L-2 20.4 Z"/>
+    <path class="o" fill="#24508f" d="M10 3.6 L13.2 2.2 L16 10.6 L13 12 Z"/>
+  </g>
+
+  <!-- The beater: a stick with a fat felt head. Joint in his fist. -->
+  <g id="beater" data-parent="arm_front" transform="translate(10 -70)">
+    <path class="t" style="stroke-width:5.4" d="M0 0 L11 -18"/>
+    <path fill="none" stroke="#c9934f" stroke-width="2.6" stroke-linecap="round" d="M0 0 L11 -18"/>
+    <ellipse class="o" fill="#f4f4f0" cx="13" cy="-22" rx="7" ry="6.6"/>
+    <path class="n" fill="#d9d4c4" d="M8 -19 Q13 -15 18.6 -19.6 Q17 -16 13 -15.8 Q9.6 -16 8 -19 Z"/>
+    <ellipse class="o" fill="#f0bd9c" cx="0" cy="0" rx="5" ry="4.8"/>
+  </g>
+</svg>

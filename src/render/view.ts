@@ -79,8 +79,23 @@ export interface UnitView {
   icy: boolean;
   /** Glued with sugar. */
   sticky: boolean;
-  /** -1 when it has landed in the enemy ranks beyond their front and turns round to fight, else 1. */
+  /** -1 when it has landed in the enemy ranks beyond their front and turns round to fight, or dances home in a polonaise, else 1. */
   facing: number;
+  /** Dancing back home in the enemy's polonaise. */
+  dancing: boolean;
+  /** View time until which it parties because De Zuipwagen dropped the beat. */
+  partyUntil: number;
+  /** Partying: it hops on the spot. */
+  partying: boolean;
+  /** View time at which it slipped on a banana peel, and until which it lies there. */
+  slipFrom: number;
+  slipUntil: number;
+  /** Confetti in its eyes: what it throws misses. */
+  blind: boolean;
+  /** Hung over: it crawls, under the clouds of De Kater. */
+  slowed: boolean;
+  /** Seconds since it last did a trick of its own (the beat drop, the key), or a large number. */
+  trickTime: number;
 }
 
 /** How long a pole vaulter is in the air, and how high it gets. */
@@ -122,6 +137,10 @@ export interface TurretView {
   level: number;
   /** Left over from an older era than its owner is in now. */
   outdated: boolean;
+  /** Taken over with the key of the city: the drawing of the key that hangs over it, or ''. */
+  key: string;
+  /** View time at which it was taken over. */
+  keySince: number;
 }
 
 export interface Floater {
@@ -151,6 +170,25 @@ export interface ShotView {
   y: number;
   /** Radians. */
   angle: number;
+  /** Thrown with confetti in the eyes: it comes down somewhere behind the enemy. */
+  miss: boolean;
+}
+
+/** The hangover of De Kater: clouds that rain herring over the units it slows down, for as long as it lasts. */
+export interface Hangover {
+  /** The side whose units are hung over. */
+  side: Side;
+  rig: string;
+  age: number;
+  life: number;
+}
+
+/** A banana peel on the road, as the renderer draws it. */
+export interface PeelView {
+  side: Side;
+  rig: string;
+  x: number;
+  row: number;
 }
 
 /** The activists of a Wegblokkade, sitting in front of the units they stopped. */
@@ -237,6 +275,15 @@ export interface Swarm {
   left: number;
 }
 
+/** The colours confetti comes in: the carnival's red, yellow and green, and a few others. */
+export const CONFETTI: readonly string[] = ['#d8342b', '#f6c21c', '#2f9a48', '#2f62b0', '#ff7ad9', '#fffdf5'];
+
+/** Seconds a unit takes to go down on a banana peel, and to get up again at the end. */
+export const SLIP_FALL = 0.15;
+export const SLIP_RISE = 0.25;
+/** Seconds after the key leaves the prince's hand before it hangs over the turret he took. */
+export const KEY_FLIGHT = 0.45;
+
 export const GHOST_LIFE = 1.5;
 export const SPAWN_FADE = 0.3;
 const BLEND_SECONDS = 0.12;
@@ -276,6 +323,8 @@ export class BattleView {
   sprites: Sprite[] = [];
   swarms: Swarm[] = [];
   coins: Coin[] = [];
+  hangovers: Hangover[] = [];
+  peels: PeelView[] = [];
   /** 1 right after a base was struck, fading to 0. */
   baseFlash: [number, number] = [0, 0];
   /** 1 right after a side modernized, fading to 0. */
@@ -304,6 +353,12 @@ export class BattleView {
   private familyLine: [boolean, boolean] = [false, false];
   /** Seconds until the next snore rises from a side's turrets during a Tropenrooster. */
   private zzzIn: [number, number] = [0, 0];
+  /** Seconds until the next note rises over a unit that parties or dances. */
+  private partyIn = 0;
+  /** When each side last shouted that someone joined the polonaise, so a whole rank joining does not stack the word. */
+  private congaSaid: [number, number] = [-9, -9];
+  /** When a big drum last said boom, by unit id, so a volley of turret shots does not stack the word. */
+  private boomSaid = new Map<number, number>();
   private seed = 12345;
 
   constructor(rigOf: (id: string) => Rig | undefined) {
@@ -721,6 +776,115 @@ export class BattleView {
           if (v) this.say(v.x, rowY(v.row) - 160, NL.shout.returned, '#ffd21f', 0.9, 26);
           break;
         }
+        case 'conga': {
+          // Pulled into the line: a note and a burst of streamers as it turns round.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          this.puffs.push({ x: v.x, y: rowY(v.row) - 80, age: 0, life: 0.3, color: this.pick(CONFETTI), size: 18 });
+          if (this.time - this.congaSaid[e.side] > 1) {
+            this.congaSaid[e.side] = this.time;
+            this.say(v.x, rowY(v.row) - 150, NL.shout.conga, '#ffd21f', 1.2, 24);
+          }
+          break;
+        }
+        case 'blinded': {
+          // The row of cannons pops up beside the base, and eleven bursts of confetti fly into the enemy's faces.
+          const to = other(e.side);
+          const owner = s.sides[to];
+          const era = eraOf(owner.faction, owner.era);
+          const rig = era.special.rig ?? '';
+          this.bands = this.bands.filter((b) => b.side !== to || b.mode !== 'pop');
+          this.bands.push({ side: to, rig, age: 0, life: e.ticks / TPS, mode: 'pop' });
+          const from = this.marker(to, 'muzzle');
+          const confetti = era.units[1]?.shot?.rig ?? '';
+          const faces = e.ids.flatMap((id) => this.units.get(id) ?? []);
+          for (let i = 0; i < 11 && faces.length > 0; i++) {
+            const v = faces[i % faces.length]!;
+            const y = rowY(v.row) - 100 * rowScale(v.row);
+            this.sprites.push({
+              rig: confetti, side: to, x0: from.x, y0: from.y, x1: v.x + (this.random() - 0.5) * 24, y1: y, scale: 1.1,
+              age: -i * 0.09, life: 0.42, hold: 0.15, ease: 'drop', puff: this.pick(CONFETTI), landed: false,
+            });
+          }
+          break;
+        }
+        case 'slowed': {
+          // The morning after: grey clouds over whoever is hung over, raining herring.
+          const owner = s.sides[other(e.side)];
+          const rig = eraOf(owner.faction, owner.era).special.rig ?? '';
+          this.hangovers = this.hangovers.filter((h) => h.side !== e.side);
+          this.hangovers.push({ side: e.side, rig, age: 0, life: e.ticks / TPS });
+          const first = this.units.get(e.ids[0] ?? -1);
+          if (first) this.say(first.x, rowY(first.row) - 170, NL.shout.slowed, '#cfd8dc', 1.6, 28, 0.6);
+          break;
+        }
+        case 'boomed': {
+          // A turret shot off the big drum: BOEM, and notes over the band that marches to it.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          const last = this.boomSaid.get(e.id);
+          if (last === undefined || this.time - last > 1.4) {
+            this.boomSaid.set(e.id, this.time);
+            this.say(v.x + dirOf(v.side) * 20, rowY(v.row) - 150, NL.shout.boomed, '#ffd21f', 0.8, 30);
+          }
+          this.puffs.push({ x: v.x + dirOf(v.side) * 26, y: rowY(v.row) - 70, age: 0, life: 0.25, color: '#fff3c4', size: 30 });
+          break;
+        }
+        case 'peeled': {
+          // Down goes the banana, and there is his peel.
+          const x = laneX(e.side, e.pos);
+          const peel = s.sides[e.side].peels.find((p) => p.id === e.peel);
+          this.puffs.push({ x, y: rowY(peel ? peel.row : 1) - 8, age: 0, life: 0.3, color: '#f6e27a', size: 16 });
+          break;
+        }
+        case 'slipped': {
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.slipFrom = this.time;
+          v.slipUntil = this.time + e.ticks / TPS;
+          v.dazedUntil = v.slipUntil;
+          this.shake = Math.min(6, this.shake + 2);
+          this.puffs.push({ x: v.x, y: rowY(v.row) - 6, age: 0.08, life: 0.35, color: '#fffdf5', size: 30 });
+          this.say(v.x, rowY(v.row) - 150, NL.shout.slipped, '#ffd21f', 1.2, 26);
+          break;
+        }
+        case 'dropped': {
+          // The speakers go: the box jumps, and the ground with it.
+          const v = this.units.get(e.id);
+          if (!v) break;
+          v.trickTime = 0;
+          this.shake = Math.min(6, this.shake + 2.5);
+          this.say(v.x + dirOf(v.side) * 40, rowY(v.row) - 150, NL.shout.dropped, '#ff7ad9', 1.0, 34);
+          for (let i = 0; i < 4; i++) {
+            this.puffs.push({ x: v.x + dirOf(v.side) * (60 + i * 40), y: rowY(v.row) - 60 - this.random() * 50, age: -i * 0.05, life: 0.3, color: this.pick(CONFETTI), size: 14 });
+          }
+          break;
+        }
+        case 'partied': {
+          for (const id of e.ids) {
+            const v = this.units.get(id);
+            if (v) v.partyUntil = this.time + e.ticks / TPS;
+          }
+          break;
+        }
+        case 'keyed': {
+          // The prince holds up the key, and it flies to the enemy turret he takes over.
+          const v = this.units.get(e.id);
+          const spot = this.turretSpot(s, other(e.side), e.slot);
+          const rig = v?.def.keys?.rig ?? '';
+          if (v) {
+            v.trickTime = 0;
+            this.say(v.x, rowY(v.row) - 270, NL.shout.keyed, '#ffd21f', 1.8, 30);
+          }
+          const from = v ? { x: v.x, y: rowY(v.row) - 240 } : { x: spot.x, y: spot.y - 400 };
+          this.sprites.push({ rig, side: e.side, x0: from.x, y0: from.y, x1: spot.x, y1: spot.y - 150, scale: 1, age: -0.1, life: KEY_FLIGHT - 0.1, hold: 0.25, ease: 'drop', puff: '#ffd21f', landed: false });
+          break;
+        }
+        case 'unkeyed': {
+          const spot = this.turretSpot(s, e.side, e.slot);
+          this.puffs.push({ x: spot.x, y: spot.y - 120, age: 0, life: 0.35, color: '#ffd21f', size: 26 });
+          break;
+        }
         case 'special':
           this.shake = Math.min(8, this.shake + 3);
           this.say(GATE_X[e.side] + dirOf(e.side) * 330, rowY(0) - 210, `${nameOf(e.id).replace(/!$/, '')}!`, '#ffd21f', 1.8, 44);
@@ -739,11 +903,20 @@ export class BattleView {
    * the spot its special's drawing marks as `slot` (the open case of the Succesfee), beside its base.
    */
   private slot(side: Side): { x: number; y: number } {
+    return this.marker(side, 'slot');
+  }
+
+  /**
+   * A marker in the drawing of the scene that stands beside `side`'s base
+   * (see Band), in stage coordinates: where the Succesfee's money goes in, where
+   * the confetti of Elf Kanonschoten comes out. Without one, a spot above the scene.
+   */
+  private marker(side: Side, name: string): { x: number; y: number } {
     const x = GATE_X[side] + dirOf(side) * BAND_SPOT.dx;
     const y = GROUND_Y + BAND_SPOT.dy;
-    const band = this.bands.find((b) => b.side === side);
+    const band = this.bands.find((b) => b.side === side && b.mode === 'pop');
     const rig = band ? this.rigOf(band.rig) : undefined;
-    const m = rig?.mounts.slot;
+    const m = rig?.mounts[name];
     const part = rig && m ? rig.parts[m.part] : undefined;
     return part && m ? { x: x + dirOf(side) * (part.x + m.x), y: y + part.y + m.y } : { x, y: y - 100 };
   }
@@ -793,6 +966,10 @@ export class BattleView {
     this.blockades = this.blockades.filter((b) => b.age < b.life);
     this.updateBands(s, dt);
     this.updateSiesta(s, dt);
+    this.updateParty(dt);
+    this.updatePeels(s);
+    for (const h of this.hangovers) h.age += dt;
+    this.hangovers = this.hangovers.filter((h) => h.age < h.life);
     this.updateSwarms(s, dt);
     this.updateSprites(dt);
     this.updateCoins(dt);
@@ -818,6 +995,25 @@ export class BattleView {
       if (mine.length === 0) continue;
       const v = this.pick(mine);
       this.say(v.x + (this.random() - 0.5) * 30, rowY(v.row) - 120, this.random() < 0.5 ? '♪' : '♫', '#ffd21f', 0.8, 30);
+    }
+  }
+
+  /** Notes rise over the units that party or dance, now and then one. */
+  private updateParty(dt: number): void {
+    this.partyIn -= dt;
+    if (this.partyIn > 0) return;
+    this.partyIn = 0.22;
+    const merry = [...this.units.values()].filter((v) => v.partying || v.dancing);
+    if (merry.length === 0) return;
+    const v = this.pick(merry);
+    this.say(v.x + (this.random() - 0.5) * 30, rowY(v.row) - 125, this.random() < 0.5 ? '♪' : '♫', this.pick(CONFETTI), 0.8, 28);
+  }
+
+  /** The banana peels on the road, where the renderer draws them. */
+  private updatePeels(s: SimState): void {
+    this.peels.length = 0;
+    for (const side of SIDES) {
+      for (const p of s.sides[side].peels) this.peels.push({ side, rig: p.rig, x: laneX(side, p.pos), row: p.row });
     }
   }
 
@@ -919,6 +1115,14 @@ export class BattleView {
             icy: false,
             sticky: false,
             facing: 1,
+            dancing: false,
+            partyUntil: 0,
+            partying: false,
+            slipFrom: 0,
+            slipUntil: 0,
+            blind: false,
+            slowed: false,
+            trickTime: NEVER,
           };
           this.units.set(u.id, v);
         }
@@ -937,7 +1141,9 @@ export class BattleView {
         v.row = wanted + (v.row - wanted) * Math.exp(-dt * 8);
         if (Math.abs(v.row - wanted) < 0.01) v.row = wanted;
         v.age += dt;
-        v.travelled += Math.max(0, px - v.lastPx);
+        v.dancing = (u.congaUntil ?? 0) > s.tick;
+        // A dancer goes backwards, and its feet keep step all the same.
+        v.travelled += v.dancing ? Math.abs(px - v.lastPx) : Math.max(0, px - v.lastPx);
         v.lastPx = px;
         v.x = x;
         v.hp = u.hp;
@@ -945,15 +1151,19 @@ export class BattleView {
         v.dazed = v.stunned && this.time < v.dazedUntil;
         v.icy = v.stunned && this.time < v.icyUntil;
         v.sticky = (u.stickyUntil ?? 0) > s.tick;
-        // A pole vaulter that came down beyond the enemy's front faces the thrower it leapt at, and
-        // once that one is gone turns round to face whoever it went over.
+        v.partying = v.stunned && this.time < v.partyUntil;
+        v.blind = (u.blindUntil ?? 0) > s.tick;
+        v.slowed = (u.slowUntil ?? 0) > s.tick;
+        // A pole vaulter that came down beyond the enemy's front faces the thrower it leapt at, and once
+        // that one is gone turns round to face whoever it went over. Whoever dances in the enemy's polonaise faces home.
         const foeFront = frontUnit(s.sides[other(side)].units);
-        v.facing = u.vaulted && u.prey === undefined && foeFront && u.pos - def.len > LANE - foeFront.pos ? -1 : 1;
+        v.facing = v.dancing || (u.vaulted && u.prey === undefined && foeFront && u.pos - def.len > LANE - foeFront.pos) ? -1 : 1;
         if (v.leap < NEVER) v.leap += dt;
         v.pose = u.posing && poser ? poser.rig : '';
         v.flash = Math.max(0, v.flash - dt * 5);
         v.hitTime += dt;
         v.tossTime += dt;
+        v.trickTime += dt;
         v.idleTime += dt;
 
         const p = v.puppet;
@@ -964,6 +1174,8 @@ export class BattleView {
           }
           if (v.leap < LEAP_SECONDS && p.clips.vault) {
             sampleClip(p.clips.vault, v.leap / LEAP_SECONDS, p.rig.index, p.pose);
+          } else if (v.dancing) {
+            sampleClip(p.clips.walk, (v.travelled / (p.clips.walk.stride ?? 50)) % 1, p.rig.index, p.pose);
           } else if (v.dazed && p.clips.dazed) {
             sampleClip(p.clips.dazed, (v.idleTime / (p.clips.dazed.seconds ?? 1)) % 1, p.rig.index, p.pose);
           } else if (u.act === 'attack') {
@@ -989,6 +1201,13 @@ export class BattleView {
           const tossLen = toss?.seconds ?? 0.5;
           if (toss && v.tossTime < tossLen) {
             sampleClip(toss, v.tossTime / tossLen, p.rig.index, p.overlay);
+            addPose(p.pose, p.overlay, 1);
+          }
+          // A trick of its own: the beat drop, the key held up.
+          const trick = p.clips.trick;
+          const trickLen = trick?.seconds ?? 0.6;
+          if (trick && v.trickTime < trickLen) {
+            sampleClip(trick, v.trickTime / trickLen, p.rig.index, p.overlay);
             addPose(p.pose, p.overlay, 1);
           }
           solve(p.rig, p.pose, p.world);
@@ -1046,9 +1265,16 @@ export class BattleView {
             y: 0,
             level: 1,
             outdated: false,
+            key: '',
+            keySince: 0,
           };
           views[slot] = view;
         }
+        // Taken over with the key of the city: the key hangs over it, once it has flown there.
+        const holder = turret.heldBy === undefined ? undefined : s.sides[other(side)].units.find((u) => u.id === turret.heldBy);
+        const key = holder ? (unitDef(holder.def).keys?.rig ?? '') : '';
+        if (key && !view.key) view.keySince = this.time;
+        view.key = key;
         view.level = turret.level;
         view.outdated = turretEra(state.faction, turret.def) < state.era;
         const spot = this.turretSpot(s, side, slot);
@@ -1109,6 +1335,7 @@ export class BattleView {
         x: lane + offX,
         y: targetY + (from.y - targetY) * (1 - progress) - shot.arc * 4 * progress * (1 - progress),
         // Thrown things tumble, floating things wobble, and a beam that flies flat stays dead straight.
+        miss: shot.miss === true,
         angle:
           shot.spin !== 0
             ? this.time * shot.spin * Math.PI * 2 * dirOf(shot.side)
@@ -1123,15 +1350,21 @@ export class BattleView {
       if (now.has(id)) continue;
       this.launch.delete(id);
       this.puffs.push({ x: old.x, y: old.y, age: 0, life: 0.3, color: SPLASH[old.rig] ?? '#ffffff', size: 22 });
+      // Confetti in the eyes: it came down well behind the enemy. Now and then somebody says so.
+      if (old.miss) {
+        this.puffs.push({ x: old.x, y: old.y - 10, age: 0.05, life: 0.3, color: this.pick(CONFETTI), size: 12 });
+        if (this.random() < 0.3) this.say(old.x, old.y - 50, NL.shout.missed, '#fffdf5', 0.8, 22);
+      }
     }
     this.lastShot = now;
   }
 
   /** How far a special's wave has come, as stage x, for each wave in play. */
-  waves(s: SimState, alpha: number): { side: Side; x: number; rig: string }[] {
+  waves(s: SimState, alpha: number): { side: Side; x: number; rig: string; conga: boolean }[] {
     return s.waves.map((w) => ({
       side: w.side,
       rig: w.rig,
+      conga: w.conga !== undefined,
       x: laneX(w.side, Math.min(LANE, w.prevPos + (w.pos - w.prevPos) * alpha)),
     }));
   }

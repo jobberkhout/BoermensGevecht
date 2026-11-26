@@ -61,9 +61,14 @@ export interface ClipSet {
   vault?: Clip;
   /** Loops in place of idle while a unit sits dazed after a stunt of its own: the vaulter after landing, the skater who could not brake. */
   dazed?: Clip;
+  /**
+   * Laid on top of whatever else is playing when a unit does a trick of its own: De Zuipwagen drops
+   * the beat and the enemy around it parties, De Reuzenprins holds up the key of the city.
+   */
+  trick?: Clip;
 }
 
 /** The clips every unit has. */
 export const CLIP_NAMES: readonly (keyof ClipSet)[] = ['idle', 'walk', 'attack', 'hit', 'die'];
 /** Clips laid on top of whatever else is playing, rather than played by themselves. */
-export const OVERLAY_CLIPS: readonly (keyof ClipSet)[] = ['hit', 'toss'];
+export const OVERLAY_CLIPS: readonly (keyof ClipSet)[] = ['hit', 'toss', 'trick'];

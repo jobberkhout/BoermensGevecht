@@ -586,6 +586,46 @@ export const FEED = { percent: 30 } as const;
 /** How many beaten units of its own a side remembers for De Bezemwagen to pick up. */
 export const FALLEN_KEEP = 8;
 
+// Carnaval, 26 November 2026. The owner asked for units "that do something no
+// other unit does, funny and a bit dumb", the way De Elf Steden were built, and
+// for De Reuzenprins to take over an enemy turret. Which units, the rules and
+// every number below are mine, not fitted (the owner: "No balancing"). The
+// rules are in sim/carnaval.ts.
+
+/**
+ * De Grote Trom (Carnaval, 1975): every turret shot that bounces off the bass
+ * drum is one more boom, in time, and for `ticks` everyone of its own side
+ * within `reach` of it, itself too, marches at `speedPercent` of their pace.
+ * The more the turrets fire at it, the faster its band walks into them.
+ */
+export const DRUM = { reach: px(160), ticks: sec(1.2), speedPercent: 130 } as const;
+
+/**
+ * Het Bananenpak (Carnaval, 2025): when it is beaten it leaves its peel on
+ * the road where it stood. The first enemy unit that walks over it in that row
+ * slips and lies dazed for `dazeTicks`. A peel nobody steps on is gone after
+ * `ticks`. Super units do not slip.
+ */
+export const PEEL = { dazeTicks: sec(1.5), ticks: sec(20) } as const;
+
+/**
+ * De Zuipwagen (Carnaval, 2025) drops the beat: every `every` ticks, if enemy
+ * units stand within `reach` of its front, they all stop fighting and party
+ * for `ticks`. The owner's idea. Super units keep their heads.
+ */
+export const PARTY = { every: sec(5), ticks: sec(1.5), reach: px(180) } as const;
+
+/**
+ * De Reuzenprins (Carnaval, 2050) gets the key of the city: once an enemy
+ * turret can reach it, it takes over the most upgraded one for `ticks`, and
+ * that turret fires at its own side's units for Carnaval. When the time is up
+ * or the prince is beaten the key goes back, and `rest` ticks after it went
+ * back he can take one again. The owner, 26 November 2026: that is very strong,
+ * so "unlike other super units it does NOT shrug off turrets": it takes their
+ * `turretPercent`, all of it. It still draws their fire, as a giant would.
+ */
+export const KEYS = { ticks: sec(12), rest: sec(8), turretPercent: 100 } as const;
+
 // ---- Temperament ------------------------------------------------------------
 // What makes one faction play differently from another, besides its specials:
 // a twist per role on the shared numbers above, the same in every era. Farmers
@@ -743,4 +783,27 @@ export const SPECIAL = {
   bezemwagen: { count: 4 },
   /** 2050, De Elf Steden: too hot to work. For this long the enemy's turrets do not fire. The only special of its kind. */
   tropenrooster: { ticks: sec(15) },
+  /**
+   * 1975, Carnaval: De Polonaise. A conga line sweeps the lane from the gate,
+   * and every enemy unit it passes is pulled in: for `ticks` it neither walks
+   * forward nor fights, and dances back towards its own base at its own pace.
+   * It does no damage. Super units do not join in. The owner's rule of 26
+   * November 2026 (the brief had a wave); the only special of its kind. As fast
+   * as the convoys, a little slower, because it is people.
+   */
+  polonaise: { speed: pxPerSec(420), ticks: sec(4) },
+  /**
+   * 2025, Carnaval: Elf Kanonschoten. Eleven confetti cannons fire into the
+   * enemy's faces: for `ticks` whatever the enemy units on the lane throw
+   * misses (their ranged units, the beer bikes' beers, the cousins' voice
+   * messages; turrets, up in their bases, still aim). The owner's rule of the
+   * same day (the brief had a barrage); the only special of its kind.
+   */
+  kanonschoten: { ticks: sec(6) },
+  /**
+   * 2050, Carnaval: De Kater, the morning after. For `ticks` enemy units crawl
+   * at `speedPercent` of their pace; they can still fight. The kind of special
+   * docs/factions.md planned as "slow" (also for De Camping); Carnaval has it first.
+   */
+  kater: { ticks: sec(8), speedPercent: 30 },
 } as const;

@@ -100,13 +100,19 @@ export interface EraLook {
   /**
    * Rules of their own for some of its units, on top of their role: the pole
    * vaulter, the skater who cannot brake, sticky throws, soup, a padel player
-   * who returns throws, bouncing beets. Their numbers are in defs/balance.ts.
+   * who returns throws, bouncing beets, a big drum, a banana peel, a box that
+   * drops the beat, the key of the city. Their numbers are in defs/balance.ts.
+   * A drawing a rule names (the peel, the key) is a file name in the era's folder.
    */
   perks?: Partial<Record<'light' | 'ranged' | 'heavy' | 'shield', Perk>>;
 }
 
 /** What a unit can do that its role does not, see UnitDef; and, for one that is worth more for it, its price as a share of the usual one. */
-export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds'> & { costPercent?: number };
+export type Perk = Pick<UnitDef, 'vault' | 'charge' | 'sticky' | 'soup' | 'returns' | 'bounce' | 'regrows' | 'feeds' | 'drum' | 'peel' | 'party' | 'keys'> & {
+  costPercent?: number;
+  /** The share of a turret's shot it takes, for a super unit that does not shrug turrets off: De Reuzenprins. */
+  turretPercent?: number;
+};
 
 /** A throw on top of a unit's own blows, as shares of the era's ranged unit's damage and reach. */
 export interface TossShare {
@@ -199,6 +205,8 @@ export function makeEra(prefix: string, folder: string, look: EraLook, temper: T
     const perk = look.perks?.[slot];
     if (!perk || !units[i]) return;
     const { costPercent, ...rules } = perk;
+    if (rules.peel) rules.peel = { ...rules.peel, rig: art(rules.peel.rig) };
+    if (rules.keys) rules.keys = { ...rules.keys, rig: art(rules.keys.rig) };
     const unit: UnitDef = { ...units[i]!, ...rules };
     if (costPercent !== undefined) {
       unit.cost = Math.round((unit.cost * costPercent) / 100 / PRICE_STEP) * PRICE_STEP;
