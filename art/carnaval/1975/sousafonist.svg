@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -140 108 146" data-rig="humanoid">
+  <title>De Sousafonist: blauwe kiel, rode zakdoek, een snor, en een sousafoon om zich heen met de beker boven zijn hoofd, naar voren</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm, out of sight behind the tubing. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#24508f" d="M-7 -4 Q-10 9 -9 20 Q0 23 9 20 Q10 9 7 -4 Z"/>
+    <path class="o" fill="#1d3f7a" d="M-6 19 L6 19 L5.5 23.5 L-5.5 23.5 Z"/>
+    <ellipse class="o" fill="#e3a98a" cx="0" cy="27.5" rx="5.2" ry="5"/>
+  </g>
+
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#3a302b" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="o" fill="#26282b" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#4a3d35" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="t" style="stroke:#3a302b" d="M-2.5 0 L-2.5 29 M2.5 0 L2.5 29"/>
+    <path class="o" fill="#33363a" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+    <path class="n" fill="#6a6f75" d="M5 31.6 Q9 32 11 33.6 L9.6 34.2 Q7.6 33 5 32.8 Z"/>
+  </g>
+
+  <!-- The blue kiel and the red handkerchief. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2f62b0" d="M-17.5 13 Q-21 -14 -16.5 -31 Q-13 -38 0 -38 Q14 -38 17.5 -31 Q23 -12 19.5 13 Z"/>
+    <path class="n" fill="#24508f" d="M-16.2 12 Q-19.4 -14 -15.2 -29.5 Q-10.5 -12 -10.5 12 Z"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-9 -24 Q-10 -6 -9.5 12 M-2 -23.5 Q-2.5 -6 -2 12 M5 -23.5 Q6 -8 6 12 M12 -24 Q14 -8 13 12"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-17 -25 Q2 -21 19.5 -26"/>
+    <path fill="none" stroke="#f4f4f0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="1.6 2.4" d="M-15.4 -28.4 Q2 -24.4 18 -29.4"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-17.6 9.6 L19.8 9.6"/>
+    <path class="o" fill="#d8342b" d="M-10 -37.5 Q1 -31.5 13 -37.5 L12 -30 Q9 -22 4.5 -21 Q2 -26 -3 -29.5 Q-8 -31.5 -10 -37.5 Z"/>
+    <circle class="n" fill="#ffffff" cx="-5" cy="-33.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="0" cy="-30.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="6" cy="-33" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="8" cy="-27" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="3.4" cy="-25.4" r="0.8"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c22a22" cx="10.5" cy="-33.5" r="3"/>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e3a98a" x="-5" y="-6" width="11" height="9" rx="2"/>
+    <path class="o" fill="#3a2618" d="M-17 -26 Q-21 -10 -13 -3 L-4 -8 Z"/>
+    <ellipse class="o" fill="#f2c4a4" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#f2c4a4" cx="-8.5" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- a dark mop of hair, flattened by the bell -->
+    <path class="o" fill="#3a2618" d="M-17 -18 Q-21 -38 2 -39 Q20 -39 20 -29 Q12 -33 4 -31 Q-3 -30 -5 -24 Q-8 -17 -12 -13 Q-16 -13 -17 -18 Z"/>
+    <path class="t" style="stroke:#5a3c26" d="M-10 -32 Q-2 -36 8 -35"/>
+    <!-- eyes up at the music: he cannot read it either -->
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="9.6" cy="-21" r="3.8"/>
+    <circle class="o" style="stroke-width:1.4" fill="#ffffff" cx="17.6" cy="-21.6" r="3"/>
+    <circle class="n" fill="#2b1b16" cx="10.6" cy="-22.6" r="1.8"/>
+    <circle class="n" fill="#2b1b16" cx="18.2" cy="-23" r="1.5"/>
+    <path class="t" style="stroke-width:2" d="M5.6 -28.4 Q9.6 -30.6 13.4 -28.6 M15.6 -28.6 Q18.6 -30.2 21.4 -28.2"/>
+    <ellipse class="o" fill="#e0442c" cx="21.6" cy="-15.4" rx="4.6" ry="3.9"/>
+    <circle class="n" fill="#ff9a86" cx="20.4" cy="-16.8" r="1.2"/>
+    <!-- a seventies moustache, thick enough to sieve beer -->
+    <path class="o" fill="#3a2618" d="M8 -12 Q14 -15.6 21.4 -11.6 Q24 -9 22.6 -6 Q18 -9 14.5 -8.4 Q11 -8 7.6 -6 Q5.4 -9 8 -12 Z"/>
+  </g>
+
+  <!-- His cheek, blown up to play. It swells with every note. Joint in its middle. -->
+  <g id="cheek" data-parent="head" transform="translate(7 -85)">
+    <ellipse class="o" fill="#f2c4a4" cx="0" cy="0" rx="6.4" ry="5.6"/>
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.65" cx="0.6" cy="0.6" rx="3.8" ry="2.8"/>
+  </g>
+
+  <!-- The sousaphone: wound round him, the bell over his head, pointing forward. Joint on his back shoulder. -->
+  <g id="horn" data-parent="torso" transform="translate(-14 -76)">
+    <g transform="translate(14 76)">
+      <!-- the big loop: down the front of his belly, round the back, up behind his head and forward into the bell -->
+      <path class="t" style="stroke-width:9" d="M24 -60 Q32 -44 16 -35 Q-6 -28 -22 -40 Q-31 -52 -27 -74 Q-25 -94 -24 -104 Q-21 -117 -6 -116 L6 -115.5"/>
+      <path fill="none" stroke="#e3b341" stroke-width="5" stroke-linecap="round" d="M24 -60 Q32 -44 16 -35 Q-6 -28 -22 -40 Q-31 -52 -27 -74 Q-25 -94 -24 -104 Q-21 -117 -6 -116 L6 -115.5"/>
+      <path fill="none" stroke="#f7da7a" stroke-width="1.6" stroke-linecap="round" d="M27 -52 Q28 -44 18 -38.6 M-27.4 -58 Q-28.6 -70 -26.4 -82 M-20 -114.2 Q-14 -117.4 -6 -117.6"/>
+      <!-- the bell -->
+      <path class="o" fill="#e3b341" d="M4 -119 Q20 -119.5 30 -127 Q36 -132.5 42 -134 L42 -104 Q35 -105.5 28 -109.5 Q18 -113 4 -112 Z"/>
+      <path class="n" fill="#f7da7a" d="M8 -117.4 Q20 -118 29 -124.6 Q34 -128.6 38 -130.4 Q33 -126 28 -122 Q20 -116.4 8 -115.6 Z"/>
+      <path class="n" fill="#c9962e" d="M10 -113.4 Q20 -114 28 -111 Q34 -108.6 39 -106.6 L39 -105.4 Q33 -107 27 -109.8 Q19 -112.6 10 -112.2 Z"/>
+      <ellipse class="o" fill="#e3b341" cx="42" cy="-119" rx="8" ry="15.5"/>
+      <ellipse class="n" fill="#a8781f" cx="43" cy="-119" rx="5.4" ry="12.4"/>
+      <ellipse class="n" fill="#5e4012" cx="44" cy="-119" rx="2.6" ry="6.4"/>
+      <path class="n" fill="#fbe7a6" d="M37.6 -130 Q35.4 -122 37.6 -110 Q36.2 -121 38.8 -130.6 Z"/>
+      <!-- the valves, and the mouthpipe up to his mouth -->
+      <path class="t" style="stroke-width:6" d="M20 -70 Q22 -80 13 -84"/>
+      <path fill="none" stroke="#e3b341" stroke-width="2.6" stroke-linecap="round" d="M20 -70 Q22 -80 13 -84"/>
+      <path class="o" style="stroke-width:2" fill="#d1a136" d="M10 -86.6 L14.6 -85.6 L14 -82 L9.4 -82.6 Z"/>
+      <rect class="o" fill="#e3b341" x="17" y="-71" width="14" height="13" rx="2"/>
+      <path class="t" style="stroke:#b8862a" d="M21.6 -70 L21.6 -59 M26.4 -70 L26.4 -59"/>
+      <rect class="o" style="stroke-width:1.8" fill="#f4ecd8" x="17.6" y="-75" width="3.4" height="4" rx="1"/>
+      <rect class="o" style="stroke-width:1.8" fill="#f4ecd8" x="22.4" y="-75" width="3.4" height="4" rx="1"/>
+      <rect class="o" style="stroke-width:1.8" fill="#f4ecd8" x="27.2" y="-75" width="3.4" height="4" rx="1"/>
+    </g>
+    <circle data-mount="muzzle" fill="none" cx="58" cy="-43" r="1"/>
+  </g>
+
+  <!-- The near arm, bent, his hand on the valves. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#2f62b0" d="M-7 -4 Q-9 9 -7 19 Q-1 24 5 20 Q8 8 7 -4 Z"/>
+    <path class="o" fill="#2f62b0" d="M-5.5 12 L11 4.5 L13.6 12.4 L-2 21.5 Z"/>
+    <path class="n" fill="#2f62b0" d="M-4.6 13 L4 9 L5 17 L-2 20.4 Z"/>
+    <path class="o" fill="#24508f" d="M10 3.6 L13.2 2.2 L16 10.6 L13 12 Z"/>
+    <ellipse class="o" fill="#f2c4a4" cx="17.6" cy="5" rx="4.8" ry="4.6"/>
+  </g>
+</svg>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -134 108 140" data-rig="humanoid">
+  <title>De Hosser: een gewone blauwe kiel over een flinke buik, rode boerenzakdoek, bierviltjes als medailles opgespeld en een zelfgenaaid carnavalspetje</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <g id="hips" transform="translate(0 -38)"/>
+
+  <!-- The far arm: a wide kiel sleeve gathered at the wrist. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-9 -72)">
+    <path class="o" fill="#24508f" d="M-7 -4 Q-10 9 -9 20 Q0 23 9 20 Q10 9 7 -4 Z"/>
+    <path class="o" fill="#1d3f7a" d="M-6 19 L6 19 L5.5 23.5 L-5.5 23.5 Z"/>
+    <ellipse class="o" fill="#e3a98a" cx="0" cy="27.5" rx="5.2" ry="5"/>
+  </g>
+
+  <!-- Dark Sunday trousers and black shoes, polished for the occasion. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-5 -38)">
+    <path class="o" fill="#3a302b" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="o" fill="#26282b" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(5 -38)">
+    <path class="o" fill="#4a3d35" d="M-8 -3 L8 -3 L7 31 L-7 31 Z"/>
+    <path class="t" style="stroke:#3a302b" d="M-2.5 0 L-2.5 29 M2.5 0 L2.5 29"/>
+    <path class="o" fill="#33363a" d="M-8 38 L-8 33 Q-8 30 -4 30 L5 30 Q12 31 15 34 Q16 37 14 38 Z"/>
+    <path class="n" fill="#6a6f75" d="M5 31.6 Q9 32 11 33.6 L9.6 34.2 Q7.6 33 5 32.8 Z"/>
+  </g>
+
+  <!-- The plain blue kiel, cut wide over a belly that goes first wherever he goes. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -40)">
+    <path class="o" fill="#2f62b0" d="M-16 -33 Q-12 -38 0 -38 Q12 -38 16 -33 Q27 -22 27.5 -6 Q27.5 8 17 13.5 L-17 13.5 Q-21 -8 -16 -33 Z"/>
+    <!-- shade on the back, pleats under the yoke, a shine on the belly -->
+    <path class="n" fill="#24508f" d="M-15.6 12.5 Q-19.4 -8 -15 -31 Q-10 -12 -10 12.5 Z"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-9 -24 Q-10 -6 -9.5 12 M-2 -23.5 Q-2.5 -6 -2 12 M5 -23.5 Q6 -8 6 12"/>
+    <ellipse class="n" fill="#5b8fd8" fill-opacity="0.75" cx="19" cy="-9" rx="4.2" ry="9"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-16.6 -25 Q2 -21 20.5 -27"/>
+    <!-- white stitching along the yoke, the only frill on it -->
+    <path fill="none" stroke="#f4f4f0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="1.6 2.4" d="M-15 -28.4 Q2 -24.4 18.5 -30"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-16.8 9.8 L18.6 9.8"/>
+
+    <!-- the red farmer's handkerchief, knotted under his chin -->
+    <path class="o" fill="#d8342b" d="M-10 -37.5 Q1 -31.5 13 -37.5 L12 -30 Q9 -22 4.5 -21 Q2 -26 -3 -29.5 Q-8 -31.5 -10 -37.5 Z"/>
+    <circle class="n" fill="#ffffff" cx="-5" cy="-33.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="0" cy="-30.4" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="6" cy="-33" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="8" cy="-27" r="0.9"/>
+    <circle class="n" fill="#ffffff" cx="3.4" cy="-25.4" r="0.8"/>
+    <circle class="o" style="stroke-width:1.8" fill="#c22a22" cx="10.5" cy="-33.5" r="3"/>
+
+    <!-- beer mats pinned on as medals, each on a ribbon in the carnival colours -->
+    <g>
+      <rect class="o" style="stroke-width:1.2" fill="#f6c21c" x="-14" y="-27" width="5" height="6"/>
+      <path class="n" fill="#d8342b" d="M-13.4 -26.4 L-12.2 -26.4 L-12.2 -21.6 L-13.4 -21.6 Z"/>
+      <path class="n" fill="#2f9a48" d="M-10.8 -26.4 L-9.6 -26.4 L-9.6 -21.6 L-10.8 -21.6 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f4ecd8" cx="-11.5" cy="-15.5" r="5.6"/>
+      <circle class="n" style="stroke:#d8342b" fill="none" stroke-width="1.3" cx="-11.5" cy="-15.5" r="3.8"/>
+      <path class="n" fill="#d8342b" d="M-11.5 -18 L-10.8 -16.2 L-9 -16.2 L-10.4 -15 L-9.9 -13.2 L-11.5 -14.3 L-13.1 -13.2 L-12.6 -15 L-14 -16.2 L-12.2 -16.2 Z"/>
+    </g>
+    <g>
+      <rect class="o" style="stroke-width:1.2" fill="#f6c21c" x="-4.5" y="-29" width="5" height="6"/>
+      <path class="n" fill="#d8342b" d="M-3.9 -28.4 L-2.7 -28.4 L-2.7 -23.6 L-3.9 -23.6 Z"/>
+      <path class="n" fill="#2f9a48" d="M-1.3 -28.4 L-0.1 -28.4 L-0.1 -23.6 L-1.3 -23.6 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f6c21c" cx="-2" cy="-17.5" r="5.6"/>
+      <circle class="n" fill="#2f9a48" cx="-2" cy="-17.5" r="3.4"/>
+      <circle class="n" fill="#f6c21c" cx="-2" cy="-17.5" r="1.4"/>
+    </g>
+    <g>
+      <rect class="o" style="stroke-width:1.2" fill="#f6c21c" x="-9" y="-12" width="5" height="5"/>
+      <path class="n" fill="#d8342b" d="M-8.4 -11.4 L-7.2 -11.4 L-7.2 -7.6 L-8.4 -7.6 Z"/>
+      <path class="n" fill="#2f9a48" d="M-5.8 -11.4 L-4.6 -11.4 L-4.6 -7.6 L-5.8 -7.6 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#ffffff" cx="-6.5" cy="-2" r="5.6"/>
+      <circle class="n" style="stroke:#2f62b0" fill="none" stroke-width="1.3" cx="-6.5" cy="-2" r="3.8"/>
+      <path class="n" fill="#d8342b" d="M-8.4 -3.4 L-5 -3.4 L-5 0.6 L-8.4 0.6 Z"/>
+      <path class="n" fill="#f4f4f0" d="M-8.4 -3.4 L-5 -3.4 L-5 -2.4 L-8.4 -2.4 Z"/>
+    </g>
+  </g>
+
+  <g id="head" data-parent="torso" transform="translate(1 -76)">
+    <rect class="o" fill="#e3a98a" x="-5" y="-6" width="11" height="9" rx="2"/>
+    <!-- seventies hair down to his collar -->
+    <path class="o" fill="#6b4226" d="M-17 -27 Q-21 -10 -13 -3 L-4 -8 Z"/>
+    <ellipse class="o" fill="#f0bd9c" cx="2" cy="-21" rx="18" ry="17.5"/>
+    <ellipse class="o" fill="#f0bd9c" cx="-8.5" cy="-19" rx="3.4" ry="4.8"/>
+    <!-- sideburns -->
+    <path class="n" fill="#6b4226" d="M-4.5 -27 L0.5 -27 L1 -12 Q-1.6 -10 -3.4 -12.4 Z"/>
+    <!-- red with the party -->
+    <ellipse class="n" fill="#e8786a" fill-opacity="0.65" cx="7" cy="-13" rx="4.6" ry="2.8"/>
+    <!-- eyes screwed shut with joy -->
+    <path class="t" style="stroke-width:2.2" d="M6 -20 Q9 -24 12 -20 M15 -20.4 Q17.8 -24 20.6 -20.6"/>
+    <path class="t" style="stroke-width:1.8" d="M5.4 -27.4 Q9 -29.4 12.6 -27.6 M15 -27.8 Q18 -29.2 21 -27.4"/>
+    <ellipse class="o" fill="#e0442c" cx="21.4" cy="-15" rx="4.6" ry="3.9"/>
+    <circle class="n" fill="#ff9a86" cx="20.2" cy="-16.4" r="1.2"/>
+    <!-- mouth wide open: Alaaf! -->
+    <path class="o" fill="#7a2a20" d="M7 -10 Q9 -1.5 15 -1.5 Q20 -2 20.5 -9.6 Q14 -8 7 -10 Z"/>
+    <path class="n" fill="#e8786a" d="M11 -3.6 Q14 -6 17.4 -3.6 Q14 -1.8 11 -3.6 Z"/>
+    <!-- the homemade carnival cap: three felt panels sewn on the kitchen table, a bell on top -->
+    <path class="o" fill="#2f9a48" d="M3 -45.5 Q16 -44.5 19.5 -31 L1 -30 Z"/>
+    <path class="o" fill="#f6c21c" d="M-6.5 -44 Q-1 -46.5 3 -45.5 L1 -30 L-10 -29.4 Z"/>
+    <path class="o" fill="#d8342b" d="M-6.5 -44 Q-16 -40 -17 -28 L-10 -29.4 Z"/>
+    <path fill="none" stroke="#f4f4f0" stroke-width="1" stroke-linecap="round" stroke-dasharray="1.4 2" d="M2.4 -43 L0.8 -32 M-6 -41.6 L-9 -31"/>
+    <path class="o" fill="#d8342b" d="M-18 -29.5 Q1 -34 21 -32 L30 -29 Q29.5 -25.8 27 -26 L19.6 -27.8 Q0 -29.6 -17.6 -25.4 Z"/>
+    <path class="n" fill="#f6c21c" d="M-17 -28.2 Q1 -32 20.4 -30.2 L20.2 -29 Q1 -30.6 -17 -27 Z"/>
+    <path class="t" style="stroke-width:1.6" d="M1.6 -45.6 L1.6 -48.4"/>
+    <circle class="o" style="stroke-width:2" fill="#f6c21c" cx="1.6" cy="-51.4" r="3.6"/>
+    <path class="t" style="stroke-width:1.2" d="M0 -50.6 L3.2 -50.6"/>
+  </g>
+
+  <!-- The near arm, hanging loose, ready to go up. -->
+  <g id="arm_front" data-parent="torso" transform="translate(10 -72)">
+    <path class="o" fill="#2f62b0" d="M-7 -4 Q-10 9 -9 20 Q0 23 9 20 Q10 9 7 -4 Z"/>
+    <path class="t" style="stroke:#1d3f7a" d="M-2 2 Q-3 11 -2 19"/>
+    <path class="o" fill="#24508f" d="M-6 19 L6 19 L5.5 23.5 L-5.5 23.5 Z"/>
+    <ellipse class="o" fill="#f0bd9c" cx="0" cy="27.5" rx="5.4" ry="5.2"/>
+  </g>
+</svg>

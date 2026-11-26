@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-126 -100 252 180" data-rig="static">
+  <title>De Kater: een grijze katerwolk met wallen onder zijn ogen, waar haring uit regent, en een bleek ochtendzonnetje erachter. De vijand kruipt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The morning sun, pale, peeping over the cloud as if it would rather not. Joint in its middle. -->
+  <g id="sun" data-parent="cloud" transform="translate(78 -62)">
+    <path fill="none" stroke="#f3dc8a" stroke-width="4" stroke-linecap="round" d="M0 -32 L0 -40 M22 -22 L28 -28 M-22 -22 L-28 -28 M32 0 L40 0"/>
+    <circle class="o" fill="#fff1bf" cx="0" cy="0" r="24"/>
+    <circle class="n" fill="#fff9e0" cx="-7" cy="-8" r="8"/>
+    <!-- one sleepy eye -->
+    <path class="t" style="stroke-width:2.4" d="M-6 -6 Q-1 -3 4 -6"/>
+  </g>
+
+  <!-- The cloud: grey, heavy, with bags under its eyes and a queasy mouth. (0,0) is its middle. -->
+  <g id="cloud" transform="translate(0 0)">
+    <path class="o" fill="#9aa0a8" d="M-108 22 Q-126 20 -122 4 Q-120 -10 -104 -12 Q-108 -36 -84 -42 Q-74 -66 -46 -60 Q-34 -82 -6 -76 Q14 -90 36 -74 Q58 -80 70 -56 Q96 -58 100 -36 Q120 -32 118 -10 Q122 14 102 22 Q0 32 -108 22 Z"/>
+    <path class="n" fill="#80868f" d="M-118 8 Q-116 18 -106 20 Q0 30 101 20 Q116 14 117 0 Q100 14 0 16 Q-100 14 -118 8 Z"/>
+    <path class="n" fill="#bcc1c7" d="M-80 -38 Q-70 -58 -46 -54 Q-58 -52 -66 -40 Z M-40 -56 Q-28 -74 -6 -70 Q-24 -68 -32 -54 Z M8 -72 Q24 -82 36 -70 Q22 -72 14 -66 Z"/>
+    <!-- the face of the morning after -->
+    <path class="n" fill="#a8c98a" fill-opacity="0.45" d="M-48 -2 Q-48 8 -36 8 Q-26 6 -28 -4 Z M18 -2 Q18 8 30 8 Q40 6 38 -4 Z"/>
+    <path class="t" style="stroke-width:2.6" d="M-44 -20 Q-34 -14 -24 -20"/>
+    <path class="n" fill="#2b1b16" d="M-42 -19 Q-34 -12 -26 -19 Q-34 -15 -42 -19 Z"/>
+    <path class="t" style="stroke:#6a707a;stroke-width:1.8" d="M-44 -11 Q-34 -6 -24 -11 M-42 -6.6 Q-34 -3 -26 -6.6"/>
+    <path class="t" style="stroke-width:2.6" d="M14 -20 Q24 -14 34 -20"/>
+    <path class="n" fill="#2b1b16" d="M16 -19 Q24 -12 32 -19 Q24 -15 16 -19 Z"/>
+    <path class="t" style="stroke:#6a707a;stroke-width:1.8" d="M14 -11 Q24 -6 34 -11 M16 -6.6 Q24 -3 32 -6.6"/>
+    <path class="t" style="stroke-width:2.6" d="M-18 6 Q-13 2 -8 6 Q-3 10 2 6 Q7 2 10 5"/>
+    <!-- a cold sweat -->
+    <path class="o" style="stroke-width:1.8" fill="#cdeef7" d="M52 -30 Q56 -22 55 -19 Q53 -16 50 -18 Q48 -21 52 -30 Z"/>
+  </g>
+
+  <!-- A herring, silver and grey, head first out of the cloud. Joint in its middle. -->
+  <g id="herring_a" data-parent="cloud" transform="translate(-46 48)">
+    <g transform="rotate(-14)">
+      <path class="o" style="stroke-width:2.4" fill="#7d93a1" d="M0 -16 L-8 -25 L-2 -22 L0 -26 L2 -22 L8 -25 Z"/>
+      <path class="o" fill="#dfe6ea" d="M0 -17 Q8 -8 7.4 5 Q6.6 16 0 22 Q-6.6 16 -7.4 5 Q-8 -8 0 -17 Z"/>
+      <path class="n" fill="#6c8796" d="M0 -15.6 Q-7 -7 -6.2 5 Q-5.6 14 -1 20 Q-2.6 6 -2 -14 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M3.4 -6 Q5.6 0 4.8 8 Q4 2 2.4 -4 Z"/>
+      <path class="t" style="stroke-width:1.3" d="M-5 11 Q0 14.6 5 11"/>
+      <circle class="n" fill="#ffffff" cx="2.4" cy="16" r="2"/>
+      <circle class="n" fill="#2b1b16" cx="2.6" cy="16.2" r="1.1"/>
+    </g>
+  </g>
+  <!-- Another one. Joint in its middle. -->
+  <g id="herring_b" data-parent="cloud" transform="translate(40 56)">
+    <g transform="rotate(16)">
+      <path class="o" style="stroke-width:2.4" fill="#7d93a1" d="M0 -16 L-8 -25 L-2 -22 L0 -26 L2 -22 L8 -25 Z"/>
+      <path class="o" fill="#dfe6ea" d="M0 -17 Q8 -8 7.4 5 Q6.6 16 0 22 Q-6.6 16 -7.4 5 Q-8 -8 0 -17 Z"/>
+      <path class="n" fill="#6c8796" d="M0 -15.6 Q-7 -7 -6.2 5 Q-5.6 14 -1 20 Q-2.6 6 -2 -14 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M3.4 -6 Q5.6 0 4.8 8 Q4 2 2.4 -4 Z"/>
+      <path class="t" style="stroke-width:1.3" d="M-5 11 Q0 14.6 5 11"/>
+      <circle class="n" fill="#ffffff" cx="2.4" cy="16" r="2"/>
+      <circle class="n" fill="#2b1b16" cx="2.6" cy="16.2" r="1.1"/>
+    </g>
+  </g>
+  <!-- And one more, just coming out. Joint in its middle. -->
+  <g id="herring_c" data-parent="cloud" transform="translate(-4 40)">
+    <g transform="rotate(4)">
+      <path class="o" style="stroke-width:2.4" fill="#7d93a1" d="M0 -16 L-8 -25 L-2 -22 L0 -26 L2 -22 L8 -25 Z"/>
+      <path class="o" fill="#dfe6ea" d="M0 -17 Q8 -8 7.4 5 Q6.6 16 0 22 Q-6.6 16 -7.4 5 Q-8 -8 0 -17 Z"/>
+      <path class="n" fill="#6c8796" d="M0 -15.6 Q-7 -7 -6.2 5 Q-5.6 14 -1 20 Q-2.6 6 -2 -14 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.7" d="M3.4 -6 Q5.6 0 4.8 8 Q4 2 2.4 -4 Z"/>
+      <path class="t" style="stroke-width:1.3" d="M-5 11 Q0 14.6 5 11"/>
+      <circle class="n" fill="#ffffff" cx="2.4" cy="16" r="2"/>
+      <circle class="n" fill="#2b1b16" cx="2.6" cy="16.2" r="1.1"/>
+    </g>
+  </g>
+  <!-- A few grey drops, not many, so the units below stay in sight. Joints in their middles. -->
+  <g id="drop_a" data-parent="cloud" transform="translate(-86 36)">
+    <path class="o" style="stroke-width:1.6" fill="#a9b0b8" d="M0 -5 Q3.4 0 3 2.4 Q2.4 5 0 5 Q-2.4 5 -3 2.4 Q-3.4 0 0 -5 Z"/>
+  </g>
+  <g id="drop_b" data-parent="cloud" transform="translate(80 34)">
+    <path class="o" style="stroke-width:1.6" fill="#a9b0b8" d="M0 -5 Q3.4 0 3 2.4 Q2.4 5 0 5 Q-2.4 5 -3 2.4 Q-3.4 0 0 -5 Z"/>
+  </g>
+  <g id="drop_c" data-parent="cloud" transform="translate(14 66)">
+    <path class="o" style="stroke-width:1.6" fill="#a9b0b8" d="M0 -5 Q3.4 0 3 2.4 Q2.4 5 0 5 Q-2.4 5 -3 2.4 Q-3.4 0 0 -5 Z"/>
+  </g>
+  <g id="drop_d" data-parent="cloud" transform="translate(-20 56)">
+    <path class="o" style="stroke-width:1.6" fill="#a9b0b8" d="M0 -5 Q3.4 0 3 2.4 Q2.4 5 0 5 Q-2.4 5 -3 2.4 Q-3.4 0 0 -5 Z"/>
+  </g>
+</svg>

@@ -15,7 +15,7 @@ export const FACTIONS: Record<FactionId, FactionDef> = { havermelk, achterhoek, 
  * and texts are tested, but not in this list until its last drawing is there.
  * See docs/new-faction.md.
  */
-export const FACTION_IDS: readonly FactionId[] = ['havermelk', 'achterhoek', 'zuidas', 'gasten', 'toeristen', 'friezen'];
+export const FACTION_IDS: readonly FactionId[] = ['havermelk', 'achterhoek', 'zuidas', 'gasten', 'toeristen', 'friezen', 'carnaval'];
 
 /** What a match starts with until the players pick something else. Amsterdam lies west of the Achterhoek. */
 export const DEFAULT_FACTIONS: [FactionId, FactionId] = ['havermelk', 'achterhoek'];

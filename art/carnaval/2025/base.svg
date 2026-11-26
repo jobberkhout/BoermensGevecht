@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-312 -596 328 602" data-rig="static">
+  <title>De feesttent op de markt: een grote witte tent met twee verhoogde decks, een rij dixi's, kluisjes, een rij wachtenden achter een dranghek en de ingang</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!--
+    De feesttent: the party tent on the market square of Hossegat. A big white marquee with a scalloped
+    valance in red, yellow and green, its gable crest showing the town's jester's cap, a low side tent
+    under the flag. Inside, two raised decks. In front: a row of portable toilets, the lockers, a queue
+    behind a crowd fence, and the way in: the tent flaps tied back. Origin = the gate on the road; the
+    building stands to the left of it.
+  -->
+  <defs>
+    <clipPath id="gable"><path d="M-210 -446 L-100 -568 L10 -446 Z"/></clipPath>
+  </defs>
+
+  <g id="building" transform="translate(0 0)">
+    <!-- flagpole, on the side tent on the left -->
+    <path fill="none" stroke="#2b1b16" stroke-width="7" stroke-linecap="round" d="M-288 -462 L-288 -552"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2.6" stroke-linecap="round" d="M-288 -462 L-288 -552"/>
+    <circle class="o" fill="#f6c21c" cx="-288" cy="-556" r="4.6"/>
+
+    <!-- the side tent's low roof, under the flag -->
+    <path class="o" fill="#f4f1ea" d="M-306 -446 L-294 -472 L-202 -472 L-190 -446 Z"/>
+    <path class="n" fill="#d8342b" d="M-290 -470 L-276 -470 L-280 -448 L-296 -448 Z M-258 -470 L-244 -470 L-245 -448 L-261 -448 Z M-226 -470 L-212 -470 L-208 -448 L-224 -448 Z"/>
+    <path class="o" fill="none" d="M-306 -446 L-294 -472 L-202 -472 L-190 -446 Z"/>
+
+    <!-- the gable of the big tent: white canvas, red stripes, the crest -->
+    <path class="o" fill="#f4f1ea" d="M-210 -446 L-100 -568 L10 -446 Z"/>
+    <g clip-path="url(#gable)">
+      <path class="n" fill="#d8342b" d="M-190 -570 L-170 -570 L-170 -440 L-190 -440 Z M-150 -570 L-130 -570 L-130 -440 L-150 -440 Z M-110 -570 L-90 -570 L-90 -440 L-110 -440 Z M-70 -570 L-50 -570 L-50 -440 L-70 -440 Z M-30 -570 L-10 -570 L-10 -440 L-30 -440 Z"/>
+    </g>
+    <path class="o" fill="none" d="M-210 -446 L-100 -568 L10 -446 Z"/>
+    <path class="t" style="stroke:#c9c2b6;stroke-width:2" d="M-196 -456 L-4 -456"/>
+    <!-- the crest: a round shield with the jester's cap of Hossegat -->
+    <circle class="o" fill="#ffffff" cx="-100" cy="-494" r="25"/>
+    <circle class="t" style="stroke:#f6c21c;stroke-width:3" cx="-100" cy="-494" r="20.6"/>
+    <path class="o" style="stroke-width:2.2" fill="#d8342b" d="M-114 -484 Q-118 -500 -110 -508 Q-104 -512 -101 -506 L-100 -484 Z"/>
+    <path class="o" style="stroke-width:2.2" fill="#2f9a48" d="M-86 -484 Q-82 -500 -90 -508 Q-96 -512 -99 -506 L-100 -484 Z"/>
+    <rect class="o" style="stroke-width:2.2" fill="#f6c21c" x="-116" y="-486" width="32" height="6" rx="2"/>
+    <circle class="o" style="stroke-width:1.8" fill="#f6c21c" cx="-110" cy="-509" r="3"/>
+    <circle class="o" style="stroke-width:1.8" fill="#f6c21c" cx="-90" cy="-509" r="3"/>
+    <!-- the pole at the top of the gable -->
+    <path fill="none" stroke="#2b1b16" stroke-width="5.6" stroke-linecap="round" d="M-100 -566 L-100 -588"/>
+    <path fill="none" stroke="#d5d8de" stroke-width="2" stroke-linecap="round" d="M-100 -566 L-100 -588"/>
+
+    <!-- the front of the tent: canvas, seams, aluminium poles at the corners -->
+    <path class="o" fill="#f4f1ea" d="M-298 0 L-298 -446 L-4 -446 L-4 0 Z"/>
+    <path class="t" style="stroke:#d9d3c6;stroke-width:1.4" d="M-250 -446 L-250 -432 M-200 -446 L-200 -432 M-150 -446 L-150 -432 M-100 -446 L-100 -432 M-50 -446 L-50 -432"/>
+    <rect class="o" fill="#c4ccd2" x="-304" y="-452" width="10" height="452" rx="2"/>
+    <rect class="o" fill="#c4ccd2" x="-8" y="-452" width="10" height="452" rx="2"/>
+    <path class="t" style="stroke:#eef2f4;stroke-width:1.4" d="M-301 -444 L-301 -8 M-5 -444 L-5 -8"/>
+    <!-- the scalloped valance along the eaves -->
+    <path class="o" fill="#d8342b" d="M-306 -452 L6 -452 L6 -444 Q-2 -432 -10 -444 Q-18 -432 -26 -444 Q-34 -432 -42 -444 Q-50 -432 -58 -444 Q-66 -432 -74 -444 Q-82 -432 -90 -444 Q-98 -432 -106 -444 Q-114 -432 -122 -444 Q-130 -432 -138 -444 Q-146 -432 -154 -444 Q-162 -432 -170 -444 Q-178 -432 -186 -444 Q-194 -432 -202 -444 Q-210 -432 -218 -444 Q-226 -432 -234 -444 Q-242 -432 -250 -444 Q-258 -432 -266 -444 Q-274 -432 -282 -444 Q-290 -432 -298 -444 Q-302 -438 -306 -444 Z"/>
+    <path class="n" fill="#f6c21c" d="M-305 -451 L5 -451 L5 -448 L-305 -448 Z"/>
+    <path class="n" fill="#2f9a48" d="M-305 -448 L5 -448 L5 -445.4 L-305 -445.4 Z"/>
+
+    <!-- two raised decks for the turrets: open bays into the dark of the tent -->
+    <rect class="o" fill="#33283a" x="-288" y="-430" width="276" height="138"/>
+    <path class="n" fill="#43354a" d="M-286 -306 L-14 -306 L-14 -294 L-286 -294 Z"/>
+    <rect class="o" fill="#33283a" x="-288" y="-282" width="276" height="140"/>
+    <path class="n" fill="#43354a" d="M-286 -156 L-14 -156 L-14 -144 L-286 -144 Z"/>
+    <!-- a string of little lights along the top of each bay -->
+    <path fill="none" stroke="#8f84a6" stroke-width="1.4" d="M-284 -426 Q-216 -414 -150 -424 Q-84 -414 -16 -426 M-284 -278 Q-216 -266 -150 -276 Q-84 -266 -16 -278"/>
+    <path class="n" fill="#fff2b0" d="M-262 -419 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-226 -417 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-190 -419 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-110 -419 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-74 -417 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-38 -419 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-262 -271 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-226 -269 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-190 -271 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-110 -271 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-74 -269 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 M-38 -271 m-2.4 0 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0"/>
+    <!-- the deck edges: planks on an aluminium beam -->
+    <rect class="o" fill="#a8703e" x="-300" y="-292" width="300" height="10" rx="2"/>
+    <path class="t" style="stroke:#7a4e28;stroke-width:1.2" d="M-296 -287 L-4 -287"/>
+    <rect class="o" fill="#a8703e" x="-300" y="-142" width="300" height="10" rx="2"/>
+    <path class="t" style="stroke:#7a4e28;stroke-width:1.2" d="M-296 -137 L-4 -137"/>
+
+    <!-- the market square: cobbles -->
+    <rect class="o" fill="#b9b2a6" x="-298" y="-14" width="294" height="14"/>
+    <path class="t" style="stroke:#9a9286;stroke-width:1.2" d="M-290 -7 Q-284 -12 -278 -7 M-266 -7 Q-260 -12 -254 -7 M-242 -7 Q-236 -12 -230 -7 M-218 -7 Q-212 -12 -206 -7 M-194 -7 Q-188 -12 -182 -7 M-170 -7 Q-164 -12 -158 -7 M-146 -7 Q-140 -12 -134 -7 M-122 -7 Q-116 -12 -110 -7 M-98 -7 Q-92 -12 -86 -7 M-278 -1 Q-272 -6 -266 -1 M-254 -1 Q-248 -6 -242 -1 M-230 -1 Q-224 -6 -218 -1 M-206 -1 Q-200 -6 -194 -1 M-182 -1 Q-176 -6 -170 -1 M-158 -1 Q-152 -6 -146 -1 M-134 -1 Q-128 -6 -122 -1 M-110 -1 Q-104 -6 -98 -1"/>
+
+    <!-- the row of portable toilets: blue, green, blue -->
+    <rect class="o" fill="#2f62b0" x="-296" y="-92" width="27" height="80" rx="2"/>
+    <rect class="o" fill="#2f9a48" x="-267" y="-92" width="27" height="80" rx="2"/>
+    <rect class="o" fill="#2f62b0" x="-238" y="-92" width="27" height="80" rx="2"/>
+    <path class="o" fill="#e9eef1" d="M-298 -92 Q-298 -100 -282 -100 Q-268 -100 -268 -92 Z M-269 -92 Q-269 -100 -253 -100 Q-239 -100 -239 -92 Z M-240 -92 Q-240 -100 -224 -100 Q-210 -100 -210 -92 Z"/>
+    <rect class="o" style="stroke-width:2" fill="#c4ccd2" x="-276" y="-110" width="4" height="12"/>
+    <rect class="o" style="stroke-width:2" fill="#c4ccd2" x="-218" y="-110" width="4" height="12"/>
+    <!-- doors: a vent slit, an occupied dot, a handle -->
+    <rect class="o" style="stroke-width:2" fill="#3a74c4" x="-292" y="-84" width="19" height="70" rx="1.5"/>
+    <path class="t" style="stroke-width:1.4" d="M-289 -78 L-276 -78 M-289 -75 L-276 -75"/>
+    <circle class="o" style="stroke-width:1.4" fill="#d8342b" cx="-282.5" cy="-66" r="2.6"/>
+    <rect class="n" fill="#2b1b16" x="-277" y="-52" width="2" height="8"/>
+    <rect class="o" style="stroke-width:2" fill="#3a74c4" x="-234" y="-84" width="19" height="70" rx="1.5"/>
+    <path class="t" style="stroke-width:1.4" d="M-231 -78 L-218 -78 M-231 -75 L-218 -75"/>
+    <circle class="o" style="stroke-width:1.4" fill="#2f9a48" cx="-224.5" cy="-66" r="2.6"/>
+    <rect class="n" fill="#2b1b16" x="-219" y="-52" width="2" height="8"/>
+    <!-- the green one's doorway, dark, for when its door swings open -->
+    <rect class="o" style="stroke-width:2" fill="#1a1520" x="-263" y="-84" width="19" height="70" rx="1.5"/>
+
+    <!-- the lockers: three high, three across, one door hanging open with a coat sleeve in it -->
+    <rect class="o" fill="#8e979f" x="-208" y="-86" width="46" height="68" rx="2"/>
+    <path class="t" style="stroke-width:2.2" d="M-204 -18 L-204 -12 M-166 -18 L-166 -12"/>
+    <path class="o" style="stroke-width:1.8" fill="#b9c2c8" d="M-205 -83 L-193 -83 L-193 -63 L-205 -63 Z M-191 -83 L-179 -83 L-179 -63 L-191 -63 Z M-177 -83 L-165 -83 L-165 -63 L-177 -63 Z M-205 -61 L-193 -61 L-193 -41 L-205 -41 Z M-177 -61 L-165 -61 L-165 -41 L-177 -41 Z M-205 -39 L-193 -39 L-193 -21 L-205 -21 Z M-191 -39 L-179 -39 L-179 -21 L-191 -21 Z M-177 -39 L-165 -39 L-165 -21 L-177 -21 Z"/>
+    <path class="n" fill="#2b1b16" d="M-195.6 -74 L-194.4 -74 L-194.4 -71 L-195.6 -71 Z M-181.6 -74 L-180.4 -74 L-180.4 -71 L-181.6 -71 Z M-167.6 -74 L-166.4 -74 L-166.4 -71 L-167.6 -71 Z M-195.6 -52 L-194.4 -52 L-194.4 -49 L-195.6 -49 Z M-167.6 -52 L-166.4 -52 L-166.4 -49 L-167.6 -49 Z M-195.6 -31 L-194.4 -31 L-194.4 -28 L-195.6 -28 Z M-181.6 -31 L-180.4 -31 L-180.4 -28 L-181.6 -28 Z M-167.6 -31 L-166.4 -31 L-166.4 -28 L-167.6 -28 Z"/>
+    <path class="n" fill="#e6b422" d="M-201 -82 L-197 -82 L-197 -80.4 L-201 -80.4 Z M-187 -82 L-183 -82 L-183 -80.4 L-187 -80.4 Z M-173 -82 L-169 -82 L-169 -80.4 L-173 -80.4 Z M-201 -60 L-197 -60 L-197 -58.4 L-201 -58.4 Z M-173 -60 L-169 -60 L-169 -58.4 L-173 -58.4 Z M-201 -38 L-197 -38 L-197 -36.4 L-201 -36.4 Z M-187 -38 L-183 -38 L-183 -36.4 L-187 -36.4 Z M-173 -38 L-169 -38 L-169 -36.4 L-173 -36.4 Z"/>
+    <!-- the open one: dark inside, the door swung out, a red sleeve hanging out of it -->
+    <rect class="o" style="stroke-width:1.8" fill="#2b2330" x="-191" y="-61" width="12" height="20"/>
+    <path class="o" style="stroke-width:1.8" fill="#b9c2c8" d="M-191 -61 L-199 -63 L-199 -39 L-191 -41 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M-188 -58 L-183 -58 L-182 -42 L-180 -36 L-186 -36 L-188 -44 Z"/>
+
+    <!-- the way in: the tent flaps tied back, and the dark doorway -->
+    <path class="o" fill="#241b26" d="M-84 0 L-84 -112 Q-50 -126 -16 -112 L-16 0 Z"/>
+    <path class="o" fill="#e9e4d8" d="M-92 -118 Q-58 -132 -8 -118 L-8 -110 Q-30 -122 -50 -122 Q-70 -122 -92 -110 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#e9e4d8" d="M-92 -112 Q-84 -100 -86 -70 Q-88 -40 -84 0 L-96 0 L-96 -112 Z"/>
+    <path class="o" style="stroke-width:2.4" fill="#e9e4d8" d="M-8 -112 Q-16 -100 -14 -70 Q-12 -40 -16 0 L-4 0 L-4 -112 Z"/>
+    <path class="o" style="stroke-width:2" fill="#d8342b" d="M-90 -72 L-82 -74 L-82 -68 L-90 -66 Z M-10 -72 L-18 -74 L-18 -68 L-10 -66 Z"/>
+    <!-- a little sign over the entrance: a wristband, nothing else needed -->
+    <rect class="o" style="stroke-width:2.4" fill="#2b2330" x="-66" y="-130" width="32" height="14" rx="3"/>
+    <rect class="o" style="stroke-width:1.8" fill="#f6c21c" x="-58" y="-126" width="16" height="6" rx="2.4"/>
+
+    <circle data-mount="turret0" fill="none" cx="-150" cy="-144" r="1"/>
+    <circle data-mount="turret1" fill="none" cx="-150" cy="-294" r="1"/>
+    <circle data-mount="flag" fill="none" cx="-286" cy="-548" r="1"/>
+  </g>
+
+  <!-- The pennant on top of the gable, in the wind. Joint at the pole. -->
+  <g id="pennant" transform="translate(-100 -586)">
+    <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M0 -2 L22 2 L0 8 Z"/>
+    <path class="n" fill="#d8342b" d="M1.2 -0.4 L8 0.8 L8 4.8 L1.2 6.4 Z"/>
+  </g>
+
+  <!-- The green toilet's door: it swings open, somebody goes in, it shuts. Joint at the hinge. -->
+  <g id="dixi_door" transform="translate(-263 -49)">
+    <g transform="translate(263 49)">
+      <rect class="o" style="stroke-width:2" fill="#3aa856" x="-263" y="-84" width="19" height="70" rx="1.5"/>
+      <path class="t" style="stroke-width:1.4" d="M-260 -78 L-247 -78 M-260 -75 L-247 -75"/>
+      <circle class="o" style="stroke-width:1.4" fill="#d8342b" cx="-253.5" cy="-66" r="2.6"/>
+      <rect class="n" fill="#2b1b16" x="-248" y="-52" width="2" height="8"/>
+    </g>
+  </g>
+
+  <!-- The queue: three of them, in costume, waiting to get in. They shuffle forward and back. Joint on the ground. -->
+  <g id="queue" transform="translate(-130 -14)">
+    <g transform="translate(130 14)">
+     <g transform="translate(-14 0)">
+      <!-- a cow -->
+      <path class="o" style="stroke-width:2.2" fill="#ffffff" d="M-148 -14 L-148 -40 Q-148 -48 -140 -48 L-134 -48 Q-128 -48 -128 -40 L-128 -14 Z"/>
+      <path class="n" fill="#2b1b16" d="M-146 -40 Q-140 -42 -138 -36 Q-142 -30 -146 -32 Z M-132 -46 Q-129 -44 -129.6 -38 Q-134 -38 -134 -44 Z"/>
+      <circle class="o" style="stroke-width:2.2" fill="#ffffff" cx="-137" cy="-56" r="8"/>
+      <path class="o" style="stroke-width:1.8" fill="#f2b096" d="M-137 -55 Q-131 -55 -131 -51 Q-132 -48.6 -136 -49 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2b1b16" d="M-143 -62 L-147 -66 L-142 -64 Z M-133 -63 L-131 -67.6 L-130.6 -62.6 Z"/>
+      <circle class="n" fill="#2b1b16" cx="-134" cy="-57" r="1.2"/>
+      <!-- a clown -->
+      <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M-124 -14 L-124 -42 Q-124 -50 -116 -50 L-110 -50 Q-104 -50 -104 -42 L-104 -14 Z"/>
+      <circle class="n" fill="#d8342b" cx="-114" cy="-40" r="2"/>
+      <circle class="n" fill="#2f62b0" cx="-114" cy="-30" r="2"/>
+      <circle class="o" style="stroke-width:2.2" fill="#f2b096" cx="-113" cy="-58" r="8"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M-121 -60 Q-126 -66 -121 -68 Q-118 -66 -116 -64 Q-114 -70 -110 -66 Q-106 -68 -106 -62 Q-112 -63 -121 -60 Z"/>
+      <circle class="o" style="stroke-width:1.4" fill="#d8342b" cx="-105.6" cy="-56.6" r="2.4"/>
+      <circle class="n" fill="#2b1b16" cx="-109" cy="-59" r="1.2"/>
+      <!-- a lampshade -->
+      <path class="o" style="stroke-width:2.2" fill="#2f62b0" d="M-100 -14 L-100 -40 Q-100 -48 -92 -48 L-86 -48 Q-80 -48 -80 -40 L-80 -14 Z"/>
+      <circle class="o" style="stroke-width:2.2" fill="#e9a183" cx="-89" cy="-56" r="8"/>
+      <path class="o" style="stroke-width:2" fill="#f3e2b0" d="M-95 -74 L-84 -74 L-80 -62 L-99 -62 Z"/>
+      <path class="t" style="stroke:#c8322a;stroke-width:1.6" d="M-99 -62 L-80 -62"/>
+      <circle class="n" fill="#2b1b16" cx="-85" cy="-57" r="1.2"/>
+     </g>
+    </g>
+  </g>
+
+  <!-- The crowd fence they queue behind. -->
+  <g id="queue_fence" transform="translate(-128 -14)">
+    <g transform="translate(128 14)">
+     <g transform="translate(-14 0)">
+      <path fill="none" stroke="#2b1b16" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round" d="M-152 -14 L-152 -40 L-94 -40 L-94 -14 M-152 -20 L-94 -20"/>
+      <path fill="none" stroke="#c4ccd2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M-152 -14 L-152 -40 L-94 -40 L-94 -14 M-152 -20 L-94 -20"/>
+      <path fill="none" stroke="#2b1b16" stroke-width="2.8" stroke-linecap="round" d="M-145 -38 L-145 -22 M-138 -38 L-138 -22 M-131 -38 L-131 -22 M-124 -38 L-124 -22 M-117 -38 L-117 -22 M-110 -38 L-110 -22 M-103 -38 L-103 -22"/>
+      <path fill="none" stroke="#c4ccd2" stroke-width="1.1" stroke-linecap="round" d="M-145 -38 L-145 -22 M-138 -38 L-138 -22 M-131 -38 L-131 -22 M-124 -38 L-124 -22 M-117 -38 L-117 -22 M-110 -38 L-110 -22 M-103 -38 L-103 -22"/>
+      <path class="o" style="stroke-width:2" fill="#8e979f" d="M-158 -14 L-146 -14 L-146 -11 L-158 -11 Z M-100 -14 L-88 -14 L-88 -11 L-100 -11 Z"/>
+     </g>
+    </g>
+  </g>
+
+  <!-- Bunting across the front, under the lower deck. Joint in its middle, so it sways. -->
+  <g id="bunting" transform="translate(-196 -120)">
+    <g transform="translate(196 120)">
+      <path fill="none" stroke="#2b1b16" stroke-width="1.4" d="M-296 -130 Q-246 -112 -196 -124 Q-146 -112 -96 -130"/>
+      <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M-286 -125.7 L-276 -123.0 L-281.4 -112.0 Z M-232 -118.2 L-222 -118.8 L-227.4 -107.2 Z M-178 -119.7 L-168 -118.6 L-173.4 -107.6 Z M-124 -121.3 L-114 -123.5 L-119.4 -110.3 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#f6c21c" d="M-268 -121.3 L-258 -119.7 L-263.4 -108.7 Z M-214 -119.7 L-204 -121.3 L-209.4 -108.7 Z M-160 -118.2 L-150 -118.3 L-155.4 -107.2 Z M-106 -125.7 L-96 -129.0 L-101.4 -114.7 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#2f9a48" d="M-250 -118.8 L-240 -118.2 L-245.4 -107.2 Z M-196 -123.0 L-186 -120.9 L-191.4 -109.9 Z M-142 -118.8 L-132 -119.9 L-137.4 -107.8 Z"/>
+    </g>
+  </g>
+</svg>

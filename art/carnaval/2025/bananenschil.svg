@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-27 -22 54 26" data-rig="static">
+  <title>De bananenschil: wat het Bananenpak op de weg achterlaat, plat op het asfalt, de flappen uitgespreid</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.1; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The peel, lying where he left it: the stem end up in the middle, the flaps flopped out flat on
+       the road. Origin = on the ground in the middle of the peel. -->
+  <g id="peel" transform="translate(0 0)">
+    <!-- a shadow on the asphalt -->
+    <ellipse class="n" fill="#2b1b16" fill-opacity="0.18" cx="0" cy="1.2" rx="24" ry="2.4"/>
+    <!-- the flap flopped out behind: yellow on top, the pale inside showing underneath, a brown tip -->
+    <path class="o" fill="#f6c21c" d="M-4 -7.4 Q-13 -10.4 -19.6 -6 Q-24 -3 -24.4 0.4 Q-14 -0.4 -4 -1.4 Z"/>
+    <path class="n" fill="#fff1bc" d="M-23.4 -0.4 Q-14 -1.4 -4.6 -2.2 L-4.4 -3.6 Q-14 -3 -22.4 -2.2 Z"/>
+    <path class="n" fill="#dca313" d="M-5 -6.8 Q-12 -8.8 -17 -6.6 Q-11 -7 -5 -4.6 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#7a5226" d="M-21.6 -4.2 Q-24.6 -2.6 -24.4 0.4 Q-22.4 0.2 -21 -0.6 Z"/>
+    <!-- the flap flopped out in front, to the right -->
+    <path class="o" fill="#f6c21c" d="M4 -7.4 Q13 -10.6 19.8 -6.2 Q24.4 -3 24.8 0.4 Q14 -0.4 4 -1.4 Z"/>
+    <path class="n" fill="#fff1bc" d="M23.8 -0.4 Q14 -1.4 4.6 -2.2 L4.4 -3.6 Q14 -3 22.8 -2.2 Z"/>
+    <path class="n" fill="#fde27a" d="M6 -7.6 Q13 -9.4 18 -6.8 Q12 -7.4 6 -5.2 Z"/>
+    <path class="o" style="stroke-width:1.6" fill="#7a5226" d="M22 -4.4 Q25 -2.8 24.8 0.4 Q22.8 0.2 21.4 -0.6 Z"/>
+    <!-- the stem end, a low yellow dome, and the stem sticking up crooked -->
+    <path class="o" fill="#f6c21c" d="M-7.4 -1 Q-8.4 -9.4 -2.8 -12.6 L2.8 -12.6 Q8.4 -9.4 7.4 -1 Z"/>
+    <path class="n" fill="#dca313" d="M-6.2 -1.6 Q-7 -8.6 -2.6 -11.6 L-1.4 -11.6 Q-4.6 -7 -3.6 -1.6 Z"/>
+    <path class="n" fill="#fde27a" d="M2.4 -11.4 Q6.6 -8.4 6 -2 L4.6 -2 Q5 -8 1.4 -11.4 Z"/>
+    <circle class="n" fill="#9a6a2a" cx="-0.6" cy="-8.4" r="1"/>
+    <path class="o" fill="#6b4a22" d="M-2.2 -12.2 Q-3 -16 -1.4 -19.4 L2.2 -18.8 Q0.8 -16 2 -12.2 Z"/>
+    <!-- the flap that flopped towards us, curled over, pale inside up -->
+    <path class="o" fill="#fff1bc" d="M-5.6 -2.6 Q0 -6.4 5.6 -2.6 Q7.4 0.6 5 2.2 Q0 3 -5 2.2 Q-7.4 0.6 -5.6 -2.6 Z"/>
+    <path class="n" fill="#f6c21c" d="M-5.8 0.6 Q0 2.4 5.8 0.6 Q5.6 1.8 4.6 2 Q0 2.8 -4.6 2 Q-5.8 1.6 -5.8 0.6 Z"/>
+    <path class="t" style="stroke:#e0c27a;stroke-width:1" d="M-2.6 -2.4 Q0 -3.4 2.6 -2.4"/>
+  </g>
+</svg>

@@ -66,7 +66,7 @@ card:
 | De Toeristen | snel en overal: fast and everywhere | 25% faster, 15% softer blows, and every unit but MS Kolossaal costs 10% less. Paraplu-Pam and the two beer bikes have numbers of their own |
 | De Zuidas | duur en gehaast: dear and in a hurry | Trained in 70% of the time and a 15% shorter pause between blows. Every unit costs 10% more, the Gouden Handdruk too. The ranged and heavy units hit 10% harder, the schild has 10% more hit points |
 | De Elf Steden | koppig en bedaard: stubborn and unhurried | 10% more hit points, and 15% longer in training. Four units have rules of their own, below |
-| Carnaval | uitbundig en wankel: in high spirits, and easily knocked over | 10% harder blows, 10% faster, 15% fewer hit points. Four units have rules of their own, below |
+| Carnaval | goedkoop en wankel: cheap, and easily knocked over | The light, ranged and heavy units cost 20% less and have 15% fewer hit points. The schild and De Reuzenprins are everyone's. Four units have rules of their own, below |
 
 Bases, turrets, income and the price of modernizing are the same for everyone, and so are the super
 units apart from their price. The tables are in `src/defs/<faction>.ts` and a test keeps every twist

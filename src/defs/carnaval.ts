@@ -3,10 +3,17 @@ import { makeEra } from './make.ts';
 import type { FactionDef } from './types.ts';
 
 /**
- * Carnaval: uitbundig en wankel. They are in a party mood: every unit hits
- * 10% harder and walks 10% faster, and has 15% fewer hit points, because
- * after a few it does not take much to knock them over. Mine; the brief had
- * no temperament, and the owner asked for no balancing (26 November 2026).
+ * Carnaval: goedkoop en wankel. A party for a few consumptiemunten: every unit
+ * costs 20% less, and has 15% fewer hit points, because after a few it does
+ * not take much to knock them over. Not the schild, which stays as everyone's
+ * (a schild must cost at least two of anyone's cheapest units, tests/shield.test.ts),
+ * and not De Reuzenprins. Mine; the brief had no temperament, and
+ * the owner asked for no balancing (26 November 2026). My first one hit 10%
+ * harder and walked 10% faster instead of being cheaper; with it Carnaval won
+ * 0 to 4% of bot matches with both sides buying a mix, which fired the
+ * owner's alarm. Not a bug: bot matches turn on specials that do damage, and
+ * Carnaval's three only hold the enemy up (docs/factions.md, Balance). This
+ * one takes it out of the alarm, without fitting it to even.
  *
  * Several units do something no other unit does (the owner: "funny and a bit
  * dumb", the way De Elf Steden were built): De Grote Trom booms with every
@@ -21,10 +28,9 @@ import type { FactionDef } from './types.ts';
  * From docs/factions.md, section 2.
  */
 const TEMPER: Temper = {
-  light: { dmg: 110, speed: 110, hp: 85 },
-  ranged: { dmg: 110, speed: 110, hp: 85 },
-  heavy: { dmg: 110, speed: 110, hp: 85 },
-  shield: { dmg: 110, speed: 110, hp: 85 },
+  light: { cost: 80, hp: 85 },
+  ranged: { cost: 80, hp: 85 },
+  heavy: { cost: 80, hp: 85 },
 };
 
 /** Carnaval: Brabant and Limburg in full swing, mixed on purpose. Display names live in ui/factions/carnaval.ts. */

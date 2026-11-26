@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-116 -148 232 154" data-rig="static">
+  <title>Elf Kanonschoten: een rek met elf confettikanonnen, en een lid van de Raad van Elf met een veren steek op de ontsteker</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .c { stroke: #2b1b16; stroke-width: 1; stroke-linejoin: round; }
+    .n { stroke: none; }
+  </style>
+
+  <!-- The rack: two trestles, a back rail the tubes stand in, a cable to the plunger. Origin = the ground in the middle. -->
+  <g id="rack" transform="translate(0 0)">
+    <path class="t" style="stroke:#2b1b16;stroke-width:1.6" d="M-54 -2 Q-46 1 -40 -1 Q-36 -2 -34 -1"/>
+    <path class="o" fill="#8a5a32" d="M-38 -30 L-44 0 L-38 0 L-33 -30 Z M-30 -30 L-24 0 L-30 0 L-35 -30 Z"/>
+    <path class="o" fill="#8a5a32" d="M84 -30 L78 0 L84 0 L89 -30 Z M92 -30 L98 0 L92 0 L87 -30 Z"/>
+    <rect class="o" fill="#a8703e" x="-42" y="-37" width="136" height="8" rx="2"/>
+    <path class="t" style="stroke:#7a4e28;stroke-width:1.2" d="M-38 -33 L90 -33"/>
+  </g>
+  <g id="tube_0" data-parent="rack" transform="translate(-30 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#d8342b" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#a8241e" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_1" data-parent="rack" transform="translate(-19 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#f6c21c" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#c99410" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_2" data-parent="rack" transform="translate(-8 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#2f9a48" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#1f6e33" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_3" data-parent="rack" transform="translate(3 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#d8342b" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#a8241e" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_4" data-parent="rack" transform="translate(14 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#f6c21c" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#c99410" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_5" data-parent="rack" transform="translate(25 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#2f9a48" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#1f6e33" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+    <circle data-mount="muzzle" fill="none" cx="18" cy="-31.2" r="1"/>
+  </g>
+  <g id="tube_6" data-parent="rack" transform="translate(36 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#d8342b" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#a8241e" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_7" data-parent="rack" transform="translate(47 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#f6c21c" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#c99410" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_8" data-parent="rack" transform="translate(58 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#2f9a48" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#1f6e33" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_9" data-parent="rack" transform="translate(69 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#d8342b" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#a8241e" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <g id="tube_10" data-parent="rack" transform="translate(80 -34)">
+    <g transform="rotate(30)">
+      <rect class="o" fill="#f6c21c" x="-3.8" y="-34" width="7.6" height="36" rx="1.6"/>
+      <path class="n" fill="#c99410" d="M-3 -31 L-1 -31 L-1 0 L-3 0 Z"/>
+      <path class="n" fill="#ffffff" fill-opacity="0.85" d="M-3 -25 L3 -25 L3 -22 L-3 -22 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#e6e6e6" x="-4.6" y="-36" width="9.2" height="4" rx="1"/>
+    </g>
+  </g>
+  <!-- The front rail, holding the tubes at their angle. -->
+  <g id="rail" data-parent="rack" transform="translate(29 -44)">
+    <rect class="o" fill="#a8703e" x="-66" y="-2.6" width="132" height="5.4" rx="2"/>
+    <circle class="n" fill="#5c3d27" cx="-62" cy="0" r="1.1"/>
+    <circle class="n" fill="#5c3d27" cx="62" cy="0" r="1.1"/>
+  </g>
+  <g id="burst_0" data-parent="rack" transform="translate(-8.5 -71.2)">
+    <g transform="rotate(-45)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#d8342b" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#2f9a48" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#2f62b0" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#d8342b" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#2f9a48" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_1" data-parent="rack" transform="translate(2.5 -71.2)">
+    <g transform="rotate(-8)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#f6c21c" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#2f62b0" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#ffffff" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#f6c21c" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#2f62b0" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_2" data-parent="rack" transform="translate(13.5 -71.2)">
+    <g transform="rotate(29)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#2f9a48" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#ffffff" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#d8342b" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#2f9a48" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#ffffff" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_3" data-parent="rack" transform="translate(24.5 -71.2)">
+    <g transform="rotate(-24)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#2f62b0" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#d8342b" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#f6c21c" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#2f62b0" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#d8342b" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_4" data-parent="rack" transform="translate(35.5 -71.2)">
+    <g transform="rotate(13)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#ffffff" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#f6c21c" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#2f9a48" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#ffffff" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#f6c21c" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_5" data-parent="rack" transform="translate(46.5 -71.2)">
+    <g transform="rotate(-40)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#d8342b" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#2f9a48" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#2f62b0" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#d8342b" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#2f9a48" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_6" data-parent="rack" transform="translate(57.5 -71.2)">
+    <g transform="rotate(-3)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#f6c21c" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#2f62b0" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#ffffff" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#f6c21c" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#2f62b0" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_7" data-parent="rack" transform="translate(68.5 -71.2)">
+    <g transform="rotate(34)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#2f9a48" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#ffffff" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#d8342b" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#2f9a48" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#ffffff" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_8" data-parent="rack" transform="translate(79.5 -71.2)">
+    <g transform="rotate(-19)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#2f62b0" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#d8342b" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#f6c21c" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#2f62b0" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#d8342b" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_9" data-parent="rack" transform="translate(90.5 -71.2)">
+    <g transform="rotate(18)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#ffffff" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#f6c21c" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#2f9a48" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#ffffff" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#f6c21c" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+  <g id="burst_10" data-parent="rack" transform="translate(101.5 -71.2)">
+    <g transform="rotate(-35)">
+      <path class="c" fill="#fff3c4" d="M0 -7.4 L2.2 -4.6 L5.8 -5.6 L5 -2 L8 0 L5 2 L6 5.4 L2.4 4.8 L0 7.6 L-2 4.6 L-5.6 5.6 L-4.8 2 L-7.8 0 L-4.8 -2 L-5.6 -5.4 L-2 -4.6 Z"/>
+      <rect class="c" fill="#d8342b" x="-3" y="-3" width="3.6" height="2.6" transform="rotate(20 -1.2 -1.7)"/>
+      <rect class="c" fill="#2f9a48" x="0.6" y="0.4" width="3.4" height="2.4" transform="rotate(-30 2.3 1.6)"/>
+      <rect class="c" fill="#2f62b0" x="6" y="-9" width="3" height="2.2"/>
+      <rect class="c" fill="#d8342b" x="-9" y="5" width="3" height="2.2"/>
+      <circle class="c" fill="#2f9a48" cx="-7" cy="-7" r="1.3"/>
+    </g>
+  </g>
+
+  <!-- The council member: a member of the Raad van Elf in the club's jacket, chain of office, white gloves,
+       leaning on the plunger. Joint at his feet. -->
+  <g id="raad" transform="translate(-92 0)">
+    <g transform="translate(92 0)">
+      <!-- the far arm, down to the handle -->
+      <path fill="none" stroke="#2b1b16" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M-90 -66 L-76 -56 L-63 -52"/>
+      <path fill="none" stroke="#a8241e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M-90 -66 L-76 -56 L-63 -52"/>
+      <!-- black trousers with a gold stripe, shiny shoes -->
+      <path class="o" fill="#22222a" d="M-104 -38 L-84 -38 L-83 -4 L-90 -4 L-93 -26 L-96 -4 L-103 -4 Z"/>
+      <path class="t" style="stroke:#e6b422;stroke-width:1.6" d="M-101.6 -36 L-101 -6 M-86 -36 L-85.4 -6"/>
+      <path class="o" style="stroke-width:1.8" fill="#111116" d="M-104 -5 L-95 -5 Q-89 -4 -88.6 0 L-104 0 Z M-92 -5 L-83 -5 Q-77 -4 -76.6 0 L-92 0 Z"/>
+      <!-- the club jacket: red, green collar, yellow buttons -->
+      <path class="o" fill="#d8342b" d="M-106 -34 Q-107 -56 -98 -70 L-80 -72 Q-74 -58 -82 -34 Z"/>
+      <path class="n" fill="#a8241e" d="M-104.6 -35 Q-105.4 -54 -98 -67 Q-100 -52 -99 -35 Z"/>
+      <path class="o" style="stroke-width:2" fill="#2f9a48" d="M-90 -72 L-80 -72 Q-79 -66 -82 -60 L-86 -66 Z"/>
+      <circle class="n" fill="#f6c21c" cx="-84" cy="-52" r="1.5"/>
+      <circle class="n" fill="#f6c21c" cx="-85" cy="-44" r="1.5"/>
+      <!-- the chain of office with its medal -->
+      <path fill="none" stroke="#2b1b16" stroke-width="3.2" stroke-linecap="round" d="M-94 -70 Q-92 -58 -84 -58 M-80 -70 Q-80 -62 -84 -58"/>
+      <path fill="none" stroke="#f6c21c" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 1.4" d="M-94 -70 Q-92 -58 -84 -58 M-80 -70 Q-80 -62 -84 -58"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f6c21c" cx="-84" cy="-55" r="3.6"/>
+      <path class="n" fill="#c99410" d="M-85.6 -57 L-84.8 -57 L-84.8 -53 L-85.6 -53 Z M-83.2 -57 L-82.4 -57 L-82.4 -53 L-83.2 -53 Z"/>
+      <!-- the near arm, down to the handle -->
+      <path fill="none" stroke="#2b1b16" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M-84 -66 L-74 -58 L-67 -52"/>
+      <path fill="none" stroke="#d8342b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M-84 -66 L-74 -58 L-67 -52"/>
+    </g>
+  </g>
+
+  <g id="raad_head" data-parent="raad" transform="translate(-84 -72)">
+    <g transform="translate(84 72)">
+      <circle class="o" fill="#f0b897" cx="-80" cy="-84" r="11"/>
+      <circle class="n" fill="#2b1b16" cx="-74" cy="-86.6" r="1.5"/>
+      <path class="t" style="stroke-width:1.8" d="M-77 -91 L-71.6 -90"/>
+      <path class="o" style="stroke-width:2" fill="#f0b897" d="M-70 -86 Q-65.6 -83.4 -69.6 -81"/>
+      <!-- mouth wide open: ELF! -->
+      <path class="o" style="stroke-width:1.6" fill="#7a1f1f" d="M-76 -78.6 Q-71.6 -77.4 -69.4 -79.4 Q-69.6 -73.6 -72.6 -73.6 Q-75.6 -73.8 -76 -78.6 Z"/>
+      <!-- the moustache, curled -->
+      <path class="o" style="stroke-width:1.6" fill="#5a3a22" d="M-79 -80 Q-74 -82.6 -69 -80.4 Q-70.6 -78.6 -74 -79.4 Q-77 -78.4 -79 -80 Z"/>
+      <ellipse class="n" fill="#e5583f" fill-opacity="0.5" cx="-79" cy="-81" rx="2.8" ry="1.8"/>
+      <!-- the steek: the two-pointed hat, points fore and aft, gold braid, a rosette -->
+      <path class="o" fill="#1d2a4a" d="M-101 -93 Q-90 -97.6 -80 -96.6 Q-68 -97.6 -58 -93 Q-62 -110 -80 -112 Q-96 -110 -101 -93 Z"/>
+      <path fill="none" stroke="#f6c21c" stroke-width="2" stroke-linecap="round" d="M-97.6 -96.4 Q-94 -108 -80 -109.4 Q-66 -108 -61.4 -96.4"/>
+      <circle class="o" style="stroke-width:1.6" fill="#d8342b" cx="-80" cy="-102" r="4.6"/>
+      <circle class="n" fill="#f6c21c" cx="-80" cy="-102" r="2.8"/>
+      <circle class="n" fill="#2f9a48" cx="-80" cy="-102" r="1.2"/>
+    </g>
+  </g>
+
+  <!-- The pheasant feathers in his hat. Joint where they go in, so they bounce. -->
+  <g id="feathers" data-parent="raad_head" transform="translate(-84 -109)">
+    <g transform="translate(84 109)">
+      <path class="o" style="stroke-width:1.8" fill="#a8703e" d="M-86 -108 Q-104 -116 -114 -132 Q-100 -124 -84 -111 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#c08a52" d="M-84 -110 Q-96 -126 -98 -146 Q-90 -130 -81 -111 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#a8703e" d="M-82 -111 Q-84 -128 -78 -142 Q-78 -126 -79 -110 Z"/>
+      <path class="t" style="stroke:#5c3d27;stroke-width:1.2" d="M-94 -116 L-96 -113 M-102 -122 L-104 -119 M-90 -124 L-93 -122 M-93 -134 L-96 -133 M-80.6 -122 L-83 -121 M-79.6 -132 L-82 -132"/>
+    </g>
+  </g>
+
+  <!-- The plunger: handle and rod, with his gloved hands on it. Joint at the handle. -->
+  <g id="plunger" transform="translate(-64 -51)">
+    <g transform="translate(64 51)">
+      <rect class="o" style="stroke-width:2" fill="#8e979f" x="-65.6" y="-51" width="3.2" height="38"/>
+      <rect class="o" fill="#2b2b33" x="-73" y="-54" width="18" height="5" rx="2"/>
+      <circle class="o" style="stroke-width:1.8" fill="#ffffff" cx="-68.4" cy="-52.4" r="3.6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#ffffff" cx="-60.4" cy="-52" r="3.6"/>
+    </g>
+  </g>
+
+  <!-- The box the plunger goes into, and the cable to the rack. -->
+  <g id="box" transform="translate(-64 0)">
+    <g transform="translate(64 0)">
+      <rect class="o" fill="#c8322a" x="-75" y="-17" width="22" height="17" rx="2"/>
+      <path class="n" fill="#f6c21c" d="M-73.6 -12 L-54.4 -12 L-54.4 -8.6 L-73.6 -8.6 Z"/>
+      <rect class="o" style="stroke-width:1.8" fill="#3a3a44" x="-69" y="-19.6" width="10" height="3.4" rx="1"/>
+    </g>
+  </g>
+</svg>

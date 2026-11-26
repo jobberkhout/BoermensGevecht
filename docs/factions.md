@@ -208,7 +208,7 @@ on the title card.
 | De Gasten | met de hele familie | 15% cheaper, trained in 80% of the time, 15% fewer hit points | +10% hit points, 10% longer between throws | +10% hit points, 10% slower (the fatbike has numbers of its own) | +10% hit points, 5% slower |
 | De Toeristen | snel en overal | 25% faster, 15% softer, 10% cheaper | the same | the same | the same (Paraplu-Pam has a price and speed of her own) |
 | De Elf Steden | koppig en bedaard | +10% hit points, 15% longer in training | the same | the same | the same |
-| Carnaval | uitbundig en wankel | 10% harder blows, 10% faster, 15% fewer hit points | the same | the same | the same |
+| Carnaval | goedkoop en wankel | 20% cheaper, 15% fewer hit points | the same | the same | as everyone's |
 
 De Zuidas' super unit, De Gouden Handdruk, also costs 10% more: 3300 instead of 3000. The owner kept the
 Havermelkreus at 3000. A super unit's twist may only be its price.
@@ -389,6 +389,30 @@ What to know before the balance pass:
   66% and 56%, about as before. No stalls. With the beer at half again a throw's damage, which the owner
   asked for next: 31%, 32%, 25% and 37% with a mix.
 
+- **Carnaval**, measured on 26 November 2026, with the owner's rule that bot matches are only a bug alarm
+  (stalls, or a side winning about nine in ten). As first built (temperament 10% harder blows, 10% faster,
+  15% fewer hit points) it won 0 to 4% against every faction with both sides buying a mix, 100 matches a
+  seat, and lost in the first era. The alarm went off, and it was not a bug:
+  - Carnaval made an exact copy of the Achterhoek played the Achterhoek even (20 of 40), so the shared code
+    was fine, and switching its four unit rules off changed nothing.
+  - Its units are not the trouble either: with De Zuidas' three specials in place of its own, the same
+    units won 25 to 79%.
+  - Its three specials are. They hold the enemy up (dance home, miss, crawl) and hurt nobody, and in bot
+    matches Carnaval did exactly as well with them as with a special that does nothing. Every other
+    faction's specials are worth a great deal to the bots: Amsterdam without its own drops from 54-88% to
+    0-46%. Longer durations (six seconds of polonaise, ten of confetti, twelve of hangover) and the brief's
+    bump on the polonaise did not move it.
+  - The temperament cost it a further few points.
+
+  So the temperament, which was mine, became "goedkoop en wankel": the light, ranged and heavy units cost
+  20% less and have 15% fewer hit points; the schild stays everyone's, because a schild must cost at least
+  two of anyone's cheapest units. Not fitted further. As shipped, both seats together, with a mix: 10%
+  against Amsterdam, 11% against the farmers, 25% against De Zuidas, 48% against De Gasten, 32% against
+  De Toeristen, 34% against De Elf Steden; over every bot strategy 33%, 25%, 54%, 60%, 44% and 63%. No
+  stalls. Amsterdam and the farmers still win about nine in ten mixed bot matches, at the alarm line; the
+  cause is the specials, which are the owner's design, so that is the owner's call. How a dance, missed
+  throws and a hangover do between people, who can time them, is not measured.
+
 ## The factions
 
 ### 1. De Zuidas
@@ -522,7 +546,7 @@ that is pure party. Built on 26 November 2026, with the owner's changes of that 
 | Code name | `carnaval` (ids start with `cv.`) |
 | Home | Hossegat, a carnival town that does not exist |
 | Money | consumptiemunten |
-| Temperament | **uitbundig en wankel**: every unit hits 10% harder and walks 10% faster, and has 15% fewer hit points. Mine; the brief had none |
+| Temperament | **goedkoop en wankel**: the light, ranged and heavy units cost 20% less and have 15% fewer hit points; the schild is everyone's. Mine; the brief had none. My first, 10% harder blows and 10% faster instead of cheaper, lost nearly every bot match (see Balance) |
 | Colours | Red, yellow and green, with the blue of the boerenkiel |
 | Flag | Red, yellow and green bands with our own emblem: a sousaphone |
 | Names | What they do: De Hosser, De Sousafonist, De Confettischutter |

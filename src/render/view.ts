@@ -355,6 +355,8 @@ export class BattleView {
   private zzzIn: [number, number] = [0, 0];
   /** Seconds until the next note rises over a unit that parties or dances. */
   private partyIn = 0;
+  /** When each side last shouted that someone joined the polonaise, so a whole rank joining does not stack the word. */
+  private congaSaid: [number, number] = [-9, -9];
   /** When a big drum last said boom, by unit id, so a volley of turret shots does not stack the word. */
   private boomSaid = new Map<number, number>();
   private seed = 12345;
@@ -779,8 +781,8 @@ export class BattleView {
           const v = this.units.get(e.id);
           if (!v) break;
           this.puffs.push({ x: v.x, y: rowY(v.row) - 80, age: 0, life: 0.3, color: this.pick(CONFETTI), size: 18 });
-          if (!muttered[e.side]) {
-            muttered[e.side] = true;
+          if (this.time - this.congaSaid[e.side] > 1) {
+            this.congaSaid[e.side] = this.time;
             this.say(v.x, rowY(v.row) - 150, NL.shout.conga, '#ffd21f', 1.2, 24);
           }
           break;
@@ -821,7 +823,7 @@ export class BattleView {
           const v = this.units.get(e.id);
           if (!v) break;
           const last = this.boomSaid.get(e.id);
-          if (last === undefined || this.time - last > 0.7) {
+          if (last === undefined || this.time - last > 1.4) {
             this.boomSaid.set(e.id, this.time);
             this.say(v.x + dirOf(v.side) * 20, rowY(v.row) - 150, NL.shout.boomed, '#ffd21f', 0.8, 30);
           }

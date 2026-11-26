@@ -1,0 +1,346 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-94 -240 190 246" data-rig="humanoid">
+  <title>De Reuzenprins: een wandelende praalwagen in de vorm van Prins Carnaval, met een steek met fazantenveren, een scepter als knots, confettikanonnen in de cape en elf raampjes in de buik waar de Raad van Elf aan de hendels trekt</title>
+  <style>
+    .o { stroke: #2b1b16; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .t { stroke: #2b1b16; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; fill: none; }
+    .n { stroke: none; }
+    .s { stroke: #2b1b16; stroke-width: 1.1; stroke-linejoin: round; stroke-linecap: round; }
+  </style>
+
+  <g id="hips" transform="translate(0 -70)"/>
+
+  <!-- The cape, yellow with a red hem, hanging down his back. Two confetti cannons stick out of it. Joint at the back of the shoulders. -->
+  <g id="cape" data-parent="torso" transform="translate(-30 -172)">
+    <g transform="translate(30 172)">
+      <!-- the cannons, behind the cloth: brass tubes, ringed in the carnival colours -->
+      <g transform="rotate(-36 -48 -166)">
+        <rect class="o" fill="#c9a23a" x="-54" y="-198" width="13" height="34" rx="3"/>
+        <rect class="n" fill="#d8342b" x="-52.6" y="-190" width="10.2" height="3.4"/>
+        <rect class="n" fill="#f6c21c" x="-52.6" y="-186.6" width="10.2" height="3.4"/>
+        <rect class="n" fill="#2f9a48" x="-52.6" y="-183.2" width="10.2" height="3.4"/>
+        <rect class="o" style="stroke-width:2.4" fill="#e0bb52" x="-56" y="-202" width="17" height="7" rx="2.4"/>
+        <ellipse class="n" fill="#2b1b16" cx="-47.5" cy="-200" rx="5.2" ry="2"/>
+      </g>
+      <g transform="rotate(-14 -36 -176)">
+        <rect class="o" fill="#c9a23a" x="-42" y="-204" width="13" height="32" rx="3"/>
+        <rect class="n" fill="#d8342b" x="-40.6" y="-196" width="10.2" height="3.4"/>
+        <rect class="n" fill="#f6c21c" x="-40.6" y="-192.6" width="10.2" height="3.4"/>
+        <rect class="n" fill="#2f9a48" x="-40.6" y="-189.2" width="10.2" height="3.4"/>
+        <rect class="o" style="stroke-width:2.4" fill="#e0bb52" x="-44" y="-208" width="17" height="7" rx="2.4"/>
+        <ellipse class="n" fill="#2b1b16" cx="-35.5" cy="-206" rx="5.2" ry="2"/>
+      </g>
+      <!-- the cloth -->
+      <path class="o" fill="#f6c21c" d="M-36 -184 Q-60 -180 -68 -152 Q-80 -110 -88 -64 Q-62 -54 -34 -62 L-12 -120 L-10 -180 Z"/>
+      <path class="n" fill="#e0a812" d="M-50 -174 Q-62 -150 -70 -110 Q-76 -84 -78 -62 L-64 -60 Q-62 -100 -54 -140 Q-50 -160 -44 -178 Z"/>
+      <path class="t" style="stroke:#c99410;stroke-width:1.8" d="M-58 -160 Q-66 -120 -72 -70 M-46 -150 Q-52 -110 -54 -64"/>
+      <!-- the red hem with a green edge -->
+      <path fill="none" stroke="#d8342b" stroke-width="7" stroke-linecap="round" d="M-83 -66 Q-61 -59 -38 -64"/>
+      <path fill="none" stroke="#2f9a48" stroke-width="2.4" stroke-linecap="round" d="M-82 -70.6 Q-61 -63.6 -38 -68.6"/>
+      <path class="t" style="stroke-width:3" d="M-88 -64 Q-62 -54 -34 -62"/>
+    </g>
+  </g>
+
+  <!-- Puffs of confetti at the mouths of the cannons. Joints at the mouths. -->
+  <g id="confetti_a" data-parent="cape" transform="translate(-67 -186)">
+    <g transform="translate(67 186)">
+      <circle class="n" fill="#fbf4e4" fill-opacity="0.9" cx="-74" cy="-192" r="8"/>
+      <circle class="n" fill="#fbf4e4" fill-opacity="0.9" cx="-80" cy="-186" r="6"/>
+      <rect class="n" fill="#d8342b" x="-80" y="-196" width="4" height="2.4" transform="rotate(30 -78 -195)"/>
+      <rect class="n" fill="#2f9a48" x="-72" y="-198" width="4" height="2.4" transform="rotate(-20 -70 -197)"/>
+      <rect class="n" fill="#2f62b0" x="-86" y="-188" width="4" height="2.4" transform="rotate(60 -84 -187)"/>
+      <circle class="n" fill="#f6c21c" cx="-76" cy="-186" r="1.8"/>
+      <circle class="n" fill="#d8342b" cx="-69" cy="-189" r="1.5"/>
+      <circle class="n" fill="#2f9a48" cx="-82" cy="-193" r="1.5"/>
+    </g>
+  </g>
+  <g id="confetti_b" data-parent="cape" transform="translate(-42 -209)">
+    <g transform="translate(42 209)">
+      <circle class="n" fill="#fbf4e4" fill-opacity="0.9" cx="-44" cy="-216" r="7.4"/>
+      <circle class="n" fill="#fbf4e4" fill-opacity="0.9" cx="-51" cy="-212" r="5.4"/>
+      <rect class="n" fill="#f6c21c" x="-48" y="-221" width="4" height="2.4" transform="rotate(-30 -46 -220)"/>
+      <rect class="n" fill="#d8342b" x="-41" y="-216" width="4" height="2.4" transform="rotate(40 -39 -215)"/>
+      <circle class="n" fill="#2f9a48" cx="-50" cy="-214" r="1.6"/>
+      <circle class="n" fill="#2f62b0" cx="-44" cy="-211" r="1.5"/>
+      <circle class="n" fill="#d8342b" cx="-54" cy="-218" r="1.4"/>
+    </g>
+  </g>
+
+  <!-- The far arm, under the cape, holding the key of the city out of sight. Joint at the shoulder. -->
+  <g id="arm_back" data-parent="torso" transform="translate(-30 -166)">
+    <g transform="translate(30 166)">
+      <path class="o" fill="#b02920" d="M-42 -170 Q-46 -134 -40 -112 L-21 -112 Q-18 -140 -20 -170 Z"/>
+      <rect class="o" fill="#e0bb52" x="-42" y="-114" width="22" height="8" rx="3"/>
+    </g>
+  </g>
+
+  <!-- The key of the city, in the far hand. Joint at the fist, so it can be held upright whatever the arm does. -->
+  <g id="key" data-parent="arm_back" transform="translate(-31 -100)">
+    <g transform="translate(31 100)">
+      <rect class="o" style="stroke-width:2.4" fill="#e8b931" x="-33" y="-124" width="4.4" height="38" rx="1.6"/>
+      <path class="o" style="stroke-width:2.2" fill="#e8b931" d="M-28.6 -93 L-21.6 -93 L-21.6 -89.6 L-25 -89.6 L-25 -87.4 L-21.6 -87.4 L-21.6 -84 L-28.6 -84 Z"/>
+      <circle class="o" style="stroke-width:2.4" fill="#e8b931" cx="-30.8" cy="-130" r="7"/>
+      <circle class="o" style="stroke-width:2" fill="#7a5a1a" cx="-30.8" cy="-130" r="2.8"/>
+      <path class="o" style="stroke-width:1.6" fill="#d8342b" d="M-30.8 -122 L-37 -118.4 L-36 -113 Z"/>
+      <path class="o" style="stroke-width:1.6" fill="#2f9a48" d="M-30.8 -122 L-24.6 -118.4 L-25.6 -113 Z"/>
+      <circle class="o" style="stroke-width:1.6" fill="#f6c21c" cx="-30.8" cy="-122" r="2.2"/>
+      <!-- the white glove round it -->
+      <path class="o" fill="#fbf8f0" d="M-38 -106 Q-39 -100 -37 -94 L-25 -94 Q-22 -100 -24 -106 Q-31 -109 -38 -106 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M-36 -101 L-26 -101 M-36 -97.6 L-26 -97.6"/>
+    </g>
+  </g>
+
+  <!-- Legs in green breeches, white stockings and buckled shoes. Bolts at the knees: it is a float. -->
+  <g id="leg_back" data-parent="hips" transform="translate(-16 -70)">
+    <g transform="translate(16 70)">
+      <rect class="o" fill="#f1ede2" x="-25" y="-42" width="18" height="34" rx="3"/>
+      <path class="o" fill="#23773a" d="M-33 -76 L1 -76 Q5 -58 -1 -40 L-31 -40 Q-37 -58 -33 -76 Z"/>
+      <rect class="o" fill="#d8a514" x="-32" y="-44" width="32" height="7" rx="2.6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#9aa0a8" cx="-16" cy="-24" r="3"/>
+      <path class="o" fill="#2b2430" d="M-28 -12 Q-28 -16 -24 -16 L-8 -16 Q8 -14 12 -6 L12 0 L-28 0 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#c9a23a" x="-6" y="-14" width="8" height="6" rx="1.4"/>
+    </g>
+  </g>
+
+  <g id="leg_front" data-parent="hips" transform="translate(16 -70)">
+    <g transform="translate(-16 70)">
+      <rect class="o" fill="#fbf8f0" x="7" y="-42" width="18" height="34" rx="3"/>
+      <path class="n" fill="#e6e1d4" d="M9 -38 L13 -38 L13 -10 L9 -10 Z"/>
+      <path class="o" fill="#2f9a48" d="M-1 -76 L33 -76 Q37 -58 31 -40 L1 -40 Q-5 -58 -1 -76 Z"/>
+      <path class="n" fill="#3fb85a" d="M16 -72 L28 -72 Q31 -58 27 -44 L20 -44 Q23 -58 16 -72 Z"/>
+      <rect class="o" fill="#f6c21c" x="0" y="-44" width="32" height="7" rx="2.6"/>
+      <circle class="o" style="stroke-width:1.8" fill="#c5cbd3" cx="16" cy="-24" r="3"/>
+      <path class="o" fill="#3a3140" d="M4 -12 Q4 -16 8 -16 L24 -16 Q40 -14 44 -6 L44 0 L4 0 Z"/>
+      <rect class="o" style="stroke-width:2" fill="#f1c54a" x="26" y="-14" width="8" height="6" rx="1.4"/>
+    </g>
+  </g>
+
+  <!-- The body of the float: the prince's red tunic with a lace collar, the chain of medals and a belt, and eleven lit windows in the belly. Joint at the belt. -->
+  <g id="torso" data-parent="hips" transform="translate(0 -74)">
+    <g transform="translate(0 74)">
+      <path class="o" fill="#d8342b" d="M-42 -178 Q-60 -156 -58 -120 Q-58 -84 -44 -74 Q2 -62 48 -74 Q64 -88 64 -122 Q64 -158 46 -178 Q2 -186 -42 -178 Z"/>
+      <path class="n" fill="#b02920" d="M-40 -174 Q-56 -154 -55 -120 Q-55 -88 -43 -77 Q-36 -74 -30 -73 Q-44 -90 -45 -120 Q-46 -150 -34 -176 Z"/>
+      <path class="n" fill="#ff5a4a" fill-opacity="0.5" d="M30 -170 Q50 -160 54 -130 Q50 -150 34 -166 Z"/>
+      <!-- the panel the windows sit in, piped in gold -->
+      <path class="o" style="stroke-width:2.2" fill="#a8231b" d="M-36 -142 Q3 -146 42 -142 L44 -94 Q3 -86 -38 -94 Z"/>
+      <!-- the lit insides of the eleven windows -->
+      <g class="n" fill="#ffe7a3">
+        <path d="M-28.5 -127 L-28.5 -134 Q-28.5 -140 -22.5 -140 Q-16.5 -140 -16.5 -134 L-16.5 -127 Z"/>
+        <path d="M-11.5 -127 L-11.5 -134 Q-11.5 -140 -5.5 -140 Q0.5 -140 0.5 -134 L0.5 -127 Z"/>
+        <path d="M5.5 -127 L5.5 -134 Q5.5 -140 11.5 -140 Q17.5 -140 17.5 -134 L17.5 -127 Z"/>
+        <path d="M22.5 -127 L22.5 -134 Q22.5 -140 28.5 -140 Q34.5 -140 34.5 -134 L34.5 -127 Z"/>
+        <path d="M-28.5 -110 L-28.5 -117 Q-28.5 -123 -22.5 -123 Q-16.5 -123 -16.5 -117 L-16.5 -110 Z"/>
+        <path d="M-11.5 -110 L-11.5 -117 Q-11.5 -123 -5.5 -123 Q0.5 -123 0.5 -117 L0.5 -110 Z"/>
+        <path d="M5.5 -110 L5.5 -117 Q5.5 -123 11.5 -123 Q17.5 -123 17.5 -117 L17.5 -110 Z"/>
+        <path d="M22.5 -110 L22.5 -117 Q22.5 -123 28.5 -123 Q34.5 -123 34.5 -117 L34.5 -110 Z"/>
+        <path d="M-20 -93 L-20 -100 Q-20 -106 -14 -106 Q-8 -106 -8 -100 L-8 -93 Z"/>
+        <path d="M-3 -93 L-3 -100 Q-3 -106 3 -106 Q9 -106 9 -100 L9 -93 Z"/>
+        <path d="M14 -93 L14 -100 Q14 -106 20 -106 Q26 -106 26 -100 L26 -93 Z"/>
+      </g>
+      <!-- the belt with its big buckle -->
+      <path class="o" style="stroke-width:2.4" fill="#f6c21c" d="M-52 -90 Q3 -78 60 -90 L58 -80 Q3 -68 -48 -80 Z"/>
+      <rect class="o" style="stroke-width:2.4" fill="#e8b931" x="-4" y="-88" width="16" height="13" rx="2.4"/>
+      <rect class="o" style="stroke-width:1.6" fill="#d8342b" x="1" y="-84.6" width="6" height="6" rx="1.2"/>
+      <!-- gold frogging on the chest -->
+      <path class="t" style="stroke:#f6c21c;stroke-width:2.4" d="M-30 -164 Q-36 -150 -34 -144 M38 -164 Q46 -150 44 -144"/>
+      <!-- the chain of medals -->
+      <path fill="none" stroke="#2b1b16" stroke-width="4.4" stroke-linecap="round" d="M-32 -173 Q6 -139 44 -173"/>
+      <path fill="none" stroke="#f1c54a" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="3 1.6" d="M-32 -173 Q6 -139 44 -173"/>
+      <g class="o" style="stroke-width:1.8">
+        <circle fill="#c9a23a" cx="-16.8" cy="-155" r="4.4"/>
+        <circle fill="#d9dee4" cx="-5.4" cy="-150.6" r="4.4"/>
+        <circle fill="#f1c54a" cx="6" cy="-149.4" r="5.6"/>
+        <circle fill="#d9dee4" cx="17.4" cy="-150.6" r="4.4"/>
+        <circle fill="#c98a45" cx="28.8" cy="-155" r="4.4"/>
+      </g>
+      <path class="n" fill="#d8342b" d="M6 -153.4 L7.2 -150.6 L10.2 -150.4 L7.9 -148.5 L8.7 -145.6 L6 -147.2 L3.3 -145.6 L4.1 -148.5 L1.8 -150.4 L4.8 -150.6 Z"/>
+      <!-- the lace collar -->
+      <path class="o" style="stroke-width:2.4" fill="#fbf8f0" d="M-30 -186 Q8 -192 44 -186 L46 -176 Q42 -171 37 -175 Q33 -170 28 -174 Q23 -169 18 -173 Q13 -168 8 -172 Q3 -168 -2 -172 Q-7 -168 -12 -173 Q-17 -169 -22 -174 Q-27 -170 -31 -176 Z"/>
+      <path class="t" style="stroke:#c9c2b0;stroke-width:1.2" d="M-20 -186 L-21 -176 M-8 -188 L-8 -175 M4 -188 L4 -174 M16 -188 L17 -175 M28 -187 L29 -176 M38 -186 L39 -178"/>
+    </g>
+  </g>
+
+  <!-- The Raad van Elf at their levers, one row per part, so the rows can bob in turn. Joints in the middle of each row. -->
+  <g id="raad_top" data-parent="torso" transform="translate(3 -133)">
+    <g transform="translate(-3 133)">
+      <g class="s">
+        <path fill="#2f9a48" d="M-27 -127 Q-27 -131.6 -22.5 -131.6 Q-18 -131.6 -18 -127 Z M-10 -127 Q-10 -131.6 -5.5 -131.6 Q-1 -131.6 -1 -127 Z M7 -127 Q7 -131.6 11.5 -131.6 Q16 -131.6 16 -127 Z M24 -127 Q24 -131.6 28.5 -131.6 Q33 -131.6 33 -127 Z"/>
+        <circle fill="#f5c9a3" cx="-22" cy="-134" r="3.2"/>
+        <circle fill="#f5c9a3" cx="-5" cy="-134" r="3.2"/>
+        <circle fill="#e0a87e" cx="12" cy="-134" r="3.2"/>
+        <circle fill="#f5c9a3" cx="29" cy="-134" r="3.2"/>
+        <path fill="#d8342b" d="M-25.2 -135.4 Q-25 -139.4 -21.6 -139.4 Q-18.4 -139.4 -18.6 -135.4 Z M-8.2 -135.4 Q-8 -139.4 -4.6 -139.4 Q-1.4 -139.4 -1.6 -135.4 Z M8.8 -135.4 Q9 -139.4 12.4 -139.4 Q15.6 -139.4 15.4 -135.4 Z M25.8 -135.4 Q26 -139.4 29.4 -139.4 Q32.6 -139.4 32.4 -135.4 Z"/>
+      </g>
+      <path fill="none" stroke="#fbf8f0" stroke-width="1.4" stroke-linecap="round" d="M-23 -139 Q-26 -140 -27.4 -137.6 M-6 -139 Q-9 -140 -10.4 -137.6 M11 -139 Q8 -140 6.6 -137.6 M28 -139 Q25 -140 23.6 -137.6"/>
+      <g class="n" fill="#2b1b16">
+        <circle cx="-20.2" cy="-134" r="0.7"/>
+        <circle cx="-3.2" cy="-134" r="0.7"/>
+        <circle cx="13.8" cy="-134" r="0.7"/>
+        <circle cx="30.8" cy="-134" r="0.7"/>
+      </g>
+      <!-- two of them on a lever -->
+      <path fill="none" stroke="#2b1b16" stroke-width="1.2" stroke-linecap="round" d="M-1.2 -127 L-1.6 -132.4 M33 -127 L32.6 -132.4"/>
+      <circle class="s" fill="#d8342b" cx="-1.6" cy="-132.8" r="1.2"/>
+      <circle class="s" fill="#d8342b" cx="32.6" cy="-132.8" r="1.2"/>
+    </g>
+  </g>
+
+  <g id="raad_mid" data-parent="torso" transform="translate(3 -116)">
+    <g transform="translate(-3 116)">
+      <g class="s">
+        <path fill="#2f9a48" d="M-27 -110 Q-27 -114.6 -22.5 -114.6 Q-18 -114.6 -18 -110 Z M-10 -110 Q-10 -114.6 -5.5 -114.6 Q-1 -114.6 -1 -110 Z M7 -110 Q7 -114.6 11.5 -114.6 Q16 -114.6 16 -110 Z M24 -110 Q24 -114.6 28.5 -114.6 Q33 -114.6 33 -110 Z"/>
+        <circle fill="#e0a87e" cx="-22" cy="-117" r="3.2"/>
+        <circle fill="#f5c9a3" cx="-5" cy="-117" r="3.2"/>
+        <circle fill="#f5c9a3" cx="12" cy="-117" r="3.2"/>
+        <circle fill="#c98a62" cx="29" cy="-117" r="3.2"/>
+        <path fill="#d8342b" d="M-25.2 -118.4 Q-25 -122.4 -21.6 -122.4 Q-18.4 -122.4 -18.6 -118.4 Z M-8.2 -118.4 Q-8 -122.4 -4.6 -122.4 Q-1.4 -122.4 -1.6 -118.4 Z M8.8 -118.4 Q9 -122.4 12.4 -122.4 Q15.6 -122.4 15.4 -118.4 Z M25.8 -118.4 Q26 -122.4 29.4 -122.4 Q32.6 -122.4 32.4 -118.4 Z"/>
+      </g>
+      <path fill="none" stroke="#fbf8f0" stroke-width="1.4" stroke-linecap="round" d="M-23 -122 Q-26 -123 -27.4 -120.6 M-6 -122 Q-9 -123 -10.4 -120.6 M11 -122 Q8 -123 6.6 -120.6 M28 -122 Q25 -123 23.6 -120.6"/>
+      <g class="n" fill="#2b1b16">
+        <circle cx="-20.2" cy="-117" r="0.7"/>
+        <circle cx="-3.2" cy="-117" r="0.7"/>
+        <circle cx="13.8" cy="-117" r="0.7"/>
+        <circle cx="30.8" cy="-117" r="0.7"/>
+      </g>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.2" stroke-linecap="round" d="M-16.6 -110 L-17 -115.4 M16 -110 L15.6 -115.4"/>
+      <circle class="s" fill="#2f9a48" cx="-17" cy="-115.8" r="1.2"/>
+      <circle class="s" fill="#2f9a48" cx="15.6" cy="-115.8" r="1.2"/>
+    </g>
+  </g>
+
+  <g id="raad_low" data-parent="torso" transform="translate(3 -99)">
+    <g transform="translate(-3 99)">
+      <g class="s">
+        <path fill="#2f9a48" d="M-18.5 -93 Q-18.5 -97.6 -14 -97.6 Q-9.5 -97.6 -9.5 -93 Z M-1.5 -93 Q-1.5 -97.6 3 -97.6 Q7.5 -97.6 7.5 -93 Z M15.5 -93 Q15.5 -97.6 20 -97.6 Q24.5 -97.6 24.5 -93 Z"/>
+        <circle fill="#f5c9a3" cx="-13.5" cy="-100" r="3.2"/>
+        <circle fill="#c98a62" cx="3.5" cy="-100" r="3.2"/>
+        <circle fill="#f5c9a3" cx="20.5" cy="-100" r="3.2"/>
+        <path fill="#d8342b" d="M-16.7 -101.4 Q-16.5 -105.4 -13.1 -105.4 Q-9.9 -105.4 -10.1 -101.4 Z M0.3 -101.4 Q0.5 -105.4 3.9 -105.4 Q7.1 -105.4 6.9 -101.4 Z M17.3 -101.4 Q17.5 -105.4 20.9 -105.4 Q24.1 -105.4 23.9 -101.4 Z"/>
+      </g>
+      <path fill="none" stroke="#fbf8f0" stroke-width="1.4" stroke-linecap="round" d="M-14.5 -105 Q-17.5 -106 -18.9 -103.6 M2.5 -105 Q-0.5 -106 -1.9 -103.6 M19.5 -105 Q16.5 -106 15.1 -103.6"/>
+      <g class="n" fill="#2b1b16">
+        <circle cx="-11.7" cy="-100" r="0.7"/>
+        <circle cx="5.3" cy="-100" r="0.7"/>
+        <circle cx="22.3" cy="-100" r="0.7"/>
+      </g>
+      <path fill="none" stroke="#2b1b16" stroke-width="1.2" stroke-linecap="round" d="M8 -93 L7.6 -98.4"/>
+      <circle class="s" fill="#f6c21c" cx="7.6" cy="-98.8" r="1.2"/>
+    </g>
+  </g>
+
+  <!-- The window frames, over the council. Never moves on its own. -->
+  <g id="windows" data-parent="torso" transform="translate(3 -116)">
+    <g transform="translate(-3 116)">
+      <g fill="none" stroke="#f6c21c" stroke-width="3.2" stroke-linejoin="round">
+        <path d="M-28.5 -127 L-28.5 -134 Q-28.5 -140 -22.5 -140 Q-16.5 -140 -16.5 -134 L-16.5 -127 Z"/>
+        <path d="M-11.5 -127 L-11.5 -134 Q-11.5 -140 -5.5 -140 Q0.5 -140 0.5 -134 L0.5 -127 Z"/>
+        <path d="M5.5 -127 L5.5 -134 Q5.5 -140 11.5 -140 Q17.5 -140 17.5 -134 L17.5 -127 Z"/>
+        <path d="M22.5 -127 L22.5 -134 Q22.5 -140 28.5 -140 Q34.5 -140 34.5 -134 L34.5 -127 Z"/>
+        <path d="M-28.5 -110 L-28.5 -117 Q-28.5 -123 -22.5 -123 Q-16.5 -123 -16.5 -117 L-16.5 -110 Z"/>
+        <path d="M-11.5 -110 L-11.5 -117 Q-11.5 -123 -5.5 -123 Q0.5 -123 0.5 -117 L0.5 -110 Z"/>
+        <path d="M5.5 -110 L5.5 -117 Q5.5 -123 11.5 -123 Q17.5 -123 17.5 -117 L17.5 -110 Z"/>
+        <path d="M22.5 -110 L22.5 -117 Q22.5 -123 28.5 -123 Q34.5 -123 34.5 -117 L34.5 -110 Z"/>
+        <path d="M-20 -93 L-20 -100 Q-20 -106 -14 -106 Q-8 -106 -8 -100 L-8 -93 Z"/>
+        <path d="M-3 -93 L-3 -100 Q-3 -106 3 -106 Q9 -106 9 -100 L9 -93 Z"/>
+        <path d="M14 -93 L14 -100 Q14 -106 20 -106 Q26 -106 26 -100 L26 -93 Z"/>
+      </g>
+      <g fill="none" stroke="#2b1b16" stroke-width="1.4" stroke-linejoin="round">
+        <path d="M-30.2 -125.4 L-30.2 -134 Q-30.2 -141.8 -22.5 -141.8 Q-14.8 -141.8 -14.8 -134 L-14.8 -125.4 Z"/>
+        <path d="M-13.2 -125.4 L-13.2 -134 Q-13.2 -141.8 -5.5 -141.8 Q2.2 -141.8 2.2 -134 L2.2 -125.4 Z"/>
+        <path d="M3.8 -125.4 L3.8 -134 Q3.8 -141.8 11.5 -141.8 Q19.2 -141.8 19.2 -134 L19.2 -125.4 Z"/>
+        <path d="M20.8 -125.4 L20.8 -134 Q20.8 -141.8 28.5 -141.8 Q36.2 -141.8 36.2 -134 L36.2 -125.4 Z"/>
+        <path d="M-30.2 -108.4 L-30.2 -117 Q-30.2 -124.8 -22.5 -124.8 Q-14.8 -124.8 -14.8 -117 L-14.8 -108.4 Z"/>
+        <path d="M-13.2 -108.4 L-13.2 -117 Q-13.2 -124.8 -5.5 -124.8 Q2.2 -124.8 2.2 -117 L2.2 -108.4 Z"/>
+        <path d="M3.8 -108.4 L3.8 -117 Q3.8 -124.8 11.5 -124.8 Q19.2 -124.8 19.2 -117 L19.2 -108.4 Z"/>
+        <path d="M20.8 -108.4 L20.8 -117 Q20.8 -124.8 28.5 -124.8 Q36.2 -124.8 36.2 -117 L36.2 -108.4 Z"/>
+        <path d="M-21.7 -91.4 L-21.7 -100 Q-21.7 -107.8 -14 -107.8 Q-6.3 -107.8 -6.3 -100 L-6.3 -91.4 Z"/>
+        <path d="M-4.7 -91.4 L-4.7 -100 Q-4.7 -107.8 3 -107.8 Q10.7 -107.8 10.7 -100 L10.7 -91.4 Z"/>
+        <path d="M12.3 -91.4 L12.3 -100 Q12.3 -107.8 20 -107.8 Q27.7 -107.8 27.7 -100 L27.7 -91.4 Z"/>
+      </g>
+      <path fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-opacity="0.8" d="M-26.4 -133 L-24 -137 M-9.4 -133 L-7 -137 M7.6 -133 L10 -137 M24.6 -133 L27 -137 M-26.4 -116 L-24 -120 M-9.4 -116 L-7 -120 M7.6 -116 L10 -120 M24.6 -116 L27 -120 M-17.9 -99 L-15.5 -103 M-0.9 -99 L1.5 -103 M16.1 -99 L18.5 -103"/>
+    </g>
+  </g>
+
+  <!-- The prince's head, papier-mâché and glossy: rosy cheeks, a twirled moustache, a wink of a smile. Joint at the neck. -->
+  <g id="head" data-parent="torso" transform="translate(6 -178)">
+    <g transform="translate(-6 178)">
+      <ellipse class="o" fill="#f5c9a3" cx="12" cy="-197" rx="25" ry="22"/>
+      <path class="n" fill="#e3ad85" d="M-10 -206 Q-14 -194 -8 -182 Q-2 -176 4 -176 Q-6 -186 -6 -200 Z"/>
+      <!-- curls at the back, under the hat -->
+      <path class="o" style="stroke-width:2.4" fill="#7a4a26" d="M-13 -200 Q-16 -210 -8 -214 L4 -212 Q-4 -206 -4 -196 Q-6 -188 -12 -188 Q-17 -192 -13 -200 Z"/>
+      <path class="t" style="stroke:#5a3418;stroke-width:1.4" d="M-10 -204 Q-8 -200 -11 -196"/>
+      <ellipse class="o" fill="#f5c9a3" cx="-1" cy="-194" rx="4.4" ry="6.4"/>
+      <!-- the gloss of the paint -->
+      <ellipse class="n" fill="#ffffff" fill-opacity="0.45" cx="20" cy="-212" rx="7" ry="3" transform="rotate(-12 20 -212)"/>
+      <!-- the cheek -->
+      <circle class="n" fill="#ef6f63" fill-opacity="0.6" cx="22" cy="-186" r="6.6"/>
+      <!-- the eye, with a jolly brow -->
+      <ellipse class="o" style="stroke-width:2.2" fill="#ffffff" cx="25" cy="-200" rx="5" ry="5.6"/>
+      <circle class="n" fill="#2b1b16" cx="27" cy="-199.4" r="2.8"/>
+      <circle class="n" fill="#ffffff" cx="28" cy="-200.6" r="0.9"/>
+      <path class="t" style="stroke-width:2.6" d="M18 -209 Q25 -214 32 -209"/>
+      <!-- the nose -->
+      <path class="o" fill="#f2b48e" d="M33 -198 Q44 -199 43 -190 Q41 -184 34 -186 Z"/>
+      <!-- the moustache, twirled -->
+      <path class="o" style="stroke-width:2.2" fill="#5a3418" d="M30 -184 Q23 -186 18 -182 Q14 -179 16 -176 Q18 -179 22 -179 Q28 -179 33 -182 Q38 -179 44 -180 Q48 -181 48 -186 Q46 -182 42 -184 Q37 -186 33 -186 Z"/>
+      <!-- the smile -->
+      <path class="o" style="stroke-width:1.8" fill="#7a2a2a" d="M24 -177 Q31 -170 38 -177 Q31 -175.4 24 -177 Z"/>
+    </g>
+  </g>
+
+  <!-- Pheasant feathers, sweeping up and back from behind the hat. Joint where they are pinned. -->
+  <g id="plume" data-parent="hat" transform="translate(-2 -226)">
+    <g transform="translate(2 226)">
+      <path class="o" style="stroke-width:2.2" fill="#c98a45" d="M2 -230 Q-24 -238 -52 -236 Q-26 -232 0 -223 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#d9a35a" d="M0 -226 Q-28 -230 -62 -222 Q-30 -222 -2 -220 Z"/>
+      <path class="t" style="stroke:#5a3418;stroke-width:1.6" d="M-10 -232.4 L-8 -228 M-20 -234.4 L-18.4 -230 M-30 -235.4 L-29 -231.4 M-40 -235.8 L-39.4 -232.6 M-12 -226 L-11 -222.6 M-22 -227 L-21.4 -224 M-32 -227 L-31.6 -224.2 M-42 -226 L-42 -223.6 M-52 -224.6 L-52 -222.8"/>
+    </g>
+  </g>
+
+  <!-- The steek: the two-pointed hat of the prince, kiel blue, edged in gold, with a cockade in the carnival colours. Joint in the middle of the brim. -->
+  <g id="hat" data-parent="head" transform="translate(11 -214)">
+    <g transform="translate(-11 214)">
+      <path class="o" fill="#2f62b0" d="M-30 -207 Q-18 -213 -10 -225 Q11 -243 32 -225 Q40 -213 52 -207 Q30 -215 11 -215 Q-8 -215 -30 -207 Z"/>
+      <path class="n" fill="#1d3f7a" d="M-26 -208.6 Q-16 -212 -6 -214 Q-12 -218 -11 -223 Q-18 -214 -26 -208.6 Z"/>
+      <path class="n" fill="#4f82d0" d="M2 -231 Q11 -236 22 -232 Q12 -233 4 -228 Z"/>
+      <!-- the gold braid along the crest and the brim -->
+      <path fill="none" stroke="#f6c21c" stroke-width="2.6" stroke-linecap="round" d="M-24 -210.4 Q-15 -215 -8.4 -224 Q11 -239.6 30.4 -224 Q37 -215 46 -210.4"/>
+      <path class="t" style="stroke-width:2.2" d="M-30 -207 Q-8 -215 11 -215 Q30 -215 52 -207"/>
+      <path fill="none" stroke="#f6c21c" stroke-width="2.4" stroke-linecap="round" d="M-24 -208.6 Q-6 -213.4 11 -213.4 Q28 -213.4 46 -208.6"/>
+      <!-- the cockade -->
+      <circle class="o" style="stroke-width:2" fill="#d8342b" cx="14" cy="-223" r="6.4"/>
+      <circle class="n" fill="#f6c21c" cx="14" cy="-223" r="4.2"/>
+      <circle class="n" fill="#2f9a48" cx="14" cy="-223" r="2"/>
+    </g>
+  </g>
+
+  <!-- The near arm in the red tunic, with a gold epaulette, reaching for the sceptre. Joint at the shoulder. -->
+  <g id="arm_front" data-parent="torso" transform="translate(46 -164)">
+    <g transform="translate(-46 164)">
+      <path class="o" fill="#d8342b" d="M36 -170 Q52 -178 60 -164 L72 -142 L82 -134 L74 -118 L60 -128 Q46 -144 36 -158 Z"/>
+      <path class="n" fill="#ff5a4a" fill-opacity="0.5" d="M52 -166 Q58 -160 66 -144 L62 -144 Q56 -156 50 -164 Z"/>
+      <path class="o" style="stroke-width:2.4" fill="#fbf8f0" d="M82 -136 L74 -118 L68 -122 L76 -139 Z"/>
+      <!-- the epaulette, fringed -->
+      <path class="o" style="stroke-width:2.4" fill="#f6c21c" d="M32 -168 Q44 -182 60 -170 Q62 -164 56 -162 Q44 -170 34 -162 Z"/>
+      <path class="t" style="stroke:#c9a23a;stroke-width:1.8" d="M38 -163 L37 -156 M43 -165 L42.6 -157 M48 -165.6 L48.4 -158 M53 -164.6 L54 -157.4"/>
+    </g>
+  </g>
+
+  <!-- The sceptre: a golden staff twisted with red, a star on a ball on top, ribbons, and the white glove round it. Joint at the fist. -->
+  <g id="sceptre" data-parent="arm_front" transform="translate(80 -126)">
+    <g transform="translate(-80 126)">
+      <rect class="o" style="stroke-width:2.6" fill="#e8b931" x="76.5" y="-206" width="7" height="110" rx="2.4"/>
+      <path class="n" fill="#d8342b" d="M77.6 -196 L82.4 -200 L82.4 -195 L77.6 -191 Z M77.6 -180 L82.4 -184 L82.4 -179 L77.6 -175 Z M77.6 -164 L82.4 -168 L82.4 -163 L77.6 -159 Z M77.6 -148 L82.4 -152 L82.4 -147 L77.6 -143 Z M77.6 -112 L82.4 -116 L82.4 -111 L77.6 -107 Z"/>
+      <rect class="o" style="stroke-width:2.4" fill="#c9a23a" x="75" y="-100" width="10" height="6" rx="2"/>
+      <!-- ribbons, streaming back -->
+      <path class="o" style="stroke-width:1.8" fill="#d8342b" d="M78 -202 Q70 -198 64 -188 L68 -186 Q72 -194 79 -197 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#2f9a48" d="M78 -200 Q74 -192 72 -182 L76 -182 Q77 -190 80 -196 Z"/>
+      <path class="o" style="stroke-width:1.8" fill="#f6c21c" d="M79 -201 Q66 -202 58 -196 L60 -193 Q68 -198 79 -197 Z"/>
+      <circle class="o" style="stroke-width:2.6" fill="#f1c54a" cx="80" cy="-211" r="7.4"/>
+      <path class="n" fill="#fff3b0" d="M75.6 -213 Q77 -216 80 -216.4 Q77.6 -214.6 77 -212 Z"/>
+      <path class="o" style="stroke-width:2.2" fill="#f6c21c" d="M80 -231 L82.6 -224.4 L89.4 -224 L84.2 -219.6 L86 -213 L80 -216.8 L74 -213 L75.8 -219.6 L70.6 -224 L77.4 -224.4 Z"/>
+      <!-- the white glove round the staff -->
+      <path class="o" fill="#fbf8f0" d="M71 -132 Q70 -126 72 -119 L88 -119 Q91 -126 88 -132 Q80 -136 71 -132 Z"/>
+      <path class="t" style="stroke-width:1.4" d="M74 -127 L87 -127 M74 -123 L87 -123"/>
+    </g>
+  </g>
+</svg>

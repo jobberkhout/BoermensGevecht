@@ -10,7 +10,7 @@ import type { FactionText } from './types.ts';
 export const carnaval: FactionText = {
   name: 'Carnaval',
   place: 'Hossegat',
-  trait: 'uitbundig en wankel',
+  trait: 'goedkoop en wankel',
   money: 'consumptiemunten',
   win: { head: 'Carnaval wint!', sub: 'Alaaf! En nou allemaal de polonaise.' },
   unmoved: 'Agge mar leut et!',
