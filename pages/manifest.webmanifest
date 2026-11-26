@@ -1,0 +1,17 @@
+{
+  "name": "Boermens Gevecht",
+  "short_name": "Boermens",
+  "description": "De slag om de subsidie: een lane-battle tegen de computer of met z’n tweeën op één scherm.",
+  "lang": "nl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1c1512",
+  "theme_color": "#1c1512",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

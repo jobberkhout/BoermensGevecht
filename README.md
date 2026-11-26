@@ -1,12 +1,13 @@
 # Boermens Gevecht
 
-A lane-battle game for two players on one keyboard, in the browser. It started as the Achterhoek against
+A lane-battle game for two players on one keyboard or one phone, or one against the computer, in the browser. It started as the Achterhoek against
 the havermelkelite of Amsterdam; De Zuidas and De Gasten have joined, and more factions are planned. Each player picks a
 faction, buys units that walk to the other side on their own, builds and upgrades turrets, applies for
 more subsidie, uses a special move, and modernizes from the seventies to the future. Whoever wrecks the
 other base wins.
 
-All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no image or sound files.
+All art is hand-written SVG in `art/`, animated as cut-out puppets. There are no image or sound files, apart
+from the app icon for phones, which is rendered from `pages/icon.svg`.
 
 ## Play it
 
@@ -20,6 +21,14 @@ title screen, and so is the choice of factions: any two can play each other, the
 
 If you cloned the repository, the file is in its root: open it from there.
 
+**On a phone or tablet** go to **https://jobberkhout.github.io/BoermensGevecht/** and hold the phone sideways. Tap
+start and it goes fullscreen. On a phone the computer takes the right side to begin with; tap Computer to
+make it a Speler, and two players share the screen, each with half of it. Against the computer only your own
+buttons are shown, in one big row. In Chrome on Android, "Toevoegen aan startscherm" (or "App installeren") in
+the menu puts it on the home screen: it then opens fullscreen and sideways, and once it has been opened it also
+plays without internet. The site is the same single file, put online by `.github/workflows/pages.yml` on every
+push to `main`.
+
 ## Status
 
 | Part | State |
@@ -28,6 +37,7 @@ If you cloned the repository, the file is in its root: open it from there.
 | Four factions, picked on the title screen: any pair, the same one twice too | Done |
 | Three eras per faction: Jaren '70, Jaren '20, the future | Done: each has its own three units, turret, special and base |
 | Title screen, HUD, keyboard and on-screen buttons, win screen, rematch | Done |
+| Phones and tablets: touch layout, fullscreen, home screen, offline | Done. Tested in Chrome's Pixel emulation, not on a real phone yet. Two phones against each other is not possible |
 | Playing alone: the computer takes either side | Done. Tuned against the other bots, not against people |
 | Art pipeline, gallery, screenshots, three-browser check | Done |
 | Sound | Done: synthesized effects and a tune, no audio files. Checked for errors and loudness by test, not judged by ear |
@@ -93,7 +103,8 @@ Keys are read by position on the keyboard, so the layout does not matter.
 | Start, play again | Enter | Enter |
 | Back to the title screen, after a match or from pause | Esc | Esc |
 
-Every action is also a button on screen.
+Every action is also a button on screen, and so is pause. On a touch screen the keys are left off the buttons
+and the buttons get bigger.
 
 ## How a match works
 
@@ -191,6 +202,7 @@ src/audio/                  every sound, made with oscillators and noise
 src/ui/                     HUD, screens, keys; nl.ts holds the shared text,
                             factions/<faction>.ts every word a faction says and is called
 src/bots/                   scripted players, for tests and balance only
+pages/                      what makes the website an app on a phone: manifest, service worker, icon
 tests/  e2e/  scripts/      unit tests, browser tests, balance and screenshot tools
 ```
 

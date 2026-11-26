@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- The app icon: a farmer's riek crossed with a padel racket, under the sun of the lane.
+       It fills the whole square, because phones cut their own shape out of it. -->
+  <rect width="512" height="512" fill="#9fd3f2"/>
+  <circle cx="256" cy="236" r="132" fill="#ffd21f"/>
+  <path d="M0 362 Q256 330 512 362 V512 H0 Z" fill="#7cc45a"/>
+  <path d="M0 418 Q256 392 512 418 V468 Q256 444 0 468 Z" fill="#c9b79c"/>
+
+  <!-- Both kept inside the middle circle that every phone's mask leaves whole. -->
+  <g transform="translate(256 262) scale(0.84) translate(-256 -256)">
+  <!-- The padel racket, from bottom right to top left. -->
+  <g transform="rotate(-42 256 256)">
+    <rect x="238" y="292" width="36" height="132" rx="14" fill="#2b1b16"/>
+    <rect x="246" y="300" width="20" height="116" rx="8" fill="#5b4a40"/>
+    <path d="M256 62 C334 62 356 130 348 200 C340 262 300 300 256 300 C212 300 172 262 164 200 C156 130 178 62 256 62 Z"
+      fill="#e0442c" stroke="#2b1b16" stroke-width="12"/>
+    <g fill="#fffaf0">
+      <circle cx="226" cy="132" r="10"/><circle cx="256" cy="124" r="10"/><circle cx="286" cy="132" r="10"/>
+      <circle cx="212" cy="170" r="10"/><circle cx="242" cy="164" r="10"/><circle cx="270" cy="164" r="10"/><circle cx="300" cy="170" r="10"/>
+      <circle cx="220" cy="208" r="10"/><circle cx="256" cy="204" r="10"/><circle cx="292" cy="208" r="10"/>
+      <circle cx="238" cy="244" r="10"/><circle cx="274" cy="244" r="10"/>
+    </g>
+  </g>
+
+  <!-- The riek, from bottom left to top right. -->
+  <g transform="rotate(42 256 256)">
+    <rect x="240" y="150" width="32" height="284" rx="14" fill="#2b1b16"/>
+    <rect x="248" y="158" width="16" height="268" rx="7" fill="#c98a45"/>
+    <path d="M198 168 H314" stroke="#2b1b16" stroke-width="34" stroke-linecap="round"/>
+    <path d="M198 168 V70 M256 168 V58 M314 168 V70" stroke="#2b1b16" stroke-width="26" stroke-linecap="round" fill="none"/>
+    <path d="M198 168 H314" stroke="#d7dde2" stroke-width="14" stroke-linecap="round"/>
+    <path d="M198 168 V70 M256 168 V58 M314 168 V70" stroke="#d7dde2" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+  </g>
+</svg>

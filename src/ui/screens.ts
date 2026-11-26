@@ -43,32 +43,34 @@ export class Screens {
   private overSub: HTMLElement;
   private readonly handlers: ScreenHandlers;
 
-  constructor(root: HTMLElement, handlers: ScreenHandlers) {
+  /** On a phone or tablet the cards speak of tapping, not of keys. */
+  constructor(root: HTMLElement, handlers: ScreenHandlers, touch = false) {
     this.handlers = handlers;
+    const say = touch ? NL.touch : null;
 
     // Title: what the game is, who plays what, who presses what.
     this.title = el('div', 'screen');
     const card = el('div', 'card');
     this.versus = el('div', 'versus');
-    const go = el('button', 'go', NL.start.go);
+    const go = el('button', 'go', say?.go ?? NL.start.go);
     go.type = 'button';
     go.addEventListener('click', () => handlers.confirm());
     card.append(
       el('h1', '', NL.title),
       el('h2', '', NL.tagline),
       this.versus,
-      el('p', '', `${NL.start.goal} ${NL.start.eras} ${NL.start.pause}.`),
-      el('p', 'alone', NL.start.alone),
+      el('p', '', touch ? `${NL.start.goal} ${NL.start.eras}` : `${NL.start.goal} ${NL.start.eras} ${NL.start.pause}.`),
+      el('p', 'alone', say?.alone ?? NL.start.alone),
       go,
     );
     this.title.append(card);
 
     this.pause = el('div', 'screen');
     const pauseCard = el('div', 'card');
-    const resume = el('button', 'go', NL.hud.resume);
+    const resume = el('button', 'go', say?.resume ?? NL.hud.resume);
     resume.type = 'button';
     resume.addEventListener('click', () => handlers.resume());
-    const quit = el('button', 'go quiet', NL.hud.quit);
+    const quit = el('button', 'go quiet', say?.quit ?? NL.hud.quit);
     quit.type = 'button';
     quit.addEventListener('click', () => handlers.back());
     pauseCard.append(el('h1', '', NL.hud.paused), resume, quit);
@@ -78,10 +80,10 @@ export class Screens {
     const overCard = el('div', 'card');
     this.overHead = el('h1');
     this.overSub = el('h2');
-    const again = el('button', 'go', NL.again);
+    const again = el('button', 'go', say?.again ?? NL.again);
     again.type = 'button';
     again.addEventListener('click', () => handlers.confirm());
-    const back = el('button', 'go quiet', NL.start.back);
+    const back = el('button', 'go quiet', say?.back ?? NL.start.back);
     back.type = 'button';
     back.addEventListener('click', () => handlers.back());
     overCard.append(this.overHead, this.overSub, again, back);

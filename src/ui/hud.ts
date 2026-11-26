@@ -75,7 +75,7 @@ export class Hud {
   private readonly onPress: (side: Side, action: Action) => void;
   private readonly muteButton: HTMLButtonElement;
 
-  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void, onMute: () => void) {
+  constructor(root: HTMLElement, onPress: (side: Side, action: Action) => void, onMute: () => void, onPause: () => void) {
     this.root = root;
     this.onPress = onPress;
     const top = el('div', 'top');
@@ -92,7 +92,19 @@ export class Hud {
       e.preventDefault();
       onMute();
     });
-    middle.append(this.clock, this.muteButton);
+    // Pause has a key, but a phone has no keys: so it is a button as well.
+    const pause = el('button', 'pause');
+    pause.type = 'button';
+    pause.title = NL.hud.pause;
+    pause.setAttribute('aria-label', NL.hud.pause);
+    pause.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+    pause.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      onPause();
+    });
+    const tools = el('div', 'tools');
+    tools.append(this.muteButton, pause);
+    middle.append(this.clock, tools);
     this.banner = el('div', 'banner');
     this.banner.hidden = true;
     const left = this.buildSide(0);
@@ -324,6 +336,9 @@ export class Hud {
   /** Which sides the computer plays this match; their names say so. */
   setComputer(computer: readonly [boolean, boolean]): void {
     this.computer = [computer[0], computer[1]];
+    // Against the computer a phone shows only the player's own buttons, and makes them bigger.
+    if (computer[0] !== computer[1]) this.root.dataset.human = computer[0] ? 'right' : 'left';
+    else delete this.root.dataset.human;
     for (const parts of this.sides) parts.shown = '';
   }
 

@@ -49,6 +49,8 @@ export const NL = {
     turretHow: { build: 'bouwen', replace: 'oude vervangen', upgrade: 'verbeteren' },
     turretMax: 'maximaal ★★★',
     paused: 'Pauze',
+    /** On the pause button beside the clock. */
+    pause: 'Pauze (spatie)',
     resume: 'Spatie om verder te gaan',
     /** On the pause card: give up this match and go back to the title card. */
     quit: 'Esc = stoppen en andere facties kiezen',
@@ -127,6 +129,19 @@ export const NL = {
       blurb: 'Vooruitgang verdien je met vechten. Is de balk vol, dan koop je het volgende tijdperk.',
     },
     eras: "Drie tijdperken: Jaren '70, Jaren '20 en de toekomst.",
+  },
+
+  /** On a phone or tablet there are no keys to name: the same buttons, in words for a finger. */
+  touch: {
+    go: 'Tik hier om te beginnen',
+    alone: 'Tik op Speler of Computer om te kiezen wie een kant speelt. Met z’n tweeën kan ook, op één scherm.',
+    resume: 'Verder spelen',
+    quit: 'Stoppen en andere facties kiezen',
+    again: 'Nog een keer',
+    back: 'Andere facties kiezen',
+    /** Over everything while a phone is held upright. */
+    turn: 'Draai je telefoon een kwartslag',
+    turnSub: 'Het slagveld is breder dan hoog.',
   },
 
   win: perFaction((text) => text.win),
